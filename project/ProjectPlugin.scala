@@ -23,6 +23,9 @@ object ProjectPlugin extends AutoPlugin {
             Dependencies.Aws.constructs
           )
         )
+
+      def withGuava(): Project =
+        project.settings(libraryDependencies += Dependencies.Google.guava)
     }
   }
 }
