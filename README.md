@@ -1,6 +1,6 @@
 # aws-cdk-scala
 
-Scala DSL for using the [AWS CDK](https://github.com/aws/aws-cdk).
+Scala DSL for [AWS CDK](https://github.com/aws/aws-cdk).
 
 ### Support
 
