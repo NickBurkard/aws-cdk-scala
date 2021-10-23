@@ -45,6 +45,7 @@ object FieldMethod {
 
   private val rewrittenTypes: Map[String, String] =
     Map(
+      "java.lang.Boolean" -> "Boolean",
       "java.lang.Number" -> "Number",
       "java.lang.Object" -> "AnyRef",
       "java.lang.String" -> "String",
@@ -54,8 +55,11 @@ object FieldMethod {
 
   private def handleExistential(typeParameter: String): String =
     typeParameter match {
-      case existential(boundary) =>
+      case existentialWithBound(boundary) =>
         s"_ <: $boundary"
+
+      case "?" =>
+        "_"
 
       case _ =>
         typeParameter
@@ -65,14 +69,14 @@ object FieldMethod {
 
   private val javaList = raw"(java\.util\.List)<(.+)>".r
 
-  private val existential = raw"\? extends (.+)".r
+  private val existentialWithBound = raw"\? extends (.+)".r
 
   def build(underlying: Method): Option[FieldMethod] =
     if (!(nonFieldMethods.contains(underlying.getName) || Modifier.isStatic(underlying.getModifiers))) {
       underlying.getGenericParameterTypes.toList match {
         // Must not be `IResolvable` from JSII.
         case value :: Nil =>
-          Option.when(value.getTypeName != "IResolvable") {
+          Option.when(value.getTypeName != "software.amazon.awscdk.IResolvable") {
             val (typeName, typeParameters) = value.getTypeName match {
               case javaMap(map, k, v) =>
                 (map, List(k, v))
@@ -81,7 +85,7 @@ object FieldMethod {
                 (list, List(t))
 
               case _ =>
-                (value.getTypeName, Nil)
+                (value.getTypeName.replace("$", "."), Nil)
             }
 
             FieldMethod(

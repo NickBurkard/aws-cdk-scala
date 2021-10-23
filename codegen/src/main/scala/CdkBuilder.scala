@@ -21,16 +21,25 @@ final case class CdkBuilder private(
       .getPackageName
       .replace("software.amazon.awscdk", "io.burkard.cdk")
 
-  lazy val parameters: String =
-    fieldMethods.map(_.asParameter).mkString(", ")
+  lazy val parameters: List[String] =
+    fieldMethods.map(_.asParameter)
 
   override def toString: String =
     s"""package $packageName
       |
       |object $instanceSimpleName {
-      |  def apply($parameters): $instanceCanonicalName = ???
+      |  $applyMethodSignature = ???
       |}
       |""".stripMargin
+
+  private[this] def applyMethodSignature: String =
+    if (fieldMethods.nonEmpty) {
+      s"""def apply(
+         |    ${parameters.mkString(",\n    ")}
+         |  ): $instanceCanonicalName""".stripMargin
+    } else {
+      s"def apply(): $instanceCanonicalName"
+    }
 }
 
 object CdkBuilder {
