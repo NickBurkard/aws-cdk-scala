@@ -11,6 +11,9 @@ final case class FieldMethod private(
   lazy val asParameter: String =
     s"$paramName: Option[$fullTypeName] = None"
 
+  lazy val asBuilderMethod: String =
+    s".$paramName($paramName.orNull)"
+
   private[this] lazy val paramName: String =
     if (reservedWords.contains(name)) {
       s"`$name`"

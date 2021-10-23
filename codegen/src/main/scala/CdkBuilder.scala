@@ -26,21 +26,30 @@ final case class CdkBuilder private(
   lazy val parameters: List[String] =
     fieldMethods.map(_.asParameter)
 
+  private[this] lazy val builderMethods: List[String] =
+    fieldMethods.map(_.asBuilderMethod)
+
   def codegen: String =
     s"""package $packageName
       |
       |object $instanceSimpleName {
-      |  $applyMethodSignature = ???
+      |
+      |  $applyMethodSignature =
+      |    $instanceCanonicalName.Builder
+      |      .create(stackCtx, id)
+      |      ${builderMethods.mkString("\n      ")}
+      |      .build()
       |}
       |""".stripMargin
 
   private[this] def applyMethodSignature: String =
     if (fieldMethods.nonEmpty) {
       s"""def apply(
+         |    id: String,
          |    ${parameters.mkString(",\n    ")}
-         |  ): $instanceCanonicalName""".stripMargin
+         |  )(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName""".stripMargin
     } else {
-      s"def apply(): $instanceCanonicalName"
+      s"def apply(id: String)(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName"
     }
 
   private[this] lazy val path =
@@ -54,6 +63,7 @@ final case class CdkBuilder private(
       Files.createDirectories(path.getParent)
       Files.createFile(path)
     }
+
     val _ = Files.write(path, codegen.getBytes(StandardCharsets.UTF_8))
   }
 }
