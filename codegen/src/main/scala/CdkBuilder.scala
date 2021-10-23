@@ -31,7 +31,7 @@ final case class CdkBuilder private(
 
   private[this] lazy val imports: String =
     if (fieldMethods.exists(_.requiresJavaConverters)) {
-      "import scala.jdk.CollectionConverters._"
+      "\nimport scala.jdk.CollectionConverters._\n"
     } else {
       ""
     }
