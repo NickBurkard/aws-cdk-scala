@@ -12,10 +12,17 @@ final case class FieldMethod private(
     s"$paramName: Option[$fullTypeName] = None"
 
   lazy val asBuilderMethod: String =
-    s".$paramName($paramName$convert.orNull)"
+    s".$paramName($paramName$convert$defaultValue)"
 
   lazy val requiresJavaConverters: Boolean =
     typeParameters.nonEmpty
+
+  lazy val defaultValue: String =
+    if (typeName.contains("Boolean")) {
+      ".getOrElse(false)"
+    } else {
+      ".orNull"
+    }
 
   private[this] lazy val convert: String =
     if (requiresJavaConverters) {
