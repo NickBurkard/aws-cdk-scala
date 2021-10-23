@@ -29,9 +29,16 @@ final case class CdkBuilder private(
   private[this] lazy val builderMethods: List[String] =
     fieldMethods.map(_.asBuilderMethod)
 
+  private[this] lazy val imports: String =
+    if (fieldMethods.exists(_.requiresJavaConverters)) {
+      "import scala.jdk.CollectionConverters._"
+    } else {
+      ""
+    }
+
   def codegen: String =
     s"""package $packageName
-      |
+      |$imports
       |object $instanceSimpleName {
       |
       |  $applyMethodSignature =

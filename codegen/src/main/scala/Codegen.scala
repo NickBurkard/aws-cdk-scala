@@ -24,7 +24,10 @@ object Codegen {
       .map { case (name, classInfo) =>
         name -> classInfo.map(_._2.load()).flatMap(CdkBuilder.build(name))
       }
-      .foreach { case (_, builders) =>
+      .toList
+      .sortBy(_._1)
+      .foreach { case (name, builders) =>
+        println(name)
         builders.foreach(_.writeToSource())
       }
 }

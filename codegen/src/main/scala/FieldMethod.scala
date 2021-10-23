@@ -12,7 +12,17 @@ final case class FieldMethod private(
     s"$paramName: Option[$fullTypeName] = None"
 
   lazy val asBuilderMethod: String =
-    s".$paramName($paramName.orNull)"
+    s".$paramName($paramName$convert.orNull)"
+
+  lazy val requiresJavaConverters: Boolean =
+    typeParameters.nonEmpty
+
+  private[this] lazy val convert: String =
+    if (requiresJavaConverters) {
+      ".map(_.asJava)"
+    } else {
+      ""
+    }
 
   private[this] lazy val paramName: String =
     if (reservedWords.contains(name)) {

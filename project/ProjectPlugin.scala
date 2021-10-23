@@ -26,6 +26,14 @@ object ProjectPlugin extends AutoPlugin {
 
       def withGuava(): Project =
         project.settings(libraryDependencies += Dependencies.Google.guava)
+
+      // TODO Implement.
+      def disablePublishing(): Project =
+        project
+
+      // TODO Implement.
+      def enablePublishing(): Project =
+        project
     }
   }
 }
