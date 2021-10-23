@@ -1,4 +1,6 @@
 import java.lang.reflect.{Method, Modifier}
+import java.nio.charset.StandardCharsets
+import java.nio.file.{Files, Paths}
 
 // Class instance builder provided by the CDK.
 final case class CdkBuilder private(
@@ -24,7 +26,7 @@ final case class CdkBuilder private(
   lazy val parameters: List[String] =
     fieldMethods.map(_.asParameter)
 
-  override def toString: String =
+  def codegen: String =
     s"""package $packageName
       |
       |object $instanceSimpleName {
@@ -40,6 +42,20 @@ final case class CdkBuilder private(
     } else {
       s"def apply(): $instanceCanonicalName"
     }
+
+  private[this] lazy val path =
+    Paths.get(
+      s"aws-cdk-scala-$serviceName",
+      s"src/main/scala/${packageName.replace(".", "/")}/$instanceSimpleName.scala".split("/"): _*
+    )
+
+  def writeToSource(): Unit = {
+    if (!Files.exists(path)) {
+      Files.createDirectories(path.getParent)
+      Files.createFile(path)
+    }
+    val _ = Files.write(path, codegen.getBytes(StandardCharsets.UTF_8))
+  }
 }
 
 object CdkBuilder {

@@ -24,9 +24,7 @@ object Codegen {
       .map { case (name, classInfo) =>
         name -> classInfo.map(_._2.load()).flatMap(CdkBuilder.build(name))
       }
-      .foreach { case (name, classes) =>
-        println(s"$name:")
-        classes.foreach(println)
-        println("---")
+      .foreach { case (_, builders) =>
+        builders.foreach(_.writeToSource())
       }
 }
