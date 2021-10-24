@@ -2,11 +2,12 @@ package io.burkard.cdk.codegen
 
 import java.lang.reflect.{Method, Modifier}
 
+import scala.util.matching.Regex
+
 // Method associated to setting a field in a CDK builder.
 final case class FieldMethod private(
   name: String,
   typeName: String,
-  typeParameters: List[String],
   underlying: Method
 ) {
   import FieldMethod._
@@ -18,7 +19,7 @@ final case class FieldMethod private(
     s".$paramName($paramName$convert$defaultValue)"
 
   lazy val requiresJavaConverters: Boolean =
-    typeParameters.nonEmpty
+    fullTypeName.contains("List") || fullTypeName.contains("Map")
 
   lazy val defaultValue: String =
     if (typeName.contains("Boolean")) {
@@ -34,77 +35,48 @@ final case class FieldMethod private(
       ""
     }
 
-  private[this] lazy val paramName: String = renameType(name)
+  lazy val paramName: String = renameType(name)
 
   private[this] lazy val fullTypeName: String =
-    s"${renamePackage(rewrittenTypes.getOrElse(typeName, typeName))}$parameterizedTypes"
-
-  private[this] lazy val parameterizedTypes: String =
-    if (typeParameters.nonEmpty) {
-      typeParameters
-        .map(tp => handleExistential(rewrittenTypes.getOrElse(tp, tp)))
-        .mkString("[", ", ", "]")
-    } else {
-      ""
-    }
+    renamePackage(rewriteTypes(typeName))
 }
 
 object FieldMethod {
   private[this] val nonFieldMethods: Set[String] =
     Set("create", "build", "equals", "getClass", "hashCode", "notify", "notifyAll", "wait", "toString")
 
-  private val rewrittenTypes: Map[String, String] =
-    Map(
-      "java.lang.Boolean" -> "Boolean",
-      "java.lang.Number" -> "Number",
-      "java.lang.Object" -> "AnyRef",
-      "java.lang.String" -> "String",
-      "java.util.Map" -> "Map",
-      "java.util.List" -> "List"
+  // Rewrite rules in order of descending precedence.
+  private val rewrittenSymbols: List[(Regex, String)] =
+    List(
+      raw"java\.lang\.Boolean".r -> "Boolean",
+      raw"java\.lang\.Number".r -> "Number",
+      raw"java\.lang\.Object".r -> "AnyRef",
+      raw"java\.lang\.String".r -> "String",
+      raw"java\.util\.Map".r -> "Map",
+      raw"java\.util\.List".r -> "List",
+      raw"<".r -> "[",
+      raw">".r -> "]",
+      raw"extends".r -> "<:",
+      raw"\?".r -> "_"
     )
 
-  private def handleExistential(typeParameter: String): String =
-    typeParameter match {
-      case existentialWithBound(boundary) =>
-        s"_ <: ${renamePackage(boundary)}"
-
-      case "?" =>
-        "_"
-
-      case _ =>
-        renamePackage(typeParameter)
+  private def rewriteTypes(value: String): String =
+    rewrittenSymbols.foldLeft(value) { case (value, (regex, replacement)) =>
+      regex.replaceAllIn(value, replacement)
     }
-
-  private val javaMap = raw"(java\.util\.Map)<(.+), (.+)>".r
-
-  private val javaList = raw"(java\.util\.List)<(.+)>".r
-
-  private val existentialWithBound = raw"\? extends (.+)".r
 
   def build(underlying: Method): Option[FieldMethod] =
     if (!(nonFieldMethods.contains(underlying.getName) || Modifier.isStatic(underlying.getModifiers))) {
       underlying.getGenericParameterTypes.toList match {
         // Must not be `IResolvable` from JSII.
         case value :: Nil =>
-          Option.when(value.getTypeName != "software.amazon.awscdk.IResolvable") {
-            val (typeName, typeParameters) = value.getTypeName match {
-              case javaMap(map, k, v) =>
-                (map, List(k, v))
-
-              case javaList(list, t) =>
-                (list, List(t))
-
-              case _ =>
-                (value.getTypeName.replace("$", "."), Nil)
-            }
-
+          Option.when(value.getTypeName != "software.amazon.awscdk.IResolvable")(
             FieldMethod(
               underlying.getName,
-              typeName,
-              typeParameters,
+              value.getTypeName.replaceAll("\\$", "."),
               underlying
             )
-          }
+          )
 
         case _ =>
           None

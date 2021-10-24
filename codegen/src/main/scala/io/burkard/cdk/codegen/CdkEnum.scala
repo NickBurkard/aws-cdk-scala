@@ -36,11 +36,14 @@ object CdkEnum {
       override def gen(source: CdkEnum): String =
         s"""package ${source.packageName}
            |
-           |sealed abstract class ${source.instanceSimpleName}(val value: ${source.instanceCanonicalName})
+           |sealed abstract class ${source.instanceSimpleName}(val underlying: ${source.instanceCanonicalName})
            |  extends Product
            |    with Serializable
            |
            |object ${source.instanceSimpleName} {
+           |  implicit def toAws(value: ${source.instanceSimpleName}): ${source.instanceCanonicalName} =
+           |    Option(value).map(_.underlying).orNull
+           |
            |  ${source.valuesCases.mkString("\n\n  ")}
            |}
            |""".stripMargin
