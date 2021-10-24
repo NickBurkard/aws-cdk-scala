@@ -29,13 +29,23 @@ object Codegen {
       .groupBy(_._1)
       // Load each service's classes, identifying builders.
       .map { case (name, classInfo) =>
-        name -> classInfo.map(_._2.load()).flatMap(CdkBuilder.build(name))
+        name -> classInfo
+          .map(_._2.load())
+          .flatMap { underlying =>
+            CdkBuilder
+              .build(name, underlying)
+              .map(_.sourceFile)
+              .orElse(
+                CdkEnum
+                  .build(name, underlying)
+                  .map(_.sourceFile)
+              )
+          }
       }
       .toList
-      // Generate code for each service in order.
       .sortBy(_._1)
-      .foreach { case (name, builders) =>
+      .foreach { case (name, sourceFiles) =>
         println(name)
-        builders.foreach(_.writeToSource())
+        sourceFiles.foreach(_.writeToSource())
       }
 }

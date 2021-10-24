@@ -29,4 +29,9 @@ package object codegen {
       case _ =>
         name
     }
+
+  final implicit class SourceGeneratorOps[A](private val source: A) extends AnyVal {
+    def sourceFile(implicit sourceGenerator: SourceGenerator[A]): SourceFile =
+      sourceGenerator.sourceFile(source)
+  }
 }

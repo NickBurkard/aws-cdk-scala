@@ -1,8 +1,7 @@
 package io.burkard.cdk.codegen
 
 import java.lang.reflect.{Method, Modifier}
-import java.nio.charset.StandardCharsets
-import java.nio.file.{Files, Paths}
+import java.nio.file.{Path, Paths}
 
 // Class instance builder provided by the CDK.
 final case class CdkBuilder private(
@@ -18,35 +17,22 @@ final case class CdkBuilder private(
       .toList
       .flatMap(FieldMethod.build)
 
-  private[this] lazy val packageName: String = renamePackage(underlying.getPackageName)
+  lazy val packageName: String = renamePackage(underlying.getPackageName)
 
-  private[this] lazy val parameters: List[String] =
+  lazy val parameters: List[String] =
     fieldMethods.map(_.asParameter)
 
-  private[this] lazy val builderMethods: List[String] =
+  lazy val builderMethods: List[String] =
     fieldMethods.map(_.asBuilderMethod)
 
-  private[this] lazy val imports: String =
+  lazy val imports: String =
     if (fieldMethods.exists(_.requiresJavaConverters)) {
       "\nimport scala.jdk.CollectionConverters._\n"
     } else {
       ""
     }
 
-  def codegen: String =
-    s"""package $packageName
-      |$imports
-      |object $instanceSimpleName {
-      |
-      |  $applyMethodSignature =
-      |    $instanceCanonicalName.Builder
-      |      .create(stackCtx, id)
-      |      ${builderMethods.mkString("\n      ")}
-      |      .build()
-      |}
-      |""".stripMargin
-
-  private[this] def applyMethodSignature: String =
+  lazy val applyMethodSignature: String =
     if (fieldMethods.nonEmpty) {
       s"""def apply(
          |    id: String,
@@ -55,27 +41,35 @@ final case class CdkBuilder private(
     } else {
       s"def apply(id: String)(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName"
     }
-
-  private[this] lazy val path =
-    Paths.get(
-      s"aws-cdk-scala-$serviceName",
-      s"src/main/scala/${packageName.replace(".", "/")}/$instanceSimpleName.scala".split("/"): _*
-    )
-
-  def writeToSource(): Unit = {
-    if (!Files.exists(path)) {
-      Files.createDirectories(path.getParent)
-      Files.createFile(path)
-    }
-
-    val _ = Files.write(path, codegen.getBytes(StandardCharsets.UTF_8))
-  }
 }
 
 object CdkBuilder {
+
+  implicit val sourceGenerator: SourceGenerator[CdkBuilder] =
+    new SourceGenerator[CdkBuilder] {
+      override def path(source: CdkBuilder): Path =
+        Paths.get(
+          s"aws-cdk-scala-${source.serviceName}",
+          s"src/main/scala/${source.packageName.replace(".", "/")}/${source.instanceSimpleName}.scala".split("/"): _*
+        )
+
+      override def gen(source: CdkBuilder): String =
+        s"""package ${source.packageName}
+           |${source.imports}
+           |object ${source.instanceSimpleName} {
+           |
+           |  ${source.applyMethodSignature} =
+           |    ${source.instanceCanonicalName}.Builder
+           |      .create(stackCtx, id)
+           |      ${source.builderMethods.mkString("\n      ")}
+           |      .build()
+           |}
+           |""".stripMargin
+    }
+
   // Using Java reflection to identify which CDK classes we can codegen.
   // Not using Scala reflection because of 2.x/3.x API differences.
-  def build(serviceName: String)(underlying: Class[_]): Option[CdkBuilder] =
+  def build(serviceName: String, underlying: Class[_]): Option[CdkBuilder] =
     if (underlying.getSimpleName == "Builder") {
       for {
         // Must have a static `create` method.
