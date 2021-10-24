@@ -1,6 +1,6 @@
-package io.burkard.cdk
+package io.burkard
 
-package object core {
+package object cdk {
   // Safely discard non-unit values.
   private[cdk] object ValueDiscard {
     def apply[A](a: => A): Unit = {

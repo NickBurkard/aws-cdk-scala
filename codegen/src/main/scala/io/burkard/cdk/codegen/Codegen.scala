@@ -34,5 +34,8 @@ object Codegen {
       .toList
       // Generate code for each service in order.
       .sortBy(_._1)
-      .foreach(_._2.foreach(_.writeToSource()))
+      .foreach { case (name, builders) =>
+        println(name)
+        builders.foreach(_.writeToSource())
+      }
 }

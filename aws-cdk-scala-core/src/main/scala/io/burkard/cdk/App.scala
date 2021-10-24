@@ -1,4 +1,4 @@
-package io.burkard.cdk.core
+package io.burkard.cdk
 
 import software.amazon.awscdk.{App => CdkApp, AppProps}
 import software.amazon.awscdk.cxapi.CloudAssembly

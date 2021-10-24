@@ -1,4 +1,4 @@
-package io.burkard.cdk.core
+package io.burkard.cdk
 
 import software.amazon.awscdk.{App => CdkApp, Stack => CdkStack, StackProps}
 
