@@ -53,7 +53,7 @@ final case class CdkBuilder private(
     // Add in create params and fields as params.
     case CdkBuilder.ConstructorType.CreateParameters(createParameters) =>
       s"""def apply(
-         |    ${createParameters.map { case (name, tpe) => s"$name: $tpe" }.mkString(",\n    ")},
+         |    ${createParameters.map { case (name, tpe) => s"${renameType(name)}: ${renamePackage(rewriteTypes(tpe))}" }.mkString(",\n    ")},
          |    ${parameters.mkString(",\n    ")}
          |  ): $instanceCanonicalName""".stripMargin
 
@@ -154,7 +154,13 @@ object CdkBuilder {
           if (isContextAndIdConstructor(m)) {
             ConstructorType.CreateContextAndId
           } else if (m.getParameterCount != 0) {
-            ConstructorType.CreateParameters(Nil)
+            ConstructorType.CreateParameters(
+              underlying
+                .getDeclaredFields
+                .toList
+                .filterNot(_.getType.getName.contains("Builder"))
+                .map(f => f.getName -> f.getType.getCanonicalName)
+            )
           } else {
             ConstructorType.CreateNoParameters
           }

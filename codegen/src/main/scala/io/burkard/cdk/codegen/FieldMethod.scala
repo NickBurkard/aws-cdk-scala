@@ -2,16 +2,12 @@ package io.burkard.cdk.codegen
 
 import java.lang.reflect.{Method, Modifier}
 
-import scala.util.matching.Regex
-
 // Method associated to setting a field in a CDK builder.
 final case class FieldMethod private(
   name: String,
   typeName: String,
   underlying: Method
 ) {
-  import FieldMethod._
-
   lazy val asParameter: String =
     s"$paramName: Option[$fullTypeName] = None"
 
@@ -44,26 +40,6 @@ final case class FieldMethod private(
 object FieldMethod {
   private[this] val nonFieldMethods: Set[String] =
     Set("create", "build", "equals", "getClass", "hashCode", "notify", "notifyAll", "wait", "toString")
-
-  // Rewrite rules in order of descending precedence.
-  private val rewrittenSymbols: List[(Regex, String)] =
-    List(
-      raw"java\.lang\.Boolean".r -> "Boolean",
-      raw"java\.lang\.Number".r -> "Number",
-      raw"java\.lang\.Object".r -> "AnyRef",
-      raw"java\.lang\.String".r -> "String",
-      raw"java\.util\.Map".r -> "Map",
-      raw"java\.util\.List".r -> "List",
-      raw"<".r -> "[",
-      raw">".r -> "]",
-      raw"extends".r -> "<:",
-      raw"\?".r -> "_"
-    )
-
-  private def rewriteTypes(value: String): String =
-    rewrittenSymbols.foldLeft(value) { case (value, (regex, replacement)) =>
-      regex.replaceAllIn(value, replacement)
-    }
 
   def build(underlying: Method): Option[FieldMethod] =
     if (!(nonFieldMethods.contains(underlying.getName) || Modifier.isStatic(underlying.getModifiers))) {

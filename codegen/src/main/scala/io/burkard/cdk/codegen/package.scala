@@ -44,6 +44,26 @@ package object codegen {
       name
     }
 
+  // Rewrite rules in order of descending precedence.
+  private[this] val rewrittenSymbols: List[(Regex, String)] =
+    List(
+      raw"java\.lang\.Boolean".r -> "Boolean",
+      raw"java\.lang\.Number".r -> "Number",
+      raw"java\.lang\.Object".r -> "AnyRef",
+      raw"java\.lang\.String".r -> "String",
+      raw"java\.util\.Map".r -> "Map",
+      raw"java\.util\.List".r -> "List",
+      raw"<".r -> "[",
+      raw">".r -> "]",
+      raw"extends".r -> "<:",
+      raw"\?".r -> "_"
+    )
+
+  def rewriteTypes(value: String): String =
+    rewrittenSymbols.foldLeft(value) { case (value, (regex, replacement)) =>
+      regex.replaceAllIn(value, replacement)
+    }
+
   final implicit class SourceGeneratorOps[A](private val source: A) extends AnyVal {
     def sourceFile(implicit sourceGenerator: SourceGenerator[A]): SourceFile =
       sourceGenerator.sourceFile(source)
