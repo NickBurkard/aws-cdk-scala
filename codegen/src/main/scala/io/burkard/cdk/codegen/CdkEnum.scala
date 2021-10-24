@@ -17,8 +17,7 @@ final case class CdkEnum private(
   lazy val valuesCases: List[String] =
     valueNames.map { valueName =>
       s"""case object ${CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, valueName)}
-         |    extends $instanceSimpleName($instanceCanonicalName.$valueName)
-         |""".stripMargin
+         |    extends $instanceSimpleName($instanceCanonicalName.$valueName)""".stripMargin
     }
 }
 
@@ -40,7 +39,7 @@ object CdkEnum {
            |    with Serializable
            |
            |object ${source.instanceSimpleName} {
-           |  ${source.valuesCases.mkString("\n  ")}
+           |  ${source.valuesCases.mkString("\n\n  ")}
            |}
            |""".stripMargin
     }

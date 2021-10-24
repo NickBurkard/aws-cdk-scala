@@ -30,6 +30,21 @@ package object codegen {
         name
     }
 
+  private[this] val scala2ReservedWords: Set[String] =
+    Set(
+      "abstract", "case", "catch", "class", "def", "do", "else", "extends", "false", "final", "finally","for",
+      "forSome", "if", "implicit", "import", "lazy", "match", "new", "null", "object", "override", "package",
+      "private", "protected", "return", "sealed", "super", "this", "throw", "trait", "try", "true", "type",
+      "val", "var", "while", "with", "yield"
+    )
+
+  def renameType(name: String): String =
+    if (scala2ReservedWords.contains(name)) {
+      s"`$name`"
+    } else {
+      name
+    }
+
   final implicit class SourceGeneratorOps[A](private val source: A) extends AnyVal {
     def sourceFile(implicit sourceGenerator: SourceGenerator[A]): SourceFile =
       sourceGenerator.sourceFile(source)

@@ -34,12 +34,7 @@ final case class FieldMethod private(
       ""
     }
 
-  private[this] lazy val paramName: String =
-    if (reservedWords.contains(name)) {
-      s"`$name`"
-    } else {
-      name
-    }
+  private[this] lazy val paramName: String = renameType(name)
 
   private[this] lazy val fullTypeName: String =
     s"${renamePackage(rewrittenTypes.getOrElse(typeName, typeName))}$parameterizedTypes"
@@ -57,14 +52,6 @@ final case class FieldMethod private(
 object FieldMethod {
   private[this] val nonFieldMethods: Set[String] =
     Set("create", "build", "equals", "getClass", "hashCode", "notify", "notifyAll", "wait", "toString")
-
-  private val reservedWords: Set[String] =
-    Set(
-      "abstract", "case", "catch", "class", "def", "do", "else", "extends", "false", "final", "finally","for",
-      "forSome", "if", "implicit", "import", "lazy", "match", "new", "null", "object", "override", "package",
-      "private", "protected", "return", "sealed", "super", "this", "throw", "trait", "try", "true", "type",
-      "val", "var", "while", "with", "yield"
-    )
 
   private val rewrittenTypes: Map[String, String] =
     Map(
