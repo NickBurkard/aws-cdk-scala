@@ -1,3 +1,5 @@
+package io.burkard.cdk.codegen
+
 import java.lang.reflect.{Method, Modifier}
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Paths}
@@ -7,23 +9,18 @@ final case class CdkBuilder private(
   serviceName: String,
   instanceCanonicalName: String,
   instanceSimpleName: String,
-  underlying: Class[_],
-  create: Method,
-  build: Method
+  underlying: Class[_]
 ) {
   // [0, N] field methods of the underlying builder.
-  lazy val fieldMethods: List[FieldMethod] =
+  private[this] lazy val fieldMethods: List[FieldMethod] =
     underlying
       .getMethods
       .toList
       .flatMap(FieldMethod.build)
 
-  lazy val packageName: String =
-    underlying
-      .getPackageName
-      .replace("software.amazon.awscdk", "io.burkard.cdk")
+  private[this] lazy val packageName: String = renamePackage(underlying.getPackageName)
 
-  lazy val parameters: List[String] =
+  private[this] lazy val parameters: List[String] =
     fieldMethods.map(_.asParameter)
 
   private[this] lazy val builderMethods: List[String] =
@@ -81,14 +78,16 @@ object CdkBuilder {
   def build(serviceName: String)(underlying: Class[_]): Option[CdkBuilder] =
     if (underlying.getSimpleName == "Builder") {
       for {
-        create <- createMethod(underlying)
+        // Must have a static `create` method.
+        _ <- createMethod(underlying)
 
-        build <- buildMethod(underlying)
+        // Must have a `build` method.
+        _ <- buildMethod(underlying)
 
         instanceCanonicalName = underlying.getCanonicalName.split("\\.").toList.dropRight(1).mkString(".")
 
         instanceSimpleName <- instanceCanonicalName.split("\\.").toList.lastOption
-      } yield CdkBuilder(serviceName, instanceCanonicalName, instanceSimpleName, underlying, create, build)
+      } yield CdkBuilder(serviceName, instanceCanonicalName, instanceSimpleName, underlying)
     } else {
       None
     }

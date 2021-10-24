@@ -1,5 +1,8 @@
+package io.burkard.cdk.codegen
+
 import java.lang.reflect.{Method, Modifier}
 
+// Method associated to setting a field in a CDK builder.
 final case class FieldMethod private(
   name: String,
   typeName: String,
@@ -39,7 +42,7 @@ final case class FieldMethod private(
     }
 
   private[this] lazy val fullTypeName: String =
-    s"${rewrittenTypes.getOrElse(typeName, typeName)}$parameterizedTypes"
+    s"${renamePackage(rewrittenTypes.getOrElse(typeName, typeName))}$parameterizedTypes"
 
   private[this] lazy val parameterizedTypes: String =
     if (typeParameters.nonEmpty) {
@@ -76,13 +79,13 @@ object FieldMethod {
   private def handleExistential(typeParameter: String): String =
     typeParameter match {
       case existentialWithBound(boundary) =>
-        s"_ <: $boundary"
+        s"_ <: ${renamePackage(boundary)}"
 
       case "?" =>
         "_"
 
       case _ =>
-        typeParameter
+        renamePackage(typeParameter)
     }
 
   private val javaMap = raw"(java\.util\.Map)<(.+), (.+)>".r

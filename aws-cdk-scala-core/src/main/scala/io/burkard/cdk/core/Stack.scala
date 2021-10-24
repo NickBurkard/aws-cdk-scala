@@ -1,6 +1,6 @@
-package io.burkard.cdk
+package io.burkard.cdk.core
 
-import software.amazon.awscdk.StackProps
+import software.amazon.awscdk.{App => CdkApp, Stack => CdkStack, StackProps}
 
 /**
  * CDK stack.
