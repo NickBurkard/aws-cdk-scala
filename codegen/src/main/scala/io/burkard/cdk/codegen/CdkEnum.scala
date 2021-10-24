@@ -2,6 +2,8 @@ package io.burkard.cdk.codegen
 
 import java.nio.file.{Path, Paths}
 
+import scala.util.Try
+
 import com.google.common.base.CaseFormat
 
 // Enum provided by the CDK.
@@ -46,20 +48,24 @@ object CdkEnum {
 
   def build(serviceName: String, underlying: Class[_]): Option[CdkEnum] =
     if (underlying.isEnum) {
-      Some(
-        CdkEnum(
-          serviceName,
-          underlying.getCanonicalName,
-          underlying.getSimpleName,
-          underlying
-            .getMethod("values")
-            .invoke(null)
-            .asInstanceOf[Array[_]]
-            .toList
-            .map(_.toString),
-          underlying
-        )
+      Try(
+        underlying
+          .getMethod("values")
+          .invoke(null)
+          .asInstanceOf[Array[_]]
+          .toList
+          .map(_.toString)
       )
+        .toOption
+        .map(
+          CdkEnum(
+            serviceName,
+            underlying.getCanonicalName,
+            underlying.getSimpleName,
+            _,
+            underlying
+          )
+        )
     } else {
       None
     }
