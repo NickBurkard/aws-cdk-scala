@@ -31,10 +31,10 @@ final case class FieldMethod private(
       ""
     }
 
-  lazy val paramName: String = renameType(name)
+  lazy val paramName: String = literallyIdentify(name)
 
   private[this] lazy val fullTypeName: String =
-    renamePackage(rewriteTypes(typeName))
+    literallyIdentify(renamePackage(rewriteJavaTypes(typeName)))
 }
 
 object FieldMethod {

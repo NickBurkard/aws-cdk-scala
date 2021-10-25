@@ -36,11 +36,6 @@ object Codegen {
           CdkBuilder
             .build(name, underlying)
             .map(_.sourceFile)
-            .orElse(
-              CdkEnum
-                .build(name, underlying)
-                .map(_.sourceFile)
-            )
         }
       }
       .flatMap(_._2)
