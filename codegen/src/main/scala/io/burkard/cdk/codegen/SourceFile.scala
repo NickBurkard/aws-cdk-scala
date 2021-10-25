@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path}
 
 // A source file with content to be written to a file.
-final case class SourceFile(path: Path, content: String) {
+final case class SourceFile(moduleName: String, path: Path, content: String) {
 
   // Write to a source file, creating it and any parent directories if necessary.
   def writeToSource(): Unit = {

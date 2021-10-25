@@ -27,6 +27,9 @@ object CdkEnum {
 
   implicit val sourceGenerator: SourceGenerator[CdkEnum] =
     new SourceGenerator[CdkEnum] {
+      override def moduleName(source: CdkEnum): String =
+        source.serviceName
+
       override def path(source: CdkEnum): Path =
         Paths.get(
           s"aws-cdk-scala-${source.serviceName}",

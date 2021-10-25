@@ -17,6 +17,9 @@ final case class CdkPackageObject(
 object CdkPackageObject {
   implicit val sourceGenerator: SourceGenerator[CdkPackageObject] =
     new SourceGenerator[CdkPackageObject] {
+      override def moduleName(source: CdkPackageObject): String =
+        source.serviceName
+
       override def path(source: CdkPackageObject): Path =
         Paths.get(
           s"aws-cdk-scala-${source.serviceName}",

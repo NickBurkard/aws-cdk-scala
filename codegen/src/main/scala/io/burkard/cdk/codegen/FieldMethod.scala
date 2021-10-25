@@ -17,17 +17,27 @@ final case class FieldMethod private(
   lazy val requiresJavaConverters: Boolean =
     fullTypeName.contains("List") || fullTypeName.contains("Map")
 
+  lazy val requiresBooleanBoxing: Boolean =
+    fullTypeName.contains("Boolean")
+
   lazy val defaultValue: String =
     if (typeName.contains("Boolean")) {
-      ".getOrElse(false)"
+      ".getOrElse(java.lang.Boolean.FALSE)"
     } else {
       ".orNull"
     }
 
   private[this] lazy val convert: String =
     if (requiresJavaConverters) {
-      ".map(_.asJava)"
-    } else {
+      // Convert nested maps if necessary.
+      if (fullTypeName.indexOf("Map") != fullTypeName.lastIndexOf("Map")) {
+        ".map(_.view.mapValues(_.asJava).toMap.asJava)"
+      } else {
+        ".map(_.asJava)"
+      }
+    } else if (requiresBooleanBoxing) {
+      ".map(Boolean.box)"
+    }else {
       ""
     }
 

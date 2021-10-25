@@ -90,6 +90,9 @@ object CdkBuilder {
 
   implicit val sourceGenerator: SourceGenerator[CdkBuilder] =
     new SourceGenerator[CdkBuilder] {
+      override def moduleName(source: CdkBuilder): String =
+        source.serviceName
+
       override def path(source: CdkBuilder): Path =
         Paths.get(
           s"aws-cdk-scala-${source.serviceName}",

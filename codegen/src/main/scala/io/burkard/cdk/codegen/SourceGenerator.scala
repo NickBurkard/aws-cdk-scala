@@ -4,10 +4,12 @@ import java.nio.file.Path
 
 // Code generator via some source.
 trait SourceGenerator[A] {
+  def moduleName(source: A): String
+
   def path(source: A): Path
 
   def gen(source: A): String
 
   final def sourceFile(source: A): SourceFile =
-    SourceFile(path(source), gen(source))
+    SourceFile(moduleName(source), path(source), gen(source))
 }
