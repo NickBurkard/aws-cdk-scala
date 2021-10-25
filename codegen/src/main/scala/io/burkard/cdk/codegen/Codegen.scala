@@ -8,8 +8,8 @@ object Codegen {
   def main(args: Array[String]): Unit =
     codegen()
 
-  private[this] def codegen(): Unit =
-    ClassPath
+  private[this] def codegen(): Unit = {
+    val classes = ClassPath
       .from(ClassLoader.getSystemClassLoader)
       .getAllClasses
       .asScala
@@ -19,33 +19,53 @@ object Codegen {
         classInfo.getPackageName match {
           // Resource for some service.
           case ServiceRegex(_, name) =>
-            name -> classInfo
+            name -> classInfo.load()
 
           // Shared resources are considered `core`.
           case CoreRegex() =>
-            "core" -> classInfo
+            "core" -> classInfo.load()
         }
       }
       .groupBy(_._1)
-      // Load each service's classes, identifying builders.
+      .map { case (name, classInfo) => name -> classInfo.map(_._2) }
+
+    // Load each service's classes, identifying builders.
+    val regularSourceFiles = classes
       .map { case (name, classInfo) =>
-        name -> classInfo
-          .map(_._2.load())
-          .flatMap { underlying =>
-            CdkBuilder
-              .build(name, underlying)
-              .map(_.sourceFile)
-              .orElse(
-                CdkEnum
-                  .build(name, underlying)
-                  .map(_.sourceFile)
-              )
-          }
+        name -> classInfo.flatMap { underlying =>
+          CdkBuilder
+            .build(name, underlying)
+            .map(_.sourceFile)
+            .orElse(
+              CdkEnum
+                .build(name, underlying)
+                .map(_.sourceFile)
+            )
+        }
+      }
+      .flatMap(_._2)
+
+    // Package objects with type aliases.
+    val packageObjectFiles = classes
+      .flatMap { case (name, classInfo) =>
+        classInfo.flatMap(CdkType.build(name))
+      }
+      .groupBy(t => (t.serviceName, t.packageName, t.finalPackageName))
+      .map { case ((service, full, last), cdkTypes) =>
+        CdkPackageObject(
+          service,
+          full,
+          last,
+          cdkTypes.toList
+        ).sourceFile
       }
       .toList
-      .sortBy(_._1)
-      .foreach { case (name, sourceFiles) =>
-        println(name)
-        sourceFiles.foreach(_.writeToSource())
+
+    regularSourceFiles
+      .concat(packageObjectFiles)
+      .foreach { sourceFile =>
+        println(sourceFile.path)
+        sourceFile.writeToSource()
       }
+  }
 }
