@@ -102,6 +102,7 @@ object CdkBuilder {
       override def gen(source: CdkBuilder): String =
         s"""package ${source.packageName}
            |${source.imports}
+           |@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
            |object ${source.instanceSimpleName} {
            |
            |  ${source.applyMethodSignature} =

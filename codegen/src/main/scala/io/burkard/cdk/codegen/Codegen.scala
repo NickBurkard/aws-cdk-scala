@@ -8,8 +8,8 @@ object Codegen {
   def main(args: Array[String]): Unit =
     codegen()
 
-  private[this] def codegen(): Unit = {
-    val classes = ClassPath
+  private[this] def codegen(): Unit =
+    ClassPath
       .from(ClassLoader.getSystemClassLoader)
       .getAllClasses
       .asScala
@@ -27,40 +27,25 @@ object Codegen {
         }
       }
       .groupBy(_._1)
-      .map { case (name, classInfo) => name -> classInfo.map(_._2) }
-
-    // Load each service's classes, identifying builders.
-    val regularSourceFiles = classes
       .map { case (name, classInfo) =>
-        name -> classInfo.flatMap { underlying =>
-          CdkBuilder
-            .build(name, underlying)
-            .map(_.sourceFile)
+        name -> classInfo
+          .map(_._2)
+          .flatMap { underlying =>
+            CdkBuilder
+              .build(name, underlying)
+              .map(_.sourceFile)
+              .orElse(
+                CdkEnum
+                  .build(name, underlying)
+                  .map(_.sourceFile)
+              )
+          }
+      }
+      .foreach { case (name, sourceFiles) =>
+        println(name)
+        sourceFiles.foreach { sourceFile =>
+          println(sourceFile.path)
+          sourceFile.writeToSource()
         }
       }
-      .flatMap(_._2)
-
-    // Package objects with type aliases.
-    val packageObjectFiles = classes
-      .flatMap { case (name, classInfo) =>
-        classInfo.flatMap(CdkType.build(name))
-      }
-      .groupBy(t => (t.serviceName, t.packageName, t.finalPackageName))
-      .map { case ((service, full, last), cdkTypes) =>
-        CdkPackageObject(
-          service,
-          full,
-          last,
-          cdkTypes.toList
-        ).sourceFile
-      }
-      .toList
-
-    regularSourceFiles
-      .concat(packageObjectFiles)
-      .foreach { sourceFile =>
-        println(sourceFile.path)
-        sourceFile.writeToSource()
-      }
-  }
 }

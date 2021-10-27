@@ -37,35 +37,12 @@ package object codegen {
       "val", "var", "while", "with", "yield"
     )
 
-  // Recognize a potential package name.
-  // `something.like.this.TypeName` versus `another.package.name.Nested.TypeName`
-  private[this] val packageRegex: Regex = raw"([a-z0-9.]+)+([A-Z][a-zA-Z0-9.]+)+".r
-
-  def literallyIdentify(name: String, preservePackageName: Boolean = true): String =
+  // Literally identify reserved words.
+  def literallyIdentify(name: String): String =
     if (scala2ReservedWords.contains(name)) {
       s"`$name`"
     } else {
-      packageRegex.replaceAllIn(name, literallyIdentifyTypes(preservePackageName, _))
-    }
-
-  // On matching package regex, literally identify nested types.
-  private[this] def literallyIdentifyTypes(preservePackageName: Boolean, matcher: Regex.Match): String =
-    (Option(matcher.group(1)), Option(matcher.group(2))) match {
-      case (Some(packages), Some(types)) =>
-        val properType = if (types.contains('.')) {
-          s"`$types`"
-        } else {
-          types
-        }
-
-        if (preservePackageName) {
-          s"$packages$properType"
-        } else {
-          properType
-        }
-
-      case _ =>
-        matcher.source.toString
+      name
     }
 
   // Rewrite rules in order of descending precedence.

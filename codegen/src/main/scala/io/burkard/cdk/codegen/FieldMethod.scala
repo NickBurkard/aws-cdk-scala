@@ -44,7 +44,7 @@ final case class FieldMethod private(
   lazy val paramName: String = literallyIdentify(name)
 
   private[this] lazy val fullTypeName: String =
-    literallyIdentify(renamePackage(rewriteJavaTypes(typeName)))
+    literallyIdentify(rewriteJavaTypes(typeName))
 }
 
 object FieldMethod {

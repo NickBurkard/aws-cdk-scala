@@ -10,7 +10,7 @@ final case class CdkType private(
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 
   lazy val typeAlias: String =
-    s"type ${literallyIdentify(instanceCanonicalName, preservePackageName = false)} = $instanceCanonicalName\n"
+    s"type ${literallyIdentify(instanceCanonicalName)} = $instanceCanonicalName\n"
 }
 
 object CdkType {

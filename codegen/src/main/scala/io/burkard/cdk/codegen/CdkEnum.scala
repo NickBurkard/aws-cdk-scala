@@ -18,9 +18,21 @@ final case class CdkEnum private(
 
   lazy val valuesCases: List[String] =
     valueNames.map { valueName =>
-      s"""case object ${CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, valueName)}
+      s"""${noWarn(valueName)}case object ${CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, valueName)}
          |    extends $instanceSimpleName($instanceCanonicalName.$valueName)""".stripMargin
     }
+
+  private[this] def noWarn(valueName: String): String =
+    if (isDeprecated(valueName)) {
+      "@scala.annotation.nowarn "
+    } else {
+      ""
+    }
+
+  private[this] def isDeprecated(valueName: String): Boolean =
+    Try(underlying.getField(valueName))
+      .map(_.getAnnotations.toList.exists(_.annotationType().getSimpleName == "Deprecated"))
+      .getOrElse(false)
 }
 
 object CdkEnum {
