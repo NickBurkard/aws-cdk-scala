@@ -53,7 +53,7 @@ final case class CdkBuilder private(
     // Add in create params and fields as params.
     case CdkBuilder.ConstructorType.CreateParameters(createParameters) =>
       s"""def apply(
-         |    ${createParameters.map { case (name, tpe) => s"${literallyIdentify(name)}: ${renamePackage(rewriteJavaTypes(tpe))}" }.mkString(",\n    ")},
+         |    ${createParameters.map { case (name, tpe) => s"${literallyIdentify(name)}: ${rewriteJavaTypes(tpe)}" }.mkString(",\n    ")},
          |    ${parameters.mkString(",\n    ")}
          |  ): $instanceCanonicalName""".stripMargin
 
