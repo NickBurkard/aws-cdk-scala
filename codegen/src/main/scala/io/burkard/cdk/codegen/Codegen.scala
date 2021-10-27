@@ -41,6 +41,8 @@ object Codegen {
               )
           }
       }
+      .toList
+      .sortBy(_._1)
       .foreach { case (name, sourceFiles) =>
         println(name)
         sourceFiles.foreach { sourceFile =>

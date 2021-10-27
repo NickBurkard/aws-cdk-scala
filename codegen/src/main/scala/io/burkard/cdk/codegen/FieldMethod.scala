@@ -14,8 +14,9 @@ final case class FieldMethod private(
   lazy val asBuilderMethod: String =
     s".$paramName($paramName$convert$defaultValue)"
 
+  // Are generic collections used?
   lazy val requiresJavaConverters: Boolean =
-    fullTypeName.contains("List") || fullTypeName.contains("Map")
+    fullTypeName.contains("List[") || fullTypeName.contains("Map[")
 
   lazy val requiresBooleanBoxing: Boolean =
     fullTypeName.contains("Boolean")
