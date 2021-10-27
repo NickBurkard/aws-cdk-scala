@@ -65,6 +65,9 @@ package object codegen {
       regex.replaceAllIn(value, replacement)
     }
 
+  def requiresJavaConverters(typeName: String): Boolean =
+    typeName.contains("List[") || typeName.contains("Map[")
+
   final implicit class SourceGeneratorOps[A](private val source: A) extends AnyVal {
     def sourceFile(implicit sourceGenerator: SourceGenerator[A]): SourceFile =
       sourceGenerator.sourceFile(source)

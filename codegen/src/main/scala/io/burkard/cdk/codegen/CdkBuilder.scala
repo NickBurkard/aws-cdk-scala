@@ -1,9 +1,9 @@
 package io.burkard.cdk.codegen
 
-import io.burkard.cdk.codegen.CdkBuilder.ConstructorType
-
 import java.lang.reflect.{Method, Modifier}
 import java.nio.file.{Path, Paths}
+
+import io.burkard.cdk.codegen.CdkBuilder.ConstructorType
 
 // Class instance builder provided by the CDK.
 final case class CdkBuilder private(
@@ -18,7 +18,41 @@ final case class CdkBuilder private(
     underlying
       .getMethods
       .toList
-      .flatMap(FieldMethod.build)
+      .flatMap { method =>
+        FieldMethod
+          .validFieldMethodTypeName(method)
+          .map(method.getName -> _)
+      }
+      .groupBy(_._1)
+      .view
+      .mapValues(_.map(_._2))
+      // Potentially rename field methods.
+      .flatMap {
+        // Name is unique, do nothing extra.
+        case (methodName, typeName :: Nil) =>
+          List(
+            FieldMethod(
+              methodName,
+              methodName,
+              typeName,
+              optional = true
+            )
+          )
+
+        // Name is shared, need to rename based on index.
+        // TODO Change to something more meaningful.
+        case (methodName, methods) =>
+          methods.zipWithIndex.map { case (typeName, index) =>
+            FieldMethod(
+              s"$methodName$index",
+              methodName,
+              typeName,
+              optional = true
+            )
+          }
+      }
+      .toList
+
 
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 
@@ -26,24 +60,34 @@ final case class CdkBuilder private(
     fieldMethods.map(_.asParameter)
 
   lazy val parameterNames: List[String] =
-    fieldMethods.map(_.paramName)
+    fieldMethods.map(_.actualParameterName)
 
   lazy val builderMethods: List[String] =
     fieldMethods.map(_.asBuilderMethod)
 
-  lazy val imports: String =
-    if (fieldMethods.exists(_.requiresJavaConverters)) {
+  lazy val imports: String = {
+    lazy val fieldMethodsRequireAsJava = fieldMethods.exists(_.requiresAsJava)
+    lazy val createMethodsRequireAsJava = constructorType match {
+      case CdkBuilder.ConstructorType.CreateParameters(createParameters) =>
+        createParameters.exists(_.requiresAsJava)
+
+      case _ =>
+        false
+    }
+
+    if (fieldMethodsRequireAsJava || createMethodsRequireAsJava) {
       "\nimport scala.jdk.CollectionConverters._\n"
     } else {
       ""
     }
+  }
 
   lazy val applyMethodSignature: String = constructorType match {
     // Add in fields as parameters if required.
     case CdkBuilder.ConstructorType.CreateContextAndId =>
       if (fieldMethods.nonEmpty) {
         s"""def apply(
-           |    id: String,
+           |    internalResourceId: String,
            |    ${parameters.mkString(",\n    ")}
            |  )(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName""".stripMargin
       } else {
@@ -53,7 +97,7 @@ final case class CdkBuilder private(
     // Add in create params and fields as params.
     case CdkBuilder.ConstructorType.CreateParameters(createParameters) =>
       s"""def apply(
-         |    ${createParameters.map { case (name, tpe) => s"${literallyIdentify(name)}: ${rewriteJavaTypes(tpe)}" }.mkString(",\n    ")},
+         |    ${createParameters.map(_.asParameter).mkString(",\n    ")},
          |    ${parameters.mkString(",\n    ")}
          |  ): $instanceCanonicalName""".stripMargin
 
@@ -71,11 +115,11 @@ final case class CdkBuilder private(
   lazy val builderSyntax: String = constructorType match {
     case ConstructorType.CreateContextAndId =>
       s"""$instanceCanonicalName.Builder
-         |      .create(stackCtx, id)""".stripMargin
+         |      .create(stackCtx, internalResourceId)""".stripMargin
 
     case ConstructorType.CreateParameters(createParameters) =>
       s"""$instanceCanonicalName.Builder
-         |      .create(${createParameters.map(_._1).mkString(", ")})""".stripMargin
+         |      .create(${createParameters.map(_.asValue).mkString(", ")})""".stripMargin
 
     case ConstructorType.CreateNoParameters =>
       s"""$instanceCanonicalName.Builder
@@ -140,7 +184,7 @@ object CdkBuilder {
     case object CreateContextAndId extends ConstructorType
 
     // public static Builder create(...)
-    final case class CreateParameters(createParameters: List[(String, String)]) extends ConstructorType
+    final case class CreateParameters(createParameters: List[FieldMethod]) extends ConstructorType
 
     // public static Builder create()
     case object CreateNoParameters extends ConstructorType
@@ -163,7 +207,14 @@ object CdkBuilder {
                 .getDeclaredFields
                 .toList
                 .filterNot(_.getType.getName.contains("Builder"))
-                .map(f => f.getName -> f.getType.getCanonicalName)
+                .map( field =>
+                  FieldMethod(
+                    field.getName,
+                    field.getName,
+                    field.getGenericType.getTypeName,
+                    optional = false
+                  )
+                )
             )
           } else {
             ConstructorType.CreateNoParameters
