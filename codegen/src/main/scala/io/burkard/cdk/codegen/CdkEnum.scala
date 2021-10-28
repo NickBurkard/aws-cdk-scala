@@ -16,6 +16,7 @@ final case class CdkEnum private(
 ) {
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 
+  // `case object Name extends UnderlyingName(underlyingValue)`, potentially with deprecation warning disabled.
   lazy val valuesCases: List[String] =
     valueNames.map { valueName =>
       s"""${noWarn(valueName)}case object ${CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, valueName)}
@@ -45,7 +46,7 @@ object CdkEnum {
       override def path(source: CdkEnum): Path =
         Paths.get(
           "modules",
-          s"${source.serviceName}/src/main/scala/${source.packageName.replaceAll("\\.", "/")}/${source.instanceSimpleName}.scala".split("/"): _*
+          s"${moduleName(source)}/src/main/scala/${source.packageName.replaceAll("\\.", "/")}/${source.instanceSimpleName}.scala".split("/"): _*
         )
 
       override def gen(source: CdkEnum): String =

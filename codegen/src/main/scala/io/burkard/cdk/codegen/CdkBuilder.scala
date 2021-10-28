@@ -153,7 +153,7 @@ object CdkBuilder {
       override def path(source: CdkBuilder): Path =
         Paths.get(
           "modules",
-          s"${source.serviceName}/src/main/scala/${source.packageName.replaceAll("\\.", "/")}/${source.instanceSimpleName}.scala".split("/"): _*
+          s"${moduleName(source)}/src/main/scala/${source.packageName.replaceAll("\\.", "/")}/${source.instanceSimpleName}.scala".split("/"): _*
         )
 
       override def gen(source: CdkBuilder): String =
