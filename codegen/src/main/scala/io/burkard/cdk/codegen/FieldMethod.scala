@@ -9,7 +9,7 @@ final case class FieldMethod private(
   typeName: String,
   optional: Boolean
 ) {
-  lazy val asParameter: String =
+  lazy val asTypeAnnotatedParameter: String =
     if (optional) {
       s"$actualParameterName: Option[$fullTypeName] = None"
     } else {

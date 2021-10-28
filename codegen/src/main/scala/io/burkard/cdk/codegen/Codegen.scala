@@ -8,6 +8,7 @@ object Codegen {
   def main(args: Array[String]): Unit =
     codegen()
 
+  // Generate code for all AWS CDK services.
   private[this] def codegen(): Unit =
     ClassPath
       .from(ClassLoader.getSystemClassLoader)
@@ -27,6 +28,7 @@ object Codegen {
         }
       }
       .groupBy(_._1)
+      // Generate code for builders & enums.
       .map { case (name, classInfo) =>
         name -> classInfo
           .map(_._2)
@@ -42,6 +44,7 @@ object Codegen {
           }
       }
       .toList
+      // Generate code alphabetically per service.
       .sortBy(_._1)
       .foreach { case (name, sourceFiles) =>
         println(name)

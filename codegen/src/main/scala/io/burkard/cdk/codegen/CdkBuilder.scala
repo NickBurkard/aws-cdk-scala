@@ -13,11 +13,12 @@ final case class CdkBuilder private(
   constructorType: CdkBuilder.ConstructorType,
   underlying: Class[_]
 ) {
-  // [0, N] field methods of the underlying builder.
+  // [0, N] field methods of the underlying builder. All are optional for the generated code.
   private[this] lazy val fieldMethods: List[FieldMethod] =
     underlying
       .getMethods
       .toList
+      // Only preserve methods with valid type names.
       .flatMap { method =>
         FieldMethod
           .validFieldMethodTypeName(method)
@@ -26,7 +27,7 @@ final case class CdkBuilder private(
       .groupBy(_._1)
       .view
       .mapValues(_.map(_._2))
-      // Potentially rename field methods.
+      // Potentially rename shared field methods.
       .flatMap {
         // Name is unique, do nothing extra.
         case (methodName, typeName :: Nil) =>
@@ -41,8 +42,8 @@ final case class CdkBuilder private(
 
         // Name is shared, need to rename based on index.
         // TODO Change to something more meaningful.
-        case (methodName, methods) =>
-          methods.zipWithIndex.map { case (typeName, index) =>
+        case (methodName, typeNames) =>
+          typeNames.zipWithIndex.map { case (typeName, index) =>
             FieldMethod(
               s"$methodName$index",
               methodName,
@@ -55,15 +56,15 @@ final case class CdkBuilder private(
 
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 
-  lazy val parameters: List[String] =
-    fieldMethods.map(_.asParameter)
+  // `parameterName: type`, potentially with default value.
+  lazy val typeAnnotatedParameters: List[String] = fieldMethods.map(_.asTypeAnnotatedParameter)
 
-  lazy val parameterNames: List[String] =
-    fieldMethods.map(_.actualParameterName)
+  lazy val parameterNames: List[String] = fieldMethods.map(_.actualParameterName)
 
-  lazy val builderMethods: List[String] =
-    fieldMethods.map(_.asBuilderMethod)
+  // `.builderMethodName(parameterName)`, potentially with Java conversions and / or default value.
+  lazy val builderMethods: List[String] = fieldMethods.map(_.asBuilderMethod)
 
+  // Potential imports for the source file.
   lazy val imports: String = {
     lazy val fieldMethodsRequireAsJava = fieldMethods.exists(_.requiresAsJava)
     lazy val createMethodsRequireAsJava = constructorType match {
@@ -74,6 +75,7 @@ final case class CdkBuilder private(
         false
     }
 
+    // Do we need to import Java converts?
     if (fieldMethodsRequireAsJava || createMethodsRequireAsJava) {
       "\nimport scala.jdk.CollectionConverters._\n"
     } else {
@@ -81,49 +83,61 @@ final case class CdkBuilder private(
     }
   }
 
+  // What the apply method's signature looks like, based on constructor type.
   lazy val applyMethodSignature: String = constructorType match {
     // Add in fields as parameters if required.
     case CdkBuilder.ConstructorType.CreateContextAndId =>
       if (fieldMethods.nonEmpty) {
         s"""def apply(
            |    internalResourceId: String,
-           |    ${parameters.mkString(",\n    ")}
+           |    ${typeAnnotatedParameters.mkString(",\n    ")}
            |  )(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName""".stripMargin
       } else {
         s"def apply(id: String)(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName"
       }
 
-    // Add in create params and fields as params.
+    // Add in create params first (required) and potentially fields as params (optional).
     case CdkBuilder.ConstructorType.CreateParameters(createParameters) =>
-      s"""def apply(
-         |    ${createParameters.map(_.asParameter).mkString(",\n    ")},
-         |    ${parameters.mkString(",\n    ")}
-         |  ): $instanceCanonicalName""".stripMargin
+      if (fieldMethods.nonEmpty) {
+        s"""def apply(
+           |    ${createParameters.map(_.asTypeAnnotatedParameter).mkString(",\n    ")},
+           |    ${typeAnnotatedParameters.mkString(",\n    ")}
+           |  ): $instanceCanonicalName""".stripMargin
+      } else {
+        s"""def apply(
+           |    ${createParameters.map(_.asTypeAnnotatedParameter).mkString(",\n    ")}
+           |  ): $instanceCanonicalName""".stripMargin
+      }
 
     // Add in fields as parameters if required.
     case CdkBuilder.ConstructorType.CreateNoParameters | CdkBuilder.ConstructorType.DirectConstructorNoParameters =>
       if (fieldMethods.nonEmpty) {
         s"""def apply(
-           |    ${parameters.mkString(",\n    ")}
+           |    ${typeAnnotatedParameters.mkString(",\n    ")}
            |  ): $instanceCanonicalName""".stripMargin
       } else {
         s"def apply: $instanceCanonicalName"
       }
   }
 
+  // The syntax for creating the underlying builder.
   lazy val builderSyntax: String = constructorType match {
+    // Supply the implicit stack context and the resource ID.
     case ConstructorType.CreateContextAndId =>
       s"""$instanceCanonicalName.Builder
          |      .create(stackCtx, internalResourceId)""".stripMargin
 
+    // Supply required parameters to the `create` method.
     case ConstructorType.CreateParameters(createParameters) =>
       s"""$instanceCanonicalName.Builder
          |      .create(${createParameters.map(_.asValue).mkString(", ")})""".stripMargin
 
+    // `create` method requires no parameters.
     case ConstructorType.CreateNoParameters =>
       s"""$instanceCanonicalName.Builder
          |      .create()""".stripMargin
 
+    // Builder is constructed via `new` syntax.
     case ConstructorType.DirectConstructorNoParameters =>
       s"(new $instanceCanonicalName.Builder)"
   }
@@ -227,6 +241,7 @@ object CdkBuilder {
         }
       )
 
+  // Does a method have the type signature of `create(context, id)`?
   private[this] def isContextAndIdConstructor(m: Method): Boolean =
     m.getParameterTypes.toList.map(_.getSimpleName) match {
       case "Construct" :: "String" :: Nil =>

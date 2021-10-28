@@ -45,8 +45,8 @@ package object codegen {
       name
     }
 
-  // Rewrite rules in order of descending precedence.
-  private[this] val rewrittenSymbols: List[(Regex, String)] =
+  // Rewrite rules for Java types in order of descending precedence.
+  private[this] val javaRewrites: List[(Regex, String)] =
     List(
       raw"java\.lang\.Boolean".r -> "Boolean",
       raw"java\.lang\.Number".r -> "Number",
@@ -60,14 +60,17 @@ package object codegen {
       raw"\?".r -> "_"
     )
 
-  def rewriteJavaTypes(value: String): String =
-    rewrittenSymbols.foldLeft(value) { case (value, (regex, replacement)) =>
+  // Rewrite any java types in a type name.
+  def rewriteJavaTypes(typeName: String): String =
+    javaRewrites.foldLeft(typeName) { case (value, (regex, replacement)) =>
       regex.replaceAllIn(value, replacement)
     }
 
+  // Does a type require java converters?
   def requiresJavaConverters(typeName: String): Boolean =
     typeName.contains("List[") || typeName.contains("Map[")
 
+  // Syntax for converting to source files.
   final implicit class SourceGeneratorOps[A](private val source: A) extends AnyVal {
     def sourceFile(implicit sourceGenerator: SourceGenerator[A]): SourceFile =
       sourceGenerator.sourceFile(source)
