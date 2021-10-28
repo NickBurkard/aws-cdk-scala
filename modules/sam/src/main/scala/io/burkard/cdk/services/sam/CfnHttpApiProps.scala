@@ -6,8 +6,8 @@ import scala.jdk.CollectionConverters._
 object CfnHttpApiProps {
 
   def apply(
-    corsConfiguration0: Option[Boolean] = None,
-    corsConfiguration1: Option[software.amazon.awscdk.services.sam.CfnHttpApi.CorsConfigurationObjectProperty] = None,
+    corsConfiguration0: Option[software.amazon.awscdk.services.sam.CfnHttpApi.CorsConfigurationObjectProperty] = None,
+    corsConfiguration1: Option[Boolean] = None,
     defaultRouteSettings: Option[software.amazon.awscdk.services.sam.CfnHttpApi.RouteSettingsProperty] = None,
     domain: Option[software.amazon.awscdk.services.sam.CfnHttpApi.HttpApiDomainConfigurationProperty] = None,
     failOnWarnings: Option[Boolean] = None,
@@ -15,8 +15,8 @@ object CfnHttpApiProps {
     stageName: Option[String] = None,
     disableExecuteApiEndpoint: Option[Boolean] = None,
     accessLogSetting: Option[software.amazon.awscdk.services.sam.CfnHttpApi.AccessLogSettingProperty] = None,
-    definitionUri0: Option[String] = None,
-    definitionUri1: Option[software.amazon.awscdk.services.sam.CfnHttpApi.S3LocationProperty] = None,
+    definitionUri0: Option[software.amazon.awscdk.services.sam.CfnHttpApi.S3LocationProperty] = None,
+    definitionUri1: Option[String] = None,
     stageVariables: Option[Map[String, String]] = None,
     auth: Option[software.amazon.awscdk.services.sam.CfnHttpApi.HttpApiAuthProperty] = None,
     routeSettings: Option[software.amazon.awscdk.services.sam.CfnHttpApi.RouteSettingsProperty] = None,
@@ -24,8 +24,8 @@ object CfnHttpApiProps {
     tags: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.sam.CfnHttpApiProps =
     (new software.amazon.awscdk.services.sam.CfnHttpApiProps.Builder)
-      .corsConfiguration(corsConfiguration0.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .corsConfiguration(corsConfiguration1.orNull)
+      .corsConfiguration(corsConfiguration0.orNull)
+      .corsConfiguration(corsConfiguration1.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .defaultRouteSettings(defaultRouteSettings.orNull)
       .domain(domain.orNull)
       .failOnWarnings(failOnWarnings.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
