@@ -53,7 +53,6 @@ final case class CdkBuilder private(
       }
       .toList
 
-
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 
   lazy val parameters: List[String] =
