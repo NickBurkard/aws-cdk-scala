@@ -8,7 +8,7 @@ object ProjectPlugin extends AutoPlugin {
 
   override val buildSettings: Seq[Def.Setting[_]] = Seq(
     organization := "io.burkard",
-    version := "0.1.0",
+    version := s"${Dependencies.Aws.cdkVersion}-0.1.0",
     scalaVersion := "2.13.6"
   )
 

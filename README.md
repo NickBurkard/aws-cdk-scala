@@ -1,18 +1,24 @@
 # aws-cdk-scala
 
-Scala DSL for [AWS CDK](https://github.com/aws/aws-cdk).
+Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-v2.html).
 
 ### Purpose
 
-- Pass around app & stack context implicitly.
-- Avoid using Java builder syntax & enums.
+- Pass around app & stack [scope](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html) implicitly.
+- Avoid using Java concepts.
+  * No `Builder` syntax.
+  * ADTs instead of enums.
+  * Scala collections (i.e. `List` & `Map`).
 
 ### Import
 
 I need to actually publish these artifacts first.
 
+Please refer to [mvn](https://mvnrepository.com/artifact/software.amazon.awscdk/aws-cdk-lib)
+for the actual version number of `aws-cdk-lib`.
+
 ```scala
-val cdkVersion = "0.1.0"
+val cdkVersion = "2.0.0-rc.27-0.1.0"
 
 libraryDependencies ++= Seq(
   "io.burkard" %% "aws-scala-cdk-core" % cdkVersion,
@@ -37,7 +43,6 @@ object ExampleApp extends App {
     )
   }
 }
-
 ```
 
 ### Support
