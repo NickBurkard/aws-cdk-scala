@@ -44,8 +44,8 @@ object CdkEnum {
 
       override def path(source: CdkEnum): Path =
         Paths.get(
-          s"aws-cdk-scala-${source.serviceName}",
-          s"src/main/scala/${source.packageName.replaceAll("\\.", "/")}/${source.instanceSimpleName}.scala".split("/"): _*
+          "modules",
+          s"${source.serviceName}/src/main/scala/${source.packageName.replaceAll("\\.", "/")}/${source.instanceSimpleName}.scala".split("/"): _*
         )
 
       override def gen(source: CdkEnum): String =
