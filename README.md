@@ -7,6 +7,19 @@ Scala DSL for [AWS CDK](https://github.com/aws/aws-cdk).
 - Pass around app & stack context implicitly.
 - Avoid using Java builder syntax & enums.
 
+### Import
+
+I need to actually publish these artifacts first.
+
+```scala
+val cdkVersion = "0.1.0"
+
+libraryDependencies ++= Seq(
+  "io.burkard" %% "aws-scala-cdk-core" % cdkVersion,
+  "io.burkard" %% "aws-scala-cdk-s3" % cdkVersion
+)
+```
+
 ### Example
 
 ```scala
