@@ -1,0 +1,3 @@
+{
+  "app": "sbt \"example/runMain io.burkard.cdk.example.ExampleApp\""
+}
