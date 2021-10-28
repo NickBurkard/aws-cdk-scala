@@ -16,7 +16,7 @@ final case class CdkEnum private(
 ) {
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 
-  // `case object Name extends UnderlyingName(underlyingValue)`, potentially with deprecation warning disabled.
+  // `case object ValueName extends EnumName(underlyingValue)`, potentially with deprecation warning disabled.
   lazy val valuesCases: List[String] =
     valueNames.map { valueName =>
       s"""${noWarn(valueName)}case object ${CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, valueName)}
