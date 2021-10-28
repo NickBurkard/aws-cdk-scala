@@ -45,6 +45,16 @@ object ExampleApp extends App {
 }
 ```
 
+### Updates
+
+When a new version of the CDK is published by AWS:
+
+1. Create a new branch for the new CDK version.
+2. Update the CDK version in `project/Dependencies.scala`.
+3. Run `Codegen.scala` in the `codegen` module.
+4. Add any new files & commit changes.
+5. Open a PR & merge after approved.
+
 ### Support
 
 Only Scala 2.13 for now. Maybe 2.12 and 3.x later.
