@@ -189,8 +189,8 @@ lazy val codegen = project
 
 lazy val example = project
   .dependsOn(
-      `aws-cdk-scala-core`,
-      `aws-cdk-scala-s3`
+    `aws-cdk-scala-core`,
+    `aws-cdk-scala-s3`
   )
   .withCdk()
   .disablePublishing()
