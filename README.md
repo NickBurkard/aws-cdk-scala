@@ -28,6 +28,8 @@ libraryDependencies ++= Seq(
 
 ### Example
 
+#### Scala
+
 ```scala
 import io.burkard.cdk._
 import io.burkard.cdk.services.s3._
@@ -43,6 +45,72 @@ object ExampleApp extends App {
     )
   }
 }
+```
+
+#### CDK
+
+After installing nodejs, install the CDK CLI.
+
+```bash
+# Note `@next`, this installs v2.
+npm install -g aws-cdk@next
+```
+
+Create a `cdk.json` file at the root of your sbt project.
+
+```json
+{
+  "app": "sbt \"example/runMain io.burkard.cdk.example.ExampleApp\""
+}
+```
+
+Synthesize the application into YAML.
+
+```bash
+cdk synth
+```
+
+```yaml
+Resources:
+  mybucket15D133BF:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: example-stack/my-bucket/Resource
+  mybucketPolicy4F66A877:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket:
+        Ref: mybucket15D133BF
+      PolicyDocument:
+        Statement:
+          - Action: s3:*
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+            Effect: Deny
+            Principal:
+              AWS: "*"
+            Resource:
+              - Fn::GetAtt:
+                  - mybucket15D133BF
+                  - Arn
+              - Fn::Join:
+                  - ""
+                  - - Fn::GetAtt:
+                        - mybucket15D133BF
+                        - Arn
+                    - /*
+        Version: "2012-10-17"
 ```
 
 ### Updates
