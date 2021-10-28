@@ -10,7 +10,16 @@ Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-wit
   * ADTs instead of enums.
   * Scala collections (i.e. `List` & `Map`).
 
-### Import
+### Requirements
+
+For synthesizing CloudFormation templates, you must install v2 of the CDK CLI.
+
+```bash
+# Note `@next`, this installs v2.
+npm install -g aws-cdk@next
+```
+
+### Installation
 
 I need to actually publish these artifacts first.
 
@@ -29,6 +38,8 @@ libraryDependencies ++= Seq(
 ### Example
 
 #### Scala
+
+Create a CDK app in some sbt module.
 
 ```scala
 import io.burkard.cdk._
@@ -49,13 +60,6 @@ object ExampleApp extends App {
 
 #### CDK
 
-After installing nodejs, install the CDK CLI.
-
-```bash
-# Note `@next`, this installs v2.
-npm install -g aws-cdk@next
-```
-
 Create a `cdk.json` file at the root of your sbt project.
 
 ```json
@@ -69,6 +73,8 @@ Synthesize the application into YAML.
 ```bash
 cdk synth
 ```
+
+The result is a synthesized CloudFormation template.
 
 ```yaml
 Resources:
