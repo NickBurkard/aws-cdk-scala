@@ -1,0 +1,50 @@
+package io.burkard.cdk.services.opsworks
+
+import scala.jdk.CollectionConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+object CfnLayerProps {
+
+  def apply(
+    name: Option[String] = None,
+    installUpdatesOnBoot: Option[Boolean] = None,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
+    customRecipes: Option[software.amazon.awscdk.services.opsworks.CfnLayer.RecipesProperty] = None,
+    customInstanceProfileArn: Option[String] = None,
+    volumeConfigurations: Option[List[_]] = None,
+    attributes: Option[Map[String, String]] = None,
+    customJson: Option[AnyRef] = None,
+    useEbsOptimizedInstances: Option[Boolean] = None,
+    lifecycleEventConfiguration: Option[software.amazon.awscdk.services.opsworks.CfnLayer.LifecycleEventConfigurationProperty] = None,
+    autoAssignPublicIps: Option[Boolean] = None,
+    `type`: Option[String] = None,
+    packages: Option[List[String]] = None,
+    customSecurityGroupIds: Option[List[String]] = None,
+    autoAssignElasticIps: Option[Boolean] = None,
+    shortname: Option[String] = None,
+    loadBasedAutoScaling: Option[software.amazon.awscdk.services.opsworks.CfnLayer.LoadBasedAutoScalingProperty] = None,
+    enableAutoHealing: Option[Boolean] = None,
+    stackId: Option[String] = None
+  ): software.amazon.awscdk.services.opsworks.CfnLayerProps =
+    (new software.amazon.awscdk.services.opsworks.CfnLayerProps.Builder)
+      .name(name.orNull)
+      .installUpdatesOnBoot(installUpdatesOnBoot.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .tags(tags.map(_.asJava).orNull)
+      .customRecipes(customRecipes.orNull)
+      .customInstanceProfileArn(customInstanceProfileArn.orNull)
+      .volumeConfigurations(volumeConfigurations.map(_.asJava).orNull)
+      .attributes(attributes.map(_.asJava).orNull)
+      .customJson(customJson.orNull)
+      .useEbsOptimizedInstances(useEbsOptimizedInstances.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .lifecycleEventConfiguration(lifecycleEventConfiguration.orNull)
+      .autoAssignPublicIps(autoAssignPublicIps.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .`type`(`type`.orNull)
+      .packages(packages.map(_.asJava).orNull)
+      .customSecurityGroupIds(customSecurityGroupIds.map(_.asJava).orNull)
+      .autoAssignElasticIps(autoAssignElasticIps.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .shortname(shortname.orNull)
+      .loadBasedAutoScaling(loadBasedAutoScaling.orNull)
+      .enableAutoHealing(enableAutoHealing.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .stackId(stackId.orNull)
+      .build()
+}

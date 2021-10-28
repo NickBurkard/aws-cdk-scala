@@ -1,0 +1,30 @@
+package io.burkard.cdk.services.iam
+
+import scala.jdk.CollectionConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+object RoleProps {
+
+  def apply(
+    maxSessionDuration: Option[software.amazon.awscdk.Duration] = None,
+    assumedBy: Option[software.amazon.awscdk.services.iam.IPrincipal] = None,
+    roleName: Option[String] = None,
+    externalIds: Option[List[String]] = None,
+    managedPolicies: Option[List[_ <: software.amazon.awscdk.services.iam.IManagedPolicy]] = None,
+    path: Option[String] = None,
+    inlinePolicies: Option[Map[String, _ <: software.amazon.awscdk.services.iam.PolicyDocument]] = None,
+    permissionsBoundary: Option[software.amazon.awscdk.services.iam.IManagedPolicy] = None,
+    description: Option[String] = None
+  ): software.amazon.awscdk.services.iam.RoleProps =
+    (new software.amazon.awscdk.services.iam.RoleProps.Builder)
+      .maxSessionDuration(maxSessionDuration.orNull)
+      .assumedBy(assumedBy.orNull)
+      .roleName(roleName.orNull)
+      .externalIds(externalIds.map(_.asJava).orNull)
+      .managedPolicies(managedPolicies.map(_.asJava).orNull)
+      .path(path.orNull)
+      .inlinePolicies(inlinePolicies.map(_.asJava).orNull)
+      .permissionsBoundary(permissionsBoundary.orNull)
+      .description(description.orNull)
+      .build()
+}

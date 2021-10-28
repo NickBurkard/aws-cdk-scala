@@ -1,0 +1,26 @@
+package io.burkard.cdk.services.dynamodb
+
+import scala.jdk.CollectionConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+object GlobalSecondaryIndexProps {
+
+  def apply(
+    partitionKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None,
+    projectionType: Option[software.amazon.awscdk.services.dynamodb.ProjectionType] = None,
+    readCapacity: Option[Number] = None,
+    nonKeyAttributes: Option[List[String]] = None,
+    indexName: Option[String] = None,
+    sortKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None,
+    writeCapacity: Option[Number] = None
+  ): software.amazon.awscdk.services.dynamodb.GlobalSecondaryIndexProps =
+    (new software.amazon.awscdk.services.dynamodb.GlobalSecondaryIndexProps.Builder)
+      .partitionKey(partitionKey.orNull)
+      .projectionType(projectionType.orNull)
+      .readCapacity(readCapacity.orNull)
+      .nonKeyAttributes(nonKeyAttributes.map(_.asJava).orNull)
+      .indexName(indexName.orNull)
+      .sortKey(sortKey.orNull)
+      .writeCapacity(writeCapacity.orNull)
+      .build()
+}

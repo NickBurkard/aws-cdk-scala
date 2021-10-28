@@ -1,0 +1,18 @@
+package io.burkard.cdk.services.servicediscovery
+
+import scala.jdk.CollectionConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+object DnsConfigProperty {
+
+  def apply(
+    dnsRecords: Option[List[_]] = None,
+    routingPolicy: Option[String] = None,
+    namespaceId: Option[String] = None
+  ): software.amazon.awscdk.services.servicediscovery.CfnService.DnsConfigProperty =
+    (new software.amazon.awscdk.services.servicediscovery.CfnService.DnsConfigProperty.Builder)
+      .dnsRecords(dnsRecords.map(_.asJava).orNull)
+      .routingPolicy(routingPolicy.orNull)
+      .namespaceId(namespaceId.orNull)
+      .build()
+}

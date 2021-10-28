@@ -1,0 +1,22 @@
+package io.burkard.cdk.services.elasticloadbalancing
+
+import scala.jdk.CollectionConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+object PoliciesProperty {
+
+  def apply(
+    policyName: Option[String] = None,
+    attributes: Option[List[_]] = None,
+    policyType: Option[String] = None,
+    loadBalancerPorts: Option[List[String]] = None,
+    instancePorts: Option[List[String]] = None
+  ): software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.PoliciesProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.PoliciesProperty.Builder)
+      .policyName(policyName.orNull)
+      .attributes(attributes.map(_.asJava).orNull)
+      .policyType(policyType.orNull)
+      .loadBalancerPorts(loadBalancerPorts.map(_.asJava).orNull)
+      .instancePorts(instancePorts.map(_.asJava).orNull)
+      .build()
+}

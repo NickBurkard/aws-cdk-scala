@@ -1,0 +1,18 @@
+package io.burkard.cdk.cloudassembly
+
+import scala.jdk.CollectionConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+object AssetManifest {
+
+  def apply(
+    files: Option[Map[String, _ <: software.amazon.awscdk.cloudassembly.schema.FileAsset]] = None,
+    version: Option[String] = None,
+    dockerImages: Option[Map[String, _ <: software.amazon.awscdk.cloudassembly.schema.DockerImageAsset]] = None
+  ): software.amazon.awscdk.cloudassembly.schema.AssetManifest =
+    (new software.amazon.awscdk.cloudassembly.schema.AssetManifest.Builder)
+      .files(files.map(_.asJava).orNull)
+      .version(version.orNull)
+      .dockerImages(dockerImages.map(_.asJava).orNull)
+      .build()
+}

@@ -1,0 +1,26 @@
+package io.burkard.cdk.services.licensemanager
+
+import scala.jdk.CollectionConverters._
+
+@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+object CfnGrant {
+
+  def apply(
+    internalResourceId: String,
+    licenseArn: Option[String] = None,
+    principals: Option[List[String]] = None,
+    grantName: Option[String] = None,
+    allowedOperations: Option[List[String]] = None,
+    status: Option[String] = None,
+    homeRegion: Option[String] = None
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.licensemanager.CfnGrant =
+    software.amazon.awscdk.services.licensemanager.CfnGrant.Builder
+      .create(stackCtx, internalResourceId)
+      .licenseArn(licenseArn.orNull)
+      .principals(principals.map(_.asJava).orNull)
+      .grantName(grantName.orNull)
+      .allowedOperations(allowedOperations.map(_.asJava).orNull)
+      .status(status.orNull)
+      .homeRegion(homeRegion.orNull)
+      .build()
+}
