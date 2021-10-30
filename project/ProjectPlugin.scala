@@ -8,7 +8,24 @@ object ProjectPlugin extends AutoPlugin {
 
   override val buildSettings: Seq[Def.Setting[_]] = Seq(
     organization := "io.burkard",
-    version := s"${Dependencies.Aws.cdkVersion}-0.1.0",
+    organizationName := "burkard",
+    scmInfo := Some(
+      ScmInfo(
+        url("https://github.com/NickBurkard/aws-cdk-scala"),
+        "scm:git@github.com:NickBurkard/aws-cdk-scala.git"
+      )
+    ),
+    developers := List(
+      Developer(
+        id = "NickBurkard",
+        name = "Nick Burkard",
+        email = "burkard.foss@gmail.com",
+        url = url("https://burkard.io")
+      )
+    ),
+    description := "Scala DSL for AWS CDK v2",
+    licenses := List("Apache 2" -> url("https://github.com/NickBurkard/aws-cdk-scala/blob/master/LICENSE.txt")),
+    homepage := Some(url("https://github.com/NickBurkard/aws-cdk-scala")),
     scalaVersion := "2.13.6"
   )
 
@@ -27,13 +44,21 @@ object ProjectPlugin extends AutoPlugin {
       def withGuava(): Project =
         project.settings(libraryDependencies += Dependencies.Google.guava)
 
-      // TODO Implement.
       def disablePublishing(): Project =
-        project
+        project.settings(
+          publish / skip := true,
+          publishArtifact := false
+        )
 
-      // TODO Implement.
       def enablePublishing(): Project =
-        project
+        project.settings(
+          pomIncludeRepository := { _ => false },
+          publishTo := Some(
+            if (isSnapshot.value) "snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+            else "releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+          ),
+          publishMavenStyle := true,
+        )
     }
   }
 }
