@@ -27,7 +27,9 @@ Please refer to [mvn](https://mvnrepository.com/artifact/software.amazon.awscdk/
 for the actual version number of `aws-cdk-lib`.
 
 ```scala
-val cdkVersion = "2.0.0-rc.27-0.1.0"
+val cdkLibVersion = "2.0.0-rc.27"
+val dslVersion = "0.1.0"
+val cdkVersion = s"$cdkLibVersion-$dslVersion"
 
 libraryDependencies ++= Seq(
   "io.burkard" %% "aws-scala-cdk-core" % cdkVersion,
@@ -137,3 +139,7 @@ When a new version of the CDK is published by AWS:
 ### Support
 
 Only Scala 2.13 for now. Maybe 2.12 and 3.x later.
+
+### Thanks
+
+- Inspired by [AWS CDK Kotlin DSL](https://github.com/Semantic-Configuration/AWS-CDK-Kotlin-DSL).

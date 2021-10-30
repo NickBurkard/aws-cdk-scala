@@ -26,6 +26,7 @@ object ProjectPlugin extends AutoPlugin {
     description := "Scala DSL for AWS CDK v2",
     licenses := List("Apache 2" -> url("https://github.com/NickBurkard/aws-cdk-scala/blob/master/LICENSE.txt")),
     homepage := Some(url("https://github.com/NickBurkard/aws-cdk-scala")),
+    version := s"${Dependencies.Aws.cdkVersion}-0.1.0",
     scalaVersion := "2.13.6"
   )
 
@@ -54,8 +55,8 @@ object ProjectPlugin extends AutoPlugin {
         project.settings(
           pomIncludeRepository := { _ => false },
           publishTo := Some(
-            if (isSnapshot.value) "snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
-            else "releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            if (isSnapshot.value) Opts.resolver.sonatypeSnapshots
+            else Opts.resolver.sonatypeReleases
           ),
           publishMavenStyle := true,
         )
