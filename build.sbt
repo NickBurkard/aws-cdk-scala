@@ -181,6 +181,7 @@ lazy val awsCdkScala = project
     workspaces,
     xray
   )
+  .disablePublishing()
 
 lazy val codegen = project
   .withCdk()
