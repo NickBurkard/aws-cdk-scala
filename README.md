@@ -119,6 +119,11 @@ Resources:
         Version: "2012-10-17"
 ```
 
+### Limitations
+
+- Builders which use overloading for optional parameters (same name but different types)
+are represented as `paramName0`, `paramName1`, etc..
+
 ### Updates
 
 When a new version of the CDK is published by AWS:
