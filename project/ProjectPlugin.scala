@@ -8,6 +8,8 @@ object ProjectPlugin extends AutoPlugin {
 
   private[this] val `scala 2.13` = "2.13.6"
 
+  private[this] val `scala 3` = "3.1.0"
+
   override val buildSettings: Seq[Def.Setting[_]] = Seq(
     organization := "io.burkard",
     organizationName := "burkard",
@@ -29,7 +31,8 @@ object ProjectPlugin extends AutoPlugin {
     licenses := List("Apache 2" -> url("https://github.com/NickBurkard/aws-cdk-scala/blob/master/LICENSE.txt")),
     homepage := Some(url("https://github.com/NickBurkard/aws-cdk-scala")),
     version := s"${Dependencies.Aws.cdkVersion}-0.1.0",
-    scalaVersion := `scala 2.13`
+    scalaVersion := `scala 2.13`,
+    crossScalaVersions := Seq(`scala 2.13`, `scala 3`)
   )
 
   object ThingsToAutoImport {

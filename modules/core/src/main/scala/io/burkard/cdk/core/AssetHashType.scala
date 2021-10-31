@@ -11,7 +11,7 @@ object AssetHashType {
   case object Source
     extends AssetHashType(software.amazon.awscdk.AssetHashType.SOURCE)
 
-  @scala.annotation.nowarn case object Bundle
+  @scala.annotation.nowarn("cat=deprecation") case object Bundle
     extends AssetHashType(software.amazon.awscdk.AssetHashType.BUNDLE)
 
   case object Output

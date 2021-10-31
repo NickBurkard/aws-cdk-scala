@@ -3,7 +3,7 @@ package io.burkard.cdk.codegen
 import java.lang.reflect.{Method, Modifier}
 
 // Method associated to setting a field in a CDK builder.
-final case class FieldMethod private(
+final case class FieldMethod private[codegen](
   parameterName: String,
   methodName: String,
   typeName: String,

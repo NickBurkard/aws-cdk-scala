@@ -8,10 +8,10 @@ object AttachmentTargetType {
   implicit def toAws(value: AttachmentTargetType): software.amazon.awscdk.services.secretsmanager.AttachmentTargetType =
     Option(value).map(_.underlying).orNull
 
-  @scala.annotation.nowarn case object Instance
+  @scala.annotation.nowarn("cat=deprecation") case object Instance
     extends AttachmentTargetType(software.amazon.awscdk.services.secretsmanager.AttachmentTargetType.INSTANCE)
 
-  @scala.annotation.nowarn case object Cluster
+  @scala.annotation.nowarn("cat=deprecation") case object Cluster
     extends AttachmentTargetType(software.amazon.awscdk.services.secretsmanager.AttachmentTargetType.CLUSTER)
 
   case object RdsDbProxy

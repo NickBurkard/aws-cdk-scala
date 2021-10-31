@@ -10,6 +10,14 @@ Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-wit
   * ADTs instead of enums.
   * Scala collections (i.e. `List` & `Map`).
 
+### Scala Support
+
+| Version | Supported? |
+| --- | --- |
+| <= 2.12 | ❌ |
+| 2.13 | ✔️|
+| 3 | ✔️|
+
 ### Requirements
 
 For synthesizing CloudFormation templates, you must install v2 of the CDK CLI.
@@ -135,10 +143,6 @@ When a new version of the CDK is published by AWS:
 3. Run `Codegen.scala` in the `codegen` module.
 4. Add any new files & commit changes.
 5. Open a PR & merge after approved.
-
-### Support
-
-Only Scala 2.13 for now. Maybe 2.12 and 3.x later.
 
 ### Thanks
 

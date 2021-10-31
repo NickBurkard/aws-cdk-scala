@@ -23,9 +23,10 @@ final case class CdkEnum private(
          |    extends $instanceSimpleName($instanceCanonicalName.$valueName)""".stripMargin
     }
 
+  // This is only supported in Scala 2.13 and 3.1, not 3.0.
   private[this] def noWarn(valueName: String): String =
     if (isDeprecated(valueName)) {
-      "@scala.annotation.nowarn "
+      "@scala.annotation.nowarn(\"cat=deprecation\") "
     } else {
       ""
     }
