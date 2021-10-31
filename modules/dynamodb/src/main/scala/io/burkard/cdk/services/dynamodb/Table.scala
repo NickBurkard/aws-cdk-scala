@@ -8,6 +8,7 @@ object Table {
   def apply(
     internalResourceId: String,
     timeToLiveAttribute: Option[String] = None,
+    waitForReplicationToFinish: Option[Boolean] = None,
     partitionKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None,
     kinesisStream: Option[software.amazon.awscdk.services.kinesis.IStream] = None,
     pointInTimeRecovery: Option[Boolean] = None,
@@ -27,6 +28,7 @@ object Table {
     software.amazon.awscdk.services.dynamodb.Table.Builder
       .create(stackCtx, internalResourceId)
       .timeToLiveAttribute(timeToLiveAttribute.orNull)
+      .waitForReplicationToFinish(waitForReplicationToFinish.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .partitionKey(partitionKey.orNull)
       .kinesisStream(kinesisStream.orNull)
       .pointInTimeRecovery(pointInTimeRecovery.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

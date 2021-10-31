@@ -1,14 +1,20 @@
 package io.burkard.cdk.services.sam
 
+import scala.jdk.CollectionConverters._
+
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object AuthProperty {
 
   def apply(
-    defaultAuthorizer: Option[String] = None,
-    authorizers: Option[AnyRef] = None
-  ): software.amazon.awscdk.services.sam.CfnApi.AuthProperty =
-    (new software.amazon.awscdk.services.sam.CfnApi.AuthProperty.Builder)
-      .defaultAuthorizer(defaultAuthorizer.orNull)
-      .authorizers(authorizers.orNull)
+    authorizationScopes: Option[List[String]] = None,
+    authorizer: Option[String] = None,
+    resourcePolicy: Option[software.amazon.awscdk.services.sam.CfnFunction.AuthResourcePolicyProperty] = None,
+    apiKeyRequired: Option[Boolean] = None
+  ): software.amazon.awscdk.services.sam.CfnFunction.AuthProperty =
+    (new software.amazon.awscdk.services.sam.CfnFunction.AuthProperty.Builder)
+      .authorizationScopes(authorizationScopes.map(_.asJava).orNull)
+      .authorizer(authorizer.orNull)
+      .resourcePolicy(resourcePolicy.orNull)
+      .apiKeyRequired(apiKeyRequired.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

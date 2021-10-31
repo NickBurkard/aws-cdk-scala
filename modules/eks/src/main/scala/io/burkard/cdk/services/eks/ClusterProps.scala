@@ -10,6 +10,7 @@ object ClusterProps {
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     mastersRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     endpointAccess: Option[software.amazon.awscdk.services.eks.EndpointAccess] = None,
+    serviceIpv4Cidr: Option[String] = None,
     placeClusterHandlerInVpc: Option[Boolean] = None,
     version: Option[software.amazon.awscdk.services.eks.KubernetesVersion] = None,
     prune: Option[Boolean] = None,
@@ -35,6 +36,7 @@ object ClusterProps {
       .role(role.orNull)
       .mastersRole(mastersRole.orNull)
       .endpointAccess(endpointAccess.orNull)
+      .serviceIpv4Cidr(serviceIpv4Cidr.orNull)
       .placeClusterHandlerInVpc(placeClusterHandlerInVpc.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .version(version.orNull)
       .prune(prune.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

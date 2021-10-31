@@ -9,8 +9,9 @@ object StringParameterProps {
     description: Option[String] = None,
     stringValue: Option[String] = None,
     parameterName: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.ssm.ParameterType] = None,
-    allowedPattern: Option[String] = None
+    allowedPattern: Option[String] = None,
+    dataType: Option[software.amazon.awscdk.services.ssm.ParameterDataType] = None,
+    `type`: Option[software.amazon.awscdk.services.ssm.ParameterType] = None
   ): software.amazon.awscdk.services.ssm.StringParameterProps =
     (new software.amazon.awscdk.services.ssm.StringParameterProps.Builder)
       .simpleName(simpleName.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -18,7 +19,8 @@ object StringParameterProps {
       .description(description.orNull)
       .stringValue(stringValue.orNull)
       .parameterName(parameterName.orNull)
-      .`type`(`type`.orNull)
       .allowedPattern(allowedPattern.orNull)
+      .dataType(dataType.orNull)
+      .`type`(`type`.orNull)
       .build()
 }

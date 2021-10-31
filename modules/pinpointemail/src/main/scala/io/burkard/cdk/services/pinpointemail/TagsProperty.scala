@@ -6,8 +6,8 @@ object TagsProperty {
   def apply(
     key: Option[String] = None,
     value: Option[String] = None
-  ): software.amazon.awscdk.services.pinpointemail.CfnConfigurationSet.TagsProperty =
-    (new software.amazon.awscdk.services.pinpointemail.CfnConfigurationSet.TagsProperty.Builder)
+  ): software.amazon.awscdk.services.pinpointemail.CfnDedicatedIpPool.TagsProperty =
+    (new software.amazon.awscdk.services.pinpointemail.CfnDedicatedIpPool.TagsProperty.Builder)
       .key(key.orNull)
       .value(value.orNull)
       .build()

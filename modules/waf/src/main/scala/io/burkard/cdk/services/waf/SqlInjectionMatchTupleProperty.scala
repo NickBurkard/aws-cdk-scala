@@ -5,9 +5,9 @@ object SqlInjectionMatchTupleProperty {
 
   def apply(
     textTransformation: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSet.FieldToMatchProperty] = None
-  ): software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSet.SqlInjectionMatchTupleProperty =
-    (new software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSet.SqlInjectionMatchTupleProperty.Builder)
+    fieldToMatch: Option[software.amazon.awscdk.services.waf.regional.CfnSqlInjectionMatchSet.FieldToMatchProperty] = None
+  ): software.amazon.awscdk.services.waf.regional.CfnSqlInjectionMatchSet.SqlInjectionMatchTupleProperty =
+    (new software.amazon.awscdk.services.waf.regional.CfnSqlInjectionMatchSet.SqlInjectionMatchTupleProperty.Builder)
       .textTransformation(textTransformation.orNull)
       .fieldToMatch(fieldToMatch.orNull)
       .build()

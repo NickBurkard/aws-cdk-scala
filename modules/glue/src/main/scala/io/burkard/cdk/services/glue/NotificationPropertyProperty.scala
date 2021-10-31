@@ -5,8 +5,8 @@ object NotificationPropertyProperty {
 
   def apply(
     notifyDelayAfter: Option[Number] = None
-  ): software.amazon.awscdk.services.glue.CfnTrigger.NotificationPropertyProperty =
-    (new software.amazon.awscdk.services.glue.CfnTrigger.NotificationPropertyProperty.Builder)
+  ): software.amazon.awscdk.services.glue.CfnJob.NotificationPropertyProperty =
+    (new software.amazon.awscdk.services.glue.CfnJob.NotificationPropertyProperty.Builder)
       .notifyDelayAfter(notifyDelayAfter.orNull)
       .build()
 }

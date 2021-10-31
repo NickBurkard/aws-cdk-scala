@@ -14,6 +14,7 @@ object AutoScalingGroup {
     ignoreUnmodifiedSizeProperties: Option[Boolean] = None,
     allowAllOutbound: Option[Boolean] = None,
     cooldown: Option[software.amazon.awscdk.Duration] = None,
+    requireImdsv2: Option[Boolean] = None,
     desiredCapacity: Option[Number] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     updatePolicy: Option[software.amazon.awscdk.services.autoscaling.UpdatePolicy] = None,
@@ -45,6 +46,7 @@ object AutoScalingGroup {
       .ignoreUnmodifiedSizeProperties(ignoreUnmodifiedSizeProperties.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cooldown(cooldown.orNull)
+      .requireImdsv2(requireImdsv2.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .desiredCapacity(desiredCapacity.orNull)
       .vpc(vpc.orNull)
       .updatePolicy(updatePolicy.orNull)

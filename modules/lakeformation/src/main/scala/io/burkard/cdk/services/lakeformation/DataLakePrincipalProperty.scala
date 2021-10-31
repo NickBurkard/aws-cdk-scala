@@ -5,8 +5,8 @@ object DataLakePrincipalProperty {
 
   def apply(
     dataLakePrincipalIdentifier: Option[String] = None
-  ): software.amazon.awscdk.services.lakeformation.CfnPermissions.DataLakePrincipalProperty =
-    (new software.amazon.awscdk.services.lakeformation.CfnPermissions.DataLakePrincipalProperty.Builder)
+  ): software.amazon.awscdk.services.lakeformation.CfnDataLakeSettings.DataLakePrincipalProperty =
+    (new software.amazon.awscdk.services.lakeformation.CfnDataLakeSettings.DataLakePrincipalProperty.Builder)
       .dataLakePrincipalIdentifier(dataLakePrincipalIdentifier.orNull)
       .build()
 }

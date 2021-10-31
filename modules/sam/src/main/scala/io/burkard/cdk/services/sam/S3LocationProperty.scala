@@ -7,8 +7,8 @@ object S3LocationProperty {
     key: Option[String] = None,
     version: Option[Number] = None,
     bucket: Option[String] = None
-  ): software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty =
-    (new software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty.Builder)
+  ): software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty =
+    (new software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty.Builder)
       .key(key.orNull)
       .version(version.orNull)
       .bucket(bucket.orNull)

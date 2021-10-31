@@ -9,6 +9,7 @@ object SageMakerCreateTrainingJob {
     internalResourceId: String,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     tags: Option[Map[String, String]] = None,
+    enableNetworkIsolation: Option[Boolean] = None,
     vpcConfig: Option[software.amazon.awscdk.services.stepfunctions.tasks.VpcConfig] = None,
     resultPath: Option[String] = None,
     stoppingCondition: Option[software.amazon.awscdk.services.stepfunctions.tasks.StoppingCondition] = None,
@@ -30,6 +31,7 @@ object SageMakerCreateTrainingJob {
       .create(stackCtx, internalResourceId)
       .role(role.orNull)
       .tags(tags.map(_.asJava).orNull)
+      .enableNetworkIsolation(enableNetworkIsolation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .vpcConfig(vpcConfig.orNull)
       .resultPath(resultPath.orNull)
       .stoppingCondition(stoppingCondition.orNull)

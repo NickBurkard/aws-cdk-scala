@@ -8,8 +8,8 @@ object ClusterConfigProperty {
     volumeKmsKeyId: Option[String] = None,
     instanceType: Option[String] = None,
     instanceCount: Option[Number] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.ClusterConfigProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.ClusterConfigProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty.Builder)
       .volumeSizeInGb(volumeSizeInGb.orNull)
       .volumeKmsKeyId(volumeKmsKeyId.orNull)
       .instanceType(instanceType.orNull)

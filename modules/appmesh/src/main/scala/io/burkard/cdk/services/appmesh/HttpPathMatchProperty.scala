@@ -6,8 +6,8 @@ object HttpPathMatchProperty {
   def apply(
     regex: Option[String] = None,
     exact: Option[String] = None
-  ): software.amazon.awscdk.services.appmesh.CfnRoute.HttpPathMatchProperty =
-    (new software.amazon.awscdk.services.appmesh.CfnRoute.HttpPathMatchProperty.Builder)
+  ): software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpPathMatchProperty =
+    (new software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpPathMatchProperty.Builder)
       .regex(regex.orNull)
       .exact(exact.orNull)
       .build()

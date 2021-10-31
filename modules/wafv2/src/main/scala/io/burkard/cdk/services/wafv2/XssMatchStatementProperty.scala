@@ -6,10 +6,10 @@ import scala.jdk.CollectionConverters._
 object XssMatchStatementProperty {
 
   def apply(
-    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty] = None,
+    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty] = None,
     textTransformations: Option[List[_]] = None
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.XssMatchStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.XssMatchStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.XssMatchStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.XssMatchStatementProperty.Builder)
       .fieldToMatch(fieldToMatch.orNull)
       .textTransformations(textTransformations.map(_.asJava).orNull)
       .build()

@@ -16,6 +16,7 @@ object Instance {
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     allowAllOutbound: Option[Boolean] = None,
     resourceSignalTimeout: Option[software.amazon.awscdk.Duration] = None,
+    requireImdsv2: Option[Boolean] = None,
     keyName: Option[String] = None,
     privateIpAddress: Option[String] = None,
     init: Option[software.amazon.awscdk.services.ec2.CloudFormationInit] = None,
@@ -37,6 +38,7 @@ object Instance {
       .vpcSubnets(vpcSubnets.orNull)
       .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .resourceSignalTimeout(resourceSignalTimeout.orNull)
+      .requireImdsv2(requireImdsv2.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .keyName(keyName.orNull)
       .privateIpAddress(privateIpAddress.orNull)
       .init(init.orNull)

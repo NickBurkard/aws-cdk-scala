@@ -18,8 +18,8 @@ object SubjectProperty {
     locality: Option[String] = None,
     surname: Option[String] = None,
     organizationalUnit: Option[String] = None
-  ): software.amazon.awscdk.services.acmpca.CfnCertificate.SubjectProperty =
-    (new software.amazon.awscdk.services.acmpca.CfnCertificate.SubjectProperty.Builder)
+  ): software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.SubjectProperty =
+    (new software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.SubjectProperty.Builder)
       .organization(organization.orNull)
       .serialNumber(serialNumber.orNull)
       .givenName(givenName.orNull)

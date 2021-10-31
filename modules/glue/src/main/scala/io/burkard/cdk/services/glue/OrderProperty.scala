@@ -6,8 +6,8 @@ object OrderProperty {
   def apply(
     sortOrder: Option[Number] = None,
     column: Option[String] = None
-  ): software.amazon.awscdk.services.glue.CfnTable.OrderProperty =
-    (new software.amazon.awscdk.services.glue.CfnTable.OrderProperty.Builder)
+  ): software.amazon.awscdk.services.glue.CfnPartition.OrderProperty =
+    (new software.amazon.awscdk.services.glue.CfnPartition.OrderProperty.Builder)
       .sortOrder(sortOrder.orNull)
       .column(column.orNull)
       .build()

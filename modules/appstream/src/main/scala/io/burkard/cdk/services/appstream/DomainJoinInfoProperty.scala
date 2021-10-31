@@ -6,8 +6,8 @@ object DomainJoinInfoProperty {
   def apply(
     organizationalUnitDistinguishedName: Option[String] = None,
     directoryName: Option[String] = None
-  ): software.amazon.awscdk.services.appstream.CfnFleet.DomainJoinInfoProperty =
-    (new software.amazon.awscdk.services.appstream.CfnFleet.DomainJoinInfoProperty.Builder)
+  ): software.amazon.awscdk.services.appstream.CfnImageBuilder.DomainJoinInfoProperty =
+    (new software.amazon.awscdk.services.appstream.CfnImageBuilder.DomainJoinInfoProperty.Builder)
       .organizationalUnitDistinguishedName(organizationalUnitDistinguishedName.orNull)
       .directoryName(directoryName.orNull)
       .build()

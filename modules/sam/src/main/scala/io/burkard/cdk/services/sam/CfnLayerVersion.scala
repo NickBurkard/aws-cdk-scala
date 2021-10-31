@@ -12,8 +12,8 @@ object CfnLayerVersion {
     licenseInfo: Option[String] = None,
     retentionPolicy: Option[String] = None,
     layerName: Option[String] = None,
-    contentUri0: Option[String] = None,
-    contentUri1: Option[software.amazon.awscdk.services.sam.CfnLayerVersion.S3LocationProperty] = None
+    contentUri0: Option[software.amazon.awscdk.services.sam.CfnLayerVersion.S3LocationProperty] = None,
+    contentUri1: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sam.CfnLayerVersion =
     software.amazon.awscdk.services.sam.CfnLayerVersion.Builder
       .create(stackCtx, internalResourceId)

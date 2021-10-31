@@ -8,8 +8,8 @@ object ResourcePermissionProperty {
   def apply(
     principal: Option[String] = None,
     actions: Option[List[String]] = None
-  ): software.amazon.awscdk.services.quicksight.CfnDashboard.ResourcePermissionProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnDashboard.ResourcePermissionProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnTemplate.ResourcePermissionProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnTemplate.ResourcePermissionProperty.Builder)
       .principal(principal.orNull)
       .actions(actions.map(_.asJava).orNull)
       .build()

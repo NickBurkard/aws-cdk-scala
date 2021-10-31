@@ -8,8 +8,8 @@ object TagSpecificationProperty {
   def apply(
     resourceType: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
-  ): software.amazon.awscdk.services.ec2.CfnCapacityReservation.TagSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnCapacityReservation.TagSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.TagSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.TagSpecificationProperty.Builder)
       .resourceType(resourceType.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

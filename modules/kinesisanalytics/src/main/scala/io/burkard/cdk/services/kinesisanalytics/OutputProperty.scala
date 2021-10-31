@@ -5,12 +5,12 @@ object OutputProperty {
 
   def apply(
     name: Option[String] = None,
-    lambdaOutput: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.LambdaOutputProperty] = None,
-    kinesisStreamsOutput: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.KinesisStreamsOutputProperty] = None,
-    destinationSchema: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.DestinationSchemaProperty] = None,
-    kinesisFirehoseOutput: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.KinesisFirehoseOutputProperty] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.OutputProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.OutputProperty.Builder)
+    lambdaOutput: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.LambdaOutputProperty] = None,
+    kinesisStreamsOutput: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.KinesisStreamsOutputProperty] = None,
+    destinationSchema: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.DestinationSchemaProperty] = None,
+    kinesisFirehoseOutput: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.KinesisFirehoseOutputProperty] = None
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.OutputProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.OutputProperty.Builder)
       .name(name.orNull)
       .lambdaOutput(lambdaOutput.orNull)
       .kinesisStreamsOutput(kinesisStreamsOutput.orNull)

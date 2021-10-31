@@ -5,8 +5,8 @@ object HttpQueryParameterMatchProperty {
 
   def apply(
     exact: Option[String] = None
-  ): software.amazon.awscdk.services.appmesh.CfnRoute.HttpQueryParameterMatchProperty =
-    (new software.amazon.awscdk.services.appmesh.CfnRoute.HttpQueryParameterMatchProperty.Builder)
+  ): software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpQueryParameterMatchProperty =
+    (new software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpQueryParameterMatchProperty.Builder)
       .exact(exact.orNull)
       .build()
 }

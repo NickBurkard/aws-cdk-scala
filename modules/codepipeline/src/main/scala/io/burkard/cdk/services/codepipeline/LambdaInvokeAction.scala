@@ -7,6 +7,7 @@ object LambdaInvokeAction {
 
   def apply(
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
+    userParametersString: Option[String] = None,
     lambda: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     outputs: Option[List[_ <: software.amazon.awscdk.services.codepipeline.Artifact]] = None,
     variablesNamespace: Option[String] = None,
@@ -18,6 +19,7 @@ object LambdaInvokeAction {
     software.amazon.awscdk.services.codepipeline.actions.LambdaInvokeAction.Builder
       .create()
       .role(role.orNull)
+      .userParametersString(userParametersString.orNull)
       .lambda(lambda.orNull)
       .outputs(outputs.map(_.asJava).orNull)
       .variablesNamespace(variablesNamespace.orNull)

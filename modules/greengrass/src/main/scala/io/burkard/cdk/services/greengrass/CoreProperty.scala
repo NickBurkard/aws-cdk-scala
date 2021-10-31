@@ -8,8 +8,8 @@ object CoreProperty {
     id: Option[String] = None,
     thingArn: Option[String] = None,
     syncShadow: Option[Boolean] = None
-  ): software.amazon.awscdk.services.greengrass.CfnCoreDefinitionVersion.CoreProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnCoreDefinitionVersion.CoreProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnCoreDefinition.CoreProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnCoreDefinition.CoreProperty.Builder)
       .certificateArn(certificateArn.orNull)
       .id(id.orNull)
       .thingArn(thingArn.orNull)

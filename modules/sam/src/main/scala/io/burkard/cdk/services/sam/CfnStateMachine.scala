@@ -14,9 +14,9 @@ object CfnStateMachine {
     definitionUri0: Option[software.amazon.awscdk.services.sam.CfnStateMachine.S3LocationProperty] = None,
     definitionUri1: Option[String] = None,
     events: Option[Map[String, _]] = None,
-    policies0: Option[software.amazon.awscdk.services.sam.CfnStateMachine.IAMPolicyDocumentProperty] = None,
-    policies1: Option[List[_]] = None,
-    policies2: Option[String] = None,
+    policies0: Option[List[_]] = None,
+    policies1: Option[String] = None,
+    policies2: Option[software.amazon.awscdk.services.sam.CfnStateMachine.IAMPolicyDocumentProperty] = None,
     logging: Option[software.amazon.awscdk.services.sam.CfnStateMachine.LoggingConfigurationProperty] = None,
     definitionSubstitutions: Option[Map[String, String]] = None,
     permissionsBoundaries: Option[String] = None,
@@ -32,8 +32,8 @@ object CfnStateMachine {
       .definitionUri(definitionUri0.orNull)
       .definitionUri(definitionUri1.orNull)
       .events(events.map(_.asJava).orNull)
-      .policies(policies0.orNull)
-      .policies(policies1.map(_.asJava).orNull)
+      .policies(policies0.map(_.asJava).orNull)
+      .policies(policies1.orNull)
       .policies(policies2.orNull)
       .logging(logging.orNull)
       .definitionSubstitutions(definitionSubstitutions.map(_.asJava).orNull)

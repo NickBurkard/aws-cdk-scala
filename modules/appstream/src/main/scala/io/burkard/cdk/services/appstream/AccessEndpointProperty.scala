@@ -6,8 +6,8 @@ object AccessEndpointProperty {
   def apply(
     vpceId: Option[String] = None,
     endpointType: Option[String] = None
-  ): software.amazon.awscdk.services.appstream.CfnImageBuilder.AccessEndpointProperty =
-    (new software.amazon.awscdk.services.appstream.CfnImageBuilder.AccessEndpointProperty.Builder)
+  ): software.amazon.awscdk.services.appstream.CfnStack.AccessEndpointProperty =
+    (new software.amazon.awscdk.services.appstream.CfnStack.AccessEndpointProperty.Builder)
       .vpceId(vpceId.orNull)
       .endpointType(endpointType.orNull)
       .build()

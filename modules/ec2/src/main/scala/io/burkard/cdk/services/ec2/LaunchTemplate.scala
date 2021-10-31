@@ -13,7 +13,6 @@ object LaunchTemplate {
     nitroEnclaveEnabled: Option[Boolean] = None,
     instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     spotOptions: Option[software.amazon.awscdk.services.ec2.LaunchTemplateSpotOptions] = None,
-    cpuCredits: Option[software.amazon.awscdk.services.ec2.CpuCredits] = None,
     launchTemplateName: Option[String] = None,
     instanceInitiatedShutdownBehavior: Option[software.amazon.awscdk.services.ec2.InstanceInitiatedShutdownBehavior] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
@@ -21,6 +20,8 @@ object LaunchTemplate {
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     machineImage: Option[software.amazon.awscdk.services.ec2.IMachineImage] = None,
     userData: Option[software.amazon.awscdk.services.ec2.UserData] = None,
+    cpuCredits: Option[software.amazon.awscdk.services.ec2.CpuCredits] = None,
+    requireImdsv2: Option[Boolean] = None,
     keyName: Option[String] = None,
     detailedMonitoring: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.LaunchTemplate =
@@ -32,7 +33,6 @@ object LaunchTemplate {
       .nitroEnclaveEnabled(nitroEnclaveEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .instanceType(instanceType.orNull)
       .spotOptions(spotOptions.orNull)
-      .cpuCredits(cpuCredits.orNull)
       .launchTemplateName(launchTemplateName.orNull)
       .instanceInitiatedShutdownBehavior(instanceInitiatedShutdownBehavior.orNull)
       .securityGroup(securityGroup.orNull)
@@ -40,6 +40,8 @@ object LaunchTemplate {
       .role(role.orNull)
       .machineImage(machineImage.orNull)
       .userData(userData.orNull)
+      .cpuCredits(cpuCredits.orNull)
+      .requireImdsv2(requireImdsv2.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .keyName(keyName.orNull)
       .detailedMonitoring(detailedMonitoring.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()

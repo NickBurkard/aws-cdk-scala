@@ -1,5 +1,7 @@
 package io.burkard.cdk.codegen
 
+import java.nio.file.{Files, Path}
+
 import scala.jdk.CollectionConverters._
 
 import com.google.common.reflect.ClassPath
@@ -9,8 +11,8 @@ object Codegen {
     codegen()
 
   // Generate code for all AWS CDK services.
-  private[this] def codegen(): Unit =
-    ClassPath
+  private[this] def codegen(): Unit = {
+    val filesPerService = ClassPath
       .from(ClassLoader.getSystemClassLoader)
       .getAllClasses
       .asScala
@@ -44,7 +46,15 @@ object Codegen {
           }
       }
       .toList
-      // Generate code alphabetically per service.
+
+    val toGenerate = filesPerService.flatMap(_._2.map(_.path)).toSet
+    val toDelete = filesToDelete(toGenerate)
+    println(s"Deleting ${toDelete.size} files")
+    toDelete.foreach(Files.delete)
+
+    // Generate code alphabetically per service.
+    println(s"Generating ${toGenerate.size} files")
+    filesPerService
       .sortBy(_._1)
       .foreach { case (name, sourceFiles) =>
         println(name)
@@ -53,4 +63,27 @@ object Codegen {
           sourceFile.writeToSource()
         }
       }
+  }
+
+  // Files from previous CDK versions that are no longer needed.
+  private[this] def filesToDelete(generatedFiles: Set[Path]): Set[Path] =
+    localScalaFiles.diff(generatedFiles)
+
+  // Files we never want to delete.
+  private[this] val reservedFiles: Set[Path] =
+    Set(
+      Path.of("modules", "core/src/main/scala/io/burkard/cdk/package.scala".split('/'): _*),
+      Path.of("modules", "core/src/main/scala/io/burkard/cdk/App.scala".split('/'): _*),
+      Path.of("modules", "core/src/main/scala/io/burkard/cdk/Stack.scala".split('/'): _*)
+    )
+
+  // Local Scala files in this project, besides reserved files.
+  private[this] val localScalaFiles: Set[Path] =
+    Files
+      .walk(Path.of("modules"))
+      .toList
+      .asScala
+      .toSet
+      .filter(_.toString.endsWith(".scala"))
+      .diff(reservedFiles)
 }

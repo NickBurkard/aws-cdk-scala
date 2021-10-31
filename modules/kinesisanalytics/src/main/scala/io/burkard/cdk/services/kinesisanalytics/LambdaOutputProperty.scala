@@ -4,9 +4,11 @@ package io.burkard.cdk.services.kinesisanalytics
 object LambdaOutputProperty {
 
   def apply(
-    resourceArn: Option[String] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.LambdaOutputProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.LambdaOutputProperty.Builder)
+    resourceArn: Option[String] = None,
+    roleArn: Option[String] = None
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.LambdaOutputProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.LambdaOutputProperty.Builder)
       .resourceArn(resourceArn.orNull)
+      .roleArn(roleArn.orNull)
       .build()
 }

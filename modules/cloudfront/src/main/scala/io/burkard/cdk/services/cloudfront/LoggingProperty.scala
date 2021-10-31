@@ -5,12 +5,12 @@ object LoggingProperty {
 
   def apply(
     prefix: Option[String] = None,
-    enabled: Option[Boolean] = None,
-    bucket: Option[String] = None
-  ): software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.LoggingProperty =
-    (new software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.LoggingProperty.Builder)
+    bucket: Option[String] = None,
+    includeCookies: Option[Boolean] = None
+  ): software.amazon.awscdk.services.cloudfront.CfnDistribution.LoggingProperty =
+    (new software.amazon.awscdk.services.cloudfront.CfnDistribution.LoggingProperty.Builder)
       .prefix(prefix.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .bucket(bucket.orNull)
+      .includeCookies(includeCookies.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

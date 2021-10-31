@@ -9,8 +9,8 @@ object RouteSettingsProperty {
     dataTraceEnabled: Option[Boolean] = None,
     loggingLevel: Option[String] = None,
     throttlingRateLimit: Option[Number] = None
-  ): software.amazon.awscdk.services.apigatewayv2.CfnApiGatewayManagedOverrides.RouteSettingsProperty =
-    (new software.amazon.awscdk.services.apigatewayv2.CfnApiGatewayManagedOverrides.RouteSettingsProperty.Builder)
+  ): software.amazon.awscdk.services.apigatewayv2.CfnStage.RouteSettingsProperty =
+    (new software.amazon.awscdk.services.apigatewayv2.CfnStage.RouteSettingsProperty.Builder)
       .throttlingBurstLimit(throttlingBurstLimit.orNull)
       .detailedMetricsEnabled(detailedMetricsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .dataTraceEnabled(dataTraceEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

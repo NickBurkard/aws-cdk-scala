@@ -1,18 +1,18 @@
 package io.burkard.cdk.services.mediapackage
 
-import scala.jdk.CollectionConverters._
-
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object MssPackageProperty {
 
   def apply(
-    mssManifests: Option[List[_]] = None,
-    encryption: Option[software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.MssEncryptionProperty] = None,
+    streamSelection: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.StreamSelectionProperty] = None,
+    encryption: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.MssEncryptionProperty] = None,
+    manifestWindowSeconds: Option[Number] = None,
     segmentDurationSeconds: Option[Number] = None
-  ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.MssPackageProperty =
-    (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.MssPackageProperty.Builder)
-      .mssManifests(mssManifests.map(_.asJava).orNull)
+  ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.MssPackageProperty =
+    (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.MssPackageProperty.Builder)
+      .streamSelection(streamSelection.orNull)
       .encryption(encryption.orNull)
+      .manifestWindowSeconds(manifestWindowSeconds.orNull)
       .segmentDurationSeconds(segmentDurationSeconds.orNull)
       .build()
 }

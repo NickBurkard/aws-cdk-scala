@@ -8,8 +8,8 @@ object IntegerParameterProperty {
   def apply(
     name: Option[String] = None,
     values: Option[List[_ <: Number]] = None
-  ): software.amazon.awscdk.services.quicksight.CfnAnalysis.IntegerParameterProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnAnalysis.IntegerParameterProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnDashboard.IntegerParameterProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnDashboard.IntegerParameterProperty.Builder)
       .name(name.orNull)
       .values(values.map(_.asJava).orNull)
       .build()

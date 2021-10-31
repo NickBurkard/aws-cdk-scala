@@ -6,8 +6,8 @@ object RunAsProperty {
   def apply(
     gid: Option[Number] = None,
     uid: Option[Number] = None
-  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.RunAsProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.RunAsProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.RunAsProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.RunAsProperty.Builder)
       .gid(gid.orNull)
       .uid(uid.orNull)
       .build()

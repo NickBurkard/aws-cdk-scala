@@ -10,8 +10,9 @@ object StringParameter {
     description: Option[String] = None,
     stringValue: Option[String] = None,
     parameterName: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.ssm.ParameterType] = None,
-    allowedPattern: Option[String] = None
+    allowedPattern: Option[String] = None,
+    dataType: Option[software.amazon.awscdk.services.ssm.ParameterDataType] = None,
+    `type`: Option[software.amazon.awscdk.services.ssm.ParameterType] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ssm.StringParameter =
     software.amazon.awscdk.services.ssm.StringParameter.Builder
       .create(stackCtx, internalResourceId)
@@ -20,7 +21,8 @@ object StringParameter {
       .description(description.orNull)
       .stringValue(stringValue.orNull)
       .parameterName(parameterName.orNull)
-      .`type`(`type`.orNull)
       .allowedPattern(allowedPattern.orNull)
+      .dataType(dataType.orNull)
+      .`type`(`type`.orNull)
       .build()
 }

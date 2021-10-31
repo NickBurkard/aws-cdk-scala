@@ -116,6 +116,9 @@ object InstanceClass {
   case object MemoryIntensive1Extended
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.MEMORY_INTENSIVE_1_EXTENDED)
 
+  case object MemoryIntensive2Graviton2
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.MEMORY_INTENSIVE_2_GRAVITON2)
+
   case object MemoryIntensive2Graviton2NvmeDrive
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE)
 

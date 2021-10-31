@@ -5,8 +5,8 @@ object SOAProperty {
 
   def apply(
     ttl: Option[Number] = None
-  ): software.amazon.awscdk.services.servicediscovery.CfnPrivateDnsNamespace.SOAProperty =
-    (new software.amazon.awscdk.services.servicediscovery.CfnPrivateDnsNamespace.SOAProperty.Builder)
+  ): software.amazon.awscdk.services.servicediscovery.CfnPublicDnsNamespace.SOAProperty =
+    (new software.amazon.awscdk.services.servicediscovery.CfnPublicDnsNamespace.SOAProperty.Builder)
       .ttl(ttl.orNull)
       .build()
 }

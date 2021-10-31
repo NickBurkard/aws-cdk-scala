@@ -8,8 +8,8 @@ object LimitsProperty {
     maximumDuration: Option[Number] = None,
     total: Option[Number] = None,
     daily: Option[Number] = None
-  ): software.amazon.awscdk.services.pinpoint.CfnCampaign.LimitsProperty =
-    (new software.amazon.awscdk.services.pinpoint.CfnCampaign.LimitsProperty.Builder)
+  ): software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.LimitsProperty =
+    (new software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.LimitsProperty.Builder)
       .messagesPerSecond(messagesPerSecond.orNull)
       .maximumDuration(maximumDuration.orNull)
       .total(total.orNull)

@@ -6,8 +6,8 @@ object CSVMappingParametersProperty {
   def apply(
     recordRowDelimiter: Option[String] = None,
     recordColumnDelimiter: Option[String] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.CSVMappingParametersProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.CSVMappingParametersProperty.Builder)
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.CSVMappingParametersProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.CSVMappingParametersProperty.Builder)
       .recordRowDelimiter(recordRowDelimiter.orNull)
       .recordColumnDelimiter(recordColumnDelimiter.orNull)
       .build()

@@ -8,8 +8,8 @@ object SecretsManagerSecretResourceDataProperty {
   def apply(
     arn: Option[String] = None,
     additionalStagingLabelsToDownload: Option[List[String]] = None
-  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.SecretsManagerSecretResourceDataProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.Builder)
       .arn(arn.orNull)
       .additionalStagingLabelsToDownload(additionalStagingLabelsToDownload.map(_.asJava).orNull)
       .build()

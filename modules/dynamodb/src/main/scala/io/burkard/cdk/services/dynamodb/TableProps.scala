@@ -7,6 +7,7 @@ object TableProps {
 
   def apply(
     timeToLiveAttribute: Option[String] = None,
+    waitForReplicationToFinish: Option[Boolean] = None,
     partitionKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None,
     kinesisStream: Option[software.amazon.awscdk.services.kinesis.IStream] = None,
     pointInTimeRecovery: Option[Boolean] = None,
@@ -25,6 +26,7 @@ object TableProps {
   ): software.amazon.awscdk.services.dynamodb.TableProps =
     (new software.amazon.awscdk.services.dynamodb.TableProps.Builder)
       .timeToLiveAttribute(timeToLiveAttribute.orNull)
+      .waitForReplicationToFinish(waitForReplicationToFinish.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .partitionKey(partitionKey.orNull)
       .kinesisStream(kinesisStream.orNull)
       .pointInTimeRecovery(pointInTimeRecovery.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

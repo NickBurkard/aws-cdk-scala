@@ -7,6 +7,7 @@ object TableOptions {
 
   def apply(
     timeToLiveAttribute: Option[String] = None,
+    waitForReplicationToFinish: Option[Boolean] = None,
     partitionKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None,
     pointInTimeRecovery: Option[Boolean] = None,
     encryption: Option[software.amazon.awscdk.services.dynamodb.TableEncryption] = None,
@@ -23,6 +24,7 @@ object TableOptions {
   ): software.amazon.awscdk.services.dynamodb.TableOptions =
     (new software.amazon.awscdk.services.dynamodb.TableOptions.Builder)
       .timeToLiveAttribute(timeToLiveAttribute.orNull)
+      .waitForReplicationToFinish(waitForReplicationToFinish.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .partitionKey(partitionKey.orNull)
       .pointInTimeRecovery(pointInTimeRecovery.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .encryption(encryption.orNull)

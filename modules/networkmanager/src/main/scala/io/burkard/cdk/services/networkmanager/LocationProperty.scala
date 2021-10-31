@@ -7,8 +7,8 @@ object LocationProperty {
     latitude: Option[String] = None,
     longitude: Option[String] = None,
     address: Option[String] = None
-  ): software.amazon.awscdk.services.networkmanager.CfnSite.LocationProperty =
-    (new software.amazon.awscdk.services.networkmanager.CfnSite.LocationProperty.Builder)
+  ): software.amazon.awscdk.services.networkmanager.CfnDevice.LocationProperty =
+    (new software.amazon.awscdk.services.networkmanager.CfnDevice.LocationProperty.Builder)
       .latitude(latitude.orNull)
       .longitude(longitude.orNull)
       .address(address.orNull)
