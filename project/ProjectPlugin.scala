@@ -6,6 +6,8 @@ object ProjectPlugin extends AutoPlugin {
 
   override val trigger: PluginTrigger = AllRequirements
 
+  private[this] val `scala 2.12` = "2.12.15"
+
   private[this] val `scala 2.13` = "2.13.6"
 
   private[this] val `scala 3` = "3.1.0"
@@ -32,7 +34,7 @@ object ProjectPlugin extends AutoPlugin {
     homepage := Some(url("https://github.com/NickBurkard/aws-cdk-scala")),
     version := s"${Dependencies.Aws.cdkVersion}-0.1.0",
     scalaVersion := `scala 2.13`,
-    crossScalaVersions := Seq(`scala 2.13`, `scala 3`)
+    crossScalaVersions := Seq(`scala 2.12`, `scala 2.13`, `scala 3`)
   )
 
   object ThingsToAutoImport {

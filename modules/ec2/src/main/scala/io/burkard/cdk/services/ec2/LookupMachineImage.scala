@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.ec2
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object LookupMachineImage {
 
@@ -17,7 +18,7 @@ object LookupMachineImage {
       .name(name.orNull)
       .userData(userData.orNull)
       .owners(owners.map(_.asJava).orNull)
-      .filters(filters.map(_.view.mapValues(_.asJava).toMap.asJava).orNull)
+      .filters(filters.map(_.mapValues(_.asJava).toMap.asJava).orNull)
       .windows(windows.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

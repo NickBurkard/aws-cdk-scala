@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.lambda
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object ApiEventSource {
 
@@ -21,7 +22,7 @@ object ApiEventSource {
   ): software.amazon.awscdk.services.lambda.eventsources.ApiEventSource =
     software.amazon.awscdk.services.lambda.eventsources.ApiEventSource.Builder
       .create(method, path)
-      .requestParameters(requestParameters.map(_.view.mapValues(Boolean.box).toMap.asJava).orNull)
+      .requestParameters(requestParameters.map(_.mapValues(Boolean.box).toMap.asJava).orNull)
       .authorizationScopes(authorizationScopes.map(_.asJava).orNull)
       .authorizer(authorizer.orNull)
       .methodResponses(methodResponses.map(_.asJava).orNull)

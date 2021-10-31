@@ -1,13 +1,14 @@
 package io.burkard.cdk.services.sam
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object CfnHttpApiProps {
 
   def apply(
-    corsConfiguration0: Option[Boolean] = None,
-    corsConfiguration1: Option[software.amazon.awscdk.services.sam.CfnHttpApi.CorsConfigurationObjectProperty] = None,
+    corsConfiguration0: Option[software.amazon.awscdk.services.sam.CfnHttpApi.CorsConfigurationObjectProperty] = None,
+    corsConfiguration1: Option[Boolean] = None,
     defaultRouteSettings: Option[software.amazon.awscdk.services.sam.CfnHttpApi.RouteSettingsProperty] = None,
     domain: Option[software.amazon.awscdk.services.sam.CfnHttpApi.HttpApiDomainConfigurationProperty] = None,
     failOnWarnings: Option[Boolean] = None,
@@ -24,8 +25,8 @@ object CfnHttpApiProps {
     tags: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.sam.CfnHttpApiProps =
     (new software.amazon.awscdk.services.sam.CfnHttpApiProps.Builder)
-      .corsConfiguration(corsConfiguration0.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .corsConfiguration(corsConfiguration1.orNull)
+      .corsConfiguration(corsConfiguration0.orNull)
+      .corsConfiguration(corsConfiguration1.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .defaultRouteSettings(defaultRouteSettings.orNull)
       .domain(domain.orNull)
       .failOnWarnings(failOnWarnings.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

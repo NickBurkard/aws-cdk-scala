@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.apigateway
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object MethodResponse {
 
@@ -13,6 +14,6 @@ object MethodResponse {
     (new software.amazon.awscdk.services.apigateway.MethodResponse.Builder)
       .statusCode(statusCode.orNull)
       .responseModels(responseModels.map(_.asJava).orNull)
-      .responseParameters(responseParameters.map(_.view.mapValues(Boolean.box).toMap.asJava).orNull)
+      .responseParameters(responseParameters.map(_.mapValues(Boolean.box).toMap.asJava).orNull)
       .build()
 }

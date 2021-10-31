@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.ec2
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object ConfigSetProps {
 
@@ -11,6 +12,6 @@ object ConfigSetProps {
   ): software.amazon.awscdk.services.ec2.ConfigSetProps =
     (new software.amazon.awscdk.services.ec2.ConfigSetProps.Builder)
       .configs(configs.map(_.asJava).orNull)
-      .configSets(configSets.map(_.view.mapValues(_.asJava).toMap.asJava).orNull)
+      .configSets(configSets.map(_.mapValues(_.asJava).toMap.asJava).orNull)
       .build()
 }

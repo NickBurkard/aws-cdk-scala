@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object EksCallProps {
 
@@ -26,7 +27,7 @@ object EksCallProps {
       .resultPath(resultPath.orNull)
       .cluster(cluster.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .queryParameters(queryParameters.map(_.view.mapValues(_.asJava).toMap.asJava).orNull)
+      .queryParameters(queryParameters.map(_.mapValues(_.asJava).toMap.asJava).orNull)
       .heartbeat(heartbeat.orNull)
       .outputPath(outputPath.orNull)
       .comment(comment.orNull)

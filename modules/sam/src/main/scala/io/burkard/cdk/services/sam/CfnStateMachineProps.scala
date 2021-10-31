@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.sam
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object CfnStateMachineProps {
 
@@ -13,9 +14,9 @@ object CfnStateMachineProps {
     definitionUri0: Option[String] = None,
     definitionUri1: Option[software.amazon.awscdk.services.sam.CfnStateMachine.S3LocationProperty] = None,
     events: Option[Map[String, _]] = None,
-    policies0: Option[String] = None,
+    policies0: Option[software.amazon.awscdk.services.sam.CfnStateMachine.IAMPolicyDocumentProperty] = None,
     policies1: Option[List[_]] = None,
-    policies2: Option[software.amazon.awscdk.services.sam.CfnStateMachine.IAMPolicyDocumentProperty] = None,
+    policies2: Option[String] = None,
     logging: Option[software.amazon.awscdk.services.sam.CfnStateMachine.LoggingConfigurationProperty] = None,
     definitionSubstitutions: Option[Map[String, String]] = None,
     permissionsBoundaries: Option[String] = None,

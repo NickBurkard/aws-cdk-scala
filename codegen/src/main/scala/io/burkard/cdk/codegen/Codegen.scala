@@ -2,10 +2,12 @@ package io.burkard.cdk.codegen
 
 import java.nio.file.{Files, Path}
 
-import scala.jdk.CollectionConverters._
+import scala.annotation.nowarn
+import scala.collection.JavaConverters._
 
 import com.google.common.reflect.ClassPath
 
+@nowarn("cat=deprecation")
 object Codegen {
   def main(args: Array[String]): Unit =
     codegen()

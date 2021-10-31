@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.sam
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object CfnFunction {
 
@@ -16,8 +17,8 @@ object CfnFunction {
     fileSystemConfigs: Option[List[_]] = None,
     eventInvokeConfig: Option[software.amazon.awscdk.services.sam.CfnFunction.EventInvokeConfigProperty] = None,
     packageType: Option[String] = None,
-    codeUri0: Option[software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty] = None,
-    codeUri1: Option[String] = None,
+    codeUri0: Option[String] = None,
+    codeUri1: Option[software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty] = None,
     environment: Option[software.amazon.awscdk.services.sam.CfnFunction.FunctionEnvironmentProperty] = None,
     codeSigningConfigArn: Option[String] = None,
     imageConfig: Option[software.amazon.awscdk.services.sam.CfnFunction.ImageConfigProperty] = None,

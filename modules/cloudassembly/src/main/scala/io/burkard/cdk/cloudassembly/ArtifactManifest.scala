@@ -1,7 +1,8 @@
 package io.burkard.cdk.cloudassembly
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object ArtifactManifest {
 
@@ -23,7 +24,7 @@ object ArtifactManifest {
       .properties(properties2.orNull)
       .properties(properties3.orNull)
       .environment(environment.orNull)
-      .metadata(metadata.map(_.view.mapValues(_.asJava).toMap.asJava).orNull)
+      .metadata(metadata.map(_.mapValues(_.asJava).toMap.asJava).orNull)
       .`type`(`type`.orNull)
       .dependencies(dependencies.map(_.asJava).orNull)
       .build()

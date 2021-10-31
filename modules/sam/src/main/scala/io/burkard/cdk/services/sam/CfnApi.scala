@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.sam
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object CfnApi {
 
@@ -14,8 +15,8 @@ object CfnApi {
     binaryMediaTypes: Option[List[String]] = None,
     definitionBody: Option[AnyRef] = None,
     cacheClusterEnabled: Option[Boolean] = None,
-    cors0: Option[String] = None,
-    cors1: Option[software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty] = None,
+    cors0: Option[software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty] = None,
+    cors1: Option[String] = None,
     stageName: Option[String] = None,
     accessLogSetting: Option[software.amazon.awscdk.services.sam.CfnApi.AccessLogSettingProperty] = None,
     endpointConfiguration0: Option[String] = None,
@@ -28,8 +29,8 @@ object CfnApi {
     variables: Option[Map[String, String]] = None,
     gatewayResponses: Option[Map[String, String]] = None,
     methodSettings: Option[List[_]] = None,
-    definitionUri0: Option[String] = None,
-    definitionUri1: Option[software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty] = None,
+    definitionUri0: Option[software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty] = None,
+    definitionUri1: Option[String] = None,
     cacheClusterSize: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sam.CfnApi =
     software.amazon.awscdk.services.sam.CfnApi.Builder

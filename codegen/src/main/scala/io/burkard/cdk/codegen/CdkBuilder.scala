@@ -3,6 +3,8 @@ package io.burkard.cdk.codegen
 import java.lang.reflect.{Method, Modifier}
 import java.nio.file.{Path, Paths}
 
+import scala.annotation.nowarn
+
 import io.burkard.cdk.codegen.CdkBuilder.ConstructorType
 
 // Class instance builder provided by the CDK.
@@ -13,6 +15,7 @@ final case class CdkBuilder private(
   constructorType: CdkBuilder.ConstructorType,
   underlying: Class[_]
 ) {
+  @nowarn("cat=deprecation")
   // [0, N] field methods of the underlying builder. All are optional for the generated code.
   private[this] lazy val fieldMethods: List[FieldMethod] =
     underlying
@@ -25,7 +28,6 @@ final case class CdkBuilder private(
           .map(method.getName -> _)
       }
       .groupBy(_._1)
-      .view
       .mapValues(_.map(_._2))
       // Potentially rename shared field methods.
       .flatMap {
@@ -36,7 +38,7 @@ final case class CdkBuilder private(
               methodName,
               methodName,
               typeName,
-              optional = true
+              isOptional = true
             )
           )
 
@@ -48,7 +50,7 @@ final case class CdkBuilder private(
               s"$methodName$index",
               methodName,
               typeName,
-              optional = true
+              isOptional = true
             )
           }
       }
@@ -64,8 +66,7 @@ final case class CdkBuilder private(
   // `.builderMethodName(parameterName)`, potentially with Java conversions and / or default value.
   lazy val builderMethods: List[String] = fieldMethods.map(_.asBuilderMethod)
 
-  // Potential imports for the source file.
-  lazy val imports: String = {
+  private[this] lazy val requiresJavaConvertersImport: Boolean = {
     lazy val fieldMethodsRequireAsJava = fieldMethods.exists(_.requiresAsJava)
     lazy val createMethodsRequireAsJava = constructorType match {
       case CdkBuilder.ConstructorType.CreateParameters(createParameters) =>
@@ -75,13 +76,26 @@ final case class CdkBuilder private(
         false
     }
 
-    // Do we need to import Java converts?
-    if (fieldMethodsRequireAsJava || createMethodsRequireAsJava) {
-      "\nimport scala.jdk.CollectionConverters._\n"
+    fieldMethodsRequireAsJava || createMethodsRequireAsJava
+  }
+
+  // Potential imports for the source file.
+  // Do we need to import Java converts?
+  // TODO Switch to `scala.jdk.CollectionConverters._` after dropping Scala 2.12.
+  lazy val imports: String =
+    if (requiresJavaConvertersImport) {
+      "\nimport scala.collection.JavaConverters._\n"
     } else {
       ""
     }
-  }
+
+  // TODO Remove this after dropping Scala 2.12.
+  lazy val suppressDeprecation: String =
+    if (requiresJavaConvertersImport) {
+      "\n@scala.annotation.nowarn(\"cat=deprecation\")"
+    } else {
+      ""
+    }
 
   // What the apply method's signature looks like, based on constructor type.
   lazy val applyMethodSignature: String = constructorType match {
@@ -158,7 +172,7 @@ object CdkBuilder {
 
       override def gen(source: CdkBuilder): String =
         s"""package ${source.packageName}
-           |${source.imports}
+           |${source.imports}${source.suppressDeprecation}
            |@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
            |object ${source.instanceSimpleName} {
            |
@@ -225,7 +239,7 @@ object CdkBuilder {
                     field.getName,
                     field.getName,
                     field.getGenericType.getTypeName,
-                    optional = false
+                    isOptional = false
                   )
                 )
             )

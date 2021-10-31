@@ -1,7 +1,8 @@
 package io.burkard.cdk.core
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object CfnMappingProps {
 
@@ -11,6 +12,6 @@ object CfnMappingProps {
   ): software.amazon.awscdk.CfnMappingProps =
     (new software.amazon.awscdk.CfnMappingProps.Builder)
       .`lazy`(`lazy`.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .mapping(mapping.map(_.view.mapValues(_.asJava).toMap.asJava).orNull)
+      .mapping(mapping.map(_.mapValues(_.asJava).toMap.asJava).orNull)
       .build()
 }

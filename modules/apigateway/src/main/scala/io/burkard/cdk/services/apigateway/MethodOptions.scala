@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.apigateway
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object MethodOptions {
 
@@ -18,7 +19,7 @@ object MethodOptions {
     apiKeyRequired: Option[Boolean] = None
   ): software.amazon.awscdk.services.apigateway.MethodOptions =
     (new software.amazon.awscdk.services.apigateway.MethodOptions.Builder)
-      .requestParameters(requestParameters.map(_.view.mapValues(Boolean.box).toMap.asJava).orNull)
+      .requestParameters(requestParameters.map(_.mapValues(Boolean.box).toMap.asJava).orNull)
       .authorizationScopes(authorizationScopes.map(_.asJava).orNull)
       .authorizer(authorizer.orNull)
       .methodResponses(methodResponses.map(_.asJava).orNull)

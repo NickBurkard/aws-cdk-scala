@@ -14,9 +14,12 @@ Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-wit
 
 | Version | Supported? |
 | --- | --- |
-| <= 2.12 | ❌ |
+| <= 2.11 | ❌ |
+| 2.12 | ✔️|
 | 2.13 | ✔️|
 | 3 | ✔️|
+
+Anything <= 2.11 will **not** be supported. Please do not ask or submit PRs for those versions.
 
 ### Requirements
 

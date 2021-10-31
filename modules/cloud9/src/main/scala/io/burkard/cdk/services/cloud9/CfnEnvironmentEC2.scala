@@ -1,7 +1,8 @@
 package io.burkard.cdk.services.cloud9
 
-import scala.jdk.CollectionConverters._
+import scala.collection.JavaConverters._
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
 object CfnEnvironmentEC2 {
 

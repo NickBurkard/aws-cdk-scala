@@ -7,10 +7,10 @@ final case class FieldMethod private[codegen](
   parameterName: String,
   methodName: String,
   typeName: String,
-  optional: Boolean
+  isOptional: Boolean
 ) {
   lazy val asTypeAnnotatedParameter: String =
-    if (optional) {
+    if (isOptional) {
       s"$actualParameterName: Option[$fullTypeName] = None"
     } else {
       s"$actualParameterName: $fullTypeName"
@@ -26,9 +26,9 @@ final case class FieldMethod private[codegen](
   lazy val requiresBooleanBoxing: Boolean = typeName.contains("java.lang.Boolean")
 
   lazy val defaultValue: String =
-    if (optional && typeName == "java.lang.Boolean") {
+    if (isOptional && typeName == "java.lang.Boolean") {
       ".getOrElse(java.lang.Boolean.FALSE)"
-    } else if (optional) {
+    } else if (isOptional) {
       ".orNull"
     } else {
       ""
@@ -40,12 +40,12 @@ final case class FieldMethod private[codegen](
         fullTypeName.indexOf("Map[") != fullTypeName.lastIndexOf("Map[") ||
           fullTypeName.contains("Map[") && fullTypeName.indexOf("Map[") < fullTypeName.lastIndexOf("List[")
       ) {
-        ".view.mapValues(_.asJava).toMap.asJava"
+        ".mapValues(_.asJava).toMap.asJava"
       } else if (
         fullTypeName.contains("Map[") &&
           fullTypeName.indexOf("Map[") < fullTypeName.lastIndexOf("Boolean")
       ) {
-        ".view.mapValues(Boolean.box).toMap.asJava"
+        ".mapValues(Boolean.box).toMap.asJava"
       } else if (
         fullTypeName.contains("List[") && (
           fullTypeName.indexOf("List[") < fullTypeName.indexOf("Map[") ||
@@ -57,12 +57,12 @@ final case class FieldMethod private[codegen](
         ".asJava"
       }
 
-      if (optional) {
+      if (isOptional) {
         s".map(_$base)"
       } else {
         base
       }
-    } else if (optional && requiresBooleanBoxing) {
+    } else if (isOptional && requiresBooleanBoxing) {
       ".map(Boolean.box)"
     } else {
       ""
@@ -85,9 +85,11 @@ object FieldMethod {
       underlying.getGenericParameterTypes.toList match {
         // Must not be `IResolvable` from JSII.
         case value :: Nil =>
-          Option.when(value.getTypeName != "software.amazon.awscdk.IResolvable")(
-            value.getTypeName.replaceAll("\\$", ".")
-          )
+          if (value.getTypeName != "software.amazon.awscdk.IResolvable") {
+            Some(value.getTypeName.replaceAll("\\$", "."))
+          } else {
+            None
+          }
 
         case _ =>
           None
