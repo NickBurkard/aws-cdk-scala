@@ -1,6 +1,6 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object TargetDescriptionProperty {
 
   def apply(

@@ -173,7 +173,7 @@ object CdkBuilder {
       override def gen(source: CdkBuilder): String =
         s"""package ${source.packageName}
            |${source.imports}${source.suppressDeprecation}
-           |@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+           |@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
            |object ${source.instanceSimpleName} {
            |
            |  ${source.applyMethodSignature} =

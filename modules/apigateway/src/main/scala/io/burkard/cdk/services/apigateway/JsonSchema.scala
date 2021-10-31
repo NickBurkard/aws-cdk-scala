@@ -3,7 +3,7 @@ package io.burkard.cdk.services.apigateway
 import scala.collection.JavaConverters._
 
 @scala.annotation.nowarn("cat=deprecation")
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object JsonSchema {
 
   def apply(
@@ -11,8 +11,8 @@ object JsonSchema {
     additionalItems: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     id: Option[String] = None,
     exclusiveMinimum: Option[Boolean] = None,
-    additionalProperties0: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
-    additionalProperties1: Option[Boolean] = None,
+    additionalProperties0: Option[Boolean] = None,
+    additionalProperties1: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
     allOf: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     exclusiveMaximum: Option[Boolean] = None,
     format: Option[String] = None,
@@ -53,8 +53,8 @@ object JsonSchema {
       .additionalItems(additionalItems.map(_.asJava).orNull)
       .id(id.orNull)
       .exclusiveMinimum(exclusiveMinimum.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .additionalProperties(additionalProperties0.orNull)
-      .additionalProperties(additionalProperties1.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .additionalProperties(additionalProperties0.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .additionalProperties(additionalProperties1.orNull)
       .allOf(allOf.map(_.asJava).orNull)
       .exclusiveMaximum(exclusiveMaximum.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .format(format.orNull)

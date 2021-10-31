@@ -1,6 +1,6 @@
 package io.burkard.cdk.services.ecs
 
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object DeploymentConfigurationProperty {
 
   def apply(

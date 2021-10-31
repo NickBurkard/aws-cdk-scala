@@ -3,7 +3,7 @@ package io.burkard.cdk.services.sam
 import scala.collection.JavaConverters._
 
 @scala.annotation.nowarn("cat=deprecation")
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object CfnFunctionProps {
 
   def apply(
@@ -16,16 +16,16 @@ object CfnFunctionProps {
     fileSystemConfigs: Option[List[_]] = None,
     eventInvokeConfig: Option[software.amazon.awscdk.services.sam.CfnFunction.EventInvokeConfigProperty] = None,
     packageType: Option[String] = None,
-    codeUri0: Option[String] = None,
-    codeUri1: Option[software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty] = None,
+    codeUri0: Option[software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty] = None,
+    codeUri1: Option[String] = None,
     environment: Option[software.amazon.awscdk.services.sam.CfnFunction.FunctionEnvironmentProperty] = None,
     codeSigningConfigArn: Option[String] = None,
     imageConfig: Option[software.amazon.awscdk.services.sam.CfnFunction.ImageConfigProperty] = None,
     timeout: Option[Number] = None,
     handler: Option[String] = None,
     policies0: Option[List[_]] = None,
-    policies1: Option[software.amazon.awscdk.services.sam.CfnFunction.IAMPolicyDocumentProperty] = None,
-    policies2: Option[String] = None,
+    policies1: Option[String] = None,
+    policies2: Option[software.amazon.awscdk.services.sam.CfnFunction.IAMPolicyDocumentProperty] = None,
     tags: Option[Map[String, String]] = None,
     permissionsBoundary: Option[String] = None,
     description: Option[String] = None,

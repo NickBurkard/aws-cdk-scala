@@ -3,7 +3,7 @@ package io.burkard.cdk.services.sam
 import scala.collection.JavaConverters._
 
 @scala.annotation.nowarn("cat=deprecation")
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object CfnApi {
 
   def apply(
@@ -29,8 +29,8 @@ object CfnApi {
     variables: Option[Map[String, String]] = None,
     gatewayResponses: Option[Map[String, String]] = None,
     methodSettings: Option[List[_]] = None,
-    definitionUri0: Option[software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty] = None,
-    definitionUri1: Option[String] = None,
+    definitionUri0: Option[String] = None,
+    definitionUri1: Option[software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty] = None,
     cacheClusterSize: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sam.CfnApi =
     software.amazon.awscdk.services.sam.CfnApi.Builder

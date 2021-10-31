@@ -1,6 +1,6 @@
 package io.burkard.cdk.services.backup
 
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object CfnBackupSelectionProps {
 
   def apply(

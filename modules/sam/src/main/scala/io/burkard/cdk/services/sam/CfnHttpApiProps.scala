@@ -3,7 +3,7 @@ package io.burkard.cdk.services.sam
 import scala.collection.JavaConverters._
 
 @scala.annotation.nowarn("cat=deprecation")
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object CfnHttpApiProps {
 
   def apply(
@@ -16,8 +16,8 @@ object CfnHttpApiProps {
     stageName: Option[String] = None,
     disableExecuteApiEndpoint: Option[Boolean] = None,
     accessLogSetting: Option[software.amazon.awscdk.services.sam.CfnHttpApi.AccessLogSettingProperty] = None,
-    definitionUri0: Option[software.amazon.awscdk.services.sam.CfnHttpApi.S3LocationProperty] = None,
-    definitionUri1: Option[String] = None,
+    definitionUri0: Option[String] = None,
+    definitionUri1: Option[software.amazon.awscdk.services.sam.CfnHttpApi.S3LocationProperty] = None,
     stageVariables: Option[Map[String, String]] = None,
     auth: Option[software.amazon.awscdk.services.sam.CfnHttpApi.HttpApiAuthProperty] = None,
     routeSettings: Option[software.amazon.awscdk.services.sam.CfnHttpApi.RouteSettingsProperty] = None,

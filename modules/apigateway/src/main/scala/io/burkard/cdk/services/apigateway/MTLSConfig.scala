@@ -1,6 +1,6 @@
 package io.burkard.cdk.services.apigateway
 
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object MTLSConfig {
 
   def apply(

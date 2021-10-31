@@ -1,6 +1,6 @@
 package io.burkard.cdk.services.route53recoverycontrol
 
-@SuppressWarnings(Array("org.wartremover.warts.Any", "org.wartremover.warts.Null"))
+@SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object CfnCluster {
 
   def apply(
