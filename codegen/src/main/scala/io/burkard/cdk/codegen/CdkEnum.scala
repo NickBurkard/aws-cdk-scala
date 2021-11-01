@@ -7,7 +7,7 @@ import scala.util.Try
 import com.google.common.base.CaseFormat
 
 // Enum provided by the CDK.
-final case class CdkEnum private(
+final case class CdkEnum private[codegen](
   serviceName: String,
   instanceCanonicalName: String,
   instanceSimpleName: String,
