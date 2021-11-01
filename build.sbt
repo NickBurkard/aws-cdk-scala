@@ -191,6 +191,7 @@ lazy val codegen = project
 lazy val example = project
   .dependsOn(
     core,
+    kinesisanalytics,
     s3
   )
   .withCdk()

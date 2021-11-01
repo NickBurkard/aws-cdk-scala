@@ -55,20 +55,61 @@ libraryDependencies ++= Seq(
 Create a CDK app in some sbt module.
 
 ```scala
+package io.burkard.cdk.example
+
 import io.burkard.cdk._
+import io.burkard.cdk.core.CfnTag
+import io.burkard.cdk.services.kinesisanalytics._
 import io.burkard.cdk.services.s3._
 
 object ExampleApp extends App {
-  val exampleStack: Stack = Stack(id = Some("example-stack")) { implicit stackCtx =>
-    Bucket(
-      internalResourceId = "my-bucket",
+  private[this] val env = "dev"
+  private[this] val region = "us-east-1"
+
+  Stack(id = Some("ExampleStack")) { implicit stackCtx =>
+    val bucket = Bucket(
+      internalResourceId = "Code",
       accessControl = Some(BucketAccessControl.Private),
       enforceSsl = Some(true),
       encryption = Some(BucketEncryption.S3Managed),
       versioned = Some(true)
     )
+
+    CfnApplicationV2(
+      internalResourceId = "Runtime",
+      tags = Some(
+        List(
+          CfnTag(key = Some("env"), value = Some(env)),
+          CfnTag(key = Some("region"), value = Some(region))
+        )
+      ),
+      applicationName = Some(s"prefix-$env-app-name-$region"),
+      applicationConfiguration = Some(
+        ApplicationConfigurationProperty(
+          applicationCodeConfiguration = Some(
+            ApplicationCodeConfigurationProperty(
+              codeContent = Some(
+                CodeContentProperty(
+                  s3ContentLocation = Some(
+                    S3ContentLocationProperty(
+                      fileKey = Some("code-key-in-s3"),
+                      bucketArn = Some(bucket.getBucketArn),
+                      objectVersion = Some("code-version")
+                    )
+                  )
+                )
+              ),
+              codeContentType = Some("ZIPFILE")
+            )
+          )
+        )
+      ),
+      serviceExecutionRole = Some("arn:example-role"),
+      runtimeEnvironment = Some("FLINK-1_13")
+    )
   }
 }
+
 ```
 
 #### CDK
@@ -91,7 +132,7 @@ The result is a synthesized CloudFormation template.
 
 ```yaml
 Resources:
-  mybucket15D133BF:
+  Code5B760EEF:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
@@ -104,12 +145,12 @@ Resources:
     UpdateReplacePolicy: Retain
     DeletionPolicy: Retain
     Metadata:
-      aws:cdk:path: example-stack/my-bucket/Resource
-  mybucketPolicy4F66A877:
+      aws:cdk:path: ExampleStack/Code/Resource
+  CodePolicyAA48735C:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket:
-        Ref: mybucket15D133BF
+        Ref: Code5B760EEF
       PolicyDocument:
         Statement:
           - Action: s3:*
@@ -121,15 +162,41 @@ Resources:
               AWS: "*"
             Resource:
               - Fn::GetAtt:
-                  - mybucket15D133BF
+                  - Code5B760EEF
                   - Arn
               - Fn::Join:
                   - ""
                   - - Fn::GetAtt:
-                        - mybucket15D133BF
+                        - Code5B760EEF
                         - Arn
                     - /*
         Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: ExampleStack/Code/Policy/Resource
+  Runtime:
+    Type: AWS::KinesisAnalyticsV2::Application
+    Properties:
+      RuntimeEnvironment: FLINK-1_13
+      ServiceExecutionRole: arn:example-role
+      ApplicationConfiguration:
+        ApplicationCodeConfiguration:
+          CodeContent:
+            S3ContentLocation:
+              BucketARN:
+                Fn::GetAtt:
+                  - Code5B760EEF
+                  - Arn
+              FileKey: code-key-in-s3
+              ObjectVersion: code-version
+          CodeContentType: ZIPFILE
+      ApplicationName: prefix-dev-app-name-us-east-1
+      Tags:
+        - Key: env
+          Value: dev
+        - Key: region
+          Value: us-east-1
+    Metadata:
+      aws:cdk:path: ExampleStack/Runtime
 ```
 
 ### Limitations
