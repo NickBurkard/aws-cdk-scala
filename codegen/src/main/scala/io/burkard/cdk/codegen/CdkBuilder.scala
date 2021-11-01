@@ -8,7 +8,7 @@ import scala.annotation.nowarn
 import io.burkard.cdk.codegen.CdkBuilder.ConstructorType
 
 // Class instance builder provided by the CDK.
-final case class CdkBuilder private(
+final case class CdkBuilder private[codegen](
   serviceName: String,
   instanceCanonicalName: String,
   instanceSimpleName: String,
