@@ -11,12 +11,8 @@ jobs:
     name: Build & Test
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        java:
-          - amazon-corretto@1.11.0-11.9.1
-          - amazon-corretto@1.17.0-0.35.1
         scala: [2.12.15, 2.13.6, 3.1.0]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,7 +20,7 @@ jobs:
       - name: Setup Java and Scala
         uses: olafurpg/setup-scala@v13
         with:
-          java-version: ${{ matrix.java }}
+          java-version: amazon-corretto@1.17.0-0.35.1
 
       - name: Cache sbt
         uses: actions/cache@v2
