@@ -5,7 +5,7 @@ import software.amazon.awscdk.services.cloudwatch.CfnDashboardProps
 import software.amazon.awscdk.services.ec2.Connections
 import software.amazon.awscdk.services.route53.CaaRecord
 
-object TestFixtures {
+object CdkBuilderTestFixtures {
   object Valid {
     val contextAndIdServiceName: String = "route53"
 

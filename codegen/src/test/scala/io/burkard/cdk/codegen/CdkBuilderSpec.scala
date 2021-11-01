@@ -5,7 +5,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
 
 class CdkBuilderSpec extends AnyFlatSpec with Matchers with OptionValues {
-  import TestFixtures.Valid._
+  import CdkBuilderTestFixtures.Valid._
 
   it should "support a builder using `create` with context and ID" in {
     CdkBuilder
