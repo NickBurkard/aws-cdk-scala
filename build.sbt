@@ -1,3 +1,19 @@
+inThisBuild(
+  List(
+    organization := "io.burkard",
+    homepage := Some(url("https://github.com/NickBurkard/aws-cdk-scala")),
+    licenses := List("Apache 2" -> url("https://github.com/NickBurkard/aws-cdk-scala/blob/master/LICENSE.txt")),
+    developers := List(
+      Developer(
+        "NickBurkard",
+        "Nick Burkard",
+        "burkard.foss@gmail.com",
+        url("https://burkard.io")
+      )
+    ),
+  )
+)
+
 lazy val awsCdkScala = project
   .in(file("."))
   .aggregate(
