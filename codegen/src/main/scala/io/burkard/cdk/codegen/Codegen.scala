@@ -83,7 +83,7 @@ object Codegen {
   private[this] val localScalaFiles: Set[Path] =
     Files
       .walk(Path.of("modules"))
-      .toList
+      .iterator()
       .asScala
       .toSet
       .filter(_.toString.endsWith(".scala"))
