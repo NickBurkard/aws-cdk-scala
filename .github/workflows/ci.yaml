@@ -13,9 +13,9 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         java:
-          - adoptium@8
-          - adoptium@11
-          - adoptium@17
+          - amazon-corretto@1.8.292-10.1
+          - amazon-corretto@1.11.0-11.9.1
+          - amazon-corretto@1.17.0-0.35.1
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
