@@ -1,4 +1,12 @@
-# aws-cdk-scala
+# AWS CDK Scala
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Limitations](#limitations)
+- [Acknowledgements](#acknowledgements)
+
+# Overview
 
 Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-v2.html).
 
@@ -6,7 +14,7 @@ Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-wit
 
 - Pass around app & stack [scope](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html) implicitly.
 - Avoid using Java concepts.
-  * No `Builder` syntax.
+  * No builder syntax.
   * ADTs instead of enums.
   * Scala collections (i.e. `List` & `Map`).
 
@@ -21,21 +29,21 @@ Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-wit
 
 Anything <= 2.11 will **not** be supported. Please do not ask or submit PRs for those versions.
 
-### Requirements
+# Installation
 
-For synthesizing CloudFormation templates, you must install v2 of the CDK CLI.
+### CDK CLI
+
+You must install v2 of the [CDK CLI](https://docs.aws.amazon.com/cdk/latest/guide/cli.html)
+to synthesize CloudFormation templates.
 
 ```bash
 # Note `@next`, this installs v2.
 npm install -g aws-cdk@next
 ```
 
-### Installation
+### Library
 
-I need to actually publish these artifacts first.
-
-Please refer to [mvn](https://mvnrepository.com/artifact/software.amazon.awscdk/aws-cdk-lib)
-for the actual version number of `aws-cdk-lib`.
+Libraries are published for each AWS service, plus a `core` library for shared resources.
 
 ```scala
 val cdkLibVersion = "2.0.0-rc.27"
@@ -48,11 +56,11 @@ libraryDependencies ++= Seq(
 )
 ```
 
-### Example
+# Usage
 
-#### Scala
+### Scala
 
-Create a CDK app within a module of the project.
+Create a CDK app within a module of your project.
 
 ```scala
 package io.burkard.cdk.example
@@ -112,9 +120,9 @@ object ExampleApp extends App {
 
 ```
 
-#### CDK
+### CDK Configuration
 
-Create a `cdk.json` file at the root of your sbt project.
+Create a `cdk.json` file at the root of your project, specifying the command to run your CDK app.
 
 ```json
 {
@@ -122,13 +130,15 @@ Create a `cdk.json` file at the root of your sbt project.
 }
 ```
 
-Synthesize the application into YAML.
+### Synthesis
+
+Synthesize the application.
 
 ```bash
 cdk synth
 ```
 
-The result is a synthesized CloudFormation template.
+The result is a CloudFormation template in YAML.
 
 ```yaml
 Resources:
@@ -199,21 +209,11 @@ Resources:
       aws:cdk:path: ExampleStack/Runtime
 ```
 
-### Limitations
+# Limitations
 
 - Builders which use overloading for optional parameters (same name but different types)
 are represented as `paramName0`, `paramName1`, etc..
 
-### Updates
-
-When a new version of the CDK is published by AWS:
-
-1. Create a new branch for the new CDK version.
-2. Update the CDK version in `project/Dependencies.scala`.
-3. Run `Codegen.scala` in the `codegen` module.
-4. Add any new files & commit changes.
-5. Open a PR & merge after approved.
-
-### Thanks
+# Acknowledgements
 
 - Inspired by [AWS CDK Kotlin DSL](https://github.com/Semantic-Configuration/AWS-CDK-Kotlin-DSL).

@@ -12,4 +12,6 @@ object Dependencies {
   object Google {
     val guava: ModuleID = "com.google.guava" % "guava" % "31.0.1-jre"
   }
+
+  val scalatest: ModuleID = "org.scalatest" %% "scalatest" % "3.2.10"
 }

@@ -186,6 +186,7 @@ lazy val awsCdkScala = project
 lazy val codegen = project
   .withCdk()
   .withGuava()
+  .withScalatest()
   .disablePublishing()
 
 lazy val example = project

@@ -32,7 +32,6 @@ object ProjectPlugin extends AutoPlugin {
     description := "Scala DSL for AWS CDK v2",
     licenses := List("Apache 2" -> url("https://github.com/NickBurkard/aws-cdk-scala/blob/master/LICENSE.txt")),
     homepage := Some(url("https://github.com/NickBurkard/aws-cdk-scala")),
-    version := s"${Dependencies.Aws.cdkVersion}-0.1.0",
     scalaVersion := `scala 2.13`,
     crossScalaVersions := Seq(`scala 2.12`, `scala 2.13`, `scala 3`)
   )
@@ -51,6 +50,9 @@ object ProjectPlugin extends AutoPlugin {
 
       def withGuava(): Project =
         project.settings(libraryDependencies += Dependencies.Google.guava)
+
+      def withScalatest(): Project =
+        project.settings(libraryDependencies += Dependencies.scalatest)
 
       def disablePublishing(): Project =
         project.settings(
