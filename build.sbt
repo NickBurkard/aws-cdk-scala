@@ -11,6 +11,7 @@ inThisBuild(
         url("https://burkard.io")
       )
     ),
+    sonatypeCredentialHost := Sonatype.sonatype01
   )
 )
 
