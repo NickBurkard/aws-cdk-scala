@@ -52,7 +52,7 @@ libraryDependencies ++= Seq(
 
 #### Scala
 
-Create a CDK app in some sbt module.
+Create a CDK app within a module of the project.
 
 ```scala
 package io.burkard.cdk.example
