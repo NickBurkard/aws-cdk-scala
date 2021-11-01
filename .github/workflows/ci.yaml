@@ -15,6 +15,7 @@ jobs:
         java:
           - amazon-corretto@1.11.0-11.9.1
           - amazon-corretto@1.17.0-0.35.1
+        scala: [2.12.15, 2.13.6, 3.1.0]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
@@ -38,4 +39,4 @@ jobs:
           key: ${{ runner.os }}-sbt-cache-v2-${{ hashFiles('**/*.sbt') }}-${{ hashFiles('project/build.properties') }}
 
       - name: Run tests
-        run: sbt +test
+        run: sbt "++ ${{ matrix.scala }}; test"
