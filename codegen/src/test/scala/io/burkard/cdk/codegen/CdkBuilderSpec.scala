@@ -30,4 +30,10 @@ class CdkBuilderSpec extends AnyFlatSpec with Matchers with OptionValues {
       .build(directConstructorServiceName, directConstructorBuilderClass)
       .value mustBe directConstructorCdkBuilder
   }
+
+  it should "reject a non-builder class" in {
+    import CdkBuilderTestFixtures.Invalid._
+
+    CdkBuilder.build(invalidServiceName, invalidClass) mustBe None
+  }
 }

@@ -78,4 +78,10 @@ object CdkBuilderTestFixtures {
         underlying = directConstructorBuilderClass
       )
   }
+
+  object Invalid {
+    val invalidServiceName: String = "core"
+
+    val invalidClass: Class[Tag] = classOf[Tag]
+  }
 }
