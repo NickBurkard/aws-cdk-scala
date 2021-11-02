@@ -18,6 +18,12 @@ Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-wit
   * ADTs instead of enums.
   * Scala collections (i.e. `List` & `Map`).
 
+### Disclaimer
+
+This library solely provides a lightweight DSL over the AWS CDK using metaprogramming.
+Please refer to the underlying types from the AWS CDK along with the associated CloudFormation types
+for official & up-to-date service documentation.
+
 ### Scala Support
 
 | Version | Supported? |
@@ -117,7 +123,6 @@ object ExampleApp extends App {
     )
   }
 }
-
 ```
 
 ### CDK Configuration
