@@ -234,14 +234,14 @@ object CdkBuilder {
                 .getDeclaredFields
                 .toList
                 .filterNot(_.getType.getName.contains("Builder"))
-                .map( field =>
+                .map { field =>
                   FieldMethod(
                     field.getName,
                     field.getName,
                     field.getGenericType.getTypeName,
                     isOptional = false
                   )
-                )
+                }
             )
           } else {
             ConstructorType.CreateNoParameters
