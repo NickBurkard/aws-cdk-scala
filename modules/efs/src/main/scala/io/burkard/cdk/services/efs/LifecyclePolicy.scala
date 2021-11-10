@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.efs
 
+
 sealed abstract class LifecyclePolicy(val underlying: software.amazon.awscdk.services.efs.LifecyclePolicy)
   extends Product
     with Serializable
+
 
 object LifecyclePolicy {
   implicit def toAws(value: LifecyclePolicy): software.amazon.awscdk.services.efs.LifecyclePolicy =

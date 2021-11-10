@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class SpotRequestType(val underlying: software.amazon.awscdk.services.ec2.SpotRequestType)
   extends Product
     with Serializable
+
 
 object SpotRequestType {
   implicit def toAws(value: SpotRequestType): software.amazon.awscdk.services.ec2.SpotRequestType =

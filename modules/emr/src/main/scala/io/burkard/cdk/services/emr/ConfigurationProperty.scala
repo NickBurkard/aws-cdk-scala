@@ -10,8 +10,8 @@ object ConfigurationProperty {
     configurationProperties: Option[Map[String, String]] = None,
     configurations: Option[List[_]] = None,
     classification: Option[String] = None
-  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ConfigurationProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnCluster.ConfigurationProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.ConfigurationProperty.Builder)
       .configurationProperties(configurationProperties.map(_.asJava).orNull)
       .configurations(configurations.map(_.asJava).orNull)
       .classification(classification.orNull)

@@ -1,8 +1,10 @@
 package io.burkard.cdk.core
 
+
 sealed abstract class CfnDynamicReferenceService(val underlying: software.amazon.awscdk.CfnDynamicReferenceService)
   extends Product
     with Serializable
+
 
 object CfnDynamicReferenceService {
   implicit def toAws(value: CfnDynamicReferenceService): software.amazon.awscdk.CfnDynamicReferenceService =

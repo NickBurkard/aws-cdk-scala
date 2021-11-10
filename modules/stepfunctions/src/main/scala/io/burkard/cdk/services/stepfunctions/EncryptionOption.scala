@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class EncryptionOption(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.EncryptionOption)
   extends Product
     with Serializable
+
 
 object EncryptionOption {
   implicit def toAws(value: EncryptionOption): software.amazon.awscdk.services.stepfunctions.tasks.EncryptionOption =

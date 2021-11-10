@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class EbsBlockDeviceVolumeType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EbsBlockDeviceVolumeType)
   extends Product
     with Serializable
+
 
 object EbsBlockDeviceVolumeType {
   implicit def toAws(value: EbsBlockDeviceVolumeType): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EbsBlockDeviceVolumeType =

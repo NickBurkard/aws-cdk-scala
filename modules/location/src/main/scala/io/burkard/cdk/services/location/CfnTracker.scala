@@ -6,6 +6,7 @@ object CfnTracker {
   def apply(
     internalResourceId: String,
     description: Option[String] = None,
+    positionFiltering: Option[String] = None,
     trackerName: Option[String] = None,
     pricingPlanDataSource: Option[String] = None,
     kmsKeyId: Option[String] = None,
@@ -14,6 +15,7 @@ object CfnTracker {
     software.amazon.awscdk.services.location.CfnTracker.Builder
       .create(stackCtx, internalResourceId)
       .description(description.orNull)
+      .positionFiltering(positionFiltering.orNull)
       .trackerName(trackerName.orNull)
       .pricingPlanDataSource(pricingPlanDataSource.orNull)
       .kmsKeyId(kmsKeyId.orNull)

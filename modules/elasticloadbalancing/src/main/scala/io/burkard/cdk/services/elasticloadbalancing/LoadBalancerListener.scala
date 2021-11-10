@@ -11,6 +11,7 @@ object LoadBalancerListener {
     internalProtocol: Option[software.amazon.awscdk.services.elasticloadbalancing.LoadBalancingProtocol] = None,
     policyNames: Option[List[String]] = None,
     allowConnectionsFrom: Option[List[_ <: software.amazon.awscdk.services.ec2.IConnectable]] = None,
+    sslCertificateId: Option[String] = None,
     internalPort: Option[Number] = None,
     externalProtocol: Option[software.amazon.awscdk.services.elasticloadbalancing.LoadBalancingProtocol] = None,
     externalPort: Option[Number] = None
@@ -20,6 +21,7 @@ object LoadBalancerListener {
       .internalProtocol(internalProtocol.orNull)
       .policyNames(policyNames.map(_.asJava).orNull)
       .allowConnectionsFrom(allowConnectionsFrom.map(_.asJava).orNull)
+      .sslCertificateId(sslCertificateId.orNull)
       .internalPort(internalPort.orNull)
       .externalProtocol(externalProtocol.orNull)
       .externalPort(externalPort.orNull)

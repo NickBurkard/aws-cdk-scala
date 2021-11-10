@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class DynamoConsumedCapacity(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.DynamoConsumedCapacity)
   extends Product
     with Serializable
+
 
 object DynamoConsumedCapacity {
   implicit def toAws(value: DynamoConsumedCapacity): software.amazon.awscdk.services.stepfunctions.tasks.DynamoConsumedCapacity =

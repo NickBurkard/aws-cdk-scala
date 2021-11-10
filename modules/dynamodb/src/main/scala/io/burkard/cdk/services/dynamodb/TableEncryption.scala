@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.dynamodb
 
+
 sealed abstract class TableEncryption(val underlying: software.amazon.awscdk.services.dynamodb.TableEncryption)
   extends Product
     with Serializable
+
 
 object TableEncryption {
   implicit def toAws(value: TableEncryption): software.amazon.awscdk.services.dynamodb.TableEncryption =

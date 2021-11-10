@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CloudFormationCreateReplaceChangeSetActionProps {
 
   def apply(
+    capabilities: Option[List[_ <: software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities]] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     variablesNamespace: Option[String] = None,
     runOrder: Option[Number] = None,
@@ -26,6 +27,7 @@ object CloudFormationCreateReplaceChangeSetActionProps {
     deploymentRole: Option[software.amazon.awscdk.services.iam.IRole] = None
   ): software.amazon.awscdk.services.codepipeline.actions.CloudFormationCreateReplaceChangeSetActionProps =
     (new software.amazon.awscdk.services.codepipeline.actions.CloudFormationCreateReplaceChangeSetActionProps.Builder)
+      .capabilities(capabilities.map(_.asJava).orNull)
       .role(role.orNull)
       .variablesNamespace(variablesNamespace.orNull)
       .runOrder(runOrder.orNull)

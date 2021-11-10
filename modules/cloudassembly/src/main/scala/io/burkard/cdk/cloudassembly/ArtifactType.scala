@@ -1,8 +1,10 @@
 package io.burkard.cdk.cloudassembly
 
+
 sealed abstract class ArtifactType(val underlying: software.amazon.awscdk.cloudassembly.schema.ArtifactType)
   extends Product
     with Serializable
+
 
 object ArtifactType {
   implicit def toAws(value: ArtifactType): software.amazon.awscdk.cloudassembly.schema.ArtifactType =

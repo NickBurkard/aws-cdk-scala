@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class AssembleWith(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.AssembleWith)
   extends Product
     with Serializable
+
 
 object AssembleWith {
   implicit def toAws(value: AssembleWith): software.amazon.awscdk.services.stepfunctions.tasks.AssembleWith =

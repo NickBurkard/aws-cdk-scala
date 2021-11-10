@@ -9,8 +9,8 @@ object QueryStringsConfigProperty {
   def apply(
     queryStringBehavior: Option[String] = None,
     queryStrings: Option[List[String]] = None
-  ): software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty =
-    (new software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty.Builder)
+  ): software.amazon.awscdk.services.cloudfront.CfnCachePolicy.QueryStringsConfigProperty =
+    (new software.amazon.awscdk.services.cloudfront.CfnCachePolicy.QueryStringsConfigProperty.Builder)
       .queryStringBehavior(queryStringBehavior.orNull)
       .queryStrings(queryStrings.map(_.asJava).orNull)
       .build()

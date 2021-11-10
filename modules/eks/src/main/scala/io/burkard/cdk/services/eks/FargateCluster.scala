@@ -8,6 +8,7 @@ object FargateCluster {
 
   def apply(
     internalResourceId: String,
+    clusterHandlerSecurityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     outputMastersRoleArn: Option[Boolean] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     mastersRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -33,6 +34,7 @@ object FargateCluster {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.eks.FargateCluster =
     software.amazon.awscdk.services.eks.FargateCluster.Builder
       .create(stackCtx, internalResourceId)
+      .clusterHandlerSecurityGroup(clusterHandlerSecurityGroup.orNull)
       .outputMastersRoleArn(outputMastersRoleArn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .role(role.orNull)
       .mastersRole(mastersRole.orNull)

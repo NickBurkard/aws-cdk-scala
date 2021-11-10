@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
+
 sealed abstract class AlpnPolicy(val underlying: software.amazon.awscdk.services.elasticloadbalancingv2.AlpnPolicy)
   extends Product
     with Serializable
+
 
 object AlpnPolicy {
   implicit def toAws(value: AlpnPolicy): software.amazon.awscdk.services.elasticloadbalancingv2.AlpnPolicy =

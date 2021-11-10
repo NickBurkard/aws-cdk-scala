@@ -1,8 +1,10 @@
 package io.burkard.cdk.core
 
+
 sealed abstract class FileAssetPackaging(val underlying: software.amazon.awscdk.FileAssetPackaging)
   extends Product
     with Serializable
+
 
 object FileAssetPackaging {
   implicit def toAws(value: FileAssetPackaging): software.amazon.awscdk.FileAssetPackaging =

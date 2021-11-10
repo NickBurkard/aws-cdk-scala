@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
+
 sealed abstract class IpAddressType(val underlying: software.amazon.awscdk.services.elasticloadbalancingv2.IpAddressType)
   extends Product
     with Serializable
+
 
 object IpAddressType {
   implicit def toAws(value: IpAddressType): software.amazon.awscdk.services.elasticloadbalancingv2.IpAddressType =

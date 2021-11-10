@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class AmazonLinuxGeneration(val underlying: software.amazon.awscdk.services.ec2.AmazonLinuxGeneration)
   extends Product
     with Serializable
+
 
 object AmazonLinuxGeneration {
   implicit def toAws(value: AmazonLinuxGeneration): software.amazon.awscdk.services.ec2.AmazonLinuxGeneration =

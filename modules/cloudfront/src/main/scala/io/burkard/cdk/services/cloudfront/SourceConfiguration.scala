@@ -13,7 +13,9 @@ object SourceConfiguration {
     originShieldRegion: Option[String] = None,
     behaviors: Option[List[_ <: software.amazon.awscdk.services.cloudfront.Behavior]] = None,
     connectionTimeout: Option[software.amazon.awscdk.Duration] = None,
+    originHeaders: Option[Map[String, String]] = None,
     failoverCustomOriginSource: Option[software.amazon.awscdk.services.cloudfront.CustomOriginConfig] = None,
+    originPath: Option[String] = None,
     failoverS3OriginSource: Option[software.amazon.awscdk.services.cloudfront.S3OriginConfig] = None,
     connectionAttempts: Option[Number] = None
   ): software.amazon.awscdk.services.cloudfront.SourceConfiguration =
@@ -24,7 +26,9 @@ object SourceConfiguration {
       .originShieldRegion(originShieldRegion.orNull)
       .behaviors(behaviors.map(_.asJava).orNull)
       .connectionTimeout(connectionTimeout.orNull)
+      .originHeaders(originHeaders.map(_.asJava).orNull)
       .failoverCustomOriginSource(failoverCustomOriginSource.orNull)
+      .originPath(originPath.orNull)
       .failoverS3OriginSource(failoverS3OriginSource.orNull)
       .connectionAttempts(connectionAttempts.orNull)
       .build()

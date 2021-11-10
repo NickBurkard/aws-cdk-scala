@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.fsx
 
+
 sealed abstract class LustreDeploymentType(val underlying: software.amazon.awscdk.services.fsx.LustreDeploymentType)
   extends Product
     with Serializable
+
 
 object LustreDeploymentType {
   implicit def toAws(value: LustreDeploymentType): software.amazon.awscdk.services.fsx.LustreDeploymentType =

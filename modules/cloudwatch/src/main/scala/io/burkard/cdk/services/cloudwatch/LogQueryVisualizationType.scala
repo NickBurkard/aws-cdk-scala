@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudwatch
 
+
 sealed abstract class LogQueryVisualizationType(val underlying: software.amazon.awscdk.services.cloudwatch.LogQueryVisualizationType)
   extends Product
     with Serializable
+
 
 object LogQueryVisualizationType {
   implicit def toAws(value: LogQueryVisualizationType): software.amazon.awscdk.services.cloudwatch.LogQueryVisualizationType =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class HttpMethods(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.HttpMethods)
   extends Product
     with Serializable
+
 
 object HttpMethods {
   implicit def toAws(value: HttpMethods): software.amazon.awscdk.services.stepfunctions.tasks.HttpMethods =

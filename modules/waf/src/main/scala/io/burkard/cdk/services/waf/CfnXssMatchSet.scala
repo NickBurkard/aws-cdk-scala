@@ -10,8 +10,8 @@ object CfnXssMatchSet {
     internalResourceId: String,
     name: Option[String] = None,
     xssMatchTuples: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnXssMatchSet =
-    software.amazon.awscdk.services.waf.CfnXssMatchSet.Builder
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnXssMatchSet =
+    software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.Builder
       .create(stackCtx, internalResourceId)
       .name(name.orNull)
       .xssMatchTuples(xssMatchTuples.map(_.asJava).orNull)

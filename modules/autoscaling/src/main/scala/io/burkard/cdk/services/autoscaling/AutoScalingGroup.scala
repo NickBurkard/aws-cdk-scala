@@ -8,17 +8,15 @@ object AutoScalingGroup {
 
   def apply(
     internalResourceId: String,
+    replacingUpdateMinSuccessfulInstancesPercent: Option[Number] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     signals: Option[software.amazon.awscdk.services.autoscaling.Signals] = None,
     instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
-    ignoreUnmodifiedSizeProperties: Option[Boolean] = None,
     allowAllOutbound: Option[Boolean] = None,
-    cooldown: Option[software.amazon.awscdk.Duration] = None,
     requireImdsv2: Option[Boolean] = None,
     desiredCapacity: Option[Number] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
-    updatePolicy: Option[software.amazon.awscdk.services.autoscaling.UpdatePolicy] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     initOptions: Option[software.amazon.awscdk.services.autoscaling.ApplyCloudFormationInitOptions] = None,
     healthCheck: Option[software.amazon.awscdk.services.autoscaling.HealthCheck] = None,
@@ -27,8 +25,14 @@ object AutoScalingGroup {
     maxInstanceLifetime: Option[software.amazon.awscdk.Duration] = None,
     machineImage: Option[software.amazon.awscdk.services.ec2.IMachineImage] = None,
     userData: Option[software.amazon.awscdk.services.ec2.UserData] = None,
+    updateType: Option[software.amazon.awscdk.services.autoscaling.UpdateType] = None,
+    ignoreUnmodifiedSizeProperties: Option[Boolean] = None,
     associatePublicIpAddress: Option[Boolean] = None,
     minCapacity: Option[Number] = None,
+    cooldown: Option[software.amazon.awscdk.Duration] = None,
+    resourceSignalTimeout: Option[software.amazon.awscdk.Duration] = None,
+    notificationsTopic: Option[software.amazon.awscdk.services.sns.ITopic] = None,
+    resourceSignalCount: Option[Number] = None,
     groupMetrics: Option[List[_ <: software.amazon.awscdk.services.autoscaling.GroupMetrics]] = None,
     keyName: Option[String] = None,
     newInstancesProtectedFromScaleIn: Option[Boolean] = None,
@@ -36,21 +40,21 @@ object AutoScalingGroup {
     spotPrice: Option[String] = None,
     notifications: Option[List[_ <: software.amazon.awscdk.services.autoscaling.NotificationConfiguration]] = None,
     autoScalingGroupName: Option[String] = None,
-    init: Option[software.amazon.awscdk.services.ec2.CloudFormationInit] = None
+    init: Option[software.amazon.awscdk.services.ec2.CloudFormationInit] = None,
+    rollingUpdateConfiguration: Option[software.amazon.awscdk.services.autoscaling.RollingUpdateConfiguration] = None,
+    updatePolicy: Option[software.amazon.awscdk.services.autoscaling.UpdatePolicy] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscaling.AutoScalingGroup =
     software.amazon.awscdk.services.autoscaling.AutoScalingGroup.Builder
       .create(stackCtx, internalResourceId)
+      .replacingUpdateMinSuccessfulInstancesPercent(replacingUpdateMinSuccessfulInstancesPercent.orNull)
       .role(role.orNull)
       .signals(signals.orNull)
       .instanceType(instanceType.orNull)
       .vpcSubnets(vpcSubnets.orNull)
-      .ignoreUnmodifiedSizeProperties(ignoreUnmodifiedSizeProperties.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .cooldown(cooldown.orNull)
       .requireImdsv2(requireImdsv2.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .desiredCapacity(desiredCapacity.orNull)
       .vpc(vpc.orNull)
-      .updatePolicy(updatePolicy.orNull)
       .securityGroup(securityGroup.orNull)
       .initOptions(initOptions.orNull)
       .healthCheck(healthCheck.orNull)
@@ -59,8 +63,14 @@ object AutoScalingGroup {
       .maxInstanceLifetime(maxInstanceLifetime.orNull)
       .machineImage(machineImage.orNull)
       .userData(userData.orNull)
+      .updateType(updateType.orNull)
+      .ignoreUnmodifiedSizeProperties(ignoreUnmodifiedSizeProperties.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .associatePublicIpAddress(associatePublicIpAddress.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .minCapacity(minCapacity.orNull)
+      .cooldown(cooldown.orNull)
+      .resourceSignalTimeout(resourceSignalTimeout.orNull)
+      .notificationsTopic(notificationsTopic.orNull)
+      .resourceSignalCount(resourceSignalCount.orNull)
       .groupMetrics(groupMetrics.map(_.asJava).orNull)
       .keyName(keyName.orNull)
       .newInstancesProtectedFromScaleIn(newInstancesProtectedFromScaleIn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -69,5 +79,7 @@ object AutoScalingGroup {
       .notifications(notifications.map(_.asJava).orNull)
       .autoScalingGroupName(autoScalingGroupName.orNull)
       .init(init.orNull)
+      .rollingUpdateConfiguration(rollingUpdateConfiguration.orNull)
+      .updatePolicy(updatePolicy.orNull)
       .build()
 }

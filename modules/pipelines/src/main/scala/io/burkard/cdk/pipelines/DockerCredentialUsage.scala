@@ -1,8 +1,10 @@
 package io.burkard.cdk.pipelines
 
+
 sealed abstract class DockerCredentialUsage(val underlying: software.amazon.awscdk.pipelines.DockerCredentialUsage)
   extends Product
     with Serializable
+
 
 object DockerCredentialUsage {
   implicit def toAws(value: DockerCredentialUsage): software.amazon.awscdk.pipelines.DockerCredentialUsage =

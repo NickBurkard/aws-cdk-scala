@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.chatbot
 
+
 sealed abstract class LoggingLevel(val underlying: software.amazon.awscdk.services.chatbot.LoggingLevel)
   extends Product
     with Serializable
+
 
 object LoggingLevel {
   implicit def toAws(value: LoggingLevel): software.amazon.awscdk.services.chatbot.LoggingLevel =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
+
 sealed abstract class TargetType(val underlying: software.amazon.awscdk.services.elasticloadbalancingv2.TargetType)
   extends Product
     with Serializable
+
 
 object TargetType {
   implicit def toAws(value: TargetType): software.amazon.awscdk.services.elasticloadbalancingv2.TargetType =

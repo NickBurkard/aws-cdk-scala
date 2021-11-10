@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class ScalingAdjustmentType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingAdjustmentType)
   extends Product
     with Serializable
+
 
 object ScalingAdjustmentType {
   implicit def toAws(value: ScalingAdjustmentType): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingAdjustmentType =

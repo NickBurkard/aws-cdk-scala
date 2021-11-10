@@ -7,15 +7,15 @@ object MissingContext {
     provider: Option[software.amazon.awscdk.cloudassembly.schema.ContextProvider] = None,
     key: Option[String] = None,
     props0: Option[software.amazon.awscdk.cloudassembly.schema.LoadBalancerContextQuery] = None,
-    props1: Option[software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerContextQuery] = None,
-    props2: Option[software.amazon.awscdk.cloudassembly.schema.EndpointServiceAvailabilityZonesContextQuery] = None,
-    props3: Option[software.amazon.awscdk.cloudassembly.schema.SecurityGroupContextQuery] = None,
-    props4: Option[software.amazon.awscdk.cloudassembly.schema.KeyContextQuery] = None,
-    props5: Option[software.amazon.awscdk.cloudassembly.schema.AmiContextQuery] = None,
-    props6: Option[software.amazon.awscdk.cloudassembly.schema.AvailabilityZonesContextQuery] = None,
-    props7: Option[software.amazon.awscdk.cloudassembly.schema.HostedZoneContextQuery] = None,
-    props8: Option[software.amazon.awscdk.cloudassembly.schema.SSMParameterContextQuery] = None,
-    props9: Option[software.amazon.awscdk.cloudassembly.schema.VpcContextQuery] = None
+    props1: Option[software.amazon.awscdk.cloudassembly.schema.EndpointServiceAvailabilityZonesContextQuery] = None,
+    props2: Option[software.amazon.awscdk.cloudassembly.schema.VpcContextQuery] = None,
+    props3: Option[software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerContextQuery] = None,
+    props4: Option[software.amazon.awscdk.cloudassembly.schema.SecurityGroupContextQuery] = None,
+    props5: Option[software.amazon.awscdk.cloudassembly.schema.KeyContextQuery] = None,
+    props6: Option[software.amazon.awscdk.cloudassembly.schema.AmiContextQuery] = None,
+    props7: Option[software.amazon.awscdk.cloudassembly.schema.AvailabilityZonesContextQuery] = None,
+    props8: Option[software.amazon.awscdk.cloudassembly.schema.HostedZoneContextQuery] = None,
+    props9: Option[software.amazon.awscdk.cloudassembly.schema.SSMParameterContextQuery] = None
   ): software.amazon.awscdk.cloudassembly.schema.MissingContext =
     (new software.amazon.awscdk.cloudassembly.schema.MissingContext.Builder)
       .provider(provider.orNull)

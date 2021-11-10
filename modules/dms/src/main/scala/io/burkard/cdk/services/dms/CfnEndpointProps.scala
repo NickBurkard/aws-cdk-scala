@@ -15,6 +15,7 @@ object CfnEndpointProps {
     port: Option[Number] = None,
     mongoDbSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.MongoDbSettingsProperty] = None,
     redshiftSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.RedshiftSettingsProperty] = None,
+    redisSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.RedisSettingsProperty] = None,
     kinesisSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.KinesisSettingsProperty] = None,
     endpointIdentifier: Option[String] = None,
     kafkaSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.KafkaSettingsProperty] = None,
@@ -46,6 +47,7 @@ object CfnEndpointProps {
       .port(port.orNull)
       .mongoDbSettings(mongoDbSettings.orNull)
       .redshiftSettings(redshiftSettings.orNull)
+      .redisSettings(redisSettings.orNull)
       .kinesisSettings(kinesisSettings.orNull)
       .endpointIdentifier(endpointIdentifier.orNull)
       .kafkaSettings(kafkaSettings.orNull)

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.applicationautoscaling
 
+
 sealed abstract class AdjustmentType(val underlying: software.amazon.awscdk.services.applicationautoscaling.AdjustmentType)
   extends Product
     with Serializable
+
 
 object AdjustmentType {
   implicit def toAws(value: AdjustmentType): software.amazon.awscdk.services.applicationautoscaling.AdjustmentType =

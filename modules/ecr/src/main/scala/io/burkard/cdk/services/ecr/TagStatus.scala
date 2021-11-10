@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecr
 
+
 sealed abstract class TagStatus(val underlying: software.amazon.awscdk.services.ecr.TagStatus)
   extends Product
     with Serializable
+
 
 object TagStatus {
   implicit def toAws(value: TagStatus): software.amazon.awscdk.services.ecr.TagStatus =

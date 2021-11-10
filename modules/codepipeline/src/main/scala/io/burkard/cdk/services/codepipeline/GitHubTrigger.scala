@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.codepipeline
 
+
 sealed abstract class GitHubTrigger(val underlying: software.amazon.awscdk.services.codepipeline.actions.GitHubTrigger)
   extends Product
     with Serializable
+
 
 object GitHubTrigger {
   implicit def toAws(value: GitHubTrigger): software.amazon.awscdk.services.codepipeline.actions.GitHubTrigger =

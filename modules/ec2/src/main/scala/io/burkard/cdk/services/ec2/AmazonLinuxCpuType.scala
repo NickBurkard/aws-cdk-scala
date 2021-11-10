@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class AmazonLinuxCpuType(val underlying: software.amazon.awscdk.services.ec2.AmazonLinuxCpuType)
   extends Product
     with Serializable
+
 
 object AmazonLinuxCpuType {
   implicit def toAws(value: AmazonLinuxCpuType): software.amazon.awscdk.services.ec2.AmazonLinuxCpuType =

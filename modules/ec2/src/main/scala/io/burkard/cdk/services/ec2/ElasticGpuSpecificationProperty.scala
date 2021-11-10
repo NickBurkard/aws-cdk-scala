@@ -5,8 +5,8 @@ object ElasticGpuSpecificationProperty {
 
   def apply(
     `type`: Option[String] = None
-  ): software.amazon.awscdk.services.ec2.CfnInstance.ElasticGpuSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnInstance.ElasticGpuSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnLaunchTemplate.ElasticGpuSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnLaunchTemplate.ElasticGpuSpecificationProperty.Builder)
       .`type`(`type`.orNull)
       .build()
 }

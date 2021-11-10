@@ -43,7 +43,9 @@ object EdgeFunctionProps {
     logRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
     events: Option[List[_ <: software.amazon.awscdk.services.lambda.IEventSource]] = None,
-    runtime: Option[software.amazon.awscdk.services.lambda.Runtime] = None
+    runtime: Option[software.amazon.awscdk.services.lambda.Runtime] = None,
+    architectures: Option[List[_ <: software.amazon.awscdk.services.lambda.Architecture]] = None,
+    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
   ): software.amazon.awscdk.services.cloudfront.experimental.EdgeFunctionProps =
     (new software.amazon.awscdk.services.cloudfront.experimental.EdgeFunctionProps.Builder)
       .initialPolicy(initialPolicy.map(_.asJava).orNull)
@@ -83,5 +85,7 @@ object EdgeFunctionProps {
       .timeout(timeout.orNull)
       .events(events.map(_.asJava).orNull)
       .runtime(runtime.orNull)
+      .architectures(architectures.map(_.asJava).orNull)
+      .securityGroup(securityGroup.orNull)
       .build()
 }

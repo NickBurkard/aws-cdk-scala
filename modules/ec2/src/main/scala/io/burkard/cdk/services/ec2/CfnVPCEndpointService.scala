@@ -9,12 +9,14 @@ object CfnVPCEndpointService {
   def apply(
     internalResourceId: String,
     gatewayLoadBalancerArns: Option[List[String]] = None,
+    payerResponsibility: Option[String] = None,
     networkLoadBalancerArns: Option[List[String]] = None,
     acceptanceRequired: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVPCEndpointService =
     software.amazon.awscdk.services.ec2.CfnVPCEndpointService.Builder
       .create(stackCtx, internalResourceId)
       .gatewayLoadBalancerArns(gatewayLoadBalancerArns.map(_.asJava).orNull)
+      .payerResponsibility(payerResponsibility.orNull)
       .networkLoadBalancerArns(networkLoadBalancerArns.map(_.asJava).orNull)
       .acceptanceRequired(acceptanceRequired.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()

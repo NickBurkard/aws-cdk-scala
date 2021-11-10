@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class InstanceArchitecture(val underlying: software.amazon.awscdk.services.ec2.InstanceArchitecture)
   extends Product
     with Serializable
+
 
 object InstanceArchitecture {
   implicit def toAws(value: InstanceArchitecture): software.amazon.awscdk.services.ec2.InstanceArchitecture =

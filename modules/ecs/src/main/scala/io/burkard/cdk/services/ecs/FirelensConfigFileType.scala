@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class FirelensConfigFileType(val underlying: software.amazon.awscdk.services.ecs.FirelensConfigFileType)
   extends Product
     with Serializable
+
 
 object FirelensConfigFileType {
   implicit def toAws(value: FirelensConfigFileType): software.amazon.awscdk.services.ecs.FirelensConfigFileType =

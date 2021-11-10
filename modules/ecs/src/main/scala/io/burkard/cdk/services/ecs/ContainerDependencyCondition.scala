@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class ContainerDependencyCondition(val underlying: software.amazon.awscdk.services.ecs.ContainerDependencyCondition)
   extends Product
     with Serializable
+
 
 object ContainerDependencyCondition {
   implicit def toAws(value: ContainerDependencyCondition): software.amazon.awscdk.services.ecs.ContainerDependencyCondition =

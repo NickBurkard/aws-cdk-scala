@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.codecommit
 
+
 sealed abstract class RepositoryNotificationEvents(val underlying: software.amazon.awscdk.services.codecommit.RepositoryNotificationEvents)
   extends Product
     with Serializable
+
 
 object RepositoryNotificationEvents {
   implicit def toAws(value: RepositoryNotificationEvents): software.amazon.awscdk.services.codecommit.RepositoryNotificationEvents =

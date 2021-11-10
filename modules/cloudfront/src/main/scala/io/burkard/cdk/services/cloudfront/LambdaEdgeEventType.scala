@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudfront
 
+
 sealed abstract class LambdaEdgeEventType(val underlying: software.amazon.awscdk.services.cloudfront.LambdaEdgeEventType)
   extends Product
     with Serializable
+
 
 object LambdaEdgeEventType {
   implicit def toAws(value: LambdaEdgeEventType): software.amazon.awscdk.services.cloudfront.LambdaEdgeEventType =

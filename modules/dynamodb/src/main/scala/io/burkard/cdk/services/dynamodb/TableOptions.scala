@@ -16,6 +16,7 @@ object TableOptions {
     stream: Option[software.amazon.awscdk.services.dynamodb.StreamViewType] = None,
     replicationTimeout: Option[software.amazon.awscdk.Duration] = None,
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
+    serverSideEncryption: Option[Boolean] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
     replicationRegions: Option[List[String]] = None,
     sortKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None,
@@ -33,6 +34,7 @@ object TableOptions {
       .stream(stream.orNull)
       .replicationTimeout(replicationTimeout.orNull)
       .encryptionKey(encryptionKey.orNull)
+      .serverSideEncryption(serverSideEncryption.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .removalPolicy(removalPolicy.orNull)
       .replicationRegions(replicationRegions.map(_.asJava).orNull)
       .sortKey(sortKey.orNull)

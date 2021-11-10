@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class MachineImageType(val underlying: software.amazon.awscdk.services.ecs.MachineImageType)
   extends Product
     with Serializable
+
 
 object MachineImageType {
   implicit def toAws(value: MachineImageType): software.amazon.awscdk.services.ecs.MachineImageType =

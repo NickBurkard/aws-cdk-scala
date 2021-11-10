@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.globalaccelerator
 
+
 sealed abstract class HealthCheckProtocol(val underlying: software.amazon.awscdk.services.globalaccelerator.HealthCheckProtocol)
   extends Product
     with Serializable
+
 
 object HealthCheckProtocol {
   implicit def toAws(value: HealthCheckProtocol): software.amazon.awscdk.services.globalaccelerator.HealthCheckProtocol =

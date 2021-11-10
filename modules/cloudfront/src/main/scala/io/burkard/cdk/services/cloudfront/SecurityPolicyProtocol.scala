@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudfront
 
+
 sealed abstract class SecurityPolicyProtocol(val underlying: software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol)
   extends Product
     with Serializable
+
 
 object SecurityPolicyProtocol {
   implicit def toAws(value: SecurityPolicyProtocol): software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol =

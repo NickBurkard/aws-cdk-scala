@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.codebuild
 
+
 sealed abstract class ComputeType(val underlying: software.amazon.awscdk.services.codebuild.ComputeType)
   extends Product
     with Serializable
+
 
 object ComputeType {
   implicit def toAws(value: ComputeType): software.amazon.awscdk.services.codebuild.ComputeType =

@@ -7,8 +7,8 @@ object S3OutputProperty {
     s3UploadMode: Option[String] = None,
     s3Uri: Option[String] = None,
     localPath: Option[String] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.S3OutputProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.S3OutputProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.S3OutputProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.S3OutputProperty.Builder)
       .s3UploadMode(s3UploadMode.orNull)
       .s3Uri(s3Uri.orNull)
       .localPath(localPath.orNull)

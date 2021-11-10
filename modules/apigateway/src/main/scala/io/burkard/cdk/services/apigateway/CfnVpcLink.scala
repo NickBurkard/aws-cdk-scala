@@ -9,13 +9,15 @@ object CfnVpcLink {
   def apply(
     internalResourceId: String,
     name: Option[String] = None,
+    targetArns: Option[List[String]] = None,
     description: Option[String] = None,
-    targetArns: Option[List[String]] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnVpcLink =
     software.amazon.awscdk.services.apigateway.CfnVpcLink.Builder
       .create(stackCtx, internalResourceId)
       .name(name.orNull)
-      .description(description.orNull)
       .targetArns(targetArns.map(_.asJava).orNull)
+      .description(description.orNull)
+      .tags(tags.map(_.asJava).orNull)
       .build()
 }

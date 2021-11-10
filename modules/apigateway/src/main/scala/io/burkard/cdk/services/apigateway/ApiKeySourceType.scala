@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.apigateway
 
+
 sealed abstract class ApiKeySourceType(val underlying: software.amazon.awscdk.services.apigateway.ApiKeySourceType)
   extends Product
     with Serializable
+
 
 object ApiKeySourceType {
   implicit def toAws(value: ApiKeySourceType): software.amazon.awscdk.services.apigateway.ApiKeySourceType =

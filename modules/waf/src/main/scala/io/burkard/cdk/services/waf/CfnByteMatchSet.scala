@@ -10,8 +10,8 @@ object CfnByteMatchSet {
     internalResourceId: String,
     name: Option[String] = None,
     byteMatchTuples: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnByteMatchSet =
-    software.amazon.awscdk.services.waf.CfnByteMatchSet.Builder
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnByteMatchSet =
+    software.amazon.awscdk.services.waf.regional.CfnByteMatchSet.Builder
       .create(stackCtx, internalResourceId)
       .name(name.orNull)
       .byteMatchTuples(byteMatchTuples.map(_.asJava).orNull)

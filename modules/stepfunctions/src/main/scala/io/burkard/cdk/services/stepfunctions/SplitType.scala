@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class SplitType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.SplitType)
   extends Product
     with Serializable
+
 
 object SplitType {
   implicit def toAws(value: SplitType): software.amazon.awscdk.services.stepfunctions.tasks.SplitType =

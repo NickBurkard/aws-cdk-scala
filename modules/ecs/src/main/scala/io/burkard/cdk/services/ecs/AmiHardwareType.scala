@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class AmiHardwareType(val underlying: software.amazon.awscdk.services.ecs.AmiHardwareType)
   extends Product
     with Serializable
+
 
 object AmiHardwareType {
   implicit def toAws(value: AmiHardwareType): software.amazon.awscdk.services.ecs.AmiHardwareType =

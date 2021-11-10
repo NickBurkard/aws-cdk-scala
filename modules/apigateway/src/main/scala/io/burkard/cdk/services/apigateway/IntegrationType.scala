@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.apigateway
 
+
 sealed abstract class IntegrationType(val underlying: software.amazon.awscdk.services.apigateway.IntegrationType)
   extends Product
     with Serializable
+
 
 object IntegrationType {
   implicit def toAws(value: IntegrationType): software.amazon.awscdk.services.apigateway.IntegrationType =

@@ -11,6 +11,7 @@ object CfnCanaryProps {
     failureRetentionPeriod: Option[Number] = None,
     vpcConfig: Option[software.amazon.awscdk.services.synthetics.CfnCanary.VPCConfigProperty] = None,
     startCanaryAfterCreation: Option[Boolean] = None,
+    artifactConfig: Option[software.amazon.awscdk.services.synthetics.CfnCanary.ArtifactConfigProperty] = None,
     name: Option[String] = None,
     artifactS3Location: Option[String] = None,
     successRetentionPeriod: Option[Number] = None,
@@ -26,6 +27,7 @@ object CfnCanaryProps {
       .failureRetentionPeriod(failureRetentionPeriod.orNull)
       .vpcConfig(vpcConfig.orNull)
       .startCanaryAfterCreation(startCanaryAfterCreation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .artifactConfig(artifactConfig.orNull)
       .name(name.orNull)
       .artifactS3Location(artifactS3Location.orNull)
       .successRetentionPeriod(successRetentionPeriod.orNull)

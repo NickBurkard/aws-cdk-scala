@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class NetworkMode(val underlying: software.amazon.awscdk.services.ecs.NetworkMode)
   extends Product
     with Serializable
+
 
 object NetworkMode {
   implicit def toAws(value: NetworkMode): software.amazon.awscdk.services.ecs.NetworkMode =

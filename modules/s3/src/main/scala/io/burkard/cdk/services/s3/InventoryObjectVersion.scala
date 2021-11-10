@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.s3
 
+
 sealed abstract class InventoryObjectVersion(val underlying: software.amazon.awscdk.services.s3.InventoryObjectVersion)
   extends Product
     with Serializable
+
 
 object InventoryObjectVersion {
   implicit def toAws(value: InventoryObjectVersion): software.amazon.awscdk.services.s3.InventoryObjectVersion =

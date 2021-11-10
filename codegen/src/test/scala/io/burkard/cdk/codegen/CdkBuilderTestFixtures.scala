@@ -37,13 +37,15 @@ object CdkBuilderTestFixtures {
               parameterName = "key",
               methodName = "key",
               typeName = "java.lang.String",
-              isOptional = false
+              isOptional = false,
+              annotations = Nil
             ),
             FieldMethod(
               parameterName = "value",
               methodName = "value",
               typeName = "java.lang.String",
-              isOptional = false
+              isOptional = false,
+              annotations = Nil
             )
           )
         ),

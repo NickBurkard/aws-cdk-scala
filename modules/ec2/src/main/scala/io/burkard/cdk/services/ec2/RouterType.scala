@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class RouterType(val underlying: software.amazon.awscdk.services.ec2.RouterType)
   extends Product
     with Serializable
+
 
 object RouterType {
   implicit def toAws(value: RouterType): software.amazon.awscdk.services.ec2.RouterType =

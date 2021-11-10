@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
+
 sealed abstract class SslPolicy(val underlying: software.amazon.awscdk.services.elasticloadbalancingv2.SslPolicy)
   extends Product
     with Serializable
+
 
 object SslPolicy {
   implicit def toAws(value: SslPolicy): software.amazon.awscdk.services.elasticloadbalancingv2.SslPolicy =

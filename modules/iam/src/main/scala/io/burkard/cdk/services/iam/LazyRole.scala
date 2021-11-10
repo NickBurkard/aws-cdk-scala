@@ -14,6 +14,7 @@ object LazyRole {
     externalIds: Option[List[String]] = None,
     managedPolicies: Option[List[_ <: software.amazon.awscdk.services.iam.IManagedPolicy]] = None,
     path: Option[String] = None,
+    externalId: Option[String] = None,
     inlinePolicies: Option[Map[String, _ <: software.amazon.awscdk.services.iam.PolicyDocument]] = None,
     permissionsBoundary: Option[software.amazon.awscdk.services.iam.IManagedPolicy] = None,
     description: Option[String] = None
@@ -26,6 +27,7 @@ object LazyRole {
       .externalIds(externalIds.map(_.asJava).orNull)
       .managedPolicies(managedPolicies.map(_.asJava).orNull)
       .path(path.orNull)
+      .externalId(externalId.orNull)
       .inlinePolicies(inlinePolicies.map(_.asJava).orNull)
       .permissionsBoundary(permissionsBoundary.orNull)
       .description(description.orNull)

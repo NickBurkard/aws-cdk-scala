@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.appmesh
 
+
 sealed abstract class TcpRetryEvent(val underlying: software.amazon.awscdk.services.appmesh.TcpRetryEvent)
   extends Product
     with Serializable
+
 
 object TcpRetryEvent {
   implicit def toAws(value: TcpRetryEvent): software.amazon.awscdk.services.appmesh.TcpRetryEvent =

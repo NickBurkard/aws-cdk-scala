@@ -25,32 +25,34 @@ final case class CdkBuilder private[codegen](
       .flatMap { method =>
         FieldMethod
           .validFieldMethodTypeName(method)
-          .map(method.getName -> _)
+          .map(methodName => (method.getName, method.getAnnotations.toList, methodName))
       }
       .groupBy(_._1)
-      .mapValues(_.map(_._2))
+      .mapValues(_.map { case (_, annotations, methodName) => (annotations, methodName) })
       // Potentially rename shared field methods.
       .flatMap {
         // Name is unique, do nothing extra.
-        case (methodName, typeName :: Nil) =>
+        case (methodName, (annotations, typeName) :: Nil) =>
           List(
             FieldMethod(
               methodName,
               methodName,
               typeName,
-              isOptional = true
+              isOptional = true,
+              annotations
             )
           )
 
         // Name is shared, need to rename based on index.
         // TODO Change to something more meaningful.
         case (methodName, typeNames) =>
-          typeNames.zipWithIndex.map { case (typeName, index) =>
+          typeNames.zipWithIndex.map { case ((annotations, typeName), index) =>
             FieldMethod(
               s"$methodName$index",
               methodName,
               typeName,
-              isOptional = true
+              isOptional = true,
+              annotations
             )
           }
       }
@@ -80,7 +82,6 @@ final case class CdkBuilder private[codegen](
   }
 
   // Potential imports for the source file.
-  // Do we need to import Java converts?
   // TODO Switch to `scala.jdk.CollectionConverters._` after dropping Scala 2.12.
   lazy val imports: String =
     if (requiresJavaConvertersImport) {
@@ -89,13 +90,28 @@ final case class CdkBuilder private[codegen](
       ""
     }
 
-  // TODO Remove this after dropping Scala 2.12.
   lazy val suppressDeprecation: String =
-    if (requiresJavaConvertersImport) {
+    if (isDeprecatedBuilder || requiresJavaConvertersImport || usesDeprecatedMethods) {
       "\n@scala.annotation.nowarn(\"cat=deprecation\")"
     } else {
       ""
     }
+
+  private[this] lazy val usesDeprecatedMethods: Boolean = {
+    lazy val fieldMethodsDeprecated = fieldMethods.exists(_.isDeprecated)
+    lazy val createMethodsDeprecated = constructorType match {
+      case CdkBuilder.ConstructorType.CreateParameters(createParameters) =>
+        createParameters.exists(_.isDeprecated)
+
+      case _ =>
+        false
+    }
+
+    fieldMethodsDeprecated || createMethodsDeprecated
+  }
+
+  private[this] lazy val isDeprecatedBuilder: Boolean =
+    underlying.getAnnotations.toList.exists(_.annotationType().getSimpleName == "Deprecated")
 
   // What the apply method's signature looks like, based on constructor type.
   lazy val applyMethodSignature: String = constructorType match {
@@ -239,7 +255,8 @@ object CdkBuilder {
                     field.getName,
                     field.getName,
                     field.getGenericType.getTypeName,
-                    isOptional = false
+                    isOptional = false,
+                    field.getAnnotations.toList
                   )
                 }
             )

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.servicediscovery
 
+
 sealed abstract class DnsRecordType(val underlying: software.amazon.awscdk.services.servicediscovery.DnsRecordType)
   extends Product
     with Serializable
+
 
 object DnsRecordType {
   implicit def toAws(value: DnsRecordType): software.amazon.awscdk.services.servicediscovery.DnsRecordType =

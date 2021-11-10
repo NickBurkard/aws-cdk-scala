@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.apigateway
 
+
 sealed abstract class JsonSchemaType(val underlying: software.amazon.awscdk.services.apigateway.JsonSchemaType)
   extends Product
     with Serializable
+
 
 object JsonSchemaType {
   implicit def toAws(value: JsonSchemaType): software.amazon.awscdk.services.apigateway.JsonSchemaType =

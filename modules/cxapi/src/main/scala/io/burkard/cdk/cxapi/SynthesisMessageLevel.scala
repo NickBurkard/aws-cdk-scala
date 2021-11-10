@@ -1,8 +1,10 @@
 package io.burkard.cdk.cxapi
 
+
 sealed abstract class SynthesisMessageLevel(val underlying: software.amazon.awscdk.cxapi.SynthesisMessageLevel)
   extends Product
     with Serializable
+
 
 object SynthesisMessageLevel {
   implicit def toAws(value: SynthesisMessageLevel): software.amazon.awscdk.cxapi.SynthesisMessageLevel =

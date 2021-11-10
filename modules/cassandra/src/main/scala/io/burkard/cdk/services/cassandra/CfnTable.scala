@@ -10,6 +10,7 @@ object CfnTable {
     internalResourceId: String,
     clusteringKeyColumns: Option[List[_]] = None,
     billingMode: Option[software.amazon.awscdk.services.cassandra.CfnTable.BillingModeProperty] = None,
+    defaultTimeToLive: Option[Number] = None,
     tableName: Option[String] = None,
     encryptionSpecification: Option[software.amazon.awscdk.services.cassandra.CfnTable.EncryptionSpecificationProperty] = None,
     pointInTimeRecoveryEnabled: Option[Boolean] = None,
@@ -22,6 +23,7 @@ object CfnTable {
       .create(stackCtx, internalResourceId)
       .clusteringKeyColumns(clusteringKeyColumns.map(_.asJava).orNull)
       .billingMode(billingMode.orNull)
+      .defaultTimeToLive(defaultTimeToLive.orNull)
       .tableName(tableName.orNull)
       .encryptionSpecification(encryptionSpecification.orNull)
       .pointInTimeRecoveryEnabled(pointInTimeRecoveryEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

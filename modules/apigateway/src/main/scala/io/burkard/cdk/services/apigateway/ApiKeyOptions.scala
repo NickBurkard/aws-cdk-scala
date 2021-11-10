@@ -4,6 +4,7 @@ package io.burkard.cdk.services.apigateway
 object ApiKeyOptions {
 
   def apply(
+    description: Option[String] = None,
     defaultCorsPreflightOptions: Option[software.amazon.awscdk.services.apigateway.CorsOptions] = None,
     apiKeyName: Option[String] = None,
     defaultMethodOptions: Option[software.amazon.awscdk.services.apigateway.MethodOptions] = None,
@@ -11,6 +12,7 @@ object ApiKeyOptions {
     defaultIntegration: Option[software.amazon.awscdk.services.apigateway.Integration] = None
   ): software.amazon.awscdk.services.apigateway.ApiKeyOptions =
     (new software.amazon.awscdk.services.apigateway.ApiKeyOptions.Builder)
+      .description(description.orNull)
       .defaultCorsPreflightOptions(defaultCorsPreflightOptions.orNull)
       .apiKeyName(apiKeyName.orNull)
       .defaultMethodOptions(defaultMethodOptions.orNull)

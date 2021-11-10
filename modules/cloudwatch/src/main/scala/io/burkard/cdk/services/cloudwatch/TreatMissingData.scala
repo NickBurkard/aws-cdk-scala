@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudwatch
 
+
 sealed abstract class TreatMissingData(val underlying: software.amazon.awscdk.services.cloudwatch.TreatMissingData)
   extends Product
     with Serializable
+
 
 object TreatMissingData {
   implicit def toAws(value: TreatMissingData): software.amazon.awscdk.services.cloudwatch.TreatMissingData =

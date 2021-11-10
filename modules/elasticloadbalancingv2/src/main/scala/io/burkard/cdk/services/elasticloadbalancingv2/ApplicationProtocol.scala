@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
+
 sealed abstract class ApplicationProtocol(val underlying: software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationProtocol)
   extends Product
     with Serializable
+
 
 object ApplicationProtocol {
   implicit def toAws(value: ApplicationProtocol): software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationProtocol =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class FargatePlatformVersion(val underlying: software.amazon.awscdk.services.ecs.FargatePlatformVersion)
   extends Product
     with Serializable
+
 
 object FargatePlatformVersion {
   implicit def toAws(value: FargatePlatformVersion): software.amazon.awscdk.services.ecs.FargatePlatformVersion =

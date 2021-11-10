@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.lambda
 
+
 sealed abstract class StartingPosition(val underlying: software.amazon.awscdk.services.lambda.StartingPosition)
   extends Product
     with Serializable
+
 
 object StartingPosition {
   implicit def toAws(value: StartingPosition): software.amazon.awscdk.services.lambda.StartingPosition =

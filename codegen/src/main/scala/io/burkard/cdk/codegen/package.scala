@@ -3,6 +3,8 @@ package io.burkard.cdk
 import scala.util.matching.Regex
 
 package object codegen {
+  val LibraryVersion: String = "0.1.3"
+
   // Service-based builders.
   // `.service` package is optional.
   val ServiceRegex: Regex = raw"^software\.amazon\.awscdk(\.services)?\.([a-z0-9]+).*".r
@@ -31,7 +33,7 @@ package object codegen {
 
   private[this] val scala2ReservedWords: Set[String] =
     Set(
-      "abstract", "case", "catch", "class", "def", "do", "else", "extends", "false", "final", "finally","for",
+      "abstract", "case", "catch", "class", "def", "do", "else", "extends", "false", "final", "finally", "for",
       "forSome", "if", "implicit", "import", "lazy", "match", "new", "null", "object", "override", "package",
       "private", "protected", "return", "sealed", "super", "this", "throw", "trait", "try", "true", "type",
       "val", "var", "while", "with", "yield"

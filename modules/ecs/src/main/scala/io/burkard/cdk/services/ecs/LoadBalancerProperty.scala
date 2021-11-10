@@ -8,8 +8,8 @@ object LoadBalancerProperty {
     loadBalancerName: Option[String] = None,
     targetGroupArn: Option[String] = None,
     containerPort: Option[Number] = None
-  ): software.amazon.awscdk.services.ecs.CfnTaskSet.LoadBalancerProperty =
-    (new software.amazon.awscdk.services.ecs.CfnTaskSet.LoadBalancerProperty.Builder)
+  ): software.amazon.awscdk.services.ecs.CfnService.LoadBalancerProperty =
+    (new software.amazon.awscdk.services.ecs.CfnService.LoadBalancerProperty.Builder)
       .containerName(containerName.orNull)
       .loadBalancerName(loadBalancerName.orNull)
       .targetGroupArn(targetGroupArn.orNull)

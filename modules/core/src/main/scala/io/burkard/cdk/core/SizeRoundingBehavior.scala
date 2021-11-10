@@ -1,8 +1,10 @@
 package io.burkard.cdk.core
 
+
 sealed abstract class SizeRoundingBehavior(val underlying: software.amazon.awscdk.SizeRoundingBehavior)
   extends Product
     with Serializable
+
 
 object SizeRoundingBehavior {
   implicit def toAws(value: SizeRoundingBehavior): software.amazon.awscdk.SizeRoundingBehavior =

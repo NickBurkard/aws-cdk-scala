@@ -5,8 +5,8 @@ object DestinationSchemaProperty {
 
   def apply(
     recordFormatType: Option[String] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.DestinationSchemaProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.DestinationSchemaProperty.Builder)
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.DestinationSchemaProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.DestinationSchemaProperty.Builder)
       .recordFormatType(recordFormatType.orNull)
       .build()
 }

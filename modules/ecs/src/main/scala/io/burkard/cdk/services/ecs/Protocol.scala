@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class Protocol(val underlying: software.amazon.awscdk.services.ecs.Protocol)
   extends Product
     with Serializable
+
 
 object Protocol {
   implicit def toAws(value: Protocol): software.amazon.awscdk.services.ecs.Protocol =

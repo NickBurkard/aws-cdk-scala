@@ -20,7 +20,7 @@ object CfnEnvironment {
     sourceBucketArn: Option[String] = None,
     networkConfiguration: Option[software.amazon.awscdk.services.mwaa.CfnEnvironment.NetworkConfigurationProperty] = None,
     maxWorkers: Option[Number] = None,
-    tags: Option[software.amazon.awscdk.services.mwaa.CfnEnvironment.TagMapProperty] = None,
+    tags: Option[AnyRef] = None,
     requirementsS3ObjectVersion: Option[String] = None,
     airflowVersion: Option[String] = None,
     webserverAccessMode: Option[String] = None,

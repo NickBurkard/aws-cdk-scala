@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.sns
 
+
 sealed abstract class SubscriptionProtocol(val underlying: software.amazon.awscdk.services.sns.SubscriptionProtocol)
   extends Product
     with Serializable
+
 
 object SubscriptionProtocol {
   implicit def toAws(value: SubscriptionProtocol): software.amazon.awscdk.services.sns.SubscriptionProtocol =

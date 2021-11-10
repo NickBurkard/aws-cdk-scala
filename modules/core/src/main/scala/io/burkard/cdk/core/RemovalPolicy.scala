@@ -1,8 +1,10 @@
 package io.burkard.cdk.core
 
+
 sealed abstract class RemovalPolicy(val underlying: software.amazon.awscdk.RemovalPolicy)
   extends Product
     with Serializable
+
 
 object RemovalPolicy {
   implicit def toAws(value: RemovalPolicy): software.amazon.awscdk.RemovalPolicy =

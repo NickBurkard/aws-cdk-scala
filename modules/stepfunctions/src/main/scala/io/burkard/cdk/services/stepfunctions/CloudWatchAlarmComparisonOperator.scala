@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class CloudWatchAlarmComparisonOperator(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmComparisonOperator)
   extends Product
     with Serializable
+
 
 object CloudWatchAlarmComparisonOperator {
   implicit def toAws(value: CloudWatchAlarmComparisonOperator): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmComparisonOperator =

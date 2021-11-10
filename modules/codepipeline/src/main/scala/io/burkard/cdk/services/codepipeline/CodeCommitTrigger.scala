@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.codepipeline
 
+
 sealed abstract class CodeCommitTrigger(val underlying: software.amazon.awscdk.services.codepipeline.actions.CodeCommitTrigger)
   extends Product
     with Serializable
+
 
 object CodeCommitTrigger {
   implicit def toAws(value: CodeCommitTrigger): software.amazon.awscdk.services.codepipeline.actions.CodeCommitTrigger =

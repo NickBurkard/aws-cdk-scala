@@ -4,9 +4,11 @@ package io.burkard.cdk.services.events
 object EventBusProps {
 
   def apply(
-    role: Option[software.amazon.awscdk.services.iam.IRole] = None
-  ): software.amazon.awscdk.services.events.targets.EventBusProps =
-    (new software.amazon.awscdk.services.events.targets.EventBusProps.Builder)
-      .role(role.orNull)
+    eventSourceName: Option[String] = None,
+    eventBusName: Option[String] = None
+  ): software.amazon.awscdk.services.events.EventBusProps =
+    (new software.amazon.awscdk.services.events.EventBusProps.Builder)
+      .eventSourceName(eventSourceName.orNull)
+      .eventBusName(eventBusName.orNull)
       .build()
 }

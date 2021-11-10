@@ -20,7 +20,6 @@ object DatabaseClusterFromSnapshot {
     port: Option[Number] = None,
     instanceProps: Option[software.amazon.awscdk.services.rds.InstanceProps] = None,
     cloudwatchLogsRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    s3ExportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
     monitoringInterval: Option[software.amazon.awscdk.Duration] = None,
     snapshotIdentifier: Option[String] = None,
     subnetGroup: Option[software.amazon.awscdk.services.rds.ISubnetGroup] = None,
@@ -30,6 +29,8 @@ object DatabaseClusterFromSnapshot {
     clusterIdentifier: Option[String] = None,
     instanceIdentifierBase: Option[String] = None,
     cloudwatchLogsRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
+    backtrackWindow: Option[software.amazon.awscdk.Duration] = None,
+    s3ExportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
     engine: Option[software.amazon.awscdk.services.rds.IClusterEngine] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.DatabaseClusterFromSnapshot =
@@ -47,7 +48,6 @@ object DatabaseClusterFromSnapshot {
       .port(port.orNull)
       .instanceProps(instanceProps.orNull)
       .cloudwatchLogsRetentionRole(cloudwatchLogsRetentionRole.orNull)
-      .s3ExportBuckets(s3ExportBuckets.map(_.asJava).orNull)
       .monitoringInterval(monitoringInterval.orNull)
       .snapshotIdentifier(snapshotIdentifier.orNull)
       .subnetGroup(subnetGroup.orNull)
@@ -57,6 +57,8 @@ object DatabaseClusterFromSnapshot {
       .clusterIdentifier(clusterIdentifier.orNull)
       .instanceIdentifierBase(instanceIdentifierBase.orNull)
       .cloudwatchLogsRetention(cloudwatchLogsRetention.orNull)
+      .backtrackWindow(backtrackWindow.orNull)
+      .s3ExportBuckets(s3ExportBuckets.map(_.asJava).orNull)
       .removalPolicy(removalPolicy.orNull)
       .engine(engine.orNull)
       .build()

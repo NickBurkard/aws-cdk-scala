@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.lambda
 
+
 sealed abstract class SourceMapMode(val underlying: software.amazon.awscdk.services.lambda.nodejs.SourceMapMode)
   extends Product
     with Serializable
+
 
 object SourceMapMode {
   implicit def toAws(value: SourceMapMode): software.amazon.awscdk.services.lambda.nodejs.SourceMapMode =

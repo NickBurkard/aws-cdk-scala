@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.sqs
 
+
 sealed abstract class FifoThroughputLimit(val underlying: software.amazon.awscdk.services.sqs.FifoThroughputLimit)
   extends Product
     with Serializable
+
 
 object FifoThroughputLimit {
   implicit def toAws(value: FifoThroughputLimit): software.amazon.awscdk.services.sqs.FifoThroughputLimit =

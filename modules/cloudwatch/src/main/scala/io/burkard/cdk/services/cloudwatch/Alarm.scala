@@ -1,32 +1,37 @@
 package io.burkard.cdk.services.cloudwatch
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object Alarm {
 
   def apply(
     internalResourceId: String,
+    statistic: Option[String] = None,
     evaluateLowSampleCountPercentile: Option[String] = None,
     datapointsToAlarm: Option[Number] = None,
     comparisonOperator: Option[software.amazon.awscdk.services.cloudwatch.ComparisonOperator] = None,
     threshold: Option[Number] = None,
     actionsEnabled: Option[Boolean] = None,
     evaluationPeriods: Option[Number] = None,
-    alarmName: Option[String] = None,
     alarmDescription: Option[String] = None,
     treatMissingData: Option[software.amazon.awscdk.services.cloudwatch.TreatMissingData] = None,
-    metric: Option[software.amazon.awscdk.services.cloudwatch.IMetric] = None
+    metric: Option[software.amazon.awscdk.services.cloudwatch.IMetric] = None,
+    alarmName: Option[String] = None,
+    period: Option[software.amazon.awscdk.Duration] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudwatch.Alarm =
     software.amazon.awscdk.services.cloudwatch.Alarm.Builder
       .create(stackCtx, internalResourceId)
+      .statistic(statistic.orNull)
       .evaluateLowSampleCountPercentile(evaluateLowSampleCountPercentile.orNull)
       .datapointsToAlarm(datapointsToAlarm.orNull)
       .comparisonOperator(comparisonOperator.orNull)
       .threshold(threshold.orNull)
       .actionsEnabled(actionsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .evaluationPeriods(evaluationPeriods.orNull)
-      .alarmName(alarmName.orNull)
       .alarmDescription(alarmDescription.orNull)
       .treatMissingData(treatMissingData.orNull)
       .metric(metric.orNull)
+      .alarmName(alarmName.orNull)
+      .period(period.orNull)
       .build()
 }

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudwatch
 
+
 sealed abstract class Ec2InstanceAction(val underlying: software.amazon.awscdk.services.cloudwatch.actions.Ec2InstanceAction)
   extends Product
     with Serializable
+
 
 object Ec2InstanceAction {
   implicit def toAws(value: Ec2InstanceAction): software.amazon.awscdk.services.cloudwatch.actions.Ec2InstanceAction =

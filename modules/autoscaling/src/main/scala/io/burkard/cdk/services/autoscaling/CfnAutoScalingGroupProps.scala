@@ -22,6 +22,7 @@ object CfnAutoScalingGroupProps {
     minSize: Option[String] = None,
     launchConfigurationName: Option[String] = None,
     serviceLinkedRoleArn: Option[String] = None,
+    desiredCapacityType: Option[String] = None,
     maxInstanceLifetime: Option[Number] = None,
     context: Option[String] = None,
     mixedInstancesPolicy: Option[software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.MixedInstancesPolicyProperty] = None,
@@ -50,6 +51,7 @@ object CfnAutoScalingGroupProps {
       .minSize(minSize.orNull)
       .launchConfigurationName(launchConfigurationName.orNull)
       .serviceLinkedRoleArn(serviceLinkedRoleArn.orNull)
+      .desiredCapacityType(desiredCapacityType.orNull)
       .maxInstanceLifetime(maxInstanceLifetime.orNull)
       .context(context.orNull)
       .mixedInstancesPolicy(mixedInstancesPolicy.orNull)

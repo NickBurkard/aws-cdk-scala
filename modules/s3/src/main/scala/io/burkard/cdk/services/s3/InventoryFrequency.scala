@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.s3
 
+
 sealed abstract class InventoryFrequency(val underlying: software.amazon.awscdk.services.s3.InventoryFrequency)
   extends Product
     with Serializable
+
 
 object InventoryFrequency {
   implicit def toAws(value: InventoryFrequency): software.amazon.awscdk.services.s3.InventoryFrequency =

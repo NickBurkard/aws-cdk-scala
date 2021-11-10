@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class Compatibility(val underlying: software.amazon.awscdk.services.ecs.Compatibility)
   extends Product
     with Serializable
+
 
 object Compatibility {
   implicit def toAws(value: Compatibility): software.amazon.awscdk.services.ecs.Compatibility =

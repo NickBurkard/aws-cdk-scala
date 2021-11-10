@@ -1,8 +1,10 @@
 package io.burkard.cdk.core
 
+
 sealed abstract class CfnTrafficRoutingType(val underlying: software.amazon.awscdk.CfnTrafficRoutingType)
   extends Product
     with Serializable
+
 
 object CfnTrafficRoutingType {
   implicit def toAws(value: CfnTrafficRoutingType): software.amazon.awscdk.CfnTrafficRoutingType =

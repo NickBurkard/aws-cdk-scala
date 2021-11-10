@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.autoscaling
 
+
 sealed abstract class ScalingEvent(val underlying: software.amazon.awscdk.services.autoscaling.ScalingEvent)
   extends Product
     with Serializable
+
 
 object ScalingEvent {
   implicit def toAws(value: ScalingEvent): software.amazon.awscdk.services.autoscaling.ScalingEvent =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.servicediscovery
 
+
 sealed abstract class NamespaceType(val underlying: software.amazon.awscdk.services.servicediscovery.NamespaceType)
   extends Product
     with Serializable
+
 
 object NamespaceType {
   implicit def toAws(value: NamespaceType): software.amazon.awscdk.services.servicediscovery.NamespaceType =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class FlowLogDestinationType(val underlying: software.amazon.awscdk.services.ec2.FlowLogDestinationType)
   extends Product
     with Serializable
+
 
 object FlowLogDestinationType {
   implicit def toAws(value: FlowLogDestinationType): software.amazon.awscdk.services.ec2.FlowLogDestinationType =

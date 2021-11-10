@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class OperatingSystemType(val underlying: software.amazon.awscdk.services.ec2.OperatingSystemType)
   extends Product
     with Serializable
+
 
 object OperatingSystemType {
   implicit def toAws(value: OperatingSystemType): software.amazon.awscdk.services.ec2.OperatingSystemType =

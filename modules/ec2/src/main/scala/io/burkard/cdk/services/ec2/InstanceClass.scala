@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class InstanceClass(val underlying: software.amazon.awscdk.services.ec2.InstanceClass)
   extends Product
     with Serializable
+
 
 object InstanceClass {
   implicit def toAws(value: InstanceClass): software.amazon.awscdk.services.ec2.InstanceClass =
@@ -68,11 +70,17 @@ object InstanceClass {
   case object Compute5
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.COMPUTE5)
 
+  case object Compute6Intel
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.COMPUTE6_INTEL)
+
   case object Compute5NvmeDrive
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.COMPUTE5_NVME_DRIVE)
 
   case object Compute5Amd
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.COMPUTE5_AMD)
+
+  case object Compute5AmdNvmeDrive
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.COMPUTE5_AMD_NVME_DRIVE)
 
   case object Compute5HighPerformance
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.COMPUTE5_HIGH_PERFORMANCE)
@@ -136,6 +144,9 @@ object InstanceClass {
 
   case object Parallel3
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.PARALLEL3)
+
+  case object Parallel4
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.PARALLEL4)
 
   case object Arm1
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.ARM1)

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class DynamoReturnValues(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.DynamoReturnValues)
   extends Product
     with Serializable
+
 
 object DynamoReturnValues {
   implicit def toAws(value: DynamoReturnValues): software.amazon.awscdk.services.stepfunctions.tasks.DynamoReturnValues =

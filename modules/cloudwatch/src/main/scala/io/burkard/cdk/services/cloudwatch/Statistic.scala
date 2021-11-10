@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudwatch
 
+
 sealed abstract class Statistic(val underlying: software.amazon.awscdk.services.cloudwatch.Statistic)
   extends Product
     with Serializable
+
 
 object Statistic {
   implicit def toAws(value: Statistic): software.amazon.awscdk.services.cloudwatch.Statistic =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecr
 
+
 sealed abstract class TagMutability(val underlying: software.amazon.awscdk.services.ecr.TagMutability)
   extends Product
     with Serializable
+
 
 object TagMutability {
   implicit def toAws(value: TagMutability): software.amazon.awscdk.services.ecr.TagMutability =

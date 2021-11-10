@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class PidMode(val underlying: software.amazon.awscdk.services.ecs.PidMode)
   extends Product
     with Serializable
+
 
 object PidMode {
   implicit def toAws(value: PidMode): software.amazon.awscdk.services.ecs.PidMode =

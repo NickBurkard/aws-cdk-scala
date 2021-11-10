@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudfront
 
+
 sealed abstract class HttpVersion(val underlying: software.amazon.awscdk.services.cloudfront.HttpVersion)
   extends Product
     with Serializable
+
 
 object HttpVersion {
   implicit def toAws(value: HttpVersion): software.amazon.awscdk.services.cloudfront.HttpVersion =

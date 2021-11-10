@@ -1,8 +1,10 @@
 package io.burkard.cdk.core
 
+
 sealed abstract class SymlinkFollowMode(val underlying: software.amazon.awscdk.SymlinkFollowMode)
   extends Product
     with Serializable
+
 
 object SymlinkFollowMode {
   implicit def toAws(value: SymlinkFollowMode): software.amazon.awscdk.SymlinkFollowMode =

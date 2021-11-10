@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.appmesh
 
+
 sealed abstract class TlsMode(val underlying: software.amazon.awscdk.services.appmesh.TlsMode)
   extends Product
     with Serializable
+
 
 object TlsMode {
   implicit def toAws(value: TlsMode): software.amazon.awscdk.services.appmesh.TlsMode =

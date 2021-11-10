@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class UlimitName(val underlying: software.amazon.awscdk.services.ecs.UlimitName)
   extends Product
     with Serializable
+
 
 object UlimitName {
   implicit def toAws(value: UlimitName): software.amazon.awscdk.services.ecs.UlimitName =

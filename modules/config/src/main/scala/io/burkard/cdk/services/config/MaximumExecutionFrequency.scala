@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.config
 
+
 sealed abstract class MaximumExecutionFrequency(val underlying: software.amazon.awscdk.services.config.MaximumExecutionFrequency)
   extends Product
     with Serializable
+
 
 object MaximumExecutionFrequency {
   implicit def toAws(value: MaximumExecutionFrequency): software.amazon.awscdk.services.config.MaximumExecutionFrequency =

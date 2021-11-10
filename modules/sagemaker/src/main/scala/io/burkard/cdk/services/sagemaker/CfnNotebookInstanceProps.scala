@@ -12,6 +12,7 @@ object CfnNotebookInstanceProps {
     securityGroupIds: Option[List[String]] = None,
     subnetId: Option[String] = None,
     instanceType: Option[String] = None,
+    platformIdentifier: Option[String] = None,
     lifecycleConfigName: Option[String] = None,
     roleArn: Option[String] = None,
     rootAccess: Option[String] = None,
@@ -28,6 +29,7 @@ object CfnNotebookInstanceProps {
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .subnetId(subnetId.orNull)
       .instanceType(instanceType.orNull)
+      .platformIdentifier(platformIdentifier.orNull)
       .lifecycleConfigName(lifecycleConfigName.orNull)
       .roleArn(roleArn.orNull)
       .rootAccess(rootAccess.orNull)

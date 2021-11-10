@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.appmesh
 
+
 sealed abstract class MeshFilterType(val underlying: software.amazon.awscdk.services.appmesh.MeshFilterType)
   extends Product
     with Serializable
+
 
 object MeshFilterType {
   implicit def toAws(value: MeshFilterType): software.amazon.awscdk.services.appmesh.MeshFilterType =

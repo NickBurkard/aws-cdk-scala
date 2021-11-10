@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudfront
 
+
 sealed abstract class ViewerProtocolPolicy(val underlying: software.amazon.awscdk.services.cloudfront.ViewerProtocolPolicy)
   extends Product
     with Serializable
+
 
 object ViewerProtocolPolicy {
   implicit def toAws(value: ViewerProtocolPolicy): software.amazon.awscdk.services.cloudfront.ViewerProtocolPolicy =

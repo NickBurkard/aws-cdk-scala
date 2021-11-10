@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.eks
 
+
 sealed abstract class CoreDnsComputeType(val underlying: software.amazon.awscdk.services.eks.CoreDnsComputeType)
   extends Product
     with Serializable
+
 
 object CoreDnsComputeType {
   implicit def toAws(value: CoreDnsComputeType): software.amazon.awscdk.services.eks.CoreDnsComputeType =

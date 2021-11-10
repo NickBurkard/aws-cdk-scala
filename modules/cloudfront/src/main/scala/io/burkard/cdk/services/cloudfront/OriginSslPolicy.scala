@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudfront
 
+
 sealed abstract class OriginSslPolicy(val underlying: software.amazon.awscdk.services.cloudfront.OriginSslPolicy)
   extends Product
     with Serializable
+
 
 object OriginSslPolicy {
   implicit def toAws(value: OriginSslPolicy): software.amazon.awscdk.services.cloudfront.OriginSslPolicy =

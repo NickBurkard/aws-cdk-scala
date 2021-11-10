@@ -11,6 +11,7 @@ object DataSourceParametersProperty {
     amazonElasticsearchParameters: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.AmazonElasticsearchParametersProperty] = None,
     mariaDbParameters: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.MariaDbParametersProperty] = None,
     auroraPostgreSqlParameters: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.AuroraPostgreSqlParametersProperty] = None,
+    amazonOpenSearchParameters: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.AmazonOpenSearchParametersProperty] = None,
     snowflakeParameters: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.SnowflakeParametersProperty] = None,
     teradataParameters: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.TeradataParametersProperty] = None,
     sqlServerParameters: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.SqlServerParametersProperty] = None,
@@ -29,6 +30,7 @@ object DataSourceParametersProperty {
       .amazonElasticsearchParameters(amazonElasticsearchParameters.orNull)
       .mariaDbParameters(mariaDbParameters.orNull)
       .auroraPostgreSqlParameters(auroraPostgreSqlParameters.orNull)
+      .amazonOpenSearchParameters(amazonOpenSearchParameters.orNull)
       .snowflakeParameters(snowflakeParameters.orNull)
       .teradataParameters(teradataParameters.orNull)
       .sqlServerParameters(sqlServerParameters.orNull)

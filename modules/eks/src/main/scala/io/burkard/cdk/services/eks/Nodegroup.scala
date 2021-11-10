@@ -12,6 +12,7 @@ object Nodegroup {
     diskSize: Option[Number] = None,
     taints: Option[List[_ <: software.amazon.awscdk.services.eks.TaintSpec]] = None,
     instanceTypes: Option[List[_ <: software.amazon.awscdk.services.ec2.InstanceType]] = None,
+    instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     cluster: Option[software.amazon.awscdk.services.eks.ICluster] = None,
     labels: Option[Map[String, String]] = None,
     releaseVersion: Option[String] = None,
@@ -33,6 +34,7 @@ object Nodegroup {
       .diskSize(diskSize.orNull)
       .taints(taints.map(_.asJava).orNull)
       .instanceTypes(instanceTypes.map(_.asJava).orNull)
+      .instanceType(instanceType.orNull)
       .cluster(cluster.orNull)
       .labels(labels.map(_.asJava).orNull)
       .releaseVersion(releaseVersion.orNull)

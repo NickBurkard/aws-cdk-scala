@@ -46,7 +46,9 @@ object NodejsFunctionProps {
     handler: Option[String] = None,
     awsSdkConnectionReuse: Option[Boolean] = None,
     events: Option[List[_ <: software.amazon.awscdk.services.lambda.IEventSource]] = None,
-    runtime: Option[software.amazon.awscdk.services.lambda.Runtime] = None
+    runtime: Option[software.amazon.awscdk.services.lambda.Runtime] = None,
+    architectures: Option[List[_ <: software.amazon.awscdk.services.lambda.Architecture]] = None,
+    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
   ): software.amazon.awscdk.services.lambda.nodejs.NodejsFunctionProps =
     (new software.amazon.awscdk.services.lambda.nodejs.NodejsFunctionProps.Builder)
       .initialPolicy(initialPolicy.map(_.asJava).orNull)
@@ -89,5 +91,7 @@ object NodejsFunctionProps {
       .awsSdkConnectionReuse(awsSdkConnectionReuse.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .events(events.map(_.asJava).orNull)
       .runtime(runtime.orNull)
+      .architectures(architectures.map(_.asJava).orNull)
+      .securityGroup(securityGroup.orNull)
       .build()
 }

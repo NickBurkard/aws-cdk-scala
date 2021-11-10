@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class SplunkLogFormat(val underlying: software.amazon.awscdk.services.ecs.SplunkLogFormat)
   extends Product
     with Serializable
+
 
 object SplunkLogFormat {
   implicit def toAws(value: SplunkLogFormat): software.amazon.awscdk.services.ecs.SplunkLogFormat =

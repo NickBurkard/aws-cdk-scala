@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudwatch
 
+
 sealed abstract class GraphWidgetView(val underlying: software.amazon.awscdk.services.cloudwatch.GraphWidgetView)
   extends Product
     with Serializable
+
 
 object GraphWidgetView {
   implicit def toAws(value: GraphWidgetView): software.amazon.awscdk.services.cloudwatch.GraphWidgetView =

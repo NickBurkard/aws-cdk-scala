@@ -17,6 +17,7 @@ object CfnCampaignProps {
     limits: Option[software.amazon.awscdk.services.pinpoint.CfnCampaign.LimitsProperty] = None,
     isPaused: Option[Boolean] = None,
     name: Option[String] = None,
+    priority: Option[Number] = None,
     segmentVersion: Option[Number] = None,
     description: Option[String] = None,
     tags: Option[AnyRef] = None,
@@ -34,6 +35,7 @@ object CfnCampaignProps {
       .limits(limits.orNull)
       .isPaused(isPaused.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .name(name.orNull)
+      .priority(priority.orNull)
       .segmentVersion(segmentVersion.orNull)
       .description(description.orNull)
       .tags(tags.orNull)

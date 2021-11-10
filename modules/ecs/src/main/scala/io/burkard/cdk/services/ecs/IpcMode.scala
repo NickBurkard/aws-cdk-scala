@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class IpcMode(val underlying: software.amazon.awscdk.services.ecs.IpcMode)
   extends Product
     with Serializable
+
 
 object IpcMode {
   implicit def toAws(value: IpcMode): software.amazon.awscdk.services.ecs.IpcMode =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class DynamoItemCollectionMetrics(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.DynamoItemCollectionMetrics)
   extends Product
     with Serializable
+
 
 object DynamoItemCollectionMetrics {
   implicit def toAws(value: DynamoItemCollectionMetrics): software.amazon.awscdk.services.stepfunctions.tasks.DynamoItemCollectionMetrics =

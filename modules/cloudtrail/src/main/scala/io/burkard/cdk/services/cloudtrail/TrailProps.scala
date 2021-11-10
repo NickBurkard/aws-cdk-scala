@@ -1,9 +1,11 @@
 package io.burkard.cdk.services.cloudtrail
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object TrailProps {
 
   def apply(
+    kmsKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
     enableFileValidation: Option[Boolean] = None,
     cloudWatchLogGroup: Option[software.amazon.awscdk.services.logs.ILogGroup] = None,
     snsTopic: Option[software.amazon.awscdk.services.sns.ITopic] = None,
@@ -18,6 +20,7 @@ object TrailProps {
     managementEvents: Option[software.amazon.awscdk.services.cloudtrail.ReadWriteType] = None
   ): software.amazon.awscdk.services.cloudtrail.TrailProps =
     (new software.amazon.awscdk.services.cloudtrail.TrailProps.Builder)
+      .kmsKey(kmsKey.orNull)
       .enableFileValidation(enableFileValidation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cloudWatchLogGroup(cloudWatchLogGroup.orNull)
       .snsTopic(snsTopic.orNull)

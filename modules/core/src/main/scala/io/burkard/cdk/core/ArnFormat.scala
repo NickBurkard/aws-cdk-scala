@@ -1,8 +1,10 @@
 package io.burkard.cdk.core
 
+
 sealed abstract class ArnFormat(val underlying: software.amazon.awscdk.ArnFormat)
   extends Product
     with Serializable
+
 
 object ArnFormat {
   implicit def toAws(value: ArnFormat): software.amazon.awscdk.ArnFormat =

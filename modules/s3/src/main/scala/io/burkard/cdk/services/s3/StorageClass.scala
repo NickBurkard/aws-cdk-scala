@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.s3
 
+
 sealed abstract class StorageClass(val underlying: software.amazon.awscdk.services.s3.deployment.StorageClass)
   extends Product
     with Serializable
+
 
 object StorageClass {
   implicit def toAws(value: StorageClass): software.amazon.awscdk.services.s3.deployment.StorageClass =

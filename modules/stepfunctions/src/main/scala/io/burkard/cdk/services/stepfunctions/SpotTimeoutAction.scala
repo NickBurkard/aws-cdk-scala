@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class SpotTimeoutAction(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotTimeoutAction)
   extends Product
     with Serializable
+
 
 object SpotTimeoutAction {
   implicit def toAws(value: SpotTimeoutAction): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotTimeoutAction =

@@ -1,5 +1,6 @@
 package io.burkard.cdk.codegen
 
+import java.lang.annotation.Annotation
 import java.lang.reflect.{Method, Modifier}
 
 // Method associated to setting a field in a CDK builder.
@@ -7,7 +8,8 @@ final case class FieldMethod private[codegen](
   parameterName: String,
   methodName: String,
   typeName: String,
-  isOptional: Boolean
+  isOptional: Boolean,
+  annotations: List[Annotation]
 ) {
   lazy val asTypeAnnotatedParameter: String =
     if (isOptional) {
@@ -74,6 +76,9 @@ final case class FieldMethod private[codegen](
 
   private[this] lazy val fullTypeName: String =
     literallyIdentify(rewriteJavaTypes(typeName))
+
+  lazy val isDeprecated: Boolean =
+    annotations.exists(_.annotationType().getSimpleName == "Deprecated")
 }
 
 object FieldMethod {

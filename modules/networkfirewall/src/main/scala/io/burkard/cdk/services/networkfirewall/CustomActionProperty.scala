@@ -4,10 +4,10 @@ package io.burkard.cdk.services.networkfirewall
 object CustomActionProperty {
 
   def apply(
-    actionDefinition: Option[software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.ActionDefinitionProperty] = None,
+    actionDefinition: Option[software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.ActionDefinitionProperty] = None,
     actionName: Option[String] = None
-  ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.CustomActionProperty =
-    (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.CustomActionProperty.Builder)
+  ): software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.CustomActionProperty =
+    (new software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.CustomActionProperty.Builder)
       .actionDefinition(actionDefinition.orNull)
       .actionName(actionName.orNull)
       .build()

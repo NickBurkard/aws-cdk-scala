@@ -1,9 +1,11 @@
 package io.burkard.cdk.services.ec2
 
+
 sealed abstract class WindowsVersion(val underlying: software.amazon.awscdk.services.ec2.WindowsVersion)
   extends Product
     with Serializable
 
+@scala.annotation.nowarn("cat=deprecation")
 object WindowsVersion {
   implicit def toAws(value: WindowsVersion): software.amazon.awscdk.services.ec2.WindowsVersion =
     Option(value).map(_.underlying).orNull
@@ -35,7 +37,7 @@ object WindowsVersion {
   case object WindowsServer2016EnglishCoreSql2016Sp1Web
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_WEB)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2016GermalFullBase
+  case object WindowsServer2016GermalFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_GERMAL_FULL_BASE)
 
   case object WindowsServer2003R2Sp2LanguagePacks32bitBase
@@ -47,7 +49,7 @@ object WindowsVersion {
   case object WindowsServer2008R2Sp1English64bitSql2012Sp4Express
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2012R2Sp1PortugeseBrazil64bitCore
+  case object WindowsServer2012R2Sp1PortugeseBrazil64bitCore
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE)
 
   case object WindowsServer2012R2RtmEnglish64bitSql2016Sp2Standard
@@ -86,7 +88,7 @@ object WindowsVersion {
   case object WindowsServer2016KoreanFullSql2016Sp2Standard
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2016PortugesePortugalFullBase
+  case object WindowsServer2016PortugesePortugalFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE)
 
   case object WindowsServer2019EnglishFullSql2017Web
@@ -272,10 +274,10 @@ object WindowsVersion {
   case object WindowsServer2012R2RtmJapanese64bitSql2016Sp1Web
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_WEB)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2012R2RtmPortugeseBrazil64bitBase
+  case object WindowsServer2012R2RtmPortugeseBrazil64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2012R2RtmPortugesePortugal64bitBase
+  case object WindowsServer2012R2RtmPortugesePortugal64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE)
 
   case object WindowsServer2012R2RtmSwedish64bitBase
@@ -311,7 +313,7 @@ object WindowsVersion {
   case object WindowsServer2016EnglishCoreSql2016Sp2Enterprise
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_ENTERPRISE)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2016PortugeseBrazilFullBase
+  case object WindowsServer2016PortugeseBrazilFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE)
 
   case object WindowsServer2019EnglishFullBase
@@ -383,7 +385,7 @@ object WindowsVersion {
   case object WindowsServer2008R2Sp1LanguagePacks64bitSql2008R2Sp3Express
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2012Sp2PortugeseBrazil64bitBase
+  case object WindowsServer2012Sp2PortugeseBrazil64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE)
 
   case object WindowsServer2012R2RtmEnglish64bitSql2016Sp1Web
@@ -422,7 +424,7 @@ object WindowsVersion {
   case object WindowsServer2012R2RtmEnglish64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_BASE)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2012RtmPortugeseBrazil64bitBase
+  case object WindowsServer2012RtmPortugeseBrazil64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE)
 
   case object WindowsServer2016EnglishFullSql2016Sp1Web
@@ -494,7 +496,7 @@ object WindowsVersion {
   case object WindowsServer2008R2Sp1Japanese64bitSql2008R2Sp3Web
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_WEB)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2008R2Sp1PortugeseBrazil64bitBase
+  case object WindowsServer2008R2Sp1PortugeseBrazil64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE)
 
   case object WindowsServer2012R2RtmJapanese64bitSql2016Sp1Enterprise
@@ -587,7 +589,7 @@ object WindowsVersion {
   case object WindowsServer2008R2Sp1English64bitSql2012Sp4Standard
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_STANDARD)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2008Sp2PortugeseBrazil32bitBase
+  case object WindowsServer2008Sp2PortugeseBrazil32bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE)
 
   case object WindowsServer2012R2RtmJapanese64bitSql2014Sp2Standard
@@ -596,7 +598,7 @@ object WindowsVersion {
   case object WindowsServer2012RtmJapanese64bitSql2012Sp4Express
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2012RtmPortugesePortugal64bitBase
+  case object WindowsServer2012RtmPortugesePortugal64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE)
 
   case object WindowsServer2016CzechFullBase
@@ -635,7 +637,7 @@ object WindowsVersion {
   case object WindowsServer2016EnglishFullSql2017Standard
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_STANDARD)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2019PortugeseBrazilFullBase
+  case object WindowsServer2019PortugeseBrazilFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE)
 
   case object WindowsServer2008R2Sp1English64bitSql2008R2Sp3Standard
@@ -662,7 +664,7 @@ object WindowsVersion {
   case object WindowsServer2016JapaneseFullSql2016Sp2Standard
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_STANDARD)
 
-  @scala.annotation.nowarn("cat=deprecation") case object WindowsServer2019PortugesePortugalFullBase
+  case object WindowsServer2019PortugesePortugalFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE)
 
   case object WindowsServer2019SwedishFullBase

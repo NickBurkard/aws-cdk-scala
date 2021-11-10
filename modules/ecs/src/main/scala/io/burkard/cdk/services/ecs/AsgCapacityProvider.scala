@@ -1,5 +1,6 @@
 package io.burkard.cdk.services.ecs
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object AsgCapacityProvider {
 
@@ -9,6 +10,7 @@ object AsgCapacityProvider {
     canContainersAccessInstanceRole: Option[Boolean] = None,
     topicEncryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
     machineImageType: Option[software.amazon.awscdk.services.ecs.MachineImageType] = None,
+    taskDrainTime: Option[software.amazon.awscdk.Duration] = None,
     autoScalingGroup: Option[software.amazon.awscdk.services.autoscaling.IAutoScalingGroup] = None,
     targetCapacityPercent: Option[Number] = None,
     enableManagedScaling: Option[Boolean] = None,
@@ -23,6 +25,7 @@ object AsgCapacityProvider {
       .canContainersAccessInstanceRole(canContainersAccessInstanceRole.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .topicEncryptionKey(topicEncryptionKey.orNull)
       .machineImageType(machineImageType.orNull)
+      .taskDrainTime(taskDrainTime.orNull)
       .autoScalingGroup(autoScalingGroup.orNull)
       .targetCapacityPercent(targetCapacityPercent.orNull)
       .enableManagedScaling(enableManagedScaling.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

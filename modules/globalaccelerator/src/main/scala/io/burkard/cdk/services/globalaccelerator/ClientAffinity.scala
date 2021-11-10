@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.globalaccelerator
 
+
 sealed abstract class ClientAffinity(val underlying: software.amazon.awscdk.services.globalaccelerator.ClientAffinity)
   extends Product
     with Serializable
+
 
 object ClientAffinity {
   implicit def toAws(value: ClientAffinity): software.amazon.awscdk.services.globalaccelerator.ClientAffinity =

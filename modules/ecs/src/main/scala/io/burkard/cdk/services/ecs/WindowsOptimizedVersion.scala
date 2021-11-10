@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class WindowsOptimizedVersion(val underlying: software.amazon.awscdk.services.ecs.WindowsOptimizedVersion)
   extends Product
     with Serializable
+
 
 object WindowsOptimizedVersion {
   implicit def toAws(value: WindowsOptimizedVersion): software.amazon.awscdk.services.ecs.WindowsOptimizedVersion =

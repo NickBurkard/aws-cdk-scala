@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.dynamodb
 
+
 sealed abstract class AttributeType(val underlying: software.amazon.awscdk.services.dynamodb.AttributeType)
   extends Product
     with Serializable
+
 
 object AttributeType {
   implicit def toAws(value: AttributeType): software.amazon.awscdk.services.dynamodb.AttributeType =

@@ -5,8 +5,8 @@ object LambdaConflictHandlerConfigProperty {
 
   def apply(
     lambdaConflictHandlerArn: Option[String] = None
-  ): software.amazon.awscdk.services.appsync.CfnFunctionConfiguration.LambdaConflictHandlerConfigProperty =
-    (new software.amazon.awscdk.services.appsync.CfnFunctionConfiguration.LambdaConflictHandlerConfigProperty.Builder)
+  ): software.amazon.awscdk.services.appsync.CfnResolver.LambdaConflictHandlerConfigProperty =
+    (new software.amazon.awscdk.services.appsync.CfnResolver.LambdaConflictHandlerConfigProperty.Builder)
       .lambdaConflictHandlerArn(lambdaConflictHandlerArn.orNull)
       .build()
 }

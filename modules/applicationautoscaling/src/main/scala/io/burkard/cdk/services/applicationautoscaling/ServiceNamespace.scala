@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.applicationautoscaling
 
+
 sealed abstract class ServiceNamespace(val underlying: software.amazon.awscdk.services.applicationautoscaling.ServiceNamespace)
   extends Product
     with Serializable
+
 
 object ServiceNamespace {
   implicit def toAws(value: ServiceNamespace): software.amazon.awscdk.services.applicationautoscaling.ServiceNamespace =

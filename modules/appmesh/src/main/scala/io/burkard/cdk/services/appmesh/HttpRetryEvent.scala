@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.appmesh
 
+
 sealed abstract class HttpRetryEvent(val underlying: software.amazon.awscdk.services.appmesh.HttpRetryEvent)
   extends Product
     with Serializable
+
 
 object HttpRetryEvent {
   implicit def toAws(value: HttpRetryEvent): software.amazon.awscdk.services.appmesh.HttpRetryEvent =

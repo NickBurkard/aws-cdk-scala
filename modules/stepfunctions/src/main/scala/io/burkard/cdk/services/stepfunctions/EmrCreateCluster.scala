@@ -14,6 +14,7 @@ object EmrCreateCluster {
     bootstrapActions: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.BootstrapActionConfigProperty]] = None,
     resultPath: Option[String] = None,
     visibleToAllUsers: Option[Boolean] = None,
+    autoTerminationPolicy: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.AutoTerminationPolicyProperty] = None,
     resultSelector: Option[Map[String, _]] = None,
     additionalInfo: Option[String] = None,
     configurations: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ConfigurationProperty]] = None,
@@ -44,6 +45,7 @@ object EmrCreateCluster {
       .bootstrapActions(bootstrapActions.map(_.asJava).orNull)
       .resultPath(resultPath.orNull)
       .visibleToAllUsers(visibleToAllUsers.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .autoTerminationPolicy(autoTerminationPolicy.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .additionalInfo(additionalInfo.orNull)
       .configurations(configurations.map(_.asJava).orNull)

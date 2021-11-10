@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.dynamodb
 
+
 sealed abstract class Operation(val underlying: software.amazon.awscdk.services.dynamodb.Operation)
   extends Product
     with Serializable
+
 
 object Operation {
   implicit def toAws(value: Operation): software.amazon.awscdk.services.dynamodb.Operation =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.apigateway
 
+
 sealed abstract class EndpointType(val underlying: software.amazon.awscdk.services.apigateway.EndpointType)
   extends Product
     with Serializable
+
 
 object EndpointType {
   implicit def toAws(value: EndpointType): software.amazon.awscdk.services.apigateway.EndpointType =

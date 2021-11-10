@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.apigateway
 
+
 sealed abstract class ContentHandling(val underlying: software.amazon.awscdk.services.apigateway.ContentHandling)
   extends Product
     with Serializable
+
 
 object ContentHandling {
   implicit def toAws(value: ContentHandling): software.amazon.awscdk.services.apigateway.ContentHandling =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class ActionOnFailure(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.ActionOnFailure)
   extends Product
     with Serializable
+
 
 object ActionOnFailure {
   implicit def toAws(value: ActionOnFailure): software.amazon.awscdk.services.stepfunctions.tasks.ActionOnFailure =

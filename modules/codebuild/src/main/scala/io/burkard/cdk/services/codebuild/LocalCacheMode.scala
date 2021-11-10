@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.codebuild
 
+
 sealed abstract class LocalCacheMode(val underlying: software.amazon.awscdk.services.codebuild.LocalCacheMode)
   extends Product
     with Serializable
+
 
 object LocalCacheMode {
   implicit def toAws(value: LocalCacheMode): software.amazon.awscdk.services.codebuild.LocalCacheMode =

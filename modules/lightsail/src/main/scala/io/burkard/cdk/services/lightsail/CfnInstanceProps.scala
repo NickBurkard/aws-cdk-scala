@@ -12,8 +12,10 @@ object CfnInstanceProps {
     state: Option[software.amazon.awscdk.services.lightsail.CfnInstance.StateProperty] = None,
     addOns: Option[List[_]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
+    userData: Option[String] = None,
     hardware: Option[software.amazon.awscdk.services.lightsail.CfnInstance.HardwareProperty] = None,
     blueprintId: Option[String] = None,
+    keyPairName: Option[String] = None,
     instanceName: Option[String] = None,
     availabilityZone: Option[String] = None,
     networking: Option[software.amazon.awscdk.services.lightsail.CfnInstance.NetworkingProperty] = None
@@ -24,8 +26,10 @@ object CfnInstanceProps {
       .state(state.orNull)
       .addOns(addOns.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)
+      .userData(userData.orNull)
       .hardware(hardware.orNull)
       .blueprintId(blueprintId.orNull)
+      .keyPairName(keyPairName.orNull)
       .instanceName(instanceName.orNull)
       .availabilityZone(availabilityZone.orNull)
       .networking(networking.orNull)

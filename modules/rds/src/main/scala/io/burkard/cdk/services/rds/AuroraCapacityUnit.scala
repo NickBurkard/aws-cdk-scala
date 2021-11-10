@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.rds
 
+
 sealed abstract class AuroraCapacityUnit(val underlying: software.amazon.awscdk.services.rds.AuroraCapacityUnit)
   extends Product
     with Serializable
+
 
 object AuroraCapacityUnit {
   implicit def toAws(value: AuroraCapacityUnit): software.amazon.awscdk.services.rds.AuroraCapacityUnit =

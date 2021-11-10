@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.route53
 
+
 sealed abstract class CaaTag(val underlying: software.amazon.awscdk.services.route53.CaaTag)
   extends Product
     with Serializable
+
 
 object CaaTag {
   implicit def toAws(value: CaaTag): software.amazon.awscdk.services.route53.CaaTag =

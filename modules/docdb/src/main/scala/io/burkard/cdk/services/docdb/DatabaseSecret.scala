@@ -7,6 +7,7 @@ object DatabaseSecret {
     internalResourceId: String,
     username: Option[String] = None,
     masterSecret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
+    excludeCharacters: Option[String] = None,
     secretName: Option[String] = None,
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.docdb.DatabaseSecret =
@@ -14,6 +15,7 @@ object DatabaseSecret {
       .create(stackCtx, internalResourceId)
       .username(username.orNull)
       .masterSecret(masterSecret.orNull)
+      .excludeCharacters(excludeCharacters.orNull)
       .secretName(secretName.orNull)
       .encryptionKey(encryptionKey.orNull)
       .build()

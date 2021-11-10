@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.apigateway
 
+
 sealed abstract class SecurityPolicy(val underlying: software.amazon.awscdk.services.apigateway.SecurityPolicy)
   extends Product
     with Serializable
+
 
 object SecurityPolicy {
   implicit def toAws(value: SecurityPolicy): software.amazon.awscdk.services.apigateway.SecurityPolicy =

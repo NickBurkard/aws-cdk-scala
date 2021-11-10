@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudfront
 
+
 sealed abstract class FailoverStatusCode(val underlying: software.amazon.awscdk.services.cloudfront.FailoverStatusCode)
   extends Product
     with Serializable
+
 
 object FailoverStatusCode {
   implicit def toAws(value: FailoverStatusCode): software.amazon.awscdk.services.cloudfront.FailoverStatusCode =

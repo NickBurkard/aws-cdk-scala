@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.ecs
 
+
 sealed abstract class GelfCompressionType(val underlying: software.amazon.awscdk.services.ecs.GelfCompressionType)
   extends Product
     with Serializable
+
 
 object GelfCompressionType {
   implicit def toAws(value: GelfCompressionType): software.amazon.awscdk.services.ecs.GelfCompressionType =

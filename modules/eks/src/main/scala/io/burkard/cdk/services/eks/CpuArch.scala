@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.eks
 
+
 sealed abstract class CpuArch(val underlying: software.amazon.awscdk.services.eks.CpuArch)
   extends Product
     with Serializable
+
 
 object CpuArch {
   implicit def toAws(value: CpuArch): software.amazon.awscdk.services.eks.CpuArch =

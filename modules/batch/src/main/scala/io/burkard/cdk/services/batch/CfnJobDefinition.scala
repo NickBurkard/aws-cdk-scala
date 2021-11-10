@@ -9,6 +9,7 @@ object CfnJobDefinition {
   def apply(
     internalResourceId: String,
     retryStrategy: Option[software.amazon.awscdk.services.batch.CfnJobDefinition.RetryStrategyProperty] = None,
+    schedulingPriority: Option[Number] = None,
     containerProperties: Option[software.amazon.awscdk.services.batch.CfnJobDefinition.ContainerPropertiesProperty] = None,
     tags: Option[AnyRef] = None,
     platformCapabilities: Option[List[String]] = None,
@@ -22,6 +23,7 @@ object CfnJobDefinition {
     software.amazon.awscdk.services.batch.CfnJobDefinition.Builder
       .create(stackCtx, internalResourceId)
       .retryStrategy(retryStrategy.orNull)
+      .schedulingPriority(schedulingPriority.orNull)
       .containerProperties(containerProperties.orNull)
       .tags(tags.orNull)
       .platformCapabilities(platformCapabilities.map(_.asJava).orNull)

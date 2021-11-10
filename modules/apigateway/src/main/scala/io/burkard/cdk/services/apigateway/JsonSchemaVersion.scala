@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.apigateway
 
+
 sealed abstract class JsonSchemaVersion(val underlying: software.amazon.awscdk.services.apigateway.JsonSchemaVersion)
   extends Product
     with Serializable
+
 
 object JsonSchemaVersion {
   implicit def toAws(value: JsonSchemaVersion): software.amazon.awscdk.services.apigateway.JsonSchemaVersion =

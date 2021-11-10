@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.eks
 
+
 sealed abstract class CapacityType(val underlying: software.amazon.awscdk.services.eks.CapacityType)
   extends Product
     with Serializable
+
 
 object CapacityType {
   implicit def toAws(value: CapacityType): software.amazon.awscdk.services.eks.CapacityType =

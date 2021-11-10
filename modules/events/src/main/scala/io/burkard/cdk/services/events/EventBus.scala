@@ -4,11 +4,13 @@ package io.burkard.cdk.services.events
 object EventBus {
 
   def apply(
-    eventBus: software.amazon.awscdk.services.events.IEventBus,
-    role: Option[software.amazon.awscdk.services.iam.IRole] = None
-  ): software.amazon.awscdk.services.events.targets.EventBus =
-    software.amazon.awscdk.services.events.targets.EventBus.Builder
-      .create(eventBus)
-      .role(role.orNull)
+    internalResourceId: String,
+    eventSourceName: Option[String] = None,
+    eventBusName: Option[String] = None
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.events.EventBus =
+    software.amazon.awscdk.services.events.EventBus.Builder
+      .create(stackCtx, internalResourceId)
+      .eventSourceName(eventSourceName.orNull)
+      .eventBusName(eventBusName.orNull)
       .build()
 }

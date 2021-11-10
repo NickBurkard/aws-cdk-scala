@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.s3
 
+
 sealed abstract class BucketEncryption(val underlying: software.amazon.awscdk.services.s3.BucketEncryption)
   extends Product
     with Serializable
+
 
 object BucketEncryption {
   implicit def toAws(value: BucketEncryption): software.amazon.awscdk.services.s3.BucketEncryption =

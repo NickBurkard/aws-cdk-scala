@@ -10,6 +10,7 @@ object AwsSdkCall {
     outputPaths: Option[List[String]] = None,
     physicalResourceId: Option[software.amazon.awscdk.customresources.PhysicalResourceId] = None,
     service: Option[String] = None,
+    outputPath: Option[String] = None,
     region: Option[String] = None,
     ignoreErrorCodesMatching: Option[String] = None,
     apiVersion: Option[String] = None,
@@ -21,6 +22,7 @@ object AwsSdkCall {
       .outputPaths(outputPaths.map(_.asJava).orNull)
       .physicalResourceId(physicalResourceId.orNull)
       .service(service.orNull)
+      .outputPath(outputPath.orNull)
       .region(region.orNull)
       .ignoreErrorCodesMatching(ignoreErrorCodesMatching.orNull)
       .apiVersion(apiVersion.orNull)

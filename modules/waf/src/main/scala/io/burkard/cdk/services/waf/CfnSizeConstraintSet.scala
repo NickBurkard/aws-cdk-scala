@@ -10,8 +10,8 @@ object CfnSizeConstraintSet {
     internalResourceId: String,
     name: Option[String] = None,
     sizeConstraints: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnSizeConstraintSet =
-    software.amazon.awscdk.services.waf.CfnSizeConstraintSet.Builder
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet =
+    software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet.Builder
       .create(stackCtx, internalResourceId)
       .name(name.orNull)
       .sizeConstraints(sizeConstraints.map(_.asJava).orNull)

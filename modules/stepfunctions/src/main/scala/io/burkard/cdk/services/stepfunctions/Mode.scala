@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.stepfunctions
 
+
 sealed abstract class Mode(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.Mode)
   extends Product
     with Serializable
+
 
 object Mode {
   implicit def toAws(value: Mode): software.amazon.awscdk.services.stepfunctions.tasks.Mode =

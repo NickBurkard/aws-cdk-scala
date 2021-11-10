@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.appmesh
 
+
 sealed abstract class GrpcRetryEvent(val underlying: software.amazon.awscdk.services.appmesh.GrpcRetryEvent)
   extends Product
     with Serializable
+
 
 object GrpcRetryEvent {
   implicit def toAws(value: GrpcRetryEvent): software.amazon.awscdk.services.appmesh.GrpcRetryEvent =

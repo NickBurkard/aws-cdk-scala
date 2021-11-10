@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.s3
 
+
 sealed abstract class InventoryFormat(val underlying: software.amazon.awscdk.services.s3.InventoryFormat)
   extends Product
     with Serializable
+
 
 object InventoryFormat {
   implicit def toAws(value: InventoryFormat): software.amazon.awscdk.services.s3.InventoryFormat =

@@ -1,8 +1,10 @@
 package io.burkard.cdk.services.cloudfront
 
+
 sealed abstract class SSLMethod(val underlying: software.amazon.awscdk.services.cloudfront.SSLMethod)
   extends Product
     with Serializable
+
 
 object SSLMethod {
   implicit def toAws(value: SSLMethod): software.amazon.awscdk.services.cloudfront.SSLMethod =
