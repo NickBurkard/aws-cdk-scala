@@ -2,9 +2,7 @@ import sbt._
 
 object Dependencies {
   object Aws {
-    val cdkVersion: String = "2.0.0-rc.27"
-
-    val cdk: ModuleID = "software.amazon.awscdk" % "aws-cdk-lib" % cdkVersion
+    val cdk: ModuleID = "software.amazon.awscdk" % "aws-cdk-lib" % "2.0.0-rc.28"
 
     val constructs: ModuleID = "software.constructs" % "constructs" % "10.0.9"
   }
