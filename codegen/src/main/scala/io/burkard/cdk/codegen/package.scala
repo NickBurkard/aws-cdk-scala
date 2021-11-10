@@ -3,8 +3,6 @@ package io.burkard.cdk
 import scala.util.matching.Regex
 
 package object codegen {
-  val LibraryVersion: String = "0.1.3"
-
   // Service-based builders.
   // `.service` package is optional.
   val ServiceRegex: Regex = raw"^software\.amazon\.awscdk(\.services)?\.([a-z0-9]+).*".r
