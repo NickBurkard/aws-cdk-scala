@@ -13,6 +13,7 @@ object CfnEndpoint {
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     endpointConfigName: Option[String] = None,
     endpointName: Option[String] = None,
+    retainDeploymentConfig: Option[Boolean] = None,
     excludeRetainedVariantProperties: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sagemaker.CfnEndpoint =
     software.amazon.awscdk.services.sagemaker.CfnEndpoint.Builder
@@ -22,6 +23,7 @@ object CfnEndpoint {
       .tags(tags.map(_.asJava).orNull)
       .endpointConfigName(endpointConfigName.orNull)
       .endpointName(endpointName.orNull)
+      .retainDeploymentConfig(retainDeploymentConfig.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .excludeRetainedVariantProperties(excludeRetainedVariantProperties.map(_.asJava).orNull)
       .build()
 }

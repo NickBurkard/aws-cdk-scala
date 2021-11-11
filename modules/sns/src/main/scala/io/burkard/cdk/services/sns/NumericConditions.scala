@@ -13,6 +13,7 @@ object NumericConditions {
     greaterThan: Option[Number] = None,
     greaterThanOrEqualTo: Option[Number] = None,
     lessThanOrEqualTo: Option[Number] = None,
+    whitelist: Option[List[_ <: Number]] = None,
     between: Option[software.amazon.awscdk.services.sns.BetweenCondition] = None
   ): software.amazon.awscdk.services.sns.NumericConditions =
     (new software.amazon.awscdk.services.sns.NumericConditions.Builder)
@@ -22,6 +23,7 @@ object NumericConditions {
       .greaterThan(greaterThan.orNull)
       .greaterThanOrEqualTo(greaterThanOrEqualTo.orNull)
       .lessThanOrEqualTo(lessThanOrEqualTo.orNull)
+      .whitelist(whitelist.map(_.asJava).orNull)
       .between(between.orNull)
       .build()
 }

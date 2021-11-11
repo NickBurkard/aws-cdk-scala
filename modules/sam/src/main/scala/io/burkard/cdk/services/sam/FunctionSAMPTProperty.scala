@@ -5,8 +5,8 @@ object FunctionSAMPTProperty {
 
   def apply(
     functionName: Option[String] = None
-  ): software.amazon.awscdk.services.sam.CfnFunction.FunctionSAMPTProperty =
-    (new software.amazon.awscdk.services.sam.CfnFunction.FunctionSAMPTProperty.Builder)
+  ): software.amazon.awscdk.services.sam.CfnStateMachine.FunctionSAMPTProperty =
+    (new software.amazon.awscdk.services.sam.CfnStateMachine.FunctionSAMPTProperty.Builder)
       .functionName(functionName.orNull)
       .build()
 }

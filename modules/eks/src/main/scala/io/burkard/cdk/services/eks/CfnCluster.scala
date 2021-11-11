@@ -9,6 +9,8 @@ object CfnCluster {
   def apply(
     internalResourceId: String,
     name: Option[String] = None,
+    logging: Option[software.amazon.awscdk.services.eks.CfnCluster.LoggingProperty] = None,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     kubernetesNetworkConfig: Option[software.amazon.awscdk.services.eks.CfnCluster.KubernetesNetworkConfigProperty] = None,
     version: Option[String] = None,
     roleArn: Option[String] = None,
@@ -18,6 +20,8 @@ object CfnCluster {
     software.amazon.awscdk.services.eks.CfnCluster.Builder
       .create(stackCtx, internalResourceId)
       .name(name.orNull)
+      .logging(logging.orNull)
+      .tags(tags.map(_.asJava).orNull)
       .kubernetesNetworkConfig(kubernetesNetworkConfig.orNull)
       .version(version.orNull)
       .roleArn(roleArn.orNull)

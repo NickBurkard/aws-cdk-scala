@@ -6,6 +6,7 @@ object SecretRotationProps {
   def apply(
     masterSecret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
+    endpoint: Option[software.amazon.awscdk.services.ec2.IInterfaceVpcEndpoint] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     application: Option[software.amazon.awscdk.services.secretsmanager.SecretRotationApplication] = None,
     secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
@@ -17,6 +18,7 @@ object SecretRotationProps {
     (new software.amazon.awscdk.services.secretsmanager.SecretRotationProps.Builder)
       .masterSecret(masterSecret.orNull)
       .vpcSubnets(vpcSubnets.orNull)
+      .endpoint(endpoint.orNull)
       .securityGroup(securityGroup.orNull)
       .application(application.orNull)
       .secret(secret.orNull)

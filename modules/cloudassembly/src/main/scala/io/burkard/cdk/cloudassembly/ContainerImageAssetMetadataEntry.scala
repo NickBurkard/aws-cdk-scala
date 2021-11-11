@@ -9,6 +9,7 @@ object ContainerImageAssetMetadataEntry {
   def apply(
     packaging: Option[String] = None,
     path: Option[String] = None,
+    imageNameParameter: Option[String] = None,
     imageTag: Option[String] = None,
     sourceHash: Option[String] = None,
     id: Option[String] = None,
@@ -20,6 +21,7 @@ object ContainerImageAssetMetadataEntry {
     (new software.amazon.awscdk.cloudassembly.schema.ContainerImageAssetMetadataEntry.Builder)
       .packaging(packaging.orNull)
       .path(path.orNull)
+      .imageNameParameter(imageNameParameter.orNull)
       .imageTag(imageTag.orNull)
       .sourceHash(sourceHash.orNull)
       .id(id.orNull)

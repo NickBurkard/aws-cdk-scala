@@ -13,6 +13,7 @@ object Behavior {
     functionAssociations: Option[List[_ <: software.amazon.awscdk.services.cloudfront.FunctionAssociation]] = None,
     lambdaFunctionAssociations: Option[List[_ <: software.amazon.awscdk.services.cloudfront.LambdaFunctionAssociation]] = None,
     cachedMethods: Option[software.amazon.awscdk.services.cloudfront.CloudFrontAllowedCachedMethods] = None,
+    trustedSigners: Option[List[String]] = None,
     allowedMethods: Option[software.amazon.awscdk.services.cloudfront.CloudFrontAllowedMethods] = None,
     isDefaultBehavior: Option[Boolean] = None,
     pathPattern: Option[String] = None,
@@ -28,6 +29,7 @@ object Behavior {
       .functionAssociations(functionAssociations.map(_.asJava).orNull)
       .lambdaFunctionAssociations(lambdaFunctionAssociations.map(_.asJava).orNull)
       .cachedMethods(cachedMethods.orNull)
+      .trustedSigners(trustedSigners.map(_.asJava).orNull)
       .allowedMethods(allowedMethods.orNull)
       .isDefaultBehavior(isDefaultBehavior.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .pathPattern(pathPattern.orNull)

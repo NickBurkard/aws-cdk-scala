@@ -19,7 +19,6 @@ object DatabaseClusterProps {
     cloudwatchLogsExports: Option[List[String]] = None,
     port: Option[Number] = None,
     instanceProps: Option[software.amazon.awscdk.services.rds.InstanceProps] = None,
-    s3ExportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
     monitoringInterval: Option[software.amazon.awscdk.Duration] = None,
     iamAuthentication: Option[Boolean] = None,
     s3ImportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
@@ -31,6 +30,8 @@ object DatabaseClusterProps {
     cloudwatchLogsRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     instanceIdentifierBase: Option[String] = None,
     cloudwatchLogsRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
+    backtrackWindow: Option[software.amazon.awscdk.Duration] = None,
+    s3ExportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
     credentials: Option[software.amazon.awscdk.services.rds.Credentials] = None,
     engine: Option[software.amazon.awscdk.services.rds.IClusterEngine] = None
@@ -48,7 +49,6 @@ object DatabaseClusterProps {
       .cloudwatchLogsExports(cloudwatchLogsExports.map(_.asJava).orNull)
       .port(port.orNull)
       .instanceProps(instanceProps.orNull)
-      .s3ExportBuckets(s3ExportBuckets.map(_.asJava).orNull)
       .monitoringInterval(monitoringInterval.orNull)
       .iamAuthentication(iamAuthentication.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .s3ImportBuckets(s3ImportBuckets.map(_.asJava).orNull)
@@ -60,6 +60,8 @@ object DatabaseClusterProps {
       .cloudwatchLogsRetentionRole(cloudwatchLogsRetentionRole.orNull)
       .instanceIdentifierBase(instanceIdentifierBase.orNull)
       .cloudwatchLogsRetention(cloudwatchLogsRetention.orNull)
+      .backtrackWindow(backtrackWindow.orNull)
+      .s3ExportBuckets(s3ExportBuckets.map(_.asJava).orNull)
       .removalPolicy(removalPolicy.orNull)
       .credentials(credentials.orNull)
       .engine(engine.orNull)

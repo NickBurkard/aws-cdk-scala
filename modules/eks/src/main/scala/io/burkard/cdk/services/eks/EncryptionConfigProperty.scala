@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object EncryptionConfigProperty {
 
   def apply(
-    provider: Option[software.amazon.awscdk.services.eks.CfnCluster.ProviderProperty] = None,
+    provider: Option[AnyRef] = None,
     resources: Option[List[String]] = None
   ): software.amazon.awscdk.services.eks.CfnCluster.EncryptionConfigProperty =
     (new software.amazon.awscdk.services.eks.CfnCluster.EncryptionConfigProperty.Builder)

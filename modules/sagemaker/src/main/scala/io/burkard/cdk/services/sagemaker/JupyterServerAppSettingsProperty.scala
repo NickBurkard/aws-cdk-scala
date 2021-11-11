@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object JupyterServerAppSettingsProperty {
 
   def apply(
-    defaultResourceSpec: Option[software.amazon.awscdk.services.sagemaker.CfnDomain.ResourceSpecProperty] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnDomain.JupyterServerAppSettingsProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnDomain.JupyterServerAppSettingsProperty.Builder)
+    defaultResourceSpec: Option[software.amazon.awscdk.services.sagemaker.CfnUserProfile.ResourceSpecProperty] = None
+  ): software.amazon.awscdk.services.sagemaker.CfnUserProfile.JupyterServerAppSettingsProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnUserProfile.JupyterServerAppSettingsProperty.Builder)
       .defaultResourceSpec(defaultResourceSpec.orNull)
       .build()
 }

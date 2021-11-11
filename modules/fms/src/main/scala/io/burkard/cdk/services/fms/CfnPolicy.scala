@@ -11,6 +11,7 @@ object CfnPolicy {
     remediationEnabled: Option[Boolean] = None,
     excludeMap: Option[software.amazon.awscdk.services.fms.CfnPolicy.IEMapProperty] = None,
     policyName: Option[String] = None,
+    resourcesCleanUp: Option[Boolean] = None,
     excludeResourceTags: Option[Boolean] = None,
     deleteAllPolicyResources: Option[Boolean] = None,
     resourceTypeList: Option[List[String]] = None,
@@ -25,6 +26,7 @@ object CfnPolicy {
       .remediationEnabled(remediationEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .excludeMap(excludeMap.orNull)
       .policyName(policyName.orNull)
+      .resourcesCleanUp(resourcesCleanUp.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .excludeResourceTags(excludeResourceTags.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .deleteAllPolicyResources(deleteAllPolicyResources.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .resourceTypeList(resourceTypeList.map(_.asJava).orNull)

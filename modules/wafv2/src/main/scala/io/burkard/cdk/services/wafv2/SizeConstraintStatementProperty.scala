@@ -9,10 +9,10 @@ object SizeConstraintStatementProperty {
   def apply(
     size: Option[Number] = None,
     comparisonOperator: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty] = None,
+    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty] = None,
     textTransformations: Option[List[_]] = None
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.SizeConstraintStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.SizeConstraintStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.SizeConstraintStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.SizeConstraintStatementProperty.Builder)
       .size(size.orNull)
       .comparisonOperator(comparisonOperator.orNull)
       .fieldToMatch(fieldToMatch.orNull)

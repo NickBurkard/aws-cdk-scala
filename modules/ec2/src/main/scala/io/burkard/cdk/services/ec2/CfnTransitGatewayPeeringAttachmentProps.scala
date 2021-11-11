@@ -8,6 +8,7 @@ object CfnTransitGatewayPeeringAttachmentProps {
 
   def apply(
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
+    options: Option[software.amazon.awscdk.services.ec2.CfnTransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptionsProperty] = None,
     peerRegion: Option[String] = None,
     transitGatewayId: Option[String] = None,
     peerAccountId: Option[String] = None,
@@ -15,6 +16,7 @@ object CfnTransitGatewayPeeringAttachmentProps {
   ): software.amazon.awscdk.services.ec2.CfnTransitGatewayPeeringAttachmentProps =
     (new software.amazon.awscdk.services.ec2.CfnTransitGatewayPeeringAttachmentProps.Builder)
       .tags(tags.map(_.asJava).orNull)
+      .options(options.orNull)
       .peerRegion(peerRegion.orNull)
       .transitGatewayId(transitGatewayId.orNull)
       .peerAccountId(peerAccountId.orNull)

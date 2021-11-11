@@ -1,5 +1,6 @@
 package io.burkard.cdk.services.cognito
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object StandardAttributes {
 
@@ -7,9 +8,9 @@ object StandardAttributes {
     familyName: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     website: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     givenName: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
+    emailVerified: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     email: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     lastUpdateTime: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
-    timezone: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     profilePicture: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     locale: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     birthdate: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
@@ -17,6 +18,8 @@ object StandardAttributes {
     preferredUsername: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     phoneNumber: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     middleName: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
+    phoneNumberVerified: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
+    timezone: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     profilePage: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     address: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
     gender: Option[software.amazon.awscdk.services.cognito.StandardAttribute] = None,
@@ -26,9 +29,9 @@ object StandardAttributes {
       .familyName(familyName.orNull)
       .website(website.orNull)
       .givenName(givenName.orNull)
+      .emailVerified(emailVerified.orNull)
       .email(email.orNull)
       .lastUpdateTime(lastUpdateTime.orNull)
-      .timezone(timezone.orNull)
       .profilePicture(profilePicture.orNull)
       .locale(locale.orNull)
       .birthdate(birthdate.orNull)
@@ -36,6 +39,8 @@ object StandardAttributes {
       .preferredUsername(preferredUsername.orNull)
       .phoneNumber(phoneNumber.orNull)
       .middleName(middleName.orNull)
+      .phoneNumberVerified(phoneNumberVerified.orNull)
+      .timezone(timezone.orNull)
       .profilePage(profilePage.orNull)
       .address(address.orNull)
       .gender(gender.orNull)

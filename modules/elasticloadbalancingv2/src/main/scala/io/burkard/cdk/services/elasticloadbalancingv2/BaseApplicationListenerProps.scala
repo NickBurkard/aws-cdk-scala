@@ -13,6 +13,7 @@ object BaseApplicationListenerProps {
     defaultAction: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction] = None,
     port: Option[Number] = None,
     certificates: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.IListenerCertificate]] = None,
+    certificateArns: Option[List[String]] = None,
     protocol: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationProtocol] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.BaseApplicationListenerProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.BaseApplicationListenerProps.Builder)
@@ -22,6 +23,7 @@ object BaseApplicationListenerProps {
       .defaultAction(defaultAction.orNull)
       .port(port.orNull)
       .certificates(certificates.map(_.asJava).orNull)
+      .certificateArns(certificateArns.map(_.asJava).orNull)
       .protocol(protocol.orNull)
       .build()
 }

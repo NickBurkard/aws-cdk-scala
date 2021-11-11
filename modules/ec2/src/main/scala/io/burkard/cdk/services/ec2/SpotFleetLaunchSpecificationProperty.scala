@@ -14,6 +14,7 @@ object SpotFleetLaunchSpecificationProperty {
     userData: Option[String] = None,
     iamInstanceProfile: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.IamInstanceProfileSpecificationProperty] = None,
     instanceType: Option[String] = None,
+    instanceRequirements: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.InstanceRequirementsRequestProperty] = None,
     placement: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotPlacementProperty] = None,
     imageId: Option[String] = None,
     weightedCapacity: Option[Number] = None,
@@ -33,6 +34,7 @@ object SpotFleetLaunchSpecificationProperty {
       .userData(userData.orNull)
       .iamInstanceProfile(iamInstanceProfile.orNull)
       .instanceType(instanceType.orNull)
+      .instanceRequirements(instanceRequirements.orNull)
       .placement(placement.orNull)
       .imageId(imageId.orNull)
       .weightedCapacity(weightedCapacity.orNull)

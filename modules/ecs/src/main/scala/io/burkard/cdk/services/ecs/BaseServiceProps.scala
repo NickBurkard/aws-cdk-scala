@@ -11,6 +11,7 @@ object BaseServiceProps {
     healthCheckGracePeriod: Option[software.amazon.awscdk.Duration] = None,
     desiredCount: Option[Number] = None,
     serviceName: Option[String] = None,
+    propagateTaskTagsFrom: Option[software.amazon.awscdk.services.ecs.PropagatedTagSource] = None,
     enableExecuteCommand: Option[Boolean] = None,
     maxHealthyPercent: Option[Number] = None,
     launchType: Option[software.amazon.awscdk.services.ecs.LaunchType] = None,
@@ -27,6 +28,7 @@ object BaseServiceProps {
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
       .desiredCount(desiredCount.orNull)
       .serviceName(serviceName.orNull)
+      .propagateTaskTagsFrom(propagateTaskTagsFrom.orNull)
       .enableExecuteCommand(enableExecuteCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .maxHealthyPercent(maxHealthyPercent.orNull)
       .launchType(launchType.orNull)

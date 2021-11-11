@@ -5,10 +5,10 @@ object S3MachineLearningModelResourceDataProperty {
 
   def apply(
     s3Uri: Option[String] = None,
-    ownerSetting: Option[software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.ResourceDownloadOwnerSettingProperty] = None,
+    ownerSetting: Option[software.amazon.awscdk.services.greengrass.CfnResourceDefinition.ResourceDownloadOwnerSettingProperty] = None,
     destinationPath: Option[String] = None
-  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.S3MachineLearningModelResourceDataProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.Builder)
       .s3Uri(s3Uri.orNull)
       .ownerSetting(ownerSetting.orNull)
       .destinationPath(destinationPath.orNull)

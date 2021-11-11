@@ -4,14 +4,15 @@ sealed abstract class AttachmentTargetType(val underlying: software.amazon.awscd
   extends Product
     with Serializable
 
+@scala.annotation.nowarn("cat=deprecation")
 object AttachmentTargetType {
   implicit def toAws(value: AttachmentTargetType): software.amazon.awscdk.services.secretsmanager.AttachmentTargetType =
     Option(value).map(_.underlying).orNull
 
-  @scala.annotation.nowarn("cat=deprecation") case object Instance
+  case object Instance
     extends AttachmentTargetType(software.amazon.awscdk.services.secretsmanager.AttachmentTargetType.INSTANCE)
 
-  @scala.annotation.nowarn("cat=deprecation") case object Cluster
+  case object Cluster
     extends AttachmentTargetType(software.amazon.awscdk.services.secretsmanager.AttachmentTargetType.CLUSTER)
 
   case object RdsDbProxy

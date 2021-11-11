@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object FargateClusterProps {
 
   def apply(
+    clusterHandlerSecurityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     outputMastersRoleArn: Option[Boolean] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     mastersRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -31,6 +32,7 @@ object FargateClusterProps {
     secretsEncryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.eks.FargateClusterProps =
     (new software.amazon.awscdk.services.eks.FargateClusterProps.Builder)
+      .clusterHandlerSecurityGroup(clusterHandlerSecurityGroup.orNull)
       .outputMastersRoleArn(outputMastersRoleArn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .role(role.orNull)
       .mastersRole(mastersRole.orNull)

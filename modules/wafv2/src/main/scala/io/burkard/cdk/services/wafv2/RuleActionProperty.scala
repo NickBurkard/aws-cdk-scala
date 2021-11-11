@@ -4,11 +4,11 @@ package io.burkard.cdk.services.wafv2
 object RuleActionProperty {
 
   def apply(
-    count: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.CountActionProperty] = None,
-    block: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.BlockActionProperty] = None,
-    allow: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.AllowActionProperty] = None
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.RuleActionProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.RuleActionProperty.Builder)
+    count: Option[AnyRef] = None,
+    block: Option[AnyRef] = None,
+    allow: Option[AnyRef] = None
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleActionProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleActionProperty.Builder)
       .count(count.orNull)
       .block(block.orNull)
       .allow(allow.orNull)

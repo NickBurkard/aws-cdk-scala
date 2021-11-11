@@ -11,13 +11,17 @@ object FirewallPolicyProperty {
     statelessDefaultActions: Option[List[String]] = None,
     statefulRuleGroupReferences: Option[List[_]] = None,
     statelessFragmentDefaultActions: Option[List[String]] = None,
-    statelessCustomActions: Option[List[_]] = None
+    statefulEngineOptions: Option[software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.StatefulEngineOptionsProperty] = None,
+    statelessCustomActions: Option[List[_]] = None,
+    statefulDefaultActions: Option[List[String]] = None
   ): software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.FirewallPolicyProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.FirewallPolicyProperty.Builder)
       .statelessRuleGroupReferences(statelessRuleGroupReferences.map(_.asJava).orNull)
       .statelessDefaultActions(statelessDefaultActions.map(_.asJava).orNull)
       .statefulRuleGroupReferences(statefulRuleGroupReferences.map(_.asJava).orNull)
       .statelessFragmentDefaultActions(statelessFragmentDefaultActions.map(_.asJava).orNull)
+      .statefulEngineOptions(statefulEngineOptions.orNull)
       .statelessCustomActions(statelessCustomActions.map(_.asJava).orNull)
+      .statefulDefaultActions(statefulDefaultActions.map(_.asJava).orNull)
       .build()
 }

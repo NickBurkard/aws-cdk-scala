@@ -9,9 +9,9 @@ object ReferenceSchemaProperty {
   def apply(
     recordColumns: Option[List[_]] = None,
     recordEncoding: Option[String] = None,
-    recordFormat: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty.Builder)
+    recordFormat: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.RecordFormatProperty] = None
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty.Builder)
       .recordColumns(recordColumns.map(_.asJava).orNull)
       .recordEncoding(recordEncoding.orNull)
       .recordFormat(recordFormat.orNull)

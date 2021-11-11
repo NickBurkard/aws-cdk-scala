@@ -14,6 +14,7 @@ object QueueProcessingFargateServiceProps {
     taskSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     family: Option[String] = None,
     capacityProviderStrategies: Option[List[_ <: software.amazon.awscdk.services.ecs.CapacityProviderStrategy]] = None,
+    desiredTaskCount: Option[Number] = None,
     maxReceiveCount: Option[Number] = None,
     containerName: Option[String] = None,
     memoryLimitMiB: Option[Number] = None,
@@ -47,6 +48,7 @@ object QueueProcessingFargateServiceProps {
       .taskSubnets(taskSubnets.orNull)
       .family(family.orNull)
       .capacityProviderStrategies(capacityProviderStrategies.map(_.asJava).orNull)
+      .desiredTaskCount(desiredTaskCount.orNull)
       .maxReceiveCount(maxReceiveCount.orNull)
       .containerName(containerName.orNull)
       .memoryLimitMiB(memoryLimitMiB.orNull)

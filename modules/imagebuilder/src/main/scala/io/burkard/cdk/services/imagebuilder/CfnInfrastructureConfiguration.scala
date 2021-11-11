@@ -13,6 +13,7 @@ object CfnInfrastructureConfiguration {
     instanceProfileName: Option[String] = None,
     subnetId: Option[String] = None,
     terminateInstanceOnFailure: Option[Boolean] = None,
+    instanceMetadataOptions: Option[software.amazon.awscdk.services.imagebuilder.CfnInfrastructureConfiguration.InstanceMetadataOptionsProperty] = None,
     snsTopicArn: Option[String] = None,
     name: Option[String] = None,
     keyPair: Option[String] = None,
@@ -28,6 +29,7 @@ object CfnInfrastructureConfiguration {
       .instanceProfileName(instanceProfileName.orNull)
       .subnetId(subnetId.orNull)
       .terminateInstanceOnFailure(terminateInstanceOnFailure.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .instanceMetadataOptions(instanceMetadataOptions.orNull)
       .snsTopicArn(snsTopicArn.orNull)
       .name(name.orNull)
       .keyPair(keyPair.orNull)

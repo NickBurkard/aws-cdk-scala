@@ -9,8 +9,8 @@ object VpcConfigProperty {
   def apply(
     subnets: Option[List[String]] = None,
     securityGroupIds: Option[List[String]] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.VpcConfigProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.VpcConfigProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.VpcConfigProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.VpcConfigProperty.Builder)
       .subnets(subnets.map(_.asJava).orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .build()

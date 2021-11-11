@@ -6,8 +6,8 @@ object DurationProperty {
   def apply(
     unit: Option[String] = None,
     value: Option[Number] = None
-  ): software.amazon.awscdk.services.appmesh.CfnRoute.DurationProperty =
-    (new software.amazon.awscdk.services.appmesh.CfnRoute.DurationProperty.Builder)
+  ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.DurationProperty =
+    (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.DurationProperty.Builder)
       .unit(unit.orNull)
       .value(value.orNull)
       .build()

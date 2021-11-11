@@ -6,8 +6,8 @@ object TagsEntryProperty {
   def apply(
     key: Option[String] = None,
     value: Option[String] = None
-  ): software.amazon.awscdk.services.stepfunctions.CfnActivity.TagsEntryProperty =
-    (new software.amazon.awscdk.services.stepfunctions.CfnActivity.TagsEntryProperty.Builder)
+  ): software.amazon.awscdk.services.stepfunctions.CfnStateMachine.TagsEntryProperty =
+    (new software.amazon.awscdk.services.stepfunctions.CfnStateMachine.TagsEntryProperty.Builder)
       .key(key.orNull)
       .value(value.orNull)
       .build()

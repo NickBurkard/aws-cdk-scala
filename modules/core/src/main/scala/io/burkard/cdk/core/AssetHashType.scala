@@ -4,6 +4,7 @@ sealed abstract class AssetHashType(val underlying: software.amazon.awscdk.Asset
   extends Product
     with Serializable
 
+@scala.annotation.nowarn("cat=deprecation")
 object AssetHashType {
   implicit def toAws(value: AssetHashType): software.amazon.awscdk.AssetHashType =
     Option(value).map(_.underlying).orNull
@@ -11,7 +12,7 @@ object AssetHashType {
   case object Source
     extends AssetHashType(software.amazon.awscdk.AssetHashType.SOURCE)
 
-  @scala.annotation.nowarn("cat=deprecation") case object Bundle
+  case object Bundle
     extends AssetHashType(software.amazon.awscdk.AssetHashType.BUNDLE)
 
   case object Output

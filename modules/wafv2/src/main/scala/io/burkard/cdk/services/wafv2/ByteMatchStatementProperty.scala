@@ -10,10 +10,10 @@ object ByteMatchStatementProperty {
     positionalConstraint: Option[String] = None,
     searchStringBase64: Option[String] = None,
     searchString: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty] = None,
+    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty] = None,
     textTransformations: Option[List[_]] = None
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.ByteMatchStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.ByteMatchStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.ByteMatchStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.ByteMatchStatementProperty.Builder)
       .positionalConstraint(positionalConstraint.orNull)
       .searchStringBase64(searchStringBase64.orNull)
       .searchString(searchString.orNull)

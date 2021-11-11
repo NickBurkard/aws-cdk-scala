@@ -17,6 +17,7 @@ object SpotFleetRequestConfigDataProperty {
     targetCapacity: Option[Number] = None,
     excessCapacityTerminationPolicy: Option[String] = None,
     replaceUnhealthyInstances: Option[Boolean] = None,
+    targetCapacityUnitType: Option[String] = None,
     iamFleetRole: Option[String] = None,
     onDemandMaxTotalPrice: Option[String] = None,
     allocationStrategy: Option[String] = None,
@@ -40,6 +41,7 @@ object SpotFleetRequestConfigDataProperty {
       .targetCapacity(targetCapacity.orNull)
       .excessCapacityTerminationPolicy(excessCapacityTerminationPolicy.orNull)
       .replaceUnhealthyInstances(replaceUnhealthyInstances.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .targetCapacityUnitType(targetCapacityUnitType.orNull)
       .iamFleetRole(iamFleetRole.orNull)
       .onDemandMaxTotalPrice(onDemandMaxTotalPrice.orNull)
       .allocationStrategy(allocationStrategy.orNull)

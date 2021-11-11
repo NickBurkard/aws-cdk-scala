@@ -5,10 +5,10 @@ object SubscriberProperty {
 
   def apply(
     address: Option[String] = None,
-    subscriptionType: Option[String] = None
-  ): software.amazon.awscdk.services.budgets.CfnBudget.SubscriberProperty =
-    (new software.amazon.awscdk.services.budgets.CfnBudget.SubscriberProperty.Builder)
+    `type`: Option[String] = None
+  ): software.amazon.awscdk.services.budgets.CfnBudgetsAction.SubscriberProperty =
+    (new software.amazon.awscdk.services.budgets.CfnBudgetsAction.SubscriberProperty.Builder)
       .address(address.orNull)
-      .subscriptionType(subscriptionType.orNull)
+      .`type`(`type`.orNull)
       .build()
 }

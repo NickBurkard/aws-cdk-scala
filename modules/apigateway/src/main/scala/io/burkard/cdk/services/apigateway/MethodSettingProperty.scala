@@ -14,8 +14,8 @@ object MethodSettingProperty {
     metricsEnabled: Option[Boolean] = None,
     cacheDataEncrypted: Option[Boolean] = None,
     cachingEnabled: Option[Boolean] = None
-  ): software.amazon.awscdk.services.apigateway.CfnStage.MethodSettingProperty =
-    (new software.amazon.awscdk.services.apigateway.CfnStage.MethodSettingProperty.Builder)
+  ): software.amazon.awscdk.services.apigateway.CfnDeployment.MethodSettingProperty =
+    (new software.amazon.awscdk.services.apigateway.CfnDeployment.MethodSettingProperty.Builder)
       .resourcePath(resourcePath.orNull)
       .cacheTtlInSeconds(cacheTtlInSeconds.orNull)
       .throttlingBurstLimit(throttlingBurstLimit.orNull)

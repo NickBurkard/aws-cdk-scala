@@ -12,8 +12,8 @@ object CfnLayerVersionProps {
     licenseInfo: Option[String] = None,
     retentionPolicy: Option[String] = None,
     layerName: Option[String] = None,
-    contentUri0: Option[software.amazon.awscdk.services.sam.CfnLayerVersion.S3LocationProperty] = None,
-    contentUri1: Option[String] = None
+    contentUri0: Option[String] = None,
+    contentUri1: Option[software.amazon.awscdk.services.sam.CfnLayerVersion.S3LocationProperty] = None
   ): software.amazon.awscdk.services.sam.CfnLayerVersionProps =
     (new software.amazon.awscdk.services.sam.CfnLayerVersionProps.Builder)
       .description(description.orNull)

@@ -9,6 +9,7 @@ object EbsInstanceBlockDeviceSpecificationProperty {
     iops: Option[Number] = None,
     deleteOnTermination: Option[Boolean] = None,
     kmsKeyId: Option[String] = None,
+    throughput: Option[Number] = None,
     volumeSize: Option[Number] = None,
     snapshotId: Option[String] = None
   ): software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty =
@@ -18,6 +19,7 @@ object EbsInstanceBlockDeviceSpecificationProperty {
       .iops(iops.orNull)
       .deleteOnTermination(deleteOnTermination.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .kmsKeyId(kmsKeyId.orNull)
+      .throughput(throughput.orNull)
       .volumeSize(volumeSize.orNull)
       .snapshotId(snapshotId.orNull)
       .build()

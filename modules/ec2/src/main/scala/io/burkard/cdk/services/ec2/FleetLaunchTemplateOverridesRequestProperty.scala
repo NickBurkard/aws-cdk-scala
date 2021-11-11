@@ -8,6 +8,7 @@ object FleetLaunchTemplateOverridesRequestProperty {
     availabilityZone: Option[String] = None,
     subnetId: Option[String] = None,
     instanceType: Option[String] = None,
+    instanceRequirements: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.InstanceRequirementsRequestProperty] = None,
     placement: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.PlacementProperty] = None,
     maxPrice: Option[String] = None,
     weightedCapacity: Option[Number] = None
@@ -17,6 +18,7 @@ object FleetLaunchTemplateOverridesRequestProperty {
       .availabilityZone(availabilityZone.orNull)
       .subnetId(subnetId.orNull)
       .instanceType(instanceType.orNull)
+      .instanceRequirements(instanceRequirements.orNull)
       .placement(placement.orNull)
       .maxPrice(maxPrice.orNull)
       .weightedCapacity(weightedCapacity.orNull)

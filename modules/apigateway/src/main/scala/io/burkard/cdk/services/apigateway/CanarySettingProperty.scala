@@ -8,11 +8,13 @@ object CanarySettingProperty {
 
   def apply(
     percentTraffic: Option[Number] = None,
+    deploymentId: Option[String] = None,
     stageVariableOverrides: Option[Map[String, String]] = None,
     useStageCache: Option[Boolean] = None
-  ): software.amazon.awscdk.services.apigateway.CfnDeployment.CanarySettingProperty =
-    (new software.amazon.awscdk.services.apigateway.CfnDeployment.CanarySettingProperty.Builder)
+  ): software.amazon.awscdk.services.apigateway.CfnStage.CanarySettingProperty =
+    (new software.amazon.awscdk.services.apigateway.CfnStage.CanarySettingProperty.Builder)
       .percentTraffic(percentTraffic.orNull)
+      .deploymentId(deploymentId.orNull)
       .stageVariableOverrides(stageVariableOverrides.map(_.asJava).orNull)
       .useStageCache(useStageCache.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()

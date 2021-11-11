@@ -16,17 +16,23 @@ final case class CdkEnum private[codegen](
 ) {
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 
-  // `case object ValueName extends EnumName(underlyingValue)`, potentially with deprecation warning disabled.
+  // `case object ValueName extends EnumName(underlyingValue)`.
   lazy val valuesCases: List[String] =
     valueNames.map { valueName =>
-      s"""${noWarn(valueName)}case object ${CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, valueName)}
+      s"""case object ${CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, valueName)}
          |    extends $instanceSimpleName($instanceCanonicalName.$valueName)""".stripMargin
     }
 
-  // This is only supported in Scala 2.13 and 3.1, not 3.0.
-  private[this] def noWarn(valueName: String): String =
-    if (isDeprecated(valueName)) {
-      "@scala.annotation.nowarn(\"cat=deprecation\") "
+  lazy val noWarnClass: String =
+    if (underlying.getAnnotations.toList.exists(_.annotationType().getSimpleName == "Deprecated")) {
+      "\n@scala.annotation.nowarn(\"cat=deprecation\")"
+    } else {
+      ""
+    }
+
+  lazy val noWarnObject: String =
+    if (valueNames.exists(isDeprecated)) {
+      "\n@scala.annotation.nowarn(\"cat=deprecation\")"
     } else {
       ""
     }
@@ -52,11 +58,11 @@ object CdkEnum {
 
       override def gen(source: CdkEnum): String =
         s"""package ${source.packageName}
-           |
+           |${source.noWarnClass}
            |sealed abstract class ${source.instanceSimpleName}(val underlying: ${source.instanceCanonicalName})
            |  extends Product
            |    with Serializable
-           |
+           |${source.noWarnObject}
            |object ${source.instanceSimpleName} {
            |  implicit def toAws(value: ${source.instanceSimpleName}): ${source.instanceCanonicalName} =
            |    Option(value).map(_.underlying).orNull

@@ -12,6 +12,7 @@ object SplunkLogDriver {
     tag: Option[String] = None,
     gzip: Option[Boolean] = None,
     labels: Option[List[String]] = None,
+    token: Option[software.amazon.awscdk.SecretValue] = None,
     env: Option[List[String]] = None,
     index: Option[String] = None,
     source: Option[String] = None,
@@ -31,6 +32,7 @@ object SplunkLogDriver {
       .tag(tag.orNull)
       .gzip(gzip.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .labels(labels.map(_.asJava).orNull)
+      .token(token.orNull)
       .env(env.map(_.asJava).orNull)
       .index(index.orNull)
       .source(source.orNull)

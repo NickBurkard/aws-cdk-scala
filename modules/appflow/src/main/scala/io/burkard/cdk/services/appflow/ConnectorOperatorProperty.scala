@@ -9,13 +9,14 @@ object ConnectorOperatorProperty {
     serviceNow: Option[String] = None,
     zendesk: Option[String] = None,
     singular: Option[String] = None,
-    slack: Option[String] = None,
     googleAnalytics: Option[String] = None,
     marketo: Option[String] = None,
     inforNexus: Option[String] = None,
     salesforce: Option[String] = None,
     datadog: Option[String] = None,
     trendmicro: Option[String] = None,
+    sapoData: Option[String] = None,
+    slack: Option[String] = None,
     veeva: Option[String] = None,
     dynatrace: Option[String] = None
   ): software.amazon.awscdk.services.appflow.CfnFlow.ConnectorOperatorProperty =
@@ -25,13 +26,14 @@ object ConnectorOperatorProperty {
       .serviceNow(serviceNow.orNull)
       .zendesk(zendesk.orNull)
       .singular(singular.orNull)
-      .slack(slack.orNull)
       .googleAnalytics(googleAnalytics.orNull)
       .marketo(marketo.orNull)
       .inforNexus(inforNexus.orNull)
       .salesforce(salesforce.orNull)
       .datadog(datadog.orNull)
       .trendmicro(trendmicro.orNull)
+      .sapoData(sapoData.orNull)
+      .slack(slack.orNull)
       .veeva(veeva.orNull)
       .dynatrace(dynatrace.orNull)
       .build()

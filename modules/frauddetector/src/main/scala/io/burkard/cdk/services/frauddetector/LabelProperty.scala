@@ -14,8 +14,8 @@ object LabelProperty {
     lastUpdatedTime: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
-  ): software.amazon.awscdk.services.frauddetector.CfnEventType.LabelProperty =
-    (new software.amazon.awscdk.services.frauddetector.CfnEventType.LabelProperty.Builder)
+  ): software.amazon.awscdk.services.frauddetector.CfnDetector.LabelProperty =
+    (new software.amazon.awscdk.services.frauddetector.CfnDetector.LabelProperty.Builder)
       .arn(arn.orNull)
       .inline(inline.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .createdTime(createdTime.orNull)

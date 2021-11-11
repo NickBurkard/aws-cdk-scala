@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CloudFormationDeleteStackAction {
 
   def apply(
+    capabilities: Option[List[_ <: software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities]] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     variablesNamespace: Option[String] = None,
     runOrder: Option[Number] = None,
@@ -25,6 +26,7 @@ object CloudFormationDeleteStackAction {
   ): software.amazon.awscdk.services.codepipeline.actions.CloudFormationDeleteStackAction =
     software.amazon.awscdk.services.codepipeline.actions.CloudFormationDeleteStackAction.Builder
       .create()
+      .capabilities(capabilities.map(_.asJava).orNull)
       .role(role.orNull)
       .variablesNamespace(variablesNamespace.orNull)
       .runOrder(runOrder.orNull)

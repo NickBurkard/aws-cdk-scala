@@ -7,8 +7,8 @@ object AliasTargetProperty {
     hostedZoneId: Option[String] = None,
     dnsName: Option[String] = None,
     evaluateTargetHealth: Option[Boolean] = None
-  ): software.amazon.awscdk.services.route53.CfnRecordSet.AliasTargetProperty =
-    (new software.amazon.awscdk.services.route53.CfnRecordSet.AliasTargetProperty.Builder)
+  ): software.amazon.awscdk.services.route53.CfnRecordSetGroup.AliasTargetProperty =
+    (new software.amazon.awscdk.services.route53.CfnRecordSetGroup.AliasTargetProperty.Builder)
       .hostedZoneId(hostedZoneId.orNull)
       .dnsName(dnsName.orNull)
       .evaluateTargetHealth(evaluateTargetHealth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

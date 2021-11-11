@@ -10,6 +10,7 @@ object SubnetSelection {
     subnets: Option[List[_ <: software.amazon.awscdk.services.ec2.ISubnet]] = None,
     onePerAz: Option[Boolean] = None,
     subnetGroupName: Option[String] = None,
+    subnetName: Option[String] = None,
     subnetFilters: Option[List[_ <: software.amazon.awscdk.services.ec2.SubnetFilter]] = None,
     subnetType: Option[software.amazon.awscdk.services.ec2.SubnetType] = None,
     availabilityZones: Option[List[String]] = None
@@ -18,6 +19,7 @@ object SubnetSelection {
       .subnets(subnets.map(_.asJava).orNull)
       .onePerAz(onePerAz.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .subnetGroupName(subnetGroupName.orNull)
+      .subnetName(subnetName.orNull)
       .subnetFilters(subnetFilters.map(_.asJava).orNull)
       .subnetType(subnetType.orNull)
       .availabilityZones(availabilityZones.map(_.asJava).orNull)

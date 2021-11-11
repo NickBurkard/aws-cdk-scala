@@ -7,10 +7,11 @@ object ConnectorProfilePropertiesProperty {
     serviceNow: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.ServiceNowConnectorProfilePropertiesProperty] = None,
     zendesk: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.ZendeskConnectorProfilePropertiesProperty] = None,
     datadog: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.DatadogConnectorProfilePropertiesProperty] = None,
-    slack: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.SlackConnectorProfilePropertiesProperty] = None,
     marketo: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.MarketoConnectorProfilePropertiesProperty] = None,
     inforNexus: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.InforNexusConnectorProfilePropertiesProperty] = None,
     redshift: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty] = None,
+    sapoData: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty] = None,
+    slack: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.SlackConnectorProfilePropertiesProperty] = None,
     veeva: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.VeevaConnectorProfilePropertiesProperty] = None,
     dynatrace: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.DynatraceConnectorProfilePropertiesProperty] = None,
     salesforce: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.SalesforceConnectorProfilePropertiesProperty] = None,
@@ -20,10 +21,11 @@ object ConnectorProfilePropertiesProperty {
       .serviceNow(serviceNow.orNull)
       .zendesk(zendesk.orNull)
       .datadog(datadog.orNull)
-      .slack(slack.orNull)
       .marketo(marketo.orNull)
       .inforNexus(inforNexus.orNull)
       .redshift(redshift.orNull)
+      .sapoData(sapoData.orNull)
+      .slack(slack.orNull)
       .veeva(veeva.orNull)
       .dynatrace(dynatrace.orNull)
       .salesforce(salesforce.orNull)

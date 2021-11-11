@@ -8,8 +8,8 @@ object S3LocationProperty {
     roleArn: Option[String] = None,
     bucket: Option[String] = None,
     objectVersion: Option[String] = None
-  ): software.amazon.awscdk.services.gamelift.CfnScript.S3LocationProperty =
-    (new software.amazon.awscdk.services.gamelift.CfnScript.S3LocationProperty.Builder)
+  ): software.amazon.awscdk.services.gamelift.CfnBuild.S3LocationProperty =
+    (new software.amazon.awscdk.services.gamelift.CfnBuild.S3LocationProperty.Builder)
       .key(key.orNull)
       .roleArn(roleArn.orNull)
       .bucket(bucket.orNull)

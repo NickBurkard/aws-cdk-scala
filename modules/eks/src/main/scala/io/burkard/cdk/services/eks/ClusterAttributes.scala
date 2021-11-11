@@ -17,6 +17,7 @@ object ClusterAttributes {
     clusterSecurityGroupId: Option[String] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     clusterName: Option[String] = None,
+    clusterHandlerSecurityGroupId: Option[String] = None,
     kubectlPrivateSubnetIds: Option[List[String]] = None,
     kubectlMemory: Option[software.amazon.awscdk.Size] = None,
     clusterEndpoint: Option[String] = None,
@@ -35,6 +36,7 @@ object ClusterAttributes {
       .clusterSecurityGroupId(clusterSecurityGroupId.orNull)
       .vpc(vpc.orNull)
       .clusterName(clusterName.orNull)
+      .clusterHandlerSecurityGroupId(clusterHandlerSecurityGroupId.orNull)
       .kubectlPrivateSubnetIds(kubectlPrivateSubnetIds.map(_.asJava).orNull)
       .kubectlMemory(kubectlMemory.orNull)
       .clusterEndpoint(clusterEndpoint.orNull)

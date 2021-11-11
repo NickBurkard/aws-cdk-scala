@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object ClusterProps {
 
   def apply(
+    clusterHandlerSecurityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     outputMastersRoleArn: Option[Boolean] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     mastersRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -33,6 +34,7 @@ object ClusterProps {
     defaultCapacityType: Option[software.amazon.awscdk.services.eks.DefaultCapacityType] = None
   ): software.amazon.awscdk.services.eks.ClusterProps =
     (new software.amazon.awscdk.services.eks.ClusterProps.Builder)
+      .clusterHandlerSecurityGroup(clusterHandlerSecurityGroup.orNull)
       .outputMastersRoleArn(outputMastersRoleArn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .role(role.orNull)
       .mastersRole(mastersRole.orNull)

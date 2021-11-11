@@ -16,6 +16,7 @@ object CfnTaskDefinition {
     containerDefinitions: Option[List[_]] = None,
     networkMode: Option[String] = None,
     placementConstraints: Option[List[_]] = None,
+    runtimePlatform: Option[software.amazon.awscdk.services.ecs.CfnTaskDefinition.RuntimePlatformProperty] = None,
     family: Option[String] = None,
     memory: Option[String] = None,
     taskRoleArn: Option[String] = None,
@@ -35,6 +36,7 @@ object CfnTaskDefinition {
       .containerDefinitions(containerDefinitions.map(_.asJava).orNull)
       .networkMode(networkMode.orNull)
       .placementConstraints(placementConstraints.map(_.asJava).orNull)
+      .runtimePlatform(runtimePlatform.orNull)
       .family(family.orNull)
       .memory(memory.orNull)
       .taskRoleArn(taskRoleArn.orNull)

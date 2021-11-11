@@ -11,6 +11,7 @@ object EcsTask {
     containerOverrides: Option[List[_ <: software.amazon.awscdk.services.events.targets.ContainerOverride]] = None,
     subnetSelection: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     cluster: Option[software.amazon.awscdk.services.ecs.ICluster] = None,
+    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     platformVersion: Option[software.amazon.awscdk.services.ecs.FargatePlatformVersion] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     taskDefinition: Option[software.amazon.awscdk.services.ecs.ITaskDefinition] = None,
@@ -22,6 +23,7 @@ object EcsTask {
       .containerOverrides(containerOverrides.map(_.asJava).orNull)
       .subnetSelection(subnetSelection.orNull)
       .cluster(cluster.orNull)
+      .securityGroup(securityGroup.orNull)
       .platformVersion(platformVersion.orNull)
       .role(role.orNull)
       .taskDefinition(taskDefinition.orNull)

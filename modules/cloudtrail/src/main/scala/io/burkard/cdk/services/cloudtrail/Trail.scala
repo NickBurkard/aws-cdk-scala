@@ -1,10 +1,12 @@
 package io.burkard.cdk.services.cloudtrail
 
+@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object Trail {
 
   def apply(
     internalResourceId: String,
+    kmsKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
     enableFileValidation: Option[Boolean] = None,
     cloudWatchLogGroup: Option[software.amazon.awscdk.services.logs.ILogGroup] = None,
     snsTopic: Option[software.amazon.awscdk.services.sns.ITopic] = None,
@@ -20,6 +22,7 @@ object Trail {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudtrail.Trail =
     software.amazon.awscdk.services.cloudtrail.Trail.Builder
       .create(stackCtx, internalResourceId)
+      .kmsKey(kmsKey.orNull)
       .enableFileValidation(enableFileValidation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cloudWatchLogGroup(cloudWatchLogGroup.orNull)
       .snsTopic(snsTopic.orNull)

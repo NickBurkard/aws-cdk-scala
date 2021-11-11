@@ -5,8 +5,8 @@ object CertificateProperty {
 
   def apply(
     certificateArn: Option[String] = None
-  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerCertificate.CertificateProperty =
-    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerCertificate.CertificateProperty.Builder)
+  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.CertificateProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.CertificateProperty.Builder)
       .certificateArn(certificateArn.orNull)
       .build()
 }

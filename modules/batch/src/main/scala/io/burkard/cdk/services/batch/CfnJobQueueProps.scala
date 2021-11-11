@@ -11,7 +11,8 @@ object CfnJobQueueProps {
     priority: Option[Number] = None,
     state: Option[String] = None,
     tags: Option[AnyRef] = None,
-    computeEnvironmentOrder: Option[List[_]] = None
+    computeEnvironmentOrder: Option[List[_]] = None,
+    schedulingPolicyArn: Option[String] = None
   ): software.amazon.awscdk.services.batch.CfnJobQueueProps =
     (new software.amazon.awscdk.services.batch.CfnJobQueueProps.Builder)
       .jobQueueName(jobQueueName.orNull)
@@ -19,5 +20,6 @@ object CfnJobQueueProps {
       .state(state.orNull)
       .tags(tags.orNull)
       .computeEnvironmentOrder(computeEnvironmentOrder.map(_.asJava).orNull)
+      .schedulingPolicyArn(schedulingPolicyArn.orNull)
       .build()
 }
