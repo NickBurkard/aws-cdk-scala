@@ -1,10 +1,8 @@
 package io.burkard.cdk.cxapi
 
-
 sealed abstract class LoadBalancerIpAddressType(val underlying: software.amazon.awscdk.cxapi.LoadBalancerIpAddressType)
   extends Product
     with Serializable
-
 
 object LoadBalancerIpAddressType {
   implicit def toAws(value: LoadBalancerIpAddressType): software.amazon.awscdk.cxapi.LoadBalancerIpAddressType =

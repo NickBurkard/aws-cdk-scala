@@ -1,10 +1,8 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class CfnCapabilities(val underlying: software.amazon.awscdk.CfnCapabilities)
   extends Product
     with Serializable
-
 
 object CfnCapabilities {
   implicit def toAws(value: CfnCapabilities): software.amazon.awscdk.CfnCapabilities =

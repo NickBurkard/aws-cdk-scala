@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ses
 
-
 sealed abstract class ReceiptFilterPolicy(val underlying: software.amazon.awscdk.services.ses.ReceiptFilterPolicy)
   extends Product
     with Serializable
-
 
 object ReceiptFilterPolicy {
   implicit def toAws(value: ReceiptFilterPolicy): software.amazon.awscdk.services.ses.ReceiptFilterPolicy =

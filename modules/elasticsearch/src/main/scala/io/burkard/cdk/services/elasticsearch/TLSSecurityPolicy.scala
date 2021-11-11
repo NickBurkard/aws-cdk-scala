@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.elasticsearch
 
-
 sealed abstract class TLSSecurityPolicy(val underlying: software.amazon.awscdk.services.elasticsearch.TLSSecurityPolicy)
   extends Product
     with Serializable
-
 
 object TLSSecurityPolicy {
   implicit def toAws(value: TLSSecurityPolicy): software.amazon.awscdk.services.elasticsearch.TLSSecurityPolicy =

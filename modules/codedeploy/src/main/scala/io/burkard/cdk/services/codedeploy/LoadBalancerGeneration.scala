@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codedeploy
 
-
 sealed abstract class LoadBalancerGeneration(val underlying: software.amazon.awscdk.services.codedeploy.LoadBalancerGeneration)
   extends Product
     with Serializable
-
 
 object LoadBalancerGeneration {
   implicit def toAws(value: LoadBalancerGeneration): software.amazon.awscdk.services.codedeploy.LoadBalancerGeneration =

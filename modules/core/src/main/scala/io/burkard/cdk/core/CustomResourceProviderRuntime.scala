@@ -1,6 +1,5 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class CustomResourceProviderRuntime(val underlying: software.amazon.awscdk.CustomResourceProviderRuntime)
   extends Product
     with Serializable

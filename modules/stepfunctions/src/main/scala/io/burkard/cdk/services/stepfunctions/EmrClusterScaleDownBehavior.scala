@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class EmrClusterScaleDownBehavior(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EmrClusterScaleDownBehavior)
   extends Product
     with Serializable
-
 
 object EmrClusterScaleDownBehavior {
   implicit def toAws(value: EmrClusterScaleDownBehavior): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EmrClusterScaleDownBehavior =

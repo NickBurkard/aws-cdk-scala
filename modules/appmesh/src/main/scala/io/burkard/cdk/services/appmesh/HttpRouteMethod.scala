@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.appmesh
 
-
 sealed abstract class HttpRouteMethod(val underlying: software.amazon.awscdk.services.appmesh.HttpRouteMethod)
   extends Product
     with Serializable
-
 
 object HttpRouteMethod {
   implicit def toAws(value: HttpRouteMethod): software.amazon.awscdk.services.appmesh.HttpRouteMethod =

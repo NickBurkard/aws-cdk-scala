@@ -1,6 +1,5 @@
 package io.burkard.cdk.services.ec2
 
-
 sealed abstract class SubnetType(val underlying: software.amazon.awscdk.services.ec2.SubnetType)
   extends Product
     with Serializable

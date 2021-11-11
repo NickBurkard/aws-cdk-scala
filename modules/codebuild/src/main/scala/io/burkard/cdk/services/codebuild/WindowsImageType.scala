@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codebuild
 
-
 sealed abstract class WindowsImageType(val underlying: software.amazon.awscdk.services.codebuild.WindowsImageType)
   extends Product
     with Serializable
-
 
 object WindowsImageType {
   implicit def toAws(value: WindowsImageType): software.amazon.awscdk.services.codebuild.WindowsImageType =

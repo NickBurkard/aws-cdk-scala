@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudwatch
 
-
 sealed abstract class ComparisonOperator(val underlying: software.amazon.awscdk.services.cloudwatch.ComparisonOperator)
   extends Product
     with Serializable
-
 
 object ComparisonOperator {
   implicit def toAws(value: ComparisonOperator): software.amazon.awscdk.services.cloudwatch.ComparisonOperator =

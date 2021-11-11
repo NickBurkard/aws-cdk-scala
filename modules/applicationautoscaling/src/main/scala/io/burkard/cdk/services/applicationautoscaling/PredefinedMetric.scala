@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.applicationautoscaling
 
-
 sealed abstract class PredefinedMetric(val underlying: software.amazon.awscdk.services.applicationautoscaling.PredefinedMetric)
   extends Product
     with Serializable
-
 
 object PredefinedMetric {
   implicit def toAws(value: PredefinedMetric): software.amazon.awscdk.services.applicationautoscaling.PredefinedMetric =

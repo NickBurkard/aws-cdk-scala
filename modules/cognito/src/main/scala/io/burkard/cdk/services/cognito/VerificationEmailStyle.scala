@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cognito
 
-
 sealed abstract class VerificationEmailStyle(val underlying: software.amazon.awscdk.services.cognito.VerificationEmailStyle)
   extends Product
     with Serializable
-
 
 object VerificationEmailStyle {
   implicit def toAws(value: VerificationEmailStyle): software.amazon.awscdk.services.cognito.VerificationEmailStyle =

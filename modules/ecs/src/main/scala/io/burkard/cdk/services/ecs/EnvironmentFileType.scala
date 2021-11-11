@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class EnvironmentFileType(val underlying: software.amazon.awscdk.services.ecs.EnvironmentFileType)
   extends Product
     with Serializable
-
 
 object EnvironmentFileType {
   implicit def toAws(value: EnvironmentFileType): software.amazon.awscdk.services.ecs.EnvironmentFileType =

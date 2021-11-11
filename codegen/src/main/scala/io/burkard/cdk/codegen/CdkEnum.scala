@@ -27,14 +27,14 @@ final case class CdkEnum private[codegen](
     if (underlying.getAnnotations.toList.exists(_.annotationType().getSimpleName == "Deprecated")) {
       "\n@scala.annotation.nowarn(\"cat=deprecation\")"
     } else {
-      "\n"
+      ""
     }
 
   lazy val noWarnObject: String =
     if (valueNames.exists(isDeprecated)) {
       "\n@scala.annotation.nowarn(\"cat=deprecation\")"
     } else {
-      "\n"
+      ""
     }
 
   private[this] def isDeprecated(valueName: String): Boolean =

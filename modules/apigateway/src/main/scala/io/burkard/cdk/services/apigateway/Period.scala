@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.apigateway
 
-
 sealed abstract class Period(val underlying: software.amazon.awscdk.services.apigateway.Period)
   extends Product
     with Serializable
-
 
 object Period {
   implicit def toAws(value: Period): software.amazon.awscdk.services.apigateway.Period =

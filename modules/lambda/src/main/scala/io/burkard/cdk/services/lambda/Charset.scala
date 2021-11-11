@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.lambda
 
-
 sealed abstract class Charset(val underlying: software.amazon.awscdk.services.lambda.nodejs.Charset)
   extends Product
     with Serializable
-
 
 object Charset {
   implicit def toAws(value: Charset): software.amazon.awscdk.services.lambda.nodejs.Charset =

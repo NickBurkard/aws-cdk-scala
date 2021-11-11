@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codepipeline
 
-
 sealed abstract class JenkinsActionType(val underlying: software.amazon.awscdk.services.codepipeline.actions.JenkinsActionType)
   extends Product
     with Serializable
-
 
 object JenkinsActionType {
   implicit def toAws(value: JenkinsActionType): software.amazon.awscdk.services.codepipeline.actions.JenkinsActionType =

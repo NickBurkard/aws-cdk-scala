@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.lambda
 
-
 sealed abstract class RuntimeFamily(val underlying: software.amazon.awscdk.services.lambda.RuntimeFamily)
   extends Product
     with Serializable
-
 
 object RuntimeFamily {
   implicit def toAws(value: RuntimeFamily): software.amazon.awscdk.services.lambda.RuntimeFamily =

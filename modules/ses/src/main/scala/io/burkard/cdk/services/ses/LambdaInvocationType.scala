@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ses
 
-
 sealed abstract class LambdaInvocationType(val underlying: software.amazon.awscdk.services.ses.actions.LambdaInvocationType)
   extends Product
     with Serializable
-
 
 object LambdaInvocationType {
   implicit def toAws(value: LambdaInvocationType): software.amazon.awscdk.services.ses.actions.LambdaInvocationType =

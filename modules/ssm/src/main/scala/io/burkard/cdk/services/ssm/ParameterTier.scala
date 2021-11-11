@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ssm
 
-
 sealed abstract class ParameterTier(val underlying: software.amazon.awscdk.services.ssm.ParameterTier)
   extends Product
     with Serializable
-
 
 object ParameterTier {
   implicit def toAws(value: ParameterTier): software.amazon.awscdk.services.ssm.ParameterTier =

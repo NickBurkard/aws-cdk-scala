@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.apigateway
 
-
 sealed abstract class MethodLoggingLevel(val underlying: software.amazon.awscdk.services.apigateway.MethodLoggingLevel)
   extends Product
     with Serializable
-
 
 object MethodLoggingLevel {
   implicit def toAws(value: MethodLoggingLevel): software.amazon.awscdk.services.apigateway.MethodLoggingLevel =

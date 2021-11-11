@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.sqs
 
-
 sealed abstract class DeduplicationScope(val underlying: software.amazon.awscdk.services.sqs.DeduplicationScope)
   extends Product
     with Serializable
-
 
 object DeduplicationScope {
   implicit def toAws(value: DeduplicationScope): software.amazon.awscdk.services.sqs.DeduplicationScope =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.eks
 
-
 sealed abstract class TaintEffect(val underlying: software.amazon.awscdk.services.eks.TaintEffect)
   extends Product
     with Serializable
-
 
 object TaintEffect {
   implicit def toAws(value: TaintEffect): software.amazon.awscdk.services.eks.TaintEffect =

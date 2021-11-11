@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codeguruprofiler
 
-
 sealed abstract class ComputePlatform(val underlying: software.amazon.awscdk.services.codeguruprofiler.ComputePlatform)
   extends Product
     with Serializable
-
 
 object ComputePlatform {
   implicit def toAws(value: ComputePlatform): software.amazon.awscdk.services.codeguruprofiler.ComputePlatform =

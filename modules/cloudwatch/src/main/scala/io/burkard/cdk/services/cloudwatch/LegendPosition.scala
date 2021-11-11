@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudwatch
 
-
 sealed abstract class LegendPosition(val underlying: software.amazon.awscdk.services.cloudwatch.LegendPosition)
   extends Product
     with Serializable
-
 
 object LegendPosition {
   implicit def toAws(value: LegendPosition): software.amazon.awscdk.services.cloudwatch.LegendPosition =

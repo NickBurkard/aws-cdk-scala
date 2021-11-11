@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.eks
 
-
 sealed abstract class PatchType(val underlying: software.amazon.awscdk.services.eks.PatchType)
   extends Product
     with Serializable
-
 
 object PatchType {
   implicit def toAws(value: PatchType): software.amazon.awscdk.services.eks.PatchType =

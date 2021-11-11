@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.lambda
 
-
 sealed abstract class AuthenticationMethod(val underlying: software.amazon.awscdk.services.lambda.eventsources.AuthenticationMethod)
   extends Product
     with Serializable
-
 
 object AuthenticationMethod {
   implicit def toAws(value: AuthenticationMethod): software.amazon.awscdk.services.lambda.eventsources.AuthenticationMethod =

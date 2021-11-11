@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.eks
 
-
 sealed abstract class NodegroupAmiType(val underlying: software.amazon.awscdk.services.eks.NodegroupAmiType)
   extends Product
     with Serializable
-
 
 object NodegroupAmiType {
   implicit def toAws(value: NodegroupAmiType): software.amazon.awscdk.services.eks.NodegroupAmiType =

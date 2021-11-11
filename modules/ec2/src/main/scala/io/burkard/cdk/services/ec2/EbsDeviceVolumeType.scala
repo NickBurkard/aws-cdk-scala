@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ec2
 
-
 sealed abstract class EbsDeviceVolumeType(val underlying: software.amazon.awscdk.services.ec2.EbsDeviceVolumeType)
   extends Product
     with Serializable
-
 
 object EbsDeviceVolumeType {
   implicit def toAws(value: EbsDeviceVolumeType): software.amazon.awscdk.services.ec2.EbsDeviceVolumeType =

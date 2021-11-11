@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudtrail
 
-
 sealed abstract class ManagementEventSources(val underlying: software.amazon.awscdk.services.cloudtrail.ManagementEventSources)
   extends Product
     with Serializable
-
 
 object ManagementEventSources {
   implicit def toAws(value: ManagementEventSources): software.amazon.awscdk.services.cloudtrail.ManagementEventSources =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class LambdaInvocationType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.LambdaInvocationType)
   extends Product
     with Serializable
-
 
 object LambdaInvocationType {
   implicit def toAws(value: LambdaInvocationType): software.amazon.awscdk.services.stepfunctions.tasks.LambdaInvocationType =

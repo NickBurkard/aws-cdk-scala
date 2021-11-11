@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class ApplicationLoadBalancedServiceRecordType(val underlying: software.amazon.awscdk.services.ecs.patterns.ApplicationLoadBalancedServiceRecordType)
   extends Product
     with Serializable
-
 
 object ApplicationLoadBalancedServiceRecordType {
   implicit def toAws(value: ApplicationLoadBalancedServiceRecordType): software.amazon.awscdk.services.ecs.patterns.ApplicationLoadBalancedServiceRecordType =

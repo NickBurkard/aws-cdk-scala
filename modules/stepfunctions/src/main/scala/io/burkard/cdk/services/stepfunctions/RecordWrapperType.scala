@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class RecordWrapperType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.RecordWrapperType)
   extends Product
     with Serializable
-
 
 object RecordWrapperType {
   implicit def toAws(value: RecordWrapperType): software.amazon.awscdk.services.stepfunctions.tasks.RecordWrapperType =

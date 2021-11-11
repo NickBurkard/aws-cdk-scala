@@ -1,10 +1,8 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class BundlingOutput(val underlying: software.amazon.awscdk.BundlingOutput)
   extends Product
     with Serializable
-
 
 object BundlingOutput {
   implicit def toAws(value: BundlingOutput): software.amazon.awscdk.BundlingOutput =

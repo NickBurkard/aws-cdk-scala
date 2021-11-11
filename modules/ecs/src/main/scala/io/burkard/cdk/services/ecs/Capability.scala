@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class Capability(val underlying: software.amazon.awscdk.services.ecs.Capability)
   extends Product
     with Serializable
-
 
 object Capability {
   implicit def toAws(value: Capability): software.amazon.awscdk.services.ecs.Capability =

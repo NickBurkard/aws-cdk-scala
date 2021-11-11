@@ -1,6 +1,5 @@
 package io.burkard.cdk.services.secretsmanager
 
-
 sealed abstract class AttachmentTargetType(val underlying: software.amazon.awscdk.services.secretsmanager.AttachmentTargetType)
   extends Product
     with Serializable

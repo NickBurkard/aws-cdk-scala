@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.logs
 
-
 sealed abstract class RetentionDays(val underlying: software.amazon.awscdk.services.logs.RetentionDays)
   extends Product
     with Serializable
-
 
 object RetentionDays {
   implicit def toAws(value: RetentionDays): software.amazon.awscdk.services.logs.RetentionDays =

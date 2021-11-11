@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.backup
 
-
 sealed abstract class BackupVaultEvents(val underlying: software.amazon.awscdk.services.backup.BackupVaultEvents)
   extends Product
     with Serializable
-
 
 object BackupVaultEvents {
   implicit def toAws(value: BackupVaultEvents): software.amazon.awscdk.services.backup.BackupVaultEvents =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cognito
 
-
 sealed abstract class AccountRecovery(val underlying: software.amazon.awscdk.services.cognito.AccountRecovery)
   extends Product
     with Serializable
-
 
 object AccountRecovery {
   implicit def toAws(value: AccountRecovery): software.amazon.awscdk.services.cognito.AccountRecovery =

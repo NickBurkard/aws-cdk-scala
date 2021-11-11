@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudfront
 
-
 sealed abstract class PriceClass(val underlying: software.amazon.awscdk.services.cloudfront.PriceClass)
   extends Product
     with Serializable
-
 
 object PriceClass {
   implicit def toAws(value: PriceClass): software.amazon.awscdk.services.cloudfront.PriceClass =

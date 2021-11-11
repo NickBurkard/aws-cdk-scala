@@ -1,10 +1,8 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class IgnoreMode(val underlying: software.amazon.awscdk.IgnoreMode)
   extends Product
     with Serializable
-
 
 object IgnoreMode {
   implicit def toAws(value: IgnoreMode): software.amazon.awscdk.IgnoreMode =

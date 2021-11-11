@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.autoscaling
 
-
 sealed abstract class ScalingProcess(val underlying: software.amazon.awscdk.services.autoscaling.ScalingProcess)
   extends Product
     with Serializable
-
 
 object ScalingProcess {
   implicit def toAws(value: ScalingProcess): software.amazon.awscdk.services.autoscaling.ScalingProcess =

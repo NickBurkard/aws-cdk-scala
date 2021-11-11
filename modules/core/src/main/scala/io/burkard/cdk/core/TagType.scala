@@ -1,10 +1,8 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class TagType(val underlying: software.amazon.awscdk.TagType)
   extends Product
     with Serializable
-
 
 object TagType {
   implicit def toAws(value: TagType): software.amazon.awscdk.TagType =

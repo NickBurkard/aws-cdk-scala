@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.kms
 
-
 sealed abstract class KeySpec(val underlying: software.amazon.awscdk.services.kms.KeySpec)
   extends Product
     with Serializable
-
 
 object KeySpec {
   implicit def toAws(value: KeySpec): software.amazon.awscdk.services.kms.KeySpec =

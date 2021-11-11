@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.sqs
 
-
 sealed abstract class QueueEncryption(val underlying: software.amazon.awscdk.services.sqs.QueueEncryption)
   extends Product
     with Serializable
-
 
 object QueueEncryption {
   implicit def toAws(value: QueueEncryption): software.amazon.awscdk.services.sqs.QueueEncryption =

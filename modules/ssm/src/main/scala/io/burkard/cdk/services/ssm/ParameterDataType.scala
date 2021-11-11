@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ssm
 
-
 sealed abstract class ParameterDataType(val underlying: software.amazon.awscdk.services.ssm.ParameterDataType)
   extends Product
     with Serializable
-
 
 object ParameterDataType {
   implicit def toAws(value: ParameterDataType): software.amazon.awscdk.services.ssm.ParameterDataType =

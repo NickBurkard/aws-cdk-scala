@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.lambda
 
-
 sealed abstract class Tracing(val underlying: software.amazon.awscdk.services.lambda.Tracing)
   extends Product
     with Serializable
-
 
 object Tracing {
   implicit def toAws(value: Tracing): software.amazon.awscdk.services.lambda.Tracing =

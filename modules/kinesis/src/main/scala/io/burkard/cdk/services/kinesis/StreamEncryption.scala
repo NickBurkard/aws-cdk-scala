@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.kinesis
 
-
 sealed abstract class StreamEncryption(val underlying: software.amazon.awscdk.services.kinesis.StreamEncryption)
   extends Product
     with Serializable
-
 
 object StreamEncryption {
   implicit def toAws(value: StreamEncryption): software.amazon.awscdk.services.kinesis.StreamEncryption =

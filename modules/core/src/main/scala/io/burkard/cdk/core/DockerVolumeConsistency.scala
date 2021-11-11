@@ -1,10 +1,8 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class DockerVolumeConsistency(val underlying: software.amazon.awscdk.DockerVolumeConsistency)
   extends Product
     with Serializable
-
 
 object DockerVolumeConsistency {
   implicit def toAws(value: DockerVolumeConsistency): software.amazon.awscdk.DockerVolumeConsistency =

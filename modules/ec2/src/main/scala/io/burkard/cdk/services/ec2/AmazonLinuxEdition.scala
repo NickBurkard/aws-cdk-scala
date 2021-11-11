@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ec2
 
-
 sealed abstract class AmazonLinuxEdition(val underlying: software.amazon.awscdk.services.ec2.AmazonLinuxEdition)
   extends Product
     with Serializable
-
 
 object AmazonLinuxEdition {
   implicit def toAws(value: AmazonLinuxEdition): software.amazon.awscdk.services.ec2.AmazonLinuxEdition =

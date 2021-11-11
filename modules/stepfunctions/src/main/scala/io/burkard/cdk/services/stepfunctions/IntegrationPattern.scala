@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class IntegrationPattern(val underlying: software.amazon.awscdk.services.stepfunctions.IntegrationPattern)
   extends Product
     with Serializable
-
 
 object IntegrationPattern {
   implicit def toAws(value: IntegrationPattern): software.amazon.awscdk.services.stepfunctions.IntegrationPattern =

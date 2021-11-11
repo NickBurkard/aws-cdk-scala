@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.dynamodb
 
-
 sealed abstract class ProjectionType(val underlying: software.amazon.awscdk.services.dynamodb.ProjectionType)
   extends Product
     with Serializable
-
 
 object ProjectionType {
   implicit def toAws(value: ProjectionType): software.amazon.awscdk.services.dynamodb.ProjectionType =

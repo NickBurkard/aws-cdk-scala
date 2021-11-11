@@ -1,10 +1,8 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class CfnDeletionPolicy(val underlying: software.amazon.awscdk.CfnDeletionPolicy)
   extends Product
     with Serializable
-
 
 object CfnDeletionPolicy {
   implicit def toAws(value: CfnDeletionPolicy): software.amazon.awscdk.CfnDeletionPolicy =

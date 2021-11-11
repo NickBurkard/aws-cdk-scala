@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class LaunchType(val underlying: software.amazon.awscdk.services.ecs.LaunchType)
   extends Product
     with Serializable
-
 
 object LaunchType {
   implicit def toAws(value: LaunchType): software.amazon.awscdk.services.ecs.LaunchType =

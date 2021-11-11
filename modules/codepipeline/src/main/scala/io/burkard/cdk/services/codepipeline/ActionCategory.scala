@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codepipeline
 
-
 sealed abstract class ActionCategory(val underlying: software.amazon.awscdk.services.codepipeline.ActionCategory)
   extends Product
     with Serializable
-
 
 object ActionCategory {
   implicit def toAws(value: ActionCategory): software.amazon.awscdk.services.codepipeline.ActionCategory =

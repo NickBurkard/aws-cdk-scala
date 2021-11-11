@@ -1,6 +1,5 @@
 package io.burkard.cdk.core
 
-
 sealed abstract class AssetHashType(val underlying: software.amazon.awscdk.AssetHashType)
   extends Product
     with Serializable

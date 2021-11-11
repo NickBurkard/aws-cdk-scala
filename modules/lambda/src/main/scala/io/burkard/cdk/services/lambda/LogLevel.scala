@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.lambda
 
-
 sealed abstract class LogLevel(val underlying: software.amazon.awscdk.services.lambda.nodejs.LogLevel)
   extends Product
     with Serializable
-
 
 object LogLevel {
   implicit def toAws(value: LogLevel): software.amazon.awscdk.services.lambda.nodejs.LogLevel =

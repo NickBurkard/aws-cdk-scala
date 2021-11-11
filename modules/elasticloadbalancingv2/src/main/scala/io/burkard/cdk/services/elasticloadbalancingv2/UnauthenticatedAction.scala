@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
-
 sealed abstract class UnauthenticatedAction(val underlying: software.amazon.awscdk.services.elasticloadbalancingv2.UnauthenticatedAction)
   extends Product
     with Serializable
-
 
 object UnauthenticatedAction {
   implicit def toAws(value: UnauthenticatedAction): software.amazon.awscdk.services.elasticloadbalancingv2.UnauthenticatedAction =

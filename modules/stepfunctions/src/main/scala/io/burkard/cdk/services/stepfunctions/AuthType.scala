@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class AuthType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.AuthType)
   extends Product
     with Serializable
-
 
 object AuthType {
   implicit def toAws(value: AuthType): software.amazon.awscdk.services.stepfunctions.tasks.AuthType =

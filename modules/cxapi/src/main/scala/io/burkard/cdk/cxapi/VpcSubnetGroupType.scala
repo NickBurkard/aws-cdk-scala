@@ -1,10 +1,8 @@
 package io.burkard.cdk.cxapi
 
-
 sealed abstract class VpcSubnetGroupType(val underlying: software.amazon.awscdk.cxapi.VpcSubnetGroupType)
   extends Product
     with Serializable
-
 
 object VpcSubnetGroupType {
   implicit def toAws(value: VpcSubnetGroupType): software.amazon.awscdk.cxapi.VpcSubnetGroupType =

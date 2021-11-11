@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.dynamodb
 
-
 sealed abstract class StreamViewType(val underlying: software.amazon.awscdk.services.dynamodb.StreamViewType)
   extends Product
     with Serializable
-
 
 object StreamViewType {
   implicit def toAws(value: StreamViewType): software.amazon.awscdk.services.dynamodb.StreamViewType =

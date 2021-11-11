@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.rds
 
-
 sealed abstract class StorageType(val underlying: software.amazon.awscdk.services.rds.StorageType)
   extends Product
     with Serializable
-
 
 object StorageType {
   implicit def toAws(value: StorageType): software.amazon.awscdk.services.rds.StorageType =

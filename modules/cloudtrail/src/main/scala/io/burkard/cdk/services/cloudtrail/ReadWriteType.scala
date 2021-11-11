@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudtrail
 
-
 sealed abstract class ReadWriteType(val underlying: software.amazon.awscdk.services.cloudtrail.ReadWriteType)
   extends Product
     with Serializable
-
 
 object ReadWriteType {
   implicit def toAws(value: ReadWriteType): software.amazon.awscdk.services.cloudtrail.ReadWriteType =

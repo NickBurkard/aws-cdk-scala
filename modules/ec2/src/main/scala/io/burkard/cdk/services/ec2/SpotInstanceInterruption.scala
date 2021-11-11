@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ec2
 
-
 sealed abstract class SpotInstanceInterruption(val underlying: software.amazon.awscdk.services.ec2.SpotInstanceInterruption)
   extends Product
     with Serializable
-
 
 object SpotInstanceInterruption {
   implicit def toAws(value: SpotInstanceInterruption): software.amazon.awscdk.services.ec2.SpotInstanceInterruption =

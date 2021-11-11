@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class BatchStrategy(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.BatchStrategy)
   extends Product
     with Serializable
-
 
 object BatchStrategy {
   implicit def toAws(value: BatchStrategy): software.amazon.awscdk.services.stepfunctions.tasks.BatchStrategy =

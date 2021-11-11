@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.fsx
 
-
 sealed abstract class Weekday(val underlying: software.amazon.awscdk.services.fsx.Weekday)
   extends Product
     with Serializable
-
 
 object Weekday {
   implicit def toAws(value: Weekday): software.amazon.awscdk.services.fsx.Weekday =

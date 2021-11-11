@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.s3
 
-
 sealed abstract class EventType(val underlying: software.amazon.awscdk.services.s3.EventType)
   extends Product
     with Serializable
-
 
 object EventType {
   implicit def toAws(value: EventType): software.amazon.awscdk.services.s3.EventType =

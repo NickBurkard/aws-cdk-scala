@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codebuild
 
-
 sealed abstract class ProjectNotificationEvents(val underlying: software.amazon.awscdk.services.codebuild.ProjectNotificationEvents)
   extends Product
     with Serializable
-
 
 object ProjectNotificationEvents {
   implicit def toAws(value: ProjectNotificationEvents): software.amazon.awscdk.services.codebuild.ProjectNotificationEvents =

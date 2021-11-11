@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.s3
 
-
 sealed abstract class BucketAccessControl(val underlying: software.amazon.awscdk.services.s3.BucketAccessControl)
   extends Product
     with Serializable
-
 
 object BucketAccessControl {
   implicit def toAws(value: BucketAccessControl): software.amazon.awscdk.services.s3.BucketAccessControl =

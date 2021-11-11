@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cognito
 
-
 sealed abstract class Mfa(val underlying: software.amazon.awscdk.services.cognito.Mfa)
   extends Product
     with Serializable
-
 
 object Mfa {
   implicit def toAws(value: Mfa): software.amazon.awscdk.services.cognito.Mfa =

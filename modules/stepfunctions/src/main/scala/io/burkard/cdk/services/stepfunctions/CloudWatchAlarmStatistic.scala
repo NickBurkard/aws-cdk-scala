@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class CloudWatchAlarmStatistic(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic)
   extends Product
     with Serializable
-
 
 object CloudWatchAlarmStatistic {
   implicit def toAws(value: CloudWatchAlarmStatistic): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic =

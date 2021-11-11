@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class PropagatedTagSource(val underlying: software.amazon.awscdk.services.ecs.PropagatedTagSource)
   extends Product
     with Serializable
-
 
 object PropagatedTagSource {
   implicit def toAws(value: PropagatedTagSource): software.amazon.awscdk.services.ecs.PropagatedTagSource =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.backup
 
-
 sealed abstract class TagOperation(val underlying: software.amazon.awscdk.services.backup.TagOperation)
   extends Product
     with Serializable
-
 
 object TagOperation {
   implicit def toAws(value: TagOperation): software.amazon.awscdk.services.backup.TagOperation =

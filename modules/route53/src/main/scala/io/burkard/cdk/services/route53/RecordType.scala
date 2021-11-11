@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.route53
 
-
 sealed abstract class RecordType(val underlying: software.amazon.awscdk.services.route53.RecordType)
   extends Product
     with Serializable
-
 
 object RecordType {
   implicit def toAws(value: RecordType): software.amazon.awscdk.services.route53.RecordType =

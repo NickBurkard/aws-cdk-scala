@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class StateMachineType(val underlying: software.amazon.awscdk.services.stepfunctions.StateMachineType)
   extends Product
     with Serializable
-
 
 object StateMachineType {
   implicit def toAws(value: StateMachineType): software.amazon.awscdk.services.stepfunctions.StateMachineType =

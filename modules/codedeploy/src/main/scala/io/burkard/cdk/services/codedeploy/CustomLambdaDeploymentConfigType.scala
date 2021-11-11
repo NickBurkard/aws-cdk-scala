@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codedeploy
 
-
 sealed abstract class CustomLambdaDeploymentConfigType(val underlying: software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigType)
   extends Product
     with Serializable
-
 
 object CustomLambdaDeploymentConfigType {
   implicit def toAws(value: CustomLambdaDeploymentConfigType): software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigType =

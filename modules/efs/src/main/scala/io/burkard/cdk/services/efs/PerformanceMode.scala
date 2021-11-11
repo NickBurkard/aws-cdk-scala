@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.efs
 
-
 sealed abstract class PerformanceMode(val underlying: software.amazon.awscdk.services.efs.PerformanceMode)
   extends Product
     with Serializable
-
 
 object PerformanceMode {
   implicit def toAws(value: PerformanceMode): software.amazon.awscdk.services.efs.PerformanceMode =

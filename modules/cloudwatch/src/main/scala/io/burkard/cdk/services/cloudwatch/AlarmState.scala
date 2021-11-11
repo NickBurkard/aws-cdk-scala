@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudwatch
 
-
 sealed abstract class AlarmState(val underlying: software.amazon.awscdk.services.cloudwatch.AlarmState)
   extends Product
     with Serializable
-
 
 object AlarmState {
   implicit def toAws(value: AlarmState): software.amazon.awscdk.services.cloudwatch.AlarmState =

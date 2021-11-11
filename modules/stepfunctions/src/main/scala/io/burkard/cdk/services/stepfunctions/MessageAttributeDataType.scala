@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class MessageAttributeDataType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.MessageAttributeDataType)
   extends Product
     with Serializable
-
 
 object MessageAttributeDataType {
   implicit def toAws(value: MessageAttributeDataType): software.amazon.awscdk.services.stepfunctions.tasks.MessageAttributeDataType =

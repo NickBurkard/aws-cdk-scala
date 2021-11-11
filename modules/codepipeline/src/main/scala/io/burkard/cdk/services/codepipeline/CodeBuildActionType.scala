@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codepipeline
 
-
 sealed abstract class CodeBuildActionType(val underlying: software.amazon.awscdk.services.codepipeline.actions.CodeBuildActionType)
   extends Product
     with Serializable
-
 
 object CodeBuildActionType {
   implicit def toAws(value: CodeBuildActionType): software.amazon.awscdk.services.codepipeline.actions.CodeBuildActionType =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.s3
 
-
 sealed abstract class RedirectProtocol(val underlying: software.amazon.awscdk.services.s3.RedirectProtocol)
   extends Product
     with Serializable
-
 
 object RedirectProtocol {
   implicit def toAws(value: RedirectProtocol): software.amazon.awscdk.services.s3.RedirectProtocol =

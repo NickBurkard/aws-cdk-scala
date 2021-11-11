@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.s3
 
-
 sealed abstract class BucketNotificationDestinationType(val underlying: software.amazon.awscdk.services.s3.BucketNotificationDestinationType)
   extends Product
     with Serializable
-
 
 object BucketNotificationDestinationType {
   implicit def toAws(value: BucketNotificationDestinationType): software.amazon.awscdk.services.s3.BucketNotificationDestinationType =

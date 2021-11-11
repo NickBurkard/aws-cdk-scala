@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.codebuild
 
-
 sealed abstract class EventAction(val underlying: software.amazon.awscdk.services.codebuild.EventAction)
   extends Product
     with Serializable
-
 
 object EventAction {
   implicit def toAws(value: EventAction): software.amazon.awscdk.services.codebuild.EventAction =

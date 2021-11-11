@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.stepfunctions
 
-
 sealed abstract class S3DataDistributionType(val underlying: software.amazon.awscdk.services.stepfunctions.tasks.S3DataDistributionType)
   extends Product
     with Serializable
-
 
 object S3DataDistributionType {
   implicit def toAws(value: S3DataDistributionType): software.amazon.awscdk.services.stepfunctions.tasks.S3DataDistributionType =

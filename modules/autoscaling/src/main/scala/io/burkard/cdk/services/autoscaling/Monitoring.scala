@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.autoscaling
 
-
 sealed abstract class Monitoring(val underlying: software.amazon.awscdk.services.autoscaling.Monitoring)
   extends Product
     with Serializable
-
 
 object Monitoring {
   implicit def toAws(value: Monitoring): software.amazon.awscdk.services.autoscaling.Monitoring =

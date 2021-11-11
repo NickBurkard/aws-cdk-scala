@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ec2
 
-
 sealed abstract class InstanceClass(val underlying: software.amazon.awscdk.services.ec2.InstanceClass)
   extends Product
     with Serializable
-
 
 object InstanceClass {
   implicit def toAws(value: InstanceClass): software.amazon.awscdk.services.ec2.InstanceClass =

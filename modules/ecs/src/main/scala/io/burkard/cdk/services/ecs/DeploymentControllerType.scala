@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class DeploymentControllerType(val underlying: software.amazon.awscdk.services.ecs.DeploymentControllerType)
   extends Product
     with Serializable
-
 
 object DeploymentControllerType {
   implicit def toAws(value: DeploymentControllerType): software.amazon.awscdk.services.ecs.DeploymentControllerType =

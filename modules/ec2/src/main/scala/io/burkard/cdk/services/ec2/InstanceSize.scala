@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ec2
 
-
 sealed abstract class InstanceSize(val underlying: software.amazon.awscdk.services.ec2.InstanceSize)
   extends Product
     with Serializable
-
 
 object InstanceSize {
   implicit def toAws(value: InstanceSize): software.amazon.awscdk.services.ec2.InstanceSize =

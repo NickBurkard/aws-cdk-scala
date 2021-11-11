@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.s3
 
-
 sealed abstract class ObjectOwnership(val underlying: software.amazon.awscdk.services.s3.ObjectOwnership)
   extends Product
     with Serializable
-
 
 object ObjectOwnership {
   implicit def toAws(value: ObjectOwnership): software.amazon.awscdk.services.s3.ObjectOwnership =

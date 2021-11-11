@@ -1,6 +1,5 @@
 package io.burkard.cdk.services.ec2
 
-
 sealed abstract class WindowsVersion(val underlying: software.amazon.awscdk.services.ec2.WindowsVersion)
   extends Product
     with Serializable

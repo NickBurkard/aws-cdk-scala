@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class TmpfsMountOption(val underlying: software.amazon.awscdk.services.ecs.TmpfsMountOption)
   extends Product
     with Serializable
-
 
 object TmpfsMountOption {
   implicit def toAws(value: TmpfsMountOption): software.amazon.awscdk.services.ecs.TmpfsMountOption =

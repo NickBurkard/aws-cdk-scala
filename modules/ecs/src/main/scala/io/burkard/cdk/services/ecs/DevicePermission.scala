@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.ecs
 
-
 sealed abstract class DevicePermission(val underlying: software.amazon.awscdk.services.ecs.DevicePermission)
   extends Product
     with Serializable
-
 
 object DevicePermission {
   implicit def toAws(value: DevicePermission): software.amazon.awscdk.services.ecs.DevicePermission =

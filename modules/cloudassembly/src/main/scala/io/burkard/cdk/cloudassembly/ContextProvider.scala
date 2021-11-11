@@ -1,10 +1,8 @@
 package io.burkard.cdk.cloudassembly
 
-
 sealed abstract class ContextProvider(val underlying: software.amazon.awscdk.cloudassembly.schema.ContextProvider)
   extends Product
     with Serializable
-
 
 object ContextProvider {
   implicit def toAws(value: ContextProvider): software.amazon.awscdk.cloudassembly.schema.ContextProvider =

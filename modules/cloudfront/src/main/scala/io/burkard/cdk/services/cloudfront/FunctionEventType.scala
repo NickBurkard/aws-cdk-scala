@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudfront
 
-
 sealed abstract class FunctionEventType(val underlying: software.amazon.awscdk.services.cloudfront.FunctionEventType)
   extends Product
     with Serializable
-
 
 object FunctionEventType {
   implicit def toAws(value: FunctionEventType): software.amazon.awscdk.services.cloudfront.FunctionEventType =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.lambda
 
-
 sealed abstract class UntrustedArtifactOnDeployment(val underlying: software.amazon.awscdk.services.lambda.UntrustedArtifactOnDeployment)
   extends Product
     with Serializable
-
 
 object UntrustedArtifactOnDeployment {
   implicit def toAws(value: UntrustedArtifactOnDeployment): software.amazon.awscdk.services.lambda.UntrustedArtifactOnDeployment =

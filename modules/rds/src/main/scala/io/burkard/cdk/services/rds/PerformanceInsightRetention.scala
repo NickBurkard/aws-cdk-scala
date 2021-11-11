@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.rds
 
-
 sealed abstract class PerformanceInsightRetention(val underlying: software.amazon.awscdk.services.rds.PerformanceInsightRetention)
   extends Product
     with Serializable
-
 
 object PerformanceInsightRetention {
   implicit def toAws(value: PerformanceInsightRetention): software.amazon.awscdk.services.rds.PerformanceInsightRetention =

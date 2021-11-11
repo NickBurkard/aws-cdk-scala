@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.elasticloadbalancingv2
 
-
 sealed abstract class HttpCodeTarget(val underlying: software.amazon.awscdk.services.elasticloadbalancingv2.HttpCodeTarget)
   extends Product
     with Serializable
-
 
 object HttpCodeTarget {
   implicit def toAws(value: HttpCodeTarget): software.amazon.awscdk.services.elasticloadbalancingv2.HttpCodeTarget =

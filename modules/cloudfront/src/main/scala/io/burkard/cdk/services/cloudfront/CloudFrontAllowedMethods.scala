@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudfront
 
-
 sealed abstract class CloudFrontAllowedMethods(val underlying: software.amazon.awscdk.services.cloudfront.CloudFrontAllowedMethods)
   extends Product
     with Serializable
-
 
 object CloudFrontAllowedMethods {
   implicit def toAws(value: CloudFrontAllowedMethods): software.amazon.awscdk.services.cloudfront.CloudFrontAllowedMethods =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.cloudassembly
 
-
 sealed abstract class LoadBalancerListenerProtocol(val underlying: software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerProtocol)
   extends Product
     with Serializable
-
 
 object LoadBalancerListenerProtocol {
   implicit def toAws(value: LoadBalancerListenerProtocol): software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerProtocol =

@@ -1,10 +1,8 @@
 package io.burkard.cdk.services.cloudwatch
 
-
 sealed abstract class Unit(val underlying: software.amazon.awscdk.services.cloudwatch.Unit)
   extends Product
     with Serializable
-
 
 object Unit {
   implicit def toAws(value: Unit): software.amazon.awscdk.services.cloudwatch.Unit =
