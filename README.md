@@ -53,7 +53,7 @@ Libraries are published for each AWS service, plus a `core` library for shared r
 Please refer to the [modules](./modules) directory to reference generated code.
 
 ```scala
-val cdkVersion = "0.1.2"
+val cdkVersion = "0.1.4"
 
 libraryDependencies ++= Seq(
   "io.burkard" %% "aws-scala-cdk-core" % cdkVersion,
