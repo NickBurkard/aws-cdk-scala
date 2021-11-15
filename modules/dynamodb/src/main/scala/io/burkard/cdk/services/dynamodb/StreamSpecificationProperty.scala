@@ -5,8 +5,8 @@ object StreamSpecificationProperty {
 
   def apply(
     streamViewType: Option[String] = None
-  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.StreamSpecificationProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.StreamSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.dynamodb.CfnTable.StreamSpecificationProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnTable.StreamSpecificationProperty.Builder)
       .streamViewType(streamViewType.orNull)
       .build()
 }

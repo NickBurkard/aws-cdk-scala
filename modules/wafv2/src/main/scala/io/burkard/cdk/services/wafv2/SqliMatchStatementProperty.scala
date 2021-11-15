@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object SqliMatchStatementProperty {
 
   def apply(
-    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty] = None,
+    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty] = None,
     textTransformations: Option[List[_]] = None
-  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.SqliMatchStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.SqliMatchStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnWebACL.SqliMatchStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnWebACL.SqliMatchStatementProperty.Builder)
       .fieldToMatch(fieldToMatch.orNull)
       .textTransformations(textTransformations.map(_.asJava).orNull)
       .build()

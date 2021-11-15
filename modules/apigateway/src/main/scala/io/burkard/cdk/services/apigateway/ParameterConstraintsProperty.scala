@@ -6,8 +6,8 @@ object ParameterConstraintsProperty {
 
   def apply(
     required: Option[Boolean] = None
-  ): software.amazon.awscdk.services.apigateway.CfnRouteResponseV2.ParameterConstraintsProperty =
-    (new software.amazon.awscdk.services.apigateway.CfnRouteResponseV2.ParameterConstraintsProperty.Builder)
+  ): software.amazon.awscdk.services.apigateway.CfnRouteV2.ParameterConstraintsProperty =
+    (new software.amazon.awscdk.services.apigateway.CfnRouteV2.ParameterConstraintsProperty.Builder)
       .required(required.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

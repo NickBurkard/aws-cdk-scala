@@ -18,8 +18,8 @@ object EventVariableProperty {
     lastUpdatedTime: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
-  ): software.amazon.awscdk.services.frauddetector.CfnEventType.EventVariableProperty =
-    (new software.amazon.awscdk.services.frauddetector.CfnEventType.EventVariableProperty.Builder)
+  ): software.amazon.awscdk.services.frauddetector.CfnDetector.EventVariableProperty =
+    (new software.amazon.awscdk.services.frauddetector.CfnDetector.EventVariableProperty.Builder)
       .arn(arn.orNull)
       .variableType(variableType.orNull)
       .inline(inline.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

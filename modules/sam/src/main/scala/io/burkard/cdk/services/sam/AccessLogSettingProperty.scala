@@ -6,8 +6,8 @@ object AccessLogSettingProperty {
   def apply(
     format: Option[String] = None,
     destinationArn: Option[String] = None
-  ): software.amazon.awscdk.services.sam.CfnHttpApi.AccessLogSettingProperty =
-    (new software.amazon.awscdk.services.sam.CfnHttpApi.AccessLogSettingProperty.Builder)
+  ): software.amazon.awscdk.services.sam.CfnApi.AccessLogSettingProperty =
+    (new software.amazon.awscdk.services.sam.CfnApi.AccessLogSettingProperty.Builder)
       .format(format.orNull)
       .destinationArn(destinationArn.orNull)
       .build()

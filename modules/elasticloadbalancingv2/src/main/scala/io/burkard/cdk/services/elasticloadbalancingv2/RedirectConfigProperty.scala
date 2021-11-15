@@ -10,8 +10,8 @@ object RedirectConfigProperty {
     query: Option[String] = None,
     port: Option[String] = None,
     protocol: Option[String] = None
-  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.RedirectConfigProperty =
-    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.RedirectConfigProperty.Builder)
+  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.RedirectConfigProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.RedirectConfigProperty.Builder)
       .statusCode(statusCode.orNull)
       .path(path.orNull)
       .host(host.orNull)

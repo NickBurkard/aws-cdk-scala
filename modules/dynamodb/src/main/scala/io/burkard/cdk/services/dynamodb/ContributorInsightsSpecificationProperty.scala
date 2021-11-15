@@ -5,8 +5,8 @@ object ContributorInsightsSpecificationProperty {
 
   def apply(
     enabled: Option[Boolean] = None
-  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ContributorInsightsSpecificationProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ContributorInsightsSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.dynamodb.CfnTable.ContributorInsightsSpecificationProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnTable.ContributorInsightsSpecificationProperty.Builder)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -13,8 +13,8 @@ object KeyUsageProperty {
     crlSign: Option[Boolean] = None,
     keyCertSign: Option[Boolean] = None,
     dataEncipherment: Option[Boolean] = None
-  ): software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.KeyUsageProperty =
-    (new software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.KeyUsageProperty.Builder)
+  ): software.amazon.awscdk.services.acmpca.CfnCertificate.KeyUsageProperty =
+    (new software.amazon.awscdk.services.acmpca.CfnCertificate.KeyUsageProperty.Builder)
       .keyAgreement(keyAgreement.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .nonRepudiation(nonRepudiation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .decipherOnly(decipherOnly.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

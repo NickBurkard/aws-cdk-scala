@@ -6,8 +6,8 @@ object DataSetReferenceProperty {
   def apply(
     dataSetArn: Option[String] = None,
     dataSetPlaceholder: Option[String] = None
-  ): software.amazon.awscdk.services.quicksight.CfnTemplate.DataSetReferenceProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnTemplate.DataSetReferenceProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnAnalysis.DataSetReferenceProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnAnalysis.DataSetReferenceProperty.Builder)
       .dataSetArn(dataSetArn.orNull)
       .dataSetPlaceholder(dataSetPlaceholder.orNull)
       .build()

@@ -9,8 +9,8 @@ object LoggerProperty {
     `type`: Option[String] = None,
     component: Option[String] = None,
     level: Option[String] = None
-  ): software.amazon.awscdk.services.greengrass.CfnLoggerDefinitionVersion.LoggerProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnLoggerDefinitionVersion.LoggerProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnLoggerDefinition.LoggerProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnLoggerDefinition.LoggerProperty.Builder)
       .id(id.orNull)
       .space(space.orNull)
       .`type`(`type`.orNull)

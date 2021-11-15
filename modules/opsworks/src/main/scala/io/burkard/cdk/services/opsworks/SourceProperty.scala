@@ -10,8 +10,8 @@ object SourceProperty {
     revision: Option[String] = None,
     `type`: Option[String] = None,
     password: Option[String] = None
-  ): software.amazon.awscdk.services.opsworks.CfnStack.SourceProperty =
-    (new software.amazon.awscdk.services.opsworks.CfnStack.SourceProperty.Builder)
+  ): software.amazon.awscdk.services.opsworks.CfnApp.SourceProperty =
+    (new software.amazon.awscdk.services.opsworks.CfnApp.SourceProperty.Builder)
       .url(url.orNull)
       .username(username.orNull)
       .sshKey(sshKey.orNull)

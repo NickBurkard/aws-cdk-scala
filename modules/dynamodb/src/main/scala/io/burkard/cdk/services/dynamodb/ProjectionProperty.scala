@@ -9,8 +9,8 @@ object ProjectionProperty {
   def apply(
     projectionType: Option[String] = None,
     nonKeyAttributes: Option[List[String]] = None
-  ): software.amazon.awscdk.services.dynamodb.CfnTable.ProjectionProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnTable.ProjectionProperty.Builder)
+  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ProjectionProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ProjectionProperty.Builder)
       .projectionType(projectionType.orNull)
       .nonKeyAttributes(nonKeyAttributes.map(_.asJava).orNull)
       .build()

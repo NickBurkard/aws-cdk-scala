@@ -7,8 +7,8 @@ object ScalingInterval {
     lower: Option[Number] = None,
     upper: Option[Number] = None,
     change: Option[Number] = None
-  ): software.amazon.awscdk.services.autoscaling.ScalingInterval =
-    (new software.amazon.awscdk.services.autoscaling.ScalingInterval.Builder)
+  ): software.amazon.awscdk.services.autoscaling.common.ScalingInterval =
+    (new software.amazon.awscdk.services.autoscaling.common.ScalingInterval.Builder)
       .lower(lower.orNull)
       .upper(upper.orNull)
       .change(change.orNull)

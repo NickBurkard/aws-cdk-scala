@@ -7,17 +7,15 @@ import scala.collection.JavaConverters._
 object GlobalSecondaryIndexProperty {
 
   def apply(
-    projection: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ProjectionProperty] = None,
-    provisionedThroughput: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ProvisionedThroughputProperty] = None,
+    projection: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ProjectionProperty] = None,
     indexName: Option[String] = None,
-    contributorInsightsSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ContributorInsightsSpecificationProperty] = None,
+    writeProvisionedThroughputSettings: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.WriteProvisionedThroughputSettingsProperty] = None,
     keySchema: Option[List[_]] = None
-  ): software.amazon.awscdk.services.dynamodb.CfnTable.GlobalSecondaryIndexProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnTable.GlobalSecondaryIndexProperty.Builder)
+  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.GlobalSecondaryIndexProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.GlobalSecondaryIndexProperty.Builder)
       .projection(projection.orNull)
-      .provisionedThroughput(provisionedThroughput.orNull)
       .indexName(indexName.orNull)
-      .contributorInsightsSpecification(contributorInsightsSpecification.orNull)
+      .writeProvisionedThroughputSettings(writeProvisionedThroughputSettings.orNull)
       .keySchema(keySchema.map(_.asJava).orNull)
       .build()
 }

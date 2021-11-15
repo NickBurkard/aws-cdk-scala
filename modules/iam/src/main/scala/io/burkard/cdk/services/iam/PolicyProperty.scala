@@ -6,8 +6,8 @@ object PolicyProperty {
   def apply(
     policyName: Option[String] = None,
     policyDocument: Option[AnyRef] = None
-  ): software.amazon.awscdk.services.iam.CfnRole.PolicyProperty =
-    (new software.amazon.awscdk.services.iam.CfnRole.PolicyProperty.Builder)
+  ): software.amazon.awscdk.services.iam.CfnUser.PolicyProperty =
+    (new software.amazon.awscdk.services.iam.CfnUser.PolicyProperty.Builder)
       .policyName(policyName.orNull)
       .policyDocument(policyDocument.orNull)
       .build()

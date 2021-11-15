@@ -8,9 +8,9 @@ object ByteMatchTupleProperty {
     targetString: Option[String] = None,
     positionalConstraint: Option[String] = None,
     textTransformation: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.waf.regional.CfnByteMatchSet.FieldToMatchProperty] = None
-  ): software.amazon.awscdk.services.waf.regional.CfnByteMatchSet.ByteMatchTupleProperty =
-    (new software.amazon.awscdk.services.waf.regional.CfnByteMatchSet.ByteMatchTupleProperty.Builder)
+    fieldToMatch: Option[software.amazon.awscdk.services.waf.CfnByteMatchSet.FieldToMatchProperty] = None
+  ): software.amazon.awscdk.services.waf.CfnByteMatchSet.ByteMatchTupleProperty =
+    (new software.amazon.awscdk.services.waf.CfnByteMatchSet.ByteMatchTupleProperty.Builder)
       .targetStringBase64(targetStringBase64.orNull)
       .targetString(targetString.orNull)
       .positionalConstraint(positionalConstraint.orNull)
