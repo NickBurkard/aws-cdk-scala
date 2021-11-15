@@ -7,19 +7,37 @@ import scala.collection.JavaConverters._
 object DashPackageProperty {
 
   def apply(
-    segmentTemplateFormat: Option[String] = None,
-    encryption: Option[software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.DashEncryptionProperty] = None,
-    includeEncoderConfigurationInSegments: Option[Boolean] = None,
-    segmentDurationSeconds: Option[Number] = None,
+    minUpdatePeriodSeconds: Option[Number] = None,
+    utcTimingUri: Option[String] = None,
+    streamSelection: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.StreamSelectionProperty] = None,
+    adsOnDeliveryRestrictions: Option[String] = None,
+    encryption: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.DashEncryptionProperty] = None,
+    profile: Option[String] = None,
+    manifestLayout: Option[String] = None,
     periodTriggers: Option[List[String]] = None,
-    dashManifests: Option[List[_]] = None
-  ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.DashPackageProperty =
-    (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.DashPackageProperty.Builder)
-      .segmentTemplateFormat(segmentTemplateFormat.orNull)
+    suggestedPresentationDelaySeconds: Option[Number] = None,
+    adTriggers: Option[List[String]] = None,
+    segmentTemplateFormat: Option[String] = None,
+    minBufferTimeSeconds: Option[Number] = None,
+    utcTiming: Option[String] = None,
+    manifestWindowSeconds: Option[Number] = None,
+    segmentDurationSeconds: Option[Number] = None
+  ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.DashPackageProperty =
+    (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.DashPackageProperty.Builder)
+      .minUpdatePeriodSeconds(minUpdatePeriodSeconds.orNull)
+      .utcTimingUri(utcTimingUri.orNull)
+      .streamSelection(streamSelection.orNull)
+      .adsOnDeliveryRestrictions(adsOnDeliveryRestrictions.orNull)
       .encryption(encryption.orNull)
-      .includeEncoderConfigurationInSegments(includeEncoderConfigurationInSegments.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .segmentDurationSeconds(segmentDurationSeconds.orNull)
+      .profile(profile.orNull)
+      .manifestLayout(manifestLayout.orNull)
       .periodTriggers(periodTriggers.map(_.asJava).orNull)
-      .dashManifests(dashManifests.map(_.asJava).orNull)
+      .suggestedPresentationDelaySeconds(suggestedPresentationDelaySeconds.orNull)
+      .adTriggers(adTriggers.map(_.asJava).orNull)
+      .segmentTemplateFormat(segmentTemplateFormat.orNull)
+      .minBufferTimeSeconds(minBufferTimeSeconds.orNull)
+      .utcTiming(utcTiming.orNull)
+      .manifestWindowSeconds(manifestWindowSeconds.orNull)
+      .segmentDurationSeconds(segmentDurationSeconds.orNull)
       .build()
 }

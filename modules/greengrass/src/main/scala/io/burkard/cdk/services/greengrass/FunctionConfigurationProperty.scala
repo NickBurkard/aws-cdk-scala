@@ -6,13 +6,13 @@ object FunctionConfigurationProperty {
   def apply(
     execArgs: Option[String] = None,
     memorySize: Option[Number] = None,
-    environment: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.EnvironmentProperty] = None,
+    environment: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.EnvironmentProperty] = None,
     pinned: Option[Boolean] = None,
     encodingType: Option[String] = None,
     timeout: Option[Number] = None,
     executable: Option[String] = None
-  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.FunctionConfigurationProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.FunctionConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.FunctionConfigurationProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.FunctionConfigurationProperty.Builder)
       .execArgs(execArgs.orNull)
       .memorySize(memorySize.orNull)
       .environment(environment.orNull)

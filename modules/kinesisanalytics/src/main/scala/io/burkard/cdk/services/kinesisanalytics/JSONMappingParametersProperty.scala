@@ -5,8 +5,8 @@ object JSONMappingParametersProperty {
 
   def apply(
     recordRowPath: Option[String] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.JSONMappingParametersProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.JSONMappingParametersProperty.Builder)
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.JSONMappingParametersProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.JSONMappingParametersProperty.Builder)
       .recordRowPath(recordRowPath.orNull)
       .build()
 }

@@ -4,13 +4,9 @@ package io.burkard.cdk.services.iotanalytics
 object FilterProperty {
 
   def apply(
-    name: Option[String] = None,
-    filter: Option[String] = None,
-    next: Option[String] = None
-  ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.FilterProperty =
-    (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.FilterProperty.Builder)
-      .name(name.orNull)
-      .filter(filter.orNull)
-      .next(next.orNull)
+    deltaTime: Option[software.amazon.awscdk.services.iotanalytics.CfnDataset.DeltaTimeProperty] = None
+  ): software.amazon.awscdk.services.iotanalytics.CfnDataset.FilterProperty =
+    (new software.amazon.awscdk.services.iotanalytics.CfnDataset.FilterProperty.Builder)
+      .deltaTime(deltaTime.orNull)
       .build()
 }

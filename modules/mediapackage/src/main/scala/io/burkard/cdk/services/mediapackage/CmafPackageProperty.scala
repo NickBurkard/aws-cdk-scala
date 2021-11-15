@@ -7,15 +7,17 @@ import scala.collection.JavaConverters._
 object CmafPackageProperty {
 
   def apply(
+    streamSelection: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.StreamSelectionProperty] = None,
     hlsManifests: Option[List[_]] = None,
-    encryption: Option[software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.CmafEncryptionProperty] = None,
-    includeEncoderConfigurationInSegments: Option[Boolean] = None,
-    segmentDurationSeconds: Option[Number] = None
-  ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.CmafPackageProperty =
-    (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.CmafPackageProperty.Builder)
+    encryption: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.CmafEncryptionProperty] = None,
+    segmentDurationSeconds: Option[Number] = None,
+    segmentPrefix: Option[String] = None
+  ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.CmafPackageProperty =
+    (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.CmafPackageProperty.Builder)
+      .streamSelection(streamSelection.orNull)
       .hlsManifests(hlsManifests.map(_.asJava).orNull)
       .encryption(encryption.orNull)
-      .includeEncoderConfigurationInSegments(includeEncoderConfigurationInSegments.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .segmentDurationSeconds(segmentDurationSeconds.orNull)
+      .segmentPrefix(segmentPrefix.orNull)
       .build()
 }

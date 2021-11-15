@@ -6,8 +6,8 @@ object LoggingConfigProperty {
   def apply(
     logGroupName: Option[String] = None,
     logRoleArn: Option[String] = None
-  ): software.amazon.awscdk.services.cloudformation.CfnResourceVersion.LoggingConfigProperty =
-    (new software.amazon.awscdk.services.cloudformation.CfnResourceVersion.LoggingConfigProperty.Builder)
+  ): software.amazon.awscdk.services.cloudformation.CfnTypeActivation.LoggingConfigProperty =
+    (new software.amazon.awscdk.services.cloudformation.CfnTypeActivation.LoggingConfigProperty.Builder)
       .logGroupName(logGroupName.orNull)
       .logRoleArn(logRoleArn.orNull)
       .build()

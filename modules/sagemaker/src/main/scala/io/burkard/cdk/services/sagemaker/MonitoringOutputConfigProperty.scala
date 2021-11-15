@@ -9,8 +9,8 @@ object MonitoringOutputConfigProperty {
   def apply(
     monitoringOutputs: Option[List[_]] = None,
     kmsKeyId: Option[String] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringOutputConfigProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringOutputConfigProperty.Builder)
       .monitoringOutputs(monitoringOutputs.map(_.asJava).orNull)
       .kmsKeyId(kmsKeyId.orNull)
       .build()

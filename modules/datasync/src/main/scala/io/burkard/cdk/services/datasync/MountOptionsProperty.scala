@@ -5,8 +5,8 @@ object MountOptionsProperty {
 
   def apply(
     version: Option[String] = None
-  ): software.amazon.awscdk.services.datasync.CfnLocationSMB.MountOptionsProperty =
-    (new software.amazon.awscdk.services.datasync.CfnLocationSMB.MountOptionsProperty.Builder)
+  ): software.amazon.awscdk.services.datasync.CfnLocationNFS.MountOptionsProperty =
+    (new software.amazon.awscdk.services.datasync.CfnLocationNFS.MountOptionsProperty.Builder)
       .version(version.orNull)
       .build()
 }

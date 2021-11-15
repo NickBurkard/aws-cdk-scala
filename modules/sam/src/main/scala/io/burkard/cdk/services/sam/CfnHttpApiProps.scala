@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnHttpApiProps {
 
   def apply(
-    corsConfiguration0: Option[software.amazon.awscdk.services.sam.CfnHttpApi.CorsConfigurationObjectProperty] = None,
-    corsConfiguration1: Option[Boolean] = None,
+    corsConfiguration0: Option[Boolean] = None,
+    corsConfiguration1: Option[software.amazon.awscdk.services.sam.CfnHttpApi.CorsConfigurationObjectProperty] = None,
     defaultRouteSettings: Option[software.amazon.awscdk.services.sam.CfnHttpApi.RouteSettingsProperty] = None,
     domain: Option[software.amazon.awscdk.services.sam.CfnHttpApi.HttpApiDomainConfigurationProperty] = None,
     failOnWarnings: Option[Boolean] = None,
@@ -25,8 +25,8 @@ object CfnHttpApiProps {
     tags: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.sam.CfnHttpApiProps =
     (new software.amazon.awscdk.services.sam.CfnHttpApiProps.Builder)
-      .corsConfiguration(corsConfiguration0.orNull)
-      .corsConfiguration(corsConfiguration1.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .corsConfiguration(corsConfiguration0.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .corsConfiguration(corsConfiguration1.orNull)
       .defaultRouteSettings(defaultRouteSettings.orNull)
       .domain(domain.orNull)
       .failOnWarnings(failOnWarnings.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

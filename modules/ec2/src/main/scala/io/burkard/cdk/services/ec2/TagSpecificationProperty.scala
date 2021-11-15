@@ -9,8 +9,8 @@ object TagSpecificationProperty {
   def apply(
     resourceType: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
-  ): software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.TagSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.TagSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnCapacityReservationFleet.TagSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnCapacityReservationFleet.TagSpecificationProperty.Builder)
       .resourceType(resourceType.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

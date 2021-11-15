@@ -5,8 +5,8 @@ object LicenseSpecificationProperty {
 
   def apply(
     licenseConfigurationArn: Option[String] = None
-  ): software.amazon.awscdk.services.ec2.CfnInstance.LicenseSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnInstance.LicenseSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnLaunchTemplate.LicenseSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnLaunchTemplate.LicenseSpecificationProperty.Builder)
       .licenseConfigurationArn(licenseConfigurationArn.orNull)
       .build()
 }

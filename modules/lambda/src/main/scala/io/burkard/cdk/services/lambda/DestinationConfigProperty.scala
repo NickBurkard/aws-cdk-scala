@@ -4,11 +4,9 @@ package io.burkard.cdk.services.lambda
 object DestinationConfigProperty {
 
   def apply(
-    onSuccess: Option[software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.OnSuccessProperty] = None,
-    onFailure: Option[software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.OnFailureProperty] = None
-  ): software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.DestinationConfigProperty =
-    (new software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.DestinationConfigProperty.Builder)
-      .onSuccess(onSuccess.orNull)
+    onFailure: Option[software.amazon.awscdk.services.lambda.CfnEventSourceMapping.OnFailureProperty] = None
+  ): software.amazon.awscdk.services.lambda.CfnEventSourceMapping.DestinationConfigProperty =
+    (new software.amazon.awscdk.services.lambda.CfnEventSourceMapping.DestinationConfigProperty.Builder)
       .onFailure(onFailure.orNull)
       .build()
 }

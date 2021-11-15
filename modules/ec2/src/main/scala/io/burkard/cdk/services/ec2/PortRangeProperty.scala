@@ -6,8 +6,8 @@ object PortRangeProperty {
   def apply(
     to: Option[Number] = None,
     from: Option[Number] = None
-  ): software.amazon.awscdk.services.ec2.CfnNetworkInsightsAnalysis.PortRangeProperty =
-    (new software.amazon.awscdk.services.ec2.CfnNetworkInsightsAnalysis.PortRangeProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnNetworkAclEntry.PortRangeProperty =
+    (new software.amazon.awscdk.services.ec2.CfnNetworkAclEntry.PortRangeProperty.Builder)
       .to(to.orNull)
       .from(from.orNull)
       .build()

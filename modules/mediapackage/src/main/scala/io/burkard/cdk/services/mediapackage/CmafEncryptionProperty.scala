@@ -4,13 +4,9 @@ package io.burkard.cdk.services.mediapackage
 object CmafEncryptionProperty {
 
   def apply(
-    keyRotationIntervalSeconds: Option[Number] = None,
-    constantInitializationVector: Option[String] = None,
-    spekeKeyProvider: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty] = None
-  ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.CmafEncryptionProperty =
-    (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.CmafEncryptionProperty.Builder)
-      .keyRotationIntervalSeconds(keyRotationIntervalSeconds.orNull)
-      .constantInitializationVector(constantInitializationVector.orNull)
+    spekeKeyProvider: Option[software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty] = None
+  ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.CmafEncryptionProperty =
+    (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.CmafEncryptionProperty.Builder)
       .spekeKeyProvider(spekeKeyProvider.orNull)
       .build()
 }

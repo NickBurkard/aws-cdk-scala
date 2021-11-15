@@ -4,9 +4,9 @@ package io.burkard.cdk.services.emr
 object ScalingTriggerProperty {
 
   def apply(
-    cloudWatchAlarmDefinition: Option[software.amazon.awscdk.services.emr.CfnCluster.CloudWatchAlarmDefinitionProperty] = None
-  ): software.amazon.awscdk.services.emr.CfnCluster.ScalingTriggerProperty =
-    (new software.amazon.awscdk.services.emr.CfnCluster.ScalingTriggerProperty.Builder)
+    cloudWatchAlarmDefinition: Option[software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty] = None
+  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingTriggerProperty =
+    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingTriggerProperty.Builder)
       .cloudWatchAlarmDefinition(cloudWatchAlarmDefinition.orNull)
       .build()
 }

@@ -10,9 +10,9 @@ object StorageDescriptorProperty {
     numberOfBuckets: Option[Number] = None,
     location: Option[String] = None,
     bucketColumns: Option[List[String]] = None,
-    schemaReference: Option[software.amazon.awscdk.services.glue.CfnPartition.SchemaReferenceProperty] = None,
-    skewedInfo: Option[software.amazon.awscdk.services.glue.CfnPartition.SkewedInfoProperty] = None,
-    serdeInfo: Option[software.amazon.awscdk.services.glue.CfnPartition.SerdeInfoProperty] = None,
+    schemaReference: Option[software.amazon.awscdk.services.glue.CfnTable.SchemaReferenceProperty] = None,
+    skewedInfo: Option[software.amazon.awscdk.services.glue.CfnTable.SkewedInfoProperty] = None,
+    serdeInfo: Option[software.amazon.awscdk.services.glue.CfnTable.SerdeInfoProperty] = None,
     sortColumns: Option[List[_]] = None,
     inputFormat: Option[String] = None,
     parameters: Option[AnyRef] = None,
@@ -20,8 +20,8 @@ object StorageDescriptorProperty {
     outputFormat: Option[String] = None,
     compressed: Option[Boolean] = None,
     columns: Option[List[_]] = None
-  ): software.amazon.awscdk.services.glue.CfnPartition.StorageDescriptorProperty =
-    (new software.amazon.awscdk.services.glue.CfnPartition.StorageDescriptorProperty.Builder)
+  ): software.amazon.awscdk.services.glue.CfnTable.StorageDescriptorProperty =
+    (new software.amazon.awscdk.services.glue.CfnTable.StorageDescriptorProperty.Builder)
       .numberOfBuckets(numberOfBuckets.orNull)
       .location(location.orNull)
       .bucketColumns(bucketColumns.map(_.asJava).orNull)
