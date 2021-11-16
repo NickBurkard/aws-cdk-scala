@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnLocationNFSProps {
 
   def apply(
+    serverHostname: String,
+    onPremConfig: software.amazon.awscdk.services.datasync.CfnLocationNFS.OnPremConfigProperty,
+    subdirectory: String,
     mountOptions: Option[software.amazon.awscdk.services.datasync.CfnLocationNFS.MountOptionsProperty] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    serverHostname: Option[String] = None,
-    onPremConfig: Option[software.amazon.awscdk.services.datasync.CfnLocationNFS.OnPremConfigProperty] = None,
-    subdirectory: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.datasync.CfnLocationNFSProps =
     (new software.amazon.awscdk.services.datasync.CfnLocationNFSProps.Builder)
+      .serverHostname(serverHostname)
+      .onPremConfig(onPremConfig)
+      .subdirectory(subdirectory)
       .mountOptions(mountOptions.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .serverHostname(serverHostname.orNull)
-      .onPremConfig(onPremConfig.orNull)
-      .subdirectory(subdirectory.orNull)
       .build()
 }

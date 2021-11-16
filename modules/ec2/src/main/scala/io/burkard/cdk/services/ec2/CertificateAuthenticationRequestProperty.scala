@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object CertificateAuthenticationRequestProperty {
 
   def apply(
-    clientRootCertificateChainArn: Option[String] = None
+    clientRootCertificateChainArn: String
   ): software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.CertificateAuthenticationRequestProperty =
     (new software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.CertificateAuthenticationRequestProperty.Builder)
-      .clientRootCertificateChainArn(clientRootCertificateChainArn.orNull)
+      .clientRootCertificateChainArn(clientRootCertificateChainArn)
       .build()
 }

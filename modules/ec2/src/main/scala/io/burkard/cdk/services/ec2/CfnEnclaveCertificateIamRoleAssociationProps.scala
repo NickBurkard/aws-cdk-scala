@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object CfnEnclaveCertificateIamRoleAssociationProps {
 
   def apply(
-    certificateArn: Option[String] = None,
-    roleArn: Option[String] = None
+    certificateArn: String,
+    roleArn: String
   ): software.amazon.awscdk.services.ec2.CfnEnclaveCertificateIamRoleAssociationProps =
     (new software.amazon.awscdk.services.ec2.CfnEnclaveCertificateIamRoleAssociationProps.Builder)
-      .certificateArn(certificateArn.orNull)
-      .roleArn(roleArn.orNull)
+      .certificateArn(certificateArn)
+      .roleArn(roleArn)
       .build()
 }

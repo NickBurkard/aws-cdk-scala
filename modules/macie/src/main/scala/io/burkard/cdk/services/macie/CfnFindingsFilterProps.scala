@@ -4,17 +4,17 @@ package io.burkard.cdk.services.macie
 object CfnFindingsFilterProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    findingCriteria: software.amazon.awscdk.services.macie.CfnFindingsFilter.FindingCriteriaProperty,
     position: Option[Number] = None,
     action: Option[String] = None,
-    description: Option[String] = None,
-    findingCriteria: Option[software.amazon.awscdk.services.macie.CfnFindingsFilter.FindingCriteriaProperty] = None
+    description: Option[String] = None
   ): software.amazon.awscdk.services.macie.CfnFindingsFilterProps =
     (new software.amazon.awscdk.services.macie.CfnFindingsFilterProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .findingCriteria(findingCriteria)
       .position(position.orNull)
       .action(action.orNull)
       .description(description.orNull)
-      .findingCriteria(findingCriteria.orNull)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kinesisanalytics
 object MavenReferenceProperty {
 
   def apply(
-    artifactId: Option[String] = None,
-    groupId: Option[String] = None,
-    version: Option[String] = None
+    artifactId: String,
+    groupId: String,
+    version: String
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.MavenReferenceProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.MavenReferenceProperty.Builder)
-      .artifactId(artifactId.orNull)
-      .groupId(groupId.orNull)
-      .version(version.orNull)
+      .artifactId(artifactId)
+      .groupId(groupId)
+      .version(version)
       .build()
 }

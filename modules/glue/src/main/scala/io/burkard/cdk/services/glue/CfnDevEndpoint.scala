@@ -8,6 +8,7 @@ object CfnDevEndpoint {
 
   def apply(
     internalResourceId: String,
+    roleArn: String,
     tags: Option[AnyRef] = None,
     securityGroupIds: Option[List[String]] = None,
     publicKeys: Option[List[String]] = None,
@@ -21,11 +22,11 @@ object CfnDevEndpoint {
     extraJarsS3Path: Option[String] = None,
     subnetId: Option[String] = None,
     extraPythonLibsS3Path: Option[String] = None,
-    roleArn: Option[String] = None,
     workerType: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.glue.CfnDevEndpoint =
     software.amazon.awscdk.services.glue.CfnDevEndpoint.Builder
       .create(stackCtx, internalResourceId)
+      .roleArn(roleArn)
       .tags(tags.orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .publicKeys(publicKeys.map(_.asJava).orNull)
@@ -39,7 +40,6 @@ object CfnDevEndpoint {
       .extraJarsS3Path(extraJarsS3Path.orNull)
       .subnetId(subnetId.orNull)
       .extraPythonLibsS3Path(extraPythonLibsS3Path.orNull)
-      .roleArn(roleArn.orNull)
       .workerType(workerType.orNull)
       .build()
 }

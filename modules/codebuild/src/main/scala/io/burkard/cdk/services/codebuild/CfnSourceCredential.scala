@@ -5,16 +5,16 @@ object CfnSourceCredential {
 
   def apply(
     internalResourceId: String,
-    username: Option[String] = None,
-    authType: Option[String] = None,
-    token: Option[String] = None,
-    serverType: Option[String] = None
+    authType: String,
+    token: String,
+    serverType: String,
+    username: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codebuild.CfnSourceCredential =
     software.amazon.awscdk.services.codebuild.CfnSourceCredential.Builder
       .create(stackCtx, internalResourceId)
+      .authType(authType)
+      .token(token)
+      .serverType(serverType)
       .username(username.orNull)
-      .authType(authType.orNull)
-      .token(token.orNull)
-      .serverType(serverType.orNull)
       .build()
 }

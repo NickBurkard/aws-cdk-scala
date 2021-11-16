@@ -4,9 +4,9 @@ package io.burkard.cdk.services.devopsguru
 object CfnNotificationChannelProps {
 
   def apply(
-    config: Option[software.amazon.awscdk.services.devopsguru.CfnNotificationChannel.NotificationChannelConfigProperty] = None
+    config: software.amazon.awscdk.services.devopsguru.CfnNotificationChannel.NotificationChannelConfigProperty
   ): software.amazon.awscdk.services.devopsguru.CfnNotificationChannelProps =
     (new software.amazon.awscdk.services.devopsguru.CfnNotificationChannelProps.Builder)
-      .config(config.orNull)
+      .config(config)
       .build()
 }

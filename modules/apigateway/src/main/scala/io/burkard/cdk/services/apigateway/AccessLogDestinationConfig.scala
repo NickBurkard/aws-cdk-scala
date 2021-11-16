@@ -4,9 +4,9 @@ package io.burkard.cdk.services.apigateway
 object AccessLogDestinationConfig {
 
   def apply(
-    destinationArn: Option[String] = None
+    destinationArn: String
   ): software.amazon.awscdk.services.apigateway.AccessLogDestinationConfig =
     (new software.amazon.awscdk.services.apigateway.AccessLogDestinationConfig.Builder)
-      .destinationArn(destinationArn.orNull)
+      .destinationArn(destinationArn)
       .build()
 }

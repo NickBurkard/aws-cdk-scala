@@ -4,15 +4,15 @@ package io.burkard.cdk.services.wafv2
 object RateBasedStatementProperty {
 
   def apply(
+    aggregateKeyType: String,
+    limit: Number,
     scopeDownStatement: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.StatementProperty] = None,
-    aggregateKeyType: Option[String] = None,
-    forwardedIpConfig: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty] = None,
-    limit: Option[Number] = None
+    forwardedIpConfig: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty] = None
   ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.RateBasedStatementProperty =
     (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.RateBasedStatementProperty.Builder)
+      .aggregateKeyType(aggregateKeyType)
+      .limit(limit)
       .scopeDownStatement(scopeDownStatement.orNull)
-      .aggregateKeyType(aggregateKeyType.orNull)
       .forwardedIpConfig(forwardedIpConfig.orNull)
-      .limit(limit.orNull)
       .build()
 }

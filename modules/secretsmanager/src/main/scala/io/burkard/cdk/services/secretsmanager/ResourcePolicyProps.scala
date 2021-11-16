@@ -4,9 +4,9 @@ package io.burkard.cdk.services.secretsmanager
 object ResourcePolicyProps {
 
   def apply(
-    secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None
+    secret: software.amazon.awscdk.services.secretsmanager.ISecret
   ): software.amazon.awscdk.services.secretsmanager.ResourcePolicyProps =
     (new software.amazon.awscdk.services.secretsmanager.ResourcePolicyProps.Builder)
-      .secret(secret.orNull)
+      .secret(secret)
       .build()
 }

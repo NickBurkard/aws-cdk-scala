@@ -8,7 +8,8 @@ object EmrCreateCluster {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
+    instances: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstancesConfigProperty,
     serviceRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     tags: Option[Map[String, String]] = None,
     bootstrapActions: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.BootstrapActionConfigProperty]] = None,
@@ -23,7 +24,6 @@ object EmrCreateCluster {
     kerberosAttributes: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.KerberosAttributesProperty] = None,
     applications: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ApplicationConfigProperty]] = None,
     customAmiId: Option[String] = None,
-    instances: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstancesConfigProperty] = None,
     scaleDownBehavior: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EmrClusterScaleDownBehavior] = None,
     securityConfiguration: Option[String] = None,
     logUri: Option[String] = None,
@@ -39,7 +39,8 @@ object EmrCreateCluster {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster =
     software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .instances(instances)
       .serviceRole(serviceRole.orNull)
       .tags(tags.map(_.asJava).orNull)
       .bootstrapActions(bootstrapActions.map(_.asJava).orNull)
@@ -54,7 +55,6 @@ object EmrCreateCluster {
       .kerberosAttributes(kerberosAttributes.orNull)
       .applications(applications.map(_.asJava).orNull)
       .customAmiId(customAmiId.orNull)
-      .instances(instances.orNull)
       .scaleDownBehavior(scaleDownBehavior.orNull)
       .securityConfiguration(securityConfiguration.orNull)
       .logUri(logUri.orNull)

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object HeaderMatchConfig {
 
   def apply(
-    headerMatch: Option[software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteHeaderProperty] = None
+    headerMatch: software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteHeaderProperty
   ): software.amazon.awscdk.services.appmesh.HeaderMatchConfig =
     (new software.amazon.awscdk.services.appmesh.HeaderMatchConfig.Builder)
-      .headerMatch(headerMatch.orNull)
+      .headerMatch(headerMatch)
       .build()
 }

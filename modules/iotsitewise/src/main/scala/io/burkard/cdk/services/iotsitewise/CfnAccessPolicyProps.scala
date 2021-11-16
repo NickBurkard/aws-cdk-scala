@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iotsitewise
 object CfnAccessPolicyProps {
 
   def apply(
-    accessPolicyResource: Option[software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyResourceProperty] = None,
-    accessPolicyIdentity: Option[software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyIdentityProperty] = None,
-    accessPolicyPermission: Option[String] = None
+    accessPolicyResource: software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyResourceProperty,
+    accessPolicyIdentity: software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyIdentityProperty,
+    accessPolicyPermission: String
   ): software.amazon.awscdk.services.iotsitewise.CfnAccessPolicyProps =
     (new software.amazon.awscdk.services.iotsitewise.CfnAccessPolicyProps.Builder)
-      .accessPolicyResource(accessPolicyResource.orNull)
-      .accessPolicyIdentity(accessPolicyIdentity.orNull)
-      .accessPolicyPermission(accessPolicyPermission.orNull)
+      .accessPolicyResource(accessPolicyResource)
+      .accessPolicyIdentity(accessPolicyIdentity)
+      .accessPolicyPermission(accessPolicyPermission)
       .build()
 }

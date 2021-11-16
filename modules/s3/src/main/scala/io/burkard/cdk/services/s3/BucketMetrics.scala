@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object BucketMetrics {
 
   def apply(
+    id: String,
     tagFilters: Option[Map[String, _]] = None,
-    prefix: Option[String] = None,
-    id: Option[String] = None
+    prefix: Option[String] = None
   ): software.amazon.awscdk.services.s3.BucketMetrics =
     (new software.amazon.awscdk.services.s3.BucketMetrics.Builder)
+      .id(id)
       .tagFilters(tagFilters.map(_.asJava).orNull)
       .prefix(prefix.orNull)
-      .id(id.orNull)
       .build()
 }

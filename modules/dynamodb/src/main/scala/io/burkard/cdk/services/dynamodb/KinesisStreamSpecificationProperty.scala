@@ -4,9 +4,9 @@ package io.burkard.cdk.services.dynamodb
 object KinesisStreamSpecificationProperty {
 
   def apply(
-    streamArn: Option[String] = None
+    streamArn: String
   ): software.amazon.awscdk.services.dynamodb.CfnTable.KinesisStreamSpecificationProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnTable.KinesisStreamSpecificationProperty.Builder)
-      .streamArn(streamArn.orNull)
+      .streamArn(streamArn)
       .build()
 }

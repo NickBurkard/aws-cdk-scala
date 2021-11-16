@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object CfnEndpointGroupProps {
 
   def apply(
+    listenerArn: String,
+    endpointGroupRegion: String,
     healthCheckIntervalSeconds: Option[Number] = None,
     healthCheckProtocol: Option[String] = None,
-    listenerArn: Option[String] = None,
-    endpointGroupRegion: Option[String] = None,
     trafficDialPercentage: Option[Number] = None,
     healthCheckPath: Option[String] = None,
     healthCheckPort: Option[Number] = None,
@@ -19,10 +19,10 @@ object CfnEndpointGroupProps {
     thresholdCount: Option[Number] = None
   ): software.amazon.awscdk.services.globalaccelerator.CfnEndpointGroupProps =
     (new software.amazon.awscdk.services.globalaccelerator.CfnEndpointGroupProps.Builder)
+      .listenerArn(listenerArn)
+      .endpointGroupRegion(endpointGroupRegion)
       .healthCheckIntervalSeconds(healthCheckIntervalSeconds.orNull)
       .healthCheckProtocol(healthCheckProtocol.orNull)
-      .listenerArn(listenerArn.orNull)
-      .endpointGroupRegion(endpointGroupRegion.orNull)
       .trafficDialPercentage(trafficDialPercentage.orNull)
       .healthCheckPath(healthCheckPath.orNull)
       .healthCheckPort(healthCheckPort.orNull)

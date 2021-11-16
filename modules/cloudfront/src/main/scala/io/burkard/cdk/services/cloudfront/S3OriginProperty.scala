@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object S3OriginProperty {
 
   def apply(
-    originAccessIdentity: Option[String] = None,
-    domainName: Option[String] = None
+    originAccessIdentity: String,
+    domainName: String
   ): software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.S3OriginProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.S3OriginProperty.Builder)
-      .originAccessIdentity(originAccessIdentity.orNull)
-      .domainName(domainName.orNull)
+      .originAccessIdentity(originAccessIdentity)
+      .domainName(domainName)
       .build()
 }

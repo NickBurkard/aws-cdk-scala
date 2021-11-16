@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kendra
 object WebCrawlerBasicAuthenticationProperty {
 
   def apply(
-    host: Option[String] = None,
-    port: Option[Number] = None,
-    credentials: Option[String] = None
+    host: String,
+    port: Number,
+    credentials: String
   ): software.amazon.awscdk.services.kendra.CfnDataSource.WebCrawlerBasicAuthenticationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.WebCrawlerBasicAuthenticationProperty.Builder)
-      .host(host.orNull)
-      .port(port.orNull)
-      .credentials(credentials.orNull)
+      .host(host)
+      .port(port)
+      .credentials(credentials)
       .build()
 }

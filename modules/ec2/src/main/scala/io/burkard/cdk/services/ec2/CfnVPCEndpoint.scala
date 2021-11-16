@@ -8,9 +8,9 @@ object CfnVPCEndpoint {
 
   def apply(
     internalResourceId: String,
+    vpcId: String,
+    serviceName: String,
     subnetIds: Option[List[String]] = None,
-    vpcId: Option[String] = None,
-    serviceName: Option[String] = None,
     securityGroupIds: Option[List[String]] = None,
     privateDnsEnabled: Option[Boolean] = None,
     vpcEndpointType: Option[String] = None,
@@ -19,9 +19,9 @@ object CfnVPCEndpoint {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVPCEndpoint =
     software.amazon.awscdk.services.ec2.CfnVPCEndpoint.Builder
       .create(stackCtx, internalResourceId)
+      .vpcId(vpcId)
+      .serviceName(serviceName)
       .subnetIds(subnetIds.map(_.asJava).orNull)
-      .vpcId(vpcId.orNull)
-      .serviceName(serviceName.orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .privateDnsEnabled(privateDnsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .vpcEndpointType(vpcEndpointType.orNull)

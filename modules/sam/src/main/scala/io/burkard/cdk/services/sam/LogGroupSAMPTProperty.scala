@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object LogGroupSAMPTProperty {
 
   def apply(
-    logGroupName: Option[String] = None
+    logGroupName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.LogGroupSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.LogGroupSAMPTProperty.Builder)
-      .logGroupName(logGroupName.orNull)
+      .logGroupName(logGroupName)
       .build()
 }

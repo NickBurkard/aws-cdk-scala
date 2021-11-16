@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CallApiGatewayEndpointBaseProps {
 
   def apply(
-    method: Option[software.amazon.awscdk.services.stepfunctions.tasks.HttpMethod] = None,
+    method: software.amazon.awscdk.services.stepfunctions.tasks.HttpMethod,
     apiPath: Option[String] = None,
     resultPath: Option[String] = None,
     authType: Option[software.amazon.awscdk.services.stepfunctions.tasks.AuthType] = None,
@@ -23,7 +23,7 @@ object CallApiGatewayEndpointBaseProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.CallApiGatewayEndpointBaseProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.CallApiGatewayEndpointBaseProps.Builder)
-      .method(method.orNull)
+      .method(method)
       .apiPath(apiPath.orNull)
       .resultPath(resultPath.orNull)
       .authType(authType.orNull)

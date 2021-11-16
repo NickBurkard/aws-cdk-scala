@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object EventParametersProperty {
 
   def apply(
-    descriptionRegex: Option[String] = None,
-    eventType: Option[String] = None,
-    snapshotOwner: Option[List[String]] = None
+    eventType: String,
+    snapshotOwner: List[String],
+    descriptionRegex: Option[String] = None
   ): software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EventParametersProperty =
     (new software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EventParametersProperty.Builder)
+      .eventType(eventType)
+      .snapshotOwner(snapshotOwner.asJava)
       .descriptionRegex(descriptionRegex.orNull)
-      .eventType(eventType.orNull)
-      .snapshotOwner(snapshotOwner.map(_.asJava).orNull)
       .build()
 }

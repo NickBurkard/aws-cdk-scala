@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnVirtualGatewayProps {
 
   def apply(
-    meshName: Option[String] = None,
+    meshName: String,
+    spec: software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewaySpecProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    spec: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewaySpecProperty] = None,
     meshOwner: Option[String] = None,
     virtualGatewayName: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGatewayProps =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGatewayProps.Builder)
-      .meshName(meshName.orNull)
+      .meshName(meshName)
+      .spec(spec)
       .tags(tags.map(_.asJava).orNull)
-      .spec(spec.orNull)
       .meshOwner(meshOwner.orNull)
       .virtualGatewayName(virtualGatewayName.orNull)
       .build()

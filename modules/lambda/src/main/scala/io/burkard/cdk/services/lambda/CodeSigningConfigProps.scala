@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CodeSigningConfigProps {
 
   def apply(
+    signingProfiles: List[_ <: software.amazon.awscdk.services.signer.ISigningProfile],
     description: Option[String] = None,
-    untrustedArtifactOnDeployment: Option[software.amazon.awscdk.services.lambda.UntrustedArtifactOnDeployment] = None,
-    signingProfiles: Option[List[_ <: software.amazon.awscdk.services.signer.ISigningProfile]] = None
+    untrustedArtifactOnDeployment: Option[software.amazon.awscdk.services.lambda.UntrustedArtifactOnDeployment] = None
   ): software.amazon.awscdk.services.lambda.CodeSigningConfigProps =
     (new software.amazon.awscdk.services.lambda.CodeSigningConfigProps.Builder)
+      .signingProfiles(signingProfiles.asJava)
       .description(description.orNull)
       .untrustedArtifactOnDeployment(untrustedArtifactOnDeployment.orNull)
-      .signingProfiles(signingProfiles.map(_.asJava).orNull)
       .build()
 }

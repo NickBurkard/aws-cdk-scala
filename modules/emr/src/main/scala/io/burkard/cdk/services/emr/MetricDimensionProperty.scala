@@ -4,11 +4,11 @@ package io.burkard.cdk.services.emr
 object MetricDimensionProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.MetricDimensionProperty =
     (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.MetricDimensionProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

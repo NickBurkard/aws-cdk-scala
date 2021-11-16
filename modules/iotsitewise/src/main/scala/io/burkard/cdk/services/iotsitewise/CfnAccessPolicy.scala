@@ -5,14 +5,14 @@ object CfnAccessPolicy {
 
   def apply(
     internalResourceId: String,
-    accessPolicyResource: Option[software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyResourceProperty] = None,
-    accessPolicyIdentity: Option[software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyIdentityProperty] = None,
-    accessPolicyPermission: Option[String] = None
+    accessPolicyResource: software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyResourceProperty,
+    accessPolicyIdentity: software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.AccessPolicyIdentityProperty,
+    accessPolicyPermission: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy =
     software.amazon.awscdk.services.iotsitewise.CfnAccessPolicy.Builder
       .create(stackCtx, internalResourceId)
-      .accessPolicyResource(accessPolicyResource.orNull)
-      .accessPolicyIdentity(accessPolicyIdentity.orNull)
-      .accessPolicyPermission(accessPolicyPermission.orNull)
+      .accessPolicyResource(accessPolicyResource)
+      .accessPolicyIdentity(accessPolicyIdentity)
+      .accessPolicyPermission(accessPolicyPermission)
       .build()
 }

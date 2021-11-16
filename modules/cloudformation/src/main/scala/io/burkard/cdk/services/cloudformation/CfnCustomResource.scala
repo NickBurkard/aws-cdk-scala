@@ -5,10 +5,10 @@ object CfnCustomResource {
 
   def apply(
     internalResourceId: String,
-    serviceToken: Option[String] = None
+    serviceToken: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudformation.CfnCustomResource =
     software.amazon.awscdk.services.cloudformation.CfnCustomResource.Builder
       .create(stackCtx, internalResourceId)
-      .serviceToken(serviceToken.orNull)
+      .serviceToken(serviceToken)
       .build()
 }

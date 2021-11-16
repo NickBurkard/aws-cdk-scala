@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object BucketPolicyProps {
 
   def apply(
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None,
+    bucket: software.amazon.awscdk.services.s3.IBucket,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   ): software.amazon.awscdk.services.s3.BucketPolicyProps =
     (new software.amazon.awscdk.services.s3.BucketPolicyProps.Builder)
-      .bucket(bucket.orNull)
+      .bucket(bucket)
       .removalPolicy(removalPolicy.orNull)
       .build()
 }

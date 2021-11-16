@@ -4,15 +4,15 @@ package io.burkard.cdk.services.events
 object BatchParametersProperty {
 
   def apply(
+    jobDefinition: String,
+    jobName: String,
     arrayProperties: Option[software.amazon.awscdk.services.events.CfnRule.BatchArrayPropertiesProperty] = None,
-    retryStrategy: Option[software.amazon.awscdk.services.events.CfnRule.BatchRetryStrategyProperty] = None,
-    jobDefinition: Option[String] = None,
-    jobName: Option[String] = None
+    retryStrategy: Option[software.amazon.awscdk.services.events.CfnRule.BatchRetryStrategyProperty] = None
   ): software.amazon.awscdk.services.events.CfnRule.BatchParametersProperty =
     (new software.amazon.awscdk.services.events.CfnRule.BatchParametersProperty.Builder)
+      .jobDefinition(jobDefinition)
+      .jobName(jobName)
       .arrayProperties(arrayProperties.orNull)
       .retryStrategy(retryStrategy.orNull)
-      .jobDefinition(jobDefinition.orNull)
-      .jobName(jobName.orNull)
       .build()
 }

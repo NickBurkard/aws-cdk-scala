@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object RuleProperty {
 
   def apply(
+    status: String,
     tagFilters: Option[List[_]] = None,
     expirationDate: Option[java.time.Instant] = None,
     expiredObjectDeleteMarker: Option[Boolean] = None,
@@ -18,10 +19,10 @@ object RuleProperty {
     expirationInDays: Option[Number] = None,
     transitions: Option[List[_]] = None,
     id: Option[String] = None,
-    status: Option[String] = None,
     noncurrentVersionExpirationInDays: Option[Number] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.RuleProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.RuleProperty.Builder)
+      .status(status)
       .tagFilters(tagFilters.map(_.asJava).orNull)
       .expirationDate(expirationDate.orNull)
       .expiredObjectDeleteMarker(expiredObjectDeleteMarker.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -33,7 +34,6 @@ object RuleProperty {
       .expirationInDays(expirationInDays.orNull)
       .transitions(transitions.map(_.asJava).orNull)
       .id(id.orNull)
-      .status(status.orNull)
       .noncurrentVersionExpirationInDays(noncurrentVersionExpirationInDays.orNull)
       .build()
 }

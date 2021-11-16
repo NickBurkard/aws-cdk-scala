@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnDBClusterParameterGroupProps {
 
   def apply(
-    family: Option[String] = None,
-    parameters: Option[AnyRef] = None,
-    description: Option[String] = None,
+    family: String,
+    parameters: AnyRef,
+    description: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.rds.CfnDBClusterParameterGroupProps =
     (new software.amazon.awscdk.services.rds.CfnDBClusterParameterGroupProps.Builder)
-      .family(family.orNull)
-      .parameters(parameters.orNull)
-      .description(description.orNull)
+      .family(family)
+      .parameters(parameters)
+      .description(description)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

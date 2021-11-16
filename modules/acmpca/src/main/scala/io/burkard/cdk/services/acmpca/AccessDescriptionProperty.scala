@@ -4,11 +4,11 @@ package io.burkard.cdk.services.acmpca
 object AccessDescriptionProperty {
 
   def apply(
-    accessMethod: Option[software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.AccessMethodProperty] = None,
-    accessLocation: Option[software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.GeneralNameProperty] = None
+    accessMethod: software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.AccessMethodProperty,
+    accessLocation: software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.GeneralNameProperty
   ): software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.AccessDescriptionProperty =
     (new software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.AccessDescriptionProperty.Builder)
-      .accessMethod(accessMethod.orNull)
-      .accessLocation(accessLocation.orNull)
+      .accessMethod(accessMethod)
+      .accessLocation(accessLocation)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.mediaconvert
 object AccelerationSettingsProperty {
 
   def apply(
-    mode: Option[String] = None
+    mode: String
   ): software.amazon.awscdk.services.mediaconvert.CfnJobTemplate.AccelerationSettingsProperty =
     (new software.amazon.awscdk.services.mediaconvert.CfnJobTemplate.AccelerationSettingsProperty.Builder)
-      .mode(mode.orNull)
+      .mode(mode)
       .build()
 }

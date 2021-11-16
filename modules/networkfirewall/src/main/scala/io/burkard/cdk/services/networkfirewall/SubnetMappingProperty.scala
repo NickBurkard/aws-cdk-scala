@@ -4,9 +4,9 @@ package io.burkard.cdk.services.networkfirewall
 object SubnetMappingProperty {
 
   def apply(
-    subnetId: Option[String] = None
+    subnetId: String
   ): software.amazon.awscdk.services.networkfirewall.CfnFirewall.SubnetMappingProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnFirewall.SubnetMappingProperty.Builder)
-      .subnetId(subnetId.orNull)
+      .subnetId(subnetId)
       .build()
 }

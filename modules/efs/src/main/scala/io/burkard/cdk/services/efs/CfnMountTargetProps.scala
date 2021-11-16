@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnMountTargetProps {
 
   def apply(
-    subnetId: Option[String] = None,
-    ipAddress: Option[String] = None,
-    securityGroups: Option[List[String]] = None,
-    fileSystemId: Option[String] = None
+    subnetId: String,
+    securityGroups: List[String],
+    fileSystemId: String,
+    ipAddress: Option[String] = None
   ): software.amazon.awscdk.services.efs.CfnMountTargetProps =
     (new software.amazon.awscdk.services.efs.CfnMountTargetProps.Builder)
-      .subnetId(subnetId.orNull)
+      .subnetId(subnetId)
+      .securityGroups(securityGroups.asJava)
+      .fileSystemId(fileSystemId)
       .ipAddress(ipAddress.orNull)
-      .securityGroups(securityGroups.map(_.asJava).orNull)
-      .fileSystemId(fileSystemId.orNull)
       .build()
 }

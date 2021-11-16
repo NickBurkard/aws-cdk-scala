@@ -7,11 +7,12 @@ import scala.collection.JavaConverters._
 object CfnFunctionProps {
 
   def apply(
+    role: String,
+    code: software.amazon.awscdk.services.lambda.CfnFunction.CodeProperty,
     deadLetterConfig: Option[software.amazon.awscdk.services.lambda.CfnFunction.DeadLetterConfigProperty] = None,
     layers: Option[List[String]] = None,
     functionName: Option[String] = None,
     tracingConfig: Option[software.amazon.awscdk.services.lambda.CfnFunction.TracingConfigProperty] = None,
-    role: Option[String] = None,
     vpcConfig: Option[software.amazon.awscdk.services.lambda.CfnFunction.VpcConfigProperty] = None,
     memorySize: Option[Number] = None,
     fileSystemConfigs: Option[List[_]] = None,
@@ -26,15 +27,15 @@ object CfnFunctionProps {
     architectures: Option[List[String]] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    code: Option[software.amazon.awscdk.services.lambda.CfnFunction.CodeProperty] = None,
     kmsKeyArn: Option[String] = None
   ): software.amazon.awscdk.services.lambda.CfnFunctionProps =
     (new software.amazon.awscdk.services.lambda.CfnFunctionProps.Builder)
+      .role(role)
+      .code(code)
       .deadLetterConfig(deadLetterConfig.orNull)
       .layers(layers.map(_.asJava).orNull)
       .functionName(functionName.orNull)
       .tracingConfig(tracingConfig.orNull)
-      .role(role.orNull)
       .vpcConfig(vpcConfig.orNull)
       .memorySize(memorySize.orNull)
       .fileSystemConfigs(fileSystemConfigs.map(_.asJava).orNull)
@@ -49,7 +50,6 @@ object CfnFunctionProps {
       .architectures(architectures.map(_.asJava).orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .code(code.orNull)
       .kmsKeyArn(kmsKeyArn.orNull)
       .build()
 }

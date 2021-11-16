@@ -4,11 +4,11 @@ package io.burkard.cdk.services.healthlake
 object KmsEncryptionConfigProperty {
 
   def apply(
-    kmsKeyId: Option[String] = None,
-    cmkType: Option[String] = None
+    cmkType: String,
+    kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.healthlake.CfnFHIRDatastore.KmsEncryptionConfigProperty =
     (new software.amazon.awscdk.services.healthlake.CfnFHIRDatastore.KmsEncryptionConfigProperty.Builder)
+      .cmkType(cmkType)
       .kmsKeyId(kmsKeyId.orNull)
-      .cmkType(cmkType.orNull)
       .build()
 }

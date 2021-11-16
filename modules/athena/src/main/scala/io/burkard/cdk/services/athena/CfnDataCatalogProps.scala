@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnDataCatalogProps {
 
   def apply(
-    name: Option[String] = None,
-    `type`: Option[String] = None,
+    name: String,
+    `type`: String,
     parameters: Option[Map[String, String]] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.athena.CfnDataCatalogProps =
     (new software.amazon.awscdk.services.athena.CfnDataCatalogProps.Builder)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .name(name)
+      .`type`(`type`)
       .parameters(parameters.map(_.asJava).orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

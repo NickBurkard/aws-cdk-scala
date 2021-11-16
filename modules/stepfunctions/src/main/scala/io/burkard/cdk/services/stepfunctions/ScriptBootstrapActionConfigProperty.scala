@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ScriptBootstrapActionConfigProperty {
 
   def apply(
-    path: Option[String] = None,
+    path: String,
     args: Option[List[String]] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScriptBootstrapActionConfigProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScriptBootstrapActionConfigProperty.Builder)
-      .path(path.orNull)
+      .path(path)
       .args(args.map(_.asJava).orNull)
       .build()
 }

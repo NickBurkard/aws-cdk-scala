@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisfirehose
 object ProcessorParameterProperty {
 
   def apply(
-    parameterValue: Option[String] = None,
-    parameterName: Option[String] = None
+    parameterValue: String,
+    parameterName: String
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.ProcessorParameterProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.ProcessorParameterProperty.Builder)
-      .parameterValue(parameterValue.orNull)
-      .parameterName(parameterName.orNull)
+      .parameterValue(parameterValue)
+      .parameterName(parameterName)
       .build()
 }

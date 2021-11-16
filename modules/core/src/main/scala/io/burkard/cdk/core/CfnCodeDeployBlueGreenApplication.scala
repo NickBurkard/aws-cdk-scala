@@ -4,11 +4,11 @@ package io.burkard.cdk.core
 object CfnCodeDeployBlueGreenApplication {
 
   def apply(
-    ecsAttributes: Option[software.amazon.awscdk.CfnCodeDeployBlueGreenEcsAttributes] = None,
-    target: Option[software.amazon.awscdk.CfnCodeDeployBlueGreenApplicationTarget] = None
+    ecsAttributes: software.amazon.awscdk.CfnCodeDeployBlueGreenEcsAttributes,
+    target: software.amazon.awscdk.CfnCodeDeployBlueGreenApplicationTarget
   ): software.amazon.awscdk.CfnCodeDeployBlueGreenApplication =
     (new software.amazon.awscdk.CfnCodeDeployBlueGreenApplication.Builder)
-      .ecsAttributes(ecsAttributes.orNull)
-      .target(target.orNull)
+      .ecsAttributes(ecsAttributes)
+      .target(target)
       .build()
 }

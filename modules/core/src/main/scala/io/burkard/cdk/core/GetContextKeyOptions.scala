@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object GetContextKeyOptions {
 
   def apply(
-    provider: Option[String] = None,
+    provider: String,
     props: Option[Map[String, _]] = None
   ): software.amazon.awscdk.GetContextKeyOptions =
     (new software.amazon.awscdk.GetContextKeyOptions.Builder)
-      .provider(provider.orNull)
+      .provider(provider)
       .props(props.map(_.asJava).orNull)
       .build()
 }

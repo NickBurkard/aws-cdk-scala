@@ -4,12 +4,12 @@ package io.burkard.cdk.services.logs
 object ColumnRestriction {
 
   def apply(
-    comparison: Option[String] = None,
+    comparison: String,
     numberValue: Option[Number] = None,
     stringValue: Option[String] = None
   ): software.amazon.awscdk.services.logs.ColumnRestriction =
     (new software.amazon.awscdk.services.logs.ColumnRestriction.Builder)
-      .comparison(comparison.orNull)
+      .comparison(comparison)
       .numberValue(numberValue.orNull)
       .stringValue(stringValue.orNull)
       .build()

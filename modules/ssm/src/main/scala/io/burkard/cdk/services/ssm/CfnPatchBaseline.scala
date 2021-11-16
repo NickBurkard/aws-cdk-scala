@@ -8,7 +8,7 @@ object CfnPatchBaseline {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     approvedPatchesEnableNonSecurity: Option[Boolean] = None,
     approvalRules: Option[software.amazon.awscdk.services.ssm.CfnPatchBaseline.RuleGroupProperty] = None,
     patchGroups: Option[List[String]] = None,
@@ -24,7 +24,7 @@ object CfnPatchBaseline {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ssm.CfnPatchBaseline =
     software.amazon.awscdk.services.ssm.CfnPatchBaseline.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .approvedPatchesEnableNonSecurity(approvedPatchesEnableNonSecurity.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .approvalRules(approvalRules.orNull)
       .patchGroups(patchGroups.map(_.asJava).orNull)

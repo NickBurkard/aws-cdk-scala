@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object ContainerPropertiesProperty {
 
   def apply(
+    image: String,
     vcpus: Option[Number] = None,
     secrets: Option[List[_]] = None,
     command: Option[List[String]] = None,
@@ -17,7 +18,6 @@ object ContainerPropertiesProperty {
     mountPoints: Option[List[_]] = None,
     networkConfiguration: Option[software.amazon.awscdk.services.batch.CfnJobDefinition.NetworkConfigurationProperty] = None,
     readonlyRootFilesystem: Option[Boolean] = None,
-    image: Option[String] = None,
     instanceType: Option[String] = None,
     volumes: Option[List[_]] = None,
     executionRoleArn: Option[String] = None,
@@ -29,6 +29,7 @@ object ContainerPropertiesProperty {
     user: Option[String] = None
   ): software.amazon.awscdk.services.batch.CfnJobDefinition.ContainerPropertiesProperty =
     (new software.amazon.awscdk.services.batch.CfnJobDefinition.ContainerPropertiesProperty.Builder)
+      .image(image)
       .vcpus(vcpus.orNull)
       .secrets(secrets.map(_.asJava).orNull)
       .command(command.map(_.asJava).orNull)
@@ -39,7 +40,6 @@ object ContainerPropertiesProperty {
       .mountPoints(mountPoints.map(_.asJava).orNull)
       .networkConfiguration(networkConfiguration.orNull)
       .readonlyRootFilesystem(readonlyRootFilesystem.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .image(image.orNull)
       .instanceType(instanceType.orNull)
       .volumes(volumes.map(_.asJava).orNull)
       .executionRoleArn(executionRoleArn.orNull)

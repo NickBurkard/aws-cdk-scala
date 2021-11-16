@@ -4,11 +4,11 @@ package io.burkard.cdk.services.logs
 object LogSubscriptionDestinationConfig {
 
   def apply(
-    arn: Option[String] = None,
+    arn: String,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None
   ): software.amazon.awscdk.services.logs.LogSubscriptionDestinationConfig =
     (new software.amazon.awscdk.services.logs.LogSubscriptionDestinationConfig.Builder)
-      .arn(arn.orNull)
+      .arn(arn)
       .role(role.orNull)
       .build()
 }

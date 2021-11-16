@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TrustedSignersProperty {
 
   def apply(
-    awsAccountNumbers: Option[List[String]] = None,
-    enabled: Option[Boolean] = None
+    enabled: Boolean,
+    awsAccountNumbers: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.TrustedSignersProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.TrustedSignersProperty.Builder)
+      .enabled(enabled)
       .awsAccountNumbers(awsAccountNumbers.map(_.asJava).orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

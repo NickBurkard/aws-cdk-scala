@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object SecretProperty {
 
   def apply(
-    name: Option[String] = None,
-    valueFrom: Option[String] = None
+    name: String,
+    valueFrom: String
   ): software.amazon.awscdk.services.ecs.CfnTaskDefinition.SecretProperty =
     (new software.amazon.awscdk.services.ecs.CfnTaskDefinition.SecretProperty.Builder)
-      .name(name.orNull)
-      .valueFrom(valueFrom.orNull)
+      .name(name)
+      .valueFrom(valueFrom)
       .build()
 }

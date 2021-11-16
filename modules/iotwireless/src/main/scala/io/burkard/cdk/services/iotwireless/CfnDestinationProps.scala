@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object CfnDestinationProps {
 
   def apply(
-    name: Option[String] = None,
-    expressionType: Option[String] = None,
-    expression: Option[String] = None,
-    roleArn: Option[String] = None,
+    name: String,
+    expressionType: String,
+    expression: String,
+    roleArn: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iotwireless.CfnDestinationProps =
     (new software.amazon.awscdk.services.iotwireless.CfnDestinationProps.Builder)
-      .name(name.orNull)
-      .expressionType(expressionType.orNull)
-      .expression(expression.orNull)
-      .roleArn(roleArn.orNull)
+      .name(name)
+      .expressionType(expressionType)
+      .expression(expression)
+      .roleArn(roleArn)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

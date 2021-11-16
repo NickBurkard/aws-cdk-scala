@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object RedirectAllRequestsToProperty {
 
   def apply(
-    hostName: Option[String] = None,
+    hostName: String,
     protocol: Option[String] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.RedirectAllRequestsToProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.RedirectAllRequestsToProperty.Builder)
-      .hostName(hostName.orNull)
+      .hostName(hostName)
       .protocol(protocol.orNull)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codestar
 object S3Property {
 
   def apply(
-    key: Option[String] = None,
-    bucket: Option[String] = None,
+    key: String,
+    bucket: String,
     objectVersion: Option[String] = None
   ): software.amazon.awscdk.services.codestar.CfnGitHubRepository.S3Property =
     (new software.amazon.awscdk.services.codestar.CfnGitHubRepository.S3Property.Builder)
-      .key(key.orNull)
-      .bucket(bucket.orNull)
+      .key(key)
+      .bucket(bucket)
       .objectVersion(objectVersion.orNull)
       .build()
 }

@@ -8,6 +8,8 @@ object CfnEndpoint {
 
   def apply(
     internalResourceId: String,
+    engineName: String,
+    endpointType: String,
     oracleSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.OracleSettingsProperty] = None,
     ibmDb2Settings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.IbmDb2SettingsProperty] = None,
     username: Option[String] = None,
@@ -22,14 +24,12 @@ object CfnEndpoint {
     kafkaSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.KafkaSettingsProperty] = None,
     s3Settings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.S3SettingsProperty] = None,
     sslMode: Option[String] = None,
-    engineName: Option[String] = None,
     serverName: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     postgreSqlSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.PostgreSqlSettingsProperty] = None,
     certificateArn: Option[String] = None,
     sybaseSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.SybaseSettingsProperty] = None,
     extraConnectionAttributes: Option[String] = None,
-    endpointType: Option[String] = None,
     elasticsearchSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.ElasticsearchSettingsProperty] = None,
     microsoftSqlServerSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.MicrosoftSqlServerSettingsProperty] = None,
     neptuneSettings: Option[software.amazon.awscdk.services.dms.CfnEndpoint.NeptuneSettingsProperty] = None,
@@ -41,6 +41,8 @@ object CfnEndpoint {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.dms.CfnEndpoint =
     software.amazon.awscdk.services.dms.CfnEndpoint.Builder
       .create(stackCtx, internalResourceId)
+      .engineName(engineName)
+      .endpointType(endpointType)
       .oracleSettings(oracleSettings.orNull)
       .ibmDb2Settings(ibmDb2Settings.orNull)
       .username(username.orNull)
@@ -55,14 +57,12 @@ object CfnEndpoint {
       .kafkaSettings(kafkaSettings.orNull)
       .s3Settings(s3Settings.orNull)
       .sslMode(sslMode.orNull)
-      .engineName(engineName.orNull)
       .serverName(serverName.orNull)
       .tags(tags.map(_.asJava).orNull)
       .postgreSqlSettings(postgreSqlSettings.orNull)
       .certificateArn(certificateArn.orNull)
       .sybaseSettings(sybaseSettings.orNull)
       .extraConnectionAttributes(extraConnectionAttributes.orNull)
-      .endpointType(endpointType.orNull)
       .elasticsearchSettings(elasticsearchSettings.orNull)
       .microsoftSqlServerSettings(microsoftSqlServerSettings.orNull)
       .neptuneSettings(neptuneSettings.orNull)

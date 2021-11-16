@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object OrganizationAggregationSourceProperty {
 
   def apply(
+    roleArn: String,
     allAwsRegions: Option[Boolean] = None,
-    awsRegions: Option[List[String]] = None,
-    roleArn: Option[String] = None
+    awsRegions: Option[List[String]] = None
   ): software.amazon.awscdk.services.config.CfnConfigurationAggregator.OrganizationAggregationSourceProperty =
     (new software.amazon.awscdk.services.config.CfnConfigurationAggregator.OrganizationAggregationSourceProperty.Builder)
+      .roleArn(roleArn)
       .allAwsRegions(allAwsRegions.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .awsRegions(awsRegions.map(_.asJava).orNull)
-      .roleArn(roleArn.orNull)
       .build()
 }

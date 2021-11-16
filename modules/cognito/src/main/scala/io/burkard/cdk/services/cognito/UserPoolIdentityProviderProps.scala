@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object UserPoolIdentityProviderProps {
 
   def apply(
-    attributeMapping: Option[software.amazon.awscdk.services.cognito.AttributeMapping] = None,
-    userPool: Option[software.amazon.awscdk.services.cognito.IUserPool] = None
+    userPool: software.amazon.awscdk.services.cognito.IUserPool,
+    attributeMapping: Option[software.amazon.awscdk.services.cognito.AttributeMapping] = None
   ): software.amazon.awscdk.services.cognito.UserPoolIdentityProviderProps =
     (new software.amazon.awscdk.services.cognito.UserPoolIdentityProviderProps.Builder)
+      .userPool(userPool)
       .attributeMapping(attributeMapping.orNull)
-      .userPool(userPool.orNull)
       .build()
 }

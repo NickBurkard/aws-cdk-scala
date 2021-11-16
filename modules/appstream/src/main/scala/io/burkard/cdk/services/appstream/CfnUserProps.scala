@@ -4,17 +4,17 @@ package io.burkard.cdk.services.appstream
 object CfnUserProps {
 
   def apply(
-    authenticationType: Option[String] = None,
+    authenticationType: String,
+    userName: String,
     messageAction: Option[String] = None,
     lastName: Option[String] = None,
-    firstName: Option[String] = None,
-    userName: Option[String] = None
+    firstName: Option[String] = None
   ): software.amazon.awscdk.services.appstream.CfnUserProps =
     (new software.amazon.awscdk.services.appstream.CfnUserProps.Builder)
-      .authenticationType(authenticationType.orNull)
+      .authenticationType(authenticationType)
+      .userName(userName)
       .messageAction(messageAction.orNull)
       .lastName(lastName.orNull)
       .firstName(firstName.orNull)
-      .userName(userName.orNull)
       .build()
 }

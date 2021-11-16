@@ -4,11 +4,11 @@ package io.burkard.cdk.services.acmpca
 object OtherNameProperty {
 
   def apply(
-    typeId: Option[String] = None,
-    value: Option[String] = None
+    typeId: String,
+    value: String
   ): software.amazon.awscdk.services.acmpca.CfnCertificate.OtherNameProperty =
     (new software.amazon.awscdk.services.acmpca.CfnCertificate.OtherNameProperty.Builder)
-      .typeId(typeId.orNull)
-      .value(value.orNull)
+      .typeId(typeId)
+      .value(value)
       .build()
 }

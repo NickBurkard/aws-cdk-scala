@@ -4,15 +4,15 @@ package io.burkard.cdk.services.events
 object CfnArchiveProps {
 
   def apply(
+    sourceArn: String,
     description: Option[String] = None,
-    sourceArn: Option[String] = None,
     eventPattern: Option[AnyRef] = None,
     retentionDays: Option[Number] = None,
     archiveName: Option[String] = None
   ): software.amazon.awscdk.services.events.CfnArchiveProps =
     (new software.amazon.awscdk.services.events.CfnArchiveProps.Builder)
+      .sourceArn(sourceArn)
       .description(description.orNull)
-      .sourceArn(sourceArn.orNull)
       .eventPattern(eventPattern.orNull)
       .retentionDays(retentionDays.orNull)
       .archiveName(archiveName.orNull)

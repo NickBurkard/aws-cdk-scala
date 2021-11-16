@@ -6,16 +6,16 @@ object CfnApiMappingV2 {
 
   def apply(
     internalResourceId: String,
-    stage: Option[String] = None,
-    apiMappingKey: Option[String] = None,
-    domainName: Option[String] = None,
-    apiId: Option[String] = None
+    stage: String,
+    domainName: String,
+    apiId: String,
+    apiMappingKey: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnApiMappingV2 =
     software.amazon.awscdk.services.apigateway.CfnApiMappingV2.Builder
       .create(stackCtx, internalResourceId)
-      .stage(stage.orNull)
+      .stage(stage)
+      .domainName(domainName)
+      .apiId(apiId)
       .apiMappingKey(apiMappingKey.orNull)
-      .domainName(domainName.orNull)
-      .apiId(apiId.orNull)
       .build()
 }

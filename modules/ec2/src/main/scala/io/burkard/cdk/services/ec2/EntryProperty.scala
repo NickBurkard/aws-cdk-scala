@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object EntryProperty {
 
   def apply(
-    cidr: Option[String] = None,
+    cidr: String,
     description: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnPrefixList.EntryProperty =
     (new software.amazon.awscdk.services.ec2.CfnPrefixList.EntryProperty.Builder)
-      .cidr(cidr.orNull)
+      .cidr(cidr)
       .description(description.orNull)
       .build()
 }

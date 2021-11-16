@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object TaskEnvironmentVariable {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.stepfunctions.tasks.TaskEnvironmentVariable =
     (new software.amazon.awscdk.services.stepfunctions.tasks.TaskEnvironmentVariable.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

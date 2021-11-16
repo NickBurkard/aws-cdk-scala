@@ -5,14 +5,14 @@ object CfnEventStream {
 
   def apply(
     internalResourceId: String,
-    applicationId: Option[String] = None,
-    destinationStreamArn: Option[String] = None,
-    roleArn: Option[String] = None
+    applicationId: String,
+    destinationStreamArn: String,
+    roleArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnEventStream =
     software.amazon.awscdk.services.pinpoint.CfnEventStream.Builder
       .create(stackCtx, internalResourceId)
-      .applicationId(applicationId.orNull)
-      .destinationStreamArn(destinationStreamArn.orNull)
-      .roleArn(roleArn.orNull)
+      .applicationId(applicationId)
+      .destinationStreamArn(destinationStreamArn)
+      .roleArn(roleArn)
       .build()
 }

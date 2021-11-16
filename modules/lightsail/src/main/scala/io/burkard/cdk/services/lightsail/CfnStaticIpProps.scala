@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lightsail
 object CfnStaticIpProps {
 
   def apply(
-    attachedTo: Option[String] = None,
-    staticIpName: Option[String] = None
+    staticIpName: String,
+    attachedTo: Option[String] = None
   ): software.amazon.awscdk.services.lightsail.CfnStaticIpProps =
     (new software.amazon.awscdk.services.lightsail.CfnStaticIpProps.Builder)
+      .staticIpName(staticIpName)
       .attachedTo(attachedTo.orNull)
-      .staticIpName(staticIpName.orNull)
       .build()
 }

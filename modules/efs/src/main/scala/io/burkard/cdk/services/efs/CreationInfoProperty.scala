@@ -4,13 +4,13 @@ package io.burkard.cdk.services.efs
 object CreationInfoProperty {
 
   def apply(
-    permissions: Option[String] = None,
-    ownerGid: Option[String] = None,
-    ownerUid: Option[String] = None
+    permissions: String,
+    ownerGid: String,
+    ownerUid: String
   ): software.amazon.awscdk.services.efs.CfnAccessPoint.CreationInfoProperty =
     (new software.amazon.awscdk.services.efs.CfnAccessPoint.CreationInfoProperty.Builder)
-      .permissions(permissions.orNull)
-      .ownerGid(ownerGid.orNull)
-      .ownerUid(ownerUid.orNull)
+      .permissions(permissions)
+      .ownerGid(ownerGid)
+      .ownerUid(ownerUid)
       .build()
 }

@@ -8,7 +8,7 @@ object CfnFleetMetric {
 
   def apply(
     internalResourceId: String,
-    metricName: Option[String] = None,
+    metricName: String,
     queryString: Option[String] = None,
     aggregationField: Option[String] = None,
     indexName: Option[String] = None,
@@ -21,7 +21,7 @@ object CfnFleetMetric {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnFleetMetric =
     software.amazon.awscdk.services.iot.CfnFleetMetric.Builder
       .create(stackCtx, internalResourceId)
-      .metricName(metricName.orNull)
+      .metricName(metricName)
       .queryString(queryString.orNull)
       .aggregationField(aggregationField.orNull)
       .indexName(indexName.orNull)

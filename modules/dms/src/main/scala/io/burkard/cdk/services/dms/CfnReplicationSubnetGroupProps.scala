@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnReplicationSubnetGroupProps {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
+    subnetIds: List[String],
+    replicationSubnetGroupDescription: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    replicationSubnetGroupDescription: Option[String] = None,
     replicationSubnetGroupIdentifier: Option[String] = None
   ): software.amazon.awscdk.services.dms.CfnReplicationSubnetGroupProps =
     (new software.amazon.awscdk.services.dms.CfnReplicationSubnetGroupProps.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
+      .replicationSubnetGroupDescription(replicationSubnetGroupDescription)
       .tags(tags.map(_.asJava).orNull)
-      .replicationSubnetGroupDescription(replicationSubnetGroupDescription.orNull)
       .replicationSubnetGroupIdentifier(replicationSubnetGroupIdentifier.orNull)
       .build()
 }

@@ -8,6 +8,7 @@ object ApplicationListener {
 
   def apply(
     internalResourceId: String,
+    loadBalancer: software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationLoadBalancer,
     sslPolicy: Option[software.amazon.awscdk.services.elasticloadbalancingv2.SslPolicy] = None,
     defaultTargetGroups: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationTargetGroup]] = None,
     open: Option[Boolean] = None,
@@ -15,11 +16,11 @@ object ApplicationListener {
     port: Option[Number] = None,
     certificateArns: Option[List[String]] = None,
     protocol: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationProtocol] = None,
-    certificates: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.IListenerCertificate]] = None,
-    loadBalancer: Option[software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationLoadBalancer] = None
+    certificates: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.IListenerCertificate]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListener =
     software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListener.Builder
       .create(stackCtx, internalResourceId)
+      .loadBalancer(loadBalancer)
       .sslPolicy(sslPolicy.orNull)
       .defaultTargetGroups(defaultTargetGroups.map(_.asJava).orNull)
       .open(open.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -28,6 +29,5 @@ object ApplicationListener {
       .certificateArns(certificateArns.map(_.asJava).orNull)
       .protocol(protocol.orNull)
       .certificates(certificates.map(_.asJava).orNull)
-      .loadBalancer(loadBalancer.orNull)
       .build()
 }

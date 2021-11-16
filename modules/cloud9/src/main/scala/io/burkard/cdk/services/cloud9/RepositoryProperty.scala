@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloud9
 object RepositoryProperty {
 
   def apply(
-    pathComponent: Option[String] = None,
-    repositoryUrl: Option[String] = None
+    pathComponent: String,
+    repositoryUrl: String
   ): software.amazon.awscdk.services.cloud9.CfnEnvironmentEC2.RepositoryProperty =
     (new software.amazon.awscdk.services.cloud9.CfnEnvironmentEC2.RepositoryProperty.Builder)
-      .pathComponent(pathComponent.orNull)
-      .repositoryUrl(repositoryUrl.orNull)
+      .pathComponent(pathComponent)
+      .repositoryUrl(repositoryUrl)
       .build()
 }

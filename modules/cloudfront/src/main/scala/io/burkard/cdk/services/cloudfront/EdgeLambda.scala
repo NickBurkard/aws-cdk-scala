@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cloudfront
 object EdgeLambda {
 
   def apply(
-    eventType: Option[software.amazon.awscdk.services.cloudfront.LambdaEdgeEventType] = None,
-    functionVersion: Option[software.amazon.awscdk.services.lambda.IVersion] = None,
+    eventType: software.amazon.awscdk.services.cloudfront.LambdaEdgeEventType,
+    functionVersion: software.amazon.awscdk.services.lambda.IVersion,
     includeBody: Option[Boolean] = None
   ): software.amazon.awscdk.services.cloudfront.EdgeLambda =
     (new software.amazon.awscdk.services.cloudfront.EdgeLambda.Builder)
-      .eventType(eventType.orNull)
-      .functionVersion(functionVersion.orNull)
+      .eventType(eventType)
+      .functionVersion(functionVersion)
       .includeBody(includeBody.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

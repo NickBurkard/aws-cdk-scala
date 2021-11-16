@@ -7,27 +7,27 @@ import scala.collection.JavaConverters._
 object CfnUserProps {
 
   def apply(
-    username: Option[String] = None,
+    username: String,
+    phoneConfig: software.amazon.awscdk.services.connect.CfnUser.UserPhoneConfigProperty,
+    routingProfileArn: String,
+    securityProfileArns: List[String],
+    instanceArn: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    phoneConfig: Option[software.amazon.awscdk.services.connect.CfnUser.UserPhoneConfigProperty] = None,
     directoryUserId: Option[String] = None,
     hierarchyGroupArn: Option[String] = None,
-    routingProfileArn: Option[String] = None,
-    securityProfileArns: Option[List[String]] = None,
     identityInfo: Option[software.amazon.awscdk.services.connect.CfnUser.UserIdentityInfoProperty] = None,
-    instanceArn: Option[String] = None,
     password: Option[String] = None
   ): software.amazon.awscdk.services.connect.CfnUserProps =
     (new software.amazon.awscdk.services.connect.CfnUserProps.Builder)
-      .username(username.orNull)
+      .username(username)
+      .phoneConfig(phoneConfig)
+      .routingProfileArn(routingProfileArn)
+      .securityProfileArns(securityProfileArns.asJava)
+      .instanceArn(instanceArn)
       .tags(tags.map(_.asJava).orNull)
-      .phoneConfig(phoneConfig.orNull)
       .directoryUserId(directoryUserId.orNull)
       .hierarchyGroupArn(hierarchyGroupArn.orNull)
-      .routingProfileArn(routingProfileArn.orNull)
-      .securityProfileArns(securityProfileArns.map(_.asJava).orNull)
       .identityInfo(identityInfo.orNull)
-      .instanceArn(instanceArn.orNull)
       .password(password.orNull)
       .build()
 }

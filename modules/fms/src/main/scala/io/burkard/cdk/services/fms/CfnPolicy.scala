@@ -8,30 +8,30 @@ object CfnPolicy {
 
   def apply(
     internalResourceId: String,
-    remediationEnabled: Option[Boolean] = None,
+    remediationEnabled: Boolean,
+    policyName: String,
+    excludeResourceTags: Boolean,
+    resourceType: String,
+    securityServicePolicyData: AnyRef,
     excludeMap: Option[software.amazon.awscdk.services.fms.CfnPolicy.IEMapProperty] = None,
-    policyName: Option[String] = None,
     resourcesCleanUp: Option[Boolean] = None,
-    excludeResourceTags: Option[Boolean] = None,
     deleteAllPolicyResources: Option[Boolean] = None,
     resourceTypeList: Option[List[String]] = None,
-    resourceType: Option[String] = None,
-    securityServicePolicyData: Option[AnyRef] = None,
     tags: Option[List[_ <: software.amazon.awscdk.services.fms.CfnPolicy.PolicyTagProperty]] = None,
     includeMap: Option[software.amazon.awscdk.services.fms.CfnPolicy.IEMapProperty] = None,
     resourceTags: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.fms.CfnPolicy =
     software.amazon.awscdk.services.fms.CfnPolicy.Builder
       .create(stackCtx, internalResourceId)
-      .remediationEnabled(remediationEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .remediationEnabled(remediationEnabled)
+      .policyName(policyName)
+      .excludeResourceTags(excludeResourceTags)
+      .resourceType(resourceType)
+      .securityServicePolicyData(securityServicePolicyData)
       .excludeMap(excludeMap.orNull)
-      .policyName(policyName.orNull)
       .resourcesCleanUp(resourcesCleanUp.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .excludeResourceTags(excludeResourceTags.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .deleteAllPolicyResources(deleteAllPolicyResources.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .resourceTypeList(resourceTypeList.map(_.asJava).orNull)
-      .resourceType(resourceType.orNull)
-      .securityServicePolicyData(securityServicePolicyData.orNull)
       .tags(tags.map(_.asJava).orNull)
       .includeMap(includeMap.orNull)
       .resourceTags(resourceTags.map(_.asJava).orNull)

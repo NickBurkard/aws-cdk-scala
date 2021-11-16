@@ -1,8 +1,10 @@
 package io.burkard.cdk.codegen
 
 import software.amazon.awscdk.Tag
+import software.amazon.awscdk.services.apigatewayv2.CfnVpcLinkProps
 import software.amazon.awscdk.services.cloudwatch.CfnDashboardProps
 import software.amazon.awscdk.services.ec2.Connections
+import software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2
 import software.amazon.awscdk.services.route53.CaaRecord
 
 object CdkBuilderTestFixtures {
@@ -79,6 +81,22 @@ object CdkBuilderTestFixtures {
         constructorType = CdkBuilder.ConstructorType.DirectConstructorNoParameters,
         underlying = directConstructorBuilderClass
       )
+
+    val requiredFieldsPropsServiceName: String = "kinesisanalytics"
+
+    lazy val requiredFieldsPropsBuilderClass: Class[CfnApplicationV2.Builder] =
+      classOf[CfnApplicationV2.Builder]
+
+    val requiredFieldsPropsNames: Set[String] =
+      Set("serviceExecutionRole", "runtimeEnvironment")
+
+    val requiredFieldsInterfaceServiceName: String = "apigatewayv2"
+
+    lazy val requiredFieldsInterfaceBuilderClass: Class[CfnVpcLinkProps.Builder] =
+      classOf[CfnVpcLinkProps.Builder]
+
+    val requiredFieldsInterfaceNames: Set[String] =
+      Set("name", "subnetIds")
   }
 
   object Invalid {

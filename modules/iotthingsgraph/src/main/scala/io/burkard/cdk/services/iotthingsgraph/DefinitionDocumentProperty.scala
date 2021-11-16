@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotthingsgraph
 object DefinitionDocumentProperty {
 
   def apply(
-    text: Option[String] = None,
-    language: Option[String] = None
+    text: String,
+    language: String
   ): software.amazon.awscdk.services.iotthingsgraph.CfnFlowTemplate.DefinitionDocumentProperty =
     (new software.amazon.awscdk.services.iotthingsgraph.CfnFlowTemplate.DefinitionDocumentProperty.Builder)
-      .text(text.orNull)
-      .language(language.orNull)
+      .text(text)
+      .language(language)
       .build()
 }

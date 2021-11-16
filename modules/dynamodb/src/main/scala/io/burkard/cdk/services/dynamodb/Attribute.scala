@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dynamodb
 object Attribute {
 
   def apply(
-    name: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.dynamodb.AttributeType] = None
+    name: String,
+    `type`: software.amazon.awscdk.services.dynamodb.AttributeType
   ): software.amazon.awscdk.services.dynamodb.Attribute =
     (new software.amazon.awscdk.services.dynamodb.Attribute.Builder)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .name(name)
+      .`type`(`type`)
       .build()
 }

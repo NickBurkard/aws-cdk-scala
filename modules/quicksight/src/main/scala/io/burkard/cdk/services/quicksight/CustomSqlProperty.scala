@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CustomSqlProperty {
 
   def apply(
-    name: Option[String] = None,
-    dataSourceArn: Option[String] = None,
-    sqlQuery: Option[String] = None,
-    columns: Option[List[_]] = None
+    name: String,
+    dataSourceArn: String,
+    sqlQuery: String,
+    columns: List[_]
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.CustomSqlProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.CustomSqlProperty.Builder)
-      .name(name.orNull)
-      .dataSourceArn(dataSourceArn.orNull)
-      .sqlQuery(sqlQuery.orNull)
-      .columns(columns.map(_.asJava).orNull)
+      .name(name)
+      .dataSourceArn(dataSourceArn)
+      .sqlQuery(sqlQuery)
+      .columns(columns.asJava)
       .build()
 }

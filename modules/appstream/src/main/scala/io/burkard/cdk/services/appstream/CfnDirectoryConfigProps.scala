@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnDirectoryConfigProps {
 
   def apply(
-    organizationalUnitDistinguishedNames: Option[List[String]] = None,
-    serviceAccountCredentials: Option[software.amazon.awscdk.services.appstream.CfnDirectoryConfig.ServiceAccountCredentialsProperty] = None,
-    directoryName: Option[String] = None
+    organizationalUnitDistinguishedNames: List[String],
+    serviceAccountCredentials: software.amazon.awscdk.services.appstream.CfnDirectoryConfig.ServiceAccountCredentialsProperty,
+    directoryName: String
   ): software.amazon.awscdk.services.appstream.CfnDirectoryConfigProps =
     (new software.amazon.awscdk.services.appstream.CfnDirectoryConfigProps.Builder)
-      .organizationalUnitDistinguishedNames(organizationalUnitDistinguishedNames.map(_.asJava).orNull)
-      .serviceAccountCredentials(serviceAccountCredentials.orNull)
-      .directoryName(directoryName.orNull)
+      .organizationalUnitDistinguishedNames(organizationalUnitDistinguishedNames.asJava)
+      .serviceAccountCredentials(serviceAccountCredentials)
+      .directoryName(directoryName)
       .build()
 }

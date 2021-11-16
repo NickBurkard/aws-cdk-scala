@@ -4,15 +4,15 @@ package io.burkard.cdk.services.iotanalytics
 object LambdaProperty {
 
   def apply(
-    name: Option[String] = None,
-    next: Option[String] = None,
-    lambdaName: Option[String] = None,
-    batchSize: Option[Number] = None
+    name: String,
+    lambdaName: String,
+    batchSize: Number,
+    next: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.LambdaProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.LambdaProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .lambdaName(lambdaName)
+      .batchSize(batchSize)
       .next(next.orNull)
-      .lambdaName(lambdaName.orNull)
-      .batchSize(batchSize.orNull)
       .build()
 }

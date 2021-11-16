@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object InputDefinitionProperty {
 
   def apply(
-    attributes: Option[List[_]] = None
+    attributes: List[_]
   ): software.amazon.awscdk.services.iotevents.CfnInput.InputDefinitionProperty =
     (new software.amazon.awscdk.services.iotevents.CfnInput.InputDefinitionProperty.Builder)
-      .attributes(attributes.map(_.asJava).orNull)
+      .attributes(attributes.asJava)
       .build()
 }

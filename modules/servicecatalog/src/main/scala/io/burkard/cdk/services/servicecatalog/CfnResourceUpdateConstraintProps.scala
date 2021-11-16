@@ -4,17 +4,17 @@ package io.burkard.cdk.services.servicecatalog
 object CfnResourceUpdateConstraintProps {
 
   def apply(
-    portfolioId: Option[String] = None,
+    portfolioId: String,
+    tagUpdateOnProvisionedProduct: String,
+    productId: String,
     description: Option[String] = None,
-    tagUpdateOnProvisionedProduct: Option[String] = None,
-    acceptLanguage: Option[String] = None,
-    productId: Option[String] = None
+    acceptLanguage: Option[String] = None
   ): software.amazon.awscdk.services.servicecatalog.CfnResourceUpdateConstraintProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnResourceUpdateConstraintProps.Builder)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
+      .tagUpdateOnProvisionedProduct(tagUpdateOnProvisionedProduct)
+      .productId(productId)
       .description(description.orNull)
-      .tagUpdateOnProvisionedProduct(tagUpdateOnProvisionedProduct.orNull)
       .acceptLanguage(acceptLanguage.orNull)
-      .productId(productId.orNull)
       .build()
 }

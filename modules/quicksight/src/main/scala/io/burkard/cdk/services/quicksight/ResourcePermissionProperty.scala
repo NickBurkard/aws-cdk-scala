@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ResourcePermissionProperty {
 
   def apply(
-    principal: Option[String] = None,
-    actions: Option[List[String]] = None
+    principal: String,
+    actions: List[String]
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.ResourcePermissionProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.ResourcePermissionProperty.Builder)
-      .principal(principal.orNull)
-      .actions(actions.map(_.asJava).orNull)
+      .principal(principal)
+      .actions(actions.asJava)
       .build()
 }

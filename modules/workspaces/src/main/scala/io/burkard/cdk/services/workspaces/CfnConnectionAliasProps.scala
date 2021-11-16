@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnConnectionAliasProps {
 
   def apply(
-    connectionString: Option[String] = None,
+    connectionString: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.workspaces.CfnConnectionAliasProps =
     (new software.amazon.awscdk.services.workspaces.CfnConnectionAliasProps.Builder)
-      .connectionString(connectionString.orNull)
+      .connectionString(connectionString)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

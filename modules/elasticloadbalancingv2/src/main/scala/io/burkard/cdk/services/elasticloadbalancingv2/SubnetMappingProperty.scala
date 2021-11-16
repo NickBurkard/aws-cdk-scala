@@ -4,13 +4,13 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object SubnetMappingProperty {
 
   def apply(
-    subnetId: Option[String] = None,
+    subnetId: String,
     allocationId: Option[String] = None,
     privateIPv4Address: Option[String] = None,
     iPv6Address: Option[String] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnLoadBalancer.SubnetMappingProperty =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnLoadBalancer.SubnetMappingProperty.Builder)
-      .subnetId(subnetId.orNull)
+      .subnetId(subnetId)
       .allocationId(allocationId.orNull)
       .privateIPv4Address(privateIPv4Address.orNull)
       .iPv6Address(iPv6Address.orNull)

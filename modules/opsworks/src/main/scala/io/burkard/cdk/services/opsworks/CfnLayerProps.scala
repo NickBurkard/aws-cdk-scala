@@ -7,7 +7,13 @@ import scala.collection.JavaConverters._
 object CfnLayerProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    autoAssignPublicIps: Boolean,
+    `type`: String,
+    autoAssignElasticIps: Boolean,
+    shortname: String,
+    enableAutoHealing: Boolean,
+    stackId: String,
     installUpdatesOnBoot: Option[Boolean] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     customRecipes: Option[software.amazon.awscdk.services.opsworks.CfnLayer.RecipesProperty] = None,
@@ -17,18 +23,18 @@ object CfnLayerProps {
     customJson: Option[AnyRef] = None,
     useEbsOptimizedInstances: Option[Boolean] = None,
     lifecycleEventConfiguration: Option[software.amazon.awscdk.services.opsworks.CfnLayer.LifecycleEventConfigurationProperty] = None,
-    autoAssignPublicIps: Option[Boolean] = None,
-    `type`: Option[String] = None,
     packages: Option[List[String]] = None,
     customSecurityGroupIds: Option[List[String]] = None,
-    autoAssignElasticIps: Option[Boolean] = None,
-    shortname: Option[String] = None,
-    loadBasedAutoScaling: Option[software.amazon.awscdk.services.opsworks.CfnLayer.LoadBasedAutoScalingProperty] = None,
-    enableAutoHealing: Option[Boolean] = None,
-    stackId: Option[String] = None
+    loadBasedAutoScaling: Option[software.amazon.awscdk.services.opsworks.CfnLayer.LoadBasedAutoScalingProperty] = None
   ): software.amazon.awscdk.services.opsworks.CfnLayerProps =
     (new software.amazon.awscdk.services.opsworks.CfnLayerProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .autoAssignPublicIps(autoAssignPublicIps)
+      .`type`(`type`)
+      .autoAssignElasticIps(autoAssignElasticIps)
+      .shortname(shortname)
+      .enableAutoHealing(enableAutoHealing)
+      .stackId(stackId)
       .installUpdatesOnBoot(installUpdatesOnBoot.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .tags(tags.map(_.asJava).orNull)
       .customRecipes(customRecipes.orNull)
@@ -38,14 +44,8 @@ object CfnLayerProps {
       .customJson(customJson.orNull)
       .useEbsOptimizedInstances(useEbsOptimizedInstances.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .lifecycleEventConfiguration(lifecycleEventConfiguration.orNull)
-      .autoAssignPublicIps(autoAssignPublicIps.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .`type`(`type`.orNull)
       .packages(packages.map(_.asJava).orNull)
       .customSecurityGroupIds(customSecurityGroupIds.map(_.asJava).orNull)
-      .autoAssignElasticIps(autoAssignElasticIps.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .shortname(shortname.orNull)
       .loadBasedAutoScaling(loadBasedAutoScaling.orNull)
-      .enableAutoHealing(enableAutoHealing.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .stackId(stackId.orNull)
       .build()
 }

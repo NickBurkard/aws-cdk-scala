@@ -4,11 +4,11 @@ package io.burkard.cdk.services.servicecatalog
 object CfnAcceptedPortfolioShareProps {
 
   def apply(
-    portfolioId: Option[String] = None,
+    portfolioId: String,
     acceptLanguage: Option[String] = None
   ): software.amazon.awscdk.services.servicecatalog.CfnAcceptedPortfolioShareProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnAcceptedPortfolioShareProps.Builder)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
       .acceptLanguage(acceptLanguage.orNull)
       .build()
 }

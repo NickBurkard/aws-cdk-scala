@@ -4,11 +4,11 @@ package io.burkard.cdk.services.autoscalingplans
 object PredefinedLoadMetricSpecificationProperty {
 
   def apply(
-    predefinedLoadMetricType: Option[String] = None,
+    predefinedLoadMetricType: String,
     resourceLabel: Option[String] = None
   ): software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.PredefinedLoadMetricSpecificationProperty =
     (new software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.PredefinedLoadMetricSpecificationProperty.Builder)
-      .predefinedLoadMetricType(predefinedLoadMetricType.orNull)
+      .predefinedLoadMetricType(predefinedLoadMetricType)
       .resourceLabel(resourceLabel.orNull)
       .build()
 }

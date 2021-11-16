@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object TransformS3DataSource {
 
   def apply(
-    s3DataType: Option[software.amazon.awscdk.services.stepfunctions.tasks.S3DataType] = None,
-    s3Uri: Option[String] = None
+    s3Uri: String,
+    s3DataType: Option[software.amazon.awscdk.services.stepfunctions.tasks.S3DataType] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.TransformS3DataSource =
     (new software.amazon.awscdk.services.stepfunctions.tasks.TransformS3DataSource.Builder)
+      .s3Uri(s3Uri)
       .s3DataType(s3DataType.orNull)
-      .s3Uri(s3Uri.orNull)
       .build()
 }

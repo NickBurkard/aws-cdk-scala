@@ -4,11 +4,11 @@ package io.burkard.cdk.services.neptune
 object DBClusterRoleProperty {
 
   def apply(
-    featureName: Option[String] = None,
-    roleArn: Option[String] = None
+    roleArn: String,
+    featureName: Option[String] = None
   ): software.amazon.awscdk.services.neptune.CfnDBCluster.DBClusterRoleProperty =
     (new software.amazon.awscdk.services.neptune.CfnDBCluster.DBClusterRoleProperty.Builder)
+      .roleArn(roleArn)
       .featureName(featureName.orNull)
-      .roleArn(roleArn.orNull)
       .build()
 }

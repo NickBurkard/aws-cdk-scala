@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object IntegerParameterProperty {
 
   def apply(
-    name: Option[String] = None,
-    values: Option[List[_ <: Number]] = None
+    name: String,
+    values: List[_ <: Number]
   ): software.amazon.awscdk.services.quicksight.CfnDashboard.IntegerParameterProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDashboard.IntegerParameterProperty.Builder)
-      .name(name.orNull)
-      .values(values.map(_.asJava).orNull)
+      .name(name)
+      .values(values.asJava)
       .build()
 }

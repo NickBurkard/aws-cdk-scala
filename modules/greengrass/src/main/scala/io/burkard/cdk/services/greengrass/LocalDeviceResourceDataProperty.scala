@@ -4,11 +4,11 @@ package io.burkard.cdk.services.greengrass
 object LocalDeviceResourceDataProperty {
 
   def apply(
-    sourcePath: Option[String] = None,
+    sourcePath: String,
     groupOwnerSetting: Option[software.amazon.awscdk.services.greengrass.CfnResourceDefinition.GroupOwnerSettingProperty] = None
   ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.LocalDeviceResourceDataProperty =
     (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.LocalDeviceResourceDataProperty.Builder)
-      .sourcePath(sourcePath.orNull)
+      .sourcePath(sourcePath)
       .groupOwnerSetting(groupOwnerSetting.orNull)
       .build()
 }

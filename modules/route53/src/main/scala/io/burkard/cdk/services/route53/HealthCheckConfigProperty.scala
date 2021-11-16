@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object HealthCheckConfigProperty {
 
   def apply(
+    `type`: String,
     enableSni: Option[Boolean] = None,
     inverted: Option[Boolean] = None,
     alarmIdentifier: Option[software.amazon.awscdk.services.route53.CfnHealthCheck.AlarmIdentifierProperty] = None,
@@ -14,7 +15,6 @@ object HealthCheckConfigProperty {
     searchString: Option[String] = None,
     regions: Option[List[String]] = None,
     port: Option[Number] = None,
-    `type`: Option[String] = None,
     fullyQualifiedDomainName: Option[String] = None,
     measureLatency: Option[Boolean] = None,
     healthThreshold: Option[Number] = None,
@@ -25,6 +25,7 @@ object HealthCheckConfigProperty {
     insufficientDataHealthStatus: Option[String] = None
   ): software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckConfigProperty =
     (new software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckConfigProperty.Builder)
+      .`type`(`type`)
       .enableSni(enableSni.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .inverted(inverted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .alarmIdentifier(alarmIdentifier.orNull)
@@ -32,7 +33,6 @@ object HealthCheckConfigProperty {
       .searchString(searchString.orNull)
       .regions(regions.map(_.asJava).orNull)
       .port(port.orNull)
-      .`type`(`type`.orNull)
       .fullyQualifiedDomainName(fullyQualifiedDomainName.orNull)
       .measureLatency(measureLatency.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .healthThreshold(healthThreshold.orNull)

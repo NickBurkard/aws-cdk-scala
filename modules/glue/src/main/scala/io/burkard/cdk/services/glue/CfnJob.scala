@@ -5,11 +5,11 @@ object CfnJob {
 
   def apply(
     internalResourceId: String,
+    role: String,
+    command: software.amazon.awscdk.services.glue.CfnJob.JobCommandProperty,
     notificationProperty: Option[software.amazon.awscdk.services.glue.CfnJob.NotificationPropertyProperty] = None,
     numberOfWorkers: Option[Number] = None,
-    role: Option[String] = None,
     executionProperty: Option[software.amazon.awscdk.services.glue.CfnJob.ExecutionPropertyProperty] = None,
-    command: Option[software.amazon.awscdk.services.glue.CfnJob.JobCommandProperty] = None,
     timeout: Option[Number] = None,
     glueVersion: Option[String] = None,
     connections: Option[software.amazon.awscdk.services.glue.CfnJob.ConnectionsListProperty] = None,
@@ -26,11 +26,11 @@ object CfnJob {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.glue.CfnJob =
     software.amazon.awscdk.services.glue.CfnJob.Builder
       .create(stackCtx, internalResourceId)
+      .role(role)
+      .command(command)
       .notificationProperty(notificationProperty.orNull)
       .numberOfWorkers(numberOfWorkers.orNull)
-      .role(role.orNull)
       .executionProperty(executionProperty.orNull)
-      .command(command.orNull)
       .timeout(timeout.orNull)
       .glueVersion(glueVersion.orNull)
       .connections(connections.orNull)

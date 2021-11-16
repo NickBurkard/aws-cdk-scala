@@ -7,27 +7,27 @@ import scala.collection.JavaConverters._
 object CfnModelExplainabilityJobDefinitionProps {
 
   def apply(
-    modelExplainabilityJobInput: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty] = None,
+    modelExplainabilityJobInput: software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty,
+    jobResources: software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.MonitoringResourcesProperty,
+    roleArn: String,
+    modelExplainabilityJobOutputConfig: software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty,
+    modelExplainabilityAppSpecification: software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty,
     networkConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.NetworkConfigProperty] = None,
     modelExplainabilityBaselineConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfigProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    jobResources: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.MonitoringResourcesProperty] = None,
-    roleArn: Option[String] = None,
     stoppingCondition: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.StoppingConditionProperty] = None,
-    modelExplainabilityJobOutputConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty] = None,
-    modelExplainabilityAppSpecification: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty] = None,
     jobDefinitionName: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinitionProps =
     (new software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinitionProps.Builder)
-      .modelExplainabilityJobInput(modelExplainabilityJobInput.orNull)
+      .modelExplainabilityJobInput(modelExplainabilityJobInput)
+      .jobResources(jobResources)
+      .roleArn(roleArn)
+      .modelExplainabilityJobOutputConfig(modelExplainabilityJobOutputConfig)
+      .modelExplainabilityAppSpecification(modelExplainabilityAppSpecification)
       .networkConfig(networkConfig.orNull)
       .modelExplainabilityBaselineConfig(modelExplainabilityBaselineConfig.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .jobResources(jobResources.orNull)
-      .roleArn(roleArn.orNull)
       .stoppingCondition(stoppingCondition.orNull)
-      .modelExplainabilityJobOutputConfig(modelExplainabilityJobOutputConfig.orNull)
-      .modelExplainabilityAppSpecification(modelExplainabilityAppSpecification.orNull)
       .jobDefinitionName(jobDefinitionName.orNull)
       .build()
 }

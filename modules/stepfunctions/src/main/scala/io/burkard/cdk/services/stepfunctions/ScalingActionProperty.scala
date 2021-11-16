@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object ScalingActionProperty {
 
   def apply(
-    simpleScalingPolicyConfiguration: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SimpleScalingPolicyConfigurationProperty] = None,
+    simpleScalingPolicyConfiguration: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SimpleScalingPolicyConfigurationProperty,
     market: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceMarket] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingActionProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingActionProperty.Builder)
-      .simpleScalingPolicyConfiguration(simpleScalingPolicyConfiguration.orNull)
+      .simpleScalingPolicyConfiguration(simpleScalingPolicyConfiguration)
       .market(market.orNull)
       .build()
 }

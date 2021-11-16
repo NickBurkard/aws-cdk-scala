@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sso
 object AccessControlAttributeProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeValueProperty] = None
+    key: String,
+    value: software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeValueProperty
   ): software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeProperty =
     (new software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

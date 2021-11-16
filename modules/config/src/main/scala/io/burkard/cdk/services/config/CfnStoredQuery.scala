@@ -8,16 +8,16 @@ object CfnStoredQuery {
 
   def apply(
     internalResourceId: String,
-    queryName: Option[String] = None,
+    queryName: String,
+    queryExpression: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    queryDescription: Option[String] = None,
-    queryExpression: Option[String] = None
+    queryDescription: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.config.CfnStoredQuery =
     software.amazon.awscdk.services.config.CfnStoredQuery.Builder
       .create(stackCtx, internalResourceId)
-      .queryName(queryName.orNull)
+      .queryName(queryName)
+      .queryExpression(queryExpression)
       .tags(tags.map(_.asJava).orNull)
       .queryDescription(queryDescription.orNull)
-      .queryExpression(queryExpression.orNull)
       .build()
 }

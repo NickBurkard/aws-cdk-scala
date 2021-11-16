@@ -5,8 +5,8 @@ object CfnRoute {
 
   def apply(
     internalResourceId: String,
+    routeTableId: String,
     instanceId: Option[String] = None,
-    routeTableId: Option[String] = None,
     gatewayId: Option[String] = None,
     localGatewayId: Option[String] = None,
     carrierGatewayId: Option[String] = None,
@@ -21,8 +21,8 @@ object CfnRoute {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnRoute =
     software.amazon.awscdk.services.ec2.CfnRoute.Builder
       .create(stackCtx, internalResourceId)
+      .routeTableId(routeTableId)
       .instanceId(instanceId.orNull)
-      .routeTableId(routeTableId.orNull)
       .gatewayId(gatewayId.orNull)
       .localGatewayId(localGatewayId.orNull)
       .carrierGatewayId(carrierGatewayId.orNull)

@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object S3KeyFilterProperty {
 
   def apply(
-    rules: Option[List[_]] = None
+    rules: List[_]
   ): software.amazon.awscdk.services.sam.CfnFunction.S3KeyFilterProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.S3KeyFilterProperty.Builder)
-      .rules(rules.map(_.asJava).orNull)
+      .rules(rules.asJava)
       .build()
 }

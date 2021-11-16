@@ -8,16 +8,16 @@ object CognitoUserPoolsAuthorizer {
 
   def apply(
     internalResourceId: String,
+    cognitoUserPools: List[_ <: software.amazon.awscdk.services.cognito.IUserPool],
     identitySource: Option[String] = None,
     authorizerName: Option[String] = None,
-    cognitoUserPools: Option[List[_ <: software.amazon.awscdk.services.cognito.IUserPool]] = None,
     resultsCacheTtl: Option[software.amazon.awscdk.Duration] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CognitoUserPoolsAuthorizer =
     software.amazon.awscdk.services.apigateway.CognitoUserPoolsAuthorizer.Builder
       .create(stackCtx, internalResourceId)
+      .cognitoUserPools(cognitoUserPools.asJava)
       .identitySource(identitySource.orNull)
       .authorizerName(authorizerName.orNull)
-      .cognitoUserPools(cognitoUserPools.map(_.asJava).orNull)
       .resultsCacheTtl(resultsCacheTtl.orNull)
       .build()
 }

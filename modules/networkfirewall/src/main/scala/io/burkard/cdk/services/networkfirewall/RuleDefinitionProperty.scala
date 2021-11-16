@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object RuleDefinitionProperty {
 
   def apply(
-    matchAttributes: Option[software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.MatchAttributesProperty] = None,
-    actions: Option[List[String]] = None
+    matchAttributes: software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.MatchAttributesProperty,
+    actions: List[String]
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RuleDefinitionProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RuleDefinitionProperty.Builder)
-      .matchAttributes(matchAttributes.orNull)
-      .actions(actions.map(_.asJava).orNull)
+      .matchAttributes(matchAttributes)
+      .actions(actions.asJava)
       .build()
 }

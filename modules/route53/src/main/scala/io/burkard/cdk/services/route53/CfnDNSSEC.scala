@@ -5,10 +5,10 @@ object CfnDNSSEC {
 
   def apply(
     internalResourceId: String,
-    hostedZoneId: Option[String] = None
+    hostedZoneId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.CfnDNSSEC =
     software.amazon.awscdk.services.route53.CfnDNSSEC.Builder
       .create(stackCtx, internalResourceId)
-      .hostedZoneId(hostedZoneId.orNull)
+      .hostedZoneId(hostedZoneId)
       .build()
 }

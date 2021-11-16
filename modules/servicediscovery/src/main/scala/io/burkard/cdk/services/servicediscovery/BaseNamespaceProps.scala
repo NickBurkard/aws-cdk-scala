@@ -4,11 +4,11 @@ package io.burkard.cdk.services.servicediscovery
 object BaseNamespaceProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     description: Option[String] = None
   ): software.amazon.awscdk.services.servicediscovery.BaseNamespaceProps =
     (new software.amazon.awscdk.services.servicediscovery.BaseNamespaceProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .description(description.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lambda
 object LayerVersionPermission {
 
   def apply(
-    accountId: Option[String] = None,
+    accountId: String,
     organizationId: Option[String] = None
   ): software.amazon.awscdk.services.lambda.LayerVersionPermission =
     (new software.amazon.awscdk.services.lambda.LayerVersionPermission.Builder)
-      .accountId(accountId.orNull)
+      .accountId(accountId)
       .organizationId(organizationId.orNull)
       .build()
 }

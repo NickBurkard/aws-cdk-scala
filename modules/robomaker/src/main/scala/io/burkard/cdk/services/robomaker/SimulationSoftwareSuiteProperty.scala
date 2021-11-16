@@ -4,11 +4,11 @@ package io.burkard.cdk.services.robomaker
 object SimulationSoftwareSuiteProperty {
 
   def apply(
-    name: Option[String] = None,
-    version: Option[String] = None
+    name: String,
+    version: String
   ): software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SimulationSoftwareSuiteProperty =
     (new software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SimulationSoftwareSuiteProperty.Builder)
-      .name(name.orNull)
-      .version(version.orNull)
+      .name(name)
+      .version(version)
       .build()
 }

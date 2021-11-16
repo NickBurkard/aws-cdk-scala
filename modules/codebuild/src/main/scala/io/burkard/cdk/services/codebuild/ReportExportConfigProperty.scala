@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codebuild
 object ReportExportConfigProperty {
 
   def apply(
-    exportConfigType: Option[String] = None,
+    exportConfigType: String,
     s3Destination: Option[software.amazon.awscdk.services.codebuild.CfnReportGroup.S3ReportExportConfigProperty] = None
   ): software.amazon.awscdk.services.codebuild.CfnReportGroup.ReportExportConfigProperty =
     (new software.amazon.awscdk.services.codebuild.CfnReportGroup.ReportExportConfigProperty.Builder)
-      .exportConfigType(exportConfigType.orNull)
+      .exportConfigType(exportConfigType)
       .s3Destination(s3Destination.orNull)
       .build()
 }

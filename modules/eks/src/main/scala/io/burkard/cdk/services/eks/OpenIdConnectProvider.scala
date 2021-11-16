@@ -5,10 +5,10 @@ object OpenIdConnectProvider {
 
   def apply(
     internalResourceId: String,
-    url: Option[String] = None
+    url: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.eks.OpenIdConnectProvider =
     software.amazon.awscdk.services.eks.OpenIdConnectProvider.Builder
       .create(stackCtx, internalResourceId)
-      .url(url.orNull)
+      .url(url)
       .build()
 }

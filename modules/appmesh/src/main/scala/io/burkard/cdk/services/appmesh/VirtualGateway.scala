@@ -8,17 +8,17 @@ object VirtualGateway {
 
   def apply(
     internalResourceId: String,
+    mesh: software.amazon.awscdk.services.appmesh.IMesh,
     backendDefaults: Option[software.amazon.awscdk.services.appmesh.BackendDefaults] = None,
     listeners: Option[List[_ <: software.amazon.awscdk.services.appmesh.VirtualGatewayListener]] = None,
-    mesh: Option[software.amazon.awscdk.services.appmesh.IMesh] = None,
     virtualGatewayName: Option[String] = None,
     accessLog: Option[software.amazon.awscdk.services.appmesh.AccessLog] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appmesh.VirtualGateway =
     software.amazon.awscdk.services.appmesh.VirtualGateway.Builder
       .create(stackCtx, internalResourceId)
+      .mesh(mesh)
       .backendDefaults(backendDefaults.orNull)
       .listeners(listeners.map(_.asJava).orNull)
-      .mesh(mesh.orNull)
       .virtualGatewayName(virtualGatewayName.orNull)
       .accessLog(accessLog.orNull)
       .build()

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object DatabaseProxyAttributes {
 
   def apply(
-    dbProxyArn: Option[String] = None,
-    dbProxyName: Option[String] = None,
-    securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
-    endpoint: Option[String] = None
+    dbProxyArn: String,
+    dbProxyName: String,
+    securityGroups: List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup],
+    endpoint: String
   ): software.amazon.awscdk.services.rds.DatabaseProxyAttributes =
     (new software.amazon.awscdk.services.rds.DatabaseProxyAttributes.Builder)
-      .dbProxyArn(dbProxyArn.orNull)
-      .dbProxyName(dbProxyName.orNull)
-      .securityGroups(securityGroups.map(_.asJava).orNull)
-      .endpoint(endpoint.orNull)
+      .dbProxyArn(dbProxyArn)
+      .dbProxyName(dbProxyName)
+      .securityGroups(securityGroups.asJava)
+      .endpoint(endpoint)
       .build()
 }

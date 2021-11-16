@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnAcceleratorProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     enabled: Option[Boolean] = None,
     ipAddressType: Option[String] = None,
     ipAddresses: Option[List[String]] = None
   ): software.amazon.awscdk.services.globalaccelerator.CfnAcceleratorProps =
     (new software.amazon.awscdk.services.globalaccelerator.CfnAcceleratorProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.map(_.asJava).orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .ipAddressType(ipAddressType.orNull)

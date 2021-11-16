@@ -8,19 +8,19 @@ object CfnRoute {
 
   def apply(
     internalResourceId: String,
-    meshName: Option[String] = None,
-    virtualRouterName: Option[String] = None,
+    meshName: String,
+    virtualRouterName: String,
+    spec: software.amazon.awscdk.services.appmesh.CfnRoute.RouteSpecProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    spec: Option[software.amazon.awscdk.services.appmesh.CfnRoute.RouteSpecProperty] = None,
     routeName: Option[String] = None,
     meshOwner: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appmesh.CfnRoute =
     software.amazon.awscdk.services.appmesh.CfnRoute.Builder
       .create(stackCtx, internalResourceId)
-      .meshName(meshName.orNull)
-      .virtualRouterName(virtualRouterName.orNull)
+      .meshName(meshName)
+      .virtualRouterName(virtualRouterName)
+      .spec(spec)
       .tags(tags.map(_.asJava).orNull)
-      .spec(spec.orNull)
       .routeName(routeName.orNull)
       .meshOwner(meshOwner.orNull)
       .build()

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CookiesProperty {
 
   def apply(
-    forward: Option[String] = None,
+    forward: String,
     whitelistedNames: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.CookiesProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.CookiesProperty.Builder)
-      .forward(forward.orNull)
+      .forward(forward)
       .whitelistedNames(whitelistedNames.map(_.asJava).orNull)
       .build()
 }

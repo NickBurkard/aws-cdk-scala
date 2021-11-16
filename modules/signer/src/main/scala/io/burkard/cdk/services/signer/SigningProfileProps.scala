@@ -4,13 +4,13 @@ package io.burkard.cdk.services.signer
 object SigningProfileProps {
 
   def apply(
+    platform: software.amazon.awscdk.services.signer.Platform,
     signingProfileName: Option[String] = None,
-    signatureValidity: Option[software.amazon.awscdk.Duration] = None,
-    platform: Option[software.amazon.awscdk.services.signer.Platform] = None
+    signatureValidity: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.signer.SigningProfileProps =
     (new software.amazon.awscdk.services.signer.SigningProfileProps.Builder)
+      .platform(platform)
       .signingProfileName(signingProfileName.orNull)
       .signatureValidity(signatureValidity.orNull)
-      .platform(platform.orNull)
       .build()
 }

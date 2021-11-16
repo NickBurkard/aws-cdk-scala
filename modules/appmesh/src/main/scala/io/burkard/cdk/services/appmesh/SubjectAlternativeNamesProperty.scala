@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object SubjectAlternativeNamesProperty {
 
   def apply(
-    `match`: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.SubjectAlternativeNameMatchersProperty] = None
+    `match`: software.amazon.awscdk.services.appmesh.CfnVirtualGateway.SubjectAlternativeNameMatchersProperty
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.SubjectAlternativeNamesProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.SubjectAlternativeNamesProperty.Builder)
-      .`match`(`match`.orNull)
+      .`match`(`match`)
       .build()
 }

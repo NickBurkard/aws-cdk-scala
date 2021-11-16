@@ -8,16 +8,16 @@ object CfnParameterGroup {
 
   def apply(
     internalResourceId: String,
+    cacheParameterGroupFamily: String,
+    description: String,
     properties: Option[Map[String, String]] = None,
-    cacheParameterGroupFamily: Option[String] = None,
-    description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticache.CfnParameterGroup =
     software.amazon.awscdk.services.elasticache.CfnParameterGroup.Builder
       .create(stackCtx, internalResourceId)
+      .cacheParameterGroupFamily(cacheParameterGroupFamily)
+      .description(description)
       .properties(properties.map(_.asJava).orNull)
-      .cacheParameterGroupFamily(cacheParameterGroupFamily.orNull)
-      .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

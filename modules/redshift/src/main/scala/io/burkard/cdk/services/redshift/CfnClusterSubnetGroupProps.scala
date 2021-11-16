@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnClusterSubnetGroupProps {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
-    description: Option[String] = None,
+    subnetIds: List[String],
+    description: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.redshift.CfnClusterSubnetGroupProps =
     (new software.amazon.awscdk.services.redshift.CfnClusterSubnetGroupProps.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .description(description.orNull)
+      .subnetIds(subnetIds.asJava)
+      .description(description)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

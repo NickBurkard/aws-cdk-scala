@@ -8,24 +8,24 @@ object CfnFlow {
 
   def apply(
     internalResourceId: String,
-    destinationFlowConfigList: Option[List[_]] = None,
+    destinationFlowConfigList: List[_],
+    flowName: String,
+    tasks: List[_],
+    sourceFlowConfig: software.amazon.awscdk.services.appflow.CfnFlow.SourceFlowConfigProperty,
+    triggerConfig: software.amazon.awscdk.services.appflow.CfnFlow.TriggerConfigProperty,
     kmsArn: Option[String] = None,
-    flowName: Option[String] = None,
-    tasks: Option[List[_]] = None,
-    sourceFlowConfig: Option[software.amazon.awscdk.services.appflow.CfnFlow.SourceFlowConfigProperty] = None,
     description: Option[String] = None,
-    triggerConfig: Option[software.amazon.awscdk.services.appflow.CfnFlow.TriggerConfigProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appflow.CfnFlow =
     software.amazon.awscdk.services.appflow.CfnFlow.Builder
       .create(stackCtx, internalResourceId)
-      .destinationFlowConfigList(destinationFlowConfigList.map(_.asJava).orNull)
+      .destinationFlowConfigList(destinationFlowConfigList.asJava)
+      .flowName(flowName)
+      .tasks(tasks.asJava)
+      .sourceFlowConfig(sourceFlowConfig)
+      .triggerConfig(triggerConfig)
       .kmsArn(kmsArn.orNull)
-      .flowName(flowName.orNull)
-      .tasks(tasks.map(_.asJava).orNull)
-      .sourceFlowConfig(sourceFlowConfig.orNull)
       .description(description.orNull)
-      .triggerConfig(triggerConfig.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

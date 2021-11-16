@@ -4,9 +4,9 @@ package io.burkard.cdk.core
 object CfnCustomResourceProps {
 
   def apply(
-    serviceToken: Option[String] = None
+    serviceToken: String
   ): software.amazon.awscdk.CfnCustomResourceProps =
     (new software.amazon.awscdk.CfnCustomResourceProps.Builder)
-      .serviceToken(serviceToken.orNull)
+      .serviceToken(serviceToken)
       .build()
 }

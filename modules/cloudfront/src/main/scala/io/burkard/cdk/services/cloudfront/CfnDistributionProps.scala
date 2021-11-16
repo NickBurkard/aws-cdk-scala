@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnDistributionProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    distributionConfig: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.DistributionConfigProperty] = None
+    distributionConfig: software.amazon.awscdk.services.cloudfront.CfnDistribution.DistributionConfigProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistributionProps =
     (new software.amazon.awscdk.services.cloudfront.CfnDistributionProps.Builder)
+      .distributionConfig(distributionConfig)
       .tags(tags.map(_.asJava).orNull)
-      .distributionConfig(distributionConfig.orNull)
       .build()
 }

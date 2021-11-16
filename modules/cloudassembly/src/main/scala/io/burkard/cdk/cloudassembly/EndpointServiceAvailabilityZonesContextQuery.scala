@@ -4,15 +4,15 @@ package io.burkard.cdk.cloudassembly
 object EndpointServiceAvailabilityZonesContextQuery {
 
   def apply(
-    serviceName: Option[String] = None,
-    region: Option[String] = None,
-    account: Option[String] = None,
+    serviceName: String,
+    region: String,
+    account: String,
     lookupRoleArn: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.EndpointServiceAvailabilityZonesContextQuery =
     (new software.amazon.awscdk.cloudassembly.schema.EndpointServiceAvailabilityZonesContextQuery.Builder)
-      .serviceName(serviceName.orNull)
-      .region(region.orNull)
-      .account(account.orNull)
+      .serviceName(serviceName)
+      .region(region)
+      .account(account)
       .lookupRoleArn(lookupRoleArn.orNull)
       .build()
 }

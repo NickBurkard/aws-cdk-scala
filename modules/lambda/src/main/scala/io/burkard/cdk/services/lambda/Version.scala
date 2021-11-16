@@ -5,9 +5,9 @@ object Version {
 
   def apply(
     internalResourceId: String,
+    lambda: software.amazon.awscdk.services.lambda.IFunction,
     maxEventAge: Option[software.amazon.awscdk.Duration] = None,
     description: Option[String] = None,
-    lambda: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     codeSha256: Option[String] = None,
     provisionedConcurrentExecutions: Option[Number] = None,
     onSuccess: Option[software.amazon.awscdk.services.lambda.IDestination] = None,
@@ -17,9 +17,9 @@ object Version {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.Version =
     software.amazon.awscdk.services.lambda.Version.Builder
       .create(stackCtx, internalResourceId)
+      .lambda(lambda)
       .maxEventAge(maxEventAge.orNull)
       .description(description.orNull)
-      .lambda(lambda.orNull)
       .codeSha256(codeSha256.orNull)
       .provisionedConcurrentExecutions(provisionedConcurrentExecutions.orNull)
       .onSuccess(onSuccess.orNull)

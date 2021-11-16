@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object ReplicationTimeValueProperty {
 
   def apply(
-    minutes: Option[Number] = None
+    minutes: Number
   ): software.amazon.awscdk.services.s3.CfnBucket.ReplicationTimeValueProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.ReplicationTimeValueProperty.Builder)
-      .minutes(minutes.orNull)
+      .minutes(minutes)
       .build()
 }

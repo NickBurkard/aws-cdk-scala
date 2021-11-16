@@ -7,6 +7,9 @@ import scala.collection.JavaConverters._
 object CfnCacheClusterProps {
 
   def apply(
+    cacheNodeType: String,
+    engine: String,
+    numCacheNodes: Number,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     notificationTopicArn: Option[String] = None,
     preferredAvailabilityZones: Option[List[String]] = None,
@@ -14,9 +17,7 @@ object CfnCacheClusterProps {
     logDeliveryConfigurations: Option[List[_]] = None,
     snapshotName: Option[String] = None,
     cacheSecurityGroupNames: Option[List[String]] = None,
-    cacheNodeType: Option[String] = None,
     engineVersion: Option[String] = None,
-    engine: Option[String] = None,
     snapshotArns: Option[List[String]] = None,
     cacheParameterGroupName: Option[String] = None,
     vpcSecurityGroupIds: Option[List[String]] = None,
@@ -26,11 +27,13 @@ object CfnCacheClusterProps {
     preferredMaintenanceWindow: Option[String] = None,
     autoMinorVersionUpgrade: Option[Boolean] = None,
     port: Option[Number] = None,
-    numCacheNodes: Option[Number] = None,
     preferredAvailabilityZone: Option[String] = None,
     clusterName: Option[String] = None
   ): software.amazon.awscdk.services.elasticache.CfnCacheClusterProps =
     (new software.amazon.awscdk.services.elasticache.CfnCacheClusterProps.Builder)
+      .cacheNodeType(cacheNodeType)
+      .engine(engine)
+      .numCacheNodes(numCacheNodes)
       .tags(tags.map(_.asJava).orNull)
       .notificationTopicArn(notificationTopicArn.orNull)
       .preferredAvailabilityZones(preferredAvailabilityZones.map(_.asJava).orNull)
@@ -38,9 +41,7 @@ object CfnCacheClusterProps {
       .logDeliveryConfigurations(logDeliveryConfigurations.map(_.asJava).orNull)
       .snapshotName(snapshotName.orNull)
       .cacheSecurityGroupNames(cacheSecurityGroupNames.map(_.asJava).orNull)
-      .cacheNodeType(cacheNodeType.orNull)
       .engineVersion(engineVersion.orNull)
-      .engine(engine.orNull)
       .snapshotArns(snapshotArns.map(_.asJava).orNull)
       .cacheParameterGroupName(cacheParameterGroupName.orNull)
       .vpcSecurityGroupIds(vpcSecurityGroupIds.map(_.asJava).orNull)
@@ -50,7 +51,6 @@ object CfnCacheClusterProps {
       .preferredMaintenanceWindow(preferredMaintenanceWindow.orNull)
       .autoMinorVersionUpgrade(autoMinorVersionUpgrade.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .port(port.orNull)
-      .numCacheNodes(numCacheNodes.orNull)
       .preferredAvailabilityZone(preferredAvailabilityZone.orNull)
       .clusterName(clusterName.orNull)
       .build()

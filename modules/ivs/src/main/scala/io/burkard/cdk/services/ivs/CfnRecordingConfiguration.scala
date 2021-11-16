@@ -8,14 +8,14 @@ object CfnRecordingConfiguration {
 
   def apply(
     internalResourceId: String,
+    destinationConfiguration: software.amazon.awscdk.services.ivs.CfnRecordingConfiguration.DestinationConfigurationProperty,
     name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    destinationConfiguration: Option[software.amazon.awscdk.services.ivs.CfnRecordingConfiguration.DestinationConfigurationProperty] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ivs.CfnRecordingConfiguration =
     software.amazon.awscdk.services.ivs.CfnRecordingConfiguration.Builder
       .create(stackCtx, internalResourceId)
+      .destinationConfiguration(destinationConfiguration)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .destinationConfiguration(destinationConfiguration.orNull)
       .build()
 }

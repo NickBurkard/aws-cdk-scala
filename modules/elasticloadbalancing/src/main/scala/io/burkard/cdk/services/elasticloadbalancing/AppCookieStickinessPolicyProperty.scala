@@ -4,11 +4,11 @@ package io.burkard.cdk.services.elasticloadbalancing
 object AppCookieStickinessPolicyProperty {
 
   def apply(
-    policyName: Option[String] = None,
-    cookieName: Option[String] = None
+    policyName: String,
+    cookieName: String
   ): software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.AppCookieStickinessPolicyProperty =
     (new software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.AppCookieStickinessPolicyProperty.Builder)
-      .policyName(policyName.orNull)
-      .cookieName(cookieName.orNull)
+      .policyName(policyName)
+      .cookieName(cookieName)
       .build()
 }

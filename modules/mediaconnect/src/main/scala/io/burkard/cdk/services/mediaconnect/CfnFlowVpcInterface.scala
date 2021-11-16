@@ -8,18 +8,18 @@ object CfnFlowVpcInterface {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    securityGroupIds: Option[List[String]] = None,
-    subnetId: Option[String] = None,
-    roleArn: Option[String] = None,
-    flowArn: Option[String] = None
+    name: String,
+    securityGroupIds: List[String],
+    subnetId: String,
+    roleArn: String,
+    flowArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.mediaconnect.CfnFlowVpcInterface =
     software.amazon.awscdk.services.mediaconnect.CfnFlowVpcInterface.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
-      .subnetId(subnetId.orNull)
-      .roleArn(roleArn.orNull)
-      .flowArn(flowArn.orNull)
+      .name(name)
+      .securityGroupIds(securityGroupIds.asJava)
+      .subnetId(subnetId)
+      .roleArn(roleArn)
+      .flowArn(flowArn)
       .build()
 }

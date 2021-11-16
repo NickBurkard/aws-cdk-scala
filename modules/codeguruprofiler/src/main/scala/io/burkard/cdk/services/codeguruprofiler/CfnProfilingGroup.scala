@@ -8,7 +8,7 @@ object CfnProfilingGroup {
 
   def apply(
     internalResourceId: String,
-    profilingGroupName: Option[String] = None,
+    profilingGroupName: String,
     computePlatform: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     agentPermissions: Option[AnyRef] = None,
@@ -16,7 +16,7 @@ object CfnProfilingGroup {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codeguruprofiler.CfnProfilingGroup =
     software.amazon.awscdk.services.codeguruprofiler.CfnProfilingGroup.Builder
       .create(stackCtx, internalResourceId)
-      .profilingGroupName(profilingGroupName.orNull)
+      .profilingGroupName(profilingGroupName)
       .computePlatform(computePlatform.orNull)
       .tags(tags.map(_.asJava).orNull)
       .agentPermissions(agentPermissions.orNull)

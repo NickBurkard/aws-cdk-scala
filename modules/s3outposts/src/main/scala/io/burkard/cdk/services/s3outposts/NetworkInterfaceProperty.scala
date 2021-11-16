@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3outposts
 object NetworkInterfaceProperty {
 
   def apply(
-    networkInterfaceId: Option[String] = None
+    networkInterfaceId: String
   ): software.amazon.awscdk.services.s3outposts.CfnEndpoint.NetworkInterfaceProperty =
     (new software.amazon.awscdk.services.s3outposts.CfnEndpoint.NetworkInterfaceProperty.Builder)
-      .networkInterfaceId(networkInterfaceId.orNull)
+      .networkInterfaceId(networkInterfaceId)
       .build()
 }

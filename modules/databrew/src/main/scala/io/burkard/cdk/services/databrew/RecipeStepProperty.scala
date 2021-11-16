@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object RecipeStepProperty {
 
   def apply(
-    conditionExpressions: Option[List[_]] = None,
-    action: Option[software.amazon.awscdk.services.databrew.CfnRecipe.ActionProperty] = None
+    action: software.amazon.awscdk.services.databrew.CfnRecipe.ActionProperty,
+    conditionExpressions: Option[List[_]] = None
   ): software.amazon.awscdk.services.databrew.CfnRecipe.RecipeStepProperty =
     (new software.amazon.awscdk.services.databrew.CfnRecipe.RecipeStepProperty.Builder)
+      .action(action)
       .conditionExpressions(conditionExpressions.map(_.asJava).orNull)
-      .action(action.orNull)
       .build()
 }

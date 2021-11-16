@@ -6,10 +6,10 @@ object SecretRotationApplication {
   def apply(
     applicationId: String,
     semanticVersion: String,
-    isMultiUser: Option[Boolean] = None
+    isMultiUser: Boolean
   ): software.amazon.awscdk.services.secretsmanager.SecretRotationApplication =
     software.amazon.awscdk.services.secretsmanager.SecretRotationApplication.Builder
       .create(applicationId, semanticVersion)
-      .isMultiUser(isMultiUser.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .isMultiUser(isMultiUser)
       .build()
 }

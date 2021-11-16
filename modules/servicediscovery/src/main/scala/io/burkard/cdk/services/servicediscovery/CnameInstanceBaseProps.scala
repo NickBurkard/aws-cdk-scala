@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CnameInstanceBaseProps {
 
   def apply(
+    instanceCname: String,
     instanceId: Option[String] = None,
-    instanceCname: Option[String] = None,
     customAttributes: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.servicediscovery.CnameInstanceBaseProps =
     (new software.amazon.awscdk.services.servicediscovery.CnameInstanceBaseProps.Builder)
+      .instanceCname(instanceCname)
       .instanceId(instanceId.orNull)
-      .instanceCname(instanceCname.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .build()
 }

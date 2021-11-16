@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnHookProps {
 
   def apply(
-    properties: Option[Map[String, _]] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    properties: Option[Map[String, _]] = None
   ): software.amazon.awscdk.CfnHookProps =
     (new software.amazon.awscdk.CfnHookProps.Builder)
+      .`type`(`type`)
       .properties(properties.map(_.asJava).orNull)
-      .`type`(`type`.orNull)
       .build()
 }

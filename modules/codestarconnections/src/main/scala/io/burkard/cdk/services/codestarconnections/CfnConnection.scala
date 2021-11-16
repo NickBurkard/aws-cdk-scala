@@ -8,14 +8,14 @@ object CfnConnection {
 
   def apply(
     internalResourceId: String,
-    connectionName: Option[String] = None,
+    connectionName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     hostArn: Option[String] = None,
     providerType: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codestarconnections.CfnConnection =
     software.amazon.awscdk.services.codestarconnections.CfnConnection.Builder
       .create(stackCtx, internalResourceId)
-      .connectionName(connectionName.orNull)
+      .connectionName(connectionName)
       .tags(tags.map(_.asJava).orNull)
       .hostArn(hostArn.orNull)
       .providerType(providerType.orNull)

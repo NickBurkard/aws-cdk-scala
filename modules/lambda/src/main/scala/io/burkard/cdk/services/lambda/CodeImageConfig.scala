@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CodeImageConfig {
 
   def apply(
-    imageUri: Option[String] = None,
+    imageUri: String,
     cmd: Option[List[String]] = None,
     entrypoint: Option[List[String]] = None,
     workingDirectory: Option[String] = None
   ): software.amazon.awscdk.services.lambda.CodeImageConfig =
     (new software.amazon.awscdk.services.lambda.CodeImageConfig.Builder)
-      .imageUri(imageUri.orNull)
+      .imageUri(imageUri)
       .cmd(cmd.map(_.asJava).orNull)
       .entrypoint(entrypoint.map(_.asJava).orNull)
       .workingDirectory(workingDirectory.orNull)

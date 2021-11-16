@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iotevents
 object FirehoseProperty {
 
   def apply(
+    deliveryStreamName: String,
     payload: Option[software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty] = None,
-    separator: Option[String] = None,
-    deliveryStreamName: Option[String] = None
+    separator: Option[String] = None
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.FirehoseProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.FirehoseProperty.Builder)
+      .deliveryStreamName(deliveryStreamName)
       .payload(payload.orNull)
       .separator(separator.orNull)
-      .deliveryStreamName(deliveryStreamName.orNull)
       .build()
 }

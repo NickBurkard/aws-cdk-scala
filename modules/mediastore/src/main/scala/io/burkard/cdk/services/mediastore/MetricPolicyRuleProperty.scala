@@ -4,11 +4,11 @@ package io.burkard.cdk.services.mediastore
 object MetricPolicyRuleProperty {
 
   def apply(
-    objectGroupName: Option[String] = None,
-    objectGroup: Option[String] = None
+    objectGroupName: String,
+    objectGroup: String
   ): software.amazon.awscdk.services.mediastore.CfnContainer.MetricPolicyRuleProperty =
     (new software.amazon.awscdk.services.mediastore.CfnContainer.MetricPolicyRuleProperty.Builder)
-      .objectGroupName(objectGroupName.orNull)
-      .objectGroup(objectGroup.orNull)
+      .objectGroupName(objectGroupName)
+      .objectGroup(objectGroup)
       .build()
 }

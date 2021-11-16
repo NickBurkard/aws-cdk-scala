@@ -5,12 +5,12 @@ object Wait {
 
   def apply(
     internalResourceId: String,
-    comment: Option[String] = None,
-    time: Option[software.amazon.awscdk.services.stepfunctions.WaitTime] = None
+    time: software.amazon.awscdk.services.stepfunctions.WaitTime,
+    comment: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.Wait =
     software.amazon.awscdk.services.stepfunctions.Wait.Builder
       .create(stackCtx, internalResourceId)
+      .time(time)
       .comment(comment.orNull)
-      .time(time.orNull)
       .build()
 }

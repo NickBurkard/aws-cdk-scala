@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object OriginGroupProps {
 
   def apply(
-    fallbackOrigin: Option[software.amazon.awscdk.services.cloudfront.IOrigin] = None,
-    primaryOrigin: Option[software.amazon.awscdk.services.cloudfront.IOrigin] = None,
+    fallbackOrigin: software.amazon.awscdk.services.cloudfront.IOrigin,
+    primaryOrigin: software.amazon.awscdk.services.cloudfront.IOrigin,
     fallbackStatusCodes: Option[List[_ <: Number]] = None
   ): software.amazon.awscdk.services.cloudfront.origins.OriginGroupProps =
     (new software.amazon.awscdk.services.cloudfront.origins.OriginGroupProps.Builder)
-      .fallbackOrigin(fallbackOrigin.orNull)
-      .primaryOrigin(primaryOrigin.orNull)
+      .fallbackOrigin(fallbackOrigin)
+      .primaryOrigin(primaryOrigin)
       .fallbackStatusCodes(fallbackStatusCodes.map(_.asJava).orNull)
       .build()
 }

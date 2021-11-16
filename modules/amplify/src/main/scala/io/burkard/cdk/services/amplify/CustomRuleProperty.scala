@@ -4,15 +4,15 @@ package io.burkard.cdk.services.amplify
 object CustomRuleProperty {
 
   def apply(
-    source: Option[String] = None,
+    source: String,
+    target: String,
     condition: Option[String] = None,
-    status: Option[String] = None,
-    target: Option[String] = None
+    status: Option[String] = None
   ): software.amazon.awscdk.services.amplify.CfnApp.CustomRuleProperty =
     (new software.amazon.awscdk.services.amplify.CfnApp.CustomRuleProperty.Builder)
-      .source(source.orNull)
+      .source(source)
+      .target(target)
       .condition(condition.orNull)
       .status(status.orNull)
-      .target(target.orNull)
       .build()
 }

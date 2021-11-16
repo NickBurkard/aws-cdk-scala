@@ -155,6 +155,7 @@ lazy val awsCdkScala = project
     opensearchservice,
     opsworks,
     opsworkscm,
+    panorama,
     pinpoint,
     pinpointemail,
     pipelines,
@@ -164,6 +165,7 @@ lazy val awsCdkScala = project
     rds,
     redshift,
     regioninfo,
+    rekognition,
     resourcegroups,
     robomaker,
     route53,
@@ -195,6 +197,7 @@ lazy val awsCdkScala = project
     transfer,
     waf,
     wafv2,
+    wisdom,
     workspaces,
     xray
   )
@@ -1024,6 +1027,12 @@ lazy val opsworkscm = project
   .withCdk()
   .enablePublishing()
 
+lazy val panorama = project
+  .in(file("modules/panorama"))
+  .dependsOn(core)
+  .withCdk()
+  .enablePublishing()
+
 lazy val pinpoint = project
   .in(file("modules/pinpoint"))
   .dependsOn(core)
@@ -1074,6 +1083,12 @@ lazy val redshift = project
 
 lazy val regioninfo = project
   .in(file("modules/regioninfo"))
+  .dependsOn(core)
+  .withCdk()
+  .enablePublishing()
+
+lazy val rekognition = project
+  .in(file("modules/rekognition"))
   .dependsOn(core)
   .withCdk()
   .enablePublishing()
@@ -1260,6 +1275,12 @@ lazy val waf = project
 
 lazy val wafv2 = project
   .in(file("modules/wafv2"))
+  .dependsOn(core)
+  .withCdk()
+  .enablePublishing()
+
+lazy val wisdom = project
+  .in(file("modules/wisdom"))
   .dependsOn(core)
   .withCdk()
   .enablePublishing()

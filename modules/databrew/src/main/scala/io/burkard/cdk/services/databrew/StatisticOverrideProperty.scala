@@ -4,11 +4,11 @@ package io.burkard.cdk.services.databrew
 object StatisticOverrideProperty {
 
   def apply(
-    statistic: Option[String] = None,
-    parameters: Option[software.amazon.awscdk.services.databrew.CfnJob.ParameterMapProperty] = None
+    statistic: String,
+    parameters: software.amazon.awscdk.services.databrew.CfnJob.ParameterMapProperty
   ): software.amazon.awscdk.services.databrew.CfnJob.StatisticOverrideProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.StatisticOverrideProperty.Builder)
-      .statistic(statistic.orNull)
-      .parameters(parameters.orNull)
+      .statistic(statistic)
+      .parameters(parameters)
       .build()
 }

@@ -4,7 +4,7 @@ package io.burkard.cdk.services.fsx
 object LustreConfiguration {
 
   def apply(
-    deploymentType: Option[software.amazon.awscdk.services.fsx.LustreDeploymentType] = None,
+    deploymentType: software.amazon.awscdk.services.fsx.LustreDeploymentType,
     weeklyMaintenanceStartTime: Option[software.amazon.awscdk.services.fsx.LustreMaintenanceTime] = None,
     importPath: Option[String] = None,
     exportPath: Option[String] = None,
@@ -12,7 +12,7 @@ object LustreConfiguration {
     importedFileChunkSizeMiB: Option[Number] = None
   ): software.amazon.awscdk.services.fsx.LustreConfiguration =
     (new software.amazon.awscdk.services.fsx.LustreConfiguration.Builder)
-      .deploymentType(deploymentType.orNull)
+      .deploymentType(deploymentType)
       .weeklyMaintenanceStartTime(weeklyMaintenanceStartTime.orNull)
       .importPath(importPath.orNull)
       .exportPath(exportPath.orNull)

@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object DistributionProps {
 
   def apply(
+    defaultBehavior: software.amazon.awscdk.services.cloudfront.BehaviorOptions,
     domainNames: Option[List[String]] = None,
     logIncludesCookies: Option[Boolean] = None,
     enabled: Option[Boolean] = None,
-    defaultBehavior: Option[software.amazon.awscdk.services.cloudfront.BehaviorOptions] = None,
     errorResponses: Option[List[_ <: software.amazon.awscdk.services.cloudfront.ErrorResponse]] = None,
     logFilePrefix: Option[String] = None,
     geoRestriction: Option[software.amazon.awscdk.services.cloudfront.GeoRestriction] = None,
@@ -27,10 +27,10 @@ object DistributionProps {
     enableLogging: Option[Boolean] = None
   ): software.amazon.awscdk.services.cloudfront.DistributionProps =
     (new software.amazon.awscdk.services.cloudfront.DistributionProps.Builder)
+      .defaultBehavior(defaultBehavior)
       .domainNames(domainNames.map(_.asJava).orNull)
       .logIncludesCookies(logIncludesCookies.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .defaultBehavior(defaultBehavior.orNull)
       .errorResponses(errorResponses.map(_.asJava).orNull)
       .logFilePrefix(logFilePrefix.orNull)
       .geoRestriction(geoRestriction.orNull)

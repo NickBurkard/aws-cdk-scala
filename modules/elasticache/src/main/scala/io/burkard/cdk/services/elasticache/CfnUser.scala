@@ -8,20 +8,20 @@ object CfnUser {
 
   def apply(
     internalResourceId: String,
+    userId: String,
+    userName: String,
+    engine: String,
     passwords: Option[List[String]] = None,
     accessString: Option[String] = None,
-    userId: Option[String] = None,
-    noPasswordRequired: Option[Boolean] = None,
-    userName: Option[String] = None,
-    engine: Option[String] = None
+    noPasswordRequired: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticache.CfnUser =
     software.amazon.awscdk.services.elasticache.CfnUser.Builder
       .create(stackCtx, internalResourceId)
+      .userId(userId)
+      .userName(userName)
+      .engine(engine)
       .passwords(passwords.map(_.asJava).orNull)
       .accessString(accessString.orNull)
-      .userId(userId.orNull)
       .noPasswordRequired(noPasswordRequired.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .userName(userName.orNull)
-      .engine(engine.orNull)
       .build()
 }

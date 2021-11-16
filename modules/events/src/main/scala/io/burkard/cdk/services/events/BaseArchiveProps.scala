@@ -4,15 +4,15 @@ package io.burkard.cdk.services.events
 object BaseArchiveProps {
 
   def apply(
+    eventPattern: software.amazon.awscdk.services.events.EventPattern,
     description: Option[String] = None,
     retention: Option[software.amazon.awscdk.Duration] = None,
-    eventPattern: Option[software.amazon.awscdk.services.events.EventPattern] = None,
     archiveName: Option[String] = None
   ): software.amazon.awscdk.services.events.BaseArchiveProps =
     (new software.amazon.awscdk.services.events.BaseArchiveProps.Builder)
+      .eventPattern(eventPattern)
       .description(description.orNull)
       .retention(retention.orNull)
-      .eventPattern(eventPattern.orNull)
       .archiveName(archiveName.orNull)
       .build()
 }

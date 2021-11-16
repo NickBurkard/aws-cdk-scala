@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object NotificationConfigurationProperty {
 
   def apply(
-    topicArn: Option[String] = None,
+    topicArn: String,
     notificationTypes: Option[List[String]] = None
   ): software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.NotificationConfigurationProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.NotificationConfigurationProperty.Builder)
-      .topicArn(topicArn.orNull)
+      .topicArn(topicArn)
       .notificationTypes(notificationTypes.map(_.asJava).orNull)
       .build()
 }

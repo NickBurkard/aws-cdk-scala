@@ -5,11 +5,11 @@ package io.burkard.cdk.services.apigateway
 object CfnStageV2Props {
 
   def apply(
+    stageName: String,
+    apiId: String,
     routeSettings: Option[AnyRef] = None,
     deploymentId: Option[String] = None,
-    stageName: Option[String] = None,
     accessLogSettings: Option[software.amazon.awscdk.services.apigateway.CfnStageV2.AccessLogSettingsProperty] = None,
-    apiId: Option[String] = None,
     stageVariables: Option[AnyRef] = None,
     defaultRouteSettings: Option[software.amazon.awscdk.services.apigateway.CfnStageV2.RouteSettingsProperty] = None,
     clientCertificateId: Option[String] = None,
@@ -18,11 +18,11 @@ object CfnStageV2Props {
     tags: Option[AnyRef] = None
   ): software.amazon.awscdk.services.apigateway.CfnStageV2Props =
     (new software.amazon.awscdk.services.apigateway.CfnStageV2Props.Builder)
+      .stageName(stageName)
+      .apiId(apiId)
       .routeSettings(routeSettings.orNull)
       .deploymentId(deploymentId.orNull)
-      .stageName(stageName.orNull)
       .accessLogSettings(accessLogSettings.orNull)
-      .apiId(apiId.orNull)
       .stageVariables(stageVariables.orNull)
       .defaultRouteSettings(defaultRouteSettings.orNull)
       .clientCertificateId(clientCertificateId.orNull)

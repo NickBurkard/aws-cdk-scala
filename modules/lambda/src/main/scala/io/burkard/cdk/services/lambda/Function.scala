@@ -8,6 +8,9 @@ object Function {
 
   def apply(
     internalResourceId: String,
+    handler: String,
+    code: software.amazon.awscdk.services.lambda.Code,
+    runtime: software.amazon.awscdk.services.lambda.Runtime,
     initialPolicy: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None,
     layers: Option[List[_ <: software.amazon.awscdk.services.lambda.ILayerVersion]] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -21,7 +24,6 @@ object Function {
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     deadLetterQueueEnabled: Option[Boolean] = None,
-    handler: Option[String] = None,
     codeSigningConfig: Option[software.amazon.awscdk.services.lambda.ICodeSigningConfig] = None,
     logRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
     maxEventAge: Option[software.amazon.awscdk.Duration] = None,
@@ -31,7 +33,6 @@ object Function {
     environmentEncryption: Option[software.amazon.awscdk.services.kms.IKey] = None,
     allowPublicSubnet: Option[Boolean] = None,
     architecture: Option[software.amazon.awscdk.services.lambda.Architecture] = None,
-    code: Option[software.amazon.awscdk.services.lambda.Code] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     insightsVersion: Option[software.amazon.awscdk.services.lambda.LambdaInsightsVersion] = None,
     allowAllOutbound: Option[Boolean] = None,
@@ -43,12 +44,14 @@ object Function {
     logRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
     events: Option[List[_ <: software.amazon.awscdk.services.lambda.IEventSource]] = None,
-    runtime: Option[software.amazon.awscdk.services.lambda.Runtime] = None,
     architectures: Option[List[_ <: software.amazon.awscdk.services.lambda.Architecture]] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.Function =
     software.amazon.awscdk.services.lambda.Function.Builder
       .create(stackCtx, internalResourceId)
+      .handler(handler)
+      .code(code)
+      .runtime(runtime)
       .initialPolicy(initialPolicy.map(_.asJava).orNull)
       .layers(layers.map(_.asJava).orNull)
       .role(role.orNull)
@@ -62,7 +65,6 @@ object Function {
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .vpc(vpc.orNull)
       .deadLetterQueueEnabled(deadLetterQueueEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .handler(handler.orNull)
       .codeSigningConfig(codeSigningConfig.orNull)
       .logRetention(logRetention.orNull)
       .maxEventAge(maxEventAge.orNull)
@@ -72,7 +74,6 @@ object Function {
       .environmentEncryption(environmentEncryption.orNull)
       .allowPublicSubnet(allowPublicSubnet.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .architecture(architecture.orNull)
-      .code(code.orNull)
       .vpcSubnets(vpcSubnets.orNull)
       .insightsVersion(insightsVersion.orNull)
       .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -84,7 +85,6 @@ object Function {
       .logRetentionRole(logRetentionRole.orNull)
       .timeout(timeout.orNull)
       .events(events.map(_.asJava).orNull)
-      .runtime(runtime.orNull)
       .architectures(architectures.map(_.asJava).orNull)
       .securityGroup(securityGroup.orNull)
       .build()

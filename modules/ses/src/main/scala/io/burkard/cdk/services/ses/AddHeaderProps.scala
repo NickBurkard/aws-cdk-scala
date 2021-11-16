@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object AddHeaderProps {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.ses.actions.AddHeaderProps =
     (new software.amazon.awscdk.services.ses.actions.AddHeaderProps.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotsitewise
 object TumblingWindowProperty {
 
   def apply(
-    interval: Option[String] = None,
+    interval: String,
     offset: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetModel.TumblingWindowProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetModel.TumblingWindowProperty.Builder)
-      .interval(interval.orNull)
+      .interval(interval)
       .offset(offset.orNull)
       .build()
 }

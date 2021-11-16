@@ -4,11 +4,11 @@ package io.burkard.cdk.services.applicationautoscaling
 object MetricDimensionProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicy.MetricDimensionProperty =
     (new software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicy.MetricDimensionProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

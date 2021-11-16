@@ -4,12 +4,12 @@ package io.burkard.cdk.services.autoscaling
 object StepAdjustmentProperty {
 
   def apply(
-    scalingAdjustment: Option[Number] = None,
+    scalingAdjustment: Number,
     metricIntervalUpperBound: Option[Number] = None,
     metricIntervalLowerBound: Option[Number] = None
   ): software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.StepAdjustmentProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.StepAdjustmentProperty.Builder)
-      .scalingAdjustment(scalingAdjustment.orNull)
+      .scalingAdjustment(scalingAdjustment)
       .metricIntervalUpperBound(metricIntervalUpperBound.orNull)
       .metricIntervalLowerBound(metricIntervalLowerBound.orNull)
       .build()

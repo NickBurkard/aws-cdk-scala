@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnEnvironmentProps {
 
   def apply(
-    name: Option[String] = None,
-    applicationId: Option[String] = None,
+    name: String,
+    applicationId: String,
     monitors: Option[List[_]] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.services.appconfig.CfnEnvironment.TagsProperty]] = None
   ): software.amazon.awscdk.services.appconfig.CfnEnvironmentProps =
     (new software.amazon.awscdk.services.appconfig.CfnEnvironmentProps.Builder)
-      .name(name.orNull)
-      .applicationId(applicationId.orNull)
+      .name(name)
+      .applicationId(applicationId)
       .monitors(monitors.map(_.asJava).orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

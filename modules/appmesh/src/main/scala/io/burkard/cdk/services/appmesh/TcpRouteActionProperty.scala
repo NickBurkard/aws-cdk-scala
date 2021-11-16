@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object TcpRouteActionProperty {
 
   def apply(
-    weightedTargets: Option[List[_]] = None
+    weightedTargets: List[_]
   ): software.amazon.awscdk.services.appmesh.CfnRoute.TcpRouteActionProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.TcpRouteActionProperty.Builder)
-      .weightedTargets(weightedTargets.map(_.asJava).orNull)
+      .weightedTargets(weightedTargets.asJava)
       .build()
 }

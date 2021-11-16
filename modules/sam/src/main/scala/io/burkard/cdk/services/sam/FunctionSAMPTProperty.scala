@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object FunctionSAMPTProperty {
 
   def apply(
-    functionName: Option[String] = None
+    functionName: String
   ): software.amazon.awscdk.services.sam.CfnStateMachine.FunctionSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnStateMachine.FunctionSAMPTProperty.Builder)
-      .functionName(functionName.orNull)
+      .functionName(functionName)
       .build()
 }

@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object EmrSetClusterTerminationProtectionProps {
 
   def apply(
+    clusterId: String,
+    terminationProtected: Boolean,
     resultPath: Option[String] = None,
-    clusterId: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
-    terminationProtected: Option[Boolean] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
     outputPath: Option[String] = None,
@@ -19,10 +19,10 @@ object EmrSetClusterTerminationProtectionProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrSetClusterTerminationProtectionProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrSetClusterTerminationProtectionProps.Builder)
+      .clusterId(clusterId)
+      .terminationProtected(terminationProtected)
       .resultPath(resultPath.orNull)
-      .clusterId(clusterId.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .terminationProtected(terminationProtected.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)
       .outputPath(outputPath.orNull)

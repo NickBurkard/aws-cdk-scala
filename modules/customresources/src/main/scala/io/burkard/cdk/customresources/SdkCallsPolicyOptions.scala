@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object SdkCallsPolicyOptions {
 
   def apply(
-    resources: Option[List[String]] = None
+    resources: List[String]
   ): software.amazon.awscdk.customresources.SdkCallsPolicyOptions =
     (new software.amazon.awscdk.customresources.SdkCallsPolicyOptions.Builder)
-      .resources(resources.map(_.asJava).orNull)
+      .resources(resources.asJava)
       .build()
 }

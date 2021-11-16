@@ -6,6 +6,7 @@ object Alarm {
 
   def apply(
     internalResourceId: String,
+    metric: software.amazon.awscdk.services.cloudwatch.IMetric,
     statistic: Option[String] = None,
     evaluateLowSampleCountPercentile: Option[String] = None,
     datapointsToAlarm: Option[Number] = None,
@@ -15,12 +16,12 @@ object Alarm {
     evaluationPeriods: Option[Number] = None,
     alarmDescription: Option[String] = None,
     treatMissingData: Option[software.amazon.awscdk.services.cloudwatch.TreatMissingData] = None,
-    metric: Option[software.amazon.awscdk.services.cloudwatch.IMetric] = None,
     alarmName: Option[String] = None,
     period: Option[software.amazon.awscdk.Duration] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudwatch.Alarm =
     software.amazon.awscdk.services.cloudwatch.Alarm.Builder
       .create(stackCtx, internalResourceId)
+      .metric(metric)
       .statistic(statistic.orNull)
       .evaluateLowSampleCountPercentile(evaluateLowSampleCountPercentile.orNull)
       .datapointsToAlarm(datapointsToAlarm.orNull)
@@ -30,7 +31,6 @@ object Alarm {
       .evaluationPeriods(evaluationPeriods.orNull)
       .alarmDescription(alarmDescription.orNull)
       .treatMissingData(treatMissingData.orNull)
-      .metric(metric.orNull)
       .alarmName(alarmName.orNull)
       .period(period.orNull)
       .build()

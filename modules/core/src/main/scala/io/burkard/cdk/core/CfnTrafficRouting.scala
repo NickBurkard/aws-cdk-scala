@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnTrafficRouting {
 
   def apply(
-    testTrafficRoute: Option[software.amazon.awscdk.CfnTrafficRoute] = None,
-    targetGroups: Option[List[String]] = None,
-    prodTrafficRoute: Option[software.amazon.awscdk.CfnTrafficRoute] = None
+    testTrafficRoute: software.amazon.awscdk.CfnTrafficRoute,
+    targetGroups: List[String],
+    prodTrafficRoute: software.amazon.awscdk.CfnTrafficRoute
   ): software.amazon.awscdk.CfnTrafficRouting =
     (new software.amazon.awscdk.CfnTrafficRouting.Builder)
-      .testTrafficRoute(testTrafficRoute.orNull)
-      .targetGroups(targetGroups.map(_.asJava).orNull)
-      .prodTrafficRoute(prodTrafficRoute.orNull)
+      .testTrafficRoute(testTrafficRoute)
+      .targetGroups(targetGroups.asJava)
+      .prodTrafficRoute(prodTrafficRoute)
       .build()
 }

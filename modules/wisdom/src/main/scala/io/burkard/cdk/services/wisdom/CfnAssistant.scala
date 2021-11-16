@@ -8,16 +8,16 @@ object CfnAssistant {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    `type`: Option[String] = None,
+    name: String,
+    `type`: String,
     serverSideEncryptionConfiguration: Option[software.amazon.awscdk.services.wisdom.CfnAssistant.ServerSideEncryptionConfigurationProperty] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.wisdom.CfnAssistant =
     software.amazon.awscdk.services.wisdom.CfnAssistant.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .name(name)
+      .`type`(`type`)
       .serverSideEncryptionConfiguration(serverSideEncryptionConfiguration.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

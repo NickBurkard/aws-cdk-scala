@@ -4,11 +4,11 @@ package io.burkard.cdk.services.waf
 object FieldToMatchProperty {
 
   def apply(
-    data: Option[String] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    data: Option[String] = None
   ): software.amazon.awscdk.services.waf.CfnXssMatchSet.FieldToMatchProperty =
     (new software.amazon.awscdk.services.waf.CfnXssMatchSet.FieldToMatchProperty.Builder)
+      .`type`(`type`)
       .data(data.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.databrew
 object RecipeProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     version: Option[String] = None
   ): software.amazon.awscdk.services.databrew.CfnJob.RecipeProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.RecipeProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .version(version.orNull)
       .build()
 }

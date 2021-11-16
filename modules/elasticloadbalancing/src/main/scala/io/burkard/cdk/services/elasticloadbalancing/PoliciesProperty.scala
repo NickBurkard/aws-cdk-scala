@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object PoliciesProperty {
 
   def apply(
-    policyName: Option[String] = None,
-    attributes: Option[List[_]] = None,
-    policyType: Option[String] = None,
+    policyName: String,
+    attributes: List[_],
+    policyType: String,
     loadBalancerPorts: Option[List[String]] = None,
     instancePorts: Option[List[String]] = None
   ): software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.PoliciesProperty =
     (new software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.PoliciesProperty.Builder)
-      .policyName(policyName.orNull)
-      .attributes(attributes.map(_.asJava).orNull)
-      .policyType(policyType.orNull)
+      .policyName(policyName)
+      .attributes(attributes.asJava)
+      .policyType(policyType)
       .loadBalancerPorts(loadBalancerPorts.map(_.asJava).orNull)
       .instancePorts(instancePorts.map(_.asJava).orNull)
       .build()

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.healthlake
 object PreloadDataConfigProperty {
 
   def apply(
-    preloadDataType: Option[String] = None
+    preloadDataType: String
   ): software.amazon.awscdk.services.healthlake.CfnFHIRDatastore.PreloadDataConfigProperty =
     (new software.amazon.awscdk.services.healthlake.CfnFHIRDatastore.PreloadDataConfigProperty.Builder)
-      .preloadDataType(preloadDataType.orNull)
+      .preloadDataType(preloadDataType)
       .build()
 }

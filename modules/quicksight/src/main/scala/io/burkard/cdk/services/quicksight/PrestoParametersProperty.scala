@@ -4,13 +4,13 @@ package io.burkard.cdk.services.quicksight
 object PrestoParametersProperty {
 
   def apply(
-    catalog: Option[String] = None,
-    host: Option[String] = None,
-    port: Option[Number] = None
+    catalog: String,
+    host: String,
+    port: Number
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.PrestoParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.PrestoParametersProperty.Builder)
-      .catalog(catalog.orNull)
-      .host(host.orNull)
-      .port(port.orNull)
+      .catalog(catalog)
+      .host(host)
+      .port(port)
       .build()
 }

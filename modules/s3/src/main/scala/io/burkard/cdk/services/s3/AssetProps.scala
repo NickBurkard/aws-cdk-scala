@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object AssetProps {
 
   def apply(
-    path: Option[String] = None,
+    path: String,
     assetHash: Option[String] = None,
     sourceHash: Option[String] = None,
     bundling: Option[software.amazon.awscdk.BundlingOptions] = None,
@@ -19,7 +19,7 @@ object AssetProps {
     readers: Option[List[_ <: software.amazon.awscdk.services.iam.IGrantable]] = None
   ): software.amazon.awscdk.services.s3.assets.AssetProps =
     (new software.amazon.awscdk.services.s3.assets.AssetProps.Builder)
-      .path(path.orNull)
+      .path(path)
       .assetHash(assetHash.orNull)
       .sourceHash(sourceHash.orNull)
       .bundling(bundling.orNull)

@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnManagedPolicyProps {
 
   def apply(
+    policyDocument: AnyRef,
     path: Option[String] = None,
     description: Option[String] = None,
     users: Option[List[String]] = None,
     groups: Option[List[String]] = None,
     managedPolicyName: Option[String] = None,
-    policyDocument: Option[AnyRef] = None,
     roles: Option[List[String]] = None
   ): software.amazon.awscdk.services.iam.CfnManagedPolicyProps =
     (new software.amazon.awscdk.services.iam.CfnManagedPolicyProps.Builder)
+      .policyDocument(policyDocument)
       .path(path.orNull)
       .description(description.orNull)
       .users(users.map(_.asJava).orNull)
       .groups(groups.map(_.asJava).orNull)
       .managedPolicyName(managedPolicyName.orNull)
-      .policyDocument(policyDocument.orNull)
       .roles(roles.map(_.asJava).orNull)
       .build()
 }

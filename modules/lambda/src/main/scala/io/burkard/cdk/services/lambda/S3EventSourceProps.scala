@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object S3EventSourceProps {
 
   def apply(
-    filters: Option[List[_ <: software.amazon.awscdk.services.s3.NotificationKeyFilter]] = None,
-    events: Option[List[_ <: software.amazon.awscdk.services.s3.EventType]] = None
+    events: List[_ <: software.amazon.awscdk.services.s3.EventType],
+    filters: Option[List[_ <: software.amazon.awscdk.services.s3.NotificationKeyFilter]] = None
   ): software.amazon.awscdk.services.lambda.eventsources.S3EventSourceProps =
     (new software.amazon.awscdk.services.lambda.eventsources.S3EventSourceProps.Builder)
+      .events(events.asJava)
       .filters(filters.map(_.asJava).orNull)
-      .events(events.map(_.asJava).orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object TlsValidationTrustConfig {
 
   def apply(
-    tlsValidationTrust: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.TlsValidationContextTrustProperty] = None
+    tlsValidationTrust: software.amazon.awscdk.services.appmesh.CfnVirtualNode.TlsValidationContextTrustProperty
   ): software.amazon.awscdk.services.appmesh.TlsValidationTrustConfig =
     (new software.amazon.awscdk.services.appmesh.TlsValidationTrustConfig.Builder)
-      .tlsValidationTrust(tlsValidationTrust.orNull)
+      .tlsValidationTrust(tlsValidationTrust)
       .build()
 }

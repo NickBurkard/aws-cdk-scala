@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ses
 object S3ActionConfig {
 
   def apply(
+    bucketName: String,
     objectKeyPrefix: Option[String] = None,
     topicArn: Option[String] = None,
-    kmsKeyArn: Option[String] = None,
-    bucketName: Option[String] = None
+    kmsKeyArn: Option[String] = None
   ): software.amazon.awscdk.services.ses.S3ActionConfig =
     (new software.amazon.awscdk.services.ses.S3ActionConfig.Builder)
+      .bucketName(bucketName)
       .objectKeyPrefix(objectKeyPrefix.orNull)
       .topicArn(topicArn.orNull)
       .kmsKeyArn(kmsKeyArn.orNull)
-      .bucketName(bucketName.orNull)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object VPCConfigProperty {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
-    vpcId: Option[String] = None,
-    securityGroupIds: Option[List[String]] = None
+    subnetIds: List[String],
+    securityGroupIds: List[String],
+    vpcId: Option[String] = None
   ): software.amazon.awscdk.services.synthetics.CfnCanary.VPCConfigProperty =
     (new software.amazon.awscdk.services.synthetics.CfnCanary.VPCConfigProperty.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
+      .securityGroupIds(securityGroupIds.asJava)
       .vpcId(vpcId.orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .build()
 }

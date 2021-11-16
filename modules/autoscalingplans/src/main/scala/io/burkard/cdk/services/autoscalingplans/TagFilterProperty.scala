@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TagFilterProperty {
 
   def apply(
-    key: Option[String] = None,
+    key: String,
     values: Option[List[String]] = None
   ): software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.TagFilterProperty =
     (new software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.TagFilterProperty.Builder)
-      .key(key.orNull)
+      .key(key)
       .values(values.map(_.asJava).orNull)
       .build()
 }

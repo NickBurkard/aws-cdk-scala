@@ -4,11 +4,11 @@ package io.burkard.cdk.services.amazonmq
 object EncryptionOptionsProperty {
 
   def apply(
-    useAwsOwnedKey: Option[Boolean] = None,
+    useAwsOwnedKey: Boolean,
     kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.amazonmq.CfnBroker.EncryptionOptionsProperty =
     (new software.amazon.awscdk.services.amazonmq.CfnBroker.EncryptionOptionsProperty.Builder)
-      .useAwsOwnedKey(useAwsOwnedKey.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .useAwsOwnedKey(useAwsOwnedKey)
       .kmsKeyId(kmsKeyId.orNull)
       .build()
 }

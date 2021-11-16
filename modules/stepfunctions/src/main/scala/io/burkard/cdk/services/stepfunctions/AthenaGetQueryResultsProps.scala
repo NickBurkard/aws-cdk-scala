@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object AthenaGetQueryResultsProps {
 
   def apply(
+    queryExecutionId: String,
     maxResults: Option[Number] = None,
     nextToken: Option[String] = None,
     resultPath: Option[String] = None,
@@ -16,10 +17,10 @@ object AthenaGetQueryResultsProps {
     comment: Option[String] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    heartbeat: Option[software.amazon.awscdk.Duration] = None,
-    queryExecutionId: Option[String] = None
+    heartbeat: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.AthenaGetQueryResultsProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.AthenaGetQueryResultsProps.Builder)
+      .queryExecutionId(queryExecutionId)
       .maxResults(maxResults.orNull)
       .nextToken(nextToken.orNull)
       .resultPath(resultPath.orNull)
@@ -30,6 +31,5 @@ object AthenaGetQueryResultsProps {
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
       .heartbeat(heartbeat.orNull)
-      .queryExecutionId(queryExecutionId.orNull)
       .build()
 }

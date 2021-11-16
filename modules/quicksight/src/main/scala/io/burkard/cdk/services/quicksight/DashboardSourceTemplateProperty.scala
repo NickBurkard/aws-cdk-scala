@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object DashboardSourceTemplateProperty {
 
   def apply(
-    arn: Option[String] = None,
-    dataSetReferences: Option[List[_]] = None
+    arn: String,
+    dataSetReferences: List[_]
   ): software.amazon.awscdk.services.quicksight.CfnDashboard.DashboardSourceTemplateProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDashboard.DashboardSourceTemplateProperty.Builder)
-      .arn(arn.orNull)
-      .dataSetReferences(dataSetReferences.map(_.asJava).orNull)
+      .arn(arn)
+      .dataSetReferences(dataSetReferences.asJava)
       .build()
 }

@@ -5,20 +5,20 @@ object CfnLaunchRoleConstraint {
 
   def apply(
     internalResourceId: String,
-    portfolioId: Option[String] = None,
+    portfolioId: String,
+    productId: String,
     description: Option[String] = None,
     roleArn: Option[String] = None,
     acceptLanguage: Option[String] = None,
-    productId: Option[String] = None,
     localRoleName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnLaunchRoleConstraint =
     software.amazon.awscdk.services.servicecatalog.CfnLaunchRoleConstraint.Builder
       .create(stackCtx, internalResourceId)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
+      .productId(productId)
       .description(description.orNull)
       .roleArn(roleArn.orNull)
       .acceptLanguage(acceptLanguage.orNull)
-      .productId(productId.orNull)
       .localRoleName(localRoleName.orNull)
       .build()
 }

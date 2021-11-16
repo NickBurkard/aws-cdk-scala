@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appsync
 object AuthorizationConfigProperty {
 
   def apply(
-    authorizationType: Option[String] = None,
+    authorizationType: String,
     awsIamConfig: Option[software.amazon.awscdk.services.appsync.CfnDataSource.AwsIamConfigProperty] = None
   ): software.amazon.awscdk.services.appsync.CfnDataSource.AuthorizationConfigProperty =
     (new software.amazon.awscdk.services.appsync.CfnDataSource.AuthorizationConfigProperty.Builder)
-      .authorizationType(authorizationType.orNull)
+      .authorizationType(authorizationType)
       .awsIamConfig(awsIamConfig.orNull)
       .build()
 }

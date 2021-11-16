@@ -4,9 +4,9 @@ package io.burkard.cdk.services.licensemanager
 object ProvisionalConfigurationProperty {
 
   def apply(
-    maxTimeToLiveInMinutes: Option[Number] = None
+    maxTimeToLiveInMinutes: Number
   ): software.amazon.awscdk.services.licensemanager.CfnLicense.ProvisionalConfigurationProperty =
     (new software.amazon.awscdk.services.licensemanager.CfnLicense.ProvisionalConfigurationProperty.Builder)
-      .maxTimeToLiveInMinutes(maxTimeToLiveInMinutes.orNull)
+      .maxTimeToLiveInMinutes(maxTimeToLiveInMinutes)
       .build()
 }

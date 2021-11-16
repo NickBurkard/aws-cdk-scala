@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnBackupVaultProps {
 
   def apply(
-    backupVaultName: Option[String] = None,
+    backupVaultName: String,
     encryptionKeyArn: Option[String] = None,
     backupVaultTags: Option[Map[String, String]] = None,
     notifications: Option[software.amazon.awscdk.services.backup.CfnBackupVault.NotificationObjectTypeProperty] = None,
@@ -15,7 +15,7 @@ object CfnBackupVaultProps {
     lockConfiguration: Option[software.amazon.awscdk.services.backup.CfnBackupVault.LockConfigurationTypeProperty] = None
   ): software.amazon.awscdk.services.backup.CfnBackupVaultProps =
     (new software.amazon.awscdk.services.backup.CfnBackupVaultProps.Builder)
-      .backupVaultName(backupVaultName.orNull)
+      .backupVaultName(backupVaultName)
       .encryptionKeyArn(encryptionKeyArn.orNull)
       .backupVaultTags(backupVaultTags.map(_.asJava).orNull)
       .notifications(notifications.orNull)

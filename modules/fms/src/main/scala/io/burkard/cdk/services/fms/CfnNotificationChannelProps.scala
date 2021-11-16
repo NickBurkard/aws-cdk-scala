@@ -4,11 +4,11 @@ package io.burkard.cdk.services.fms
 object CfnNotificationChannelProps {
 
   def apply(
-    snsRoleName: Option[String] = None,
-    snsTopicArn: Option[String] = None
+    snsRoleName: String,
+    snsTopicArn: String
   ): software.amazon.awscdk.services.fms.CfnNotificationChannelProps =
     (new software.amazon.awscdk.services.fms.CfnNotificationChannelProps.Builder)
-      .snsRoleName(snsRoleName.orNull)
-      .snsTopicArn(snsTopicArn.orNull)
+      .snsRoleName(snsRoleName)
+      .snsTopicArn(snsTopicArn)
       .build()
 }

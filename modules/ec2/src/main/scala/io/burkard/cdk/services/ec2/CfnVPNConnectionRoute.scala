@@ -5,12 +5,12 @@ object CfnVPNConnectionRoute {
 
   def apply(
     internalResourceId: String,
-    vpnConnectionId: Option[String] = None,
-    destinationCidrBlock: Option[String] = None
+    vpnConnectionId: String,
+    destinationCidrBlock: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVPNConnectionRoute =
     software.amazon.awscdk.services.ec2.CfnVPNConnectionRoute.Builder
       .create(stackCtx, internalResourceId)
-      .vpnConnectionId(vpnConnectionId.orNull)
-      .destinationCidrBlock(destinationCidrBlock.orNull)
+      .vpnConnectionId(vpnConnectionId)
+      .destinationCidrBlock(destinationCidrBlock)
       .build()
 }

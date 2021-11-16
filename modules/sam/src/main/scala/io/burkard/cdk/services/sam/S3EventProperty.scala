@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object S3EventProperty {
 
   def apply(
-    filter: Option[software.amazon.awscdk.services.sam.CfnFunction.S3NotificationFilterProperty] = None,
-    bucket: Option[String] = None,
-    events0: Option[List[String]] = None,
-    events1: Option[String] = None
+    bucket: String,
+    events0: List[String],
+    events1: String,
+    filter: Option[software.amazon.awscdk.services.sam.CfnFunction.S3NotificationFilterProperty] = None
   ): software.amazon.awscdk.services.sam.CfnFunction.S3EventProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.S3EventProperty.Builder)
+      .bucket(bucket)
+      .events(events0.asJava)
+      .events(events1)
       .filter(filter.orNull)
-      .bucket(bucket.orNull)
-      .events(events0.map(_.asJava).orNull)
-      .events(events1.orNull)
       .build()
 }

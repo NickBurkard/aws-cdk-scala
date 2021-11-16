@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnUserGroupProps {
 
   def apply(
-    userGroupId: Option[String] = None,
-    userIds: Option[List[String]] = None,
-    engine: Option[String] = None
+    userGroupId: String,
+    engine: String,
+    userIds: Option[List[String]] = None
   ): software.amazon.awscdk.services.elasticache.CfnUserGroupProps =
     (new software.amazon.awscdk.services.elasticache.CfnUserGroupProps.Builder)
-      .userGroupId(userGroupId.orNull)
+      .userGroupId(userGroupId)
+      .engine(engine)
       .userIds(userIds.map(_.asJava).orNull)
-      .engine(engine.orNull)
       .build()
 }

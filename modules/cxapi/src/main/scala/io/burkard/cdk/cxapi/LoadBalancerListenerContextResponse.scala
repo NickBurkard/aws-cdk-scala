@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object LoadBalancerListenerContextResponse {
 
   def apply(
-    listenerArn: Option[String] = None,
-    securityGroupIds: Option[List[String]] = None,
-    listenerPort: Option[Number] = None
+    listenerArn: String,
+    securityGroupIds: List[String],
+    listenerPort: Number
   ): software.amazon.awscdk.cxapi.LoadBalancerListenerContextResponse =
     (new software.amazon.awscdk.cxapi.LoadBalancerListenerContextResponse.Builder)
-      .listenerArn(listenerArn.orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
-      .listenerPort(listenerPort.orNull)
+      .listenerArn(listenerArn)
+      .securityGroupIds(securityGroupIds.asJava)
+      .listenerPort(listenerPort)
       .build()
 }

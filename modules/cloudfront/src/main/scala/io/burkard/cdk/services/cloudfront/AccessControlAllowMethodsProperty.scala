@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AccessControlAllowMethodsProperty {
 
   def apply(
-    items: Option[List[String]] = None
+    items: List[String]
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.AccessControlAllowMethodsProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.AccessControlAllowMethodsProperty.Builder)
-      .items(items.map(_.asJava).orNull)
+      .items(items.asJava)
       .build()
 }

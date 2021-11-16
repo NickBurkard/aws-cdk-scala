@@ -8,8 +8,8 @@ object CfnPipeline {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    parameterObjects: Option[List[_]] = None,
+    name: String,
+    parameterObjects: List[_],
     description: Option[String] = None,
     parameterValues: Option[List[_]] = None,
     pipelineTags: Option[List[_]] = None,
@@ -18,8 +18,8 @@ object CfnPipeline {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.datapipeline.CfnPipeline =
     software.amazon.awscdk.services.datapipeline.CfnPipeline.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .parameterObjects(parameterObjects.map(_.asJava).orNull)
+      .name(name)
+      .parameterObjects(parameterObjects.asJava)
       .description(description.orNull)
       .parameterValues(parameterValues.map(_.asJava).orNull)
       .pipelineTags(pipelineTags.map(_.asJava).orNull)

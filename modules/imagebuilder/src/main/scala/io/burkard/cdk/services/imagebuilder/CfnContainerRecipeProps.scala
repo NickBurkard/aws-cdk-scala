@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnContainerRecipeProps {
 
   def apply(
-    name: Option[String] = None,
-    components: Option[List[_]] = None,
+    name: String,
+    components: List[_],
+    version: String,
+    targetRepository: software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.TargetContainerRepositoryProperty,
+    parentImage: String,
+    containerType: String,
     dockerfileTemplateData: Option[String] = None,
-    version: Option[String] = None,
     dockerfileTemplateUri: Option[String] = None,
-    targetRepository: Option[software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.TargetContainerRepositoryProperty] = None,
     kmsKeyId: Option[String] = None,
-    parentImage: Option[String] = None,
     imageOsVersionOverride: Option[String] = None,
-    containerType: Option[String] = None,
     instanceConfiguration: Option[software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.InstanceConfigurationProperty] = None,
     description: Option[String] = None,
     tags: Option[Map[String, String]] = None,
@@ -24,16 +24,16 @@ object CfnContainerRecipeProps {
     workingDirectory: Option[String] = None
   ): software.amazon.awscdk.services.imagebuilder.CfnContainerRecipeProps =
     (new software.amazon.awscdk.services.imagebuilder.CfnContainerRecipeProps.Builder)
-      .name(name.orNull)
-      .components(components.map(_.asJava).orNull)
+      .name(name)
+      .components(components.asJava)
+      .version(version)
+      .targetRepository(targetRepository)
+      .parentImage(parentImage)
+      .containerType(containerType)
       .dockerfileTemplateData(dockerfileTemplateData.orNull)
-      .version(version.orNull)
       .dockerfileTemplateUri(dockerfileTemplateUri.orNull)
-      .targetRepository(targetRepository.orNull)
       .kmsKeyId(kmsKeyId.orNull)
-      .parentImage(parentImage.orNull)
       .imageOsVersionOverride(imageOsVersionOverride.orNull)
-      .containerType(containerType.orNull)
       .instanceConfiguration(instanceConfiguration.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

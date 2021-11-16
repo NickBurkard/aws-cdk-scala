@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnDeploymentProps {
 
   def apply(
-    applicationId: Option[String] = None,
-    deploymentStrategyId: Option[String] = None,
-    environmentId: Option[String] = None,
+    applicationId: String,
+    deploymentStrategyId: String,
+    environmentId: String,
+    configurationVersion: String,
+    configurationProfileId: String,
     description: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.services.appconfig.CfnDeployment.TagsProperty]] = None,
-    configurationVersion: Option[String] = None,
-    configurationProfileId: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.services.appconfig.CfnDeployment.TagsProperty]] = None
   ): software.amazon.awscdk.services.appconfig.CfnDeploymentProps =
     (new software.amazon.awscdk.services.appconfig.CfnDeploymentProps.Builder)
-      .applicationId(applicationId.orNull)
-      .deploymentStrategyId(deploymentStrategyId.orNull)
-      .environmentId(environmentId.orNull)
+      .applicationId(applicationId)
+      .deploymentStrategyId(deploymentStrategyId)
+      .environmentId(environmentId)
+      .configurationVersion(configurationVersion)
+      .configurationProfileId(configurationProfileId)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .configurationVersion(configurationVersion.orNull)
-      .configurationProfileId(configurationProfileId.orNull)
       .build()
 }

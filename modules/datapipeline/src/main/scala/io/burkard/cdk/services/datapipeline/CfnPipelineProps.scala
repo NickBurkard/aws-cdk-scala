@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnPipelineProps {
 
   def apply(
-    name: Option[String] = None,
-    parameterObjects: Option[List[_]] = None,
+    name: String,
+    parameterObjects: List[_],
     description: Option[String] = None,
     parameterValues: Option[List[_]] = None,
     pipelineTags: Option[List[_]] = None,
@@ -16,8 +16,8 @@ object CfnPipelineProps {
     activate: Option[Boolean] = None
   ): software.amazon.awscdk.services.datapipeline.CfnPipelineProps =
     (new software.amazon.awscdk.services.datapipeline.CfnPipelineProps.Builder)
-      .name(name.orNull)
-      .parameterObjects(parameterObjects.map(_.asJava).orNull)
+      .name(name)
+      .parameterObjects(parameterObjects.asJava)
       .description(description.orNull)
       .parameterValues(parameterValues.map(_.asJava).orNull)
       .pipelineTags(pipelineTags.map(_.asJava).orNull)

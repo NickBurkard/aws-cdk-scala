@@ -7,27 +7,27 @@ import scala.collection.JavaConverters._
 object CfnUserProps {
 
   def apply(
-    role: Option[String] = None,
+    role: String,
+    serverId: String,
+    userName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     posixProfile: Option[software.amazon.awscdk.services.transfer.CfnUser.PosixProfileProperty] = None,
-    serverId: Option[String] = None,
     homeDirectory: Option[String] = None,
     homeDirectoryMappings: Option[List[_]] = None,
     sshPublicKeys: Option[List[String]] = None,
     policy: Option[String] = None,
-    userName: Option[String] = None,
     homeDirectoryType: Option[String] = None
   ): software.amazon.awscdk.services.transfer.CfnUserProps =
     (new software.amazon.awscdk.services.transfer.CfnUserProps.Builder)
-      .role(role.orNull)
+      .role(role)
+      .serverId(serverId)
+      .userName(userName)
       .tags(tags.map(_.asJava).orNull)
       .posixProfile(posixProfile.orNull)
-      .serverId(serverId.orNull)
       .homeDirectory(homeDirectory.orNull)
       .homeDirectoryMappings(homeDirectoryMappings.map(_.asJava).orNull)
       .sshPublicKeys(sshPublicKeys.map(_.asJava).orNull)
       .policy(policy.orNull)
-      .userName(userName.orNull)
       .homeDirectoryType(homeDirectoryType.orNull)
       .build()
 }

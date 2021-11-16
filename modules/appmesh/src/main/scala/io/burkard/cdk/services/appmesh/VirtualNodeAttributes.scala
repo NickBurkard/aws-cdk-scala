@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualNodeAttributes {
 
   def apply(
-    mesh: Option[software.amazon.awscdk.services.appmesh.IMesh] = None,
-    virtualNodeName: Option[String] = None
+    mesh: software.amazon.awscdk.services.appmesh.IMesh,
+    virtualNodeName: String
   ): software.amazon.awscdk.services.appmesh.VirtualNodeAttributes =
     (new software.amazon.awscdk.services.appmesh.VirtualNodeAttributes.Builder)
-      .mesh(mesh.orNull)
-      .virtualNodeName(virtualNodeName.orNull)
+      .mesh(mesh)
+      .virtualNodeName(virtualNodeName)
       .build()
 }

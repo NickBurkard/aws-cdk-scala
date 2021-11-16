@@ -8,19 +8,19 @@ object CfnHoursOfOperation {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    config: Option[List[_]] = None,
-    instanceArn: Option[String] = None,
-    timeZone: Option[String] = None,
+    name: String,
+    config: List[_],
+    instanceArn: String,
+    timeZone: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.connect.CfnHoursOfOperation =
     software.amazon.awscdk.services.connect.CfnHoursOfOperation.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .config(config.map(_.asJava).orNull)
-      .instanceArn(instanceArn.orNull)
-      .timeZone(timeZone.orNull)
+      .name(name)
+      .config(config.asJava)
+      .instanceArn(instanceArn)
+      .timeZone(timeZone)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

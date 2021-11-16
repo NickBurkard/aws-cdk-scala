@@ -4,13 +4,13 @@ package io.burkard.cdk.services.pinpoint
 object CfnEventStreamProps {
 
   def apply(
-    applicationId: Option[String] = None,
-    destinationStreamArn: Option[String] = None,
-    roleArn: Option[String] = None
+    applicationId: String,
+    destinationStreamArn: String,
+    roleArn: String
   ): software.amazon.awscdk.services.pinpoint.CfnEventStreamProps =
     (new software.amazon.awscdk.services.pinpoint.CfnEventStreamProps.Builder)
-      .applicationId(applicationId.orNull)
-      .destinationStreamArn(destinationStreamArn.orNull)
-      .roleArn(roleArn.orNull)
+      .applicationId(applicationId)
+      .destinationStreamArn(destinationStreamArn)
+      .roleArn(roleArn)
       .build()
 }

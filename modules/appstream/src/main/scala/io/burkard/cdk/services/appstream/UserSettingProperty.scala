@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appstream
 object UserSettingProperty {
 
   def apply(
-    permission: Option[String] = None,
-    action: Option[String] = None
+    permission: String,
+    action: String
   ): software.amazon.awscdk.services.appstream.CfnStack.UserSettingProperty =
     (new software.amazon.awscdk.services.appstream.CfnStack.UserSettingProperty.Builder)
-      .permission(permission.orNull)
-      .action(action.orNull)
+      .permission(permission)
+      .action(action)
       .build()
 }

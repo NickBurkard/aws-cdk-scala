@@ -4,11 +4,11 @@ package io.burkard.cdk.services.amazonmq
 object CfnConfigurationAssociationProps {
 
   def apply(
-    broker: Option[String] = None,
-    configuration: Option[software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty] = None
+    broker: String,
+    configuration: software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty
   ): software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociationProps =
     (new software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociationProps.Builder)
-      .broker(broker.orNull)
-      .configuration(configuration.orNull)
+      .broker(broker)
+      .configuration(configuration)
       .build()
 }

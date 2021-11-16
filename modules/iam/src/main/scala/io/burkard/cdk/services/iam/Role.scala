@@ -8,8 +8,8 @@ object Role {
 
   def apply(
     internalResourceId: String,
+    assumedBy: software.amazon.awscdk.services.iam.IPrincipal,
     maxSessionDuration: Option[software.amazon.awscdk.Duration] = None,
-    assumedBy: Option[software.amazon.awscdk.services.iam.IPrincipal] = None,
     roleName: Option[String] = None,
     externalIds: Option[List[String]] = None,
     managedPolicies: Option[List[_ <: software.amazon.awscdk.services.iam.IManagedPolicy]] = None,
@@ -21,8 +21,8 @@ object Role {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iam.Role =
     software.amazon.awscdk.services.iam.Role.Builder
       .create(stackCtx, internalResourceId)
+      .assumedBy(assumedBy)
       .maxSessionDuration(maxSessionDuration.orNull)
-      .assumedBy(assumedBy.orNull)
       .roleName(roleName.orNull)
       .externalIds(externalIds.map(_.asJava).orNull)
       .managedPolicies(managedPolicies.map(_.asJava).orNull)

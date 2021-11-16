@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lambda
 object OnSuccessProperty {
 
   def apply(
-    destination: Option[String] = None
+    destination: String
   ): software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.OnSuccessProperty =
     (new software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.OnSuccessProperty.Builder)
-      .destination(destination.orNull)
+      .destination(destination)
       .build()
 }

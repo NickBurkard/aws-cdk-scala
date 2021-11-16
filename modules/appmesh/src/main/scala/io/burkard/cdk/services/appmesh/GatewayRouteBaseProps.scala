@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object GatewayRouteBaseProps {
 
   def apply(
-    gatewayRouteName: Option[String] = None,
-    routeSpec: Option[software.amazon.awscdk.services.appmesh.GatewayRouteSpec] = None
+    routeSpec: software.amazon.awscdk.services.appmesh.GatewayRouteSpec,
+    gatewayRouteName: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.GatewayRouteBaseProps =
     (new software.amazon.awscdk.services.appmesh.GatewayRouteBaseProps.Builder)
+      .routeSpec(routeSpec)
       .gatewayRouteName(gatewayRouteName.orNull)
-      .routeSpec(routeSpec.orNull)
       .build()
 }

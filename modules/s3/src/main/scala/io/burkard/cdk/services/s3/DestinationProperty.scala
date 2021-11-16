@@ -4,15 +4,15 @@ package io.burkard.cdk.services.s3
 object DestinationProperty {
 
   def apply(
-    format: Option[String] = None,
+    format: String,
+    bucketArn: String,
     prefix: Option[String] = None,
-    bucketArn: Option[String] = None,
     bucketAccountId: Option[String] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.DestinationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.DestinationProperty.Builder)
-      .format(format.orNull)
+      .format(format)
+      .bucketArn(bucketArn)
       .prefix(prefix.orNull)
-      .bucketArn(bucketArn.orNull)
       .bucketAccountId(bucketAccountId.orNull)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnXssMatchSetProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     xssMatchTuples: Option[List[_]] = None
   ): software.amazon.awscdk.services.waf.regional.CfnXssMatchSetProps =
     (new software.amazon.awscdk.services.waf.regional.CfnXssMatchSetProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .xssMatchTuples(xssMatchTuples.map(_.asJava).orNull)
       .build()
 }

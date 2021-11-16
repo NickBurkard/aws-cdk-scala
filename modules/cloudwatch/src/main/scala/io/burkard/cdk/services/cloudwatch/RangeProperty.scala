@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudwatch
 object RangeProperty {
 
   def apply(
-    startTime: Option[String] = None,
-    endTime: Option[String] = None
+    startTime: String,
+    endTime: String
   ): software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.RangeProperty =
     (new software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.RangeProperty.Builder)
-      .startTime(startTime.orNull)
-      .endTime(endTime.orNull)
+      .startTime(startTime)
+      .endTime(endTime)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kendra
 object S3PathProperty {
 
   def apply(
-    key: Option[String] = None,
-    bucket: Option[String] = None
+    key: String,
+    bucket: String
   ): software.amazon.awscdk.services.kendra.CfnDataSource.S3PathProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.S3PathProperty.Builder)
-      .key(key.orNull)
-      .bucket(bucket.orNull)
+      .key(key)
+      .bucket(bucket)
       .build()
 }

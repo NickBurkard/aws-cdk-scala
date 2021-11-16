@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cognito
 object AccountTakeoverActionTypeProperty {
 
   def apply(
-    eventAction: Option[String] = None
+    eventAction: String
   ): software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionTypeProperty =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionTypeProperty.Builder)
-      .eventAction(eventAction.orNull)
+      .eventAction(eventAction)
       .build()
 }

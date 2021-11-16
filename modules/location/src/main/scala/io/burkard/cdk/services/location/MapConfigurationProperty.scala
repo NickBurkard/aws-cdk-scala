@@ -4,9 +4,9 @@ package io.burkard.cdk.services.location
 object MapConfigurationProperty {
 
   def apply(
-    style: Option[String] = None
+    style: String
   ): software.amazon.awscdk.services.location.CfnMap.MapConfigurationProperty =
     (new software.amazon.awscdk.services.location.CfnMap.MapConfigurationProperty.Builder)
-      .style(style.orNull)
+      .style(style)
       .build()
 }

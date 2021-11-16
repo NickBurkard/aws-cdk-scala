@@ -4,11 +4,11 @@ package io.burkard.cdk.services.route53resolver
 object TargetAddressProperty {
 
   def apply(
-    ip: Option[String] = None,
+    ip: String,
     port: Option[String] = None
   ): software.amazon.awscdk.services.route53resolver.CfnResolverRule.TargetAddressProperty =
     (new software.amazon.awscdk.services.route53resolver.CfnResolverRule.TargetAddressProperty.Builder)
-      .ip(ip.orNull)
+      .ip(ip)
       .port(port.orNull)
       .build()
 }

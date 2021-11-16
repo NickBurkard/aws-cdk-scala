@@ -4,15 +4,15 @@ package io.burkard.cdk.services.codepipeline
 object ActionTypeIdProperty {
 
   def apply(
-    provider: Option[String] = None,
-    version: Option[String] = None,
-    category: Option[String] = None,
-    owner: Option[String] = None
+    provider: String,
+    version: String,
+    category: String,
+    owner: String
   ): software.amazon.awscdk.services.codepipeline.CfnPipeline.ActionTypeIdProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnPipeline.ActionTypeIdProperty.Builder)
-      .provider(provider.orNull)
-      .version(version.orNull)
-      .category(category.orNull)
-      .owner(owner.orNull)
+      .provider(provider)
+      .version(version)
+      .category(category)
+      .owner(owner)
       .build()
 }

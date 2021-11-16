@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iam
 object AddToPrincipalPolicyResult {
 
   def apply(
-    policyDependable: Option[software.constructs.IDependable] = None,
-    statementAdded: Option[Boolean] = None
+    statementAdded: Boolean,
+    policyDependable: Option[software.constructs.IDependable] = None
   ): software.amazon.awscdk.services.iam.AddToPrincipalPolicyResult =
     (new software.amazon.awscdk.services.iam.AddToPrincipalPolicyResult.Builder)
+      .statementAdded(statementAdded)
       .policyDependable(policyDependable.orNull)
-      .statementAdded(statementAdded.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

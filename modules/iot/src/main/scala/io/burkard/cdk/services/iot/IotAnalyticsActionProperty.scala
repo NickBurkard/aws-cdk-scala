@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object IotAnalyticsActionProperty {
 
   def apply(
-    channelName: Option[String] = None,
-    roleArn: Option[String] = None,
+    channelName: String,
+    roleArn: String,
     batchMode: Option[Boolean] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.IotAnalyticsActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.IotAnalyticsActionProperty.Builder)
-      .channelName(channelName.orNull)
-      .roleArn(roleArn.orNull)
+      .channelName(channelName)
+      .roleArn(roleArn)
       .batchMode(batchMode.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -8,17 +8,17 @@ object CfnDeviceFleet {
 
   def apply(
     internalResourceId: String,
-    deviceFleetName: Option[String] = None,
-    outputConfig: Option[software.amazon.awscdk.services.sagemaker.CfnDeviceFleet.EdgeOutputConfigProperty] = None,
-    roleArn: Option[String] = None,
+    deviceFleetName: String,
+    outputConfig: software.amazon.awscdk.services.sagemaker.CfnDeviceFleet.EdgeOutputConfigProperty,
+    roleArn: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sagemaker.CfnDeviceFleet =
     software.amazon.awscdk.services.sagemaker.CfnDeviceFleet.Builder
       .create(stackCtx, internalResourceId)
-      .deviceFleetName(deviceFleetName.orNull)
-      .outputConfig(outputConfig.orNull)
-      .roleArn(roleArn.orNull)
+      .deviceFleetName(deviceFleetName)
+      .outputConfig(outputConfig)
+      .roleArn(roleArn)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

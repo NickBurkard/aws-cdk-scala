@@ -8,14 +8,14 @@ object CfnDomainNameV2 {
 
   def apply(
     internalResourceId: String,
+    domainName: String,
     tags: Option[AnyRef] = None,
-    domainName: Option[String] = None,
     domainNameConfigurations: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnDomainNameV2 =
     software.amazon.awscdk.services.apigateway.CfnDomainNameV2.Builder
       .create(stackCtx, internalResourceId)
+      .domainName(domainName)
       .tags(tags.orNull)
-      .domainName(domainName.orNull)
       .domainNameConfigurations(domainNameConfigurations.map(_.asJava).orNull)
       .build()
 }

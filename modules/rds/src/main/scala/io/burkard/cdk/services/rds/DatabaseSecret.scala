@@ -8,8 +8,8 @@ object DatabaseSecret {
 
   def apply(
     internalResourceId: String,
+    username: String,
     replicaRegions: Option[List[_ <: software.amazon.awscdk.services.secretsmanager.ReplicaRegion]] = None,
-    username: Option[String] = None,
     masterSecret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     excludeCharacters: Option[String] = None,
     replaceOnPasswordCriteriaChanges: Option[Boolean] = None,
@@ -18,8 +18,8 @@ object DatabaseSecret {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.DatabaseSecret =
     software.amazon.awscdk.services.rds.DatabaseSecret.Builder
       .create(stackCtx, internalResourceId)
+      .username(username)
       .replicaRegions(replicaRegions.map(_.asJava).orNull)
-      .username(username.orNull)
       .masterSecret(masterSecret.orNull)
       .excludeCharacters(excludeCharacters.orNull)
       .replaceOnPasswordCriteriaChanges(replaceOnPasswordCriteriaChanges.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cloudfront
 object LambdaFunctionAssociation {
 
   def apply(
-    eventType: Option[software.amazon.awscdk.services.cloudfront.LambdaEdgeEventType] = None,
-    lambdaFunction: Option[software.amazon.awscdk.services.lambda.IVersion] = None,
+    eventType: software.amazon.awscdk.services.cloudfront.LambdaEdgeEventType,
+    lambdaFunction: software.amazon.awscdk.services.lambda.IVersion,
     includeBody: Option[Boolean] = None
   ): software.amazon.awscdk.services.cloudfront.LambdaFunctionAssociation =
     (new software.amazon.awscdk.services.cloudfront.LambdaFunctionAssociation.Builder)
-      .eventType(eventType.orNull)
-      .lambdaFunction(lambdaFunction.orNull)
+      .eventType(eventType)
+      .lambdaFunction(lambdaFunction)
       .includeBody(includeBody.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

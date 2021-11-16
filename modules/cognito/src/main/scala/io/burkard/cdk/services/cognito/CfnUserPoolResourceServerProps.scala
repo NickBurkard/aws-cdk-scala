@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnUserPoolResourceServerProps {
 
   def apply(
-    name: Option[String] = None,
-    identifier: Option[String] = None,
-    scopes: Option[List[_]] = None,
-    userPoolId: Option[String] = None
+    name: String,
+    identifier: String,
+    userPoolId: String,
+    scopes: Option[List[_]] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolResourceServerProps =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolResourceServerProps.Builder)
-      .name(name.orNull)
-      .identifier(identifier.orNull)
+      .name(name)
+      .identifier(identifier)
+      .userPoolId(userPoolId)
       .scopes(scopes.map(_.asJava).orNull)
-      .userPoolId(userPoolId.orNull)
       .build()
 }

@@ -11,8 +11,8 @@ object JsonSchema {
     additionalItems: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     id: Option[String] = None,
     exclusiveMinimum: Option[Boolean] = None,
-    additionalProperties0: Option[Boolean] = None,
-    additionalProperties1: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
+    additionalProperties0: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
+    additionalProperties1: Option[Boolean] = None,
     allOf: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     exclusiveMaximum: Option[Boolean] = None,
     format: Option[String] = None,
@@ -53,8 +53,8 @@ object JsonSchema {
       .additionalItems(additionalItems.map(_.asJava).orNull)
       .id(id.orNull)
       .exclusiveMinimum(exclusiveMinimum.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .additionalProperties(additionalProperties0.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .additionalProperties(additionalProperties1.orNull)
+      .additionalProperties(additionalProperties0.orNull)
+      .additionalProperties(additionalProperties1.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .allOf(allOf.map(_.asJava).orNull)
       .exclusiveMaximum(exclusiveMaximum.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .format(format.orNull)

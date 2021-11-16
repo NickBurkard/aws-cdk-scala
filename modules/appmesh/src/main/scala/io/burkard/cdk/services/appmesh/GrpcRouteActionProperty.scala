@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object GrpcRouteActionProperty {
 
   def apply(
-    weightedTargets: Option[List[_]] = None
+    weightedTargets: List[_]
   ): software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteActionProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteActionProperty.Builder)
-      .weightedTargets(weightedTargets.map(_.asJava).orNull)
+      .weightedTargets(weightedTargets.asJava)
       .build()
 }

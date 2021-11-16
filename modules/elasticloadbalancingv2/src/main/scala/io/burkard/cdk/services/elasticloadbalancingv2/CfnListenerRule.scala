@@ -8,16 +8,16 @@ object CfnListenerRule {
 
   def apply(
     internalResourceId: String,
-    conditions: Option[List[_]] = None,
-    priority: Option[Number] = None,
-    listenerArn: Option[String] = None,
-    actions: Option[List[_]] = None
+    conditions: List[_],
+    priority: Number,
+    listenerArn: String,
+    actions: List[_]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule =
     software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.Builder
       .create(stackCtx, internalResourceId)
-      .conditions(conditions.map(_.asJava).orNull)
-      .priority(priority.orNull)
-      .listenerArn(listenerArn.orNull)
-      .actions(actions.map(_.asJava).orNull)
+      .conditions(conditions.asJava)
+      .priority(priority)
+      .listenerArn(listenerArn)
+      .actions(actions.asJava)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object ListenerTlsFileCertificateProperty {
 
   def apply(
-    privateKey: Option[String] = None,
-    certificateChain: Option[String] = None
+    privateKey: String,
+    certificateChain: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsFileCertificateProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsFileCertificateProperty.Builder)
-      .privateKey(privateKey.orNull)
-      .certificateChain(certificateChain.orNull)
+      .privateKey(privateKey)
+      .certificateChain(certificateChain)
       .build()
 }

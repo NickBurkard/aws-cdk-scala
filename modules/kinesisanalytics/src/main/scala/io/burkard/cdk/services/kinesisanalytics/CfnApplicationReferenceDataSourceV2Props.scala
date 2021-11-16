@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisanalytics
 object CfnApplicationReferenceDataSourceV2Props {
 
   def apply(
-    referenceDataSource: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceDataSourceProperty] = None,
-    applicationName: Option[String] = None
+    referenceDataSource: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceDataSourceProperty,
+    applicationName: String
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2Props =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2Props.Builder)
-      .referenceDataSource(referenceDataSource.orNull)
-      .applicationName(applicationName.orNull)
+      .referenceDataSource(referenceDataSource)
+      .applicationName(applicationName)
       .build()
 }

@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnAppProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     repository: Option[String] = None,
     environmentVariables: Option[List[_]] = None,
     oauthToken: Option[String] = None,
@@ -23,7 +23,7 @@ object CfnAppProps {
     buildSpec: Option[String] = None
   ): software.amazon.awscdk.services.amplify.CfnAppProps =
     (new software.amazon.awscdk.services.amplify.CfnAppProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .repository(repository.orNull)
       .environmentVariables(environmentVariables.map(_.asJava).orNull)
       .oauthToken(oauthToken.orNull)

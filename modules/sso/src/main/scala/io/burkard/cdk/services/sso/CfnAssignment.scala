@@ -5,20 +5,20 @@ object CfnAssignment {
 
   def apply(
     internalResourceId: String,
-    principalId: Option[String] = None,
-    targetType: Option[String] = None,
-    instanceArn: Option[String] = None,
-    principalType: Option[String] = None,
-    targetId: Option[String] = None,
-    permissionSetArn: Option[String] = None
+    principalId: String,
+    targetType: String,
+    instanceArn: String,
+    principalType: String,
+    targetId: String,
+    permissionSetArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sso.CfnAssignment =
     software.amazon.awscdk.services.sso.CfnAssignment.Builder
       .create(stackCtx, internalResourceId)
-      .principalId(principalId.orNull)
-      .targetType(targetType.orNull)
-      .instanceArn(instanceArn.orNull)
-      .principalType(principalType.orNull)
-      .targetId(targetId.orNull)
-      .permissionSetArn(permissionSetArn.orNull)
+      .principalId(principalId)
+      .targetType(targetType)
+      .instanceArn(instanceArn)
+      .principalType(principalType)
+      .targetId(targetId)
+      .permissionSetArn(permissionSetArn)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.quicksight
 object TemplateSourceTemplateProperty {
 
   def apply(
-    arn: Option[String] = None
+    arn: String
   ): software.amazon.awscdk.services.quicksight.CfnTemplate.TemplateSourceTemplateProperty =
     (new software.amazon.awscdk.services.quicksight.CfnTemplate.TemplateSourceTemplateProperty.Builder)
-      .arn(arn.orNull)
+      .arn(arn)
       .build()
 }

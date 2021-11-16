@@ -5,8 +5,8 @@ object EventInvokeConfig {
 
   def apply(
     internalResourceId: String,
+    function: software.amazon.awscdk.services.lambda.IFunction,
     onSuccess: Option[software.amazon.awscdk.services.lambda.IDestination] = None,
-    function: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     retryAttempts: Option[Number] = None,
     onFailure: Option[software.amazon.awscdk.services.lambda.IDestination] = None,
     qualifier: Option[String] = None,
@@ -14,8 +14,8 @@ object EventInvokeConfig {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.EventInvokeConfig =
     software.amazon.awscdk.services.lambda.EventInvokeConfig.Builder
       .create(stackCtx, internalResourceId)
+      .function(function)
       .onSuccess(onSuccess.orNull)
-      .function(function.orNull)
       .retryAttempts(retryAttempts.orNull)
       .onFailure(onFailure.orNull)
       .qualifier(qualifier.orNull)

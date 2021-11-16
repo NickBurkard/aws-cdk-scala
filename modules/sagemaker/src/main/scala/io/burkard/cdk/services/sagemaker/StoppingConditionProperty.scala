@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object StoppingConditionProperty {
 
   def apply(
-    maxRuntimeInSeconds: Option[Number] = None
+    maxRuntimeInSeconds: Number
   ): software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.StoppingConditionProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.StoppingConditionProperty.Builder)
-      .maxRuntimeInSeconds(maxRuntimeInSeconds.orNull)
+      .maxRuntimeInSeconds(maxRuntimeInSeconds)
       .build()
 }

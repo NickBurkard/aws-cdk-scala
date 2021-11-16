@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnEnvironmentEC2Props {
 
   def apply(
+    instanceType: String,
     name: Option[String] = None,
-    instanceType: Option[String] = None,
     imageId: Option[String] = None,
     repositories: Option[List[_]] = None,
     ownerArn: Option[String] = None,
@@ -19,8 +19,8 @@ object CfnEnvironmentEC2Props {
     automaticStopTimeMinutes: Option[Number] = None
   ): software.amazon.awscdk.services.cloud9.CfnEnvironmentEC2Props =
     (new software.amazon.awscdk.services.cloud9.CfnEnvironmentEC2Props.Builder)
+      .instanceType(instanceType)
       .name(name.orNull)
-      .instanceType(instanceType.orNull)
       .imageId(imageId.orNull)
       .repositories(repositories.map(_.asJava).orNull)
       .ownerArn(ownerArn.orNull)

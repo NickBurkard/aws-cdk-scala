@@ -4,13 +4,13 @@ package io.burkard.cdk.services.servicecatalog
 object CfnServiceActionAssociationProps {
 
   def apply(
-    serviceActionId: Option[String] = None,
-    provisioningArtifactId: Option[String] = None,
-    productId: Option[String] = None
+    serviceActionId: String,
+    provisioningArtifactId: String,
+    productId: String
   ): software.amazon.awscdk.services.servicecatalog.CfnServiceActionAssociationProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnServiceActionAssociationProps.Builder)
-      .serviceActionId(serviceActionId.orNull)
-      .provisioningArtifactId(provisioningArtifactId.orNull)
-      .productId(productId.orNull)
+      .serviceActionId(serviceActionId)
+      .provisioningArtifactId(provisioningArtifactId)
+      .productId(productId)
       .build()
 }

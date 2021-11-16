@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnUserPoolIdentityProviderProps {
 
   def apply(
+    providerType: String,
+    providerName: String,
+    userPoolId: String,
     providerDetails: Option[AnyRef] = None,
     attributeMapping: Option[AnyRef] = None,
-    idpIdentifiers: Option[List[String]] = None,
-    providerType: Option[String] = None,
-    providerName: Option[String] = None,
-    userPoolId: Option[String] = None
+    idpIdentifiers: Option[List[String]] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolIdentityProviderProps =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolIdentityProviderProps.Builder)
+      .providerType(providerType)
+      .providerName(providerName)
+      .userPoolId(userPoolId)
       .providerDetails(providerDetails.orNull)
       .attributeMapping(attributeMapping.orNull)
       .idpIdentifiers(idpIdentifiers.map(_.asJava).orNull)
-      .providerType(providerType.orNull)
-      .providerName(providerName.orNull)
-      .userPoolId(userPoolId.orNull)
       .build()
 }

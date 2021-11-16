@@ -8,12 +8,12 @@ object CfnSubscriptionDefinitionVersion {
 
   def apply(
     internalResourceId: String,
-    subscriptionDefinitionId: Option[String] = None,
-    subscriptions: Option[List[_]] = None
+    subscriptionDefinitionId: String,
+    subscriptions: List[_]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersion =
     software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersion.Builder
       .create(stackCtx, internalResourceId)
-      .subscriptionDefinitionId(subscriptionDefinitionId.orNull)
-      .subscriptions(subscriptions.map(_.asJava).orNull)
+      .subscriptionDefinitionId(subscriptionDefinitionId)
+      .subscriptions(subscriptions.asJava)
       .build()
 }

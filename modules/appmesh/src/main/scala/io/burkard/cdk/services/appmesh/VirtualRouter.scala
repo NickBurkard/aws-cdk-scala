@@ -8,14 +8,14 @@ object VirtualRouter {
 
   def apply(
     internalResourceId: String,
+    mesh: software.amazon.awscdk.services.appmesh.IMesh,
     virtualRouterName: Option[String] = None,
-    listeners: Option[List[_ <: software.amazon.awscdk.services.appmesh.VirtualRouterListener]] = None,
-    mesh: Option[software.amazon.awscdk.services.appmesh.IMesh] = None
+    listeners: Option[List[_ <: software.amazon.awscdk.services.appmesh.VirtualRouterListener]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appmesh.VirtualRouter =
     software.amazon.awscdk.services.appmesh.VirtualRouter.Builder
       .create(stackCtx, internalResourceId)
+      .mesh(mesh)
       .virtualRouterName(virtualRouterName.orNull)
       .listeners(listeners.map(_.asJava).orNull)
-      .mesh(mesh.orNull)
       .build()
 }

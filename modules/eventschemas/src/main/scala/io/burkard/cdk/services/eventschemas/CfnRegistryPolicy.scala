@@ -5,14 +5,14 @@ object CfnRegistryPolicy {
 
   def apply(
     internalResourceId: String,
-    revisionId: Option[String] = None,
-    registryName: Option[String] = None,
-    policy: Option[AnyRef] = None
+    registryName: String,
+    policy: AnyRef,
+    revisionId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.eventschemas.CfnRegistryPolicy =
     software.amazon.awscdk.services.eventschemas.CfnRegistryPolicy.Builder
       .create(stackCtx, internalResourceId)
+      .registryName(registryName)
+      .policy(policy)
       .revisionId(revisionId.orNull)
-      .registryName(registryName.orNull)
-      .policy(policy.orNull)
       .build()
 }

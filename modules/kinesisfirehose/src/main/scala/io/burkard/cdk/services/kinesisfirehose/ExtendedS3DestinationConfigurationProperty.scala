@@ -4,6 +4,8 @@ package io.burkard.cdk.services.kinesisfirehose
 object ExtendedS3DestinationConfigurationProperty {
 
   def apply(
+    roleArn: String,
+    bucketArn: String,
     errorOutputPrefix: Option[String] = None,
     dynamicPartitioningConfiguration: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.DynamicPartitioningConfigurationProperty] = None,
     compressionFormat: Option[String] = None,
@@ -13,12 +15,12 @@ object ExtendedS3DestinationConfigurationProperty {
     s3BackupConfiguration: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.S3DestinationConfigurationProperty] = None,
     prefix: Option[String] = None,
     cloudWatchLoggingOptions: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.CloudWatchLoggingOptionsProperty] = None,
-    roleArn: Option[String] = None,
     bufferingHints: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.BufferingHintsProperty] = None,
-    bucketArn: Option[String] = None,
     dataFormatConversionConfiguration: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.DataFormatConversionConfigurationProperty] = None
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.Builder)
+      .roleArn(roleArn)
+      .bucketArn(bucketArn)
       .errorOutputPrefix(errorOutputPrefix.orNull)
       .dynamicPartitioningConfiguration(dynamicPartitioningConfiguration.orNull)
       .compressionFormat(compressionFormat.orNull)
@@ -28,9 +30,7 @@ object ExtendedS3DestinationConfigurationProperty {
       .s3BackupConfiguration(s3BackupConfiguration.orNull)
       .prefix(prefix.orNull)
       .cloudWatchLoggingOptions(cloudWatchLoggingOptions.orNull)
-      .roleArn(roleArn.orNull)
       .bufferingHints(bufferingHints.orNull)
-      .bucketArn(bucketArn.orNull)
       .dataFormatConversionConfiguration(dataFormatConversionConfiguration.orNull)
       .build()
 }

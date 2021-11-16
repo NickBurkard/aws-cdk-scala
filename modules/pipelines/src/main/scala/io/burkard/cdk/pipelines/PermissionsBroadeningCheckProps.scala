@@ -4,11 +4,11 @@ package io.burkard.cdk.pipelines
 object PermissionsBroadeningCheckProps {
 
   def apply(
-    notificationTopic: Option[software.amazon.awscdk.services.sns.ITopic] = None,
-    stage: Option[software.amazon.awscdk.Stage] = None
+    stage: software.amazon.awscdk.Stage,
+    notificationTopic: Option[software.amazon.awscdk.services.sns.ITopic] = None
   ): software.amazon.awscdk.pipelines.PermissionsBroadeningCheckProps =
     (new software.amazon.awscdk.pipelines.PermissionsBroadeningCheckProps.Builder)
+      .stage(stage)
       .notificationTopic(notificationTopic.orNull)
-      .stage(stage.orNull)
       .build()
 }

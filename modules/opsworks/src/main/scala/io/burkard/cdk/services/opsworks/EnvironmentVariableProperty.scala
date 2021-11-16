@@ -4,13 +4,13 @@ package io.burkard.cdk.services.opsworks
 object EnvironmentVariableProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None,
+    key: String,
+    value: String,
     secure: Option[Boolean] = None
   ): software.amazon.awscdk.services.opsworks.CfnApp.EnvironmentVariableProperty =
     (new software.amazon.awscdk.services.opsworks.CfnApp.EnvironmentVariableProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .secure(secure.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

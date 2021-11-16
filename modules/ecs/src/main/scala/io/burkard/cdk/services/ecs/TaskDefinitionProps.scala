@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object TaskDefinitionProps {
 
   def apply(
+    compatibility: software.amazon.awscdk.services.ecs.Compatibility,
     pidMode: Option[software.amazon.awscdk.services.ecs.PidMode] = None,
     memoryMiB: Option[String] = None,
     ipcMode: Option[software.amazon.awscdk.services.ecs.IpcMode] = None,
-    compatibility: Option[software.amazon.awscdk.services.ecs.Compatibility] = None,
     proxyConfiguration: Option[software.amazon.awscdk.services.ecs.ProxyConfiguration] = None,
     cpu: Option[String] = None,
     placementConstraints: Option[List[_ <: software.amazon.awscdk.services.ecs.PlacementConstraint]] = None,
@@ -23,10 +23,10 @@ object TaskDefinitionProps {
     ephemeralStorageGiB: Option[Number] = None
   ): software.amazon.awscdk.services.ecs.TaskDefinitionProps =
     (new software.amazon.awscdk.services.ecs.TaskDefinitionProps.Builder)
+      .compatibility(compatibility)
       .pidMode(pidMode.orNull)
       .memoryMiB(memoryMiB.orNull)
       .ipcMode(ipcMode.orNull)
-      .compatibility(compatibility.orNull)
       .proxyConfiguration(proxyConfiguration.orNull)
       .cpu(cpu.orNull)
       .placementConstraints(placementConstraints.map(_.asJava).orNull)

@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnFaqProps {
 
   def apply(
-    name: Option[String] = None,
-    s3Path: Option[software.amazon.awscdk.services.kendra.CfnFaq.S3PathProperty] = None,
+    name: String,
+    s3Path: software.amazon.awscdk.services.kendra.CfnFaq.S3PathProperty,
+    roleArn: String,
+    indexId: String,
     fileFormat: Option[String] = None,
     description: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    roleArn: Option[String] = None,
-    indexId: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.kendra.CfnFaqProps =
     (new software.amazon.awscdk.services.kendra.CfnFaqProps.Builder)
-      .name(name.orNull)
-      .s3Path(s3Path.orNull)
+      .name(name)
+      .s3Path(s3Path)
+      .roleArn(roleArn)
+      .indexId(indexId)
       .fileFormat(fileFormat.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .roleArn(roleArn.orNull)
-      .indexId(indexId.orNull)
       .build()
 }

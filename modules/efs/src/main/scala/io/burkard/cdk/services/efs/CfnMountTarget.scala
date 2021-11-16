@@ -8,16 +8,16 @@ object CfnMountTarget {
 
   def apply(
     internalResourceId: String,
-    subnetId: Option[String] = None,
-    ipAddress: Option[String] = None,
-    securityGroups: Option[List[String]] = None,
-    fileSystemId: Option[String] = None
+    subnetId: String,
+    securityGroups: List[String],
+    fileSystemId: String,
+    ipAddress: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.efs.CfnMountTarget =
     software.amazon.awscdk.services.efs.CfnMountTarget.Builder
       .create(stackCtx, internalResourceId)
-      .subnetId(subnetId.orNull)
+      .subnetId(subnetId)
+      .securityGroups(securityGroups.asJava)
+      .fileSystemId(fileSystemId)
       .ipAddress(ipAddress.orNull)
-      .securityGroups(securityGroups.map(_.asJava).orNull)
-      .fileSystemId(fileSystemId.orNull)
       .build()
 }

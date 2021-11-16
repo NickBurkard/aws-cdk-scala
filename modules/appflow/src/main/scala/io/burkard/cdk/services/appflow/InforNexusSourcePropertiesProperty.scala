@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object InforNexusSourcePropertiesProperty {
 
   def apply(
-    `object`: Option[String] = None
+    `object`: String
   ): software.amazon.awscdk.services.appflow.CfnFlow.InforNexusSourcePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.InforNexusSourcePropertiesProperty.Builder)
-      .`object`(`object`.orNull)
+      .`object`(`object`)
       .build()
 }

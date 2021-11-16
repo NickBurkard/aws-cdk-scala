@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cloudfront
 object CustomHeaderProperty {
 
   def apply(
-    `override`: Option[Boolean] = None,
-    header: Option[String] = None,
-    value: Option[String] = None
+    `override`: Boolean,
+    header: String,
+    value: String
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.CustomHeaderProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.CustomHeaderProperty.Builder)
-      .`override`(`override`.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .header(header.orNull)
-      .value(value.orNull)
+      .`override`(`override`)
+      .header(header)
+      .value(value)
       .build()
 }

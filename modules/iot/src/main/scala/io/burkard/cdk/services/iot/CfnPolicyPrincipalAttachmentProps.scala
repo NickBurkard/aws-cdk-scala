@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object CfnPolicyPrincipalAttachmentProps {
 
   def apply(
-    policyName: Option[String] = None,
-    principal: Option[String] = None
+    policyName: String,
+    principal: String
   ): software.amazon.awscdk.services.iot.CfnPolicyPrincipalAttachmentProps =
     (new software.amazon.awscdk.services.iot.CfnPolicyPrincipalAttachmentProps.Builder)
-      .policyName(policyName.orNull)
-      .principal(principal.orNull)
+      .policyName(policyName)
+      .principal(principal)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnSecurityGroupProps {
 
   def apply(
-    description: Option[String] = None,
+    description: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.elasticache.CfnSecurityGroupProps =
     (new software.amazon.awscdk.services.elasticache.CfnSecurityGroupProps.Builder)
-      .description(description.orNull)
+      .description(description)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

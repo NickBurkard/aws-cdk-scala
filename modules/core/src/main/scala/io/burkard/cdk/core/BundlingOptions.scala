@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object BundlingOptions {
 
   def apply(
-    image: Option[software.amazon.awscdk.DockerImage] = None,
+    image: software.amazon.awscdk.DockerImage,
     local: Option[software.amazon.awscdk.ILocalBundling] = None,
     securityOpt: Option[String] = None,
     command: Option[List[String]] = None,
@@ -19,7 +19,7 @@ object BundlingOptions {
     outputType: Option[software.amazon.awscdk.BundlingOutput] = None
   ): software.amazon.awscdk.BundlingOptions =
     (new software.amazon.awscdk.BundlingOptions.Builder)
-      .image(image.orNull)
+      .image(image)
       .local(local.orNull)
       .securityOpt(securityOpt.orNull)
       .command(command.map(_.asJava).orNull)

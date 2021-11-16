@@ -4,11 +4,11 @@ package io.burkard.cdk.services.logs
 object CfnResourcePolicyProps {
 
   def apply(
-    policyName: Option[String] = None,
-    policyDocument: Option[String] = None
+    policyName: String,
+    policyDocument: String
   ): software.amazon.awscdk.services.logs.CfnResourcePolicyProps =
     (new software.amazon.awscdk.services.logs.CfnResourcePolicyProps.Builder)
-      .policyName(policyName.orNull)
-      .policyDocument(policyDocument.orNull)
+      .policyName(policyName)
+      .policyDocument(policyDocument)
       .build()
 }

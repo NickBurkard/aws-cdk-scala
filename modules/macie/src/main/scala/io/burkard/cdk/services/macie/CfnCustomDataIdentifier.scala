@@ -8,8 +8,8 @@ object CfnCustomDataIdentifier {
 
   def apply(
     internalResourceId: String,
-    regex: Option[String] = None,
-    name: Option[String] = None,
+    regex: String,
+    name: String,
     description: Option[String] = None,
     maximumMatchDistance: Option[Number] = None,
     keywords: Option[List[String]] = None,
@@ -17,8 +17,8 @@ object CfnCustomDataIdentifier {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.macie.CfnCustomDataIdentifier =
     software.amazon.awscdk.services.macie.CfnCustomDataIdentifier.Builder
       .create(stackCtx, internalResourceId)
-      .regex(regex.orNull)
-      .name(name.orNull)
+      .regex(regex)
+      .name(name)
       .description(description.orNull)
       .maximumMatchDistance(maximumMatchDistance.orNull)
       .keywords(keywords.map(_.asJava).orNull)

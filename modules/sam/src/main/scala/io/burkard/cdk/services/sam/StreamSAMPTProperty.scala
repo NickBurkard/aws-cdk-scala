@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object StreamSAMPTProperty {
 
   def apply(
-    streamName: Option[String] = None
+    streamName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.StreamSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.StreamSAMPTProperty.Builder)
-      .streamName(streamName.orNull)
+      .streamName(streamName)
       .build()
 }

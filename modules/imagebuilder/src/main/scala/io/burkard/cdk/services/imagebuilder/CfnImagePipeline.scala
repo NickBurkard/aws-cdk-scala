@@ -8,9 +8,9 @@ object CfnImagePipeline {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
+    infrastructureConfigurationArn: String,
     enhancedImageMetadataEnabled: Option[Boolean] = None,
-    infrastructureConfigurationArn: Option[String] = None,
     imageRecipeArn: Option[String] = None,
     imageTestsConfiguration: Option[software.amazon.awscdk.services.imagebuilder.CfnImagePipeline.ImageTestsConfigurationProperty] = None,
     status: Option[String] = None,
@@ -22,9 +22,9 @@ object CfnImagePipeline {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.imagebuilder.CfnImagePipeline =
     software.amazon.awscdk.services.imagebuilder.CfnImagePipeline.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .infrastructureConfigurationArn(infrastructureConfigurationArn)
       .enhancedImageMetadataEnabled(enhancedImageMetadataEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .infrastructureConfigurationArn(infrastructureConfigurationArn.orNull)
       .imageRecipeArn(imageRecipeArn.orNull)
       .imageTestsConfiguration(imageTestsConfiguration.orNull)
       .status(status.orNull)

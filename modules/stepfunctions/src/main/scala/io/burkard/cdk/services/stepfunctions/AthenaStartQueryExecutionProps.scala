@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object AthenaStartQueryExecutionProps {
 
   def apply(
+    queryString: String,
     workGroup: Option[String] = None,
-    queryString: Option[String] = None,
     resultPath: Option[String] = None,
     clientRequestToken: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
@@ -22,8 +22,8 @@ object AthenaStartQueryExecutionProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.AthenaStartQueryExecutionProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.AthenaStartQueryExecutionProps.Builder)
+      .queryString(queryString)
       .workGroup(workGroup.orNull)
-      .queryString(queryString.orNull)
       .resultPath(resultPath.orNull)
       .clientRequestToken(clientRequestToken.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)

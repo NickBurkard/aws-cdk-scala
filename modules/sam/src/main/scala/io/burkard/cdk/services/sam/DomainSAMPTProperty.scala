@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object DomainSAMPTProperty {
 
   def apply(
-    domainName: Option[String] = None
+    domainName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.DomainSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.DomainSAMPTProperty.Builder)
-      .domainName(domainName.orNull)
+      .domainName(domainName)
       .build()
 }

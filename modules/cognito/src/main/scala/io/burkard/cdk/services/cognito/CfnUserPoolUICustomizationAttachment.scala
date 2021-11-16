@@ -5,14 +5,14 @@ object CfnUserPoolUICustomizationAttachment {
 
   def apply(
     internalResourceId: String,
-    userPoolId: Option[String] = None,
-    clientId: Option[String] = None,
+    userPoolId: String,
+    clientId: String,
     css: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.CfnUserPoolUICustomizationAttachment =
     software.amazon.awscdk.services.cognito.CfnUserPoolUICustomizationAttachment.Builder
       .create(stackCtx, internalResourceId)
-      .userPoolId(userPoolId.orNull)
-      .clientId(clientId.orNull)
+      .userPoolId(userPoolId)
+      .clientId(clientId)
       .css(css.orNull)
       .build()
 }

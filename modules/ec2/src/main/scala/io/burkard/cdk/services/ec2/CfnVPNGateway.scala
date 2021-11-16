@@ -8,14 +8,14 @@ object CfnVPNGateway {
 
   def apply(
     internalResourceId: String,
+    `type`: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    amazonSideAsn: Option[Number] = None,
-    `type`: Option[String] = None
+    amazonSideAsn: Option[Number] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVPNGateway =
     software.amazon.awscdk.services.ec2.CfnVPNGateway.Builder
       .create(stackCtx, internalResourceId)
+      .`type`(`type`)
       .tags(tags.map(_.asJava).orNull)
       .amazonSideAsn(amazonSideAsn.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

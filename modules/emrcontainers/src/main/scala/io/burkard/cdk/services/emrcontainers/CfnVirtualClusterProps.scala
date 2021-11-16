@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnVirtualClusterProps {
 
   def apply(
-    name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    containerProvider: Option[software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.ContainerProviderProperty] = None
+    name: String,
+    containerProvider: software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.ContainerProviderProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.emrcontainers.CfnVirtualClusterProps =
     (new software.amazon.awscdk.services.emrcontainers.CfnVirtualClusterProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .containerProvider(containerProvider)
       .tags(tags.map(_.asJava).orNull)
-      .containerProvider(containerProvider.orNull)
       .build()
 }

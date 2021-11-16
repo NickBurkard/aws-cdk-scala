@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object OriginGroupFailoverCriteriaProperty {
 
   def apply(
-    statusCodes: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.StatusCodesProperty] = None
+    statusCodes: software.amazon.awscdk.services.cloudfront.CfnDistribution.StatusCodesProperty
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupFailoverCriteriaProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupFailoverCriteriaProperty.Builder)
-      .statusCodes(statusCodes.orNull)
+      .statusCodes(statusCodes)
       .build()
 }

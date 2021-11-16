@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object PutAssetPropertyValueEntryProperty {
 
   def apply(
+    propertyValues: List[_],
     propertyAlias: Option[String] = None,
     entryId: Option[String] = None,
     assetId: Option[String] = None,
-    propertyId: Option[String] = None,
-    propertyValues: Option[List[_]] = None
+    propertyId: Option[String] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.PutAssetPropertyValueEntryProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.PutAssetPropertyValueEntryProperty.Builder)
+      .propertyValues(propertyValues.asJava)
       .propertyAlias(propertyAlias.orNull)
       .entryId(entryId.orNull)
       .assetId(assetId.orNull)
       .propertyId(propertyId.orNull)
-      .propertyValues(propertyValues.map(_.asJava).orNull)
       .build()
 }

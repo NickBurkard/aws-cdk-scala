@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object Tmpfs {
 
   def apply(
-    mountOptions: Option[List[_ <: software.amazon.awscdk.services.ecs.TmpfsMountOption]] = None,
-    size: Option[Number] = None,
-    containerPath: Option[String] = None
+    size: Number,
+    containerPath: String,
+    mountOptions: Option[List[_ <: software.amazon.awscdk.services.ecs.TmpfsMountOption]] = None
   ): software.amazon.awscdk.services.ecs.Tmpfs =
     (new software.amazon.awscdk.services.ecs.Tmpfs.Builder)
+      .size(size)
+      .containerPath(containerPath)
       .mountOptions(mountOptions.map(_.asJava).orNull)
-      .size(size.orNull)
-      .containerPath(containerPath.orNull)
       .build()
 }

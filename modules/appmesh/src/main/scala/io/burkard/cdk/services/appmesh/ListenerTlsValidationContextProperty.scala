@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object ListenerTlsValidationContextProperty {
 
   def apply(
-    trust: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsValidationContextTrustProperty] = None,
+    trust: software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsValidationContextTrustProperty,
     subjectAlternativeNames: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.SubjectAlternativeNamesProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsValidationContextProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsValidationContextProperty.Builder)
-      .trust(trust.orNull)
+      .trust(trust)
       .subjectAlternativeNames(subjectAlternativeNames.orNull)
       .build()
 }

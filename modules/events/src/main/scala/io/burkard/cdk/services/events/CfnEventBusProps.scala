@@ -4,11 +4,11 @@ package io.burkard.cdk.services.events
 object CfnEventBusProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     eventSourceName: Option[String] = None
   ): software.amazon.awscdk.services.events.CfnEventBusProps =
     (new software.amazon.awscdk.services.events.CfnEventBusProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .eventSourceName(eventSourceName.orNull)
       .build()
 }

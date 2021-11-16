@@ -4,11 +4,11 @@ package io.burkard.cdk.services.applicationautoscaling
 object EnableScalingProps {
 
   def apply(
-    maxCapacity: Option[Number] = None,
+    maxCapacity: Number,
     minCapacity: Option[Number] = None
   ): software.amazon.awscdk.services.applicationautoscaling.EnableScalingProps =
     (new software.amazon.awscdk.services.applicationautoscaling.EnableScalingProps.Builder)
-      .maxCapacity(maxCapacity.orNull)
+      .maxCapacity(maxCapacity)
       .minCapacity(minCapacity.orNull)
       .build()
 }

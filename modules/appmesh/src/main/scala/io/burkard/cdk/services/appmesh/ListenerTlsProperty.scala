@@ -4,13 +4,13 @@ package io.burkard.cdk.services.appmesh
 object ListenerTlsProperty {
 
   def apply(
-    certificate: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsCertificateProperty] = None,
-    mode: Option[String] = None,
+    certificate: software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsCertificateProperty,
+    mode: String,
     validation: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsValidationContextProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsProperty.Builder)
-      .certificate(certificate.orNull)
-      .mode(mode.orNull)
+      .certificate(certificate)
+      .mode(mode)
       .validation(validation.orNull)
       .build()
 }

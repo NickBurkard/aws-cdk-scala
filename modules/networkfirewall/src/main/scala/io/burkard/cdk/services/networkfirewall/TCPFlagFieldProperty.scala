@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TCPFlagFieldProperty {
 
   def apply(
-    flags: Option[List[String]] = None,
+    flags: List[String],
     masks: Option[List[String]] = None
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.TCPFlagFieldProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.TCPFlagFieldProperty.Builder)
-      .flags(flags.map(_.asJava).orNull)
+      .flags(flags.asJava)
       .masks(masks.map(_.asJava).orNull)
       .build()
 }

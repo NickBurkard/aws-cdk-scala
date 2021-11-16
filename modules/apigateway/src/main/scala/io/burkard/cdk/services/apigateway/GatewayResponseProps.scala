@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object GatewayResponseProps {
 
   def apply(
+    restApi: software.amazon.awscdk.services.apigateway.IRestApi,
     statusCode: Option[String] = None,
-    restApi: Option[software.amazon.awscdk.services.apigateway.IRestApi] = None,
     responseHeaders: Option[Map[String, String]] = None,
     templates: Option[Map[String, String]] = None,
     `type`: Option[software.amazon.awscdk.services.apigateway.ResponseType] = None
   ): software.amazon.awscdk.services.apigateway.GatewayResponseProps =
     (new software.amazon.awscdk.services.apigateway.GatewayResponseProps.Builder)
+      .restApi(restApi)
       .statusCode(statusCode.orNull)
-      .restApi(restApi.orNull)
       .responseHeaders(responseHeaders.map(_.asJava).orNull)
       .templates(templates.map(_.asJava).orNull)
       .`type`(`type`.orNull)

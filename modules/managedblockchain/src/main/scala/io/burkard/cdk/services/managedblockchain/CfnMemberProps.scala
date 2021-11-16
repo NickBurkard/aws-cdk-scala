@@ -4,15 +4,15 @@ package io.burkard.cdk.services.managedblockchain
 object CfnMemberProps {
 
   def apply(
+    memberConfiguration: software.amazon.awscdk.services.managedblockchain.CfnMember.MemberConfigurationProperty,
     networkId: Option[String] = None,
     networkConfiguration: Option[software.amazon.awscdk.services.managedblockchain.CfnMember.NetworkConfigurationProperty] = None,
-    memberConfiguration: Option[software.amazon.awscdk.services.managedblockchain.CfnMember.MemberConfigurationProperty] = None,
     invitationId: Option[String] = None
   ): software.amazon.awscdk.services.managedblockchain.CfnMemberProps =
     (new software.amazon.awscdk.services.managedblockchain.CfnMemberProps.Builder)
+      .memberConfiguration(memberConfiguration)
       .networkId(networkId.orNull)
       .networkConfiguration(networkConfiguration.orNull)
-      .memberConfiguration(memberConfiguration.orNull)
       .invitationId(invitationId.orNull)
       .build()
 }

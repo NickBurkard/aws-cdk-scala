@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotevents
 object DynamoDBv2Property {
 
   def apply(
-    payload: Option[software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty] = None,
-    tableName: Option[String] = None
+    tableName: String,
+    payload: Option[software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty] = None
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.DynamoDBv2Property =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.DynamoDBv2Property.Builder)
+      .tableName(tableName)
       .payload(payload.orNull)
-      .tableName(tableName.orNull)
       .build()
 }

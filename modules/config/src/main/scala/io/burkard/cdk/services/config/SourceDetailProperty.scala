@@ -4,13 +4,13 @@ package io.burkard.cdk.services.config
 object SourceDetailProperty {
 
   def apply(
-    eventSource: Option[String] = None,
-    messageType: Option[String] = None,
+    eventSource: String,
+    messageType: String,
     maximumExecutionFrequency: Option[String] = None
   ): software.amazon.awscdk.services.config.CfnConfigRule.SourceDetailProperty =
     (new software.amazon.awscdk.services.config.CfnConfigRule.SourceDetailProperty.Builder)
-      .eventSource(eventSource.orNull)
-      .messageType(messageType.orNull)
+      .eventSource(eventSource)
+      .messageType(messageType)
       .maximumExecutionFrequency(maximumExecutionFrequency.orNull)
       .build()
 }

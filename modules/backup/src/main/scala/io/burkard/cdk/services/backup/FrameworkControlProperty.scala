@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object FrameworkControlProperty {
 
   def apply(
-    controlName: Option[String] = None,
+    controlName: String,
     controlScope: Option[AnyRef] = None,
     controlInputParameters: Option[List[_]] = None
   ): software.amazon.awscdk.services.backup.CfnFramework.FrameworkControlProperty =
     (new software.amazon.awscdk.services.backup.CfnFramework.FrameworkControlProperty.Builder)
-      .controlName(controlName.orNull)
+      .controlName(controlName)
       .controlScope(controlScope.orNull)
       .controlInputParameters(controlInputParameters.map(_.asJava).orNull)
       .build()

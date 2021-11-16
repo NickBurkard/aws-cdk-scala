@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codebuild
 object FileSystemConfig {
 
   def apply(
-    location: Option[software.amazon.awscdk.services.codebuild.CfnProject.ProjectFileSystemLocationProperty] = None
+    location: software.amazon.awscdk.services.codebuild.CfnProject.ProjectFileSystemLocationProperty
   ): software.amazon.awscdk.services.codebuild.FileSystemConfig =
     (new software.amazon.awscdk.services.codebuild.FileSystemConfig.Builder)
-      .location(location.orNull)
+      .location(location)
       .build()
 }

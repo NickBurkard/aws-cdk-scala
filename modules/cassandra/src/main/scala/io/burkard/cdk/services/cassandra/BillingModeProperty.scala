@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cassandra
 object BillingModeProperty {
 
   def apply(
-    provisionedThroughput: Option[software.amazon.awscdk.services.cassandra.CfnTable.ProvisionedThroughputProperty] = None,
-    mode: Option[String] = None
+    mode: String,
+    provisionedThroughput: Option[software.amazon.awscdk.services.cassandra.CfnTable.ProvisionedThroughputProperty] = None
   ): software.amazon.awscdk.services.cassandra.CfnTable.BillingModeProperty =
     (new software.amazon.awscdk.services.cassandra.CfnTable.BillingModeProperty.Builder)
+      .mode(mode)
       .provisionedThroughput(provisionedThroughput.orNull)
-      .mode(mode.orNull)
       .build()
 }

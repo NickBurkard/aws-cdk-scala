@@ -5,12 +5,12 @@ object CfnSecurityConfiguration {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    securityConfiguration: Option[AnyRef] = None
+    securityConfiguration: AnyRef,
+    name: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.emr.CfnSecurityConfiguration =
     software.amazon.awscdk.services.emr.CfnSecurityConfiguration.Builder
       .create(stackCtx, internalResourceId)
+      .securityConfiguration(securityConfiguration)
       .name(name.orNull)
-      .securityConfiguration(securityConfiguration.orNull)
       .build()
 }

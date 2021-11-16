@@ -4,13 +4,13 @@ package io.burkard.cdk.services.servicediscovery
 object PrivateDnsNamespaceProps {
 
   def apply(
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     name: Option[String] = None,
-    description: Option[String] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
+    description: Option[String] = None
   ): software.amazon.awscdk.services.servicediscovery.PrivateDnsNamespaceProps =
     (new software.amazon.awscdk.services.servicediscovery.PrivateDnsNamespaceProps.Builder)
+      .vpc(vpc)
       .name(name.orNull)
       .description(description.orNull)
-      .vpc(vpc.orNull)
       .build()
 }

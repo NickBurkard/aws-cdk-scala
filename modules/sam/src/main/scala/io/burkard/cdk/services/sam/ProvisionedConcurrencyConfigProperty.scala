@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object ProvisionedConcurrencyConfigProperty {
 
   def apply(
-    provisionedConcurrentExecutions: Option[String] = None
+    provisionedConcurrentExecutions: String
   ): software.amazon.awscdk.services.sam.CfnFunction.ProvisionedConcurrencyConfigProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.ProvisionedConcurrencyConfigProperty.Builder)
-      .provisionedConcurrentExecutions(provisionedConcurrentExecutions.orNull)
+      .provisionedConcurrentExecutions(provisionedConcurrentExecutions)
       .build()
 }

@@ -8,15 +8,15 @@ object CnameInstance {
 
   def apply(
     internalResourceId: String,
+    service: software.amazon.awscdk.services.servicediscovery.IService,
     instanceId: Option[String] = None,
-    service: Option[software.amazon.awscdk.services.servicediscovery.IService] = None,
     instanceCname: Option[String] = None,
     customAttributes: Option[Map[String, String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicediscovery.CnameInstance =
     software.amazon.awscdk.services.servicediscovery.CnameInstance.Builder
       .create(stackCtx, internalResourceId)
+      .service(service)
       .instanceId(instanceId.orNull)
-      .service(service.orNull)
       .instanceCname(instanceCname.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .build()

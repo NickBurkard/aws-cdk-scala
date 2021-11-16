@@ -4,11 +4,11 @@ package io.burkard.cdk.services.acmpca
 object PolicyQualifierInfoProperty {
 
   def apply(
-    policyQualifierId: Option[String] = None,
-    qualifier: Option[software.amazon.awscdk.services.acmpca.CfnCertificate.QualifierProperty] = None
+    policyQualifierId: String,
+    qualifier: software.amazon.awscdk.services.acmpca.CfnCertificate.QualifierProperty
   ): software.amazon.awscdk.services.acmpca.CfnCertificate.PolicyQualifierInfoProperty =
     (new software.amazon.awscdk.services.acmpca.CfnCertificate.PolicyQualifierInfoProperty.Builder)
-      .policyQualifierId(policyQualifierId.orNull)
-      .qualifier(qualifier.orNull)
+      .policyQualifierId(policyQualifierId)
+      .qualifier(qualifier)
       .build()
 }

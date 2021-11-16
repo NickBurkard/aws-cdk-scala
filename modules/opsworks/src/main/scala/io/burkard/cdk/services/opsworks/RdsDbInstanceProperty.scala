@@ -4,13 +4,13 @@ package io.burkard.cdk.services.opsworks
 object RdsDbInstanceProperty {
 
   def apply(
-    dbUser: Option[String] = None,
-    rdsDbInstanceArn: Option[String] = None,
-    dbPassword: Option[String] = None
+    dbUser: String,
+    rdsDbInstanceArn: String,
+    dbPassword: String
   ): software.amazon.awscdk.services.opsworks.CfnStack.RdsDbInstanceProperty =
     (new software.amazon.awscdk.services.opsworks.CfnStack.RdsDbInstanceProperty.Builder)
-      .dbUser(dbUser.orNull)
-      .rdsDbInstanceArn(rdsDbInstanceArn.orNull)
-      .dbPassword(dbPassword.orNull)
+      .dbUser(dbUser)
+      .rdsDbInstanceArn(rdsDbInstanceArn)
+      .dbPassword(dbPassword)
       .build()
 }

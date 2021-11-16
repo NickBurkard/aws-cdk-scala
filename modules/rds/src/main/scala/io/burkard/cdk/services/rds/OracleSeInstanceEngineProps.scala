@@ -5,9 +5,9 @@ package io.burkard.cdk.services.rds
 object OracleSeInstanceEngineProps {
 
   def apply(
-    version: Option[software.amazon.awscdk.services.rds.OracleLegacyEngineVersion] = None
+    version: software.amazon.awscdk.services.rds.OracleLegacyEngineVersion
   ): software.amazon.awscdk.services.rds.OracleSeInstanceEngineProps =
     (new software.amazon.awscdk.services.rds.OracleSeInstanceEngineProps.Builder)
-      .version(version.orNull)
+      .version(version)
       .build()
 }

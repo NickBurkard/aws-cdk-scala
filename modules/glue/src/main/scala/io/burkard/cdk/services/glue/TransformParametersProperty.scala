@@ -4,11 +4,11 @@ package io.burkard.cdk.services.glue
 object TransformParametersProperty {
 
   def apply(
-    findMatchesParameters: Option[software.amazon.awscdk.services.glue.CfnMLTransform.FindMatchesParametersProperty] = None,
-    transformType: Option[String] = None
+    transformType: String,
+    findMatchesParameters: Option[software.amazon.awscdk.services.glue.CfnMLTransform.FindMatchesParametersProperty] = None
   ): software.amazon.awscdk.services.glue.CfnMLTransform.TransformParametersProperty =
     (new software.amazon.awscdk.services.glue.CfnMLTransform.TransformParametersProperty.Builder)
+      .transformType(transformType)
       .findMatchesParameters(findMatchesParameters.orNull)
-      .transformType(transformType.orNull)
       .build()
 }

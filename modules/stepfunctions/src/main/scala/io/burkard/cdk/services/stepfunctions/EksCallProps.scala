@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object EksCallProps {
 
   def apply(
-    httpPath: Option[String] = None,
-    httpMethod: Option[software.amazon.awscdk.services.stepfunctions.tasks.HttpMethods] = None,
+    httpPath: String,
+    httpMethod: software.amazon.awscdk.services.stepfunctions.tasks.HttpMethods,
+    cluster: software.amazon.awscdk.services.eks.ICluster,
     resultPath: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.eks.ICluster] = None,
     resultSelector: Option[Map[String, _]] = None,
     queryParameters: Option[Map[String, _ <: List[String]]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
@@ -22,10 +22,10 @@ object EksCallProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EksCallProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EksCallProps.Builder)
-      .httpPath(httpPath.orNull)
-      .httpMethod(httpMethod.orNull)
+      .httpPath(httpPath)
+      .httpMethod(httpMethod)
+      .cluster(cluster)
       .resultPath(resultPath.orNull)
-      .cluster(cluster.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .queryParameters(queryParameters.map(_.mapValues(_.asJava).toMap.asJava).orNull)
       .heartbeat(heartbeat.orNull)

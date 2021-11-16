@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object VpcConfigProperty {
 
   def apply(
-    subnets: Option[List[String]] = None,
-    securityGroupIds: Option[List[String]] = None
+    subnets: List[String],
+    securityGroupIds: List[String]
   ): software.amazon.awscdk.services.sagemaker.CfnModel.VpcConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModel.VpcConfigProperty.Builder)
-      .subnets(subnets.map(_.asJava).orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
+      .subnets(subnets.asJava)
+      .securityGroupIds(securityGroupIds.asJava)
       .build()
 }

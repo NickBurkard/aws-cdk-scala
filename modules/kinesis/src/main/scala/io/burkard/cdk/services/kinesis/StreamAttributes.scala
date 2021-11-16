@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesis
 object StreamAttributes {
 
   def apply(
-    streamArn: Option[String] = None,
+    streamArn: String,
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.kinesis.StreamAttributes =
     (new software.amazon.awscdk.services.kinesis.StreamAttributes.Builder)
-      .streamArn(streamArn.orNull)
+      .streamArn(streamArn)
       .encryptionKey(encryptionKey.orNull)
       .build()
 }

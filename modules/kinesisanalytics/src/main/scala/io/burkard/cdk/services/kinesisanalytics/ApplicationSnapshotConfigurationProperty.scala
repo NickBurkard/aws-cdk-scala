@@ -4,9 +4,9 @@ package io.burkard.cdk.services.kinesisanalytics
 object ApplicationSnapshotConfigurationProperty {
 
   def apply(
-    snapshotsEnabled: Option[Boolean] = None
+    snapshotsEnabled: Boolean
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.ApplicationSnapshotConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.ApplicationSnapshotConfigurationProperty.Builder)
-      .snapshotsEnabled(snapshotsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .snapshotsEnabled(snapshotsEnabled)
       .build()
 }

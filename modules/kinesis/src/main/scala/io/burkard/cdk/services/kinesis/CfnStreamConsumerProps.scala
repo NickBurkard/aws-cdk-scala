@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesis
 object CfnStreamConsumerProps {
 
   def apply(
-    consumerName: Option[String] = None,
-    streamArn: Option[String] = None
+    consumerName: String,
+    streamArn: String
   ): software.amazon.awscdk.services.kinesis.CfnStreamConsumerProps =
     (new software.amazon.awscdk.services.kinesis.CfnStreamConsumerProps.Builder)
-      .consumerName(consumerName.orNull)
-      .streamArn(streamArn.orNull)
+      .consumerName(consumerName)
+      .streamArn(streamArn)
       .build()
 }

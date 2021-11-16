@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TemplateSourceAnalysisProperty {
 
   def apply(
-    arn: Option[String] = None,
-    dataSetReferences: Option[List[_]] = None
+    arn: String,
+    dataSetReferences: List[_]
   ): software.amazon.awscdk.services.quicksight.CfnTemplate.TemplateSourceAnalysisProperty =
     (new software.amazon.awscdk.services.quicksight.CfnTemplate.TemplateSourceAnalysisProperty.Builder)
-      .arn(arn.orNull)
-      .dataSetReferences(dataSetReferences.map(_.asJava).orNull)
+      .arn(arn)
+      .dataSetReferences(dataSetReferences.asJava)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object GatewayVpcEndpointOptions {
 
   def apply(
-    subnets: Option[List[_ <: software.amazon.awscdk.services.ec2.SubnetSelection]] = None,
-    service: Option[software.amazon.awscdk.services.ec2.IGatewayVpcEndpointService] = None
+    service: software.amazon.awscdk.services.ec2.IGatewayVpcEndpointService,
+    subnets: Option[List[_ <: software.amazon.awscdk.services.ec2.SubnetSelection]] = None
   ): software.amazon.awscdk.services.ec2.GatewayVpcEndpointOptions =
     (new software.amazon.awscdk.services.ec2.GatewayVpcEndpointOptions.Builder)
+      .service(service)
       .subnets(subnets.map(_.asJava).orNull)
-      .service(service.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object DestinationConfigProperty {
 
   def apply(
-    onFailure: Option[software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty] = None
+    onFailure: software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty
   ): software.amazon.awscdk.services.sam.CfnFunction.DestinationConfigProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.DestinationConfigProperty.Builder)
-      .onFailure(onFailure.orNull)
+      .onFailure(onFailure)
       .build()
 }

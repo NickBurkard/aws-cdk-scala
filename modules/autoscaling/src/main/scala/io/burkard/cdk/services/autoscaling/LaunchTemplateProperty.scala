@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object LaunchTemplateProperty {
 
   def apply(
-    launchTemplateSpecification: Option[software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.LaunchTemplateSpecificationProperty] = None,
+    launchTemplateSpecification: software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.LaunchTemplateSpecificationProperty,
     overrides: Option[List[_]] = None
   ): software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.LaunchTemplateProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.LaunchTemplateProperty.Builder)
-      .launchTemplateSpecification(launchTemplateSpecification.orNull)
+      .launchTemplateSpecification(launchTemplateSpecification)
       .overrides(overrides.map(_.asJava).orNull)
       .build()
 }

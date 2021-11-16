@@ -4,11 +4,11 @@ package io.burkard.cdk.cloudassembly
 object NestedCloudAssemblyProperties {
 
   def apply(
-    displayName: Option[String] = None,
-    directoryName: Option[String] = None
+    directoryName: String,
+    displayName: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.NestedCloudAssemblyProperties =
     (new software.amazon.awscdk.cloudassembly.schema.NestedCloudAssemblyProperties.Builder)
+      .directoryName(directoryName)
       .displayName(displayName.orNull)
-      .directoryName(directoryName.orNull)
       .build()
 }

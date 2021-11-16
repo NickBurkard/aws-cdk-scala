@@ -4,15 +4,15 @@ package io.burkard.cdk.services.efs
 object AccessPointProps {
 
   def apply(
+    fileSystem: software.amazon.awscdk.services.efs.IFileSystem,
     createAcl: Option[software.amazon.awscdk.services.efs.Acl] = None,
     path: Option[String] = None,
-    fileSystem: Option[software.amazon.awscdk.services.efs.IFileSystem] = None,
     posixUser: Option[software.amazon.awscdk.services.efs.PosixUser] = None
   ): software.amazon.awscdk.services.efs.AccessPointProps =
     (new software.amazon.awscdk.services.efs.AccessPointProps.Builder)
+      .fileSystem(fileSystem)
       .createAcl(createAcl.orNull)
       .path(path.orNull)
-      .fileSystem(fileSystem.orNull)
       .posixUser(posixUser.orNull)
       .build()
 }

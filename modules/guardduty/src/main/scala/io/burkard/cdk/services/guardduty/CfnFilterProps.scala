@@ -4,19 +4,19 @@ package io.burkard.cdk.services.guardduty
 object CfnFilterProps {
 
   def apply(
-    name: Option[String] = None,
-    detectorId: Option[String] = None,
-    rank: Option[Number] = None,
-    action: Option[String] = None,
-    description: Option[String] = None,
-    findingCriteria: Option[software.amazon.awscdk.services.guardduty.CfnFilter.FindingCriteriaProperty] = None
+    name: String,
+    detectorId: String,
+    rank: Number,
+    action: String,
+    description: String,
+    findingCriteria: software.amazon.awscdk.services.guardduty.CfnFilter.FindingCriteriaProperty
   ): software.amazon.awscdk.services.guardduty.CfnFilterProps =
     (new software.amazon.awscdk.services.guardduty.CfnFilterProps.Builder)
-      .name(name.orNull)
-      .detectorId(detectorId.orNull)
-      .rank(rank.orNull)
-      .action(action.orNull)
-      .description(description.orNull)
-      .findingCriteria(findingCriteria.orNull)
+      .name(name)
+      .detectorId(detectorId)
+      .rank(rank)
+      .action(action)
+      .description(description)
+      .findingCriteria(findingCriteria)
       .build()
 }

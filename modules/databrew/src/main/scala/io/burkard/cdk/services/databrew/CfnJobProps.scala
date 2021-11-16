@@ -7,6 +7,9 @@ import scala.collection.JavaConverters._
 object CfnJobProps {
 
   def apply(
+    `type`: String,
+    name: String,
+    roleArn: String,
     recipe: Option[AnyRef] = None,
     jobSample: Option[software.amazon.awscdk.services.databrew.CfnJob.JobSampleProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
@@ -16,18 +19,18 @@ object CfnJobProps {
     encryptionKeyArn: Option[String] = None,
     encryptionMode: Option[String] = None,
     outputLocation: Option[software.amazon.awscdk.services.databrew.CfnJob.OutputLocationProperty] = None,
-    `type`: Option[String] = None,
     timeout: Option[Number] = None,
     projectName: Option[String] = None,
     maxCapacity: Option[Number] = None,
-    name: Option[String] = None,
     dataCatalogOutputs: Option[List[_]] = None,
     logSubscription: Option[String] = None,
     datasetName: Option[String] = None,
-    roleArn: Option[String] = None,
     maxRetries: Option[Number] = None
   ): software.amazon.awscdk.services.databrew.CfnJobProps =
     (new software.amazon.awscdk.services.databrew.CfnJobProps.Builder)
+      .`type`(`type`)
+      .name(name)
+      .roleArn(roleArn)
       .recipe(recipe.orNull)
       .jobSample(jobSample.orNull)
       .tags(tags.map(_.asJava).orNull)
@@ -37,15 +40,12 @@ object CfnJobProps {
       .encryptionKeyArn(encryptionKeyArn.orNull)
       .encryptionMode(encryptionMode.orNull)
       .outputLocation(outputLocation.orNull)
-      .`type`(`type`.orNull)
       .timeout(timeout.orNull)
       .projectName(projectName.orNull)
       .maxCapacity(maxCapacity.orNull)
-      .name(name.orNull)
       .dataCatalogOutputs(dataCatalogOutputs.map(_.asJava).orNull)
       .logSubscription(logSubscription.orNull)
       .datasetName(datasetName.orNull)
-      .roleArn(roleArn.orNull)
       .maxRetries(maxRetries.orNull)
       .build()
 }

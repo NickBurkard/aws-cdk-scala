@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codebuild
 object ProjectSourceVersionProperty {
 
   def apply(
-    sourceVersion: Option[String] = None,
-    sourceIdentifier: Option[String] = None
+    sourceIdentifier: String,
+    sourceVersion: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.ProjectSourceVersionProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.ProjectSourceVersionProperty.Builder)
+      .sourceIdentifier(sourceIdentifier)
       .sourceVersion(sourceVersion.orNull)
-      .sourceIdentifier(sourceIdentifier.orNull)
       .build()
 }

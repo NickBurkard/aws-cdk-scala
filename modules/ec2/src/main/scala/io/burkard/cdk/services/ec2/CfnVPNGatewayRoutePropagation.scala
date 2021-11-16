@@ -8,12 +8,12 @@ object CfnVPNGatewayRoutePropagation {
 
   def apply(
     internalResourceId: String,
-    vpnGatewayId: Option[String] = None,
-    routeTableIds: Option[List[String]] = None
+    vpnGatewayId: String,
+    routeTableIds: List[String]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVPNGatewayRoutePropagation =
     software.amazon.awscdk.services.ec2.CfnVPNGatewayRoutePropagation.Builder
       .create(stackCtx, internalResourceId)
-      .vpnGatewayId(vpnGatewayId.orNull)
-      .routeTableIds(routeTableIds.map(_.asJava).orNull)
+      .vpnGatewayId(vpnGatewayId)
+      .routeTableIds(routeTableIds.asJava)
       .build()
 }

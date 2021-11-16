@@ -5,14 +5,14 @@ object CfnSecretTargetAttachment {
 
   def apply(
     internalResourceId: String,
-    secretId: Option[String] = None,
-    targetId: Option[String] = None,
-    targetType: Option[String] = None
+    secretId: String,
+    targetId: String,
+    targetType: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.secretsmanager.CfnSecretTargetAttachment =
     software.amazon.awscdk.services.secretsmanager.CfnSecretTargetAttachment.Builder
       .create(stackCtx, internalResourceId)
-      .secretId(secretId.orNull)
-      .targetId(targetId.orNull)
-      .targetType(targetType.orNull)
+      .secretId(secretId)
+      .targetId(targetId)
+      .targetType(targetType)
       .build()
 }

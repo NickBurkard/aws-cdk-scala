@@ -4,15 +4,15 @@ package io.burkard.cdk.services.stepfunctions
 object SpotProvisioningSpecificationProperty {
 
   def apply(
+    timeoutAction: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotTimeoutAction,
+    timeoutDurationMinutes: Number,
     allocationStrategy: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotAllocationStrategy] = None,
-    timeoutAction: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotTimeoutAction] = None,
-    blockDurationMinutes: Option[Number] = None,
-    timeoutDurationMinutes: Option[Number] = None
+    blockDurationMinutes: Option[Number] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotProvisioningSpecificationProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotProvisioningSpecificationProperty.Builder)
+      .timeoutAction(timeoutAction)
+      .timeoutDurationMinutes(timeoutDurationMinutes)
       .allocationStrategy(allocationStrategy.orNull)
-      .timeoutAction(timeoutAction.orNull)
       .blockDurationMinutes(blockDurationMinutes.orNull)
-      .timeoutDurationMinutes(timeoutDurationMinutes.orNull)
       .build()
 }

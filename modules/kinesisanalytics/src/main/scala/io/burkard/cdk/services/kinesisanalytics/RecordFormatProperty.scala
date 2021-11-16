@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisanalytics
 object RecordFormatProperty {
 
   def apply(
-    recordFormatType: Option[String] = None,
+    recordFormatType: String,
     mappingParameters: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.MappingParametersProperty] = None
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty.Builder)
-      .recordFormatType(recordFormatType.orNull)
+      .recordFormatType(recordFormatType)
       .mappingParameters(mappingParameters.orNull)
       .build()
 }

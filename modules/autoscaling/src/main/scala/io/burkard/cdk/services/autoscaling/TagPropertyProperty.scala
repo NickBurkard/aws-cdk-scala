@@ -4,13 +4,13 @@ package io.burkard.cdk.services.autoscaling
 object TagPropertyProperty {
 
   def apply(
-    key: Option[String] = None,
-    propagateAtLaunch: Option[Boolean] = None,
-    value: Option[String] = None
+    key: String,
+    propagateAtLaunch: Boolean,
+    value: String
   ): software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.TagPropertyProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.TagPropertyProperty.Builder)
-      .key(key.orNull)
-      .propagateAtLaunch(propagateAtLaunch.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .value(value.orNull)
+      .key(key)
+      .propagateAtLaunch(propagateAtLaunch)
+      .value(value)
       .build()
 }

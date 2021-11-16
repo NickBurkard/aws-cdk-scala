@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnClusterProps {
 
   def apply(
+    iamRoleArn: String,
+    nodeType: String,
+    replicationFactor: Number,
     subnetGroupName: Option[String] = None,
-    iamRoleArn: Option[String] = None,
     clusterEndpointEncryptionType: Option[String] = None,
     securityGroupIds: Option[List[String]] = None,
     preferredMaintenanceWindow: Option[String] = None,
     sseSpecification: Option[software.amazon.awscdk.services.dax.CfnCluster.SSESpecificationProperty] = None,
-    nodeType: Option[String] = None,
-    replicationFactor: Option[Number] = None,
     clusterName: Option[String] = None,
     availabilityZones: Option[List[String]] = None,
     description: Option[String] = None,
@@ -23,14 +23,14 @@ object CfnClusterProps {
     parameterGroupName: Option[String] = None
   ): software.amazon.awscdk.services.dax.CfnClusterProps =
     (new software.amazon.awscdk.services.dax.CfnClusterProps.Builder)
+      .iamRoleArn(iamRoleArn)
+      .nodeType(nodeType)
+      .replicationFactor(replicationFactor)
       .subnetGroupName(subnetGroupName.orNull)
-      .iamRoleArn(iamRoleArn.orNull)
       .clusterEndpointEncryptionType(clusterEndpointEncryptionType.orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .preferredMaintenanceWindow(preferredMaintenanceWindow.orNull)
       .sseSpecification(sseSpecification.orNull)
-      .nodeType(nodeType.orNull)
-      .replicationFactor(replicationFactor.orNull)
       .clusterName(clusterName.orNull)
       .availabilityZones(availabilityZones.map(_.asJava).orNull)
       .description(description.orNull)

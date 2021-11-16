@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object HttpConnectionPool {
 
   def apply(
-    maxConnections: Option[Number] = None,
-    maxPendingRequests: Option[Number] = None
+    maxConnections: Number,
+    maxPendingRequests: Number
   ): software.amazon.awscdk.services.appmesh.HttpConnectionPool =
     (new software.amazon.awscdk.services.appmesh.HttpConnectionPool.Builder)
-      .maxConnections(maxConnections.orNull)
-      .maxPendingRequests(maxPendingRequests.orNull)
+      .maxConnections(maxConnections)
+      .maxPendingRequests(maxPendingRequests)
       .build()
 }

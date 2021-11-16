@@ -4,11 +4,11 @@ package io.burkard.cdk.services.quicksight
 object DataSetReferenceProperty {
 
   def apply(
-    dataSetArn: Option[String] = None,
-    dataSetPlaceholder: Option[String] = None
+    dataSetArn: String,
+    dataSetPlaceholder: String
   ): software.amazon.awscdk.services.quicksight.CfnAnalysis.DataSetReferenceProperty =
     (new software.amazon.awscdk.services.quicksight.CfnAnalysis.DataSetReferenceProperty.Builder)
-      .dataSetArn(dataSetArn.orNull)
-      .dataSetPlaceholder(dataSetPlaceholder.orNull)
+      .dataSetArn(dataSetArn)
+      .dataSetPlaceholder(dataSetPlaceholder)
       .build()
 }

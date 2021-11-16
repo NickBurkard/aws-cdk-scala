@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codebuild
 object S3LogsConfigProperty {
 
   def apply(
+    status: String,
     location: Option[String] = None,
-    status: Option[String] = None,
     encryptionDisabled: Option[Boolean] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.S3LogsConfigProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.S3LogsConfigProperty.Builder)
+      .status(status)
       .location(location.orNull)
-      .status(status.orNull)
       .encryptionDisabled(encryptionDisabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

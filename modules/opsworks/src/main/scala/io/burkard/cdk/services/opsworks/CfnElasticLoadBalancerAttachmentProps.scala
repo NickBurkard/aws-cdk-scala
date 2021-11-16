@@ -4,11 +4,11 @@ package io.burkard.cdk.services.opsworks
 object CfnElasticLoadBalancerAttachmentProps {
 
   def apply(
-    layerId: Option[String] = None,
-    elasticLoadBalancerName: Option[String] = None
+    layerId: String,
+    elasticLoadBalancerName: String
   ): software.amazon.awscdk.services.opsworks.CfnElasticLoadBalancerAttachmentProps =
     (new software.amazon.awscdk.services.opsworks.CfnElasticLoadBalancerAttachmentProps.Builder)
-      .layerId(layerId.orNull)
-      .elasticLoadBalancerName(elasticLoadBalancerName.orNull)
+      .layerId(layerId)
+      .elasticLoadBalancerName(elasticLoadBalancerName)
       .build()
 }

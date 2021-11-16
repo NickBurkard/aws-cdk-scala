@@ -4,12 +4,12 @@ package io.burkard.cdk.services.databrew
 object DatetimeOptionsProperty {
 
   def apply(
-    format: Option[String] = None,
+    format: String,
     localeCode: Option[String] = None,
     timezoneOffset: Option[String] = None
   ): software.amazon.awscdk.services.databrew.CfnDataset.DatetimeOptionsProperty =
     (new software.amazon.awscdk.services.databrew.CfnDataset.DatetimeOptionsProperty.Builder)
-      .format(format.orNull)
+      .format(format)
       .localeCode(localeCode.orNull)
       .timezoneOffset(timezoneOffset.orNull)
       .build()

@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object EventProperty {
 
   def apply(
-    eventName: Option[String] = None,
+    eventName: String,
     condition: Option[String] = None,
     actions: Option[List[_]] = None
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.EventProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.EventProperty.Builder)
-      .eventName(eventName.orNull)
+      .eventName(eventName)
       .condition(condition.orNull)
       .actions(actions.map(_.asJava).orNull)
       .build()

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.quicksight
 object FilterOperationProperty {
 
   def apply(
-    conditionExpression: Option[String] = None
+    conditionExpression: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.FilterOperationProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.FilterOperationProperty.Builder)
-      .conditionExpression(conditionExpression.orNull)
+      .conditionExpression(conditionExpression)
       .build()
 }

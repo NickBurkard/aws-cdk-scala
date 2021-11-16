@@ -4,13 +4,13 @@ package io.burkard.cdk.core
 object DockerVolume {
 
   def apply(
-    hostPath: Option[String] = None,
-    consistency: Option[software.amazon.awscdk.DockerVolumeConsistency] = None,
-    containerPath: Option[String] = None
+    hostPath: String,
+    containerPath: String,
+    consistency: Option[software.amazon.awscdk.DockerVolumeConsistency] = None
   ): software.amazon.awscdk.DockerVolume =
     (new software.amazon.awscdk.DockerVolume.Builder)
-      .hostPath(hostPath.orNull)
+      .hostPath(hostPath)
+      .containerPath(containerPath)
       .consistency(consistency.orNull)
-      .containerPath(containerPath.orNull)
       .build()
 }

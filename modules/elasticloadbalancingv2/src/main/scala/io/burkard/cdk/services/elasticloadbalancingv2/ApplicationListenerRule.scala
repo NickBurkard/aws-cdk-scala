@@ -8,9 +8,9 @@ object ApplicationListenerRule {
 
   def apply(
     internalResourceId: String,
+    listener: software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationListener,
     conditions: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.ListenerCondition]] = None,
     priority: Option[Number] = None,
-    listener: Option[software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationListener] = None,
     pathPattern: Option[String] = None,
     fixedResponse: Option[software.amazon.awscdk.services.elasticloadbalancingv2.FixedResponse] = None,
     redirectResponse: Option[software.amazon.awscdk.services.elasticloadbalancingv2.RedirectResponse] = None,
@@ -21,9 +21,9 @@ object ApplicationListenerRule {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListenerRule =
     software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListenerRule.Builder
       .create(stackCtx, internalResourceId)
+      .listener(listener)
       .conditions(conditions.map(_.asJava).orNull)
       .priority(priority.orNull)
-      .listener(listener.orNull)
       .pathPattern(pathPattern.orNull)
       .fixedResponse(fixedResponse.orNull)
       .redirectResponse(redirectResponse.orNull)

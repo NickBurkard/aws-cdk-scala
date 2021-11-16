@@ -7,6 +7,11 @@ import scala.collection.JavaConverters._
 object CfnClusterProps {
 
   def apply(
+    dbName: String,
+    masterUserPassword: String,
+    nodeType: String,
+    clusterType: String,
+    masterUsername: String,
     snapshotIdentifier: Option[String] = None,
     enhancedVpcRouting: Option[Boolean] = None,
     clusterIdentifier: Option[String] = None,
@@ -30,18 +35,14 @@ object CfnClusterProps {
     vpcSecurityGroupIds: Option[List[String]] = None,
     snapshotCopyManual: Option[Boolean] = None,
     maintenanceTrackName: Option[String] = None,
-    dbName: Option[String] = None,
-    masterUserPassword: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     clusterSubnetGroupName: Option[String] = None,
     aquaConfigurationStatus: Option[String] = None,
     destinationRegion: Option[String] = None,
     elasticIp: Option[String] = None,
     clusterVersion: Option[String] = None,
-    nodeType: Option[String] = None,
     endpoint: Option[software.amazon.awscdk.services.redshift.CfnCluster.EndpointProperty] = None,
     availabilityZoneRelocation: Option[Boolean] = None,
-    clusterType: Option[String] = None,
     ownerAccount: Option[String] = None,
     allowVersionUpgrade: Option[Boolean] = None,
     publiclyAccessible: Option[Boolean] = None,
@@ -49,7 +50,6 @@ object CfnClusterProps {
     deferMaintenanceEndTime: Option[String] = None,
     deferMaintenanceDuration: Option[Number] = None,
     manualSnapshotRetentionPeriod: Option[Number] = None,
-    masterUsername: Option[String] = None,
     iamRoles: Option[List[String]] = None,
     resourceAction: Option[String] = None,
     availabilityZoneRelocationStatus: Option[String] = None,
@@ -57,6 +57,11 @@ object CfnClusterProps {
     deferMaintenance: Option[Boolean] = None
   ): software.amazon.awscdk.services.redshift.CfnClusterProps =
     (new software.amazon.awscdk.services.redshift.CfnClusterProps.Builder)
+      .dbName(dbName)
+      .masterUserPassword(masterUserPassword)
+      .nodeType(nodeType)
+      .clusterType(clusterType)
+      .masterUsername(masterUsername)
       .snapshotIdentifier(snapshotIdentifier.orNull)
       .enhancedVpcRouting(enhancedVpcRouting.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .clusterIdentifier(clusterIdentifier.orNull)
@@ -80,18 +85,14 @@ object CfnClusterProps {
       .vpcSecurityGroupIds(vpcSecurityGroupIds.map(_.asJava).orNull)
       .snapshotCopyManual(snapshotCopyManual.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .maintenanceTrackName(maintenanceTrackName.orNull)
-      .dbName(dbName.orNull)
-      .masterUserPassword(masterUserPassword.orNull)
       .tags(tags.map(_.asJava).orNull)
       .clusterSubnetGroupName(clusterSubnetGroupName.orNull)
       .aquaConfigurationStatus(aquaConfigurationStatus.orNull)
       .destinationRegion(destinationRegion.orNull)
       .elasticIp(elasticIp.orNull)
       .clusterVersion(clusterVersion.orNull)
-      .nodeType(nodeType.orNull)
       .endpoint(endpoint.orNull)
       .availabilityZoneRelocation(availabilityZoneRelocation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .clusterType(clusterType.orNull)
       .ownerAccount(ownerAccount.orNull)
       .allowVersionUpgrade(allowVersionUpgrade.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .publiclyAccessible(publiclyAccessible.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -99,7 +100,6 @@ object CfnClusterProps {
       .deferMaintenanceEndTime(deferMaintenanceEndTime.orNull)
       .deferMaintenanceDuration(deferMaintenanceDuration.orNull)
       .manualSnapshotRetentionPeriod(manualSnapshotRetentionPeriod.orNull)
-      .masterUsername(masterUsername.orNull)
       .iamRoles(iamRoles.map(_.asJava).orNull)
       .resourceAction(resourceAction.orNull)
       .availabilityZoneRelocationStatus(availabilityZoneRelocationStatus.orNull)

@@ -4,19 +4,19 @@ package io.burkard.cdk.services.appconfig
 object CfnHostedConfigurationVersionProps {
 
   def apply(
+    applicationId: String,
+    contentType: String,
+    content: String,
+    configurationProfileId: String,
     description: Option[String] = None,
-    applicationId: Option[String] = None,
-    contentType: Option[String] = None,
-    latestVersionNumber: Option[Number] = None,
-    content: Option[String] = None,
-    configurationProfileId: Option[String] = None
+    latestVersionNumber: Option[Number] = None
   ): software.amazon.awscdk.services.appconfig.CfnHostedConfigurationVersionProps =
     (new software.amazon.awscdk.services.appconfig.CfnHostedConfigurationVersionProps.Builder)
+      .applicationId(applicationId)
+      .contentType(contentType)
+      .content(content)
+      .configurationProfileId(configurationProfileId)
       .description(description.orNull)
-      .applicationId(applicationId.orNull)
-      .contentType(contentType.orNull)
       .latestVersionNumber(latestVersionNumber.orNull)
-      .content(content.orNull)
-      .configurationProfileId(configurationProfileId.orNull)
       .build()
 }

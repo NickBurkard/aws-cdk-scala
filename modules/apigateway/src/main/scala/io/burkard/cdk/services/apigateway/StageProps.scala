@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object StageProps {
 
   def apply(
+    deployment: software.amazon.awscdk.services.apigateway.Deployment,
     throttlingBurstLimit: Option[Number] = None,
     clientCertificateId: Option[String] = None,
     description: Option[String] = None,
@@ -18,7 +19,6 @@ object StageProps {
     throttlingRateLimit: Option[Number] = None,
     accessLogFormat: Option[software.amazon.awscdk.services.apigateway.AccessLogFormat] = None,
     cacheClusterSize: Option[String] = None,
-    deployment: Option[software.amazon.awscdk.services.apigateway.Deployment] = None,
     methodOptions: Option[Map[String, _ <: software.amazon.awscdk.services.apigateway.MethodDeploymentOptions]] = None,
     documentationVersion: Option[String] = None,
     variables: Option[Map[String, String]] = None,
@@ -29,6 +29,7 @@ object StageProps {
     metricsEnabled: Option[Boolean] = None
   ): software.amazon.awscdk.services.apigateway.StageProps =
     (new software.amazon.awscdk.services.apigateway.StageProps.Builder)
+      .deployment(deployment)
       .throttlingBurstLimit(throttlingBurstLimit.orNull)
       .clientCertificateId(clientCertificateId.orNull)
       .description(description.orNull)
@@ -40,7 +41,6 @@ object StageProps {
       .throttlingRateLimit(throttlingRateLimit.orNull)
       .accessLogFormat(accessLogFormat.orNull)
       .cacheClusterSize(cacheClusterSize.orNull)
-      .deployment(deployment.orNull)
       .methodOptions(methodOptions.map(_.asJava).orNull)
       .documentationVersion(documentationVersion.orNull)
       .variables(variables.map(_.asJava).orNull)

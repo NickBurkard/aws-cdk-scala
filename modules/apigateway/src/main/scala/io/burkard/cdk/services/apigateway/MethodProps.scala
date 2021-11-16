@@ -4,15 +4,15 @@ package io.burkard.cdk.services.apigateway
 object MethodProps {
 
   def apply(
+    httpMethod: String,
+    resource: software.amazon.awscdk.services.apigateway.IResource,
     integration: Option[software.amazon.awscdk.services.apigateway.Integration] = None,
-    httpMethod: Option[String] = None,
-    options: Option[software.amazon.awscdk.services.apigateway.MethodOptions] = None,
-    resource: Option[software.amazon.awscdk.services.apigateway.IResource] = None
+    options: Option[software.amazon.awscdk.services.apigateway.MethodOptions] = None
   ): software.amazon.awscdk.services.apigateway.MethodProps =
     (new software.amazon.awscdk.services.apigateway.MethodProps.Builder)
+      .httpMethod(httpMethod)
+      .resource(resource)
       .integration(integration.orNull)
-      .httpMethod(httpMethod.orNull)
       .options(options.orNull)
-      .resource(resource.orNull)
       .build()
 }

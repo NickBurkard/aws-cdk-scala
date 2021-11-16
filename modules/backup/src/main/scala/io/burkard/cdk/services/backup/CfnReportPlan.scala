@@ -8,16 +8,16 @@ object CfnReportPlan {
 
   def apply(
     internalResourceId: String,
-    reportSetting: Option[AnyRef] = None,
-    reportDeliveryChannel: Option[AnyRef] = None,
+    reportSetting: AnyRef,
+    reportDeliveryChannel: AnyRef,
     reportPlanName: Option[String] = None,
     reportPlanDescription: Option[String] = None,
     reportPlanTags: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.backup.CfnReportPlan =
     software.amazon.awscdk.services.backup.CfnReportPlan.Builder
       .create(stackCtx, internalResourceId)
-      .reportSetting(reportSetting.orNull)
-      .reportDeliveryChannel(reportDeliveryChannel.orNull)
+      .reportSetting(reportSetting)
+      .reportDeliveryChannel(reportDeliveryChannel)
       .reportPlanName(reportPlanName.orNull)
       .reportPlanDescription(reportPlanDescription.orNull)
       .reportPlanTags(reportPlanTags.map(_.asJava).orNull)

@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object LookupMachineImageProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     userData: Option[software.amazon.awscdk.services.ec2.UserData] = None,
     owners: Option[List[String]] = None,
     filters: Option[Map[String, _ <: List[String]]] = None,
     windows: Option[Boolean] = None
   ): software.amazon.awscdk.services.ec2.LookupMachineImageProps =
     (new software.amazon.awscdk.services.ec2.LookupMachineImageProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .userData(userData.orNull)
       .owners(owners.map(_.asJava).orNull)
       .filters(filters.map(_.mapValues(_.asJava).toMap.asJava).orNull)

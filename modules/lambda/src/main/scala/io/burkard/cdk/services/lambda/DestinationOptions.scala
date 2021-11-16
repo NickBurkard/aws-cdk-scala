@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lambda
 object DestinationOptions {
 
   def apply(
-    `type`: Option[software.amazon.awscdk.services.lambda.DestinationType] = None
+    `type`: software.amazon.awscdk.services.lambda.DestinationType
   ): software.amazon.awscdk.services.lambda.DestinationOptions =
     (new software.amazon.awscdk.services.lambda.DestinationOptions.Builder)
-      .`type`(`type`.orNull)
+      .`type`(`type`)
       .build()
 }

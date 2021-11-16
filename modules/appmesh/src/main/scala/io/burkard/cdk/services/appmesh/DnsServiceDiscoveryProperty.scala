@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object DnsServiceDiscoveryProperty {
 
   def apply(
-    hostname: Option[String] = None,
+    hostname: String,
     responseType: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.DnsServiceDiscoveryProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.DnsServiceDiscoveryProperty.Builder)
-      .hostname(hostname.orNull)
+      .hostname(hostname)
       .responseType(responseType.orNull)
       .build()
 }

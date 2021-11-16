@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object SnsActionProperty {
 
   def apply(
-    targetArn: Option[String] = None,
-    messageFormat: Option[String] = None,
-    roleArn: Option[String] = None
+    targetArn: String,
+    roleArn: String,
+    messageFormat: Option[String] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.SnsActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.SnsActionProperty.Builder)
-      .targetArn(targetArn.orNull)
+      .targetArn(targetArn)
+      .roleArn(roleArn)
       .messageFormat(messageFormat.orNull)
-      .roleArn(roleArn.orNull)
       .build()
 }

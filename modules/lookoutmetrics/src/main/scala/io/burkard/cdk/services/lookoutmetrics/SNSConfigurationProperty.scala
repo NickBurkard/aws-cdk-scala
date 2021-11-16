@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lookoutmetrics
 object SNSConfigurationProperty {
 
   def apply(
-    roleArn: Option[String] = None,
-    snsTopicArn: Option[String] = None
+    roleArn: String,
+    snsTopicArn: String
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAlert.SNSConfigurationProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAlert.SNSConfigurationProperty.Builder)
-      .roleArn(roleArn.orNull)
-      .snsTopicArn(snsTopicArn.orNull)
+      .roleArn(roleArn)
+      .snsTopicArn(snsTopicArn)
       .build()
 }

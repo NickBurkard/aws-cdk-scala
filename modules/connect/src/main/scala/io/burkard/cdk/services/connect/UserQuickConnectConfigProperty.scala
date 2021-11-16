@@ -4,11 +4,11 @@ package io.burkard.cdk.services.connect
 object UserQuickConnectConfigProperty {
 
   def apply(
-    contactFlowArn: Option[String] = None,
-    userArn: Option[String] = None
+    contactFlowArn: String,
+    userArn: String
   ): software.amazon.awscdk.services.connect.CfnQuickConnect.UserQuickConnectConfigProperty =
     (new software.amazon.awscdk.services.connect.CfnQuickConnect.UserQuickConnectConfigProperty.Builder)
-      .contactFlowArn(contactFlowArn.orNull)
-      .userArn(userArn.orNull)
+      .contactFlowArn(contactFlowArn)
+      .userArn(userArn)
       .build()
 }

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.logs
 object CfnDestinationProps {
 
   def apply(
-    destinationName: Option[String] = None,
-    roleArn: Option[String] = None,
-    destinationPolicy: Option[String] = None,
-    targetArn: Option[String] = None
+    destinationName: String,
+    roleArn: String,
+    destinationPolicy: String,
+    targetArn: String
   ): software.amazon.awscdk.services.logs.CfnDestinationProps =
     (new software.amazon.awscdk.services.logs.CfnDestinationProps.Builder)
-      .destinationName(destinationName.orNull)
-      .roleArn(roleArn.orNull)
-      .destinationPolicy(destinationPolicy.orNull)
-      .targetArn(targetArn.orNull)
+      .destinationName(destinationName)
+      .roleArn(roleArn)
+      .destinationPolicy(destinationPolicy)
+      .targetArn(targetArn)
       .build()
 }

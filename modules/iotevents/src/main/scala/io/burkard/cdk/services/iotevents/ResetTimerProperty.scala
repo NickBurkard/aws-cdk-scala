@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotevents
 object ResetTimerProperty {
 
   def apply(
-    timerName: Option[String] = None
+    timerName: String
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.ResetTimerProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.ResetTimerProperty.Builder)
-      .timerName(timerName.orNull)
+      .timerName(timerName)
       .build()
 }

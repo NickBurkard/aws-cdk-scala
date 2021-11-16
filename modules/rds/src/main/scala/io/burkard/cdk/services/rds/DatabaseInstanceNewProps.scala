@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object DatabaseInstanceNewProps {
 
   def apply(
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     s3ExportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     subnetGroup: Option[software.amazon.awscdk.services.rds.ISubnetGroup] = None,
     backupRetention: Option[software.amazon.awscdk.Duration] = None,
@@ -20,7 +21,6 @@ object DatabaseInstanceNewProps {
     port: Option[Number] = None,
     iops: Option[Number] = None,
     optionGroup: Option[software.amazon.awscdk.services.rds.IOptionGroup] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     cloudwatchLogsRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     preferredBackupWindow: Option[String] = None,
     s3ExportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
@@ -47,6 +47,7 @@ object DatabaseInstanceNewProps {
     enablePerformanceInsights: Option[Boolean] = None
   ): software.amazon.awscdk.services.rds.DatabaseInstanceNewProps =
     (new software.amazon.awscdk.services.rds.DatabaseInstanceNewProps.Builder)
+      .vpc(vpc)
       .s3ExportRole(s3ExportRole.orNull)
       .subnetGroup(subnetGroup.orNull)
       .backupRetention(backupRetention.orNull)
@@ -60,7 +61,6 @@ object DatabaseInstanceNewProps {
       .port(port.orNull)
       .iops(iops.orNull)
       .optionGroup(optionGroup.orNull)
-      .vpc(vpc.orNull)
       .cloudwatchLogsRetentionRole(cloudwatchLogsRetentionRole.orNull)
       .preferredBackupWindow(preferredBackupWindow.orNull)
       .s3ExportBuckets(s3ExportBuckets.map(_.asJava).orNull)

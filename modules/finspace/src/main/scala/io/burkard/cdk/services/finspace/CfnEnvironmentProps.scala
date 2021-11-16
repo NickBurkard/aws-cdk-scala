@@ -4,14 +4,14 @@ package io.burkard.cdk.services.finspace
 object CfnEnvironmentProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     description: Option[String] = None,
     federationMode: Option[String] = None,
     federationParameters: Option[software.amazon.awscdk.services.finspace.CfnEnvironment.FederationParametersProperty] = None,
     kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.finspace.CfnEnvironmentProps =
     (new software.amazon.awscdk.services.finspace.CfnEnvironmentProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .description(description.orNull)
       .federationMode(federationMode.orNull)
       .federationParameters(federationParameters.orNull)

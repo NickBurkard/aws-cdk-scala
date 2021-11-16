@@ -4,11 +4,11 @@ package io.burkard.cdk.services.route53
 object VPCProperty {
 
   def apply(
-    vpcRegion: Option[String] = None,
-    vpcId: Option[String] = None
+    vpcRegion: String,
+    vpcId: String
   ): software.amazon.awscdk.services.route53.CfnHostedZone.VPCProperty =
     (new software.amazon.awscdk.services.route53.CfnHostedZone.VPCProperty.Builder)
-      .vpcRegion(vpcRegion.orNull)
-      .vpcId(vpcId.orNull)
+      .vpcRegion(vpcRegion)
+      .vpcId(vpcId)
       .build()
 }

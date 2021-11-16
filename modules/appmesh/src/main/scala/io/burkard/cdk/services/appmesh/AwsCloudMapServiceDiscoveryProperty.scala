@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object AwsCloudMapServiceDiscoveryProperty {
 
   def apply(
-    namespaceName: Option[String] = None,
-    serviceName: Option[String] = None,
+    namespaceName: String,
+    serviceName: String,
     attributes: Option[List[_]] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty.Builder)
-      .namespaceName(namespaceName.orNull)
-      .serviceName(serviceName.orNull)
+      .namespaceName(namespaceName)
+      .serviceName(serviceName)
       .attributes(attributes.map(_.asJava).orNull)
       .build()
 }

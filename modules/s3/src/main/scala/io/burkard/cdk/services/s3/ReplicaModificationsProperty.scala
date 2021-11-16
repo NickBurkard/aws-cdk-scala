@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object ReplicaModificationsProperty {
 
   def apply(
-    status: Option[String] = None
+    status: String
   ): software.amazon.awscdk.services.s3.CfnBucket.ReplicaModificationsProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.ReplicaModificationsProperty.Builder)
-      .status(status.orNull)
+      .status(status)
       .build()
 }

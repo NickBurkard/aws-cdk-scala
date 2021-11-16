@@ -8,10 +8,10 @@ object CfnSimulationApplication {
 
   def apply(
     internalResourceId: String,
-    robotSoftwareSuite: Option[software.amazon.awscdk.services.robomaker.CfnSimulationApplication.RobotSoftwareSuiteProperty] = None,
+    robotSoftwareSuite: software.amazon.awscdk.services.robomaker.CfnSimulationApplication.RobotSoftwareSuiteProperty,
+    simulationSoftwareSuite: software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SimulationSoftwareSuiteProperty,
     name: Option[String] = None,
     tags: Option[Map[String, String]] = None,
-    simulationSoftwareSuite: Option[software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SimulationSoftwareSuiteProperty] = None,
     environment: Option[String] = None,
     sources: Option[List[_]] = None,
     currentRevisionId: Option[String] = None,
@@ -19,10 +19,10 @@ object CfnSimulationApplication {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.robomaker.CfnSimulationApplication =
     software.amazon.awscdk.services.robomaker.CfnSimulationApplication.Builder
       .create(stackCtx, internalResourceId)
-      .robotSoftwareSuite(robotSoftwareSuite.orNull)
+      .robotSoftwareSuite(robotSoftwareSuite)
+      .simulationSoftwareSuite(simulationSoftwareSuite)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .simulationSoftwareSuite(simulationSoftwareSuite.orNull)
       .environment(environment.orNull)
       .sources(sources.map(_.asJava).orNull)
       .currentRevisionId(currentRevisionId.orNull)

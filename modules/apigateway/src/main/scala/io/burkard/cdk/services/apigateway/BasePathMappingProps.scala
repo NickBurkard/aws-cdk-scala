@@ -4,15 +4,15 @@ package io.burkard.cdk.services.apigateway
 object BasePathMappingProps {
 
   def apply(
+    domainName: software.amazon.awscdk.services.apigateway.IDomainName,
+    restApi: software.amazon.awscdk.services.apigateway.IRestApi,
     stage: Option[software.amazon.awscdk.services.apigateway.Stage] = None,
-    basePath: Option[String] = None,
-    domainName: Option[software.amazon.awscdk.services.apigateway.IDomainName] = None,
-    restApi: Option[software.amazon.awscdk.services.apigateway.IRestApi] = None
+    basePath: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.BasePathMappingProps =
     (new software.amazon.awscdk.services.apigateway.BasePathMappingProps.Builder)
+      .domainName(domainName)
+      .restApi(restApi)
       .stage(stage.orNull)
       .basePath(basePath.orNull)
-      .domainName(domainName.orNull)
-      .restApi(restApi.orNull)
       .build()
 }

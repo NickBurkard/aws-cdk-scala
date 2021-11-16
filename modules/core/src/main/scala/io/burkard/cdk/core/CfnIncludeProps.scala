@@ -5,9 +5,9 @@ package io.burkard.cdk.core
 object CfnIncludeProps {
 
   def apply(
-    template: Option[com.fasterxml.jackson.databind.node.ObjectNode] = None
+    template: com.fasterxml.jackson.databind.node.ObjectNode
   ): software.amazon.awscdk.CfnIncludeProps =
     (new software.amazon.awscdk.CfnIncludeProps.Builder)
-      .template(template.orNull)
+      .template(template)
       .build()
 }

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnAssistantAssociationProps {
 
   def apply(
-    assistantId: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    associationType: Option[String] = None,
-    association: Option[software.amazon.awscdk.services.wisdom.CfnAssistantAssociation.AssociationDataProperty] = None
+    assistantId: String,
+    associationType: String,
+    association: software.amazon.awscdk.services.wisdom.CfnAssistantAssociation.AssociationDataProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.wisdom.CfnAssistantAssociationProps =
     (new software.amazon.awscdk.services.wisdom.CfnAssistantAssociationProps.Builder)
-      .assistantId(assistantId.orNull)
+      .assistantId(assistantId)
+      .associationType(associationType)
+      .association(association)
       .tags(tags.map(_.asJava).orNull)
-      .associationType(associationType.orNull)
-      .association(association.orNull)
       .build()
 }

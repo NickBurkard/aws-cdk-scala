@@ -8,8 +8,8 @@ object CfnEnvironmentEC2 {
 
   def apply(
     internalResourceId: String,
+    instanceType: String,
     name: Option[String] = None,
-    instanceType: Option[String] = None,
     imageId: Option[String] = None,
     repositories: Option[List[_]] = None,
     ownerArn: Option[String] = None,
@@ -21,8 +21,8 @@ object CfnEnvironmentEC2 {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloud9.CfnEnvironmentEC2 =
     software.amazon.awscdk.services.cloud9.CfnEnvironmentEC2.Builder
       .create(stackCtx, internalResourceId)
+      .instanceType(instanceType)
       .name(name.orNull)
-      .instanceType(instanceType.orNull)
       .imageId(imageId.orNull)
       .repositories(repositories.map(_.asJava).orNull)
       .ownerArn(ownerArn.orNull)

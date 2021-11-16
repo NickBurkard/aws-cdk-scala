@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisanalytics
 object CfnApplicationCloudWatchLoggingOptionV2Props {
 
   def apply(
-    cloudWatchLoggingOption: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2.CloudWatchLoggingOptionProperty] = None,
-    applicationName: Option[String] = None
+    cloudWatchLoggingOption: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2.CloudWatchLoggingOptionProperty,
+    applicationName: String
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2Props =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2Props.Builder)
-      .cloudWatchLoggingOption(cloudWatchLoggingOption.orNull)
-      .applicationName(applicationName.orNull)
+      .cloudWatchLoggingOption(cloudWatchLoggingOption)
+      .applicationName(applicationName)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.databrew
 object FilesLimitProperty {
 
   def apply(
+    maxFiles: Number,
     orderedBy: Option[String] = None,
-    order: Option[String] = None,
-    maxFiles: Option[Number] = None
+    order: Option[String] = None
   ): software.amazon.awscdk.services.databrew.CfnDataset.FilesLimitProperty =
     (new software.amazon.awscdk.services.databrew.CfnDataset.FilesLimitProperty.Builder)
+      .maxFiles(maxFiles)
       .orderedBy(orderedBy.orNull)
       .order(order.orNull)
-      .maxFiles(maxFiles.orNull)
       .build()
 }

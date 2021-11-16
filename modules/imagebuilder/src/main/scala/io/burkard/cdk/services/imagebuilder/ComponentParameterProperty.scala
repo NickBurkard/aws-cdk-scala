@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ComponentParameterProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[List[String]] = None
+    name: String,
+    value: List[String]
   ): software.amazon.awscdk.services.imagebuilder.CfnImageRecipe.ComponentParameterProperty =
     (new software.amazon.awscdk.services.imagebuilder.CfnImageRecipe.ComponentParameterProperty.Builder)
-      .name(name.orNull)
-      .value(value.map(_.asJava).orNull)
+      .name(name)
+      .value(value.asJava)
       .build()
 }

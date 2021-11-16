@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnAnomalySubscriptionProps {
 
   def apply(
-    monitorArnList: Option[List[String]] = None,
-    subscribers: Option[List[_]] = None,
-    subscriptionName: Option[String] = None,
-    threshold: Option[Number] = None,
-    frequency: Option[String] = None
+    monitorArnList: List[String],
+    subscribers: List[_],
+    subscriptionName: String,
+    threshold: Number,
+    frequency: String
   ): software.amazon.awscdk.services.ce.CfnAnomalySubscriptionProps =
     (new software.amazon.awscdk.services.ce.CfnAnomalySubscriptionProps.Builder)
-      .monitorArnList(monitorArnList.map(_.asJava).orNull)
-      .subscribers(subscribers.map(_.asJava).orNull)
-      .subscriptionName(subscriptionName.orNull)
-      .threshold(threshold.orNull)
-      .frequency(frequency.orNull)
+      .monitorArnList(monitorArnList.asJava)
+      .subscribers(subscribers.asJava)
+      .subscriptionName(subscriptionName)
+      .threshold(threshold)
+      .frequency(frequency)
       .build()
 }

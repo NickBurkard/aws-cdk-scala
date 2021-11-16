@@ -6,10 +6,10 @@ object CfnInclude {
 
   def apply(
     internalResourceId: String,
-    template: Option[com.fasterxml.jackson.databind.node.ObjectNode] = None
+    template: com.fasterxml.jackson.databind.node.ObjectNode
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.CfnInclude =
     software.amazon.awscdk.CfnInclude.Builder
       .create(stackCtx, internalResourceId)
-      .template(template.orNull)
+      .template(template)
       .build()
 }

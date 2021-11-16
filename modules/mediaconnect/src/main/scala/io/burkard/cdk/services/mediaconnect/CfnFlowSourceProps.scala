@@ -4,10 +4,10 @@ package io.burkard.cdk.services.mediaconnect
 object CfnFlowSourceProps {
 
   def apply(
+    name: String,
+    description: String,
     maxBitrate: Option[Number] = None,
-    name: Option[String] = None,
     streamId: Option[String] = None,
-    description: Option[String] = None,
     decryption: Option[software.amazon.awscdk.services.mediaconnect.CfnFlowSource.EncryptionProperty] = None,
     maxLatency: Option[Number] = None,
     vpcInterfaceName: Option[String] = None,
@@ -18,10 +18,10 @@ object CfnFlowSourceProps {
     protocol: Option[String] = None
   ): software.amazon.awscdk.services.mediaconnect.CfnFlowSourceProps =
     (new software.amazon.awscdk.services.mediaconnect.CfnFlowSourceProps.Builder)
+      .name(name)
+      .description(description)
       .maxBitrate(maxBitrate.orNull)
-      .name(name.orNull)
       .streamId(streamId.orNull)
-      .description(description.orNull)
       .decryption(decryption.orNull)
       .maxLatency(maxLatency.orNull)
       .vpcInterfaceName(vpcInterfaceName.orNull)

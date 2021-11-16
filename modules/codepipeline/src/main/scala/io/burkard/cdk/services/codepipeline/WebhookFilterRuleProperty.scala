@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object WebhookFilterRuleProperty {
 
   def apply(
-    jsonPath: Option[String] = None,
+    jsonPath: String,
     matchEquals: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.CfnWebhook.WebhookFilterRuleProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnWebhook.WebhookFilterRuleProperty.Builder)
-      .jsonPath(jsonPath.orNull)
+      .jsonPath(jsonPath)
       .matchEquals(matchEquals.orNull)
       .build()
 }

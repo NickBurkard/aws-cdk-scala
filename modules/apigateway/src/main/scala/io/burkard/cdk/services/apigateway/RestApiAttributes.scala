@@ -4,11 +4,11 @@ package io.burkard.cdk.services.apigateway
 object RestApiAttributes {
 
   def apply(
-    rootResourceId: Option[String] = None,
-    restApiId: Option[String] = None
+    rootResourceId: String,
+    restApiId: String
   ): software.amazon.awscdk.services.apigateway.RestApiAttributes =
     (new software.amazon.awscdk.services.apigateway.RestApiAttributes.Builder)
-      .rootResourceId(rootResourceId.orNull)
-      .restApiId(restApiId.orNull)
+      .rootResourceId(rootResourceId)
+      .restApiId(restApiId)
       .build()
 }

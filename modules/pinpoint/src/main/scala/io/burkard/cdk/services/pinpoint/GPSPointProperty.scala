@@ -4,11 +4,11 @@ package io.burkard.cdk.services.pinpoint
 object GPSPointProperty {
 
   def apply(
-    coordinates: Option[software.amazon.awscdk.services.pinpoint.CfnSegment.CoordinatesProperty] = None,
-    rangeInKilometers: Option[Number] = None
+    coordinates: software.amazon.awscdk.services.pinpoint.CfnSegment.CoordinatesProperty,
+    rangeInKilometers: Number
   ): software.amazon.awscdk.services.pinpoint.CfnSegment.GPSPointProperty =
     (new software.amazon.awscdk.services.pinpoint.CfnSegment.GPSPointProperty.Builder)
-      .coordinates(coordinates.orNull)
-      .rangeInKilometers(rangeInKilometers.orNull)
+      .coordinates(coordinates)
+      .rangeInKilometers(rangeInKilometers)
       .build()
 }

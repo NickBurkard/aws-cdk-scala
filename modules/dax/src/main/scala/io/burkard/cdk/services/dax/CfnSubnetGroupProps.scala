@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object CfnSubnetGroupProps {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
+    subnetIds: List[String],
     subnetGroupName: Option[String] = None,
     description: Option[String] = None
   ): software.amazon.awscdk.services.dax.CfnSubnetGroupProps =
     (new software.amazon.awscdk.services.dax.CfnSubnetGroupProps.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
       .subnetGroupName(subnetGroupName.orNull)
       .description(description.orNull)
       .build()

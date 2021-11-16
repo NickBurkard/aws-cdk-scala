@@ -4,13 +4,13 @@ package io.burkard.cdk.core
 object CfnTrafficRoutingConfig {
 
   def apply(
+    `type`: software.amazon.awscdk.CfnTrafficRoutingType,
     timeBasedCanary: Option[software.amazon.awscdk.CfnTrafficRoutingTimeBasedCanary] = None,
-    timeBasedLinear: Option[software.amazon.awscdk.CfnTrafficRoutingTimeBasedLinear] = None,
-    `type`: Option[software.amazon.awscdk.CfnTrafficRoutingType] = None
+    timeBasedLinear: Option[software.amazon.awscdk.CfnTrafficRoutingTimeBasedLinear] = None
   ): software.amazon.awscdk.CfnTrafficRoutingConfig =
     (new software.amazon.awscdk.CfnTrafficRoutingConfig.Builder)
+      .`type`(`type`)
       .timeBasedCanary(timeBasedCanary.orNull)
       .timeBasedLinear(timeBasedLinear.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

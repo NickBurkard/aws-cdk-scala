@@ -4,13 +4,13 @@ package io.burkard.cdk.services.quicksight
 object CastColumnTypeOperationProperty {
 
   def apply(
-    format: Option[String] = None,
-    columnName: Option[String] = None,
-    newColumnType: Option[String] = None
+    columnName: String,
+    newColumnType: String,
+    format: Option[String] = None
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.CastColumnTypeOperationProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.CastColumnTypeOperationProperty.Builder)
+      .columnName(columnName)
+      .newColumnType(newColumnType)
       .format(format.orNull)
-      .columnName(columnName.orNull)
-      .newColumnType(newColumnType.orNull)
       .build()
 }

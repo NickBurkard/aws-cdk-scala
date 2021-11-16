@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codedeploy
 object LambdaDeploymentGroupAttributes {
 
   def apply(
-    application: Option[software.amazon.awscdk.services.codedeploy.ILambdaApplication] = None,
-    deploymentConfig: Option[software.amazon.awscdk.services.codedeploy.ILambdaDeploymentConfig] = None,
-    deploymentGroupName: Option[String] = None
+    application: software.amazon.awscdk.services.codedeploy.ILambdaApplication,
+    deploymentGroupName: String,
+    deploymentConfig: Option[software.amazon.awscdk.services.codedeploy.ILambdaDeploymentConfig] = None
   ): software.amazon.awscdk.services.codedeploy.LambdaDeploymentGroupAttributes =
     (new software.amazon.awscdk.services.codedeploy.LambdaDeploymentGroupAttributes.Builder)
-      .application(application.orNull)
+      .application(application)
+      .deploymentGroupName(deploymentGroupName)
       .deploymentConfig(deploymentConfig.orNull)
-      .deploymentGroupName(deploymentGroupName.orNull)
       .build()
 }

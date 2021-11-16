@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnImageBuilderProps {
 
   def apply(
+    instanceType: String,
+    name: String,
     displayName: Option[String] = None,
     accessEndpoints: Option[List[_]] = None,
     domainJoinInfo: Option[software.amazon.awscdk.services.appstream.CfnImageBuilder.DomainJoinInfoProperty] = None,
     iamRoleArn: Option[String] = None,
     enableDefaultInternetAccess: Option[Boolean] = None,
-    instanceType: Option[String] = None,
-    name: Option[String] = None,
     imageArn: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
@@ -22,13 +22,13 @@ object CfnImageBuilderProps {
     appstreamAgentVersion: Option[String] = None
   ): software.amazon.awscdk.services.appstream.CfnImageBuilderProps =
     (new software.amazon.awscdk.services.appstream.CfnImageBuilderProps.Builder)
+      .instanceType(instanceType)
+      .name(name)
       .displayName(displayName.orNull)
       .accessEndpoints(accessEndpoints.map(_.asJava).orNull)
       .domainJoinInfo(domainJoinInfo.orNull)
       .iamRoleArn(iamRoleArn.orNull)
       .enableDefaultInternetAccess(enableDefaultInternetAccess.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .instanceType(instanceType.orNull)
-      .name(name.orNull)
       .imageArn(imageArn.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

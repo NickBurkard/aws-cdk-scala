@@ -4,15 +4,15 @@ package io.burkard.cdk.services.emr
 object ScalingRuleProperty {
 
   def apply(
-    name: Option[String] = None,
-    description: Option[String] = None,
-    action: Option[software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingActionProperty] = None,
-    trigger: Option[software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingTriggerProperty] = None
+    name: String,
+    action: software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingActionProperty,
+    trigger: software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingTriggerProperty,
+    description: Option[String] = None
   ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingRuleProperty =
     (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingRuleProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .action(action)
+      .trigger(trigger)
       .description(description.orNull)
-      .action(action.orNull)
-      .trigger(trigger.orNull)
       .build()
 }

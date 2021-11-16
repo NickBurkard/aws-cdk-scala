@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnEnvironmentProps {
 
   def apply(
+    applicationName: String,
     environmentName: Option[String] = None,
     platformArn: Option[String] = None,
     tier: Option[software.amazon.awscdk.services.elasticbeanstalk.CfnEnvironment.TierProperty] = None,
     operationsRole: Option[String] = None,
-    applicationName: Option[String] = None,
     templateName: Option[String] = None,
     solutionStackName: Option[String] = None,
     cnamePrefix: Option[String] = None,
@@ -21,11 +21,11 @@ object CfnEnvironmentProps {
     versionLabel: Option[String] = None
   ): software.amazon.awscdk.services.elasticbeanstalk.CfnEnvironmentProps =
     (new software.amazon.awscdk.services.elasticbeanstalk.CfnEnvironmentProps.Builder)
+      .applicationName(applicationName)
       .environmentName(environmentName.orNull)
       .platformArn(platformArn.orNull)
       .tier(tier.orNull)
       .operationsRole(operationsRole.orNull)
-      .applicationName(applicationName.orNull)
       .templateName(templateName.orNull)
       .solutionStackName(solutionStackName.orNull)
       .cnamePrefix(cnamePrefix.orNull)

@@ -5,12 +5,12 @@ object CfnBucketPolicy {
 
   def apply(
     internalResourceId: String,
-    policyDocument: Option[AnyRef] = None,
-    bucket: Option[String] = None
+    policyDocument: AnyRef,
+    bucket: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3outposts.CfnBucketPolicy =
     software.amazon.awscdk.services.s3outposts.CfnBucketPolicy.Builder
       .create(stackCtx, internalResourceId)
-      .policyDocument(policyDocument.orNull)
-      .bucket(bucket.orNull)
+      .policyDocument(policyDocument)
+      .bucket(bucket)
       .build()
 }

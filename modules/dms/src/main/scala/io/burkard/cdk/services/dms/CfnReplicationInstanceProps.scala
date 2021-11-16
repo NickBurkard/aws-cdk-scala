@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CfnReplicationInstanceProps {
 
   def apply(
+    replicationInstanceClass: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     availabilityZone: Option[String] = None,
-    replicationInstanceClass: Option[String] = None,
     replicationSubnetGroupIdentifier: Option[String] = None,
     kmsKeyId: Option[String] = None,
     publiclyAccessible: Option[Boolean] = None,
@@ -24,9 +24,9 @@ object CfnReplicationInstanceProps {
     replicationInstanceIdentifier: Option[String] = None
   ): software.amazon.awscdk.services.dms.CfnReplicationInstanceProps =
     (new software.amazon.awscdk.services.dms.CfnReplicationInstanceProps.Builder)
+      .replicationInstanceClass(replicationInstanceClass)
       .tags(tags.map(_.asJava).orNull)
       .availabilityZone(availabilityZone.orNull)
-      .replicationInstanceClass(replicationInstanceClass.orNull)
       .replicationSubnetGroupIdentifier(replicationSubnetGroupIdentifier.orNull)
       .kmsKeyId(kmsKeyId.orNull)
       .publiclyAccessible(publiclyAccessible.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

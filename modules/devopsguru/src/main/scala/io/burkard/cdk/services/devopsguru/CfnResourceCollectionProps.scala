@@ -4,9 +4,9 @@ package io.burkard.cdk.services.devopsguru
 object CfnResourceCollectionProps {
 
   def apply(
-    resourceCollectionFilter: Option[software.amazon.awscdk.services.devopsguru.CfnResourceCollection.ResourceCollectionFilterProperty] = None
+    resourceCollectionFilter: software.amazon.awscdk.services.devopsguru.CfnResourceCollection.ResourceCollectionFilterProperty
   ): software.amazon.awscdk.services.devopsguru.CfnResourceCollectionProps =
     (new software.amazon.awscdk.services.devopsguru.CfnResourceCollectionProps.Builder)
-      .resourceCollectionFilter(resourceCollectionFilter.orNull)
+      .resourceCollectionFilter(resourceCollectionFilter)
       .build()
 }

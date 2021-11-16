@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object SageMakerCreateEndpointConfigProps {
 
   def apply(
-    productionVariants: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.ProductionVariant]] = None,
+    productionVariants: List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.ProductionVariant],
+    endpointConfigName: String,
     kmsKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
     tags: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
     resultPath: Option[String] = None,
-    endpointConfigName: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
@@ -21,11 +21,11 @@ object SageMakerCreateEndpointConfigProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.SageMakerCreateEndpointConfigProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.SageMakerCreateEndpointConfigProps.Builder)
-      .productionVariants(productionVariants.map(_.asJava).orNull)
+      .productionVariants(productionVariants.asJava)
+      .endpointConfigName(endpointConfigName)
       .kmsKey(kmsKey.orNull)
       .tags(tags.orNull)
       .resultPath(resultPath.orNull)
-      .endpointConfigName(endpointConfigName.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)

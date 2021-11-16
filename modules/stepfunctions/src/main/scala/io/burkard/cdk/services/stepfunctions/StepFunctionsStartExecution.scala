@@ -8,9 +8,9 @@ object StepFunctionsStartExecution {
 
   def apply(
     internalResourceId: String,
+    stateMachine: software.amazon.awscdk.services.stepfunctions.IStateMachine,
     name: Option[String] = None,
     resultPath: Option[String] = None,
-    stateMachine: Option[software.amazon.awscdk.services.stepfunctions.IStateMachine] = None,
     input: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
@@ -23,9 +23,9 @@ object StepFunctionsStartExecution {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.StepFunctionsStartExecution =
     software.amazon.awscdk.services.stepfunctions.tasks.StepFunctionsStartExecution.Builder
       .create(stackCtx, internalResourceId)
+      .stateMachine(stateMachine)
       .name(name.orNull)
       .resultPath(resultPath.orNull)
-      .stateMachine(stateMachine.orNull)
       .input(input.orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)

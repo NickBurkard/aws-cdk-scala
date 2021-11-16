@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object SelectAttributesProperty {
 
   def apply(
-    name: Option[String] = None,
-    attributes: Option[List[String]] = None,
+    name: String,
+    attributes: List[String],
     next: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.SelectAttributesProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.SelectAttributesProperty.Builder)
-      .name(name.orNull)
-      .attributes(attributes.map(_.asJava).orNull)
+      .name(name)
+      .attributes(attributes.asJava)
       .next(next.orNull)
       .build()
 }

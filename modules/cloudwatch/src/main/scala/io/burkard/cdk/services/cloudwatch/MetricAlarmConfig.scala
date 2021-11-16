@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object MetricAlarmConfig {
 
   def apply(
+    metricName: String,
+    period: Number,
+    namespace: String,
     statistic: Option[software.amazon.awscdk.services.cloudwatch.Statistic] = None,
-    metricName: Option[String] = None,
     dimensions: Option[List[_ <: software.amazon.awscdk.services.cloudwatch.Dimension]] = None,
     unit: Option[software.amazon.awscdk.services.cloudwatch.Unit] = None,
-    period: Option[Number] = None,
-    namespace: Option[String] = None,
     extendedStatistic: Option[String] = None
   ): software.amazon.awscdk.services.cloudwatch.MetricAlarmConfig =
     (new software.amazon.awscdk.services.cloudwatch.MetricAlarmConfig.Builder)
+      .metricName(metricName)
+      .period(period)
+      .namespace(namespace)
       .statistic(statistic.orNull)
-      .metricName(metricName.orNull)
       .dimensions(dimensions.map(_.asJava).orNull)
       .unit(unit.orNull)
-      .period(period.orNull)
-      .namespace(namespace.orNull)
       .extendedStatistic(extendedStatistic.orNull)
       .build()
 }

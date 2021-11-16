@@ -4,15 +4,15 @@ package io.burkard.cdk.services.sam
 object CorsConfigurationProperty {
 
   def apply(
+    allowOrigin: String,
     allowHeaders: Option[String] = None,
-    allowOrigin: Option[String] = None,
     allowCredentials: Option[Boolean] = None,
     allowMethods: Option[String] = None,
     maxAge: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty =
     (new software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty.Builder)
+      .allowOrigin(allowOrigin)
       .allowHeaders(allowHeaders.orNull)
-      .allowOrigin(allowOrigin.orNull)
       .allowCredentials(allowCredentials.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .allowMethods(allowMethods.orNull)
       .maxAge(maxAge.orNull)

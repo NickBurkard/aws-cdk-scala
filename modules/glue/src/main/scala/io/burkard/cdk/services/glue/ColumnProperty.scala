@@ -4,12 +4,12 @@ package io.burkard.cdk.services.glue
 object ColumnProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     comment: Option[String] = None,
     `type`: Option[String] = None
   ): software.amazon.awscdk.services.glue.CfnTable.ColumnProperty =
     (new software.amazon.awscdk.services.glue.CfnTable.ColumnProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .comment(comment.orNull)
       .`type`(`type`.orNull)
       .build()

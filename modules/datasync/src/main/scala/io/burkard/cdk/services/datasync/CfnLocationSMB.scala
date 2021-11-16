@@ -8,24 +8,24 @@ object CfnLocationSMB {
 
   def apply(
     internalResourceId: String,
+    serverHostname: String,
+    subdirectory: String,
+    user: String,
+    password: String,
+    agentArns: List[String],
     mountOptions: Option[software.amazon.awscdk.services.datasync.CfnLocationSMB.MountOptionsProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    serverHostname: Option[String] = None,
-    subdirectory: Option[String] = None,
-    user: Option[String] = None,
-    password: Option[String] = None,
-    domain: Option[String] = None,
-    agentArns: Option[List[String]] = None
+    domain: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.datasync.CfnLocationSMB =
     software.amazon.awscdk.services.datasync.CfnLocationSMB.Builder
       .create(stackCtx, internalResourceId)
+      .serverHostname(serverHostname)
+      .subdirectory(subdirectory)
+      .user(user)
+      .password(password)
+      .agentArns(agentArns.asJava)
       .mountOptions(mountOptions.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .serverHostname(serverHostname.orNull)
-      .subdirectory(subdirectory.orNull)
-      .user(user.orNull)
-      .password(password.orNull)
       .domain(domain.orNull)
-      .agentArns(agentArns.map(_.asJava).orNull)
       .build()
 }

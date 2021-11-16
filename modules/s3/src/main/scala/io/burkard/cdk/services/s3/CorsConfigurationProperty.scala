@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CorsConfigurationProperty {
 
   def apply(
-    corsRules: Option[List[_]] = None
+    corsRules: List[_]
   ): software.amazon.awscdk.services.s3.CfnBucket.CorsConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.CorsConfigurationProperty.Builder)
-      .corsRules(corsRules.map(_.asJava).orNull)
+      .corsRules(corsRules.asJava)
       .build()
 }

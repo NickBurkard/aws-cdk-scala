@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnFleetMetricProps {
 
   def apply(
-    metricName: Option[String] = None,
+    metricName: String,
     queryString: Option[String] = None,
     aggregationField: Option[String] = None,
     indexName: Option[String] = None,
@@ -19,7 +19,7 @@ object CfnFleetMetricProps {
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iot.CfnFleetMetricProps =
     (new software.amazon.awscdk.services.iot.CfnFleetMetricProps.Builder)
-      .metricName(metricName.orNull)
+      .metricName(metricName)
       .queryString(queryString.orNull)
       .aggregationField(aggregationField.orNull)
       .indexName(indexName.orNull)

@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnRegexPatternSetProps {
 
   def apply(
+    regularExpressionList: List[String],
+    scope: String,
     name: Option[String] = None,
-    regularExpressionList: Option[List[String]] = None,
     description: Option[String] = None,
-    scope: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.wafv2.CfnRegexPatternSetProps =
     (new software.amazon.awscdk.services.wafv2.CfnRegexPatternSetProps.Builder)
+      .regularExpressionList(regularExpressionList.asJava)
+      .scope(scope)
       .name(name.orNull)
-      .regularExpressionList(regularExpressionList.map(_.asJava).orNull)
       .description(description.orNull)
-      .scope(scope.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

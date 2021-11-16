@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3objectlambda
 object CfnAccessPointPolicyProps {
 
   def apply(
-    objectLambdaAccessPoint: Option[String] = None,
-    policyDocument: Option[AnyRef] = None
+    objectLambdaAccessPoint: String,
+    policyDocument: AnyRef
   ): software.amazon.awscdk.services.s3objectlambda.CfnAccessPointPolicyProps =
     (new software.amazon.awscdk.services.s3objectlambda.CfnAccessPointPolicyProps.Builder)
-      .objectLambdaAccessPoint(objectLambdaAccessPoint.orNull)
-      .policyDocument(policyDocument.orNull)
+      .objectLambdaAccessPoint(objectLambdaAccessPoint)
+      .policyDocument(policyDocument)
       .build()
 }

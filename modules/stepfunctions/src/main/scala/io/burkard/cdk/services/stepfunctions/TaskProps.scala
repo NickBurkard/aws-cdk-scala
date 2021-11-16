@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object TaskProps {
 
   def apply(
-    task: Option[software.amazon.awscdk.services.stepfunctions.IStepFunctionsTask] = None,
+    task: software.amazon.awscdk.services.stepfunctions.IStepFunctionsTask,
     resultPath: Option[String] = None,
     parameters: Option[Map[String, _]] = None,
     outputPath: Option[String] = None,
@@ -16,7 +16,7 @@ object TaskProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.TaskProps =
     (new software.amazon.awscdk.services.stepfunctions.TaskProps.Builder)
-      .task(task.orNull)
+      .task(task)
       .resultPath(resultPath.orNull)
       .parameters(parameters.map(_.asJava).orNull)
       .outputPath(outputPath.orNull)

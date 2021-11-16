@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object TimestreamDimensionProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.iot.CfnTopicRule.TimestreamDimensionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.TimestreamDimensionProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

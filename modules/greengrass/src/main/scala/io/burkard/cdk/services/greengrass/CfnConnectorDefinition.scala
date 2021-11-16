@@ -5,13 +5,13 @@ object CfnConnectorDefinition {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     tags: Option[AnyRef] = None,
     initialVersion: Option[software.amazon.awscdk.services.greengrass.CfnConnectorDefinition.ConnectorDefinitionVersionProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnConnectorDefinition =
     software.amazon.awscdk.services.greengrass.CfnConnectorDefinition.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.orNull)
       .initialVersion(initialVersion.orNull)
       .build()

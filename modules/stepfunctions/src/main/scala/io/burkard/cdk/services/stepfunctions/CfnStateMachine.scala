@@ -8,6 +8,7 @@ object CfnStateMachine {
 
   def apply(
     internalResourceId: String,
+    roleArn: String,
     definitionString: Option[String] = None,
     definitionSubstitutions: Option[Map[String, String]] = None,
     loggingConfiguration: Option[software.amazon.awscdk.services.stepfunctions.CfnStateMachine.LoggingConfigurationProperty] = None,
@@ -15,12 +16,12 @@ object CfnStateMachine {
     tags: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.CfnStateMachine.TagsEntryProperty]] = None,
     stateMachineType: Option[String] = None,
     tracingConfiguration: Option[software.amazon.awscdk.services.stepfunctions.CfnStateMachine.TracingConfigurationProperty] = None,
-    roleArn: Option[String] = None,
     definition: Option[software.amazon.awscdk.services.stepfunctions.CfnStateMachine.DefinitionProperty] = None,
     stateMachineName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.CfnStateMachine =
     software.amazon.awscdk.services.stepfunctions.CfnStateMachine.Builder
       .create(stackCtx, internalResourceId)
+      .roleArn(roleArn)
       .definitionString(definitionString.orNull)
       .definitionSubstitutions(definitionSubstitutions.map(_.asJava).orNull)
       .loggingConfiguration(loggingConfiguration.orNull)
@@ -28,7 +29,6 @@ object CfnStateMachine {
       .tags(tags.map(_.asJava).orNull)
       .stateMachineType(stateMachineType.orNull)
       .tracingConfiguration(tracingConfiguration.orNull)
-      .roleArn(roleArn.orNull)
       .definition(definition.orNull)
       .stateMachineName(stateMachineName.orNull)
       .build()

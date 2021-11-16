@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnNatGatewayProps {
 
   def apply(
+    subnetId: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    subnetId: Option[String] = None,
     allocationId: Option[String] = None,
     connectivityType: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnNatGatewayProps =
     (new software.amazon.awscdk.services.ec2.CfnNatGatewayProps.Builder)
+      .subnetId(subnetId)
       .tags(tags.map(_.asJava).orNull)
-      .subnetId(subnetId.orNull)
       .allocationId(allocationId.orNull)
       .connectivityType(connectivityType.orNull)
       .build()

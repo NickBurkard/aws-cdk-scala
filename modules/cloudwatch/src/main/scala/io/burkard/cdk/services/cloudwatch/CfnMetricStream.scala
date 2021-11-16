@@ -8,22 +8,22 @@ object CfnMetricStream {
 
   def apply(
     internalResourceId: String,
+    firehoseArn: String,
+    roleArn: String,
+    outputFormat: String,
     name: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    firehoseArn: Option[String] = None,
     excludeFilters: Option[List[_]] = None,
-    includeFilters: Option[List[_]] = None,
-    roleArn: Option[String] = None,
-    outputFormat: Option[String] = None
+    includeFilters: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudwatch.CfnMetricStream =
     software.amazon.awscdk.services.cloudwatch.CfnMetricStream.Builder
       .create(stackCtx, internalResourceId)
+      .firehoseArn(firehoseArn)
+      .roleArn(roleArn)
+      .outputFormat(outputFormat)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .firehoseArn(firehoseArn.orNull)
       .excludeFilters(excludeFilters.map(_.asJava).orNull)
       .includeFilters(includeFilters.map(_.asJava).orNull)
-      .roleArn(roleArn.orNull)
-      .outputFormat(outputFormat.orNull)
       .build()
 }

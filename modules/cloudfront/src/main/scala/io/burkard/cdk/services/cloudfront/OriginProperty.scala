@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object OriginProperty {
 
   def apply(
+    domainName: String,
+    id: String,
     originShield: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginShieldProperty] = None,
-    domainName: Option[String] = None,
-    id: Option[String] = None,
     customOriginConfig: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.CustomOriginConfigProperty] = None,
     connectionTimeout: Option[Number] = None,
     connectionAttempts: Option[Number] = None,
@@ -18,9 +18,9 @@ object OriginProperty {
     originCustomHeaders: Option[List[_]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginProperty.Builder)
+      .domainName(domainName)
+      .id(id)
       .originShield(originShield.orNull)
-      .domainName(domainName.orNull)
-      .id(id.orNull)
       .customOriginConfig(customOriginConfig.orNull)
       .connectionTimeout(connectionTimeout.orNull)
       .connectionAttempts(connectionAttempts.orNull)

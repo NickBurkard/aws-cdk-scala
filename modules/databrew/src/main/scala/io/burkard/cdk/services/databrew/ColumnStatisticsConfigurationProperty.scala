@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ColumnStatisticsConfigurationProperty {
 
   def apply(
-    statistics: Option[software.amazon.awscdk.services.databrew.CfnJob.StatisticsConfigurationProperty] = None,
+    statistics: software.amazon.awscdk.services.databrew.CfnJob.StatisticsConfigurationProperty,
     selectors: Option[List[_]] = None
   ): software.amazon.awscdk.services.databrew.CfnJob.ColumnStatisticsConfigurationProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.ColumnStatisticsConfigurationProperty.Builder)
-      .statistics(statistics.orNull)
+      .statistics(statistics)
       .selectors(selectors.map(_.asJava).orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.databrew
 object DatabaseTableOutputOptionsProperty {
 
   def apply(
-    tempDirectory: Option[software.amazon.awscdk.services.databrew.CfnJob.S3LocationProperty] = None,
-    tableName: Option[String] = None
+    tableName: String,
+    tempDirectory: Option[software.amazon.awscdk.services.databrew.CfnJob.S3LocationProperty] = None
   ): software.amazon.awscdk.services.databrew.CfnJob.DatabaseTableOutputOptionsProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.DatabaseTableOutputOptionsProperty.Builder)
+      .tableName(tableName)
       .tempDirectory(tempDirectory.orNull)
-      .tableName(tableName.orNull)
       .build()
 }

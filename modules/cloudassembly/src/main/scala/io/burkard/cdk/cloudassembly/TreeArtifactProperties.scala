@@ -4,9 +4,9 @@ package io.burkard.cdk.cloudassembly
 object TreeArtifactProperties {
 
   def apply(
-    file: Option[String] = None
+    file: String
   ): software.amazon.awscdk.cloudassembly.schema.TreeArtifactProperties =
     (new software.amazon.awscdk.cloudassembly.schema.TreeArtifactProperties.Builder)
-      .file(file.orNull)
+      .file(file)
       .build()
 }

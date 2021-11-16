@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object ServiceNowSourcePropertiesProperty {
 
   def apply(
-    `object`: Option[String] = None
+    `object`: String
   ): software.amazon.awscdk.services.appflow.CfnFlow.ServiceNowSourcePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.ServiceNowSourcePropertiesProperty.Builder)
-      .`object`(`object`.orNull)
+      .`object`(`object`)
       .build()
 }

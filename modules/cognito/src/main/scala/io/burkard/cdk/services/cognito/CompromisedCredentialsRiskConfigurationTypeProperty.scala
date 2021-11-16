@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CompromisedCredentialsRiskConfigurationTypeProperty {
 
   def apply(
-    eventFilter: Option[List[String]] = None,
-    actions: Option[software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty] = None
+    actions: software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty,
+    eventFilter: Option[List[String]] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationTypeProperty =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationTypeProperty.Builder)
+      .actions(actions)
       .eventFilter(eventFilter.map(_.asJava).orNull)
-      .actions(actions.orNull)
       .build()
 }

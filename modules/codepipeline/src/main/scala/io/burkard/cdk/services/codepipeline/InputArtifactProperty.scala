@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codepipeline
 object InputArtifactProperty {
 
   def apply(
-    name: Option[String] = None
+    name: String
   ): software.amazon.awscdk.services.codepipeline.CfnPipeline.InputArtifactProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnPipeline.InputArtifactProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object LogDestinationConfigProperty {
 
   def apply(
-    logType: Option[String] = None,
-    logDestinationType: Option[String] = None,
-    logDestination: Option[Map[String, String]] = None
+    logType: String,
+    logDestinationType: String,
+    logDestination: Map[String, String]
   ): software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration.LogDestinationConfigProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration.LogDestinationConfigProperty.Builder)
-      .logType(logType.orNull)
-      .logDestinationType(logDestinationType.orNull)
-      .logDestination(logDestination.map(_.asJava).orNull)
+      .logType(logType)
+      .logDestinationType(logDestinationType)
+      .logDestination(logDestination.asJava)
       .build()
 }

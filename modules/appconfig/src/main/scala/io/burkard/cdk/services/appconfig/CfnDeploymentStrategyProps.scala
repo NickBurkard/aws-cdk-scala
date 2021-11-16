@@ -7,22 +7,22 @@ import scala.collection.JavaConverters._
 object CfnDeploymentStrategyProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    replicateTo: String,
+    growthFactor: Number,
+    deploymentDurationInMinutes: Number,
     growthType: Option[String] = None,
     finalBakeTimeInMinutes: Option[Number] = None,
-    replicateTo: Option[String] = None,
-    growthFactor: Option[Number] = None,
-    deploymentDurationInMinutes: Option[Number] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.services.appconfig.CfnDeploymentStrategy.TagsProperty]] = None
   ): software.amazon.awscdk.services.appconfig.CfnDeploymentStrategyProps =
     (new software.amazon.awscdk.services.appconfig.CfnDeploymentStrategyProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .replicateTo(replicateTo)
+      .growthFactor(growthFactor)
+      .deploymentDurationInMinutes(deploymentDurationInMinutes)
       .growthType(growthType.orNull)
       .finalBakeTimeInMinutes(finalBakeTimeInMinutes.orNull)
-      .replicateTo(replicateTo.orNull)
-      .growthFactor(growthFactor.orNull)
-      .deploymentDurationInMinutes(deploymentDurationInMinutes.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnAnalyzerProps {
 
   def apply(
+    `type`: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     analyzerName: Option[String] = None,
-    `type`: Option[String] = None,
     archiveRules: Option[List[_]] = None
   ): software.amazon.awscdk.services.accessanalyzer.CfnAnalyzerProps =
     (new software.amazon.awscdk.services.accessanalyzer.CfnAnalyzerProps.Builder)
+      .`type`(`type`)
       .tags(tags.map(_.asJava).orNull)
       .analyzerName(analyzerName.orNull)
-      .`type`(`type`.orNull)
       .archiveRules(archiveRules.map(_.asJava).orNull)
       .build()
 }

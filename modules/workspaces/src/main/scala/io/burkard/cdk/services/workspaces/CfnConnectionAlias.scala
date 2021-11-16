@@ -8,12 +8,12 @@ object CfnConnectionAlias {
 
   def apply(
     internalResourceId: String,
-    connectionString: Option[String] = None,
+    connectionString: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.workspaces.CfnConnectionAlias =
     software.amazon.awscdk.services.workspaces.CfnConnectionAlias.Builder
       .create(stackCtx, internalResourceId)
-      .connectionString(connectionString.orNull)
+      .connectionString(connectionString)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

@@ -5,18 +5,18 @@ object CfnEventInvokeConfig {
 
   def apply(
     internalResourceId: String,
+    qualifier: String,
+    functionName: String,
     maximumEventAgeInSeconds: Option[Number] = None,
     destinationConfig: Option[software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.DestinationConfigProperty] = None,
-    maximumRetryAttempts: Option[Number] = None,
-    qualifier: Option[String] = None,
-    functionName: Option[String] = None
+    maximumRetryAttempts: Option[Number] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.CfnEventInvokeConfig =
     software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.Builder
       .create(stackCtx, internalResourceId)
+      .qualifier(qualifier)
+      .functionName(functionName)
       .maximumEventAgeInSeconds(maximumEventAgeInSeconds.orNull)
       .destinationConfig(destinationConfig.orNull)
       .maximumRetryAttempts(maximumRetryAttempts.orNull)
-      .qualifier(qualifier.orNull)
-      .functionName(functionName.orNull)
       .build()
 }

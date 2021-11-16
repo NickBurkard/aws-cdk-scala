@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ReplicationConfigurationProperty {
 
   def apply(
-    role: Option[String] = None,
-    rules: Option[List[_]] = None
+    role: String,
+    rules: List[_]
   ): software.amazon.awscdk.services.s3.CfnBucket.ReplicationConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.ReplicationConfigurationProperty.Builder)
-      .role(role.orNull)
-      .rules(rules.map(_.asJava).orNull)
+      .role(role)
+      .rules(rules.asJava)
       .build()
 }

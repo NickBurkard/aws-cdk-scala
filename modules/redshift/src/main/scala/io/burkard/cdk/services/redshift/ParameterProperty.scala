@@ -4,11 +4,11 @@ package io.burkard.cdk.services.redshift
 object ParameterProperty {
 
   def apply(
-    parameterValue: Option[String] = None,
-    parameterName: Option[String] = None
+    parameterValue: String,
+    parameterName: String
   ): software.amazon.awscdk.services.redshift.CfnClusterParameterGroup.ParameterProperty =
     (new software.amazon.awscdk.services.redshift.CfnClusterParameterGroup.ParameterProperty.Builder)
-      .parameterValue(parameterValue.orNull)
-      .parameterName(parameterName.orNull)
+      .parameterValue(parameterValue)
+      .parameterName(parameterName)
       .build()
 }

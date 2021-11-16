@@ -8,10 +8,10 @@ object CfnResourceGroup {
 
   def apply(
     internalResourceId: String,
-    resourceGroupTags: Option[List[_]] = None
+    resourceGroupTags: List[_]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.inspector.CfnResourceGroup =
     software.amazon.awscdk.services.inspector.CfnResourceGroup.Builder
       .create(stackCtx, internalResourceId)
-      .resourceGroupTags(resourceGroupTags.map(_.asJava).orNull)
+      .resourceGroupTags(resourceGroupTags.asJava)
       .build()
 }

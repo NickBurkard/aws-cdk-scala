@@ -4,13 +4,13 @@ package io.burkard.cdk.services.emr
 object VolumeSpecificationProperty {
 
   def apply(
-    volumeType: Option[String] = None,
-    iops: Option[Number] = None,
-    sizeInGb: Option[Number] = None
+    volumeType: String,
+    sizeInGb: Number,
+    iops: Option[Number] = None
   ): software.amazon.awscdk.services.emr.CfnCluster.VolumeSpecificationProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.VolumeSpecificationProperty.Builder)
-      .volumeType(volumeType.orNull)
+      .volumeType(volumeType)
+      .sizeInGb(sizeInGb)
       .iops(iops.orNull)
-      .sizeInGb(sizeInGb.orNull)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object PosixProfileProperty {
 
   def apply(
-    gid: Option[Number] = None,
-    secondaryGids: Option[List[_ <: Number]] = None,
-    uid: Option[Number] = None
+    gid: Number,
+    uid: Number,
+    secondaryGids: Option[List[_ <: Number]] = None
   ): software.amazon.awscdk.services.transfer.CfnUser.PosixProfileProperty =
     (new software.amazon.awscdk.services.transfer.CfnUser.PosixProfileProperty.Builder)
-      .gid(gid.orNull)
+      .gid(gid)
+      .uid(uid)
       .secondaryGids(secondaryGids.map(_.asJava).orNull)
-      .uid(uid.orNull)
       .build()
 }

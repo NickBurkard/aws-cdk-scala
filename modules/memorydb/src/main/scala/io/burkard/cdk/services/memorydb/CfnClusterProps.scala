@@ -7,6 +7,9 @@ import scala.collection.JavaConverters._
 object CfnClusterProps {
 
   def apply(
+    aclName: String,
+    nodeType: String,
+    clusterName: String,
     snapshotArns: Option[List[String]] = None,
     subnetGroupName: Option[String] = None,
     snapshotWindow: Option[String] = None,
@@ -15,12 +18,9 @@ object CfnClusterProps {
     autoMinorVersionUpgrade: Option[Boolean] = None,
     tlsEnabled: Option[Boolean] = None,
     parameterGroupName: Option[String] = None,
-    aclName: Option[String] = None,
     port: Option[Number] = None,
-    nodeType: Option[String] = None,
     snapshotName: Option[String] = None,
     kmsKeyId: Option[String] = None,
-    clusterName: Option[String] = None,
     snsTopicArn: Option[String] = None,
     finalSnapshotName: Option[String] = None,
     description: Option[String] = None,
@@ -33,6 +33,9 @@ object CfnClusterProps {
     snsTopicStatus: Option[String] = None
   ): software.amazon.awscdk.services.memorydb.CfnClusterProps =
     (new software.amazon.awscdk.services.memorydb.CfnClusterProps.Builder)
+      .aclName(aclName)
+      .nodeType(nodeType)
+      .clusterName(clusterName)
       .snapshotArns(snapshotArns.map(_.asJava).orNull)
       .subnetGroupName(subnetGroupName.orNull)
       .snapshotWindow(snapshotWindow.orNull)
@@ -41,12 +44,9 @@ object CfnClusterProps {
       .autoMinorVersionUpgrade(autoMinorVersionUpgrade.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .tlsEnabled(tlsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .parameterGroupName(parameterGroupName.orNull)
-      .aclName(aclName.orNull)
       .port(port.orNull)
-      .nodeType(nodeType.orNull)
       .snapshotName(snapshotName.orNull)
       .kmsKeyId(kmsKeyId.orNull)
-      .clusterName(clusterName.orNull)
       .snsTopicArn(snsTopicArn.orNull)
       .finalSnapshotName(finalSnapshotName.orNull)
       .description(description.orNull)

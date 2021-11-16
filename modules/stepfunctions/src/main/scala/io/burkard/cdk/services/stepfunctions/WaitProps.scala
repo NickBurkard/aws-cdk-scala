@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object WaitProps {
 
   def apply(
-    comment: Option[String] = None,
-    time: Option[software.amazon.awscdk.services.stepfunctions.WaitTime] = None
+    time: software.amazon.awscdk.services.stepfunctions.WaitTime,
+    comment: Option[String] = None
   ): software.amazon.awscdk.services.stepfunctions.WaitProps =
     (new software.amazon.awscdk.services.stepfunctions.WaitProps.Builder)
+      .time(time)
       .comment(comment.orNull)
-      .time(time.orNull)
       .build()
 }

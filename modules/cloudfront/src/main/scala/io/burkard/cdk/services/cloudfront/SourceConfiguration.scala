@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object SourceConfiguration {
 
   def apply(
+    behaviors: List[_ <: software.amazon.awscdk.services.cloudfront.Behavior],
     failoverCriteriaStatusCodes: Option[List[_ <: software.amazon.awscdk.services.cloudfront.FailoverStatusCode]] = None,
     customOriginSource: Option[software.amazon.awscdk.services.cloudfront.CustomOriginConfig] = None,
     s3OriginSource: Option[software.amazon.awscdk.services.cloudfront.S3OriginConfig] = None,
     originShieldRegion: Option[String] = None,
-    behaviors: Option[List[_ <: software.amazon.awscdk.services.cloudfront.Behavior]] = None,
     connectionTimeout: Option[software.amazon.awscdk.Duration] = None,
     originHeaders: Option[Map[String, String]] = None,
     failoverCustomOriginSource: Option[software.amazon.awscdk.services.cloudfront.CustomOriginConfig] = None,
@@ -20,11 +20,11 @@ object SourceConfiguration {
     connectionAttempts: Option[Number] = None
   ): software.amazon.awscdk.services.cloudfront.SourceConfiguration =
     (new software.amazon.awscdk.services.cloudfront.SourceConfiguration.Builder)
+      .behaviors(behaviors.asJava)
       .failoverCriteriaStatusCodes(failoverCriteriaStatusCodes.map(_.asJava).orNull)
       .customOriginSource(customOriginSource.orNull)
       .s3OriginSource(s3OriginSource.orNull)
       .originShieldRegion(originShieldRegion.orNull)
-      .behaviors(behaviors.map(_.asJava).orNull)
       .connectionTimeout(connectionTimeout.orNull)
       .originHeaders(originHeaders.map(_.asJava).orNull)
       .failoverCustomOriginSource(failoverCustomOriginSource.orNull)

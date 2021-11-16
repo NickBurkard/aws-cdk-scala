@@ -4,12 +4,12 @@ package io.burkard.cdk.services.greengrass
 object CfnResourceDefinitionProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     tags: Option[AnyRef] = None,
     initialVersion: Option[software.amazon.awscdk.services.greengrass.CfnResourceDefinition.ResourceDefinitionVersionProperty] = None
   ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionProps =
     (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.orNull)
       .initialVersion(initialVersion.orNull)
       .build()

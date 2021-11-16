@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object AssertionRuleProperty {
 
   def apply(
-    waitPeriodMs: Option[Number] = None,
-    assertedControls: Option[List[String]] = None
+    waitPeriodMs: Number,
+    assertedControls: List[String]
   ): software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule.AssertionRuleProperty =
     (new software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule.AssertionRuleProperty.Builder)
-      .waitPeriodMs(waitPeriodMs.orNull)
-      .assertedControls(assertedControls.map(_.asJava).orNull)
+      .waitPeriodMs(waitPeriodMs)
+      .assertedControls(assertedControls.asJava)
       .build()
 }

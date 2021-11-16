@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object MethodResponse {
 
   def apply(
-    statusCode: Option[String] = None,
+    statusCode: String,
     responseModels: Option[Map[String, _ <: software.amazon.awscdk.services.apigateway.IModel]] = None,
     responseParameters: Option[Map[String, _ <: Boolean]] = None
   ): software.amazon.awscdk.services.apigateway.MethodResponse =
     (new software.amazon.awscdk.services.apigateway.MethodResponse.Builder)
-      .statusCode(statusCode.orNull)
+      .statusCode(statusCode)
       .responseModels(responseModels.map(_.asJava).orNull)
       .responseParameters(responseParameters.map(_.mapValues(Boolean.box).toMap.asJava).orNull)
       .build()

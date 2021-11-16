@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnDBSecurityGroupProps {
 
   def apply(
+    groupDescription: String,
+    dbSecurityGroupIngress: List[_],
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    groupDescription: Option[String] = None,
-    dbSecurityGroupIngress: Option[List[_]] = None,
     ec2VpcId: Option[String] = None
   ): software.amazon.awscdk.services.rds.CfnDBSecurityGroupProps =
     (new software.amazon.awscdk.services.rds.CfnDBSecurityGroupProps.Builder)
+      .groupDescription(groupDescription)
+      .dbSecurityGroupIngress(dbSecurityGroupIngress.asJava)
       .tags(tags.map(_.asJava).orNull)
-      .groupDescription(groupDescription.orNull)
-      .dbSecurityGroupIngress(dbSecurityGroupIngress.map(_.asJava).orNull)
       .ec2VpcId(ec2VpcId.orNull)
       .build()
 }

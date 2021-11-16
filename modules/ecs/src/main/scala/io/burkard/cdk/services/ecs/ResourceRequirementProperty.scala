@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object ResourceRequirementProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    value: Option[String] = None
+    `type`: String,
+    value: String
   ): software.amazon.awscdk.services.ecs.CfnTaskDefinition.ResourceRequirementProperty =
     (new software.amazon.awscdk.services.ecs.CfnTaskDefinition.ResourceRequirementProperty.Builder)
-      .`type`(`type`.orNull)
-      .value(value.orNull)
+      .`type`(`type`)
+      .value(value)
       .build()
 }

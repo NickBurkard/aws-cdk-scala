@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object IpFilterProperty {
 
   def apply(
-    cidr: Option[String] = None,
-    policy: Option[String] = None
+    cidr: String,
+    policy: String
   ): software.amazon.awscdk.services.ses.CfnReceiptFilter.IpFilterProperty =
     (new software.amazon.awscdk.services.ses.CfnReceiptFilter.IpFilterProperty.Builder)
-      .cidr(cidr.orNull)
-      .policy(policy.orNull)
+      .cidr(cidr)
+      .policy(policy)
       .build()
 }

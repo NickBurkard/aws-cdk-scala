@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codebuild
 object SourceAuthProperty {
 
   def apply(
-    resource: Option[String] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    resource: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.SourceAuthProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.SourceAuthProperty.Builder)
+      .`type`(`type`)
       .resource(resource.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

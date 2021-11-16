@@ -5,11 +5,11 @@ package io.burkard.cdk.pipelines
 object AdditionalArtifact {
 
   def apply(
-    artifact: Option[software.amazon.awscdk.services.codepipeline.Artifact] = None,
-    directory: Option[String] = None
+    artifact: software.amazon.awscdk.services.codepipeline.Artifact,
+    directory: String
   ): software.amazon.awscdk.pipelines.AdditionalArtifact =
     (new software.amazon.awscdk.pipelines.AdditionalArtifact.Builder)
-      .artifact(artifact.orNull)
-      .directory(directory.orNull)
+      .artifact(artifact)
+      .directory(directory)
       .build()
 }

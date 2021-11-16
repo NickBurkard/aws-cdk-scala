@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object CfnImageVersionProps {
 
   def apply(
-    baseImage: Option[String] = None,
-    imageName: Option[String] = None
+    baseImage: String,
+    imageName: String
   ): software.amazon.awscdk.services.sagemaker.CfnImageVersionProps =
     (new software.amazon.awscdk.services.sagemaker.CfnImageVersionProps.Builder)
-      .baseImage(baseImage.orNull)
-      .imageName(imageName.orNull)
+      .baseImage(baseImage)
+      .imageName(imageName)
       .build()
 }

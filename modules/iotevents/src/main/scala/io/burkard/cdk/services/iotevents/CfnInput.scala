@@ -8,14 +8,14 @@ object CfnInput {
 
   def apply(
     internalResourceId: String,
-    inputDefinition: Option[software.amazon.awscdk.services.iotevents.CfnInput.InputDefinitionProperty] = None,
+    inputDefinition: software.amazon.awscdk.services.iotevents.CfnInput.InputDefinitionProperty,
     inputName: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     inputDescription: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iotevents.CfnInput =
     software.amazon.awscdk.services.iotevents.CfnInput.Builder
       .create(stackCtx, internalResourceId)
-      .inputDefinition(inputDefinition.orNull)
+      .inputDefinition(inputDefinition)
       .inputName(inputName.orNull)
       .tags(tags.map(_.asJava).orNull)
       .inputDescription(inputDescription.orNull)

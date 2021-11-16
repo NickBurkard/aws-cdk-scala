@@ -7,8 +7,9 @@ import scala.collection.JavaConverters._
 object CfnEC2FleetProps {
 
   def apply(
+    launchTemplateConfigs: List[_],
+    targetCapacitySpecification: software.amazon.awscdk.services.ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty,
     tagSpecifications: Option[List[_]] = None,
-    launchTemplateConfigs: Option[List[_]] = None,
     validUntil: Option[String] = None,
     context: Option[String] = None,
     validFrom: Option[String] = None,
@@ -16,13 +17,13 @@ object CfnEC2FleetProps {
     excessCapacityTerminationPolicy: Option[String] = None,
     replaceUnhealthyInstances: Option[Boolean] = None,
     onDemandOptions: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.OnDemandOptionsRequestProperty] = None,
-    targetCapacitySpecification: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty] = None,
     `type`: Option[String] = None,
     terminateInstancesWithExpiration: Option[Boolean] = None
   ): software.amazon.awscdk.services.ec2.CfnEC2FleetProps =
     (new software.amazon.awscdk.services.ec2.CfnEC2FleetProps.Builder)
+      .launchTemplateConfigs(launchTemplateConfigs.asJava)
+      .targetCapacitySpecification(targetCapacitySpecification)
       .tagSpecifications(tagSpecifications.map(_.asJava).orNull)
-      .launchTemplateConfigs(launchTemplateConfigs.map(_.asJava).orNull)
       .validUntil(validUntil.orNull)
       .context(context.orNull)
       .validFrom(validFrom.orNull)
@@ -30,7 +31,6 @@ object CfnEC2FleetProps {
       .excessCapacityTerminationPolicy(excessCapacityTerminationPolicy.orNull)
       .replaceUnhealthyInstances(replaceUnhealthyInstances.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .onDemandOptions(onDemandOptions.orNull)
-      .targetCapacitySpecification(targetCapacitySpecification.orNull)
       .`type`(`type`.orNull)
       .terminateInstancesWithExpiration(terminateInstancesWithExpiration.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()

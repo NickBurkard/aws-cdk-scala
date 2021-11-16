@@ -4,11 +4,11 @@ package io.burkard.cdk.services.networkfirewall
 object PortRangeProperty {
 
   def apply(
-    toPort: Option[Number] = None,
-    fromPort: Option[Number] = None
+    toPort: Number,
+    fromPort: Number
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.PortRangeProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.PortRangeProperty.Builder)
-      .toPort(toPort.orNull)
-      .fromPort(fromPort.orNull)
+      .toPort(toPort)
+      .fromPort(fromPort)
       .build()
 }

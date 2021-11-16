@@ -7,20 +7,20 @@ import scala.collection.JavaConverters._
 object CfnDetectorProps {
 
   def apply(
-    detectorId: Option[String] = None,
-    rules: Option[List[_]] = None,
+    detectorId: String,
+    rules: List[_],
+    eventType: software.amazon.awscdk.services.frauddetector.CfnDetector.EventTypeProperty,
     ruleExecutionMode: Option[String] = None,
-    eventType: Option[software.amazon.awscdk.services.frauddetector.CfnDetector.EventTypeProperty] = None,
     detectorVersionStatus: Option[String] = None,
     description: Option[String] = None,
     associatedModels: Option[List[_]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.frauddetector.CfnDetectorProps =
     (new software.amazon.awscdk.services.frauddetector.CfnDetectorProps.Builder)
-      .detectorId(detectorId.orNull)
-      .rules(rules.map(_.asJava).orNull)
+      .detectorId(detectorId)
+      .rules(rules.asJava)
+      .eventType(eventType)
       .ruleExecutionMode(ruleExecutionMode.orNull)
-      .eventType(eventType.orNull)
       .detectorVersionStatus(detectorVersionStatus.orNull)
       .description(description.orNull)
       .associatedModels(associatedModels.map(_.asJava).orNull)

@@ -8,12 +8,12 @@ object CfnResourceDefinitionVersion {
 
   def apply(
     internalResourceId: String,
-    resources: Option[List[_]] = None,
-    resourceDefinitionId: Option[String] = None
+    resources: List[_],
+    resourceDefinitionId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion =
     software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.Builder
       .create(stackCtx, internalResourceId)
-      .resources(resources.map(_.asJava).orNull)
-      .resourceDefinitionId(resourceDefinitionId.orNull)
+      .resources(resources.asJava)
+      .resourceDefinitionId(resourceDefinitionId)
       .build()
 }

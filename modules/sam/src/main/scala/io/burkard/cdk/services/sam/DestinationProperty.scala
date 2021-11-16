@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object DestinationProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    destination: Option[String] = None
+    destination: String,
+    `type`: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty.Builder)
+      .destination(destination)
       .`type`(`type`.orNull)
-      .destination(destination.orNull)
       .build()
 }

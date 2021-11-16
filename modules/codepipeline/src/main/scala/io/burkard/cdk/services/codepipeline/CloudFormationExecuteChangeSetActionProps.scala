@@ -4,6 +4,8 @@ package io.burkard.cdk.services.codepipeline
 object CloudFormationExecuteChangeSetActionProps {
 
   def apply(
+    changeSetName: String,
+    stackName: String,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     outputFileName: Option[String] = None,
     variablesNamespace: Option[String] = None,
@@ -11,11 +13,11 @@ object CloudFormationExecuteChangeSetActionProps {
     actionName: Option[String] = None,
     region: Option[String] = None,
     output: Option[software.amazon.awscdk.services.codepipeline.Artifact] = None,
-    changeSetName: Option[String] = None,
-    stackName: Option[String] = None,
     account: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.actions.CloudFormationExecuteChangeSetActionProps =
     (new software.amazon.awscdk.services.codepipeline.actions.CloudFormationExecuteChangeSetActionProps.Builder)
+      .changeSetName(changeSetName)
+      .stackName(stackName)
       .role(role.orNull)
       .outputFileName(outputFileName.orNull)
       .variablesNamespace(variablesNamespace.orNull)
@@ -23,8 +25,6 @@ object CloudFormationExecuteChangeSetActionProps {
       .actionName(actionName.orNull)
       .region(region.orNull)
       .output(output.orNull)
-      .changeSetName(changeSetName.orNull)
-      .stackName(stackName.orNull)
       .account(account.orNull)
       .build()
 }

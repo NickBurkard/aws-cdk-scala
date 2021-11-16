@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnHealthCheckProps {
 
   def apply(
-    healthCheckConfig: Option[software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckConfigProperty] = None,
+    healthCheckConfig: software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckConfigProperty,
     healthCheckTags: Option[List[_]] = None
   ): software.amazon.awscdk.services.route53.CfnHealthCheckProps =
     (new software.amazon.awscdk.services.route53.CfnHealthCheckProps.Builder)
-      .healthCheckConfig(healthCheckConfig.orNull)
+      .healthCheckConfig(healthCheckConfig)
       .healthCheckTags(healthCheckTags.map(_.asJava).orNull)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object VpcSubnetGroup {
 
   def apply(
-    subnets: Option[List[_ <: software.amazon.awscdk.cxapi.VpcSubnet]] = None,
-    name: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.cxapi.VpcSubnetGroupType] = None
+    subnets: List[_ <: software.amazon.awscdk.cxapi.VpcSubnet],
+    name: String,
+    `type`: software.amazon.awscdk.cxapi.VpcSubnetGroupType
   ): software.amazon.awscdk.cxapi.VpcSubnetGroup =
     (new software.amazon.awscdk.cxapi.VpcSubnetGroup.Builder)
-      .subnets(subnets.map(_.asJava).orNull)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .subnets(subnets.asJava)
+      .name(name)
+      .`type`(`type`)
       .build()
 }

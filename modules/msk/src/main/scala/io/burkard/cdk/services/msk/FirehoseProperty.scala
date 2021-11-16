@@ -4,11 +4,11 @@ package io.burkard.cdk.services.msk
 object FirehoseProperty {
 
   def apply(
-    deliveryStream: Option[String] = None,
-    enabled: Option[Boolean] = None
+    enabled: Boolean,
+    deliveryStream: Option[String] = None
   ): software.amazon.awscdk.services.msk.CfnCluster.FirehoseProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.FirehoseProperty.Builder)
+      .enabled(enabled)
       .deliveryStream(deliveryStream.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

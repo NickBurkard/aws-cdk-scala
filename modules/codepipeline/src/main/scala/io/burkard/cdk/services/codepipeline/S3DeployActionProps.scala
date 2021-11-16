@@ -7,6 +7,8 @@ import scala.collection.JavaConverters._
 object S3DeployActionProps {
 
   def apply(
+    bucket: software.amazon.awscdk.services.s3.IBucket,
+    input: software.amazon.awscdk.services.codepipeline.Artifact,
     objectKey: Option[String] = None,
     cacheControl: Option[List[_ <: software.amazon.awscdk.services.codepipeline.actions.CacheControl]] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -14,11 +16,11 @@ object S3DeployActionProps {
     variablesNamespace: Option[String] = None,
     runOrder: Option[Number] = None,
     actionName: Option[String] = None,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None,
-    input: Option[software.amazon.awscdk.services.codepipeline.Artifact] = None,
     extract: Option[Boolean] = None
   ): software.amazon.awscdk.services.codepipeline.actions.S3DeployActionProps =
     (new software.amazon.awscdk.services.codepipeline.actions.S3DeployActionProps.Builder)
+      .bucket(bucket)
+      .input(input)
       .objectKey(objectKey.orNull)
       .cacheControl(cacheControl.map(_.asJava).orNull)
       .role(role.orNull)
@@ -26,8 +28,6 @@ object S3DeployActionProps {
       .variablesNamespace(variablesNamespace.orNull)
       .runOrder(runOrder.orNull)
       .actionName(actionName.orNull)
-      .bucket(bucket.orNull)
-      .input(input.orNull)
       .extract(extract.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

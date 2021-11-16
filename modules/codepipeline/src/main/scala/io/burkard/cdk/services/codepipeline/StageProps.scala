@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object StageProps {
 
   def apply(
-    stageName: Option[String] = None,
+    stageName: String,
     actions: Option[List[_ <: software.amazon.awscdk.services.codepipeline.IAction]] = None
   ): software.amazon.awscdk.services.codepipeline.StageProps =
     (new software.amazon.awscdk.services.codepipeline.StageProps.Builder)
-      .stageName(stageName.orNull)
+      .stageName(stageName)
       .actions(actions.map(_.asJava).orNull)
       .build()
 }

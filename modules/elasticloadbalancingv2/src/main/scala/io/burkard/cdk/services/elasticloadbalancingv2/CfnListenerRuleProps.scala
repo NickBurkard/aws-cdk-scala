@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnListenerRuleProps {
 
   def apply(
-    conditions: Option[List[_]] = None,
-    priority: Option[Number] = None,
-    listenerArn: Option[String] = None,
-    actions: Option[List[_]] = None
+    conditions: List[_],
+    priority: Number,
+    listenerArn: String,
+    actions: List[_]
   ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRuleProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRuleProps.Builder)
-      .conditions(conditions.map(_.asJava).orNull)
-      .priority(priority.orNull)
-      .listenerArn(listenerArn.orNull)
-      .actions(actions.map(_.asJava).orNull)
+      .conditions(conditions.asJava)
+      .priority(priority)
+      .listenerArn(listenerArn)
+      .actions(actions.asJava)
       .build()
 }

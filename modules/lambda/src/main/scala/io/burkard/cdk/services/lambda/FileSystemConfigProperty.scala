@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lambda
 object FileSystemConfigProperty {
 
   def apply(
-    arn: Option[String] = None,
-    localMountPath: Option[String] = None
+    arn: String,
+    localMountPath: String
   ): software.amazon.awscdk.services.lambda.CfnFunction.FileSystemConfigProperty =
     (new software.amazon.awscdk.services.lambda.CfnFunction.FileSystemConfigProperty.Builder)
-      .arn(arn.orNull)
-      .localMountPath(localMountPath.orNull)
+      .arn(arn)
+      .localMountPath(localMountPath)
       .build()
 }

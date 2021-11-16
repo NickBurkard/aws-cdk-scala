@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object VisualReferenceProperty {
 
   def apply(
-    baseScreenshots: Option[List[_]] = None,
-    baseCanaryRunId: Option[String] = None
+    baseCanaryRunId: String,
+    baseScreenshots: Option[List[_]] = None
   ): software.amazon.awscdk.services.synthetics.CfnCanary.VisualReferenceProperty =
     (new software.amazon.awscdk.services.synthetics.CfnCanary.VisualReferenceProperty.Builder)
+      .baseCanaryRunId(baseCanaryRunId)
       .baseScreenshots(baseScreenshots.map(_.asJava).orNull)
-      .baseCanaryRunId(baseCanaryRunId.orNull)
       .build()
 }

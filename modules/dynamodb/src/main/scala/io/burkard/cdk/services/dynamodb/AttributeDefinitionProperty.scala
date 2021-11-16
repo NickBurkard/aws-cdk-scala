@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dynamodb
 object AttributeDefinitionProperty {
 
   def apply(
-    attributeName: Option[String] = None,
-    attributeType: Option[String] = None
+    attributeName: String,
+    attributeType: String
   ): software.amazon.awscdk.services.dynamodb.CfnTable.AttributeDefinitionProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnTable.AttributeDefinitionProperty.Builder)
-      .attributeName(attributeName.orNull)
-      .attributeType(attributeType.orNull)
+      .attributeName(attributeName)
+      .attributeType(attributeType)
       .build()
 }

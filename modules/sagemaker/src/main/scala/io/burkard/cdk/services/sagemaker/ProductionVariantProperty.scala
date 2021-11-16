@@ -4,19 +4,19 @@ package io.burkard.cdk.services.sagemaker
 object ProductionVariantProperty {
 
   def apply(
-    variantName: Option[String] = None,
-    instanceType: Option[String] = None,
-    modelName: Option[String] = None,
-    initialVariantWeight: Option[Number] = None,
-    acceleratorType: Option[String] = None,
-    initialInstanceCount: Option[Number] = None
+    variantName: String,
+    instanceType: String,
+    modelName: String,
+    initialVariantWeight: Number,
+    initialInstanceCount: Number,
+    acceleratorType: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.ProductionVariantProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.ProductionVariantProperty.Builder)
-      .variantName(variantName.orNull)
-      .instanceType(instanceType.orNull)
-      .modelName(modelName.orNull)
-      .initialVariantWeight(initialVariantWeight.orNull)
+      .variantName(variantName)
+      .instanceType(instanceType)
+      .modelName(modelName)
+      .initialVariantWeight(initialVariantWeight)
+      .initialInstanceCount(initialInstanceCount)
       .acceleratorType(acceleratorType.orNull)
-      .initialInstanceCount(initialInstanceCount.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object ServerSideEncryptionByDefaultProperty {
 
   def apply(
-    sseAlgorithm: Option[String] = None,
+    sseAlgorithm: String,
     kmsMasterKeyId: Option[String] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.ServerSideEncryptionByDefaultProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.ServerSideEncryptionByDefaultProperty.Builder)
-      .sseAlgorithm(sseAlgorithm.orNull)
+      .sseAlgorithm(sseAlgorithm)
       .kmsMasterKeyId(kmsMasterKeyId.orNull)
       .build()
 }

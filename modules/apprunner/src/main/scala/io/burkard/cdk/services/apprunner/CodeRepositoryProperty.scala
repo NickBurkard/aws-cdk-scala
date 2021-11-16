@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apprunner
 object CodeRepositoryProperty {
 
   def apply(
-    sourceCodeVersion: Option[software.amazon.awscdk.services.apprunner.CfnService.SourceCodeVersionProperty] = None,
-    codeConfiguration: Option[software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationProperty] = None,
-    repositoryUrl: Option[String] = None
+    sourceCodeVersion: software.amazon.awscdk.services.apprunner.CfnService.SourceCodeVersionProperty,
+    repositoryUrl: String,
+    codeConfiguration: Option[software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationProperty] = None
   ): software.amazon.awscdk.services.apprunner.CfnService.CodeRepositoryProperty =
     (new software.amazon.awscdk.services.apprunner.CfnService.CodeRepositoryProperty.Builder)
-      .sourceCodeVersion(sourceCodeVersion.orNull)
+      .sourceCodeVersion(sourceCodeVersion)
+      .repositoryUrl(repositoryUrl)
       .codeConfiguration(codeConfiguration.orNull)
-      .repositoryUrl(repositoryUrl.orNull)
       .build()
 }

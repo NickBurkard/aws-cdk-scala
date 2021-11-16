@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object NetworkListenerProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     port: Option[Number] = None
   ): software.amazon.awscdk.services.ecs.patterns.NetworkListenerProps =
     (new software.amazon.awscdk.services.ecs.patterns.NetworkListenerProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .port(port.orNull)
       .build()
 }

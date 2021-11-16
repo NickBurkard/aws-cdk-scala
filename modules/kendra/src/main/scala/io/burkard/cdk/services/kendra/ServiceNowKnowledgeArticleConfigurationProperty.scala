@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object ServiceNowKnowledgeArticleConfigurationProperty {
 
   def apply(
-    documentDataFieldName: Option[String] = None,
+    documentDataFieldName: String,
     fieldMappings: Option[List[_]] = None,
     crawlAttachments: Option[Boolean] = None,
     excludeAttachmentFilePatterns: Option[List[String]] = None,
@@ -16,7 +16,7 @@ object ServiceNowKnowledgeArticleConfigurationProperty {
     includeAttachmentFilePatterns: Option[List[String]] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.Builder)
-      .documentDataFieldName(documentDataFieldName.orNull)
+      .documentDataFieldName(documentDataFieldName)
       .fieldMappings(fieldMappings.map(_.asJava).orNull)
       .crawlAttachments(crawlAttachments.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .excludeAttachmentFilePatterns(excludeAttachmentFilePatterns.map(_.asJava).orNull)

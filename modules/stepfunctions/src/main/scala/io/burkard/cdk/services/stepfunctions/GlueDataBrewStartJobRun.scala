@@ -8,7 +8,7 @@ object GlueDataBrewStartJobRun {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     resultPath: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
@@ -20,7 +20,7 @@ object GlueDataBrewStartJobRun {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.GlueDataBrewStartJobRun =
     software.amazon.awscdk.services.stepfunctions.tasks.GlueDataBrewStartJobRun.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .resultPath(resultPath.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)

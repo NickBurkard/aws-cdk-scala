@@ -4,13 +4,13 @@ package io.burkard.cdk.services.route53
 object CommonHostedZoneProps {
 
   def apply(
+    zoneName: String,
     queryLogsLogGroupArn: Option[String] = None,
-    zoneName: Option[String] = None,
     comment: Option[String] = None
   ): software.amazon.awscdk.services.route53.CommonHostedZoneProps =
     (new software.amazon.awscdk.services.route53.CommonHostedZoneProps.Builder)
+      .zoneName(zoneName)
       .queryLogsLogGroupArn(queryLogsLogGroupArn.orNull)
-      .zoneName(zoneName.orNull)
       .comment(comment.orNull)
       .build()
 }

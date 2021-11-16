@@ -4,9 +4,9 @@ package io.burkard.cdk.pipelines
 object PipelineBaseProps {
 
   def apply(
-    synth: Option[software.amazon.awscdk.pipelines.IFileSetProducer] = None
+    synth: software.amazon.awscdk.pipelines.IFileSetProducer
   ): software.amazon.awscdk.pipelines.PipelineBaseProps =
     (new software.amazon.awscdk.pipelines.PipelineBaseProps.Builder)
-      .synth(synth.orNull)
+      .synth(synth)
       .build()
 }

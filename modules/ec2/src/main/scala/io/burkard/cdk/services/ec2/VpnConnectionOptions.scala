@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object VpnConnectionOptions {
 
   def apply(
-    ip: Option[String] = None,
+    ip: String,
     staticRoutes: Option[List[String]] = None,
     tunnelOptions: Option[List[_ <: software.amazon.awscdk.services.ec2.VpnTunnelOption]] = None,
     asn: Option[Number] = None
   ): software.amazon.awscdk.services.ec2.VpnConnectionOptions =
     (new software.amazon.awscdk.services.ec2.VpnConnectionOptions.Builder)
-      .ip(ip.orNull)
+      .ip(ip)
       .staticRoutes(staticRoutes.map(_.asJava).orNull)
       .tunnelOptions(tunnelOptions.map(_.asJava).orNull)
       .asn(asn.orNull)

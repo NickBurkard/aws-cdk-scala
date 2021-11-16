@@ -8,24 +8,24 @@ object CfnCustomActionType {
 
   def apply(
     internalResourceId: String,
-    provider: Option[String] = None,
+    provider: String,
+    version: String,
+    outputArtifactDetails: software.amazon.awscdk.services.codepipeline.CfnCustomActionType.ArtifactDetailsProperty,
+    category: String,
+    inputArtifactDetails: software.amazon.awscdk.services.codepipeline.CfnCustomActionType.ArtifactDetailsProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     configurationProperties: Option[List[_]] = None,
-    version: Option[String] = None,
-    outputArtifactDetails: Option[software.amazon.awscdk.services.codepipeline.CfnCustomActionType.ArtifactDetailsProperty] = None,
-    settings: Option[software.amazon.awscdk.services.codepipeline.CfnCustomActionType.SettingsProperty] = None,
-    category: Option[String] = None,
-    inputArtifactDetails: Option[software.amazon.awscdk.services.codepipeline.CfnCustomActionType.ArtifactDetailsProperty] = None
+    settings: Option[software.amazon.awscdk.services.codepipeline.CfnCustomActionType.SettingsProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codepipeline.CfnCustomActionType =
     software.amazon.awscdk.services.codepipeline.CfnCustomActionType.Builder
       .create(stackCtx, internalResourceId)
-      .provider(provider.orNull)
+      .provider(provider)
+      .version(version)
+      .outputArtifactDetails(outputArtifactDetails)
+      .category(category)
+      .inputArtifactDetails(inputArtifactDetails)
       .tags(tags.map(_.asJava).orNull)
       .configurationProperties(configurationProperties.map(_.asJava).orNull)
-      .version(version.orNull)
-      .outputArtifactDetails(outputArtifactDetails.orNull)
       .settings(settings.orNull)
-      .category(category.orNull)
-      .inputArtifactDetails(inputArtifactDetails.orNull)
       .build()
 }

@@ -4,19 +4,19 @@ package io.burkard.cdk.services.ec2
 object CommonNetworkAclEntryOptions {
 
   def apply(
+    traffic: software.amazon.awscdk.services.ec2.AclTraffic,
+    ruleNumber: Number,
+    cidr: software.amazon.awscdk.services.ec2.AclCidr,
     direction: Option[software.amazon.awscdk.services.ec2.TrafficDirection] = None,
-    traffic: Option[software.amazon.awscdk.services.ec2.AclTraffic] = None,
-    ruleNumber: Option[Number] = None,
     ruleAction: Option[software.amazon.awscdk.services.ec2.Action] = None,
-    networkAclEntryName: Option[String] = None,
-    cidr: Option[software.amazon.awscdk.services.ec2.AclCidr] = None
+    networkAclEntryName: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CommonNetworkAclEntryOptions =
     (new software.amazon.awscdk.services.ec2.CommonNetworkAclEntryOptions.Builder)
+      .traffic(traffic)
+      .ruleNumber(ruleNumber)
+      .cidr(cidr)
       .direction(direction.orNull)
-      .traffic(traffic.orNull)
-      .ruleNumber(ruleNumber.orNull)
       .ruleAction(ruleAction.orNull)
       .networkAclEntryName(networkAclEntryName.orNull)
-      .cidr(cidr.orNull)
       .build()
 }

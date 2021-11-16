@@ -8,6 +8,7 @@ object Ec2Service {
 
   def apply(
     internalResourceId: String,
+    taskDefinition: software.amazon.awscdk.services.ecs.TaskDefinition,
     minHealthyPercent: Option[Number] = None,
     healthCheckGracePeriod: Option[software.amazon.awscdk.Duration] = None,
     desiredCount: Option[Number] = None,
@@ -26,13 +27,13 @@ object Ec2Service {
     assignPublicIp: Option[Boolean] = None,
     propagateTags: Option[software.amazon.awscdk.services.ecs.PropagatedTagSource] = None,
     enableEcsManagedTags: Option[Boolean] = None,
-    taskDefinition: Option[software.amazon.awscdk.services.ecs.TaskDefinition] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
     placementConstraints: Option[List[_ <: software.amazon.awscdk.services.ecs.PlacementConstraint]] = None,
     placementStrategies: Option[List[_ <: software.amazon.awscdk.services.ecs.PlacementStrategy]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecs.Ec2Service =
     software.amazon.awscdk.services.ecs.Ec2Service.Builder
       .create(stackCtx, internalResourceId)
+      .taskDefinition(taskDefinition)
       .minHealthyPercent(minHealthyPercent.orNull)
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
       .desiredCount(desiredCount.orNull)
@@ -51,7 +52,6 @@ object Ec2Service {
       .assignPublicIp(assignPublicIp.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .propagateTags(propagateTags.orNull)
       .enableEcsManagedTags(enableEcsManagedTags.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .taskDefinition(taskDefinition.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .placementConstraints(placementConstraints.map(_.asJava).orNull)
       .placementStrategies(placementStrategies.map(_.asJava).orNull)

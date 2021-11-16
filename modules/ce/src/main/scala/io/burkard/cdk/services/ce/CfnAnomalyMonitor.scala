@@ -5,16 +5,16 @@ object CfnAnomalyMonitor {
 
   def apply(
     internalResourceId: String,
-    monitorType: Option[String] = None,
+    monitorType: String,
+    monitorName: String,
     monitorDimension: Option[String] = None,
-    monitorSpecification: Option[String] = None,
-    monitorName: Option[String] = None
+    monitorSpecification: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ce.CfnAnomalyMonitor =
     software.amazon.awscdk.services.ce.CfnAnomalyMonitor.Builder
       .create(stackCtx, internalResourceId)
-      .monitorType(monitorType.orNull)
+      .monitorType(monitorType)
+      .monitorName(monitorName)
       .monitorDimension(monitorDimension.orNull)
       .monitorSpecification(monitorSpecification.orNull)
-      .monitorName(monitorName.orNull)
       .build()
 }

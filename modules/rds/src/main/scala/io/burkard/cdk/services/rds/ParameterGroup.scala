@@ -8,14 +8,14 @@ object ParameterGroup {
 
   def apply(
     internalResourceId: String,
+    engine: software.amazon.awscdk.services.rds.IEngine,
     description: Option[String] = None,
-    parameters: Option[Map[String, String]] = None,
-    engine: Option[software.amazon.awscdk.services.rds.IEngine] = None
+    parameters: Option[Map[String, String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.ParameterGroup =
     software.amazon.awscdk.services.rds.ParameterGroup.Builder
       .create(stackCtx, internalResourceId)
+      .engine(engine)
       .description(description.orNull)
       .parameters(parameters.map(_.asJava).orNull)
-      .engine(engine.orNull)
       .build()
 }

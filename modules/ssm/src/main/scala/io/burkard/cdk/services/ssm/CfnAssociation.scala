@@ -8,8 +8,8 @@ object CfnAssociation {
 
   def apply(
     internalResourceId: String,
+    name: String,
     documentVersion: Option[String] = None,
-    name: Option[String] = None,
     targets: Option[List[_]] = None,
     applyOnlyAtCronInterval: Option[Boolean] = None,
     complianceSeverity: Option[String] = None,
@@ -27,8 +27,8 @@ object CfnAssociation {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ssm.CfnAssociation =
     software.amazon.awscdk.services.ssm.CfnAssociation.Builder
       .create(stackCtx, internalResourceId)
+      .name(name)
       .documentVersion(documentVersion.orNull)
-      .name(name.orNull)
       .targets(targets.map(_.asJava).orNull)
       .applyOnlyAtCronInterval(applyOnlyAtCronInterval.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .complianceSeverity(complianceSeverity.orNull)

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appflow
 object ConnectorProfileConfigProperty {
 
   def apply(
-    connectorProfileCredentials: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.ConnectorProfileCredentialsProperty] = None,
+    connectorProfileCredentials: software.amazon.awscdk.services.appflow.CfnConnectorProfile.ConnectorProfileCredentialsProperty,
     connectorProfileProperties: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.ConnectorProfilePropertiesProperty] = None
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.ConnectorProfileConfigProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.ConnectorProfileConfigProperty.Builder)
-      .connectorProfileCredentials(connectorProfileCredentials.orNull)
+      .connectorProfileCredentials(connectorProfileCredentials)
       .connectorProfileProperties(connectorProfileProperties.orNull)
       .build()
 }

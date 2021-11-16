@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object GeoRestrictionProperty {
 
   def apply(
-    locations: Option[List[String]] = None,
-    restrictionType: Option[String] = None
+    restrictionType: String,
+    locations: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.GeoRestrictionProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.GeoRestrictionProperty.Builder)
+      .restrictionType(restrictionType)
       .locations(locations.map(_.asJava).orNull)
-      .restrictionType(restrictionType.orNull)
       .build()
 }

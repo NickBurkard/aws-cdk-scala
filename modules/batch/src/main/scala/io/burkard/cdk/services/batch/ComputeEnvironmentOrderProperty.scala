@@ -4,11 +4,11 @@ package io.burkard.cdk.services.batch
 object ComputeEnvironmentOrderProperty {
 
   def apply(
-    computeEnvironment: Option[String] = None,
-    order: Option[Number] = None
+    computeEnvironment: String,
+    order: Number
   ): software.amazon.awscdk.services.batch.CfnJobQueue.ComputeEnvironmentOrderProperty =
     (new software.amazon.awscdk.services.batch.CfnJobQueue.ComputeEnvironmentOrderProperty.Builder)
-      .computeEnvironment(computeEnvironment.orNull)
-      .order(order.orNull)
+      .computeEnvironment(computeEnvironment)
+      .order(order)
       .build()
 }

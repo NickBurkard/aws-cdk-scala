@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnUserToGroupAdditionProps {
 
   def apply(
-    users: Option[List[String]] = None,
-    groupName: Option[String] = None
+    users: List[String],
+    groupName: String
   ): software.amazon.awscdk.services.iam.CfnUserToGroupAdditionProps =
     (new software.amazon.awscdk.services.iam.CfnUserToGroupAdditionProps.Builder)
-      .users(users.map(_.asJava).orNull)
-      .groupName(groupName.orNull)
+      .users(users.asJava)
+      .groupName(groupName)
       .build()
 }

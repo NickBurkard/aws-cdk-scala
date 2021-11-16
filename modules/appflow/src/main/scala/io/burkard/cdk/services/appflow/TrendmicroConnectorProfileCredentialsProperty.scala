@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object TrendmicroConnectorProfileCredentialsProperty {
 
   def apply(
-    apiSecretKey: Option[String] = None
+    apiSecretKey: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.TrendmicroConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.TrendmicroConnectorProfileCredentialsProperty.Builder)
-      .apiSecretKey(apiSecretKey.orNull)
+      .apiSecretKey(apiSecretKey)
       .build()
 }

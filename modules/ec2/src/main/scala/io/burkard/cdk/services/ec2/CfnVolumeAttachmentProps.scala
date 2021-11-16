@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object CfnVolumeAttachmentProps {
 
   def apply(
-    instanceId: Option[String] = None,
-    volumeId: Option[String] = None,
-    device: Option[String] = None
+    instanceId: String,
+    volumeId: String,
+    device: String
   ): software.amazon.awscdk.services.ec2.CfnVolumeAttachmentProps =
     (new software.amazon.awscdk.services.ec2.CfnVolumeAttachmentProps.Builder)
-      .instanceId(instanceId.orNull)
-      .volumeId(volumeId.orNull)
-      .device(device.orNull)
+      .instanceId(instanceId)
+      .volumeId(volumeId)
+      .device(device)
       .build()
 }

@@ -4,8 +4,8 @@ package io.burkard.cdk.services.autoscaling
 object LifecycleHookProps {
 
   def apply(
+    autoScalingGroup: software.amazon.awscdk.services.autoscaling.IAutoScalingGroup,
     notificationMetadata: Option[String] = None,
-    autoScalingGroup: Option[software.amazon.awscdk.services.autoscaling.IAutoScalingGroup] = None,
     notificationTarget: Option[software.amazon.awscdk.services.autoscaling.ILifecycleHookTarget] = None,
     lifecycleTransition: Option[software.amazon.awscdk.services.autoscaling.LifecycleTransition] = None,
     defaultResult: Option[software.amazon.awscdk.services.autoscaling.DefaultResult] = None,
@@ -14,8 +14,8 @@ object LifecycleHookProps {
     role: Option[software.amazon.awscdk.services.iam.IRole] = None
   ): software.amazon.awscdk.services.autoscaling.LifecycleHookProps =
     (new software.amazon.awscdk.services.autoscaling.LifecycleHookProps.Builder)
+      .autoScalingGroup(autoScalingGroup)
       .notificationMetadata(notificationMetadata.orNull)
-      .autoScalingGroup(autoScalingGroup.orNull)
       .notificationTarget(notificationTarget.orNull)
       .lifecycleTransition(lifecycleTransition.orNull)
       .defaultResult(defaultResult.orNull)

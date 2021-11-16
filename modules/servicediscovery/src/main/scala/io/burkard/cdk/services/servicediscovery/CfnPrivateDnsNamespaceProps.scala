@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnPrivateDnsNamespaceProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    vpc: String,
     properties: Option[software.amazon.awscdk.services.servicediscovery.CfnPrivateDnsNamespace.PropertiesProperty] = None,
-    vpc: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.servicediscovery.CfnPrivateDnsNamespaceProps =
     (new software.amazon.awscdk.services.servicediscovery.CfnPrivateDnsNamespaceProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .vpc(vpc)
       .properties(properties.orNull)
-      .vpc(vpc.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

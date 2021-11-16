@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appstream
 object ServiceAccountCredentialsProperty {
 
   def apply(
-    accountName: Option[String] = None,
-    accountPassword: Option[String] = None
+    accountName: String,
+    accountPassword: String
   ): software.amazon.awscdk.services.appstream.CfnDirectoryConfig.ServiceAccountCredentialsProperty =
     (new software.amazon.awscdk.services.appstream.CfnDirectoryConfig.ServiceAccountCredentialsProperty.Builder)
-      .accountName(accountName.orNull)
-      .accountPassword(accountPassword.orNull)
+      .accountName(accountName)
+      .accountPassword(accountPassword)
       .build()
 }

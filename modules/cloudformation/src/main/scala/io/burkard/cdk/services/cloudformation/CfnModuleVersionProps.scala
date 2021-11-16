@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudformation
 object CfnModuleVersionProps {
 
   def apply(
-    moduleName: Option[String] = None,
-    modulePackage: Option[String] = None
+    moduleName: String,
+    modulePackage: String
   ): software.amazon.awscdk.services.cloudformation.CfnModuleVersionProps =
     (new software.amazon.awscdk.services.cloudformation.CfnModuleVersionProps.Builder)
-      .moduleName(moduleName.orNull)
-      .modulePackage(modulePackage.orNull)
+      .moduleName(moduleName)
+      .modulePackage(modulePackage)
       .build()
 }

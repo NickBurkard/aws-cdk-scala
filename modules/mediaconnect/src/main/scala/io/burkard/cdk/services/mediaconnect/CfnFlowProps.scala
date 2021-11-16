@@ -4,15 +4,15 @@ package io.burkard.cdk.services.mediaconnect
 object CfnFlowProps {
 
   def apply(
+    name: String,
+    source: software.amazon.awscdk.services.mediaconnect.CfnFlow.SourceProperty,
     sourceFailoverConfig: Option[software.amazon.awscdk.services.mediaconnect.CfnFlow.FailoverConfigProperty] = None,
-    name: Option[String] = None,
-    source: Option[software.amazon.awscdk.services.mediaconnect.CfnFlow.SourceProperty] = None,
     availabilityZone: Option[String] = None
   ): software.amazon.awscdk.services.mediaconnect.CfnFlowProps =
     (new software.amazon.awscdk.services.mediaconnect.CfnFlowProps.Builder)
+      .name(name)
+      .source(source)
       .sourceFailoverConfig(sourceFailoverConfig.orNull)
-      .name(name.orNull)
-      .source(source.orNull)
       .availabilityZone(availabilityZone.orNull)
       .build()
 }

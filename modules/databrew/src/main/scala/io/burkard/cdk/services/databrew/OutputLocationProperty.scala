@@ -4,11 +4,11 @@ package io.burkard.cdk.services.databrew
 object OutputLocationProperty {
 
   def apply(
-    key: Option[String] = None,
-    bucket: Option[String] = None
+    bucket: String,
+    key: Option[String] = None
   ): software.amazon.awscdk.services.databrew.CfnJob.OutputLocationProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.OutputLocationProperty.Builder)
+      .bucket(bucket)
       .key(key.orNull)
-      .bucket(bucket.orNull)
       .build()
 }

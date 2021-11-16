@@ -5,14 +5,14 @@ object CfnNetworkInterfacePermission {
 
   def apply(
     internalResourceId: String,
-    awsAccountId: Option[String] = None,
-    permission: Option[String] = None,
-    networkInterfaceId: Option[String] = None
+    awsAccountId: String,
+    permission: String,
+    networkInterfaceId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnNetworkInterfacePermission =
     software.amazon.awscdk.services.ec2.CfnNetworkInterfacePermission.Builder
       .create(stackCtx, internalResourceId)
-      .awsAccountId(awsAccountId.orNull)
-      .permission(permission.orNull)
-      .networkInterfaceId(networkInterfaceId.orNull)
+      .awsAccountId(awsAccountId)
+      .permission(permission)
+      .networkInterfaceId(networkInterfaceId)
       .build()
 }

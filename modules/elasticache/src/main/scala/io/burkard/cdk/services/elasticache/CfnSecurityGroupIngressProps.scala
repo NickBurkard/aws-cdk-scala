@@ -4,13 +4,13 @@ package io.burkard.cdk.services.elasticache
 object CfnSecurityGroupIngressProps {
 
   def apply(
-    ec2SecurityGroupName: Option[String] = None,
-    cacheSecurityGroupName: Option[String] = None,
+    ec2SecurityGroupName: String,
+    cacheSecurityGroupName: String,
     ec2SecurityGroupOwnerId: Option[String] = None
   ): software.amazon.awscdk.services.elasticache.CfnSecurityGroupIngressProps =
     (new software.amazon.awscdk.services.elasticache.CfnSecurityGroupIngressProps.Builder)
-      .ec2SecurityGroupName(ec2SecurityGroupName.orNull)
-      .cacheSecurityGroupName(cacheSecurityGroupName.orNull)
+      .ec2SecurityGroupName(ec2SecurityGroupName)
+      .cacheSecurityGroupName(cacheSecurityGroupName)
       .ec2SecurityGroupOwnerId(ec2SecurityGroupOwnerId.orNull)
       .build()
 }

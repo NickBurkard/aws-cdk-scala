@@ -4,11 +4,11 @@ package io.burkard.cdk.services.glue
 object JsonClassifierProperty {
 
   def apply(
-    name: Option[String] = None,
-    jsonPath: Option[String] = None
+    jsonPath: String,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.glue.CfnClassifier.JsonClassifierProperty =
     (new software.amazon.awscdk.services.glue.CfnClassifier.JsonClassifierProperty.Builder)
+      .jsonPath(jsonPath)
       .name(name.orNull)
-      .jsonPath(jsonPath.orNull)
       .build()
 }

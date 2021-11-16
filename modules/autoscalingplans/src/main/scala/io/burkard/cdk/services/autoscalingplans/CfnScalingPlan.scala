@@ -8,12 +8,12 @@ object CfnScalingPlan {
 
   def apply(
     internalResourceId: String,
-    scalingInstructions: Option[List[_]] = None,
-    applicationSource: Option[software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.ApplicationSourceProperty] = None
+    scalingInstructions: List[_],
+    applicationSource: software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.ApplicationSourceProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan =
     software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.Builder
       .create(stackCtx, internalResourceId)
-      .scalingInstructions(scalingInstructions.map(_.asJava).orNull)
-      .applicationSource(applicationSource.orNull)
+      .scalingInstructions(scalingInstructions.asJava)
+      .applicationSource(applicationSource)
       .build()
 }

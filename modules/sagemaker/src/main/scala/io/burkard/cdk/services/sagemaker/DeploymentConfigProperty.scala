@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object DeploymentConfigProperty {
 
   def apply(
-    autoRollbackConfiguration: Option[software.amazon.awscdk.services.sagemaker.CfnEndpoint.AutoRollbackConfigProperty] = None,
-    blueGreenUpdatePolicy: Option[software.amazon.awscdk.services.sagemaker.CfnEndpoint.BlueGreenUpdatePolicyProperty] = None
+    blueGreenUpdatePolicy: software.amazon.awscdk.services.sagemaker.CfnEndpoint.BlueGreenUpdatePolicyProperty,
+    autoRollbackConfiguration: Option[software.amazon.awscdk.services.sagemaker.CfnEndpoint.AutoRollbackConfigProperty] = None
   ): software.amazon.awscdk.services.sagemaker.CfnEndpoint.DeploymentConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnEndpoint.DeploymentConfigProperty.Builder)
+      .blueGreenUpdatePolicy(blueGreenUpdatePolicy)
       .autoRollbackConfiguration(autoRollbackConfiguration.orNull)
-      .blueGreenUpdatePolicy(blueGreenUpdatePolicy.orNull)
       .build()
 }

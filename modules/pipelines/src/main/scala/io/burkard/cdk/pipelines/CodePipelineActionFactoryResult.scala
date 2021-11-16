@@ -4,11 +4,11 @@ package io.burkard.cdk.pipelines
 object CodePipelineActionFactoryResult {
 
   def apply(
-    runOrdersConsumed: Option[Number] = None,
+    runOrdersConsumed: Number,
     project: Option[software.amazon.awscdk.services.codebuild.IProject] = None
   ): software.amazon.awscdk.pipelines.CodePipelineActionFactoryResult =
     (new software.amazon.awscdk.pipelines.CodePipelineActionFactoryResult.Builder)
-      .runOrdersConsumed(runOrdersConsumed.orNull)
+      .runOrdersConsumed(runOrdersConsumed)
       .project(project.orNull)
       .build()
 }

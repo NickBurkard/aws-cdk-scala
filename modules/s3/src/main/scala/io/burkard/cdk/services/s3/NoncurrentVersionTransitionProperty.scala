@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object NoncurrentVersionTransitionProperty {
 
   def apply(
-    transitionInDays: Option[Number] = None,
-    storageClass: Option[String] = None
+    transitionInDays: Number,
+    storageClass: String
   ): software.amazon.awscdk.services.s3.CfnBucket.NoncurrentVersionTransitionProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.NoncurrentVersionTransitionProperty.Builder)
-      .transitionInDays(transitionInDays.orNull)
-      .storageClass(storageClass.orNull)
+      .transitionInDays(transitionInDays)
+      .storageClass(storageClass)
       .build()
 }

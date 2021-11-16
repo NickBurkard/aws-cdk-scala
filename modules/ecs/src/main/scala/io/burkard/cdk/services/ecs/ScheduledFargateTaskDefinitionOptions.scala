@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ecs
 object ScheduledFargateTaskDefinitionOptions {
 
   def apply(
-    taskDefinition: Option[software.amazon.awscdk.services.ecs.FargateTaskDefinition] = None
+    taskDefinition: software.amazon.awscdk.services.ecs.FargateTaskDefinition
   ): software.amazon.awscdk.services.ecs.patterns.ScheduledFargateTaskDefinitionOptions =
     (new software.amazon.awscdk.services.ecs.patterns.ScheduledFargateTaskDefinitionOptions.Builder)
-      .taskDefinition(taskDefinition.orNull)
+      .taskDefinition(taskDefinition)
       .build()
 }

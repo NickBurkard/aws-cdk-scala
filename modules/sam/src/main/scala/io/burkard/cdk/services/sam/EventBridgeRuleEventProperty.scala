@@ -4,13 +4,13 @@ package io.burkard.cdk.services.sam
 object EventBridgeRuleEventProperty {
 
   def apply(
-    pattern: Option[AnyRef] = None,
+    pattern: AnyRef,
     eventBusName: Option[String] = None,
     inputPath: Option[String] = None,
     input: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnFunction.EventBridgeRuleEventProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.EventBridgeRuleEventProperty.Builder)
-      .pattern(pattern.orNull)
+      .pattern(pattern)
       .eventBusName(eventBusName.orNull)
       .inputPath(inputPath.orNull)
       .input(input.orNull)

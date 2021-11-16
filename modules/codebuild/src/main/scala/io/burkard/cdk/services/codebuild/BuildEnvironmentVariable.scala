@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codebuild
 object BuildEnvironmentVariable {
 
   def apply(
-    `type`: Option[software.amazon.awscdk.services.codebuild.BuildEnvironmentVariableType] = None,
-    value: Option[AnyRef] = None
+    value: AnyRef,
+    `type`: Option[software.amazon.awscdk.services.codebuild.BuildEnvironmentVariableType] = None
   ): software.amazon.awscdk.services.codebuild.BuildEnvironmentVariable =
     (new software.amazon.awscdk.services.codebuild.BuildEnvironmentVariable.Builder)
+      .value(value)
       .`type`(`type`.orNull)
-      .value(value.orNull)
       .build()
 }

@@ -5,12 +5,12 @@ object CfnApplicationCloudWatchLoggingOptionV2 {
 
   def apply(
     internalResourceId: String,
-    cloudWatchLoggingOption: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2.CloudWatchLoggingOptionProperty] = None,
-    applicationName: Option[String] = None
+    cloudWatchLoggingOption: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2.CloudWatchLoggingOptionProperty,
+    applicationName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2 =
     software.amazon.awscdk.services.kinesisanalytics.CfnApplicationCloudWatchLoggingOptionV2.Builder
       .create(stackCtx, internalResourceId)
-      .cloudWatchLoggingOption(cloudWatchLoggingOption.orNull)
-      .applicationName(applicationName.orNull)
+      .cloudWatchLoggingOption(cloudWatchLoggingOption)
+      .applicationName(applicationName)
       .build()
 }

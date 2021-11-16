@@ -4,11 +4,11 @@ package io.burkard.cdk.services.mediapackage
 object AuthorizationProperty {
 
   def apply(
-    secretsRoleArn: Option[String] = None,
-    cdnIdentifierSecret: Option[String] = None
+    secretsRoleArn: String,
+    cdnIdentifierSecret: String
   ): software.amazon.awscdk.services.mediapackage.CfnPackagingGroup.AuthorizationProperty =
     (new software.amazon.awscdk.services.mediapackage.CfnPackagingGroup.AuthorizationProperty.Builder)
-      .secretsRoleArn(secretsRoleArn.orNull)
-      .cdnIdentifierSecret(cdnIdentifierSecret.orNull)
+      .secretsRoleArn(secretsRoleArn)
+      .cdnIdentifierSecret(cdnIdentifierSecret)
       .build()
 }

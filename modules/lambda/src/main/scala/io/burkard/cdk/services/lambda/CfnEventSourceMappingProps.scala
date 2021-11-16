@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CfnEventSourceMappingProps {
 
   def apply(
+    functionName: String,
     topics: Option[List[String]] = None,
     selfManagedEventSource: Option[software.amazon.awscdk.services.lambda.CfnEventSourceMapping.SelfManagedEventSourceProperty] = None,
-    functionName: Option[String] = None,
     batchSize: Option[Number] = None,
     sourceAccessConfigurations: Option[List[_]] = None,
     queues: Option[List[String]] = None,
@@ -27,9 +27,9 @@ object CfnEventSourceMappingProps {
     maximumRetryAttempts: Option[Number] = None
   ): software.amazon.awscdk.services.lambda.CfnEventSourceMappingProps =
     (new software.amazon.awscdk.services.lambda.CfnEventSourceMappingProps.Builder)
+      .functionName(functionName)
       .topics(topics.map(_.asJava).orNull)
       .selfManagedEventSource(selfManagedEventSource.orNull)
-      .functionName(functionName.orNull)
       .batchSize(batchSize.orNull)
       .sourceAccessConfigurations(sourceAccessConfigurations.map(_.asJava).orNull)
       .queues(queues.map(_.asJava).orNull)

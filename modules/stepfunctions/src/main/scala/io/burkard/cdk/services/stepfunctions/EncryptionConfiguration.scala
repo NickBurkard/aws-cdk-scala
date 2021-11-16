@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object EncryptionConfiguration {
 
   def apply(
-    encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
-    encryptionOption: Option[software.amazon.awscdk.services.stepfunctions.tasks.EncryptionOption] = None
+    encryptionOption: software.amazon.awscdk.services.stepfunctions.tasks.EncryptionOption,
+    encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EncryptionConfiguration =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EncryptionConfiguration.Builder)
+      .encryptionOption(encryptionOption)
       .encryptionKey(encryptionKey.orNull)
-      .encryptionOption(encryptionOption.orNull)
       .build()
 }

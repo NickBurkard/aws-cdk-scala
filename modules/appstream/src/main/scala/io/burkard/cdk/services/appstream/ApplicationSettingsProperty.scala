@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appstream
 object ApplicationSettingsProperty {
 
   def apply(
-    settingsGroup: Option[String] = None,
-    enabled: Option[Boolean] = None
+    enabled: Boolean,
+    settingsGroup: Option[String] = None
   ): software.amazon.awscdk.services.appstream.CfnStack.ApplicationSettingsProperty =
     (new software.amazon.awscdk.services.appstream.CfnStack.ApplicationSettingsProperty.Builder)
+      .enabled(enabled)
       .settingsGroup(settingsGroup.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

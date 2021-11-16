@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CfnApiProps {
 
   def apply(
+    stageName: String,
     openApiVersion: Option[String] = None,
     name: Option[String] = None,
     auth: Option[software.amazon.awscdk.services.sam.CfnApi.AuthProperty] = None,
@@ -14,12 +15,11 @@ object CfnApiProps {
     binaryMediaTypes: Option[List[String]] = None,
     definitionBody: Option[AnyRef] = None,
     cacheClusterEnabled: Option[Boolean] = None,
-    cors0: Option[String] = None,
-    cors1: Option[software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty] = None,
-    stageName: Option[String] = None,
+    cors0: Option[software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty] = None,
+    cors1: Option[String] = None,
     accessLogSetting: Option[software.amazon.awscdk.services.sam.CfnApi.AccessLogSettingProperty] = None,
-    endpointConfiguration0: Option[String] = None,
-    endpointConfiguration1: Option[software.amazon.awscdk.services.sam.CfnApi.EndpointConfigurationProperty] = None,
+    endpointConfiguration0: Option[software.amazon.awscdk.services.sam.CfnApi.EndpointConfigurationProperty] = None,
+    endpointConfiguration1: Option[String] = None,
     models: Option[Map[String, String]] = None,
     minimumCompressionSize: Option[Number] = None,
     description: Option[String] = None,
@@ -33,6 +33,7 @@ object CfnApiProps {
     cacheClusterSize: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnApiProps =
     (new software.amazon.awscdk.services.sam.CfnApiProps.Builder)
+      .stageName(stageName)
       .openApiVersion(openApiVersion.orNull)
       .name(name.orNull)
       .auth(auth.orNull)
@@ -42,7 +43,6 @@ object CfnApiProps {
       .cacheClusterEnabled(cacheClusterEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cors(cors0.orNull)
       .cors(cors1.orNull)
-      .stageName(stageName.orNull)
       .accessLogSetting(accessLogSetting.orNull)
       .endpointConfiguration(endpointConfiguration0.orNull)
       .endpointConfiguration(endpointConfiguration1.orNull)

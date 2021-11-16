@@ -4,16 +4,16 @@ package io.burkard.cdk.services.ec2
 object TargetCapacitySpecificationRequestProperty {
 
   def apply(
+    totalTargetCapacity: Number,
     onDemandTargetCapacity: Option[Number] = None,
     defaultTargetCapacityType: Option[String] = None,
-    totalTargetCapacity: Option[Number] = None,
     spotTargetCapacity: Option[Number] = None,
     targetCapacityUnitType: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty =
     (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.Builder)
+      .totalTargetCapacity(totalTargetCapacity)
       .onDemandTargetCapacity(onDemandTargetCapacity.orNull)
       .defaultTargetCapacityType(defaultTargetCapacityType.orNull)
-      .totalTargetCapacity(totalTargetCapacity.orNull)
       .spotTargetCapacity(spotTargetCapacity.orNull)
       .targetCapacityUnitType(targetCapacityUnitType.orNull)
       .build()

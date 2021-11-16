@@ -4,13 +4,13 @@ package io.burkard.cdk.services.s3
 object InventoryDestination {
 
   def apply(
+    bucket: software.amazon.awscdk.services.s3.IBucket,
     prefix: Option[String] = None,
-    bucketOwner: Option[String] = None,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None
+    bucketOwner: Option[String] = None
   ): software.amazon.awscdk.services.s3.InventoryDestination =
     (new software.amazon.awscdk.services.s3.InventoryDestination.Builder)
+      .bucket(bucket)
       .prefix(prefix.orNull)
       .bucketOwner(bucketOwner.orNull)
-      .bucket(bucket.orNull)
       .build()
 }

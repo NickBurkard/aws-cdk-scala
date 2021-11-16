@@ -4,12 +4,12 @@ package io.burkard.cdk.services.codebuild
 object SourceConfig {
 
   def apply(
-    sourceProperty: Option[software.amazon.awscdk.services.codebuild.CfnProject.SourceProperty] = None,
+    sourceProperty: software.amazon.awscdk.services.codebuild.CfnProject.SourceProperty,
     buildTriggers: Option[software.amazon.awscdk.services.codebuild.CfnProject.ProjectTriggersProperty] = None,
     sourceVersion: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.SourceConfig =
     (new software.amazon.awscdk.services.codebuild.SourceConfig.Builder)
-      .sourceProperty(sourceProperty.orNull)
+      .sourceProperty(sourceProperty)
       .buildTriggers(buildTriggers.orNull)
       .sourceVersion(sourceVersion.orNull)
       .build()

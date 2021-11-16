@@ -8,22 +8,22 @@ object CfnCertificateAuthority {
 
   def apply(
     internalResourceId: String,
-    subject: Option[software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.SubjectProperty] = None,
+    subject: software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.SubjectProperty,
+    keyAlgorithm: String,
+    signingAlgorithm: String,
+    `type`: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    keyAlgorithm: Option[String] = None,
-    signingAlgorithm: Option[String] = None,
-    `type`: Option[String] = None,
     keyStorageSecurityStandard: Option[String] = None,
     revocationConfiguration: Option[software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.RevocationConfigurationProperty] = None,
     csrExtensions: Option[software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.CsrExtensionsProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.acmpca.CfnCertificateAuthority =
     software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.Builder
       .create(stackCtx, internalResourceId)
-      .subject(subject.orNull)
+      .subject(subject)
+      .keyAlgorithm(keyAlgorithm)
+      .signingAlgorithm(signingAlgorithm)
+      .`type`(`type`)
       .tags(tags.map(_.asJava).orNull)
-      .keyAlgorithm(keyAlgorithm.orNull)
-      .signingAlgorithm(signingAlgorithm.orNull)
-      .`type`(`type`.orNull)
       .keyStorageSecurityStandard(keyStorageSecurityStandard.orNull)
       .revocationConfiguration(revocationConfiguration.orNull)
       .csrExtensions(csrExtensions.orNull)

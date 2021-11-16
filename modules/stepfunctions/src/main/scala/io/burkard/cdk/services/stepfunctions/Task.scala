@@ -8,7 +8,7 @@ object Task {
 
   def apply(
     internalResourceId: String,
-    task: Option[software.amazon.awscdk.services.stepfunctions.IStepFunctionsTask] = None,
+    task: software.amazon.awscdk.services.stepfunctions.IStepFunctionsTask,
     resultPath: Option[String] = None,
     parameters: Option[Map[String, _]] = None,
     outputPath: Option[String] = None,
@@ -18,7 +18,7 @@ object Task {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.Task =
     software.amazon.awscdk.services.stepfunctions.Task.Builder
       .create(stackCtx, internalResourceId)
-      .task(task.orNull)
+      .task(task)
       .resultPath(resultPath.orNull)
       .parameters(parameters.map(_.asJava).orNull)
       .outputPath(outputPath.orNull)

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.codebuild
 object S3SourceProps {
 
   def apply(
-    path: Option[String] = None,
+    path: String,
+    bucket: software.amazon.awscdk.services.s3.IBucket,
     identifier: Option[String] = None,
-    version: Option[String] = None,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None
+    version: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.S3SourceProps =
     (new software.amazon.awscdk.services.codebuild.S3SourceProps.Builder)
-      .path(path.orNull)
+      .path(path)
+      .bucket(bucket)
       .identifier(identifier.orNull)
       .version(version.orNull)
-      .bucket(bucket.orNull)
       .build()
 }

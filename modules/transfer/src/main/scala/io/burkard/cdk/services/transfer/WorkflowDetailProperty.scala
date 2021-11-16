@@ -4,11 +4,11 @@ package io.burkard.cdk.services.transfer
 object WorkflowDetailProperty {
 
   def apply(
-    executionRole: Option[String] = None,
-    workflowId: Option[String] = None
+    executionRole: String,
+    workflowId: String
   ): software.amazon.awscdk.services.transfer.CfnServer.WorkflowDetailProperty =
     (new software.amazon.awscdk.services.transfer.CfnServer.WorkflowDetailProperty.Builder)
-      .executionRole(executionRole.orNull)
-      .workflowId(workflowId.orNull)
+      .executionRole(executionRole)
+      .workflowId(workflowId)
       .build()
 }

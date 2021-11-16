@@ -4,22 +4,22 @@ package io.burkard.cdk.services.s3
 object StorageLensConfigurationProperty {
 
   def apply(
-    accountLevel: Option[software.amazon.awscdk.services.s3.CfnStorageLens.AccountLevelProperty] = None,
-    id: Option[String] = None,
+    accountLevel: software.amazon.awscdk.services.s3.CfnStorageLens.AccountLevelProperty,
+    id: String,
+    isEnabled: Boolean,
     dataExport: Option[software.amazon.awscdk.services.s3.CfnStorageLens.DataExportProperty] = None,
     include: Option[software.amazon.awscdk.services.s3.CfnStorageLens.BucketsAndRegionsProperty] = None,
     exclude: Option[software.amazon.awscdk.services.s3.CfnStorageLens.BucketsAndRegionsProperty] = None,
-    isEnabled: Option[Boolean] = None,
     awsOrg: Option[software.amazon.awscdk.services.s3.CfnStorageLens.AwsOrgProperty] = None,
     storageLensArn: Option[String] = None
   ): software.amazon.awscdk.services.s3.CfnStorageLens.StorageLensConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnStorageLens.StorageLensConfigurationProperty.Builder)
-      .accountLevel(accountLevel.orNull)
-      .id(id.orNull)
+      .accountLevel(accountLevel)
+      .id(id)
+      .isEnabled(isEnabled)
       .dataExport(dataExport.orNull)
       .include(include.orNull)
       .exclude(exclude.orNull)
-      .isEnabled(isEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .awsOrg(awsOrg.orNull)
       .storageLensArn(storageLensArn.orNull)
       .build()

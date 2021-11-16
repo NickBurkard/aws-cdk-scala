@@ -8,8 +8,8 @@ object CfnWirelessGateway {
 
   def apply(
     internalResourceId: String,
+    loRaWan: software.amazon.awscdk.services.iotwireless.CfnWirelessGateway.LoRaWANGatewayProperty,
     name: Option[String] = None,
-    loRaWan: Option[software.amazon.awscdk.services.iotwireless.CfnWirelessGateway.LoRaWANGatewayProperty] = None,
     thingArn: Option[String] = None,
     lastUplinkReceivedAt: Option[String] = None,
     description: Option[String] = None,
@@ -17,8 +17,8 @@ object CfnWirelessGateway {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iotwireless.CfnWirelessGateway =
     software.amazon.awscdk.services.iotwireless.CfnWirelessGateway.Builder
       .create(stackCtx, internalResourceId)
+      .loRaWan(loRaWan)
       .name(name.orNull)
-      .loRaWan(loRaWan.orNull)
       .thingArn(thingArn.orNull)
       .lastUplinkReceivedAt(lastUplinkReceivedAt.orNull)
       .description(description.orNull)

@@ -5,18 +5,18 @@ object CfnPlaceIndex {
 
   def apply(
     internalResourceId: String,
+    dataSource: String,
+    pricingPlan: String,
+    indexName: String,
     description: Option[String] = None,
-    dataSource: Option[String] = None,
-    pricingPlan: Option[String] = None,
-    dataSourceConfiguration: Option[software.amazon.awscdk.services.location.CfnPlaceIndex.DataSourceConfigurationProperty] = None,
-    indexName: Option[String] = None
+    dataSourceConfiguration: Option[software.amazon.awscdk.services.location.CfnPlaceIndex.DataSourceConfigurationProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.location.CfnPlaceIndex =
     software.amazon.awscdk.services.location.CfnPlaceIndex.Builder
       .create(stackCtx, internalResourceId)
+      .dataSource(dataSource)
+      .pricingPlan(pricingPlan)
+      .indexName(indexName)
       .description(description.orNull)
-      .dataSource(dataSource.orNull)
-      .pricingPlan(pricingPlan.orNull)
       .dataSourceConfiguration(dataSourceConfiguration.orNull)
-      .indexName(indexName.orNull)
       .build()
 }

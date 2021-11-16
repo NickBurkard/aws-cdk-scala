@@ -4,11 +4,11 @@ package io.burkard.cdk.services.synthetics
 object ScheduleProperty {
 
   def apply(
-    durationInSeconds: Option[String] = None,
-    expression: Option[String] = None
+    expression: String,
+    durationInSeconds: Option[String] = None
   ): software.amazon.awscdk.services.synthetics.CfnCanary.ScheduleProperty =
     (new software.amazon.awscdk.services.synthetics.CfnCanary.ScheduleProperty.Builder)
+      .expression(expression)
       .durationInSeconds(durationInSeconds.orNull)
-      .expression(expression.orNull)
       .build()
 }

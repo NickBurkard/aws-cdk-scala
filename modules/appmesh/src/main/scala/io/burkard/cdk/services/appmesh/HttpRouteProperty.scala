@@ -4,15 +4,15 @@ package io.burkard.cdk.services.appmesh
 object HttpRouteProperty {
 
   def apply(
-    `match`: Option[software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteMatchProperty] = None,
+    `match`: software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteMatchProperty,
+    action: software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteActionProperty,
     retryPolicy: Option[software.amazon.awscdk.services.appmesh.CfnRoute.HttpRetryPolicyProperty] = None,
-    timeout: Option[software.amazon.awscdk.services.appmesh.CfnRoute.HttpTimeoutProperty] = None,
-    action: Option[software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteActionProperty] = None
+    timeout: Option[software.amazon.awscdk.services.appmesh.CfnRoute.HttpTimeoutProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteProperty.Builder)
-      .`match`(`match`.orNull)
+      .`match`(`match`)
+      .action(action)
       .retryPolicy(retryPolicy.orNull)
       .timeout(timeout.orNull)
-      .action(action.orNull)
       .build()
 }

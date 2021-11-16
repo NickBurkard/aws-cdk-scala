@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnDomainNameV2Props {
 
   def apply(
+    domainName: String,
     tags: Option[AnyRef] = None,
-    domainName: Option[String] = None,
     domainNameConfigurations: Option[List[_]] = None
   ): software.amazon.awscdk.services.apigateway.CfnDomainNameV2Props =
     (new software.amazon.awscdk.services.apigateway.CfnDomainNameV2Props.Builder)
+      .domainName(domainName)
       .tags(tags.orNull)
-      .domainName(domainName.orNull)
       .domainNameConfigurations(domainNameConfigurations.map(_.asJava).orNull)
       .build()
 }

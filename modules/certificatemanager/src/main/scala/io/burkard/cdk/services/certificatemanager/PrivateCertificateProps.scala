@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object PrivateCertificateProps {
 
   def apply(
-    certificateAuthority: Option[software.amazon.awscdk.services.acmpca.ICertificateAuthority] = None,
-    domainName: Option[String] = None,
+    certificateAuthority: software.amazon.awscdk.services.acmpca.ICertificateAuthority,
+    domainName: String,
     subjectAlternativeNames: Option[List[String]] = None
   ): software.amazon.awscdk.services.certificatemanager.PrivateCertificateProps =
     (new software.amazon.awscdk.services.certificatemanager.PrivateCertificateProps.Builder)
-      .certificateAuthority(certificateAuthority.orNull)
-      .domainName(domainName.orNull)
+      .certificateAuthority(certificateAuthority)
+      .domainName(domainName)
       .subjectAlternativeNames(subjectAlternativeNames.map(_.asJava).orNull)
       .build()
 }

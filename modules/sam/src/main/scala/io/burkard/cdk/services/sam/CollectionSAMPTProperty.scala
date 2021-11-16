@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object CollectionSAMPTProperty {
 
   def apply(
-    collectionId: Option[String] = None
+    collectionId: String
   ): software.amazon.awscdk.services.sam.CfnFunction.CollectionSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.CollectionSAMPTProperty.Builder)
-      .collectionId(collectionId.orNull)
+      .collectionId(collectionId)
       .build()
 }

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.appmesh
 object GrpcRouteProperty {
 
   def apply(
-    `match`: Option[software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteMatchProperty] = None,
+    `match`: software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteMatchProperty,
+    action: software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteActionProperty,
     retryPolicy: Option[software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRetryPolicyProperty] = None,
-    timeout: Option[software.amazon.awscdk.services.appmesh.CfnRoute.GrpcTimeoutProperty] = None,
-    action: Option[software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteActionProperty] = None
+    timeout: Option[software.amazon.awscdk.services.appmesh.CfnRoute.GrpcTimeoutProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.GrpcRouteProperty.Builder)
-      .`match`(`match`.orNull)
+      .`match`(`match`)
+      .action(action)
       .retryPolicy(retryPolicy.orNull)
       .timeout(timeout.orNull)
-      .action(action.orNull)
       .build()
 }

@@ -5,15 +5,15 @@ object CfnBasePathMapping {
 
   def apply(
     internalResourceId: String,
+    domainName: String,
     stage: Option[String] = None,
-    domainName: Option[String] = None,
     basePath: Option[String] = None,
     restApiId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnBasePathMapping =
     software.amazon.awscdk.services.apigateway.CfnBasePathMapping.Builder
       .create(stackCtx, internalResourceId)
+      .domainName(domainName)
       .stage(stage.orNull)
-      .domainName(domainName.orNull)
       .basePath(basePath.orNull)
       .restApiId(restApiId.orNull)
       .build()

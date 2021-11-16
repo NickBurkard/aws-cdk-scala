@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object GoogleAnalyticsSourcePropertiesProperty {
 
   def apply(
-    `object`: Option[String] = None
+    `object`: String
   ): software.amazon.awscdk.services.appflow.CfnFlow.GoogleAnalyticsSourcePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.GoogleAnalyticsSourcePropertiesProperty.Builder)
-      .`object`(`object`.orNull)
+      .`object`(`object`)
       .build()
 }

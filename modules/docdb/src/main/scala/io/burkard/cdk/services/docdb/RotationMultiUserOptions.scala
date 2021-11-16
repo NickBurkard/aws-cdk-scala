@@ -4,11 +4,11 @@ package io.burkard.cdk.services.docdb
 object RotationMultiUserOptions {
 
   def apply(
-    secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
+    secret: software.amazon.awscdk.services.secretsmanager.ISecret,
     automaticallyAfter: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.docdb.RotationMultiUserOptions =
     (new software.amazon.awscdk.services.docdb.RotationMultiUserOptions.Builder)
-      .secret(secret.orNull)
+      .secret(secret)
       .automaticallyAfter(automaticallyAfter.orNull)
       .build()
 }

@@ -4,19 +4,19 @@ package io.burkard.cdk.services.applicationautoscaling
 object BaseScalableAttributeProps {
 
   def apply(
-    resourceId: Option[String] = None,
+    resourceId: String,
+    role: software.amazon.awscdk.services.iam.IRole,
+    serviceNamespace: software.amazon.awscdk.services.applicationautoscaling.ServiceNamespace,
+    dimension: String,
     maxCapacity: Option[Number] = None,
-    role: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    serviceNamespace: Option[software.amazon.awscdk.services.applicationautoscaling.ServiceNamespace] = None,
-    minCapacity: Option[Number] = None,
-    dimension: Option[String] = None
+    minCapacity: Option[Number] = None
   ): software.amazon.awscdk.services.applicationautoscaling.BaseScalableAttributeProps =
     (new software.amazon.awscdk.services.applicationautoscaling.BaseScalableAttributeProps.Builder)
-      .resourceId(resourceId.orNull)
+      .resourceId(resourceId)
+      .role(role)
+      .serviceNamespace(serviceNamespace)
+      .dimension(dimension)
       .maxCapacity(maxCapacity.orNull)
-      .role(role.orNull)
-      .serviceNamespace(serviceNamespace.orNull)
       .minCapacity(minCapacity.orNull)
-      .dimension(dimension.orNull)
       .build()
 }

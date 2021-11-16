@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cognito
 object CfnUserPoolDomainProps {
 
   def apply(
-    domain: Option[String] = None,
-    customDomainConfig: Option[software.amazon.awscdk.services.cognito.CfnUserPoolDomain.CustomDomainConfigTypeProperty] = None,
-    userPoolId: Option[String] = None
+    domain: String,
+    userPoolId: String,
+    customDomainConfig: Option[software.amazon.awscdk.services.cognito.CfnUserPoolDomain.CustomDomainConfigTypeProperty] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolDomainProps =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolDomainProps.Builder)
-      .domain(domain.orNull)
+      .domain(domain)
+      .userPoolId(userPoolId)
       .customDomainConfig(customDomainConfig.orNull)
-      .userPoolId(userPoolId.orNull)
       .build()
 }

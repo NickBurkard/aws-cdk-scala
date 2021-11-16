@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object CfnTransitGatewayMulticastDomainAssociationProps {
 
   def apply(
-    subnetId: Option[String] = None,
-    transitGatewayAttachmentId: Option[String] = None,
-    transitGatewayMulticastDomainId: Option[String] = None
+    subnetId: String,
+    transitGatewayAttachmentId: String,
+    transitGatewayMulticastDomainId: String
   ): software.amazon.awscdk.services.ec2.CfnTransitGatewayMulticastDomainAssociationProps =
     (new software.amazon.awscdk.services.ec2.CfnTransitGatewayMulticastDomainAssociationProps.Builder)
-      .subnetId(subnetId.orNull)
-      .transitGatewayAttachmentId(transitGatewayAttachmentId.orNull)
-      .transitGatewayMulticastDomainId(transitGatewayMulticastDomainId.orNull)
+      .subnetId(subnetId)
+      .transitGatewayAttachmentId(transitGatewayAttachmentId)
+      .transitGatewayMulticastDomainId(transitGatewayMulticastDomainId)
       .build()
 }

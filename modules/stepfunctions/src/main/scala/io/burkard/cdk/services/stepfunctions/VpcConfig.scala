@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object VpcConfig {
 
   def apply(
-    subnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
+    subnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.VpcConfig =
     (new software.amazon.awscdk.services.stepfunctions.tasks.VpcConfig.Builder)
+      .vpc(vpc)
       .subnets(subnets.orNull)
-      .vpc(vpc.orNull)
       .build()
 }

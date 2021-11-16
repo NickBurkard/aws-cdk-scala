@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object ReplicationConfigurationProperty {
 
   def apply(
-    rules: Option[List[_]] = None
+    rules: List[_]
   ): software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationConfigurationProperty =
     (new software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationConfigurationProperty.Builder)
-      .rules(rules.map(_.asJava).orNull)
+      .rules(rules.asJava)
       .build()
 }

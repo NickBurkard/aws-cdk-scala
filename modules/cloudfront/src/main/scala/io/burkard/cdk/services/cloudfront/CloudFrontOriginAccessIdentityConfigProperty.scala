@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object CloudFrontOriginAccessIdentityConfigProperty {
 
   def apply(
-    comment: Option[String] = None
+    comment: String
   ): software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty.Builder)
-      .comment(comment.orNull)
+      .comment(comment)
       .build()
 }

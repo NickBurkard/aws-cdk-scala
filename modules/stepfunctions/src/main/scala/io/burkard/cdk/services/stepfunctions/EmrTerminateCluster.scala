@@ -8,8 +8,8 @@ object EmrTerminateCluster {
 
   def apply(
     internalResourceId: String,
+    clusterId: String,
     resultPath: Option[String] = None,
-    clusterId: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
@@ -20,8 +20,8 @@ object EmrTerminateCluster {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.EmrTerminateCluster =
     software.amazon.awscdk.services.stepfunctions.tasks.EmrTerminateCluster.Builder
       .create(stackCtx, internalResourceId)
+      .clusterId(clusterId)
       .resultPath(resultPath.orNull)
-      .clusterId(clusterId.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)

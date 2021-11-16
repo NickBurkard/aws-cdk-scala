@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object AwsCloudFormationStackProperties {
 
   def apply(
-    templateFile: Option[String] = None,
+    templateFile: String,
     terminationProtection: Option[Boolean] = None,
     stackName: Option[String] = None,
     parameters: Option[Map[String, String]] = None
   ): software.amazon.awscdk.cxapi.AwsCloudFormationStackProperties =
     (new software.amazon.awscdk.cxapi.AwsCloudFormationStackProperties.Builder)
-      .templateFile(templateFile.orNull)
+      .templateFile(templateFile)
       .terminationProtection(terminationProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .stackName(stackName.orNull)
       .parameters(parameters.map(_.asJava).orNull)

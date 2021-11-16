@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dlm
 object EncryptionConfigurationProperty {
 
   def apply(
-    cmkArn: Option[String] = None,
-    encrypted: Option[Boolean] = None
+    encrypted: Boolean,
+    cmkArn: Option[String] = None
   ): software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EncryptionConfigurationProperty =
     (new software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EncryptionConfigurationProperty.Builder)
+      .encrypted(encrypted)
       .cmkArn(cmkArn.orNull)
-      .encrypted(encrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.core
 object CfnTrafficRoute {
 
   def apply(
-    `type`: Option[String] = None,
-    logicalId: Option[String] = None
+    `type`: String,
+    logicalId: String
   ): software.amazon.awscdk.CfnTrafficRoute =
     (new software.amazon.awscdk.CfnTrafficRoute.Builder)
-      .`type`(`type`.orNull)
-      .logicalId(logicalId.orNull)
+      .`type`(`type`)
+      .logicalId(logicalId)
       .build()
 }

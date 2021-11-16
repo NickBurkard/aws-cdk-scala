@@ -7,24 +7,24 @@ import scala.collection.JavaConverters._
 object ContainerImageAssetMetadataEntry {
 
   def apply(
-    packaging: Option[String] = None,
-    path: Option[String] = None,
+    packaging: String,
+    path: String,
+    sourceHash: String,
+    id: String,
     imageNameParameter: Option[String] = None,
     imageTag: Option[String] = None,
-    sourceHash: Option[String] = None,
-    id: Option[String] = None,
     repositoryName: Option[String] = None,
     buildArgs: Option[Map[String, String]] = None,
     file: Option[String] = None,
     target: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.ContainerImageAssetMetadataEntry =
     (new software.amazon.awscdk.cloudassembly.schema.ContainerImageAssetMetadataEntry.Builder)
-      .packaging(packaging.orNull)
-      .path(path.orNull)
+      .packaging(packaging)
+      .path(path)
+      .sourceHash(sourceHash)
+      .id(id)
       .imageNameParameter(imageNameParameter.orNull)
       .imageTag(imageTag.orNull)
-      .sourceHash(sourceHash.orNull)
-      .id(id.orNull)
       .repositoryName(repositoryName.orNull)
       .buildArgs(buildArgs.map(_.asJava).orNull)
       .file(file.orNull)

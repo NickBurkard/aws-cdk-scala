@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnFunctionDefinitionVersionProps {
 
   def apply(
-    functionDefinitionId: Option[String] = None,
-    defaultConfig: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.DefaultConfigProperty] = None,
-    functions: Option[List[_]] = None
+    functionDefinitionId: String,
+    functions: List[_],
+    defaultConfig: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.DefaultConfigProperty] = None
   ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersionProps =
     (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersionProps.Builder)
-      .functionDefinitionId(functionDefinitionId.orNull)
+      .functionDefinitionId(functionDefinitionId)
+      .functions(functions.asJava)
       .defaultConfig(defaultConfig.orNull)
-      .functions(functions.map(_.asJava).orNull)
       .build()
 }

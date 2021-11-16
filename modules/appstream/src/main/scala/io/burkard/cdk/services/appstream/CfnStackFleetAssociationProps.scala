@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appstream
 object CfnStackFleetAssociationProps {
 
   def apply(
-    fleetName: Option[String] = None,
-    stackName: Option[String] = None
+    fleetName: String,
+    stackName: String
   ): software.amazon.awscdk.services.appstream.CfnStackFleetAssociationProps =
     (new software.amazon.awscdk.services.appstream.CfnStackFleetAssociationProps.Builder)
-      .fleetName(fleetName.orNull)
-      .stackName(stackName.orNull)
+      .fleetName(fleetName)
+      .stackName(stackName)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object FunctionAssociation {
 
   def apply(
-    eventType: Option[software.amazon.awscdk.services.cloudfront.FunctionEventType] = None,
-    function: Option[software.amazon.awscdk.services.cloudfront.IFunction] = None
+    eventType: software.amazon.awscdk.services.cloudfront.FunctionEventType,
+    function: software.amazon.awscdk.services.cloudfront.IFunction
   ): software.amazon.awscdk.services.cloudfront.FunctionAssociation =
     (new software.amazon.awscdk.services.cloudfront.FunctionAssociation.Builder)
-      .eventType(eventType.orNull)
-      .function(function.orNull)
+      .eventType(eventType)
+      .function(function)
       .build()
 }

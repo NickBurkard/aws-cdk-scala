@@ -4,11 +4,11 @@ package io.burkard.cdk.services.servicecatalog
 object DefinitionParameterProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.servicecatalog.CfnServiceAction.DefinitionParameterProperty =
     (new software.amazon.awscdk.services.servicecatalog.CfnServiceAction.DefinitionParameterProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

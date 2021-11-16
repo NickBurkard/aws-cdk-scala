@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ecs
 object Ec2ServiceAttributes {
 
   def apply(
+    cluster: software.amazon.awscdk.services.ecs.ICluster,
     serviceName: Option[String] = None,
-    serviceArn: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.ecs.ICluster] = None
+    serviceArn: Option[String] = None
   ): software.amazon.awscdk.services.ecs.Ec2ServiceAttributes =
     (new software.amazon.awscdk.services.ecs.Ec2ServiceAttributes.Builder)
+      .cluster(cluster)
       .serviceName(serviceName.orNull)
       .serviceArn(serviceArn.orNull)
-      .cluster(cluster.orNull)
       .build()
 }

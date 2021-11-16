@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ses
 object LambdaActionConfig {
 
   def apply(
+    functionArn: String,
     invocationType: Option[String] = None,
-    topicArn: Option[String] = None,
-    functionArn: Option[String] = None
+    topicArn: Option[String] = None
   ): software.amazon.awscdk.services.ses.LambdaActionConfig =
     (new software.amazon.awscdk.services.ses.LambdaActionConfig.Builder)
+      .functionArn(functionArn)
       .invocationType(invocationType.orNull)
       .topicArn(topicArn.orNull)
-      .functionArn(functionArn.orNull)
       .build()
 }

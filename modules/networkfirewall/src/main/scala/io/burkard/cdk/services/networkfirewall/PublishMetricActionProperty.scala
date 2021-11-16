@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object PublishMetricActionProperty {
 
   def apply(
-    dimensions: Option[List[_]] = None
+    dimensions: List[_]
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.PublishMetricActionProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.PublishMetricActionProperty.Builder)
-      .dimensions(dimensions.map(_.asJava).orNull)
+      .dimensions(dimensions.asJava)
       .build()
 }

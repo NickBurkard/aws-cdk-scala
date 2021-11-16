@@ -8,12 +8,12 @@ object CfnRegexPatternSet {
 
   def apply(
     internalResourceId: String,
-    regexPatternStrings: Option[List[String]] = None,
-    name: Option[String] = None
+    regexPatternStrings: List[String],
+    name: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnRegexPatternSet =
     software.amazon.awscdk.services.waf.regional.CfnRegexPatternSet.Builder
       .create(stackCtx, internalResourceId)
-      .regexPatternStrings(regexPatternStrings.map(_.asJava).orNull)
-      .name(name.orNull)
+      .regexPatternStrings(regexPatternStrings.asJava)
+      .name(name)
       .build()
 }

@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CfnRepositoryProps {
 
   def apply(
-    repositoryName: Option[String] = None,
+    repositoryName: String,
+    domainName: String,
     permissionsPolicyDocument: Option[AnyRef] = None,
-    domainName: Option[String] = None,
     upstreams: Option[List[String]] = None,
     externalConnections: Option[List[String]] = None,
     domainOwner: Option[String] = None,
@@ -17,9 +17,9 @@ object CfnRepositoryProps {
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.codeartifact.CfnRepositoryProps =
     (new software.amazon.awscdk.services.codeartifact.CfnRepositoryProps.Builder)
-      .repositoryName(repositoryName.orNull)
+      .repositoryName(repositoryName)
+      .domainName(domainName)
       .permissionsPolicyDocument(permissionsPolicyDocument.orNull)
-      .domainName(domainName.orNull)
       .upstreams(upstreams.map(_.asJava).orNull)
       .externalConnections(externalConnections.map(_.asJava).orNull)
       .domainOwner(domainOwner.orNull)

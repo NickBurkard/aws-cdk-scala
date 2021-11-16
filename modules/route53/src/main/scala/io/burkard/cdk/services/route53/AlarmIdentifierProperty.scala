@@ -4,11 +4,11 @@ package io.burkard.cdk.services.route53
 object AlarmIdentifierProperty {
 
   def apply(
-    name: Option[String] = None,
-    region: Option[String] = None
+    name: String,
+    region: String
   ): software.amazon.awscdk.services.route53.CfnHealthCheck.AlarmIdentifierProperty =
     (new software.amazon.awscdk.services.route53.CfnHealthCheck.AlarmIdentifierProperty.Builder)
-      .name(name.orNull)
-      .region(region.orNull)
+      .name(name)
+      .region(region)
       .build()
 }

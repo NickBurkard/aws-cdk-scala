@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object AppMeshProxyConfigurationProps {
 
   def apply(
-    proxyEgressPort: Option[Number] = None,
-    appPorts: Option[List[_ <: Number]] = None,
-    proxyIngressPort: Option[Number] = None,
+    proxyEgressPort: Number,
+    appPorts: List[_ <: Number],
+    proxyIngressPort: Number,
     egressIgnoredIPs: Option[List[String]] = None,
     ignoredUid: Option[Number] = None,
     ignoredGid: Option[Number] = None,
     egressIgnoredPorts: Option[List[_ <: Number]] = None
   ): software.amazon.awscdk.services.ecs.AppMeshProxyConfigurationProps =
     (new software.amazon.awscdk.services.ecs.AppMeshProxyConfigurationProps.Builder)
-      .proxyEgressPort(proxyEgressPort.orNull)
-      .appPorts(appPorts.map(_.asJava).orNull)
-      .proxyIngressPort(proxyIngressPort.orNull)
+      .proxyEgressPort(proxyEgressPort)
+      .appPorts(appPorts.asJava)
+      .proxyIngressPort(proxyIngressPort)
       .egressIgnoredIPs(egressIgnoredIPs.map(_.asJava).orNull)
       .ignoredUid(ignoredUid.orNull)
       .ignoredGid(ignoredGid.orNull)

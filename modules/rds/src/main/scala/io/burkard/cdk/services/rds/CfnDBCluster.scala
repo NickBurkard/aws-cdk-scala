@@ -8,6 +8,7 @@ object CfnDBCluster {
 
   def apply(
     internalResourceId: String,
+    engine: String,
     restoreType: Option[String] = None,
     preferredMaintenanceWindow: Option[String] = None,
     associatedRoles: Option[List[_]] = None,
@@ -39,11 +40,11 @@ object CfnDBCluster {
     backtrackWindow: Option[Number] = None,
     engineVersion: Option[String] = None,
     useLatestRestorableTime: Option[Boolean] = None,
-    enableIamDatabaseAuthentication: Option[Boolean] = None,
-    engine: Option[String] = None
+    enableIamDatabaseAuthentication: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.CfnDBCluster =
     software.amazon.awscdk.services.rds.CfnDBCluster.Builder
       .create(stackCtx, internalResourceId)
+      .engine(engine)
       .restoreType(restoreType.orNull)
       .preferredMaintenanceWindow(preferredMaintenanceWindow.orNull)
       .associatedRoles(associatedRoles.map(_.asJava).orNull)
@@ -76,6 +77,5 @@ object CfnDBCluster {
       .engineVersion(engineVersion.orNull)
       .useLatestRestorableTime(useLatestRestorableTime.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .enableIamDatabaseAuthentication(enableIamDatabaseAuthentication.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .engine(engine.orNull)
       .build()
 }

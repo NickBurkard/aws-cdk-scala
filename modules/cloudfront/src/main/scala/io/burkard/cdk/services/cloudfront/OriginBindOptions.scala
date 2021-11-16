@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object OriginBindOptions {
 
   def apply(
-    originId: Option[String] = None
+    originId: String
   ): software.amazon.awscdk.services.cloudfront.OriginBindOptions =
     (new software.amazon.awscdk.services.cloudfront.OriginBindOptions.Builder)
-      .originId(originId.orNull)
+      .originId(originId)
       .build()
 }

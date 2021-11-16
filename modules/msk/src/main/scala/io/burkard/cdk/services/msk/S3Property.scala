@@ -4,13 +4,13 @@ package io.burkard.cdk.services.msk
 object S3Property {
 
   def apply(
+    enabled: Boolean,
     prefix: Option[String] = None,
-    enabled: Option[Boolean] = None,
     bucket: Option[String] = None
   ): software.amazon.awscdk.services.msk.CfnCluster.S3Property =
     (new software.amazon.awscdk.services.msk.CfnCluster.S3Property.Builder)
+      .enabled(enabled)
       .prefix(prefix.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .bucket(bucket.orNull)
       .build()
 }

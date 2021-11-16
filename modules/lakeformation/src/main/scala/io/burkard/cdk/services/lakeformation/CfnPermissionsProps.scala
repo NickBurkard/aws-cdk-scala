@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnPermissionsProps {
 
   def apply(
+    dataLakePrincipal: software.amazon.awscdk.services.lakeformation.CfnPermissions.DataLakePrincipalProperty,
+    resource: software.amazon.awscdk.services.lakeformation.CfnPermissions.ResourceProperty,
     permissionsWithGrantOption: Option[List[String]] = None,
-    dataLakePrincipal: Option[software.amazon.awscdk.services.lakeformation.CfnPermissions.DataLakePrincipalProperty] = None,
-    permissions: Option[List[String]] = None,
-    resource: Option[software.amazon.awscdk.services.lakeformation.CfnPermissions.ResourceProperty] = None
+    permissions: Option[List[String]] = None
   ): software.amazon.awscdk.services.lakeformation.CfnPermissionsProps =
     (new software.amazon.awscdk.services.lakeformation.CfnPermissionsProps.Builder)
+      .dataLakePrincipal(dataLakePrincipal)
+      .resource(resource)
       .permissionsWithGrantOption(permissionsWithGrantOption.map(_.asJava).orNull)
-      .dataLakePrincipal(dataLakePrincipal.orNull)
       .permissions(permissions.map(_.asJava).orNull)
-      .resource(resource.orNull)
       .build()
 }

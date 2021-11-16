@@ -4,11 +4,11 @@ package io.burkard.cdk.services.rds
 object DBInstanceRoleProperty {
 
   def apply(
-    featureName: Option[String] = None,
-    roleArn: Option[String] = None
+    featureName: String,
+    roleArn: String
   ): software.amazon.awscdk.services.rds.CfnDBInstance.DBInstanceRoleProperty =
     (new software.amazon.awscdk.services.rds.CfnDBInstance.DBInstanceRoleProperty.Builder)
-      .featureName(featureName.orNull)
-      .roleArn(roleArn.orNull)
+      .featureName(featureName)
+      .roleArn(roleArn)
       .build()
 }

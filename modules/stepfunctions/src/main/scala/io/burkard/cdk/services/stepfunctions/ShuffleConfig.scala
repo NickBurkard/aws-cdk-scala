@@ -4,9 +4,9 @@ package io.burkard.cdk.services.stepfunctions
 object ShuffleConfig {
 
   def apply(
-    seed: Option[Number] = None
+    seed: Number
   ): software.amazon.awscdk.services.stepfunctions.tasks.ShuffleConfig =
     (new software.amazon.awscdk.services.stepfunctions.tasks.ShuffleConfig.Builder)
-      .seed(seed.orNull)
+      .seed(seed)
       .build()
 }

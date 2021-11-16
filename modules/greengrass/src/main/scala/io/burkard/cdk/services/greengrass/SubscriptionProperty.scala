@@ -4,15 +4,15 @@ package io.burkard.cdk.services.greengrass
 object SubscriptionProperty {
 
   def apply(
-    source: Option[String] = None,
-    subject: Option[String] = None,
-    id: Option[String] = None,
-    target: Option[String] = None
+    source: String,
+    subject: String,
+    id: String,
+    target: String
   ): software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersion.SubscriptionProperty =
     (new software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersion.SubscriptionProperty.Builder)
-      .source(source.orNull)
-      .subject(subject.orNull)
-      .id(id.orNull)
-      .target(target.orNull)
+      .source(source)
+      .subject(subject)
+      .id(id)
+      .target(target)
       .build()
 }

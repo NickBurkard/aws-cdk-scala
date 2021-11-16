@@ -5,12 +5,12 @@ object CfnTransitGatewayRouteTableAssociation {
 
   def apply(
     internalResourceId: String,
-    transitGatewayRouteTableId: Option[String] = None,
-    transitGatewayAttachmentId: Option[String] = None
+    transitGatewayRouteTableId: String,
+    transitGatewayAttachmentId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnTransitGatewayRouteTableAssociation =
     software.amazon.awscdk.services.ec2.CfnTransitGatewayRouteTableAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .transitGatewayRouteTableId(transitGatewayRouteTableId.orNull)
-      .transitGatewayAttachmentId(transitGatewayAttachmentId.orNull)
+      .transitGatewayRouteTableId(transitGatewayRouteTableId)
+      .transitGatewayAttachmentId(transitGatewayAttachmentId)
       .build()
 }

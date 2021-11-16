@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CfnDBClusterProps {
 
   def apply(
+    engine: String,
     restoreType: Option[String] = None,
     preferredMaintenanceWindow: Option[String] = None,
     associatedRoles: Option[List[_]] = None,
@@ -38,10 +39,10 @@ object CfnDBClusterProps {
     backtrackWindow: Option[Number] = None,
     engineVersion: Option[String] = None,
     useLatestRestorableTime: Option[Boolean] = None,
-    enableIamDatabaseAuthentication: Option[Boolean] = None,
-    engine: Option[String] = None
+    enableIamDatabaseAuthentication: Option[Boolean] = None
   ): software.amazon.awscdk.services.rds.CfnDBClusterProps =
     (new software.amazon.awscdk.services.rds.CfnDBClusterProps.Builder)
+      .engine(engine)
       .restoreType(restoreType.orNull)
       .preferredMaintenanceWindow(preferredMaintenanceWindow.orNull)
       .associatedRoles(associatedRoles.map(_.asJava).orNull)
@@ -74,6 +75,5 @@ object CfnDBClusterProps {
       .engineVersion(engineVersion.orNull)
       .useLatestRestorableTime(useLatestRestorableTime.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .enableIamDatabaseAuthentication(enableIamDatabaseAuthentication.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .engine(engine.orNull)
       .build()
 }

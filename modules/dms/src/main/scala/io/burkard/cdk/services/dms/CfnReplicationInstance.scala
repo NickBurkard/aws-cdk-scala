@@ -8,9 +8,9 @@ object CfnReplicationInstance {
 
   def apply(
     internalResourceId: String,
+    replicationInstanceClass: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     availabilityZone: Option[String] = None,
-    replicationInstanceClass: Option[String] = None,
     replicationSubnetGroupIdentifier: Option[String] = None,
     kmsKeyId: Option[String] = None,
     publiclyAccessible: Option[Boolean] = None,
@@ -26,9 +26,9 @@ object CfnReplicationInstance {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.dms.CfnReplicationInstance =
     software.amazon.awscdk.services.dms.CfnReplicationInstance.Builder
       .create(stackCtx, internalResourceId)
+      .replicationInstanceClass(replicationInstanceClass)
       .tags(tags.map(_.asJava).orNull)
       .availabilityZone(availabilityZone.orNull)
-      .replicationInstanceClass(replicationInstanceClass.orNull)
       .replicationSubnetGroupIdentifier(replicationSubnetGroupIdentifier.orNull)
       .kmsKeyId(kmsKeyId.orNull)
       .publiclyAccessible(publiclyAccessible.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

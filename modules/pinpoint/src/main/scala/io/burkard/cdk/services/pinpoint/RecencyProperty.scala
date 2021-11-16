@@ -4,11 +4,11 @@ package io.burkard.cdk.services.pinpoint
 object RecencyProperty {
 
   def apply(
-    duration: Option[String] = None,
-    recencyType: Option[String] = None
+    duration: String,
+    recencyType: String
   ): software.amazon.awscdk.services.pinpoint.CfnSegment.RecencyProperty =
     (new software.amazon.awscdk.services.pinpoint.CfnSegment.RecencyProperty.Builder)
-      .duration(duration.orNull)
-      .recencyType(recencyType.orNull)
+      .duration(duration)
+      .recencyType(recencyType)
       .build()
 }

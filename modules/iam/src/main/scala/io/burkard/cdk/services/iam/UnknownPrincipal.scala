@@ -4,10 +4,10 @@ package io.burkard.cdk.services.iam
 object UnknownPrincipal {
 
   def apply(
-    resource: Option[software.constructs.IConstruct] = None
+    resource: software.constructs.IConstruct
   ): software.amazon.awscdk.services.iam.UnknownPrincipal =
     software.amazon.awscdk.services.iam.UnknownPrincipal.Builder
       .create()
-      .resource(resource.orNull)
+      .resource(resource)
       .build()
 }

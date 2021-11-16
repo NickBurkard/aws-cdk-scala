@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnConfigProps {
 
   def apply(
-    name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    configData: Option[software.amazon.awscdk.services.groundstation.CfnConfig.ConfigDataProperty] = None
+    name: String,
+    configData: software.amazon.awscdk.services.groundstation.CfnConfig.ConfigDataProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.groundstation.CfnConfigProps =
     (new software.amazon.awscdk.services.groundstation.CfnConfigProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .configData(configData)
       .tags(tags.map(_.asJava).orNull)
-      .configData(configData.orNull)
       .build()
 }

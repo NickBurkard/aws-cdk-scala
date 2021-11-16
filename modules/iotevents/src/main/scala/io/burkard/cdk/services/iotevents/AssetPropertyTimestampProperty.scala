@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotevents
 object AssetPropertyTimestampProperty {
 
   def apply(
-    offsetInNanos: Option[String] = None,
-    timeInSeconds: Option[String] = None
+    timeInSeconds: String,
+    offsetInNanos: Option[String] = None
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.AssetPropertyTimestampProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.AssetPropertyTimestampProperty.Builder)
+      .timeInSeconds(timeInSeconds)
       .offsetInNanos(offsetInNanos.orNull)
-      .timeInSeconds(timeInSeconds.orNull)
       .build()
 }

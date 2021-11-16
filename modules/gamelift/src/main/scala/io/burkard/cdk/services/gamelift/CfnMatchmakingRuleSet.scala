@@ -5,12 +5,12 @@ object CfnMatchmakingRuleSet {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    ruleSetBody: Option[String] = None
+    name: String,
+    ruleSetBody: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.gamelift.CfnMatchmakingRuleSet =
     software.amazon.awscdk.services.gamelift.CfnMatchmakingRuleSet.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .ruleSetBody(ruleSetBody.orNull)
+      .name(name)
+      .ruleSetBody(ruleSetBody)
       .build()
 }

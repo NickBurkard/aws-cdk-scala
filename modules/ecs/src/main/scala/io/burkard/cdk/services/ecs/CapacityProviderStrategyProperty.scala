@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ecs
 object CapacityProviderStrategyProperty {
 
   def apply(
+    capacityProvider: String,
     weight: Option[Number] = None,
-    capacityProvider: Option[String] = None,
     base: Option[Number] = None
   ): software.amazon.awscdk.services.ecs.CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty =
     (new software.amazon.awscdk.services.ecs.CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty.Builder)
+      .capacityProvider(capacityProvider)
       .weight(weight.orNull)
-      .capacityProvider(capacityProvider.orNull)
       .base(base.orNull)
       .build()
 }

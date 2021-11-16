@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnServiceActionProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    definition: List[_],
+    definitionType: String,
     description: Option[String] = None,
-    acceptLanguage: Option[String] = None,
-    definition: Option[List[_]] = None,
-    definitionType: Option[String] = None
+    acceptLanguage: Option[String] = None
   ): software.amazon.awscdk.services.servicecatalog.CfnServiceActionProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnServiceActionProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .definition(definition.asJava)
+      .definitionType(definitionType)
       .description(description.orNull)
       .acceptLanguage(acceptLanguage.orNull)
-      .definition(definition.map(_.asJava).orNull)
-      .definitionType(definitionType.orNull)
       .build()
 }

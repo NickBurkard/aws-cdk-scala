@@ -4,11 +4,11 @@ package io.burkard.cdk.services.greengrass
 object ResourceDownloadOwnerSettingProperty {
 
   def apply(
-    groupOwner: Option[String] = None,
-    groupPermission: Option[String] = None
+    groupOwner: String,
+    groupPermission: String
   ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.ResourceDownloadOwnerSettingProperty =
     (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.ResourceDownloadOwnerSettingProperty.Builder)
-      .groupOwner(groupOwner.orNull)
-      .groupPermission(groupPermission.orNull)
+      .groupOwner(groupOwner)
+      .groupPermission(groupPermission)
       .build()
 }

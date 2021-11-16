@@ -7,16 +7,17 @@ import scala.collection.JavaConverters._
 object AssetStagingProps {
 
   def apply(
+    sourcePath: String,
     assetHashType: Option[software.amazon.awscdk.AssetHashType] = None,
     assetHash: Option[String] = None,
     extraHash: Option[String] = None,
     exclude: Option[List[String]] = None,
     ignoreMode: Option[software.amazon.awscdk.IgnoreMode] = None,
     follow: Option[software.amazon.awscdk.SymlinkFollowMode] = None,
-    bundling: Option[software.amazon.awscdk.BundlingOptions] = None,
-    sourcePath: Option[String] = None
+    bundling: Option[software.amazon.awscdk.BundlingOptions] = None
   ): software.amazon.awscdk.AssetStagingProps =
     (new software.amazon.awscdk.AssetStagingProps.Builder)
+      .sourcePath(sourcePath)
       .assetHashType(assetHashType.orNull)
       .assetHash(assetHash.orNull)
       .extraHash(extraHash.orNull)
@@ -24,6 +25,5 @@ object AssetStagingProps {
       .ignoreMode(ignoreMode.orNull)
       .follow(follow.orNull)
       .bundling(bundling.orNull)
-      .sourcePath(sourcePath.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lambda
 object CodeSigningPoliciesProperty {
 
   def apply(
-    untrustedArtifactOnDeployment: Option[String] = None
+    untrustedArtifactOnDeployment: String
   ): software.amazon.awscdk.services.lambda.CfnCodeSigningConfig.CodeSigningPoliciesProperty =
     (new software.amazon.awscdk.services.lambda.CfnCodeSigningConfig.CodeSigningPoliciesProperty.Builder)
-      .untrustedArtifactOnDeployment(untrustedArtifactOnDeployment.orNull)
+      .untrustedArtifactOnDeployment(untrustedArtifactOnDeployment)
       .build()
 }

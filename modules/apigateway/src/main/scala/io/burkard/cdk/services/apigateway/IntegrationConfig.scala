@@ -4,17 +4,17 @@ package io.burkard.cdk.services.apigateway
 object IntegrationConfig {
 
   def apply(
+    `type`: software.amazon.awscdk.services.apigateway.IntegrationType,
     integrationHttpMethod: Option[String] = None,
     uri: Option[String] = None,
     options: Option[software.amazon.awscdk.services.apigateway.IntegrationOptions] = None,
-    deploymentToken: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.apigateway.IntegrationType] = None
+    deploymentToken: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.IntegrationConfig =
     (new software.amazon.awscdk.services.apigateway.IntegrationConfig.Builder)
+      .`type`(`type`)
       .integrationHttpMethod(integrationHttpMethod.orNull)
       .uri(uri.orNull)
       .options(options.orNull)
       .deploymentToken(deploymentToken.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

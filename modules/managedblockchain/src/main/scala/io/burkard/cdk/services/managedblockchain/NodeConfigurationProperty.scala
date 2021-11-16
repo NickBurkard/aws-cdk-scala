@@ -4,11 +4,11 @@ package io.burkard.cdk.services.managedblockchain
 object NodeConfigurationProperty {
 
   def apply(
-    availabilityZone: Option[String] = None,
-    instanceType: Option[String] = None
+    availabilityZone: String,
+    instanceType: String
   ): software.amazon.awscdk.services.managedblockchain.CfnNode.NodeConfigurationProperty =
     (new software.amazon.awscdk.services.managedblockchain.CfnNode.NodeConfigurationProperty.Builder)
-      .availabilityZone(availabilityZone.orNull)
-      .instanceType(instanceType.orNull)
+      .availabilityZone(availabilityZone)
+      .instanceType(instanceType)
       .build()
 }

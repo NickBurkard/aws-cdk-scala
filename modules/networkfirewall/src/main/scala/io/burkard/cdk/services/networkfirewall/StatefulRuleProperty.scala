@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object StatefulRuleProperty {
 
   def apply(
-    ruleOptions: Option[List[_]] = None,
-    header: Option[software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.HeaderProperty] = None,
-    action: Option[String] = None
+    ruleOptions: List[_],
+    header: software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.HeaderProperty,
+    action: String
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.StatefulRuleProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.StatefulRuleProperty.Builder)
-      .ruleOptions(ruleOptions.map(_.asJava).orNull)
-      .header(header.orNull)
-      .action(action.orNull)
+      .ruleOptions(ruleOptions.asJava)
+      .header(header)
+      .action(action)
       .build()
 }

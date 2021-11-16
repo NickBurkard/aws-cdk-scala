@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sns
 object SubscriptionProperty {
 
   def apply(
-    endpoint: Option[String] = None,
-    protocol: Option[String] = None
+    endpoint: String,
+    protocol: String
   ): software.amazon.awscdk.services.sns.CfnTopic.SubscriptionProperty =
     (new software.amazon.awscdk.services.sns.CfnTopic.SubscriptionProperty.Builder)
-      .endpoint(endpoint.orNull)
-      .protocol(protocol.orNull)
+      .endpoint(endpoint)
+      .protocol(protocol)
       .build()
 }

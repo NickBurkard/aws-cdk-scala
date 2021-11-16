@@ -8,20 +8,20 @@ object CfnProject {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
+    datasetName: String,
+    recipeName: String,
+    roleArn: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    datasetName: Option[String] = None,
-    recipeName: Option[String] = None,
-    roleArn: Option[String] = None,
     sample: Option[software.amazon.awscdk.services.databrew.CfnProject.SampleProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.databrew.CfnProject =
     software.amazon.awscdk.services.databrew.CfnProject.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .datasetName(datasetName)
+      .recipeName(recipeName)
+      .roleArn(roleArn)
       .tags(tags.map(_.asJava).orNull)
-      .datasetName(datasetName.orNull)
-      .recipeName(recipeName.orNull)
-      .roleArn(roleArn.orNull)
       .sample(sample.orNull)
       .build()
 }

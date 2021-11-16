@@ -5,16 +5,16 @@ object CfnDestination {
 
   def apply(
     internalResourceId: String,
-    destinationName: Option[String] = None,
-    roleArn: Option[String] = None,
-    destinationPolicy: Option[String] = None,
-    targetArn: Option[String] = None
+    destinationName: String,
+    roleArn: String,
+    destinationPolicy: String,
+    targetArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.logs.CfnDestination =
     software.amazon.awscdk.services.logs.CfnDestination.Builder
       .create(stackCtx, internalResourceId)
-      .destinationName(destinationName.orNull)
-      .roleArn(roleArn.orNull)
-      .destinationPolicy(destinationPolicy.orNull)
-      .targetArn(targetArn.orNull)
+      .destinationName(destinationName)
+      .roleArn(roleArn)
+      .destinationPolicy(destinationPolicy)
+      .targetArn(targetArn)
       .build()
 }

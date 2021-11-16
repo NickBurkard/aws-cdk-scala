@@ -5,12 +5,12 @@ object CfnTrackerConsumer {
 
   def apply(
     internalResourceId: String,
-    consumerArn: Option[String] = None,
-    trackerName: Option[String] = None
+    consumerArn: String,
+    trackerName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.location.CfnTrackerConsumer =
     software.amazon.awscdk.services.location.CfnTrackerConsumer.Builder
       .create(stackCtx, internalResourceId)
-      .consumerArn(consumerArn.orNull)
-      .trackerName(trackerName.orNull)
+      .consumerArn(consumerArn)
+      .trackerName(trackerName)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.greengrass
 object FunctionProperty {
 
   def apply(
-    id: Option[String] = None,
-    functionConfiguration: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.FunctionConfigurationProperty] = None,
-    functionArn: Option[String] = None
+    id: String,
+    functionConfiguration: software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.FunctionConfigurationProperty,
+    functionArn: String
   ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.FunctionProperty =
     (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.FunctionProperty.Builder)
-      .id(id.orNull)
-      .functionConfiguration(functionConfiguration.orNull)
-      .functionArn(functionArn.orNull)
+      .id(id)
+      .functionConfiguration(functionConfiguration)
+      .functionArn(functionArn)
       .build()
 }

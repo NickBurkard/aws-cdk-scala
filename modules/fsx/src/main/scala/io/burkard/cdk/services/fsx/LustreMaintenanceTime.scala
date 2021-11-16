@@ -4,14 +4,14 @@ package io.burkard.cdk.services.fsx
 object LustreMaintenanceTime {
 
   def apply(
-    minute: Option[Number] = None,
-    hour: Option[Number] = None,
-    day: Option[software.amazon.awscdk.services.fsx.Weekday] = None
+    minute: Number,
+    hour: Number,
+    day: software.amazon.awscdk.services.fsx.Weekday
   ): software.amazon.awscdk.services.fsx.LustreMaintenanceTime =
     software.amazon.awscdk.services.fsx.LustreMaintenanceTime.Builder
       .create()
-      .minute(minute.orNull)
-      .hour(hour.orNull)
-      .day(day.orNull)
+      .minute(minute)
+      .hour(hour)
+      .day(day)
       .build()
 }

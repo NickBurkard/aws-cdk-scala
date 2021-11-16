@@ -8,14 +8,14 @@ object PrivateCertificate {
 
   def apply(
     internalResourceId: String,
-    certificateAuthority: Option[software.amazon.awscdk.services.acmpca.ICertificateAuthority] = None,
-    domainName: Option[String] = None,
+    certificateAuthority: software.amazon.awscdk.services.acmpca.ICertificateAuthority,
+    domainName: String,
     subjectAlternativeNames: Option[List[String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.certificatemanager.PrivateCertificate =
     software.amazon.awscdk.services.certificatemanager.PrivateCertificate.Builder
       .create(stackCtx, internalResourceId)
-      .certificateAuthority(certificateAuthority.orNull)
-      .domainName(domainName.orNull)
+      .certificateAuthority(certificateAuthority)
+      .domainName(domainName)
       .subjectAlternativeNames(subjectAlternativeNames.map(_.asJava).orNull)
       .build()
 }

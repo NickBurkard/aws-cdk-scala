@@ -5,12 +5,12 @@ object CfnApp {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     tags: Option[AnyRef] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnApp =
     software.amazon.awscdk.services.pinpoint.CfnApp.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.orNull)
       .build()
 }

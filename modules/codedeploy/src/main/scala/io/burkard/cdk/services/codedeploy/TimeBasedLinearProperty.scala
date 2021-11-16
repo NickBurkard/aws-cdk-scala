@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codedeploy
 object TimeBasedLinearProperty {
 
   def apply(
-    linearPercentage: Option[Number] = None,
-    linearInterval: Option[Number] = None
+    linearPercentage: Number,
+    linearInterval: Number
   ): software.amazon.awscdk.services.codedeploy.CfnDeploymentConfig.TimeBasedLinearProperty =
     (new software.amazon.awscdk.services.codedeploy.CfnDeploymentConfig.TimeBasedLinearProperty.Builder)
-      .linearPercentage(linearPercentage.orNull)
-      .linearInterval(linearInterval.orNull)
+      .linearPercentage(linearPercentage)
+      .linearInterval(linearInterval)
       .build()
 }

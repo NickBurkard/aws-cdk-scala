@@ -4,23 +4,23 @@ package io.burkard.cdk.services.lookoutmetrics
 object RedshiftSourceConfigProperty {
 
   def apply(
-    databasePort: Option[Number] = None,
-    clusterIdentifier: Option[String] = None,
-    vpcConfiguration: Option[software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.VpcConfigurationProperty] = None,
-    tableName: Option[String] = None,
-    roleArn: Option[String] = None,
-    secretManagerArn: Option[String] = None,
-    databaseName: Option[String] = None,
-    databaseHost: Option[String] = None
+    databasePort: Number,
+    clusterIdentifier: String,
+    vpcConfiguration: software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.VpcConfigurationProperty,
+    tableName: String,
+    roleArn: String,
+    secretManagerArn: String,
+    databaseName: String,
+    databaseHost: String
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.RedshiftSourceConfigProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.RedshiftSourceConfigProperty.Builder)
-      .databasePort(databasePort.orNull)
-      .clusterIdentifier(clusterIdentifier.orNull)
-      .vpcConfiguration(vpcConfiguration.orNull)
-      .tableName(tableName.orNull)
-      .roleArn(roleArn.orNull)
-      .secretManagerArn(secretManagerArn.orNull)
-      .databaseName(databaseName.orNull)
-      .databaseHost(databaseHost.orNull)
+      .databasePort(databasePort)
+      .clusterIdentifier(clusterIdentifier)
+      .vpcConfiguration(vpcConfiguration)
+      .tableName(tableName)
+      .roleArn(roleArn)
+      .secretManagerArn(secretManagerArn)
+      .databaseName(databaseName)
+      .databaseHost(databaseHost)
       .build()
 }

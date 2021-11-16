@@ -4,11 +4,11 @@ package io.burkard.cdk.services.apigatewayv2
 object ResponseParameterProperty {
 
   def apply(
-    source: Option[String] = None,
-    destination: Option[String] = None
+    source: String,
+    destination: String
   ): software.amazon.awscdk.services.apigatewayv2.CfnIntegration.ResponseParameterProperty =
     (new software.amazon.awscdk.services.apigatewayv2.CfnIntegration.ResponseParameterProperty.Builder)
-      .source(source.orNull)
-      .destination(destination.orNull)
+      .source(source)
+      .destination(destination)
       .build()
 }

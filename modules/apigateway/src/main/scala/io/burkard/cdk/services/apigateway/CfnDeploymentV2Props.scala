@@ -5,13 +5,13 @@ package io.burkard.cdk.services.apigateway
 object CfnDeploymentV2Props {
 
   def apply(
+    apiId: String,
     description: Option[String] = None,
-    stageName: Option[String] = None,
-    apiId: Option[String] = None
+    stageName: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.CfnDeploymentV2Props =
     (new software.amazon.awscdk.services.apigateway.CfnDeploymentV2Props.Builder)
+      .apiId(apiId)
       .description(description.orNull)
       .stageName(stageName.orNull)
-      .apiId(apiId.orNull)
       .build()
 }

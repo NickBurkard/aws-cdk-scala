@@ -4,9 +4,9 @@ package io.burkard.cdk.services.stepfunctions
 object S3LocationConfig {
 
   def apply(
-    uri: Option[String] = None
+    uri: String
   ): software.amazon.awscdk.services.stepfunctions.tasks.S3LocationConfig =
     (new software.amazon.awscdk.services.stepfunctions.tasks.S3LocationConfig.Builder)
-      .uri(uri.orNull)
+      .uri(uri)
       .build()
 }

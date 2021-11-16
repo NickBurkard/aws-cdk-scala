@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object GrpcGatewayRouteActionProperty {
 
   def apply(
-    rewrite: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GrpcGatewayRouteRewriteProperty] = None,
-    target: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteTargetProperty] = None
+    target: software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteTargetProperty,
+    rewrite: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GrpcGatewayRouteRewriteProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GrpcGatewayRouteActionProperty =
     (new software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GrpcGatewayRouteActionProperty.Builder)
+      .target(target)
       .rewrite(rewrite.orNull)
-      .target(target.orNull)
       .build()
 }

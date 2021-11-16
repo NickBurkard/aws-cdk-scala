@@ -4,13 +4,13 @@ package io.burkard.cdk.services.s3
 object TopicConfigurationProperty {
 
   def apply(
-    event: Option[String] = None,
-    filter: Option[software.amazon.awscdk.services.s3.CfnBucket.NotificationFilterProperty] = None,
-    topic: Option[String] = None
+    event: String,
+    topic: String,
+    filter: Option[software.amazon.awscdk.services.s3.CfnBucket.NotificationFilterProperty] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.TopicConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.TopicConfigurationProperty.Builder)
-      .event(event.orNull)
+      .event(event)
+      .topic(topic)
       .filter(filter.orNull)
-      .topic(topic.orNull)
       .build()
 }

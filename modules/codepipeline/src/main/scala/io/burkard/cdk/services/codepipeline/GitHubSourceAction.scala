@@ -4,26 +4,26 @@ package io.burkard.cdk.services.codepipeline
 object GitHubSourceAction {
 
   def apply(
+    owner: String,
+    oauthToken: software.amazon.awscdk.SecretValue,
+    repo: String,
+    output: software.amazon.awscdk.services.codepipeline.Artifact,
     branch: Option[String] = None,
     runOrder: Option[Number] = None,
     actionName: Option[String] = None,
-    owner: Option[String] = None,
     trigger: Option[software.amazon.awscdk.services.codepipeline.actions.GitHubTrigger] = None,
-    oauthToken: Option[software.amazon.awscdk.SecretValue] = None,
-    variablesNamespace: Option[String] = None,
-    repo: Option[String] = None,
-    output: Option[software.amazon.awscdk.services.codepipeline.Artifact] = None
+    variablesNamespace: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.actions.GitHubSourceAction =
     software.amazon.awscdk.services.codepipeline.actions.GitHubSourceAction.Builder
       .create()
+      .owner(owner)
+      .oauthToken(oauthToken)
+      .repo(repo)
+      .output(output)
       .branch(branch.orNull)
       .runOrder(runOrder.orNull)
       .actionName(actionName.orNull)
-      .owner(owner.orNull)
       .trigger(trigger.orNull)
-      .oauthToken(oauthToken.orNull)
       .variablesNamespace(variablesNamespace.orNull)
-      .repo(repo.orNull)
-      .output(output.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codebuild
 object BindToCodePipelineOptions {
 
   def apply(
-    artifactBucket: Option[software.amazon.awscdk.services.s3.IBucket] = None
+    artifactBucket: software.amazon.awscdk.services.s3.IBucket
   ): software.amazon.awscdk.services.codebuild.BindToCodePipelineOptions =
     (new software.amazon.awscdk.services.codebuild.BindToCodePipelineOptions.Builder)
-      .artifactBucket(artifactBucket.orNull)
+      .artifactBucket(artifactBucket)
       .build()
 }

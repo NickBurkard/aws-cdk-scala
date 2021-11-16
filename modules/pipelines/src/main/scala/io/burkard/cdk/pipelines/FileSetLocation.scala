@@ -4,11 +4,11 @@ package io.burkard.cdk.pipelines
 object FileSetLocation {
 
   def apply(
-    fileSet: Option[software.amazon.awscdk.pipelines.FileSet] = None,
-    directory: Option[String] = None
+    fileSet: software.amazon.awscdk.pipelines.FileSet,
+    directory: String
   ): software.amazon.awscdk.pipelines.FileSetLocation =
     (new software.amazon.awscdk.pipelines.FileSetLocation.Builder)
-      .fileSet(fileSet.orNull)
-      .directory(directory.orNull)
+      .fileSet(fileSet)
+      .directory(directory)
       .build()
 }

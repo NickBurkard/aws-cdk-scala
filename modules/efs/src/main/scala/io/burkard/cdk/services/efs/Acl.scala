@@ -4,13 +4,13 @@ package io.burkard.cdk.services.efs
 object Acl {
 
   def apply(
-    permissions: Option[String] = None,
-    ownerGid: Option[String] = None,
-    ownerUid: Option[String] = None
+    permissions: String,
+    ownerGid: String,
+    ownerUid: String
   ): software.amazon.awscdk.services.efs.Acl =
     (new software.amazon.awscdk.services.efs.Acl.Builder)
-      .permissions(permissions.orNull)
-      .ownerGid(ownerGid.orNull)
-      .ownerUid(ownerUid.orNull)
+      .permissions(permissions)
+      .ownerGid(ownerGid)
+      .ownerUid(ownerUid)
       .build()
 }

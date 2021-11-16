@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnClusterCapacityProviderAssociationsProps {
 
   def apply(
-    capacityProviders: Option[List[String]] = None,
-    cluster: Option[String] = None,
-    defaultCapacityProviderStrategy: Option[List[_]] = None
+    capacityProviders: List[String],
+    cluster: String,
+    defaultCapacityProviderStrategy: List[_]
   ): software.amazon.awscdk.services.ecs.CfnClusterCapacityProviderAssociationsProps =
     (new software.amazon.awscdk.services.ecs.CfnClusterCapacityProviderAssociationsProps.Builder)
-      .capacityProviders(capacityProviders.map(_.asJava).orNull)
-      .cluster(cluster.orNull)
-      .defaultCapacityProviderStrategy(defaultCapacityProviderStrategy.map(_.asJava).orNull)
+      .capacityProviders(capacityProviders.asJava)
+      .cluster(cluster)
+      .defaultCapacityProviderStrategy(defaultCapacityProviderStrategy.asJava)
       .build()
 }

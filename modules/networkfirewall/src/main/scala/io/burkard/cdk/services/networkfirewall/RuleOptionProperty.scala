@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object RuleOptionProperty {
 
   def apply(
-    keyword: Option[String] = None,
+    keyword: String,
     settings: Option[List[String]] = None
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RuleOptionProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RuleOptionProperty.Builder)
-      .keyword(keyword.orNull)
+      .keyword(keyword)
       .settings(settings.map(_.asJava).orNull)
       .build()
 }

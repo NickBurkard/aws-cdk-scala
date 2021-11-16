@@ -8,12 +8,12 @@ object Domain {
 
   def apply(
     internalResourceId: String,
+    version: software.amazon.awscdk.services.elasticsearch.ElasticsearchVersion,
     tlsSecurityPolicy: Option[software.amazon.awscdk.services.elasticsearch.TLSSecurityPolicy] = None,
     useUnsignedBasicAuth: Option[Boolean] = None,
     nodeToNodeEncryption: Option[Boolean] = None,
     domainName: Option[String] = None,
     vpcSubnets: Option[List[_ <: software.amazon.awscdk.services.ec2.SubnetSelection]] = None,
-    version: Option[software.amazon.awscdk.services.elasticsearch.ElasticsearchVersion] = None,
     fineGrainedAccessControl: Option[software.amazon.awscdk.services.elasticsearch.AdvancedSecurityOptions] = None,
     accessPolicies: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None,
     enableVersionUpgrade: Option[Boolean] = None,
@@ -33,12 +33,12 @@ object Domain {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticsearch.Domain =
     software.amazon.awscdk.services.elasticsearch.Domain.Builder
       .create(stackCtx, internalResourceId)
+      .version(version)
       .tlsSecurityPolicy(tlsSecurityPolicy.orNull)
       .useUnsignedBasicAuth(useUnsignedBasicAuth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .nodeToNodeEncryption(nodeToNodeEncryption.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .domainName(domainName.orNull)
       .vpcSubnets(vpcSubnets.map(_.asJava).orNull)
-      .version(version.orNull)
       .fineGrainedAccessControl(fineGrainedAccessControl.orNull)
       .accessPolicies(accessPolicies.map(_.asJava).orNull)
       .enableVersionUpgrade(enableVersionUpgrade.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

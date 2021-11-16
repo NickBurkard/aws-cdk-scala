@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnPatchBaselineProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     approvedPatchesEnableNonSecurity: Option[Boolean] = None,
     approvalRules: Option[software.amazon.awscdk.services.ssm.CfnPatchBaseline.RuleGroupProperty] = None,
     patchGroups: Option[List[String]] = None,
@@ -22,7 +22,7 @@ object CfnPatchBaselineProps {
     operatingSystem: Option[String] = None
   ): software.amazon.awscdk.services.ssm.CfnPatchBaselineProps =
     (new software.amazon.awscdk.services.ssm.CfnPatchBaselineProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .approvedPatchesEnableNonSecurity(approvedPatchesEnableNonSecurity.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .approvalRules(approvalRules.orNull)
       .patchGroups(patchGroups.map(_.asJava).orNull)

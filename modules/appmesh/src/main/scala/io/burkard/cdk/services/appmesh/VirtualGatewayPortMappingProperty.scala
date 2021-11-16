@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayPortMappingProperty {
 
   def apply(
-    port: Option[Number] = None,
-    protocol: Option[String] = None
+    port: Number,
+    protocol: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayPortMappingProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayPortMappingProperty.Builder)
-      .port(port.orNull)
-      .protocol(protocol.orNull)
+      .port(port)
+      .protocol(protocol)
       .build()
 }

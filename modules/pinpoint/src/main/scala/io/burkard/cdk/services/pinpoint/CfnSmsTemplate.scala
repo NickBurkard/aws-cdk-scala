@@ -5,18 +5,18 @@ object CfnSmsTemplate {
 
   def apply(
     internalResourceId: String,
-    body: Option[String] = None,
+    body: String,
+    templateName: String,
     templateDescription: Option[String] = None,
     defaultSubstitutions: Option[String] = None,
-    tags: Option[AnyRef] = None,
-    templateName: Option[String] = None
+    tags: Option[AnyRef] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnSmsTemplate =
     software.amazon.awscdk.services.pinpoint.CfnSmsTemplate.Builder
       .create(stackCtx, internalResourceId)
-      .body(body.orNull)
+      .body(body)
+      .templateName(templateName)
       .templateDescription(templateDescription.orNull)
       .defaultSubstitutions(defaultSubstitutions.orNull)
       .tags(tags.orNull)
-      .templateName(templateName.orNull)
       .build()
 }

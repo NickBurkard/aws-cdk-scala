@@ -8,20 +8,20 @@ object CfnSlackChannelConfiguration {
 
   def apply(
     internalResourceId: String,
-    iamRoleArn: Option[String] = None,
-    slackChannelId: Option[String] = None,
+    iamRoleArn: String,
+    slackChannelId: String,
+    slackWorkspaceId: String,
+    configurationName: String,
     loggingLevel: Option[String] = None,
-    slackWorkspaceId: Option[String] = None,
-    snsTopicArns: Option[List[String]] = None,
-    configurationName: Option[String] = None
+    snsTopicArns: Option[List[String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.chatbot.CfnSlackChannelConfiguration =
     software.amazon.awscdk.services.chatbot.CfnSlackChannelConfiguration.Builder
       .create(stackCtx, internalResourceId)
-      .iamRoleArn(iamRoleArn.orNull)
-      .slackChannelId(slackChannelId.orNull)
+      .iamRoleArn(iamRoleArn)
+      .slackChannelId(slackChannelId)
+      .slackWorkspaceId(slackWorkspaceId)
+      .configurationName(configurationName)
       .loggingLevel(loggingLevel.orNull)
-      .slackWorkspaceId(slackWorkspaceId.orNull)
       .snsTopicArns(snsTopicArns.map(_.asJava).orNull)
-      .configurationName(configurationName.orNull)
       .build()
 }

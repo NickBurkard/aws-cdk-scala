@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object HadoopJarStepConfigProperty {
 
   def apply(
+    jar: String,
     stepProperties: Option[List[_]] = None,
     mainClass: Option[String] = None,
-    args: Option[List[String]] = None,
-    jar: Option[String] = None
+    args: Option[List[String]] = None
   ): software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty =
     (new software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty.Builder)
+      .jar(jar)
       .stepProperties(stepProperties.map(_.asJava).orNull)
       .mainClass(mainClass.orNull)
       .args(args.map(_.asJava).orNull)
-      .jar(jar.orNull)
       .build()
 }

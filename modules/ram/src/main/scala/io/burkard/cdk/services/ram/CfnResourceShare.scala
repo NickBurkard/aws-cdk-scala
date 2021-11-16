@@ -8,7 +8,7 @@ object CfnResourceShare {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     principals: Option[List[String]] = None,
     resourceArns: Option[List[String]] = None,
     permissionArns: Option[List[String]] = None,
@@ -17,7 +17,7 @@ object CfnResourceShare {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ram.CfnResourceShare =
     software.amazon.awscdk.services.ram.CfnResourceShare.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .principals(principals.map(_.asJava).orNull)
       .resourceArns(resourceArns.map(_.asJava).orNull)
       .permissionArns(permissionArns.map(_.asJava).orNull)

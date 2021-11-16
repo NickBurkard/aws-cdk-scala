@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CognitoUserPoolsAuthorizerProps {
 
   def apply(
+    cognitoUserPools: List[_ <: software.amazon.awscdk.services.cognito.IUserPool],
     identitySource: Option[String] = None,
     authorizerName: Option[String] = None,
-    cognitoUserPools: Option[List[_ <: software.amazon.awscdk.services.cognito.IUserPool]] = None,
     resultsCacheTtl: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.apigateway.CognitoUserPoolsAuthorizerProps =
     (new software.amazon.awscdk.services.apigateway.CognitoUserPoolsAuthorizerProps.Builder)
+      .cognitoUserPools(cognitoUserPools.asJava)
       .identitySource(identitySource.orNull)
       .authorizerName(authorizerName.orNull)
-      .cognitoUserPools(cognitoUserPools.map(_.asJava).orNull)
       .resultsCacheTtl(resultsCacheTtl.orNull)
       .build()
 }

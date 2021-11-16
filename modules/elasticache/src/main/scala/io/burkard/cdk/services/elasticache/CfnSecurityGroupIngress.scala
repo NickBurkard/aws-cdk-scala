@@ -5,14 +5,14 @@ object CfnSecurityGroupIngress {
 
   def apply(
     internalResourceId: String,
-    ec2SecurityGroupName: Option[String] = None,
-    cacheSecurityGroupName: Option[String] = None,
+    ec2SecurityGroupName: String,
+    cacheSecurityGroupName: String,
     ec2SecurityGroupOwnerId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticache.CfnSecurityGroupIngress =
     software.amazon.awscdk.services.elasticache.CfnSecurityGroupIngress.Builder
       .create(stackCtx, internalResourceId)
-      .ec2SecurityGroupName(ec2SecurityGroupName.orNull)
-      .cacheSecurityGroupName(cacheSecurityGroupName.orNull)
+      .ec2SecurityGroupName(ec2SecurityGroupName)
+      .cacheSecurityGroupName(cacheSecurityGroupName)
       .ec2SecurityGroupOwnerId(ec2SecurityGroupOwnerId.orNull)
       .build()
 }

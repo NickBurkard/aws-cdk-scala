@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object ModelBiasJobInputProperty {
 
   def apply(
-    groundTruthS3Input: Option[software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty] = None,
-    endpointInput: Option[software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.EndpointInputProperty] = None
+    groundTruthS3Input: software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty,
+    endpointInput: software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.EndpointInputProperty
   ): software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.ModelBiasJobInputProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.ModelBiasJobInputProperty.Builder)
-      .groundTruthS3Input(groundTruthS3Input.orNull)
-      .endpointInput(endpointInput.orNull)
+      .groundTruthS3Input(groundTruthS3Input)
+      .endpointInput(endpointInput)
       .build()
 }

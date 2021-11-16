@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object StopActionConfig {
 
   def apply(
-    scope: Option[String] = None,
+    scope: String,
     topicArn: Option[String] = None
   ): software.amazon.awscdk.services.ses.StopActionConfig =
     (new software.amazon.awscdk.services.ses.StopActionConfig.Builder)
-      .scope(scope.orNull)
+      .scope(scope)
       .topicArn(topicArn.orNull)
       .build()
 }

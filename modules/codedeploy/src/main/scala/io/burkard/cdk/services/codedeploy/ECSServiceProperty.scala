@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codedeploy
 object ECSServiceProperty {
 
   def apply(
-    serviceName: Option[String] = None,
-    clusterName: Option[String] = None
+    serviceName: String,
+    clusterName: String
   ): software.amazon.awscdk.services.codedeploy.CfnDeploymentGroup.ECSServiceProperty =
     (new software.amazon.awscdk.services.codedeploy.CfnDeploymentGroup.ECSServiceProperty.Builder)
-      .serviceName(serviceName.orNull)
-      .clusterName(clusterName.orNull)
+      .serviceName(serviceName)
+      .clusterName(clusterName)
       .build()
 }

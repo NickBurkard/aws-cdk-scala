@@ -8,6 +8,8 @@ object DynamoPutItem {
 
   def apply(
     internalResourceId: String,
+    table: software.amazon.awscdk.services.dynamodb.ITable,
+    item: Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue],
     conditionExpression: Option[String] = None,
     resultPath: Option[String] = None,
     expressionAttributeValues: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None,
@@ -21,12 +23,12 @@ object DynamoPutItem {
     returnItemCollectionMetrics: Option[software.amazon.awscdk.services.stepfunctions.tasks.DynamoItemCollectionMetrics] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    table: Option[software.amazon.awscdk.services.dynamodb.ITable] = None,
-    heartbeat: Option[software.amazon.awscdk.Duration] = None,
-    item: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None
+    heartbeat: Option[software.amazon.awscdk.Duration] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.DynamoPutItem =
     software.amazon.awscdk.services.stepfunctions.tasks.DynamoPutItem.Builder
       .create(stackCtx, internalResourceId)
+      .table(table)
+      .item(item.asJava)
       .conditionExpression(conditionExpression.orNull)
       .resultPath(resultPath.orNull)
       .expressionAttributeValues(expressionAttributeValues.map(_.asJava).orNull)
@@ -40,8 +42,6 @@ object DynamoPutItem {
       .returnItemCollectionMetrics(returnItemCollectionMetrics.orNull)
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
-      .table(table.orNull)
       .heartbeat(heartbeat.orNull)
-      .item(item.map(_.asJava).orNull)
       .build()
 }

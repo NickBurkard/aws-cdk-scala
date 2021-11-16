@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object AlertTargetProperty {
 
   def apply(
-    alertTargetArn: Option[String] = None,
-    roleArn: Option[String] = None
+    alertTargetArn: String,
+    roleArn: String
   ): software.amazon.awscdk.services.iot.CfnSecurityProfile.AlertTargetProperty =
     (new software.amazon.awscdk.services.iot.CfnSecurityProfile.AlertTargetProperty.Builder)
-      .alertTargetArn(alertTargetArn.orNull)
-      .roleArn(roleArn.orNull)
+      .alertTargetArn(alertTargetArn)
+      .roleArn(roleArn)
       .build()
 }

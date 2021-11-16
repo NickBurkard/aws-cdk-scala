@@ -4,8 +4,8 @@ package io.burkard.cdk.services.stepfunctions
 object Channel {
 
   def apply(
-    channelName: Option[String] = None,
-    dataSource: Option[software.amazon.awscdk.services.stepfunctions.tasks.DataSource] = None,
+    channelName: String,
+    dataSource: software.amazon.awscdk.services.stepfunctions.tasks.DataSource,
     contentType: Option[String] = None,
     shuffleConfig: Option[software.amazon.awscdk.services.stepfunctions.tasks.ShuffleConfig] = None,
     recordWrapperType: Option[software.amazon.awscdk.services.stepfunctions.tasks.RecordWrapperType] = None,
@@ -13,8 +13,8 @@ object Channel {
     compressionType: Option[software.amazon.awscdk.services.stepfunctions.tasks.CompressionType] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.Channel =
     (new software.amazon.awscdk.services.stepfunctions.tasks.Channel.Builder)
-      .channelName(channelName.orNull)
-      .dataSource(dataSource.orNull)
+      .channelName(channelName)
+      .dataSource(dataSource)
       .contentType(contentType.orNull)
       .shuffleConfig(shuffleConfig.orNull)
       .recordWrapperType(recordWrapperType.orNull)

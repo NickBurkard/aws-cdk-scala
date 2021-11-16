@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object ContainerDependency {
 
   def apply(
-    container: Option[software.amazon.awscdk.services.ecs.ContainerDefinition] = None,
+    container: software.amazon.awscdk.services.ecs.ContainerDefinition,
     condition: Option[software.amazon.awscdk.services.ecs.ContainerDependencyCondition] = None
   ): software.amazon.awscdk.services.ecs.ContainerDependency =
     (new software.amazon.awscdk.services.ecs.ContainerDependency.Builder)
-      .container(container.orNull)
+      .container(container)
       .condition(condition.orNull)
       .build()
 }

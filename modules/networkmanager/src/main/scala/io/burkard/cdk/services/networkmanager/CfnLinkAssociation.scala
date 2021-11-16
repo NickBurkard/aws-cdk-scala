@@ -5,14 +5,14 @@ object CfnLinkAssociation {
 
   def apply(
     internalResourceId: String,
-    linkId: Option[String] = None,
-    deviceId: Option[String] = None,
-    globalNetworkId: Option[String] = None
+    linkId: String,
+    deviceId: String,
+    globalNetworkId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.networkmanager.CfnLinkAssociation =
     software.amazon.awscdk.services.networkmanager.CfnLinkAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .linkId(linkId.orNull)
-      .deviceId(deviceId.orNull)
-      .globalNetworkId(globalNetworkId.orNull)
+      .linkId(linkId)
+      .deviceId(deviceId)
+      .globalNetworkId(globalNetworkId)
       .build()
 }

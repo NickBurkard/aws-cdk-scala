@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnLaunchNotificationConstraintProps {
 
   def apply(
-    portfolioId: Option[String] = None,
+    portfolioId: String,
+    notificationArns: List[String],
+    productId: String,
     description: Option[String] = None,
-    notificationArns: Option[List[String]] = None,
-    acceptLanguage: Option[String] = None,
-    productId: Option[String] = None
+    acceptLanguage: Option[String] = None
   ): software.amazon.awscdk.services.servicecatalog.CfnLaunchNotificationConstraintProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnLaunchNotificationConstraintProps.Builder)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
+      .notificationArns(notificationArns.asJava)
+      .productId(productId)
       .description(description.orNull)
-      .notificationArns(notificationArns.map(_.asJava).orNull)
       .acceptLanguage(acceptLanguage.orNull)
-      .productId(productId.orNull)
       .build()
 }

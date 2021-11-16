@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object DatabaseClusterAttributes {
 
   def apply(
-    clusterIdentifier: Option[String] = None,
+    clusterIdentifier: String,
     clusterEndpointAddress: Option[String] = None,
     port: Option[Number] = None,
     instanceEndpointAddresses: Option[List[String]] = None,
@@ -17,7 +17,7 @@ object DatabaseClusterAttributes {
     readerEndpointAddress: Option[String] = None
   ): software.amazon.awscdk.services.rds.DatabaseClusterAttributes =
     (new software.amazon.awscdk.services.rds.DatabaseClusterAttributes.Builder)
-      .clusterIdentifier(clusterIdentifier.orNull)
+      .clusterIdentifier(clusterIdentifier)
       .clusterEndpointAddress(clusterEndpointAddress.orNull)
       .port(port.orNull)
       .instanceEndpointAddresses(instanceEndpointAddresses.map(_.asJava).orNull)

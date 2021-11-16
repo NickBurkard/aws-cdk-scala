@@ -8,10 +8,11 @@ object CfnProject {
 
   def apply(
     internalResourceId: String,
-    artifacts: Option[software.amazon.awscdk.services.codebuild.CfnProject.ArtifactsProperty] = None,
+    artifacts: software.amazon.awscdk.services.codebuild.CfnProject.ArtifactsProperty,
+    source: software.amazon.awscdk.services.codebuild.CfnProject.SourceProperty,
+    serviceRole: String,
+    environment: software.amazon.awscdk.services.codebuild.CfnProject.EnvironmentProperty,
     name: Option[String] = None,
-    source: Option[software.amazon.awscdk.services.codebuild.CfnProject.SourceProperty] = None,
-    serviceRole: Option[String] = None,
     logsConfig: Option[software.amazon.awscdk.services.codebuild.CfnProject.LogsConfigProperty] = None,
     secondarySourceVersions: Option[List[_]] = None,
     vpcConfig: Option[software.amazon.awscdk.services.codebuild.CfnProject.VpcConfigProperty] = None,
@@ -25,7 +26,6 @@ object CfnProject {
     cache: Option[software.amazon.awscdk.services.codebuild.CfnProject.ProjectCacheProperty] = None,
     buildBatchConfig: Option[software.amazon.awscdk.services.codebuild.CfnProject.ProjectBuildBatchConfigProperty] = None,
     resourceAccessRole: Option[String] = None,
-    environment: Option[software.amazon.awscdk.services.codebuild.CfnProject.EnvironmentProperty] = None,
     secondarySources: Option[List[_]] = None,
     secondaryArtifacts: Option[List[_]] = None,
     queuedTimeoutInMinutes: Option[Number] = None,
@@ -35,10 +35,11 @@ object CfnProject {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codebuild.CfnProject =
     software.amazon.awscdk.services.codebuild.CfnProject.Builder
       .create(stackCtx, internalResourceId)
-      .artifacts(artifacts.orNull)
+      .artifacts(artifacts)
+      .source(source)
+      .serviceRole(serviceRole)
+      .environment(environment)
       .name(name.orNull)
-      .source(source.orNull)
-      .serviceRole(serviceRole.orNull)
       .logsConfig(logsConfig.orNull)
       .secondarySourceVersions(secondarySourceVersions.map(_.asJava).orNull)
       .vpcConfig(vpcConfig.orNull)
@@ -52,7 +53,6 @@ object CfnProject {
       .cache(cache.orNull)
       .buildBatchConfig(buildBatchConfig.orNull)
       .resourceAccessRole(resourceAccessRole.orNull)
-      .environment(environment.orNull)
       .secondarySources(secondarySources.map(_.asJava).orNull)
       .secondaryArtifacts(secondaryArtifacts.map(_.asJava).orNull)
       .queuedTimeoutInMinutes(queuedTimeoutInMinutes.orNull)

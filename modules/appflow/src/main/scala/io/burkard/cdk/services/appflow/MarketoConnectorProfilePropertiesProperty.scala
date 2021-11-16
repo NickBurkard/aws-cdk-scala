@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object MarketoConnectorProfilePropertiesProperty {
 
   def apply(
-    instanceUrl: Option[String] = None
+    instanceUrl: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.MarketoConnectorProfilePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.MarketoConnectorProfilePropertiesProperty.Builder)
-      .instanceUrl(instanceUrl.orNull)
+      .instanceUrl(instanceUrl)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object StateMachineSAMPTProperty {
 
   def apply(
-    stateMachineName: Option[String] = None
+    stateMachineName: String
   ): software.amazon.awscdk.services.sam.CfnStateMachine.StateMachineSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnStateMachine.StateMachineSAMPTProperty.Builder)
-      .stateMachineName(stateMachineName.orNull)
+      .stateMachineName(stateMachineName)
       .build()
 }

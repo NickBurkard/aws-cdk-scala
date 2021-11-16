@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object EgressFilterProperty {
 
   def apply(
-    `type`: Option[String] = None
+    `type`: String
   ): software.amazon.awscdk.services.appmesh.CfnMesh.EgressFilterProperty =
     (new software.amazon.awscdk.services.appmesh.CfnMesh.EgressFilterProperty.Builder)
-      .`type`(`type`.orNull)
+      .`type`(`type`)
       .build()
 }

@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object DistributionConfigProperty {
 
   def apply(
+    enabled: Boolean,
     aliases: Option[List[String]] = None,
     cacheBehaviors: Option[List[_]] = None,
-    enabled: Option[Boolean] = None,
     restrictions: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.RestrictionsProperty] = None,
     customErrorResponses: Option[List[_]] = None,
     viewerCertificate: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.ViewerCertificateProperty] = None,
@@ -28,9 +28,9 @@ object DistributionConfigProperty {
     defaultRootObject: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.DistributionConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.DistributionConfigProperty.Builder)
+      .enabled(enabled)
       .aliases(aliases.map(_.asJava).orNull)
       .cacheBehaviors(cacheBehaviors.map(_.asJava).orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .restrictions(restrictions.orNull)
       .customErrorResponses(customErrorResponses.map(_.asJava).orNull)
       .viewerCertificate(viewerCertificate.orNull)

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.quicksight
 object RdsParametersProperty {
 
   def apply(
-    instanceId: Option[String] = None,
-    database: Option[String] = None
+    instanceId: String,
+    database: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.RdsParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.RdsParametersProperty.Builder)
-      .instanceId(instanceId.orNull)
-      .database(database.orNull)
+      .instanceId(instanceId)
+      .database(database)
       .build()
 }

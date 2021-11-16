@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object CfnSubnetRouteTableAssociationProps {
 
   def apply(
-    routeTableId: Option[String] = None,
-    subnetId: Option[String] = None
+    routeTableId: String,
+    subnetId: String
   ): software.amazon.awscdk.services.ec2.CfnSubnetRouteTableAssociationProps =
     (new software.amazon.awscdk.services.ec2.CfnSubnetRouteTableAssociationProps.Builder)
-      .routeTableId(routeTableId.orNull)
-      .subnetId(subnetId.orNull)
+      .routeTableId(routeTableId)
+      .subnetId(subnetId)
       .build()
 }

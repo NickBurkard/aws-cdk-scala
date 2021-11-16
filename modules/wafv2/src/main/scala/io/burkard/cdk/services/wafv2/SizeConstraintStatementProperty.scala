@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object SizeConstraintStatementProperty {
 
   def apply(
-    size: Option[Number] = None,
-    comparisonOperator: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty] = None,
-    textTransformations: Option[List[_]] = None
+    size: Number,
+    comparisonOperator: String,
+    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty,
+    textTransformations: List[_]
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.SizeConstraintStatementProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.SizeConstraintStatementProperty.Builder)
-      .size(size.orNull)
-      .comparisonOperator(comparisonOperator.orNull)
-      .fieldToMatch(fieldToMatch.orNull)
-      .textTransformations(textTransformations.map(_.asJava).orNull)
+      .size(size)
+      .comparisonOperator(comparisonOperator)
+      .fieldToMatch(fieldToMatch)
+      .textTransformations(textTransformations.asJava)
       .build()
 }

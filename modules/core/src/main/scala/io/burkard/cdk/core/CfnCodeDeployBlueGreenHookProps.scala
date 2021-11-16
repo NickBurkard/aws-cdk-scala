@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnCodeDeployBlueGreenHookProps {
 
   def apply(
-    applications: Option[List[_ <: software.amazon.awscdk.CfnCodeDeployBlueGreenApplication]] = None,
-    serviceRole: Option[String] = None,
+    applications: List[_ <: software.amazon.awscdk.CfnCodeDeployBlueGreenApplication],
+    serviceRole: String,
     trafficRoutingConfig: Option[software.amazon.awscdk.CfnTrafficRoutingConfig] = None,
     additionalOptions: Option[software.amazon.awscdk.CfnCodeDeployBlueGreenAdditionalOptions] = None,
     lifecycleEventHooks: Option[software.amazon.awscdk.CfnCodeDeployBlueGreenLifecycleEventHooks] = None
   ): software.amazon.awscdk.CfnCodeDeployBlueGreenHookProps =
     (new software.amazon.awscdk.CfnCodeDeployBlueGreenHookProps.Builder)
-      .applications(applications.map(_.asJava).orNull)
-      .serviceRole(serviceRole.orNull)
+      .applications(applications.asJava)
+      .serviceRole(serviceRole)
       .trafficRoutingConfig(trafficRoutingConfig.orNull)
       .additionalOptions(additionalOptions.orNull)
       .lifecycleEventHooks(lifecycleEventHooks.orNull)

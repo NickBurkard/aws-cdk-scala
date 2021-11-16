@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object Selector {
 
   def apply(
-    labels: Option[Map[String, String]] = None,
-    namespace: Option[String] = None
+    namespace: String,
+    labels: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.eks.Selector =
     (new software.amazon.awscdk.services.eks.Selector.Builder)
+      .namespace(namespace)
       .labels(labels.map(_.asJava).orNull)
-      .namespace(namespace.orNull)
       .build()
 }

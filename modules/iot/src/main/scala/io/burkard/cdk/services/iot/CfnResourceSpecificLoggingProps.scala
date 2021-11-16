@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object CfnResourceSpecificLoggingProps {
 
   def apply(
-    targetName: Option[String] = None,
-    targetType: Option[String] = None,
-    logLevel: Option[String] = None
+    targetName: String,
+    targetType: String,
+    logLevel: String
   ): software.amazon.awscdk.services.iot.CfnResourceSpecificLoggingProps =
     (new software.amazon.awscdk.services.iot.CfnResourceSpecificLoggingProps.Builder)
-      .targetName(targetName.orNull)
-      .targetType(targetType.orNull)
-      .logLevel(logLevel.orNull)
+      .targetName(targetName)
+      .targetType(targetType)
+      .logLevel(logLevel)
       .build()
 }

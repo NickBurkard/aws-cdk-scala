@@ -7,22 +7,22 @@ import scala.collection.JavaConverters._
 object AutoScalingGroupProps {
 
   def apply(
+    instanceType: software.amazon.awscdk.services.ec2.InstanceType,
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
+    machineImage: software.amazon.awscdk.services.ec2.IMachineImage,
     replacingUpdateMinSuccessfulInstancesPercent: Option[Number] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     signals: Option[software.amazon.awscdk.services.autoscaling.Signals] = None,
-    instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     allowAllOutbound: Option[Boolean] = None,
     requireImdsv2: Option[Boolean] = None,
     desiredCapacity: Option[Number] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     initOptions: Option[software.amazon.awscdk.services.autoscaling.ApplyCloudFormationInitOptions] = None,
     healthCheck: Option[software.amazon.awscdk.services.autoscaling.HealthCheck] = None,
     maxCapacity: Option[Number] = None,
     blockDevices: Option[List[_ <: software.amazon.awscdk.services.autoscaling.BlockDevice]] = None,
     maxInstanceLifetime: Option[software.amazon.awscdk.Duration] = None,
-    machineImage: Option[software.amazon.awscdk.services.ec2.IMachineImage] = None,
     userData: Option[software.amazon.awscdk.services.ec2.UserData] = None,
     updateType: Option[software.amazon.awscdk.services.autoscaling.UpdateType] = None,
     ignoreUnmodifiedSizeProperties: Option[Boolean] = None,
@@ -44,22 +44,22 @@ object AutoScalingGroupProps {
     updatePolicy: Option[software.amazon.awscdk.services.autoscaling.UpdatePolicy] = None
   ): software.amazon.awscdk.services.autoscaling.AutoScalingGroupProps =
     (new software.amazon.awscdk.services.autoscaling.AutoScalingGroupProps.Builder)
+      .instanceType(instanceType)
+      .vpc(vpc)
+      .machineImage(machineImage)
       .replacingUpdateMinSuccessfulInstancesPercent(replacingUpdateMinSuccessfulInstancesPercent.orNull)
       .role(role.orNull)
       .signals(signals.orNull)
-      .instanceType(instanceType.orNull)
       .vpcSubnets(vpcSubnets.orNull)
       .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .requireImdsv2(requireImdsv2.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .desiredCapacity(desiredCapacity.orNull)
-      .vpc(vpc.orNull)
       .securityGroup(securityGroup.orNull)
       .initOptions(initOptions.orNull)
       .healthCheck(healthCheck.orNull)
       .maxCapacity(maxCapacity.orNull)
       .blockDevices(blockDevices.map(_.asJava).orNull)
       .maxInstanceLifetime(maxInstanceLifetime.orNull)
-      .machineImage(machineImage.orNull)
       .userData(userData.orNull)
       .updateType(updateType.orNull)
       .ignoreUnmodifiedSizeProperties(ignoreUnmodifiedSizeProperties.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

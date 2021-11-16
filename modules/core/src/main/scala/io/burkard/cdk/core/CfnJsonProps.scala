@@ -4,9 +4,9 @@ package io.burkard.cdk.core
 object CfnJsonProps {
 
   def apply(
-    value: Option[AnyRef] = None
+    value: AnyRef
   ): software.amazon.awscdk.CfnJsonProps =
     (new software.amazon.awscdk.CfnJsonProps.Builder)
-      .value(value.orNull)
+      .value(value)
       .build()
 }

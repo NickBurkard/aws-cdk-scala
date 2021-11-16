@@ -4,17 +4,17 @@ package io.burkard.cdk.services.signer
 object CfnProfilePermissionProps {
 
   def apply(
-    profileVersion: Option[String] = None,
-    profileName: Option[String] = None,
-    principal: Option[String] = None,
-    statementId: Option[String] = None,
-    action: Option[String] = None
+    profileName: String,
+    principal: String,
+    statementId: String,
+    action: String,
+    profileVersion: Option[String] = None
   ): software.amazon.awscdk.services.signer.CfnProfilePermissionProps =
     (new software.amazon.awscdk.services.signer.CfnProfilePermissionProps.Builder)
+      .profileName(profileName)
+      .principal(principal)
+      .statementId(statementId)
+      .action(action)
       .profileVersion(profileVersion.orNull)
-      .profileName(profileName.orNull)
-      .principal(principal.orNull)
-      .statementId(statementId.orNull)
-      .action(action.orNull)
       .build()
 }

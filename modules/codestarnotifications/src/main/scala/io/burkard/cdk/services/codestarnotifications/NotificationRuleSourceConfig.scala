@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codestarnotifications
 object NotificationRuleSourceConfig {
 
   def apply(
-    sourceArn: Option[String] = None
+    sourceArn: String
   ): software.amazon.awscdk.services.codestarnotifications.NotificationRuleSourceConfig =
     (new software.amazon.awscdk.services.codestarnotifications.NotificationRuleSourceConfig.Builder)
-      .sourceArn(sourceArn.orNull)
+      .sourceArn(sourceArn)
       .build()
 }

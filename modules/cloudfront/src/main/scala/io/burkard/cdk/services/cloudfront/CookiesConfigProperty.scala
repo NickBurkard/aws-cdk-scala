@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CookiesConfigProperty {
 
   def apply(
-    cookieBehavior: Option[String] = None,
+    cookieBehavior: String,
     cookies: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CookiesConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CookiesConfigProperty.Builder)
-      .cookieBehavior(cookieBehavior.orNull)
+      .cookieBehavior(cookieBehavior)
       .cookies(cookies.map(_.asJava).orNull)
       .build()
 }

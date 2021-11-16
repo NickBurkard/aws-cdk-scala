@@ -4,19 +4,19 @@ package io.burkard.cdk.services.events
 object CfnApiDestinationProps {
 
   def apply(
+    httpMethod: String,
+    connectionArn: String,
+    invocationEndpoint: String,
     name: Option[String] = None,
     invocationRateLimitPerSecond: Option[Number] = None,
-    description: Option[String] = None,
-    httpMethod: Option[String] = None,
-    connectionArn: Option[String] = None,
-    invocationEndpoint: Option[String] = None
+    description: Option[String] = None
   ): software.amazon.awscdk.services.events.CfnApiDestinationProps =
     (new software.amazon.awscdk.services.events.CfnApiDestinationProps.Builder)
+      .httpMethod(httpMethod)
+      .connectionArn(connectionArn)
+      .invocationEndpoint(invocationEndpoint)
       .name(name.orNull)
       .invocationRateLimitPerSecond(invocationRateLimitPerSecond.orNull)
       .description(description.orNull)
-      .httpMethod(httpMethod.orNull)
-      .connectionArn(connectionArn.orNull)
-      .invocationEndpoint(invocationEndpoint.orNull)
       .build()
 }

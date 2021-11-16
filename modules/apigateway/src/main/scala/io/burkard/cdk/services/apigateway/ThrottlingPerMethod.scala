@@ -4,11 +4,11 @@ package io.burkard.cdk.services.apigateway
 object ThrottlingPerMethod {
 
   def apply(
-    method: Option[software.amazon.awscdk.services.apigateway.Method] = None,
-    throttle: Option[software.amazon.awscdk.services.apigateway.ThrottleSettings] = None
+    method: software.amazon.awscdk.services.apigateway.Method,
+    throttle: software.amazon.awscdk.services.apigateway.ThrottleSettings
   ): software.amazon.awscdk.services.apigateway.ThrottlingPerMethod =
     (new software.amazon.awscdk.services.apigateway.ThrottlingPerMethod.Builder)
-      .method(method.orNull)
-      .throttle(throttle.orNull)
+      .method(method)
+      .throttle(throttle)
       .build()
 }

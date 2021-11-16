@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cognito
 object CompromisedCredentialsActionsTypeProperty {
 
   def apply(
-    eventAction: Option[String] = None
+    eventAction: String
   ): software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty.Builder)
-      .eventAction(eventAction.orNull)
+      .eventAction(eventAction)
       .build()
 }

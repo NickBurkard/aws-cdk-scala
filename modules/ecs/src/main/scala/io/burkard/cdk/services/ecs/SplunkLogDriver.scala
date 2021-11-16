@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object SplunkLogDriver {
 
   def apply(
+    url: String,
     format: Option[software.amazon.awscdk.services.ecs.SplunkLogFormat] = None,
     sourceType: Option[String] = None,
     tag: Option[String] = None,
@@ -19,7 +20,6 @@ object SplunkLogDriver {
     insecureSkipVerify: Option[String] = None,
     gzipLevel: Option[Number] = None,
     caPath: Option[String] = None,
-    url: Option[String] = None,
     verifyConnection: Option[Boolean] = None,
     secretToken: Option[software.amazon.awscdk.services.ecs.Secret] = None,
     caName: Option[String] = None,
@@ -27,6 +27,7 @@ object SplunkLogDriver {
   ): software.amazon.awscdk.services.ecs.SplunkLogDriver =
     software.amazon.awscdk.services.ecs.SplunkLogDriver.Builder
       .create()
+      .url(url)
       .format(format.orNull)
       .sourceType(sourceType.orNull)
       .tag(tag.orNull)
@@ -39,7 +40,6 @@ object SplunkLogDriver {
       .insecureSkipVerify(insecureSkipVerify.orNull)
       .gzipLevel(gzipLevel.orNull)
       .caPath(caPath.orNull)
-      .url(url.orNull)
       .verifyConnection(verifyConnection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .secretToken(secretToken.orNull)
       .caName(caName.orNull)

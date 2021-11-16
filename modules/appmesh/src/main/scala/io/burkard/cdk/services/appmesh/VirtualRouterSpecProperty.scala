@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object VirtualRouterSpecProperty {
 
   def apply(
-    listeners: Option[List[_]] = None
+    listeners: List[_]
   ): software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterSpecProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterSpecProperty.Builder)
-      .listeners(listeners.map(_.asJava).orNull)
+      .listeners(listeners.asJava)
       .build()
 }

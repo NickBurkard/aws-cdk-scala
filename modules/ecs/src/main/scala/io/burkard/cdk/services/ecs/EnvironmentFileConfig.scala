@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object EnvironmentFileConfig {
 
   def apply(
-    s3Location: Option[software.amazon.awscdk.services.s3.Location] = None,
-    fileType: Option[software.amazon.awscdk.services.ecs.EnvironmentFileType] = None
+    s3Location: software.amazon.awscdk.services.s3.Location,
+    fileType: software.amazon.awscdk.services.ecs.EnvironmentFileType
   ): software.amazon.awscdk.services.ecs.EnvironmentFileConfig =
     (new software.amazon.awscdk.services.ecs.EnvironmentFileConfig.Builder)
-      .s3Location(s3Location.orNull)
-      .fileType(fileType.orNull)
+      .s3Location(s3Location)
+      .fileType(fileType)
       .build()
 }

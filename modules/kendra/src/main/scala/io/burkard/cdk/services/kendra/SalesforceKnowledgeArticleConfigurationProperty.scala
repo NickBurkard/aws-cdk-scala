@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object SalesforceKnowledgeArticleConfigurationProperty {
 
   def apply(
-    includedStates: Option[List[String]] = None,
+    includedStates: List[String],
     customKnowledgeArticleTypeConfigurations: Option[List[_]] = None,
     standardKnowledgeArticleTypeConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.Builder)
-      .includedStates(includedStates.map(_.asJava).orNull)
+      .includedStates(includedStates.asJava)
       .customKnowledgeArticleTypeConfigurations(customKnowledgeArticleTypeConfigurations.map(_.asJava).orNull)
       .standardKnowledgeArticleTypeConfiguration(standardKnowledgeArticleTypeConfiguration.orNull)
       .build()

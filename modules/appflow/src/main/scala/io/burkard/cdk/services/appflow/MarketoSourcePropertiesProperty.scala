@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object MarketoSourcePropertiesProperty {
 
   def apply(
-    `object`: Option[String] = None
+    `object`: String
   ): software.amazon.awscdk.services.appflow.CfnFlow.MarketoSourcePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.MarketoSourcePropertiesProperty.Builder)
-      .`object`(`object`.orNull)
+      .`object`(`object`)
       .build()
 }

@@ -4,19 +4,19 @@ package io.burkard.cdk.services.sso
 object CfnAssignmentProps {
 
   def apply(
-    principalId: Option[String] = None,
-    targetType: Option[String] = None,
-    instanceArn: Option[String] = None,
-    principalType: Option[String] = None,
-    targetId: Option[String] = None,
-    permissionSetArn: Option[String] = None
+    principalId: String,
+    targetType: String,
+    instanceArn: String,
+    principalType: String,
+    targetId: String,
+    permissionSetArn: String
   ): software.amazon.awscdk.services.sso.CfnAssignmentProps =
     (new software.amazon.awscdk.services.sso.CfnAssignmentProps.Builder)
-      .principalId(principalId.orNull)
-      .targetType(targetType.orNull)
-      .instanceArn(instanceArn.orNull)
-      .principalType(principalType.orNull)
-      .targetId(targetId.orNull)
-      .permissionSetArn(permissionSetArn.orNull)
+      .principalId(principalId)
+      .targetType(targetType)
+      .instanceArn(instanceArn)
+      .principalType(principalType)
+      .targetId(targetId)
+      .permissionSetArn(permissionSetArn)
       .build()
 }

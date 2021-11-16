@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ec2
 object SubnetProps {
 
   def apply(
-    vpcId: Option[String] = None,
-    availabilityZone: Option[String] = None,
-    cidrBlock: Option[String] = None,
+    vpcId: String,
+    availabilityZone: String,
+    cidrBlock: String,
     mapPublicIpOnLaunch: Option[Boolean] = None
   ): software.amazon.awscdk.services.ec2.SubnetProps =
     (new software.amazon.awscdk.services.ec2.SubnetProps.Builder)
-      .vpcId(vpcId.orNull)
-      .availabilityZone(availabilityZone.orNull)
-      .cidrBlock(cidrBlock.orNull)
+      .vpcId(vpcId)
+      .availabilityZone(availabilityZone)
+      .cidrBlock(cidrBlock)
       .mapPublicIpOnLaunch(mapPublicIpOnLaunch.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

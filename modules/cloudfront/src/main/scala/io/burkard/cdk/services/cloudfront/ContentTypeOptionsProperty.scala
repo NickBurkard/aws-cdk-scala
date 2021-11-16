@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object ContentTypeOptionsProperty {
 
   def apply(
-    `override`: Option[Boolean] = None
+    `override`: Boolean
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ContentTypeOptionsProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ContentTypeOptionsProperty.Builder)
-      .`override`(`override`.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .`override`(`override`)
       .build()
 }

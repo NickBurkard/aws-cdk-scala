@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AccessControlExposeHeadersProperty {
 
   def apply(
-    items: Option[List[String]] = None
+    items: List[String]
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.AccessControlExposeHeadersProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.AccessControlExposeHeadersProperty.Builder)
-      .items(items.map(_.asJava).orNull)
+      .items(items.asJava)
       .build()
 }

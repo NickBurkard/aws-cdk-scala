@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnGeoMatchSetProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     geoMatchConstraints: Option[List[_]] = None
   ): software.amazon.awscdk.services.waf.regional.CfnGeoMatchSetProps =
     (new software.amazon.awscdk.services.waf.regional.CfnGeoMatchSetProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .geoMatchConstraints(geoMatchConstraints.map(_.asJava).orNull)
       .build()
 }

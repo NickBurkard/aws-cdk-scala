@@ -4,13 +4,13 @@ package io.burkard.cdk.services.route53resolver
 object CfnResolverRuleAssociationProps {
 
   def apply(
-    name: Option[String] = None,
-    resolverRuleId: Option[String] = None,
-    vpcId: Option[String] = None
+    resolverRuleId: String,
+    vpcId: String,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.route53resolver.CfnResolverRuleAssociationProps =
     (new software.amazon.awscdk.services.route53resolver.CfnResolverRuleAssociationProps.Builder)
+      .resolverRuleId(resolverRuleId)
+      .vpcId(vpcId)
       .name(name.orNull)
-      .resolverRuleId(resolverRuleId.orNull)
-      .vpcId(vpcId.orNull)
       .build()
 }

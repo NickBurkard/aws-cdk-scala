@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CodeConfigurationValuesProperty {
 
   def apply(
+    runtime: String,
     startCommand: Option[String] = None,
     buildCommand: Option[String] = None,
-    runtime: Option[String] = None,
     port: Option[String] = None,
     runtimeEnvironmentVariables: Option[List[_]] = None
   ): software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationValuesProperty =
     (new software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationValuesProperty.Builder)
+      .runtime(runtime)
       .startCommand(startCommand.orNull)
       .buildCommand(buildCommand.orNull)
-      .runtime(runtime.orNull)
       .port(port.orNull)
       .runtimeEnvironmentVariables(runtimeEnvironmentVariables.map(_.asJava).orNull)
       .build()

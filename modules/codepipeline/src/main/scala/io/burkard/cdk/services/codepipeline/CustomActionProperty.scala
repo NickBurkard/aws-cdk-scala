@@ -4,21 +4,21 @@ package io.burkard.cdk.services.codepipeline
 object CustomActionProperty {
 
   def apply(
+    name: String,
+    required: Boolean,
     secret: Option[Boolean] = None,
     queryable: Option[Boolean] = None,
-    name: Option[String] = None,
     description: Option[String] = None,
     key: Option[Boolean] = None,
-    `type`: Option[String] = None,
-    required: Option[Boolean] = None
+    `type`: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.CustomActionProperty =
     (new software.amazon.awscdk.services.codepipeline.CustomActionProperty.Builder)
+      .name(name)
+      .required(required)
       .secret(secret.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .queryable(queryable.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .name(name.orNull)
       .description(description.orNull)
       .key(key.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .`type`(`type`.orNull)
-      .required(required.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object AssetPropertyValueProperty {
 
   def apply(
-    quality: Option[String] = None,
-    timestamp: Option[software.amazon.awscdk.services.iot.CfnTopicRule.AssetPropertyTimestampProperty] = None,
-    value: Option[software.amazon.awscdk.services.iot.CfnTopicRule.AssetPropertyVariantProperty] = None
+    timestamp: software.amazon.awscdk.services.iot.CfnTopicRule.AssetPropertyTimestampProperty,
+    value: software.amazon.awscdk.services.iot.CfnTopicRule.AssetPropertyVariantProperty,
+    quality: Option[String] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.AssetPropertyValueProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.AssetPropertyValueProperty.Builder)
+      .timestamp(timestamp)
+      .value(value)
       .quality(quality.orNull)
-      .timestamp(timestamp.orNull)
-      .value(value.orNull)
       .build()
 }

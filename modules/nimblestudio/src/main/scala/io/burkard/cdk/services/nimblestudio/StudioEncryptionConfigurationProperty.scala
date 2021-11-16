@@ -4,11 +4,11 @@ package io.burkard.cdk.services.nimblestudio
 object StudioEncryptionConfigurationProperty {
 
   def apply(
-    keyType: Option[String] = None,
+    keyType: String,
     keyArn: Option[String] = None
   ): software.amazon.awscdk.services.nimblestudio.CfnStudio.StudioEncryptionConfigurationProperty =
     (new software.amazon.awscdk.services.nimblestudio.CfnStudio.StudioEncryptionConfigurationProperty.Builder)
-      .keyType(keyType.orNull)
+      .keyType(keyType)
       .keyArn(keyArn.orNull)
       .build()
 }

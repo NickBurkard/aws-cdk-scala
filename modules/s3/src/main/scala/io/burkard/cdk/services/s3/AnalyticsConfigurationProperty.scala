@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object AnalyticsConfigurationProperty {
 
   def apply(
+    storageClassAnalysis: software.amazon.awscdk.services.s3.CfnBucket.StorageClassAnalysisProperty,
+    id: String,
     tagFilters: Option[List[_]] = None,
-    storageClassAnalysis: Option[software.amazon.awscdk.services.s3.CfnBucket.StorageClassAnalysisProperty] = None,
-    prefix: Option[String] = None,
-    id: Option[String] = None
+    prefix: Option[String] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.AnalyticsConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.AnalyticsConfigurationProperty.Builder)
+      .storageClassAnalysis(storageClassAnalysis)
+      .id(id)
       .tagFilters(tagFilters.map(_.asJava).orNull)
-      .storageClassAnalysis(storageClassAnalysis.orNull)
       .prefix(prefix.orNull)
-      .id(id.orNull)
       .build()
 }

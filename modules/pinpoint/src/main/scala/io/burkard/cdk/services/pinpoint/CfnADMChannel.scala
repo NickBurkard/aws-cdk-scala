@@ -5,16 +5,16 @@ object CfnADMChannel {
 
   def apply(
     internalResourceId: String,
-    clientId: Option[String] = None,
-    clientSecret: Option[String] = None,
-    applicationId: Option[String] = None,
+    clientId: String,
+    clientSecret: String,
+    applicationId: String,
     enabled: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnADMChannel =
     software.amazon.awscdk.services.pinpoint.CfnADMChannel.Builder
       .create(stackCtx, internalResourceId)
-      .clientId(clientId.orNull)
-      .clientSecret(clientSecret.orNull)
-      .applicationId(applicationId.orNull)
+      .clientId(clientId)
+      .clientSecret(clientSecret)
+      .applicationId(applicationId)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

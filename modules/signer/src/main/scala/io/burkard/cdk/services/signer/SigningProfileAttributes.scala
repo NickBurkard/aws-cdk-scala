@@ -4,11 +4,11 @@ package io.burkard.cdk.services.signer
 object SigningProfileAttributes {
 
   def apply(
-    signingProfileName: Option[String] = None,
-    signingProfileVersion: Option[String] = None
+    signingProfileName: String,
+    signingProfileVersion: String
   ): software.amazon.awscdk.services.signer.SigningProfileAttributes =
     (new software.amazon.awscdk.services.signer.SigningProfileAttributes.Builder)
-      .signingProfileName(signingProfileName.orNull)
-      .signingProfileVersion(signingProfileVersion.orNull)
+      .signingProfileName(signingProfileName)
+      .signingProfileVersion(signingProfileVersion)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.licensemanager
 object MetadataProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.licensemanager.CfnLicense.MetadataProperty =
     (new software.amazon.awscdk.services.licensemanager.CfnLicense.MetadataProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

@@ -4,6 +4,7 @@ package io.burkard.cdk.services.lambda
 object KafkaEventSourceProps {
 
   def apply(
+    topic: String,
     secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     batchSize: Option[Number] = None,
     parallelizationFactor: Option[Number] = None,
@@ -15,10 +16,10 @@ object KafkaEventSourceProps {
     maxRecordAge: Option[software.amazon.awscdk.Duration] = None,
     bisectBatchOnError: Option[Boolean] = None,
     reportBatchItemFailures: Option[Boolean] = None,
-    startingPosition: Option[software.amazon.awscdk.services.lambda.StartingPosition] = None,
-    topic: Option[String] = None
+    startingPosition: Option[software.amazon.awscdk.services.lambda.StartingPosition] = None
   ): software.amazon.awscdk.services.lambda.eventsources.KafkaEventSourceProps =
     (new software.amazon.awscdk.services.lambda.eventsources.KafkaEventSourceProps.Builder)
+      .topic(topic)
       .secret(secret.orNull)
       .batchSize(batchSize.orNull)
       .parallelizationFactor(parallelizationFactor.orNull)
@@ -31,6 +32,5 @@ object KafkaEventSourceProps {
       .bisectBatchOnError(bisectBatchOnError.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .reportBatchItemFailures(reportBatchItemFailures.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .startingPosition(startingPosition.orNull)
-      .topic(topic.orNull)
       .build()
 }

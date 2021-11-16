@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnTableProps {
 
   def apply(
+    keySchema: List[_],
     streamSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.StreamSpecificationProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     timeToLiveSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.TimeToLiveSpecificationProperty] = None,
     provisionedThroughput: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ProvisionedThroughputProperty] = None,
     sseSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.SSESpecificationProperty] = None,
     tableName: Option[String] = None,
-    keySchema: Option[List[_]] = None,
     attributeDefinitions: Option[List[_]] = None,
     globalSecondaryIndexes: Option[List[_]] = None,
     pointInTimeRecoverySpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.PointInTimeRecoverySpecificationProperty] = None,
@@ -23,13 +23,13 @@ object CfnTableProps {
     contributorInsightsSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ContributorInsightsSpecificationProperty] = None
   ): software.amazon.awscdk.services.dynamodb.CfnTableProps =
     (new software.amazon.awscdk.services.dynamodb.CfnTableProps.Builder)
+      .keySchema(keySchema.asJava)
       .streamSpecification(streamSpecification.orNull)
       .tags(tags.map(_.asJava).orNull)
       .timeToLiveSpecification(timeToLiveSpecification.orNull)
       .provisionedThroughput(provisionedThroughput.orNull)
       .sseSpecification(sseSpecification.orNull)
       .tableName(tableName.orNull)
-      .keySchema(keySchema.map(_.asJava).orNull)
       .attributeDefinitions(attributeDefinitions.map(_.asJava).orNull)
       .globalSecondaryIndexes(globalSecondaryIndexes.map(_.asJava).orNull)
       .pointInTimeRecoverySpecification(pointInTimeRecoverySpecification.orNull)

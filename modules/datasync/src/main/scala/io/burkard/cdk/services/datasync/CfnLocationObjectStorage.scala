@@ -8,11 +8,11 @@ object CfnLocationObjectStorage {
 
   def apply(
     internalResourceId: String,
+    agentArns: List[String],
+    serverHostname: String,
+    bucketName: String,
     serverPort: Option[Number] = None,
-    agentArns: Option[List[String]] = None,
-    serverHostname: Option[String] = None,
     accessKey: Option[String] = None,
-    bucketName: Option[String] = None,
     serverProtocol: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     subdirectory: Option[String] = None,
@@ -20,11 +20,11 @@ object CfnLocationObjectStorage {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.datasync.CfnLocationObjectStorage =
     software.amazon.awscdk.services.datasync.CfnLocationObjectStorage.Builder
       .create(stackCtx, internalResourceId)
+      .agentArns(agentArns.asJava)
+      .serverHostname(serverHostname)
+      .bucketName(bucketName)
       .serverPort(serverPort.orNull)
-      .agentArns(agentArns.map(_.asJava).orNull)
-      .serverHostname(serverHostname.orNull)
       .accessKey(accessKey.orNull)
-      .bucketName(bucketName.orNull)
       .serverProtocol(serverProtocol.orNull)
       .tags(tags.map(_.asJava).orNull)
       .subdirectory(subdirectory.orNull)

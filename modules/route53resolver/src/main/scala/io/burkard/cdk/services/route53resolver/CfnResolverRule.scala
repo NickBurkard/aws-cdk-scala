@@ -8,19 +8,19 @@ object CfnResolverRule {
 
   def apply(
     internalResourceId: String,
+    domainName: String,
+    ruleType: String,
     name: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    domainName: Option[String] = None,
-    ruleType: Option[String] = None,
     targetIps: Option[List[_]] = None,
     resolverEndpointId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53resolver.CfnResolverRule =
     software.amazon.awscdk.services.route53resolver.CfnResolverRule.Builder
       .create(stackCtx, internalResourceId)
+      .domainName(domainName)
+      .ruleType(ruleType)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .domainName(domainName.orNull)
-      .ruleType(ruleType.orNull)
       .targetIps(targetIps.map(_.asJava).orNull)
       .resolverEndpointId(resolverEndpointId.orNull)
       .build()

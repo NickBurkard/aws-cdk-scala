@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object BucketSAMPTProperty {
 
   def apply(
-    bucketName: Option[String] = None
+    bucketName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.BucketSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.BucketSAMPTProperty.Builder)
-      .bucketName(bucketName.orNull)
+      .bucketName(bucketName)
       .build()
 }

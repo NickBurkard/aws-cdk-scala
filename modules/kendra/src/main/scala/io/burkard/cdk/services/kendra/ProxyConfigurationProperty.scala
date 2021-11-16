@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kendra
 object ProxyConfigurationProperty {
 
   def apply(
-    host: Option[String] = None,
-    port: Option[Number] = None,
+    host: String,
+    port: Number,
     credentials: Option[String] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.ProxyConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.ProxyConfigurationProperty.Builder)
-      .host(host.orNull)
-      .port(port.orNull)
+      .host(host)
+      .port(port)
       .credentials(credentials.orNull)
       .build()
 }

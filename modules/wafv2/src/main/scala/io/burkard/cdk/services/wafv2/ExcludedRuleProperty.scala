@@ -4,9 +4,9 @@ package io.burkard.cdk.services.wafv2
 object ExcludedRuleProperty {
 
   def apply(
-    name: Option[String] = None
+    name: String
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.ExcludedRuleProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.ExcludedRuleProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .build()
 }

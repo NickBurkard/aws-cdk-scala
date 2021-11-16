@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object DecimalParameterProperty {
 
   def apply(
-    name: Option[String] = None,
-    values: Option[List[_ <: Number]] = None
+    name: String,
+    values: List[_ <: Number]
   ): software.amazon.awscdk.services.quicksight.CfnAnalysis.DecimalParameterProperty =
     (new software.amazon.awscdk.services.quicksight.CfnAnalysis.DecimalParameterProperty.Builder)
-      .name(name.orNull)
-      .values(values.map(_.asJava).orNull)
+      .name(name)
+      .values(values.asJava)
       .build()
 }

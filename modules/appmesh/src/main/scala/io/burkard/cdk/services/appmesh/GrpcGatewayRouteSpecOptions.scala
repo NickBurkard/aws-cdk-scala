@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object GrpcGatewayRouteSpecOptions {
 
   def apply(
-    `match`: Option[software.amazon.awscdk.services.appmesh.GrpcGatewayRouteMatch] = None,
-    routeTarget: Option[software.amazon.awscdk.services.appmesh.IVirtualService] = None
+    `match`: software.amazon.awscdk.services.appmesh.GrpcGatewayRouteMatch,
+    routeTarget: software.amazon.awscdk.services.appmesh.IVirtualService
   ): software.amazon.awscdk.services.appmesh.GrpcGatewayRouteSpecOptions =
     (new software.amazon.awscdk.services.appmesh.GrpcGatewayRouteSpecOptions.Builder)
-      .`match`(`match`.orNull)
-      .routeTarget(routeTarget.orNull)
+      .`match`(`match`)
+      .routeTarget(routeTarget)
       .build()
 }

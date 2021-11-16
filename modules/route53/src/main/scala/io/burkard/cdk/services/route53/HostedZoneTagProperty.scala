@@ -4,11 +4,11 @@ package io.burkard.cdk.services.route53
 object HostedZoneTagProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.route53.CfnHostedZone.HostedZoneTagProperty =
     (new software.amazon.awscdk.services.route53.CfnHostedZone.HostedZoneTagProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

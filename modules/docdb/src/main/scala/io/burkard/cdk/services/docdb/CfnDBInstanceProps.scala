@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnDBInstanceProps {
 
   def apply(
-    dbInstanceClass: Option[String] = None,
-    dbClusterIdentifier: Option[String] = None,
+    dbInstanceClass: String,
+    dbClusterIdentifier: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     availabilityZone: Option[String] = None,
     dbInstanceIdentifier: Option[String] = None,
@@ -16,8 +16,8 @@ object CfnDBInstanceProps {
     autoMinorVersionUpgrade: Option[Boolean] = None
   ): software.amazon.awscdk.services.docdb.CfnDBInstanceProps =
     (new software.amazon.awscdk.services.docdb.CfnDBInstanceProps.Builder)
-      .dbInstanceClass(dbInstanceClass.orNull)
-      .dbClusterIdentifier(dbClusterIdentifier.orNull)
+      .dbInstanceClass(dbInstanceClass)
+      .dbClusterIdentifier(dbClusterIdentifier)
       .tags(tags.map(_.asJava).orNull)
       .availabilityZone(availabilityZone.orNull)
       .dbInstanceIdentifier(dbInstanceIdentifier.orNull)

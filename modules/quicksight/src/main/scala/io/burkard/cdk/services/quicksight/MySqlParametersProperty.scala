@@ -4,13 +4,13 @@ package io.burkard.cdk.services.quicksight
 object MySqlParametersProperty {
 
   def apply(
-    database: Option[String] = None,
-    host: Option[String] = None,
-    port: Option[Number] = None
+    database: String,
+    host: String,
+    port: Number
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.MySqlParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.MySqlParametersProperty.Builder)
-      .database(database.orNull)
-      .host(host.orNull)
-      .port(port.orNull)
+      .database(database)
+      .host(host)
+      .port(port)
       .build()
 }

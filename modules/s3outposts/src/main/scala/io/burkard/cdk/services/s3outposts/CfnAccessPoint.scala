@@ -5,16 +5,16 @@ object CfnAccessPoint {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    vpcConfiguration: Option[software.amazon.awscdk.services.s3outposts.CfnAccessPoint.VpcConfigurationProperty] = None,
-    bucket: Option[String] = None,
+    name: String,
+    vpcConfiguration: software.amazon.awscdk.services.s3outposts.CfnAccessPoint.VpcConfigurationProperty,
+    bucket: String,
     policy: Option[AnyRef] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3outposts.CfnAccessPoint =
     software.amazon.awscdk.services.s3outposts.CfnAccessPoint.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .vpcConfiguration(vpcConfiguration.orNull)
-      .bucket(bucket.orNull)
+      .name(name)
+      .vpcConfiguration(vpcConfiguration)
+      .bucket(bucket)
       .policy(policy.orNull)
       .build()
 }

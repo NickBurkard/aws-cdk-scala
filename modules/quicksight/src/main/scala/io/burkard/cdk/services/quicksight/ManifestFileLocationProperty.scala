@@ -4,11 +4,11 @@ package io.burkard.cdk.services.quicksight
 object ManifestFileLocationProperty {
 
   def apply(
-    key: Option[String] = None,
-    bucket: Option[String] = None
+    key: String,
+    bucket: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.ManifestFileLocationProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.ManifestFileLocationProperty.Builder)
-      .key(key.orNull)
-      .bucket(bucket.orNull)
+      .key(key)
+      .bucket(bucket)
       .build()
 }

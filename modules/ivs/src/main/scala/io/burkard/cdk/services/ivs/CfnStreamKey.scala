@@ -8,12 +8,12 @@ object CfnStreamKey {
 
   def apply(
     internalResourceId: String,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    channelArn: Option[String] = None
+    channelArn: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ivs.CfnStreamKey =
     software.amazon.awscdk.services.ivs.CfnStreamKey.Builder
       .create(stackCtx, internalResourceId)
+      .channelArn(channelArn)
       .tags(tags.map(_.asJava).orNull)
-      .channelArn(channelArn.orNull)
       .build()
 }

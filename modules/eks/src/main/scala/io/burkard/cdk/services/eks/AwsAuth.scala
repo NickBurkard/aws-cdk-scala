@@ -5,10 +5,10 @@ object AwsAuth {
 
   def apply(
     internalResourceId: String,
-    cluster: Option[software.amazon.awscdk.services.eks.Cluster] = None
+    cluster: software.amazon.awscdk.services.eks.Cluster
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.eks.AwsAuth =
     software.amazon.awscdk.services.eks.AwsAuth.Builder
       .create(stackCtx, internalResourceId)
-      .cluster(cluster.orNull)
+      .cluster(cluster)
       .build()
 }

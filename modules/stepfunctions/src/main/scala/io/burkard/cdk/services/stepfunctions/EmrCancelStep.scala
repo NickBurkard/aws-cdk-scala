@@ -8,10 +8,10 @@ object EmrCancelStep {
 
   def apply(
     internalResourceId: String,
+    clusterId: String,
+    stepId: String,
     resultPath: Option[String] = None,
-    clusterId: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
-    stepId: Option[String] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
     outputPath: Option[String] = None,
@@ -21,10 +21,10 @@ object EmrCancelStep {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.EmrCancelStep =
     software.amazon.awscdk.services.stepfunctions.tasks.EmrCancelStep.Builder
       .create(stackCtx, internalResourceId)
+      .clusterId(clusterId)
+      .stepId(stepId)
       .resultPath(resultPath.orNull)
-      .clusterId(clusterId.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .stepId(stepId.orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)
       .outputPath(outputPath.orNull)

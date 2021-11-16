@@ -8,14 +8,14 @@ object CfnTransitGatewayConnect {
 
   def apply(
     internalResourceId: String,
-    options: Option[software.amazon.awscdk.services.ec2.CfnTransitGatewayConnect.TransitGatewayConnectOptionsProperty] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    transportTransitGatewayAttachmentId: Option[String] = None
+    options: software.amazon.awscdk.services.ec2.CfnTransitGatewayConnect.TransitGatewayConnectOptionsProperty,
+    transportTransitGatewayAttachmentId: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnTransitGatewayConnect =
     software.amazon.awscdk.services.ec2.CfnTransitGatewayConnect.Builder
       .create(stackCtx, internalResourceId)
-      .options(options.orNull)
+      .options(options)
+      .transportTransitGatewayAttachmentId(transportTransitGatewayAttachmentId)
       .tags(tags.map(_.asJava).orNull)
-      .transportTransitGatewayAttachmentId(transportTransitGatewayAttachmentId.orNull)
       .build()
 }

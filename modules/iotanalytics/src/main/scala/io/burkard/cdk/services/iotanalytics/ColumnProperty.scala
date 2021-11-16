@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object ColumnProperty {
 
   def apply(
-    name: Option[String] = None,
-    `type`: Option[String] = None
+    name: String,
+    `type`: String
   ): software.amazon.awscdk.services.iotanalytics.CfnDatastore.ColumnProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDatastore.ColumnProperty.Builder)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .name(name)
+      .`type`(`type`)
       .build()
 }

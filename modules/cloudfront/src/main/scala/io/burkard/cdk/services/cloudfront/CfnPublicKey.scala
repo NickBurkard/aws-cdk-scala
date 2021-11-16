@@ -5,10 +5,10 @@ object CfnPublicKey {
 
   def apply(
     internalResourceId: String,
-    publicKeyConfig: Option[software.amazon.awscdk.services.cloudfront.CfnPublicKey.PublicKeyConfigProperty] = None
+    publicKeyConfig: software.amazon.awscdk.services.cloudfront.CfnPublicKey.PublicKeyConfigProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.CfnPublicKey =
     software.amazon.awscdk.services.cloudfront.CfnPublicKey.Builder
       .create(stackCtx, internalResourceId)
-      .publicKeyConfig(publicKeyConfig.orNull)
+      .publicKeyConfig(publicKeyConfig)
       .build()
 }

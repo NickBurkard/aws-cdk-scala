@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object LambdaInvokeActionProps {
 
   def apply(
+    lambda: software.amazon.awscdk.services.lambda.IFunction,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     userParametersString: Option[String] = None,
-    lambda: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     outputs: Option[List[_ <: software.amazon.awscdk.services.codepipeline.Artifact]] = None,
     variablesNamespace: Option[String] = None,
     inputs: Option[List[_ <: software.amazon.awscdk.services.codepipeline.Artifact]] = None,
@@ -18,9 +18,9 @@ object LambdaInvokeActionProps {
     userParameters: Option[Map[String, _]] = None
   ): software.amazon.awscdk.services.codepipeline.actions.LambdaInvokeActionProps =
     (new software.amazon.awscdk.services.codepipeline.actions.LambdaInvokeActionProps.Builder)
+      .lambda(lambda)
       .role(role.orNull)
       .userParametersString(userParametersString.orNull)
-      .lambda(lambda.orNull)
       .outputs(outputs.map(_.asJava).orNull)
       .variablesNamespace(variablesNamespace.orNull)
       .inputs(inputs.map(_.asJava).orNull)

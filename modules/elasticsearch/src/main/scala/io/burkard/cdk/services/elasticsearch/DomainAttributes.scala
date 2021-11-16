@@ -4,11 +4,11 @@ package io.burkard.cdk.services.elasticsearch
 object DomainAttributes {
 
   def apply(
-    domainArn: Option[String] = None,
-    domainEndpoint: Option[String] = None
+    domainArn: String,
+    domainEndpoint: String
   ): software.amazon.awscdk.services.elasticsearch.DomainAttributes =
     (new software.amazon.awscdk.services.elasticsearch.DomainAttributes.Builder)
-      .domainArn(domainArn.orNull)
-      .domainEndpoint(domainEndpoint.orNull)
+      .domainArn(domainArn)
+      .domainEndpoint(domainEndpoint)
       .build()
 }

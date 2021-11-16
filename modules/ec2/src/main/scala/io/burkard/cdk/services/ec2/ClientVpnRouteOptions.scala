@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object ClientVpnRouteOptions {
 
   def apply(
-    cidr: Option[String] = None,
-    description: Option[String] = None,
-    target: Option[software.amazon.awscdk.services.ec2.ClientVpnRouteTarget] = None
+    cidr: String,
+    target: software.amazon.awscdk.services.ec2.ClientVpnRouteTarget,
+    description: Option[String] = None
   ): software.amazon.awscdk.services.ec2.ClientVpnRouteOptions =
     (new software.amazon.awscdk.services.ec2.ClientVpnRouteOptions.Builder)
-      .cidr(cidr.orNull)
+      .cidr(cidr)
+      .target(target)
       .description(description.orNull)
-      .target(target.orNull)
       .build()
 }

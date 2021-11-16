@@ -5,12 +5,12 @@ object CfnTransitGatewayRegistration {
 
   def apply(
     internalResourceId: String,
-    transitGatewayArn: Option[String] = None,
-    globalNetworkId: Option[String] = None
+    transitGatewayArn: String,
+    globalNetworkId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.networkmanager.CfnTransitGatewayRegistration =
     software.amazon.awscdk.services.networkmanager.CfnTransitGatewayRegistration.Builder
       .create(stackCtx, internalResourceId)
-      .transitGatewayArn(transitGatewayArn.orNull)
-      .globalNetworkId(globalNetworkId.orNull)
+      .transitGatewayArn(transitGatewayArn)
+      .globalNetworkId(globalNetworkId)
       .build()
 }

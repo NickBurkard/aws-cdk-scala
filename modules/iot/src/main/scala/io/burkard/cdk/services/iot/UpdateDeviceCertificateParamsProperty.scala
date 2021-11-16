@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iot
 object UpdateDeviceCertificateParamsProperty {
 
   def apply(
-    action: Option[String] = None
+    action: String
   ): software.amazon.awscdk.services.iot.CfnMitigationAction.UpdateDeviceCertificateParamsProperty =
     (new software.amazon.awscdk.services.iot.CfnMitigationAction.UpdateDeviceCertificateParamsProperty.Builder)
-      .action(action.orNull)
+      .action(action)
       .build()
 }

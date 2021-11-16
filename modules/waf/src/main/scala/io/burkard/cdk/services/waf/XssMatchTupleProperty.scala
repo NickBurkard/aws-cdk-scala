@@ -4,11 +4,11 @@ package io.burkard.cdk.services.waf
 object XssMatchTupleProperty {
 
   def apply(
-    textTransformation: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.FieldToMatchProperty] = None
+    textTransformation: String,
+    fieldToMatch: software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.FieldToMatchProperty
   ): software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.XssMatchTupleProperty =
     (new software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.XssMatchTupleProperty.Builder)
-      .textTransformation(textTransformation.orNull)
-      .fieldToMatch(fieldToMatch.orNull)
+      .textTransformation(textTransformation)
+      .fieldToMatch(fieldToMatch)
       .build()
 }

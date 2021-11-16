@@ -5,6 +5,8 @@ package io.burkard.cdk.services.apigateway
 object CfnIntegrationV2Props {
 
   def apply(
+    apiId: String,
+    integrationType: String,
     integrationUri: Option[String] = None,
     requestParameters: Option[AnyRef] = None,
     timeoutInMillis: Option[Number] = None,
@@ -12,15 +14,15 @@ object CfnIntegrationV2Props {
     description: Option[String] = None,
     integrationMethod: Option[String] = None,
     requestTemplates: Option[AnyRef] = None,
-    apiId: Option[String] = None,
     credentialsArn: Option[String] = None,
     contentHandlingStrategy: Option[String] = None,
     passthroughBehavior: Option[String] = None,
     connectionType: Option[String] = None,
-    integrationType: Option[String] = None,
     payloadFormatVersion: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.CfnIntegrationV2Props =
     (new software.amazon.awscdk.services.apigateway.CfnIntegrationV2Props.Builder)
+      .apiId(apiId)
+      .integrationType(integrationType)
       .integrationUri(integrationUri.orNull)
       .requestParameters(requestParameters.orNull)
       .timeoutInMillis(timeoutInMillis.orNull)
@@ -28,12 +30,10 @@ object CfnIntegrationV2Props {
       .description(description.orNull)
       .integrationMethod(integrationMethod.orNull)
       .requestTemplates(requestTemplates.orNull)
-      .apiId(apiId.orNull)
       .credentialsArn(credentialsArn.orNull)
       .contentHandlingStrategy(contentHandlingStrategy.orNull)
       .passthroughBehavior(passthroughBehavior.orNull)
       .connectionType(connectionType.orNull)
-      .integrationType(integrationType.orNull)
       .payloadFormatVersion(payloadFormatVersion.orNull)
       .build()
 }

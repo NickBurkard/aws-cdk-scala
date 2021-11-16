@@ -7,7 +7,8 @@ import scala.collection.JavaConverters._
 object EmrCreateClusterProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    instances: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstancesConfigProperty,
     serviceRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     tags: Option[Map[String, String]] = None,
     bootstrapActions: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.BootstrapActionConfigProperty]] = None,
@@ -22,7 +23,6 @@ object EmrCreateClusterProps {
     kerberosAttributes: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.KerberosAttributesProperty] = None,
     applications: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ApplicationConfigProperty]] = None,
     customAmiId: Option[String] = None,
-    instances: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstancesConfigProperty] = None,
     scaleDownBehavior: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EmrClusterScaleDownBehavior] = None,
     securityConfiguration: Option[String] = None,
     logUri: Option[String] = None,
@@ -37,7 +37,8 @@ object EmrCreateClusterProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateClusterProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateClusterProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .instances(instances)
       .serviceRole(serviceRole.orNull)
       .tags(tags.map(_.asJava).orNull)
       .bootstrapActions(bootstrapActions.map(_.asJava).orNull)
@@ -52,7 +53,6 @@ object EmrCreateClusterProps {
       .kerberosAttributes(kerberosAttributes.orNull)
       .applications(applications.map(_.asJava).orNull)
       .customAmiId(customAmiId.orNull)
-      .instances(instances.orNull)
       .scaleDownBehavior(scaleDownBehavior.orNull)
       .securityConfiguration(securityConfiguration.orNull)
       .logUri(logUri.orNull)

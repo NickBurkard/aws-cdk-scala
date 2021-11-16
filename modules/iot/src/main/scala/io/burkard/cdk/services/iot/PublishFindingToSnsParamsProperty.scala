@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iot
 object PublishFindingToSnsParamsProperty {
 
   def apply(
-    topicArn: Option[String] = None
+    topicArn: String
   ): software.amazon.awscdk.services.iot.CfnMitigationAction.PublishFindingToSnsParamsProperty =
     (new software.amazon.awscdk.services.iot.CfnMitigationAction.PublishFindingToSnsParamsProperty.Builder)
-      .topicArn(topicArn.orNull)
+      .topicArn(topicArn)
       .build()
 }

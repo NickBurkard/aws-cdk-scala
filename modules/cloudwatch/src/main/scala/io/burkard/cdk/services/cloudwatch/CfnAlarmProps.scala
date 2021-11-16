@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnAlarmProps {
 
   def apply(
+    comparisonOperator: String,
+    evaluationPeriods: Number,
     statistic: Option[String] = None,
     insufficientDataActions: Option[List[String]] = None,
     evaluateLowSampleCountPercentile: Option[String] = None,
     okActions: Option[List[String]] = None,
-    comparisonOperator: Option[String] = None,
     treatMissingData: Option[String] = None,
     threshold: Option[Number] = None,
     unit: Option[String] = None,
     alarmActions: Option[List[String]] = None,
-    evaluationPeriods: Option[Number] = None,
     metricName: Option[String] = None,
     datapointsToAlarm: Option[Number] = None,
     dimensions: Option[List[_]] = None,
@@ -30,16 +30,16 @@ object CfnAlarmProps {
     alarmDescription: Option[String] = None
   ): software.amazon.awscdk.services.cloudwatch.CfnAlarmProps =
     (new software.amazon.awscdk.services.cloudwatch.CfnAlarmProps.Builder)
+      .comparisonOperator(comparisonOperator)
+      .evaluationPeriods(evaluationPeriods)
       .statistic(statistic.orNull)
       .insufficientDataActions(insufficientDataActions.map(_.asJava).orNull)
       .evaluateLowSampleCountPercentile(evaluateLowSampleCountPercentile.orNull)
       .okActions(okActions.map(_.asJava).orNull)
-      .comparisonOperator(comparisonOperator.orNull)
       .treatMissingData(treatMissingData.orNull)
       .threshold(threshold.orNull)
       .unit(unit.orNull)
       .alarmActions(alarmActions.map(_.asJava).orNull)
-      .evaluationPeriods(evaluationPeriods.orNull)
       .metricName(metricName.orNull)
       .datapointsToAlarm(datapointsToAlarm.orNull)
       .dimensions(dimensions.map(_.asJava).orNull)

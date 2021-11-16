@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnScalingPlanProps {
 
   def apply(
-    scalingInstructions: Option[List[_]] = None,
-    applicationSource: Option[software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.ApplicationSourceProperty] = None
+    scalingInstructions: List[_],
+    applicationSource: software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.ApplicationSourceProperty
   ): software.amazon.awscdk.services.autoscalingplans.CfnScalingPlanProps =
     (new software.amazon.awscdk.services.autoscalingplans.CfnScalingPlanProps.Builder)
-      .scalingInstructions(scalingInstructions.map(_.asJava).orNull)
-      .applicationSource(applicationSource.orNull)
+      .scalingInstructions(scalingInstructions.asJava)
+      .applicationSource(applicationSource)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object HttpGatewayRouteProperty {
 
   def apply(
-    `match`: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteMatchProperty] = None,
-    action: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteActionProperty] = None
+    `match`: software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteMatchProperty,
+    action: software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteActionProperty
   ): software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteProperty =
     (new software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteProperty.Builder)
-      .`match`(`match`.orNull)
-      .action(action.orNull)
+      .`match`(`match`)
+      .action(action)
       .build()
 }

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnStoredQueryProps {
 
   def apply(
-    queryName: Option[String] = None,
+    queryName: String,
+    queryExpression: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    queryDescription: Option[String] = None,
-    queryExpression: Option[String] = None
+    queryDescription: Option[String] = None
   ): software.amazon.awscdk.services.config.CfnStoredQueryProps =
     (new software.amazon.awscdk.services.config.CfnStoredQueryProps.Builder)
-      .queryName(queryName.orNull)
+      .queryName(queryName)
+      .queryExpression(queryExpression)
       .tags(tags.map(_.asJava).orNull)
       .queryDescription(queryDescription.orNull)
-      .queryExpression(queryExpression.orNull)
       .build()
 }

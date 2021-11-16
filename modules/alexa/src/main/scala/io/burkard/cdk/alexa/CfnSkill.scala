@@ -5,14 +5,14 @@ object CfnSkill {
 
   def apply(
     internalResourceId: String,
-    skillPackage: Option[software.amazon.awscdk.alexa.ask.CfnSkill.SkillPackageProperty] = None,
-    vendorId: Option[String] = None,
-    authenticationConfiguration: Option[software.amazon.awscdk.alexa.ask.CfnSkill.AuthenticationConfigurationProperty] = None
+    skillPackage: software.amazon.awscdk.alexa.ask.CfnSkill.SkillPackageProperty,
+    vendorId: String,
+    authenticationConfiguration: software.amazon.awscdk.alexa.ask.CfnSkill.AuthenticationConfigurationProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.alexa.ask.CfnSkill =
     software.amazon.awscdk.alexa.ask.CfnSkill.Builder
       .create(stackCtx, internalResourceId)
-      .skillPackage(skillPackage.orNull)
-      .vendorId(vendorId.orNull)
-      .authenticationConfiguration(authenticationConfiguration.orNull)
+      .skillPackage(skillPackage)
+      .vendorId(vendorId)
+      .authenticationConfiguration(authenticationConfiguration)
       .build()
 }

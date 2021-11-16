@@ -4,11 +4,11 @@ package io.burkard.cdk.services.pinpoint
 object SourceSegmentsProperty {
 
   def apply(
-    version: Option[Number] = None,
-    id: Option[String] = None
+    id: String,
+    version: Option[Number] = None
   ): software.amazon.awscdk.services.pinpoint.CfnSegment.SourceSegmentsProperty =
     (new software.amazon.awscdk.services.pinpoint.CfnSegment.SourceSegmentsProperty.Builder)
+      .id(id)
       .version(version.orNull)
-      .id(id.orNull)
       .build()
 }

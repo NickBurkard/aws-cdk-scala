@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnInAppTemplateProps {
 
   def apply(
+    templateName: String,
     templateDescription: Option[String] = None,
     tags: Option[AnyRef] = None,
-    templateName: Option[String] = None,
     content: Option[List[_]] = None,
     customConfig: Option[AnyRef] = None,
     layout: Option[String] = None
   ): software.amazon.awscdk.services.pinpoint.CfnInAppTemplateProps =
     (new software.amazon.awscdk.services.pinpoint.CfnInAppTemplateProps.Builder)
+      .templateName(templateName)
       .templateDescription(templateDescription.orNull)
       .tags(tags.orNull)
-      .templateName(templateName.orNull)
       .content(content.map(_.asJava).orNull)
       .customConfig(customConfig.orNull)
       .layout(layout.orNull)

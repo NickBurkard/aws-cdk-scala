@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object OriginFailoverConfig {
 
   def apply(
-    statusCodes: Option[List[_ <: Number]] = None,
-    failoverOrigin: Option[software.amazon.awscdk.services.cloudfront.IOrigin] = None
+    failoverOrigin: software.amazon.awscdk.services.cloudfront.IOrigin,
+    statusCodes: Option[List[_ <: Number]] = None
   ): software.amazon.awscdk.services.cloudfront.OriginFailoverConfig =
     (new software.amazon.awscdk.services.cloudfront.OriginFailoverConfig.Builder)
+      .failoverOrigin(failoverOrigin)
       .statusCodes(statusCodes.map(_.asJava).orNull)
-      .failoverOrigin(failoverOrigin.orNull)
       .build()
 }

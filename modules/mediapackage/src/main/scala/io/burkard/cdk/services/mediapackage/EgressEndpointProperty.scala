@@ -4,11 +4,11 @@ package io.burkard.cdk.services.mediapackage
 object EgressEndpointProperty {
 
   def apply(
-    url: Option[String] = None,
-    packagingConfigurationId: Option[String] = None
+    url: String,
+    packagingConfigurationId: String
   ): software.amazon.awscdk.services.mediapackage.CfnAsset.EgressEndpointProperty =
     (new software.amazon.awscdk.services.mediapackage.CfnAsset.EgressEndpointProperty.Builder)
-      .url(url.orNull)
-      .packagingConfigurationId(packagingConfigurationId.orNull)
+      .url(url)
+      .packagingConfigurationId(packagingConfigurationId)
       .build()
 }

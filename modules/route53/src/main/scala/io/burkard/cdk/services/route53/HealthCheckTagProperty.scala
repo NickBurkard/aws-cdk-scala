@@ -4,11 +4,11 @@ package io.burkard.cdk.services.route53
 object HealthCheckTagProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckTagProperty =
     (new software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckTagProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

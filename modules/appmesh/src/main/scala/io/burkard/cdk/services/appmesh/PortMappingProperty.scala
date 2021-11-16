@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object PortMappingProperty {
 
   def apply(
-    port: Option[Number] = None,
-    protocol: Option[String] = None
+    port: Number,
+    protocol: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualRouter.PortMappingProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualRouter.PortMappingProperty.Builder)
-      .port(port.orNull)
-      .protocol(protocol.orNull)
+      .port(port)
+      .protocol(protocol)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object ResourceConfigurationProperty {
 
   def apply(
-    volumeSizeInGb: Option[Number] = None,
-    computeType: Option[String] = None
+    volumeSizeInGb: Number,
+    computeType: String
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.ResourceConfigurationProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.ResourceConfigurationProperty.Builder)
-      .volumeSizeInGb(volumeSizeInGb.orNull)
-      .computeType(computeType.orNull)
+      .volumeSizeInGb(volumeSizeInGb)
+      .computeType(computeType)
       .build()
 }

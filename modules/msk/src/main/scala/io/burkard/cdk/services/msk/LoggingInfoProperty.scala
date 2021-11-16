@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object LoggingInfoProperty {
 
   def apply(
-    brokerLogs: Option[software.amazon.awscdk.services.msk.CfnCluster.BrokerLogsProperty] = None
+    brokerLogs: software.amazon.awscdk.services.msk.CfnCluster.BrokerLogsProperty
   ): software.amazon.awscdk.services.msk.CfnCluster.LoggingInfoProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.LoggingInfoProperty.Builder)
-      .brokerLogs(brokerLogs.orNull)
+      .brokerLogs(brokerLogs)
       .build()
 }

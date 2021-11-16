@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dynamodb
 object KeySchemaProperty {
 
   def apply(
-    keyType: Option[String] = None,
-    attributeName: Option[String] = None
+    keyType: String,
+    attributeName: String
   ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.KeySchemaProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.KeySchemaProperty.Builder)
-      .keyType(keyType.orNull)
-      .attributeName(attributeName.orNull)
+      .keyType(keyType)
+      .attributeName(attributeName)
       .build()
 }

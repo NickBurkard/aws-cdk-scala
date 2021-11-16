@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kinesisanalytics
 object MonitoringConfigurationProperty {
 
   def apply(
+    configurationType: String,
     metricsLevel: Option[String] = None,
-    configurationType: Option[String] = None,
     logLevel: Option[String] = None
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.MonitoringConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.MonitoringConfigurationProperty.Builder)
+      .configurationType(configurationType)
       .metricsLevel(metricsLevel.orNull)
-      .configurationType(configurationType.orNull)
       .logLevel(logLevel.orNull)
       .build()
 }

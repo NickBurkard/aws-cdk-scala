@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object SubnetNetworkAclAssociationProps {
 
   def apply(
-    networkAcl: Option[software.amazon.awscdk.services.ec2.INetworkAcl] = None,
-    subnetNetworkAclAssociationName: Option[String] = None,
-    subnet: Option[software.amazon.awscdk.services.ec2.ISubnet] = None
+    networkAcl: software.amazon.awscdk.services.ec2.INetworkAcl,
+    subnet: software.amazon.awscdk.services.ec2.ISubnet,
+    subnetNetworkAclAssociationName: Option[String] = None
   ): software.amazon.awscdk.services.ec2.SubnetNetworkAclAssociationProps =
     (new software.amazon.awscdk.services.ec2.SubnetNetworkAclAssociationProps.Builder)
-      .networkAcl(networkAcl.orNull)
+      .networkAcl(networkAcl)
+      .subnet(subnet)
       .subnetNetworkAclAssociationName(subnetNetworkAclAssociationName.orNull)
-      .subnet(subnet.orNull)
       .build()
 }

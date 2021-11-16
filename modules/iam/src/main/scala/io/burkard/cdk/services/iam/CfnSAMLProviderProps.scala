@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnSAMLProviderProps {
 
   def apply(
+    samlMetadataDocument: String,
     name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    samlMetadataDocument: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iam.CfnSAMLProviderProps =
     (new software.amazon.awscdk.services.iam.CfnSAMLProviderProps.Builder)
+      .samlMetadataDocument(samlMetadataDocument)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .samlMetadataDocument(samlMetadataDocument.orNull)
       .build()
 }

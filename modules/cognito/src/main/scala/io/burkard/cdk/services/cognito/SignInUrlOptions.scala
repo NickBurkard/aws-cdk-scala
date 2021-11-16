@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object SignInUrlOptions {
 
   def apply(
-    redirectUri: Option[String] = None,
+    redirectUri: String,
     signInPath: Option[String] = None
   ): software.amazon.awscdk.services.cognito.SignInUrlOptions =
     (new software.amazon.awscdk.services.cognito.SignInUrlOptions.Builder)
-      .redirectUri(redirectUri.orNull)
+      .redirectUri(redirectUri)
       .signInPath(signInPath.orNull)
       .build()
 }

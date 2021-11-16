@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object MetricToRetainProperty {
 
   def apply(
-    metric: Option[String] = None,
+    metric: String,
     metricDimension: Option[software.amazon.awscdk.services.iot.CfnSecurityProfile.MetricDimensionProperty] = None
   ): software.amazon.awscdk.services.iot.CfnSecurityProfile.MetricToRetainProperty =
     (new software.amazon.awscdk.services.iot.CfnSecurityProfile.MetricToRetainProperty.Builder)
-      .metric(metric.orNull)
+      .metric(metric)
       .metricDimension(metricDimension.orNull)
       .build()
 }

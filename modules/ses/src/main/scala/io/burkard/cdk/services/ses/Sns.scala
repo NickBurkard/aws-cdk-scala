@@ -4,12 +4,12 @@ package io.burkard.cdk.services.ses
 object Sns {
 
   def apply(
-    encoding: Option[software.amazon.awscdk.services.ses.actions.EmailEncoding] = None,
-    topic: Option[software.amazon.awscdk.services.sns.ITopic] = None
+    topic: software.amazon.awscdk.services.sns.ITopic,
+    encoding: Option[software.amazon.awscdk.services.ses.actions.EmailEncoding] = None
   ): software.amazon.awscdk.services.ses.actions.Sns =
     software.amazon.awscdk.services.ses.actions.Sns.Builder
       .create()
+      .topic(topic)
       .encoding(encoding.orNull)
-      .topic(topic.orNull)
       .build()
 }

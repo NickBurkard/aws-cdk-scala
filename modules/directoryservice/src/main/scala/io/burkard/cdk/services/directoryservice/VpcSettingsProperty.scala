@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object VpcSettingsProperty {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
-    vpcId: Option[String] = None
+    subnetIds: List[String],
+    vpcId: String
   ): software.amazon.awscdk.services.directoryservice.CfnMicrosoftAD.VpcSettingsProperty =
     (new software.amazon.awscdk.services.directoryservice.CfnMicrosoftAD.VpcSettingsProperty.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .vpcId(vpcId.orNull)
+      .subnetIds(subnetIds.asJava)
+      .vpcId(vpcId)
       .build()
 }

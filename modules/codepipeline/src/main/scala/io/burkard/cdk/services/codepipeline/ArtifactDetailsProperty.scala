@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object ArtifactDetailsProperty {
 
   def apply(
-    maximumCount: Option[Number] = None,
-    minimumCount: Option[Number] = None
+    maximumCount: Number,
+    minimumCount: Number
   ): software.amazon.awscdk.services.codepipeline.CfnCustomActionType.ArtifactDetailsProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnCustomActionType.ArtifactDetailsProperty.Builder)
-      .maximumCount(maximumCount.orNull)
-      .minimumCount(minimumCount.orNull)
+      .maximumCount(maximumCount)
+      .minimumCount(minimumCount)
       .build()
 }

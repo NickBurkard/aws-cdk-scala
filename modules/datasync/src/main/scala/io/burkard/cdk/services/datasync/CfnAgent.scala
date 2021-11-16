@@ -8,18 +8,18 @@ object CfnAgent {
 
   def apply(
     internalResourceId: String,
+    activationKey: String,
     subnetArns: Option[List[String]] = None,
     agentName: Option[String] = None,
-    activationKey: Option[String] = None,
     vpcEndpointId: Option[String] = None,
     securityGroupArns: Option[List[String]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.datasync.CfnAgent =
     software.amazon.awscdk.services.datasync.CfnAgent.Builder
       .create(stackCtx, internalResourceId)
+      .activationKey(activationKey)
       .subnetArns(subnetArns.map(_.asJava).orNull)
       .agentName(agentName.orNull)
-      .activationKey(activationKey.orNull)
       .vpcEndpointId(vpcEndpointId.orNull)
       .securityGroupArns(securityGroupArns.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)

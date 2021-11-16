@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object CrossRegionSupport {
 
   def apply(
-    replicationBucket: Option[software.amazon.awscdk.services.s3.IBucket] = None,
-    stack: Option[software.amazon.awscdk.Stack] = None
+    replicationBucket: software.amazon.awscdk.services.s3.IBucket,
+    stack: software.amazon.awscdk.Stack
   ): software.amazon.awscdk.services.codepipeline.CrossRegionSupport =
     (new software.amazon.awscdk.services.codepipeline.CrossRegionSupport.Builder)
-      .replicationBucket(replicationBucket.orNull)
-      .stack(stack.orNull)
+      .replicationBucket(replicationBucket)
+      .stack(stack)
       .build()
 }

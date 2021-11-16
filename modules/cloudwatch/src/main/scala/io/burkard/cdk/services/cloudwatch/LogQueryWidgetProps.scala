@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object LogQueryWidgetProps {
 
   def apply(
-    logGroupNames: Option[List[String]] = None,
+    logGroupNames: List[String],
     height: Option[Number] = None,
     queryString: Option[String] = None,
     queryLines: Option[List[String]] = None,
@@ -17,7 +17,7 @@ object LogQueryWidgetProps {
     view: Option[software.amazon.awscdk.services.cloudwatch.LogQueryVisualizationType] = None
   ): software.amazon.awscdk.services.cloudwatch.LogQueryWidgetProps =
     (new software.amazon.awscdk.services.cloudwatch.LogQueryWidgetProps.Builder)
-      .logGroupNames(logGroupNames.map(_.asJava).orNull)
+      .logGroupNames(logGroupNames.asJava)
       .height(height.orNull)
       .queryString(queryString.orNull)
       .queryLines(queryLines.map(_.asJava).orNull)

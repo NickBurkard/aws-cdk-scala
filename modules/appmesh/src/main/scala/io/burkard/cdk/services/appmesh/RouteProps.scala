@@ -4,15 +4,15 @@ package io.burkard.cdk.services.appmesh
 object RouteProps {
 
   def apply(
-    mesh: Option[software.amazon.awscdk.services.appmesh.IMesh] = None,
+    mesh: software.amazon.awscdk.services.appmesh.IMesh,
+    virtualRouter: software.amazon.awscdk.services.appmesh.IVirtualRouter,
     routeSpec: Option[software.amazon.awscdk.services.appmesh.RouteSpec] = None,
-    routeName: Option[String] = None,
-    virtualRouter: Option[software.amazon.awscdk.services.appmesh.IVirtualRouter] = None
+    routeName: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.RouteProps =
     (new software.amazon.awscdk.services.appmesh.RouteProps.Builder)
-      .mesh(mesh.orNull)
+      .mesh(mesh)
+      .virtualRouter(virtualRouter)
       .routeSpec(routeSpec.orNull)
       .routeName(routeName.orNull)
-      .virtualRouter(virtualRouter.orNull)
       .build()
 }

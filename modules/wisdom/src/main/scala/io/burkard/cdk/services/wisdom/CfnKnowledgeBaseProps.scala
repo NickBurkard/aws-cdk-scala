@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object CfnKnowledgeBaseProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    knowledgeBaseType: String,
     renderingConfiguration: Option[software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.RenderingConfigurationProperty] = None,
-    knowledgeBaseType: Option[String] = None,
     serverSideEncryptionConfiguration: Option[software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.ServerSideEncryptionConfigurationProperty] = None,
     sourceConfiguration: Option[software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.SourceConfigurationProperty] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.wisdom.CfnKnowledgeBaseProps =
     (new software.amazon.awscdk.services.wisdom.CfnKnowledgeBaseProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .knowledgeBaseType(knowledgeBaseType)
       .renderingConfiguration(renderingConfiguration.orNull)
-      .knowledgeBaseType(knowledgeBaseType.orNull)
       .serverSideEncryptionConfiguration(serverSideEncryptionConfiguration.orNull)
       .sourceConfiguration(sourceConfiguration.orNull)
       .description(description.orNull)

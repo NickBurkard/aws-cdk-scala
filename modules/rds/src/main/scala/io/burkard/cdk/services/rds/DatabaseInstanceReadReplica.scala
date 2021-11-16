@@ -8,6 +8,8 @@ object DatabaseInstanceReadReplica {
 
   def apply(
     internalResourceId: String,
+    instanceType: software.amazon.awscdk.services.ec2.InstanceType,
+    sourceDatabaseInstance: software.amazon.awscdk.services.rds.IDatabaseInstance,
     s3ExportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     subnetGroup: Option[software.amazon.awscdk.services.rds.ISubnetGroup] = None,
     backupRetention: Option[software.amazon.awscdk.Duration] = None,
@@ -34,7 +36,6 @@ object DatabaseInstanceReadReplica {
     autoMinorVersionUpgrade: Option[Boolean] = None,
     processorFeatures: Option[software.amazon.awscdk.services.rds.ProcessorFeatures] = None,
     s3ImportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     maxAllocatedStorage: Option[Number] = None,
     monitoringRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     deletionProtection: Option[Boolean] = None,
@@ -42,7 +43,6 @@ object DatabaseInstanceReadReplica {
     deleteAutomatedBackups: Option[Boolean] = None,
     performanceInsightRetention: Option[software.amazon.awscdk.services.rds.PerformanceInsightRetention] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
-    sourceDatabaseInstance: Option[software.amazon.awscdk.services.rds.IDatabaseInstance] = None,
     domainRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     storageEncryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
     cloudwatchLogsRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -53,6 +53,8 @@ object DatabaseInstanceReadReplica {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.DatabaseInstanceReadReplica =
     software.amazon.awscdk.services.rds.DatabaseInstanceReadReplica.Builder
       .create(stackCtx, internalResourceId)
+      .instanceType(instanceType)
+      .sourceDatabaseInstance(sourceDatabaseInstance)
       .s3ExportRole(s3ExportRole.orNull)
       .subnetGroup(subnetGroup.orNull)
       .backupRetention(backupRetention.orNull)
@@ -79,7 +81,6 @@ object DatabaseInstanceReadReplica {
       .autoMinorVersionUpgrade(autoMinorVersionUpgrade.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .processorFeatures(processorFeatures.orNull)
       .s3ImportRole(s3ImportRole.orNull)
-      .instanceType(instanceType.orNull)
       .maxAllocatedStorage(maxAllocatedStorage.orNull)
       .monitoringRole(monitoringRole.orNull)
       .deletionProtection(deletionProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -87,7 +88,6 @@ object DatabaseInstanceReadReplica {
       .deleteAutomatedBackups(deleteAutomatedBackups.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .performanceInsightRetention(performanceInsightRetention.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
-      .sourceDatabaseInstance(sourceDatabaseInstance.orNull)
       .domainRole(domainRole.orNull)
       .storageEncryptionKey(storageEncryptionKey.orNull)
       .cloudwatchLogsRetentionRole(cloudwatchLogsRetentionRole.orNull)

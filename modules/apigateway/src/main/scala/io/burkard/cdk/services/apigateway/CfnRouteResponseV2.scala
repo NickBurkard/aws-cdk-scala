@@ -6,20 +6,20 @@ object CfnRouteResponseV2 {
 
   def apply(
     internalResourceId: String,
+    routeId: String,
+    routeResponseKey: String,
+    apiId: String,
     responseModels: Option[AnyRef] = None,
-    routeId: Option[String] = None,
-    routeResponseKey: Option[String] = None,
     responseParameters: Option[AnyRef] = None,
-    apiId: Option[String] = None,
     modelSelectionExpression: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnRouteResponseV2 =
     software.amazon.awscdk.services.apigateway.CfnRouteResponseV2.Builder
       .create(stackCtx, internalResourceId)
+      .routeId(routeId)
+      .routeResponseKey(routeResponseKey)
+      .apiId(apiId)
       .responseModels(responseModels.orNull)
-      .routeId(routeId.orNull)
-      .routeResponseKey(routeResponseKey.orNull)
       .responseParameters(responseParameters.orNull)
-      .apiId(apiId.orNull)
       .modelSelectionExpression(modelSelectionExpression.orNull)
       .build()
 }

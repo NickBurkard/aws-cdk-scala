@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotanalytics
 object OutputFileUriValueProperty {
 
   def apply(
-    fileName: Option[String] = None
+    fileName: String
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.OutputFileUriValueProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.OutputFileUriValueProperty.Builder)
-      .fileName(fileName.orNull)
+      .fileName(fileName)
       .build()
 }

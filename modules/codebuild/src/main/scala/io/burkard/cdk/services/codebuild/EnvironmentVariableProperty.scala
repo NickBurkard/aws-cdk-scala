@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codebuild
 object EnvironmentVariableProperty {
 
   def apply(
-    name: Option[String] = None,
-    `type`: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String,
+    `type`: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.EnvironmentVariableProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.EnvironmentVariableProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .value(value)
       .`type`(`type`.orNull)
-      .value(value.orNull)
       .build()
 }

@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object RulesConfigurationTypeProperty {
 
   def apply(
-    rules: Option[List[_]] = None
+    rules: List[_]
   ): software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachment.RulesConfigurationTypeProperty =
     (new software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachment.RulesConfigurationTypeProperty.Builder)
-      .rules(rules.map(_.asJava).orNull)
+      .rules(rules.asJava)
       .build()
 }

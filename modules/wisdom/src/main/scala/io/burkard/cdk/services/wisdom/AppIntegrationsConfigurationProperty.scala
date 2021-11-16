@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object AppIntegrationsConfigurationProperty {
 
   def apply(
-    objectFields: Option[List[String]] = None,
-    appIntegrationArn: Option[String] = None
+    objectFields: List[String],
+    appIntegrationArn: String
   ): software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.AppIntegrationsConfigurationProperty =
     (new software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.AppIntegrationsConfigurationProperty.Builder)
-      .objectFields(objectFields.map(_.asJava).orNull)
-      .appIntegrationArn(appIntegrationArn.orNull)
+      .objectFields(objectFields.asJava)
+      .appIntegrationArn(appIntegrationArn)
       .build()
 }

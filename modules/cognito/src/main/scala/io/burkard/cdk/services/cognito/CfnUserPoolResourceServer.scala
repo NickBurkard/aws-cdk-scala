@@ -8,16 +8,16 @@ object CfnUserPoolResourceServer {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    identifier: Option[String] = None,
-    scopes: Option[List[_]] = None,
-    userPoolId: Option[String] = None
+    name: String,
+    identifier: String,
+    userPoolId: String,
+    scopes: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.CfnUserPoolResourceServer =
     software.amazon.awscdk.services.cognito.CfnUserPoolResourceServer.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .identifier(identifier.orNull)
+      .name(name)
+      .identifier(identifier)
+      .userPoolId(userPoolId)
       .scopes(scopes.map(_.asJava).orNull)
-      .userPoolId(userPoolId.orNull)
       .build()
 }

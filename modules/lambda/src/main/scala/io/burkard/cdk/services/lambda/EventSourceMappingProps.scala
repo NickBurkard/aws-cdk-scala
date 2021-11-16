@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object EventSourceMappingProps {
 
   def apply(
+    target: software.amazon.awscdk.services.lambda.IFunction,
     batchSize: Option[Number] = None,
     parallelizationFactor: Option[Number] = None,
     enabled: Option[Boolean] = None,
@@ -14,7 +15,6 @@ object EventSourceMappingProps {
     tumblingWindow: Option[software.amazon.awscdk.Duration] = None,
     eventSourceArn: Option[String] = None,
     kafkaBootstrapServers: Option[List[String]] = None,
-    target: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     retryAttempts: Option[Number] = None,
     onFailure: Option[software.amazon.awscdk.services.lambda.IEventSourceDlq] = None,
     maxRecordAge: Option[software.amazon.awscdk.Duration] = None,
@@ -25,6 +25,7 @@ object EventSourceMappingProps {
     startingPosition: Option[software.amazon.awscdk.services.lambda.StartingPosition] = None
   ): software.amazon.awscdk.services.lambda.EventSourceMappingProps =
     (new software.amazon.awscdk.services.lambda.EventSourceMappingProps.Builder)
+      .target(target)
       .batchSize(batchSize.orNull)
       .parallelizationFactor(parallelizationFactor.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -32,7 +33,6 @@ object EventSourceMappingProps {
       .tumblingWindow(tumblingWindow.orNull)
       .eventSourceArn(eventSourceArn.orNull)
       .kafkaBootstrapServers(kafkaBootstrapServers.map(_.asJava).orNull)
-      .target(target.orNull)
       .retryAttempts(retryAttempts.orNull)
       .onFailure(onFailure.orNull)
       .maxRecordAge(maxRecordAge.orNull)

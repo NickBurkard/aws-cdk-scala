@@ -8,6 +8,7 @@ object FargateService {
 
   def apply(
     internalResourceId: String,
+    taskDefinition: software.amazon.awscdk.services.ecs.TaskDefinition,
     minHealthyPercent: Option[Number] = None,
     healthCheckGracePeriod: Option[software.amazon.awscdk.Duration] = None,
     platformVersion: Option[software.amazon.awscdk.services.ecs.FargatePlatformVersion] = None,
@@ -26,11 +27,11 @@ object FargateService {
     assignPublicIp: Option[Boolean] = None,
     propagateTags: Option[software.amazon.awscdk.services.ecs.PropagatedTagSource] = None,
     enableEcsManagedTags: Option[Boolean] = None,
-    taskDefinition: Option[software.amazon.awscdk.services.ecs.TaskDefinition] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecs.FargateService =
     software.amazon.awscdk.services.ecs.FargateService.Builder
       .create(stackCtx, internalResourceId)
+      .taskDefinition(taskDefinition)
       .minHealthyPercent(minHealthyPercent.orNull)
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
       .platformVersion(platformVersion.orNull)
@@ -49,7 +50,6 @@ object FargateService {
       .assignPublicIp(assignPublicIp.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .propagateTags(propagateTags.orNull)
       .enableEcsManagedTags(enableEcsManagedTags.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .taskDefinition(taskDefinition.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .build()
 }

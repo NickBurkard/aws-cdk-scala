@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ArbitraryIntervals {
 
   def apply(
-    intervals: Option[List[_ <: software.amazon.awscdk.services.autoscaling.common.ScalingInterval]] = None,
-    absolute: Option[Boolean] = None
+    intervals: List[_ <: software.amazon.awscdk.services.autoscaling.common.ScalingInterval],
+    absolute: Boolean
   ): software.amazon.awscdk.services.autoscaling.common.ArbitraryIntervals =
     (new software.amazon.awscdk.services.autoscaling.common.ArbitraryIntervals.Builder)
-      .intervals(intervals.map(_.asJava).orNull)
-      .absolute(absolute.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .intervals(intervals.asJava)
+      .absolute(absolute)
       .build()
 }

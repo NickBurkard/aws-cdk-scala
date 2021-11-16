@@ -4,9 +4,9 @@ package io.burkard.cdk.services.waf
 object ActionProperty {
 
   def apply(
-    `type`: Option[String] = None
+    `type`: String
   ): software.amazon.awscdk.services.waf.regional.CfnWebACL.ActionProperty =
     (new software.amazon.awscdk.services.waf.regional.CfnWebACL.ActionProperty.Builder)
-      .`type`(`type`.orNull)
+      .`type`(`type`)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apigateway
 object DomainNameAttributes {
 
   def apply(
-    domainNameAliasHostedZoneId: Option[String] = None,
-    domainName: Option[String] = None,
-    domainNameAliasTarget: Option[String] = None
+    domainNameAliasHostedZoneId: String,
+    domainName: String,
+    domainNameAliasTarget: String
   ): software.amazon.awscdk.services.apigateway.DomainNameAttributes =
     (new software.amazon.awscdk.services.apigateway.DomainNameAttributes.Builder)
-      .domainNameAliasHostedZoneId(domainNameAliasHostedZoneId.orNull)
-      .domainName(domainName.orNull)
-      .domainNameAliasTarget(domainNameAliasTarget.orNull)
+      .domainNameAliasHostedZoneId(domainNameAliasHostedZoneId)
+      .domainName(domainName)
+      .domainNameAliasTarget(domainNameAliasTarget)
       .build()
 }

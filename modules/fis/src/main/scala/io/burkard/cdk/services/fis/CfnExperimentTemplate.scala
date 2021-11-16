@@ -8,20 +8,20 @@ object CfnExperimentTemplate {
 
   def apply(
     internalResourceId: String,
-    targets: Option[Map[String, _]] = None,
-    stopConditions: Option[List[_]] = None,
-    roleArn: Option[String] = None,
-    actions: Option[Map[String, _]] = None,
-    description: Option[String] = None,
-    tags: Option[Map[String, String]] = None
+    targets: Map[String, _],
+    stopConditions: List[_],
+    roleArn: String,
+    description: String,
+    tags: Map[String, String],
+    actions: Option[Map[String, _]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.fis.CfnExperimentTemplate =
     software.amazon.awscdk.services.fis.CfnExperimentTemplate.Builder
       .create(stackCtx, internalResourceId)
-      .targets(targets.map(_.asJava).orNull)
-      .stopConditions(stopConditions.map(_.asJava).orNull)
-      .roleArn(roleArn.orNull)
+      .targets(targets.asJava)
+      .stopConditions(stopConditions.asJava)
+      .roleArn(roleArn)
+      .description(description)
+      .tags(tags.asJava)
       .actions(actions.map(_.asJava).orNull)
-      .description(description.orNull)
-      .tags(tags.map(_.asJava).orNull)
       .build()
 }

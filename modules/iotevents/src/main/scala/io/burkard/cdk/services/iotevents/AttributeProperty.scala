@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotevents
 object AttributeProperty {
 
   def apply(
-    jsonPath: Option[String] = None
+    jsonPath: String
   ): software.amazon.awscdk.services.iotevents.CfnInput.AttributeProperty =
     (new software.amazon.awscdk.services.iotevents.CfnInput.AttributeProperty.Builder)
-      .jsonPath(jsonPath.orNull)
+      .jsonPath(jsonPath)
       .build()
 }

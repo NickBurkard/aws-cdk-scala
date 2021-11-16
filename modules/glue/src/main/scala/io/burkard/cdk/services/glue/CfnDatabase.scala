@@ -5,12 +5,12 @@ object CfnDatabase {
 
   def apply(
     internalResourceId: String,
-    catalogId: Option[String] = None,
-    databaseInput: Option[software.amazon.awscdk.services.glue.CfnDatabase.DatabaseInputProperty] = None
+    catalogId: String,
+    databaseInput: software.amazon.awscdk.services.glue.CfnDatabase.DatabaseInputProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.glue.CfnDatabase =
     software.amazon.awscdk.services.glue.CfnDatabase.Builder
       .create(stackCtx, internalResourceId)
-      .catalogId(catalogId.orNull)
-      .databaseInput(databaseInput.orNull)
+      .catalogId(catalogId)
+      .databaseInput(databaseInput)
       .build()
 }

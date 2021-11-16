@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object MemberDefinitionProperty {
 
   def apply(
-    cognitoMemberDefinition: Option[software.amazon.awscdk.services.sagemaker.CfnWorkteam.CognitoMemberDefinitionProperty] = None
+    cognitoMemberDefinition: software.amazon.awscdk.services.sagemaker.CfnWorkteam.CognitoMemberDefinitionProperty
   ): software.amazon.awscdk.services.sagemaker.CfnWorkteam.MemberDefinitionProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnWorkteam.MemberDefinitionProperty.Builder)
-      .cognitoMemberDefinition(cognitoMemberDefinition.orNull)
+      .cognitoMemberDefinition(cognitoMemberDefinition)
       .build()
 }

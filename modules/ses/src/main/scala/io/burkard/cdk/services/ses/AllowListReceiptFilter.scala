@@ -8,10 +8,10 @@ object AllowListReceiptFilter {
 
   def apply(
     internalResourceId: String,
-    ips: Option[List[String]] = None
+    ips: List[String]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ses.AllowListReceiptFilter =
     software.amazon.awscdk.services.ses.AllowListReceiptFilter.Builder
       .create(stackCtx, internalResourceId)
-      .ips(ips.map(_.asJava).orNull)
+      .ips(ips.asJava)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.cloudassembly
 object AvailabilityZonesContextQuery {
 
   def apply(
-    region: Option[String] = None,
-    account: Option[String] = None,
+    region: String,
+    account: String,
     lookupRoleArn: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.AvailabilityZonesContextQuery =
     (new software.amazon.awscdk.cloudassembly.schema.AvailabilityZonesContextQuery.Builder)
-      .region(region.orNull)
-      .account(account.orNull)
+      .region(region)
+      .account(account)
       .lookupRoleArn(lookupRoleArn.orNull)
       .build()
 }

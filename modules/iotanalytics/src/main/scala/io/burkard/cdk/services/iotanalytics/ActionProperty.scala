@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iotanalytics
 object ActionProperty {
 
   def apply(
+    actionName: String,
     containerAction: Option[software.amazon.awscdk.services.iotanalytics.CfnDataset.ContainerActionProperty] = None,
-    queryAction: Option[software.amazon.awscdk.services.iotanalytics.CfnDataset.QueryActionProperty] = None,
-    actionName: Option[String] = None
+    queryAction: Option[software.amazon.awscdk.services.iotanalytics.CfnDataset.QueryActionProperty] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.ActionProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.ActionProperty.Builder)
+      .actionName(actionName)
       .containerAction(containerAction.orNull)
       .queryAction(queryAction.orNull)
-      .actionName(actionName.orNull)
       .build()
 }

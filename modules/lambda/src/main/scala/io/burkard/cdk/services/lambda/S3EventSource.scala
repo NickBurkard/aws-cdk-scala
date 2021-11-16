@@ -8,12 +8,12 @@ object S3EventSource {
 
   def apply(
     bucket: software.amazon.awscdk.services.s3.Bucket,
-    filters: Option[List[_ <: software.amazon.awscdk.services.s3.NotificationKeyFilter]] = None,
-    events: Option[List[_ <: software.amazon.awscdk.services.s3.EventType]] = None
+    events: List[_ <: software.amazon.awscdk.services.s3.EventType],
+    filters: Option[List[_ <: software.amazon.awscdk.services.s3.NotificationKeyFilter]] = None
   ): software.amazon.awscdk.services.lambda.eventsources.S3EventSource =
     software.amazon.awscdk.services.lambda.eventsources.S3EventSource.Builder
       .create(bucket)
+      .events(events.asJava)
       .filters(filters.map(_.asJava).orNull)
-      .events(events.map(_.asJava).orNull)
       .build()
 }

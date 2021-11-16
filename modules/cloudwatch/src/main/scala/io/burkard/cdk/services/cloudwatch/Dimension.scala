@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudwatch
 object Dimension {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[AnyRef] = None
+    name: String,
+    value: AnyRef
   ): software.amazon.awscdk.services.cloudwatch.Dimension =
     (new software.amazon.awscdk.services.cloudwatch.Dimension.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

@@ -4,16 +4,16 @@ package io.burkard.cdk.services.emr
 object ComputeLimitsProperty {
 
   def apply(
-    unitType: Option[String] = None,
-    maximumCapacityUnits: Option[Number] = None,
-    minimumCapacityUnits: Option[Number] = None,
+    unitType: String,
+    maximumCapacityUnits: Number,
+    minimumCapacityUnits: Number,
     maximumOnDemandCapacityUnits: Option[Number] = None,
     maximumCoreCapacityUnits: Option[Number] = None
   ): software.amazon.awscdk.services.emr.CfnCluster.ComputeLimitsProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.ComputeLimitsProperty.Builder)
-      .unitType(unitType.orNull)
-      .maximumCapacityUnits(maximumCapacityUnits.orNull)
-      .minimumCapacityUnits(minimumCapacityUnits.orNull)
+      .unitType(unitType)
+      .maximumCapacityUnits(maximumCapacityUnits)
+      .minimumCapacityUnits(minimumCapacityUnits)
       .maximumOnDemandCapacityUnits(maximumOnDemandCapacityUnits.orNull)
       .maximumCoreCapacityUnits(maximumCoreCapacityUnits.orNull)
       .build()

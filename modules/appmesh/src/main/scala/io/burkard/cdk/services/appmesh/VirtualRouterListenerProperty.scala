@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualRouterListenerProperty {
 
   def apply(
-    portMapping: Option[software.amazon.awscdk.services.appmesh.CfnVirtualRouter.PortMappingProperty] = None
+    portMapping: software.amazon.awscdk.services.appmesh.CfnVirtualRouter.PortMappingProperty
   ): software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterListenerProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterListenerProperty.Builder)
-      .portMapping(portMapping.orNull)
+      .portMapping(portMapping)
       .build()
 }

@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CustomHeadersConfigProperty {
 
   def apply(
-    items: Option[List[_]] = None
+    items: List[_]
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.CustomHeadersConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.CustomHeadersConfigProperty.Builder)
-      .items(items.map(_.asJava).orNull)
+      .items(items.asJava)
       .build()
 }

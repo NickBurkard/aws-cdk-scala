@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnProjectProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    datasetName: String,
+    recipeName: String,
+    roleArn: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    datasetName: Option[String] = None,
-    recipeName: Option[String] = None,
-    roleArn: Option[String] = None,
     sample: Option[software.amazon.awscdk.services.databrew.CfnProject.SampleProperty] = None
   ): software.amazon.awscdk.services.databrew.CfnProjectProps =
     (new software.amazon.awscdk.services.databrew.CfnProjectProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .datasetName(datasetName)
+      .recipeName(recipeName)
+      .roleArn(roleArn)
       .tags(tags.map(_.asJava).orNull)
-      .datasetName(datasetName.orNull)
-      .recipeName(recipeName.orNull)
-      .roleArn(roleArn.orNull)
       .sample(sample.orNull)
       .build()
 }

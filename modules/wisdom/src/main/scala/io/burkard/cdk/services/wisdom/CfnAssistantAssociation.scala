@@ -8,16 +8,16 @@ object CfnAssistantAssociation {
 
   def apply(
     internalResourceId: String,
-    assistantId: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    associationType: Option[String] = None,
-    association: Option[software.amazon.awscdk.services.wisdom.CfnAssistantAssociation.AssociationDataProperty] = None
+    assistantId: String,
+    associationType: String,
+    association: software.amazon.awscdk.services.wisdom.CfnAssistantAssociation.AssociationDataProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.wisdom.CfnAssistantAssociation =
     software.amazon.awscdk.services.wisdom.CfnAssistantAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .assistantId(assistantId.orNull)
+      .assistantId(assistantId)
+      .associationType(associationType)
+      .association(association)
       .tags(tags.map(_.asJava).orNull)
-      .associationType(associationType.orNull)
-      .association(association.orNull)
       .build()
 }

@@ -8,6 +8,7 @@ object FirelensLogRouter {
 
   def apply(
     internalResourceId: String,
+    firelensConfig: software.amazon.awscdk.services.ecs.FirelensConfig,
     dockerSecurityOptions: Option[List[String]] = None,
     healthCheck: Option[software.amazon.awscdk.services.ecs.HealthCheck] = None,
     hostname: Option[String] = None,
@@ -31,7 +32,6 @@ object FirelensLogRouter {
     image: Option[software.amazon.awscdk.services.ecs.ContainerImage] = None,
     gpuCount: Option[Number] = None,
     linuxParameters: Option[software.amazon.awscdk.services.ecs.LinuxParameters] = None,
-    firelensConfig: Option[software.amazon.awscdk.services.ecs.FirelensConfig] = None,
     inferenceAcceleratorResources: Option[List[String]] = None,
     cpu: Option[Number] = None,
     environment: Option[Map[String, String]] = None,
@@ -43,6 +43,7 @@ object FirelensLogRouter {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecs.FirelensLogRouter =
     software.amazon.awscdk.services.ecs.FirelensLogRouter.Builder
       .create(stackCtx, internalResourceId)
+      .firelensConfig(firelensConfig)
       .dockerSecurityOptions(dockerSecurityOptions.map(_.asJava).orNull)
       .healthCheck(healthCheck.orNull)
       .hostname(hostname.orNull)
@@ -66,7 +67,6 @@ object FirelensLogRouter {
       .image(image.orNull)
       .gpuCount(gpuCount.orNull)
       .linuxParameters(linuxParameters.orNull)
-      .firelensConfig(firelensConfig.orNull)
       .inferenceAcceleratorResources(inferenceAcceleratorResources.map(_.asJava).orNull)
       .cpu(cpu.orNull)
       .environment(environment.map(_.asJava).orNull)

@@ -8,14 +8,14 @@ object GatewayVpcEndpoint {
 
   def apply(
     internalResourceId: String,
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     subnets: Option[List[_ <: software.amazon.awscdk.services.ec2.SubnetSelection]] = None,
-    service: Option[software.amazon.awscdk.services.ec2.IGatewayVpcEndpointService] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
+    service: Option[software.amazon.awscdk.services.ec2.IGatewayVpcEndpointService] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.GatewayVpcEndpoint =
     software.amazon.awscdk.services.ec2.GatewayVpcEndpoint.Builder
       .create(stackCtx, internalResourceId)
+      .vpc(vpc)
       .subnets(subnets.map(_.asJava).orNull)
       .service(service.orNull)
-      .vpc(vpc.orNull)
       .build()
 }

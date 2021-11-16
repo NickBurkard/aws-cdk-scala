@@ -5,14 +5,14 @@ object CfnVolumeAttachment {
 
   def apply(
     internalResourceId: String,
-    instanceId: Option[String] = None,
-    volumeId: Option[String] = None,
-    device: Option[String] = None
+    instanceId: String,
+    volumeId: String,
+    device: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVolumeAttachment =
     software.amazon.awscdk.services.ec2.CfnVolumeAttachment.Builder
       .create(stackCtx, internalResourceId)
-      .instanceId(instanceId.orNull)
-      .volumeId(volumeId.orNull)
-      .device(device.orNull)
+      .instanceId(instanceId)
+      .volumeId(volumeId)
+      .device(device)
       .build()
 }

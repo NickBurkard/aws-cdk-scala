@@ -4,9 +4,9 @@ package io.burkard.cdk.services.mediapackage
 object MssEncryptionProperty {
 
   def apply(
-    spekeKeyProvider: Option[software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty] = None
+    spekeKeyProvider: software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty
   ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.MssEncryptionProperty =
     (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.MssEncryptionProperty.Builder)
-      .spekeKeyProvider(spekeKeyProvider.orNull)
+      .spekeKeyProvider(spekeKeyProvider)
       .build()
 }

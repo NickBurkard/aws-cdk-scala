@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnTrafficMirrorSessionProps {
 
   def apply(
-    trafficMirrorFilterId: Option[String] = None,
+    trafficMirrorFilterId: String,
+    trafficMirrorTargetId: String,
+    sessionNumber: Number,
+    networkInterfaceId: String,
     virtualNetworkId: Option[Number] = None,
-    trafficMirrorTargetId: Option[String] = None,
-    sessionNumber: Option[Number] = None,
-    networkInterfaceId: Option[String] = None,
     description: Option[String] = None,
     packetLength: Option[Number] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ec2.CfnTrafficMirrorSessionProps =
     (new software.amazon.awscdk.services.ec2.CfnTrafficMirrorSessionProps.Builder)
-      .trafficMirrorFilterId(trafficMirrorFilterId.orNull)
+      .trafficMirrorFilterId(trafficMirrorFilterId)
+      .trafficMirrorTargetId(trafficMirrorTargetId)
+      .sessionNumber(sessionNumber)
+      .networkInterfaceId(networkInterfaceId)
       .virtualNetworkId(virtualNetworkId.orNull)
-      .trafficMirrorTargetId(trafficMirrorTargetId.orNull)
-      .sessionNumber(sessionNumber.orNull)
-      .networkInterfaceId(networkInterfaceId.orNull)
       .description(description.orNull)
       .packetLength(packetLength.orNull)
       .tags(tags.map(_.asJava).orNull)

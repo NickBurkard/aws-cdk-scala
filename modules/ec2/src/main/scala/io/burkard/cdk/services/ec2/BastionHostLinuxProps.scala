@@ -7,20 +7,20 @@ import scala.collection.JavaConverters._
 object BastionHostLinuxProps {
 
   def apply(
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     blockDevices: Option[List[_ <: software.amazon.awscdk.services.ec2.BlockDevice]] = None,
     machineImage: Option[software.amazon.awscdk.services.ec2.IMachineImage] = None,
     availabilityZone: Option[String] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     subnetSelection: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     instanceName: Option[String] = None
   ): software.amazon.awscdk.services.ec2.BastionHostLinuxProps =
     (new software.amazon.awscdk.services.ec2.BastionHostLinuxProps.Builder)
+      .vpc(vpc)
       .blockDevices(blockDevices.map(_.asJava).orNull)
       .machineImage(machineImage.orNull)
       .availabilityZone(availabilityZone.orNull)
-      .vpc(vpc.orNull)
       .instanceType(instanceType.orNull)
       .subnetSelection(subnetSelection.orNull)
       .securityGroup(securityGroup.orNull)

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object SecretsManagerSecretResourceDataProperty {
 
   def apply(
-    arn: Option[String] = None,
+    arn: String,
     additionalStagingLabelsToDownload: Option[List[String]] = None
   ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.SecretsManagerSecretResourceDataProperty =
     (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.Builder)
-      .arn(arn.orNull)
+      .arn(arn)
       .additionalStagingLabelsToDownload(additionalStagingLabelsToDownload.map(_.asJava).orNull)
       .build()
 }

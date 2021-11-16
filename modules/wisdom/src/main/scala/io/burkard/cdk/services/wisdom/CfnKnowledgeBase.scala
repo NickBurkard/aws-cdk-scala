@@ -8,9 +8,9 @@ object CfnKnowledgeBase {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
+    knowledgeBaseType: String,
     renderingConfiguration: Option[software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.RenderingConfigurationProperty] = None,
-    knowledgeBaseType: Option[String] = None,
     serverSideEncryptionConfiguration: Option[software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.ServerSideEncryptionConfigurationProperty] = None,
     sourceConfiguration: Option[software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.SourceConfigurationProperty] = None,
     description: Option[String] = None,
@@ -18,9 +18,9 @@ object CfnKnowledgeBase {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.wisdom.CfnKnowledgeBase =
     software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .knowledgeBaseType(knowledgeBaseType)
       .renderingConfiguration(renderingConfiguration.orNull)
-      .knowledgeBaseType(knowledgeBaseType.orNull)
       .serverSideEncryptionConfiguration(serverSideEncryptionConfiguration.orNull)
       .sourceConfiguration(sourceConfiguration.orNull)
       .description(description.orNull)

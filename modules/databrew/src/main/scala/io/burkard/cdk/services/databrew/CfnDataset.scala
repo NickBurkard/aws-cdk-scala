@@ -8,20 +8,20 @@ object CfnDataset {
 
   def apply(
     internalResourceId: String,
+    name: String,
+    input: software.amazon.awscdk.services.databrew.CfnDataset.InputProperty,
     format: Option[String] = None,
-    name: Option[String] = None,
     pathOptions: Option[software.amazon.awscdk.services.databrew.CfnDataset.PathOptionsProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    formatOptions: Option[software.amazon.awscdk.services.databrew.CfnDataset.FormatOptionsProperty] = None,
-    input: Option[software.amazon.awscdk.services.databrew.CfnDataset.InputProperty] = None
+    formatOptions: Option[software.amazon.awscdk.services.databrew.CfnDataset.FormatOptionsProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.databrew.CfnDataset =
     software.amazon.awscdk.services.databrew.CfnDataset.Builder
       .create(stackCtx, internalResourceId)
+      .name(name)
+      .input(input)
       .format(format.orNull)
-      .name(name.orNull)
       .pathOptions(pathOptions.orNull)
       .tags(tags.map(_.asJava).orNull)
       .formatOptions(formatOptions.orNull)
-      .input(input.orNull)
       .build()
 }

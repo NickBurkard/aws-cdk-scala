@@ -5,12 +5,12 @@ object CfnStaticIp {
 
   def apply(
     internalResourceId: String,
-    attachedTo: Option[String] = None,
-    staticIpName: Option[String] = None
+    staticIpName: String,
+    attachedTo: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lightsail.CfnStaticIp =
     software.amazon.awscdk.services.lightsail.CfnStaticIp.Builder
       .create(stackCtx, internalResourceId)
+      .staticIpName(staticIpName)
       .attachedTo(attachedTo.orNull)
-      .staticIpName(staticIpName.orNull)
       .build()
 }

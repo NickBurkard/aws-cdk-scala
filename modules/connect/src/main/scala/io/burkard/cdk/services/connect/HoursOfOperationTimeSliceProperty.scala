@@ -4,11 +4,11 @@ package io.burkard.cdk.services.connect
 object HoursOfOperationTimeSliceProperty {
 
   def apply(
-    minutes: Option[Number] = None,
-    hours: Option[Number] = None
+    minutes: Number,
+    hours: Number
   ): software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationTimeSliceProperty =
     (new software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationTimeSliceProperty.Builder)
-      .minutes(minutes.orNull)
-      .hours(hours.orNull)
+      .minutes(minutes)
+      .hours(hours)
       .build()
 }

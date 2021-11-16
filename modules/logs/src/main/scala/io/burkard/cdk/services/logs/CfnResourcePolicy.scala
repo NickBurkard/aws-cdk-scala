@@ -5,12 +5,12 @@ object CfnResourcePolicy {
 
   def apply(
     internalResourceId: String,
-    policyName: Option[String] = None,
-    policyDocument: Option[String] = None
+    policyName: String,
+    policyDocument: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.logs.CfnResourcePolicy =
     software.amazon.awscdk.services.logs.CfnResourcePolicy.Builder
       .create(stackCtx, internalResourceId)
-      .policyName(policyName.orNull)
-      .policyDocument(policyDocument.orNull)
+      .policyName(policyName)
+      .policyDocument(policyDocument)
       .build()
 }

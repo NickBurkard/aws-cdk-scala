@@ -4,20 +4,20 @@ package io.burkard.cdk.services.fsx
 object LustreFileSystemProps {
 
   def apply(
+    vpcSubnet: software.amazon.awscdk.services.ec2.ISubnet,
+    lustreConfiguration: software.amazon.awscdk.services.fsx.LustreConfiguration,
     kmsKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
-    vpcSubnet: Option[software.amazon.awscdk.services.ec2.ISubnet] = None,
     backupId: Option[String] = None,
-    lustreConfiguration: Option[software.amazon.awscdk.services.fsx.LustreConfiguration] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     storageCapacityGiB: Option[Number] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
   ): software.amazon.awscdk.services.fsx.LustreFileSystemProps =
     (new software.amazon.awscdk.services.fsx.LustreFileSystemProps.Builder)
+      .vpcSubnet(vpcSubnet)
+      .lustreConfiguration(lustreConfiguration)
       .kmsKey(kmsKey.orNull)
-      .vpcSubnet(vpcSubnet.orNull)
       .backupId(backupId.orNull)
-      .lustreConfiguration(lustreConfiguration.orNull)
       .vpc(vpc.orNull)
       .storageCapacityGiB(storageCapacityGiB.orNull)
       .removalPolicy(removalPolicy.orNull)

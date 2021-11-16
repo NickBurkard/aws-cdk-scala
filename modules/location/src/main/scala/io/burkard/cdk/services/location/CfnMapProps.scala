@@ -4,15 +4,15 @@ package io.burkard.cdk.services.location
 object CfnMapProps {
 
   def apply(
-    mapName: Option[String] = None,
-    description: Option[String] = None,
-    configuration: Option[software.amazon.awscdk.services.location.CfnMap.MapConfigurationProperty] = None,
-    pricingPlan: Option[String] = None
+    mapName: String,
+    configuration: software.amazon.awscdk.services.location.CfnMap.MapConfigurationProperty,
+    pricingPlan: String,
+    description: Option[String] = None
   ): software.amazon.awscdk.services.location.CfnMapProps =
     (new software.amazon.awscdk.services.location.CfnMapProps.Builder)
-      .mapName(mapName.orNull)
+      .mapName(mapName)
+      .configuration(configuration)
+      .pricingPlan(pricingPlan)
       .description(description.orNull)
-      .configuration(configuration.orNull)
-      .pricingPlan(pricingPlan.orNull)
       .build()
 }

@@ -5,12 +5,12 @@ object CfnNotificationChannel {
 
   def apply(
     internalResourceId: String,
-    snsRoleName: Option[String] = None,
-    snsTopicArn: Option[String] = None
+    snsRoleName: String,
+    snsTopicArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.fms.CfnNotificationChannel =
     software.amazon.awscdk.services.fms.CfnNotificationChannel.Builder
       .create(stackCtx, internalResourceId)
-      .snsRoleName(snsRoleName.orNull)
-      .snsTopicArn(snsTopicArn.orNull)
+      .snsRoleName(snsRoleName)
+      .snsTopicArn(snsTopicArn)
       .build()
 }

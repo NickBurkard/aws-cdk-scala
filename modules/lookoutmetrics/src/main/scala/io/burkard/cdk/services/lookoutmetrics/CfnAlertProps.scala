@@ -4,17 +4,17 @@ package io.burkard.cdk.services.lookoutmetrics
 object CfnAlertProps {
 
   def apply(
-    alertSensitivityThreshold: Option[Number] = None,
+    alertSensitivityThreshold: Number,
+    anomalyDetectorArn: String,
+    action: software.amazon.awscdk.services.lookoutmetrics.CfnAlert.ActionProperty,
     alertName: Option[String] = None,
-    anomalyDetectorArn: Option[String] = None,
-    alertDescription: Option[String] = None,
-    action: Option[software.amazon.awscdk.services.lookoutmetrics.CfnAlert.ActionProperty] = None
+    alertDescription: Option[String] = None
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAlertProps =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAlertProps.Builder)
-      .alertSensitivityThreshold(alertSensitivityThreshold.orNull)
+      .alertSensitivityThreshold(alertSensitivityThreshold)
+      .anomalyDetectorArn(anomalyDetectorArn)
+      .action(action)
       .alertName(alertName.orNull)
-      .anomalyDetectorArn(anomalyDetectorArn.orNull)
       .alertDescription(alertDescription.orNull)
-      .action(action.orNull)
       .build()
 }

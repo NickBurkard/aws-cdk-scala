@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object GrpcConnectionPool {
 
   def apply(
-    maxRequests: Option[Number] = None
+    maxRequests: Number
   ): software.amazon.awscdk.services.appmesh.GrpcConnectionPool =
     (new software.amazon.awscdk.services.appmesh.GrpcConnectionPool.Builder)
-      .maxRequests(maxRequests.orNull)
+      .maxRequests(maxRequests)
       .build()
 }

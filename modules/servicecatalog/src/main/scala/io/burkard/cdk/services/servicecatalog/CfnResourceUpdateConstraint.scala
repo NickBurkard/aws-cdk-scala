@@ -5,18 +5,18 @@ object CfnResourceUpdateConstraint {
 
   def apply(
     internalResourceId: String,
-    portfolioId: Option[String] = None,
+    portfolioId: String,
+    tagUpdateOnProvisionedProduct: String,
+    productId: String,
     description: Option[String] = None,
-    tagUpdateOnProvisionedProduct: Option[String] = None,
-    acceptLanguage: Option[String] = None,
-    productId: Option[String] = None
+    acceptLanguage: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnResourceUpdateConstraint =
     software.amazon.awscdk.services.servicecatalog.CfnResourceUpdateConstraint.Builder
       .create(stackCtx, internalResourceId)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
+      .tagUpdateOnProvisionedProduct(tagUpdateOnProvisionedProduct)
+      .productId(productId)
       .description(description.orNull)
-      .tagUpdateOnProvisionedProduct(tagUpdateOnProvisionedProduct.orNull)
       .acceptLanguage(acceptLanguage.orNull)
-      .productId(productId.orNull)
       .build()
 }

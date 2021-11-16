@@ -4,13 +4,13 @@ package io.burkard.cdk.services.sam
 object ApiEventProperty {
 
   def apply(
-    method: Option[String] = None,
-    path: Option[String] = None,
+    method: String,
+    path: String,
     restApiId: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnStateMachine.ApiEventProperty =
     (new software.amazon.awscdk.services.sam.CfnStateMachine.ApiEventProperty.Builder)
-      .method(method.orNull)
-      .path(path.orNull)
+      .method(method)
+      .path(path)
       .restApiId(restApiId.orNull)
       .build()
 }

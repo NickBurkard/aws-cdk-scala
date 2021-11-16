@@ -4,11 +4,11 @@ package io.burkard.cdk.core
 object ResourceEnvironment {
 
   def apply(
-    region: Option[String] = None,
-    account: Option[String] = None
+    region: String,
+    account: String
   ): software.amazon.awscdk.ResourceEnvironment =
     (new software.amazon.awscdk.ResourceEnvironment.Builder)
-      .region(region.orNull)
-      .account(account.orNull)
+      .region(region)
+      .account(account)
       .build()
 }

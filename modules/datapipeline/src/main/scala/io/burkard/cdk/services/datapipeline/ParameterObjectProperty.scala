@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ParameterObjectProperty {
 
   def apply(
-    attributes: Option[List[_]] = None,
-    id: Option[String] = None
+    attributes: List[_],
+    id: String
   ): software.amazon.awscdk.services.datapipeline.CfnPipeline.ParameterObjectProperty =
     (new software.amazon.awscdk.services.datapipeline.CfnPipeline.ParameterObjectProperty.Builder)
-      .attributes(attributes.map(_.asJava).orNull)
-      .id(id.orNull)
+      .attributes(attributes.asJava)
+      .id(id)
       .build()
 }

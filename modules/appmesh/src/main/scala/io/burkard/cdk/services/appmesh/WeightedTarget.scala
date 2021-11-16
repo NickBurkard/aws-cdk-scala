@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object WeightedTarget {
 
   def apply(
-    weight: Option[Number] = None,
-    virtualNode: Option[software.amazon.awscdk.services.appmesh.IVirtualNode] = None
+    virtualNode: software.amazon.awscdk.services.appmesh.IVirtualNode,
+    weight: Option[Number] = None
   ): software.amazon.awscdk.services.appmesh.WeightedTarget =
     (new software.amazon.awscdk.services.appmesh.WeightedTarget.Builder)
+      .virtualNode(virtualNode)
       .weight(weight.orNull)
-      .virtualNode(virtualNode.orNull)
       .build()
 }

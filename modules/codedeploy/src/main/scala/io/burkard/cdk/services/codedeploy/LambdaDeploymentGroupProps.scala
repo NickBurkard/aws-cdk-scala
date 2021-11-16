@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object LambdaDeploymentGroupProps {
 
   def apply(
+    alias: software.amazon.awscdk.services.lambda.Alias,
     application: Option[software.amazon.awscdk.services.codedeploy.ILambdaApplication] = None,
     ignorePollAlarmsFailure: Option[Boolean] = None,
     autoRollback: Option[software.amazon.awscdk.services.codedeploy.AutoRollbackConfig] = None,
@@ -15,10 +16,10 @@ object LambdaDeploymentGroupProps {
     postHook: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     deploymentConfig: Option[software.amazon.awscdk.services.codedeploy.ILambdaDeploymentConfig] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    alarms: Option[List[_ <: software.amazon.awscdk.services.cloudwatch.IAlarm]] = None,
-    alias: Option[software.amazon.awscdk.services.lambda.Alias] = None
+    alarms: Option[List[_ <: software.amazon.awscdk.services.cloudwatch.IAlarm]] = None
   ): software.amazon.awscdk.services.codedeploy.LambdaDeploymentGroupProps =
     (new software.amazon.awscdk.services.codedeploy.LambdaDeploymentGroupProps.Builder)
+      .alias(alias)
       .application(application.orNull)
       .ignorePollAlarmsFailure(ignorePollAlarmsFailure.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .autoRollback(autoRollback.orNull)
@@ -28,6 +29,5 @@ object LambdaDeploymentGroupProps {
       .deploymentConfig(deploymentConfig.orNull)
       .role(role.orNull)
       .alarms(alarms.map(_.asJava).orNull)
-      .alias(alias.orNull)
       .build()
 }

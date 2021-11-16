@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualServiceBackendProperty {
 
   def apply(
-    virtualServiceName: Option[String] = None,
+    virtualServiceName: String,
     clientPolicy: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.ClientPolicyProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualServiceBackendProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualServiceBackendProperty.Builder)
-      .virtualServiceName(virtualServiceName.orNull)
+      .virtualServiceName(virtualServiceName)
       .clientPolicy(clientPolicy.orNull)
       .build()
 }

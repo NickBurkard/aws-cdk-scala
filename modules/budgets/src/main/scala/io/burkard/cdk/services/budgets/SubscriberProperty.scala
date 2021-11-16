@@ -4,11 +4,11 @@ package io.burkard.cdk.services.budgets
 object SubscriberProperty {
 
   def apply(
-    address: Option[String] = None,
-    subscriptionType: Option[String] = None
+    address: String,
+    subscriptionType: String
   ): software.amazon.awscdk.services.budgets.CfnBudget.SubscriberProperty =
     (new software.amazon.awscdk.services.budgets.CfnBudget.SubscriberProperty.Builder)
-      .address(address.orNull)
-      .subscriptionType(subscriptionType.orNull)
+      .address(address)
+      .subscriptionType(subscriptionType)
       .build()
 }

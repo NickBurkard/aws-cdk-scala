@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object IntegrationResponseProperty {
 
   def apply(
-    statusCode: Option[String] = None,
+    statusCode: String,
     selectionPattern: Option[String] = None,
     responseParameters: Option[Map[String, String]] = None,
     contentHandling: Option[String] = None,
     responseTemplates: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.apigateway.CfnMethod.IntegrationResponseProperty =
     (new software.amazon.awscdk.services.apigateway.CfnMethod.IntegrationResponseProperty.Builder)
-      .statusCode(statusCode.orNull)
+      .statusCode(statusCode)
       .selectionPattern(selectionPattern.orNull)
       .responseParameters(responseParameters.map(_.asJava).orNull)
       .contentHandling(contentHandling.orNull)

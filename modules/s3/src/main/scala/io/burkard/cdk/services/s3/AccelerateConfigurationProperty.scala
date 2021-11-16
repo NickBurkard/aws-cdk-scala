@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object AccelerateConfigurationProperty {
 
   def apply(
-    accelerationStatus: Option[String] = None
+    accelerationStatus: String
   ): software.amazon.awscdk.services.s3.CfnBucket.AccelerateConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.AccelerateConfigurationProperty.Builder)
-      .accelerationStatus(accelerationStatus.orNull)
+      .accelerationStatus(accelerationStatus)
       .build()
 }

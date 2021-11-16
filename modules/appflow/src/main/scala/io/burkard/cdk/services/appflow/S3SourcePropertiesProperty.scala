@@ -4,13 +4,13 @@ package io.burkard.cdk.services.appflow
 object S3SourcePropertiesProperty {
 
   def apply(
-    bucketPrefix: Option[String] = None,
-    s3InputFormatConfig: Option[software.amazon.awscdk.services.appflow.CfnFlow.S3InputFormatConfigProperty] = None,
-    bucketName: Option[String] = None
+    bucketPrefix: String,
+    bucketName: String,
+    s3InputFormatConfig: Option[software.amazon.awscdk.services.appflow.CfnFlow.S3InputFormatConfigProperty] = None
   ): software.amazon.awscdk.services.appflow.CfnFlow.S3SourcePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.S3SourcePropertiesProperty.Builder)
-      .bucketPrefix(bucketPrefix.orNull)
+      .bucketPrefix(bucketPrefix)
+      .bucketName(bucketName)
       .s3InputFormatConfig(s3InputFormatConfig.orNull)
-      .bucketName(bucketName.orNull)
       .build()
 }

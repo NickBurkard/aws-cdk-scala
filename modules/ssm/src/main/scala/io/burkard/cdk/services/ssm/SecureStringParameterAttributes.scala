@@ -4,14 +4,14 @@ package io.burkard.cdk.services.ssm
 object SecureStringParameterAttributes {
 
   def apply(
+    version: Number,
     simpleName: Option[Boolean] = None,
-    version: Option[Number] = None,
     parameterName: Option[String] = None,
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.ssm.SecureStringParameterAttributes =
     (new software.amazon.awscdk.services.ssm.SecureStringParameterAttributes.Builder)
+      .version(version)
       .simpleName(simpleName.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .version(version.orNull)
       .parameterName(parameterName.orNull)
       .encryptionKey(encryptionKey.orNull)
       .build()

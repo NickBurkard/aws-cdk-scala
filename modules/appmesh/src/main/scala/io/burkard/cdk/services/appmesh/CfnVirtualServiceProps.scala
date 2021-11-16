@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnVirtualServiceProps {
 
   def apply(
-    meshName: Option[String] = None,
+    meshName: String,
+    virtualServiceName: String,
+    spec: software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualServiceSpecProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    meshOwner: Option[String] = None,
-    virtualServiceName: Option[String] = None,
-    spec: Option[software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualServiceSpecProperty] = None
+    meshOwner: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualServiceProps =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualServiceProps.Builder)
-      .meshName(meshName.orNull)
+      .meshName(meshName)
+      .virtualServiceName(virtualServiceName)
+      .spec(spec)
       .tags(tags.map(_.asJava).orNull)
       .meshOwner(meshOwner.orNull)
-      .virtualServiceName(virtualServiceName.orNull)
-      .spec(spec.orNull)
       .build()
 }

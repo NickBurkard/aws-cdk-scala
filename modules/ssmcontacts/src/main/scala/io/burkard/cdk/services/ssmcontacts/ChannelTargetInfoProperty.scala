@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ssmcontacts
 object ChannelTargetInfoProperty {
 
   def apply(
-    retryIntervalInMinutes: Option[Number] = None,
-    channelId: Option[String] = None
+    retryIntervalInMinutes: Number,
+    channelId: String
   ): software.amazon.awscdk.services.ssmcontacts.CfnContact.ChannelTargetInfoProperty =
     (new software.amazon.awscdk.services.ssmcontacts.CfnContact.ChannelTargetInfoProperty.Builder)
-      .retryIntervalInMinutes(retryIntervalInMinutes.orNull)
-      .channelId(channelId.orNull)
+      .retryIntervalInMinutes(retryIntervalInMinutes)
+      .channelId(channelId)
       .build()
 }

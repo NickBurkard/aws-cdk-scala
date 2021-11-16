@@ -4,6 +4,7 @@ package io.burkard.cdk.services.lambda
 object ManagedKafkaEventSource {
 
   def apply(
+    clusterArn: String,
     secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     batchSize: Option[Number] = None,
     parallelizationFactor: Option[Number] = None,
@@ -15,12 +16,12 @@ object ManagedKafkaEventSource {
     maxRecordAge: Option[software.amazon.awscdk.Duration] = None,
     bisectBatchOnError: Option[Boolean] = None,
     reportBatchItemFailures: Option[Boolean] = None,
-    clusterArn: Option[String] = None,
     startingPosition: Option[software.amazon.awscdk.services.lambda.StartingPosition] = None,
     topic: Option[String] = None
   ): software.amazon.awscdk.services.lambda.eventsources.ManagedKafkaEventSource =
     software.amazon.awscdk.services.lambda.eventsources.ManagedKafkaEventSource.Builder
       .create()
+      .clusterArn(clusterArn)
       .secret(secret.orNull)
       .batchSize(batchSize.orNull)
       .parallelizationFactor(parallelizationFactor.orNull)
@@ -32,7 +33,6 @@ object ManagedKafkaEventSource {
       .maxRecordAge(maxRecordAge.orNull)
       .bisectBatchOnError(bisectBatchOnError.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .reportBatchItemFailures(reportBatchItemFailures.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .clusterArn(clusterArn.orNull)
       .startingPosition(startingPosition.orNull)
       .topic(topic.orNull)
       .build()

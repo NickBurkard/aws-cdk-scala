@@ -8,16 +8,16 @@ object CfnCodeDeployBlueGreenHook {
 
   def apply(
     internalResourceId: String,
-    applications: Option[List[_ <: software.amazon.awscdk.CfnCodeDeployBlueGreenApplication]] = None,
-    serviceRole: Option[String] = None,
+    applications: List[_ <: software.amazon.awscdk.CfnCodeDeployBlueGreenApplication],
+    serviceRole: String,
     trafficRoutingConfig: Option[software.amazon.awscdk.CfnTrafficRoutingConfig] = None,
     additionalOptions: Option[software.amazon.awscdk.CfnCodeDeployBlueGreenAdditionalOptions] = None,
     lifecycleEventHooks: Option[software.amazon.awscdk.CfnCodeDeployBlueGreenLifecycleEventHooks] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.CfnCodeDeployBlueGreenHook =
     software.amazon.awscdk.CfnCodeDeployBlueGreenHook.Builder
       .create(stackCtx, internalResourceId)
-      .applications(applications.map(_.asJava).orNull)
-      .serviceRole(serviceRole.orNull)
+      .applications(applications.asJava)
+      .serviceRole(serviceRole)
       .trafficRoutingConfig(trafficRoutingConfig.orNull)
       .additionalOptions(additionalOptions.orNull)
       .lifecycleEventHooks(lifecycleEventHooks.orNull)

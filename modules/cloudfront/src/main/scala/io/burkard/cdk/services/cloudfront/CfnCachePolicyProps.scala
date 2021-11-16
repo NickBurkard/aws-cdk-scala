@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object CfnCachePolicyProps {
 
   def apply(
-    cachePolicyConfig: Option[software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CachePolicyConfigProperty] = None
+    cachePolicyConfig: software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CachePolicyConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnCachePolicyProps =
     (new software.amazon.awscdk.services.cloudfront.CfnCachePolicyProps.Builder)
-      .cachePolicyConfig(cachePolicyConfig.orNull)
+      .cachePolicyConfig(cachePolicyConfig)
       .build()
 }

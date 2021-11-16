@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisanalytics
 object CSVMappingParametersProperty {
 
   def apply(
-    recordRowDelimiter: Option[String] = None,
-    recordColumnDelimiter: Option[String] = None
+    recordRowDelimiter: String,
+    recordColumnDelimiter: String
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.CSVMappingParametersProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.CSVMappingParametersProperty.Builder)
-      .recordRowDelimiter(recordRowDelimiter.orNull)
-      .recordColumnDelimiter(recordColumnDelimiter.orNull)
+      .recordRowDelimiter(recordRowDelimiter)
+      .recordColumnDelimiter(recordColumnDelimiter)
       .build()
 }

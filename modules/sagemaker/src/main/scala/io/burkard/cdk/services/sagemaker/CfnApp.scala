@@ -8,20 +8,20 @@ object CfnApp {
 
   def apply(
     internalResourceId: String,
-    appType: Option[String] = None,
-    userProfileName: Option[String] = None,
+    appType: String,
+    userProfileName: String,
+    domainId: String,
+    appName: String,
     resourceSpec: Option[software.amazon.awscdk.services.sagemaker.CfnApp.ResourceSpecProperty] = None,
-    domainId: Option[String] = None,
-    appName: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sagemaker.CfnApp =
     software.amazon.awscdk.services.sagemaker.CfnApp.Builder
       .create(stackCtx, internalResourceId)
-      .appType(appType.orNull)
-      .userProfileName(userProfileName.orNull)
+      .appType(appType)
+      .userProfileName(userProfileName)
+      .domainId(domainId)
+      .appName(appName)
       .resourceSpec(resourceSpec.orNull)
-      .domainId(domainId.orNull)
-      .appName(appName.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

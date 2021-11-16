@@ -8,11 +8,11 @@ object CfnEnvironment {
 
   def apply(
     internalResourceId: String,
+    applicationName: String,
     environmentName: Option[String] = None,
     platformArn: Option[String] = None,
     tier: Option[software.amazon.awscdk.services.elasticbeanstalk.CfnEnvironment.TierProperty] = None,
     operationsRole: Option[String] = None,
-    applicationName: Option[String] = None,
     templateName: Option[String] = None,
     solutionStackName: Option[String] = None,
     cnamePrefix: Option[String] = None,
@@ -23,11 +23,11 @@ object CfnEnvironment {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticbeanstalk.CfnEnvironment =
     software.amazon.awscdk.services.elasticbeanstalk.CfnEnvironment.Builder
       .create(stackCtx, internalResourceId)
+      .applicationName(applicationName)
       .environmentName(environmentName.orNull)
       .platformArn(platformArn.orNull)
       .tier(tier.orNull)
       .operationsRole(operationsRole.orNull)
-      .applicationName(applicationName.orNull)
       .templateName(templateName.orNull)
       .solutionStackName(solutionStackName.orNull)
       .cnamePrefix(cnamePrefix.orNull)

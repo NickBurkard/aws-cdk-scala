@@ -8,14 +8,14 @@ object CfnMultiRegionAccessPoint {
 
   def apply(
     internalResourceId: String,
+    regions: List[_],
     name: Option[String] = None,
-    regions: Option[List[_]] = None,
     publicAccessBlockConfiguration: Option[software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint.PublicAccessBlockConfigurationProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint =
     software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint.Builder
       .create(stackCtx, internalResourceId)
+      .regions(regions.asJava)
       .name(name.orNull)
-      .regions(regions.map(_.asJava).orNull)
       .publicAccessBlockConfiguration(publicAccessBlockConfiguration.orNull)
       .build()
 }

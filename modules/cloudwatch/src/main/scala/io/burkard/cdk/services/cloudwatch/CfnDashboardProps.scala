@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudwatch
 object CfnDashboardProps {
 
   def apply(
-    dashboardBody: Option[String] = None,
+    dashboardBody: String,
     dashboardName: Option[String] = None
   ): software.amazon.awscdk.services.cloudwatch.CfnDashboardProps =
     (new software.amazon.awscdk.services.cloudwatch.CfnDashboardProps.Builder)
-      .dashboardBody(dashboardBody.orNull)
+      .dashboardBody(dashboardBody)
       .dashboardName(dashboardName.orNull)
       .build()
 }

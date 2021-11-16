@@ -4,9 +4,9 @@ package io.burkard.cdk.services.kendra
 object AclConfigurationProperty {
 
   def apply(
-    allowedGroupsColumnName: Option[String] = None
+    allowedGroupsColumnName: String
   ): software.amazon.awscdk.services.kendra.CfnDataSource.AclConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.AclConfigurationProperty.Builder)
-      .allowedGroupsColumnName(allowedGroupsColumnName.orNull)
+      .allowedGroupsColumnName(allowedGroupsColumnName)
       .build()
 }

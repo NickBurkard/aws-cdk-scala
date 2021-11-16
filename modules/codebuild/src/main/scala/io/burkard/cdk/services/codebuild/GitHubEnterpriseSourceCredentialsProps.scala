@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codebuild
 object GitHubEnterpriseSourceCredentialsProps {
 
   def apply(
-    accessToken: Option[software.amazon.awscdk.SecretValue] = None
+    accessToken: software.amazon.awscdk.SecretValue
   ): software.amazon.awscdk.services.codebuild.GitHubEnterpriseSourceCredentialsProps =
     (new software.amazon.awscdk.services.codebuild.GitHubEnterpriseSourceCredentialsProps.Builder)
-      .accessToken(accessToken.orNull)
+      .accessToken(accessToken)
       .build()
 }

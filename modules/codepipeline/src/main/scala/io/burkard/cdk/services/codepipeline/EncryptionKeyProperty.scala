@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object EncryptionKeyProperty {
 
   def apply(
-    id: Option[String] = None,
-    `type`: Option[String] = None
+    id: String,
+    `type`: String
   ): software.amazon.awscdk.services.codepipeline.CfnPipeline.EncryptionKeyProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnPipeline.EncryptionKeyProperty.Builder)
-      .id(id.orNull)
-      .`type`(`type`.orNull)
+      .id(id)
+      .`type`(`type`)
       .build()
 }

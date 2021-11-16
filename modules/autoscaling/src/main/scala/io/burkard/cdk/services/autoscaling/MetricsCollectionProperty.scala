@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object MetricsCollectionProperty {
 
   def apply(
-    granularity: Option[String] = None,
+    granularity: String,
     metrics: Option[List[String]] = None
   ): software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.MetricsCollectionProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.MetricsCollectionProperty.Builder)
-      .granularity(granularity.orNull)
+      .granularity(granularity)
       .metrics(metrics.map(_.asJava).orNull)
       .build()
 }

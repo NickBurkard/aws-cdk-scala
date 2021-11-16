@@ -7,6 +7,9 @@ import scala.collection.JavaConverters._
 object DatabaseClusterFromSnapshotProps {
 
   def apply(
+    instanceProps: software.amazon.awscdk.services.rds.InstanceProps,
+    snapshotIdentifier: String,
+    engine: software.amazon.awscdk.services.rds.IClusterEngine,
     s3ExportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     backup: Option[software.amazon.awscdk.services.rds.BackupProps] = None,
     instances: Option[Number] = None,
@@ -17,10 +20,8 @@ object DatabaseClusterFromSnapshotProps {
     cloudwatchLogsExports: Option[List[String]] = None,
     deletionProtection: Option[Boolean] = None,
     port: Option[Number] = None,
-    instanceProps: Option[software.amazon.awscdk.services.rds.InstanceProps] = None,
     cloudwatchLogsRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     monitoringInterval: Option[software.amazon.awscdk.Duration] = None,
-    snapshotIdentifier: Option[String] = None,
     subnetGroup: Option[software.amazon.awscdk.services.rds.ISubnetGroup] = None,
     iamAuthentication: Option[Boolean] = None,
     s3ImportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
@@ -30,10 +31,12 @@ object DatabaseClusterFromSnapshotProps {
     cloudwatchLogsRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
     backtrackWindow: Option[software.amazon.awscdk.Duration] = None,
     s3ExportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
-    removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
-    engine: Option[software.amazon.awscdk.services.rds.IClusterEngine] = None
+    removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   ): software.amazon.awscdk.services.rds.DatabaseClusterFromSnapshotProps =
     (new software.amazon.awscdk.services.rds.DatabaseClusterFromSnapshotProps.Builder)
+      .instanceProps(instanceProps)
+      .snapshotIdentifier(snapshotIdentifier)
+      .engine(engine)
       .s3ExportRole(s3ExportRole.orNull)
       .backup(backup.orNull)
       .instances(instances.orNull)
@@ -44,10 +47,8 @@ object DatabaseClusterFromSnapshotProps {
       .cloudwatchLogsExports(cloudwatchLogsExports.map(_.asJava).orNull)
       .deletionProtection(deletionProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .port(port.orNull)
-      .instanceProps(instanceProps.orNull)
       .cloudwatchLogsRetentionRole(cloudwatchLogsRetentionRole.orNull)
       .monitoringInterval(monitoringInterval.orNull)
-      .snapshotIdentifier(snapshotIdentifier.orNull)
       .subnetGroup(subnetGroup.orNull)
       .iamAuthentication(iamAuthentication.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .s3ImportBuckets(s3ImportBuckets.map(_.asJava).orNull)
@@ -58,6 +59,5 @@ object DatabaseClusterFromSnapshotProps {
       .backtrackWindow(backtrackWindow.orNull)
       .s3ExportBuckets(s3ExportBuckets.map(_.asJava).orNull)
       .removalPolicy(removalPolicy.orNull)
-      .engine(engine.orNull)
       .build()
 }

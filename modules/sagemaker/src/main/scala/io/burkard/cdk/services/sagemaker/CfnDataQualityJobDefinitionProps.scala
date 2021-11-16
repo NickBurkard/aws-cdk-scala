@@ -7,27 +7,27 @@ import scala.collection.JavaConverters._
 object CfnDataQualityJobDefinitionProps {
 
   def apply(
+    dataQualityJobOutputConfig: software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.MonitoringOutputConfigProperty,
+    roleArn: String,
+    dataQualityAppSpecification: software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty,
+    dataQualityJobInput: software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.DataQualityJobInputProperty,
+    jobResources: software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.MonitoringResourcesProperty,
     networkConfig: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.NetworkConfigProperty] = None,
-    dataQualityJobOutputConfig: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.MonitoringOutputConfigProperty] = None,
     dataQualityBaselineConfig: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.DataQualityBaselineConfigProperty] = None,
     stoppingCondition: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.StoppingConditionProperty] = None,
-    roleArn: Option[String] = None,
     jobDefinitionName: Option[String] = None,
-    dataQualityAppSpecification: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    dataQualityJobInput: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.DataQualityJobInputProperty] = None,
-    jobResources: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.MonitoringResourcesProperty] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinitionProps =
     (new software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinitionProps.Builder)
+      .dataQualityJobOutputConfig(dataQualityJobOutputConfig)
+      .roleArn(roleArn)
+      .dataQualityAppSpecification(dataQualityAppSpecification)
+      .dataQualityJobInput(dataQualityJobInput)
+      .jobResources(jobResources)
       .networkConfig(networkConfig.orNull)
-      .dataQualityJobOutputConfig(dataQualityJobOutputConfig.orNull)
       .dataQualityBaselineConfig(dataQualityBaselineConfig.orNull)
       .stoppingCondition(stoppingCondition.orNull)
-      .roleArn(roleArn.orNull)
       .jobDefinitionName(jobDefinitionName.orNull)
-      .dataQualityAppSpecification(dataQualityAppSpecification.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .dataQualityJobInput(dataQualityJobInput.orNull)
-      .jobResources(jobResources.orNull)
       .build()
 }

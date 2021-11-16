@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnScheduleProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    cronExpression: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    jobNames: Option[List[String]] = None,
-    cronExpression: Option[String] = None
+    jobNames: Option[List[String]] = None
   ): software.amazon.awscdk.services.databrew.CfnScheduleProps =
     (new software.amazon.awscdk.services.databrew.CfnScheduleProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .cronExpression(cronExpression)
       .tags(tags.map(_.asJava).orNull)
       .jobNames(jobNames.map(_.asJava).orNull)
-      .cronExpression(cronExpression.orNull)
       .build()
 }

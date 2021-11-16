@@ -4,16 +4,16 @@ package io.burkard.cdk.services.s3
 object BlockPublicAccess {
 
   def apply(
-    blockPublicPolicy: Option[Boolean] = None,
-    ignorePublicAcls: Option[Boolean] = None,
-    blockPublicAcls: Option[Boolean] = None,
-    restrictPublicBuckets: Option[Boolean] = None
+    blockPublicPolicy: Boolean,
+    ignorePublicAcls: Boolean,
+    blockPublicAcls: Boolean,
+    restrictPublicBuckets: Boolean
   ): software.amazon.awscdk.services.s3.BlockPublicAccess =
     software.amazon.awscdk.services.s3.BlockPublicAccess.Builder
       .create()
-      .blockPublicPolicy(blockPublicPolicy.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .ignorePublicAcls(ignorePublicAcls.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .blockPublicAcls(blockPublicAcls.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .restrictPublicBuckets(restrictPublicBuckets.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .blockPublicPolicy(blockPublicPolicy)
+      .ignorePublicAcls(ignorePublicAcls)
+      .blockPublicAcls(blockPublicAcls)
+      .restrictPublicBuckets(restrictPublicBuckets)
       .build()
 }

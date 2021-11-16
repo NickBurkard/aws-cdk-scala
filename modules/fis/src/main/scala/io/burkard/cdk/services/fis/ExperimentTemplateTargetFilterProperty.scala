@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ExperimentTemplateTargetFilterProperty {
 
   def apply(
-    path: Option[String] = None,
-    values: Option[List[String]] = None
+    path: String,
+    values: List[String]
   ): software.amazon.awscdk.services.fis.CfnExperimentTemplate.ExperimentTemplateTargetFilterProperty =
     (new software.amazon.awscdk.services.fis.CfnExperimentTemplate.ExperimentTemplateTargetFilterProperty.Builder)
-      .path(path.orNull)
-      .values(values.map(_.asJava).orNull)
+      .path(path)
+      .values(values.asJava)
       .build()
 }

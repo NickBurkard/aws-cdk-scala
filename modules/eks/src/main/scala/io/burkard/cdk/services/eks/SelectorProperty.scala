@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object SelectorProperty {
 
   def apply(
-    labels: Option[List[_]] = None,
-    namespace: Option[String] = None
+    namespace: String,
+    labels: Option[List[_]] = None
   ): software.amazon.awscdk.services.eks.CfnFargateProfile.SelectorProperty =
     (new software.amazon.awscdk.services.eks.CfnFargateProfile.SelectorProperty.Builder)
+      .namespace(namespace)
       .labels(labels.map(_.asJava).orNull)
-      .namespace(namespace.orNull)
       .build()
 }

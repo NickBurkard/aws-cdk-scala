@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object MonitoringOutputConfigProperty {
 
   def apply(
-    monitoringOutputs: Option[List[_]] = None,
+    monitoringOutputs: List[_],
     kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringOutputConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringOutputConfigProperty.Builder)
-      .monitoringOutputs(monitoringOutputs.map(_.asJava).orNull)
+      .monitoringOutputs(monitoringOutputs.asJava)
       .kmsKeyId(kmsKeyId.orNull)
       .build()
 }

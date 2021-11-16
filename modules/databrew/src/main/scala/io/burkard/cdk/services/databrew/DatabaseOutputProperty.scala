@@ -4,13 +4,13 @@ package io.burkard.cdk.services.databrew
 object DatabaseOutputProperty {
 
   def apply(
-    glueConnectionName: Option[String] = None,
-    databaseOutputMode: Option[String] = None,
-    databaseOptions: Option[software.amazon.awscdk.services.databrew.CfnJob.DatabaseTableOutputOptionsProperty] = None
+    glueConnectionName: String,
+    databaseOptions: software.amazon.awscdk.services.databrew.CfnJob.DatabaseTableOutputOptionsProperty,
+    databaseOutputMode: Option[String] = None
   ): software.amazon.awscdk.services.databrew.CfnJob.DatabaseOutputProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.DatabaseOutputProperty.Builder)
-      .glueConnectionName(glueConnectionName.orNull)
+      .glueConnectionName(glueConnectionName)
+      .databaseOptions(databaseOptions)
       .databaseOutputMode(databaseOutputMode.orNull)
-      .databaseOptions(databaseOptions.orNull)
       .build()
 }

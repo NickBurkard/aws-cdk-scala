@@ -4,13 +4,13 @@ package io.burkard.cdk.pipelines
 object ConnectionSourceOptions {
 
   def apply(
+    connectionArn: String,
     codeBuildCloneOutput: Option[Boolean] = None,
-    connectionArn: Option[String] = None,
     triggerOnPush: Option[Boolean] = None
   ): software.amazon.awscdk.pipelines.ConnectionSourceOptions =
     (new software.amazon.awscdk.pipelines.ConnectionSourceOptions.Builder)
+      .connectionArn(connectionArn)
       .codeBuildCloneOutput(codeBuildCloneOutput.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .connectionArn(connectionArn.orNull)
       .triggerOnPush(triggerOnPush.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

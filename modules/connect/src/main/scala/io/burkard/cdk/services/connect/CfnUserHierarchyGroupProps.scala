@@ -4,13 +4,13 @@ package io.burkard.cdk.services.connect
 object CfnUserHierarchyGroupProps {
 
   def apply(
-    name: Option[String] = None,
-    parentGroupArn: Option[String] = None,
-    instanceArn: Option[String] = None
+    name: String,
+    instanceArn: String,
+    parentGroupArn: Option[String] = None
   ): software.amazon.awscdk.services.connect.CfnUserHierarchyGroupProps =
     (new software.amazon.awscdk.services.connect.CfnUserHierarchyGroupProps.Builder)
-      .name(name.orNull)
+      .name(name)
+      .instanceArn(instanceArn)
       .parentGroupArn(parentGroupArn.orNull)
-      .instanceArn(instanceArn.orNull)
       .build()
 }

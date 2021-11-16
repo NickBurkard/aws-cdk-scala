@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object QueryStringsConfigProperty {
 
   def apply(
-    queryStringBehavior: Option[String] = None,
+    queryStringBehavior: String,
     queryStrings: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty.Builder)
-      .queryStringBehavior(queryStringBehavior.orNull)
+      .queryStringBehavior(queryStringBehavior)
       .queryStrings(queryStrings.map(_.asJava).orNull)
       .build()
 }

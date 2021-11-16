@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ssmcontacts
 object ContactTargetInfoProperty {
 
   def apply(
-    contactId: Option[String] = None,
-    isEssential: Option[Boolean] = None
+    contactId: String,
+    isEssential: Boolean
   ): software.amazon.awscdk.services.ssmcontacts.CfnContact.ContactTargetInfoProperty =
     (new software.amazon.awscdk.services.ssmcontacts.CfnContact.ContactTargetInfoProperty.Builder)
-      .contactId(contactId.orNull)
-      .isEssential(isEssential.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .contactId(contactId)
+      .isEssential(isEssential)
       .build()
 }

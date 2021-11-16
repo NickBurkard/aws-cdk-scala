@@ -5,14 +5,14 @@ object CfnLocalGatewayRoute {
 
   def apply(
     internalResourceId: String,
-    destinationCidrBlock: Option[String] = None,
-    localGatewayRouteTableId: Option[String] = None,
-    localGatewayVirtualInterfaceGroupId: Option[String] = None
+    destinationCidrBlock: String,
+    localGatewayRouteTableId: String,
+    localGatewayVirtualInterfaceGroupId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnLocalGatewayRoute =
     software.amazon.awscdk.services.ec2.CfnLocalGatewayRoute.Builder
       .create(stackCtx, internalResourceId)
-      .destinationCidrBlock(destinationCidrBlock.orNull)
-      .localGatewayRouteTableId(localGatewayRouteTableId.orNull)
-      .localGatewayVirtualInterfaceGroupId(localGatewayVirtualInterfaceGroupId.orNull)
+      .destinationCidrBlock(destinationCidrBlock)
+      .localGatewayRouteTableId(localGatewayRouteTableId)
+      .localGatewayVirtualInterfaceGroupId(localGatewayVirtualInterfaceGroupId)
       .build()
 }

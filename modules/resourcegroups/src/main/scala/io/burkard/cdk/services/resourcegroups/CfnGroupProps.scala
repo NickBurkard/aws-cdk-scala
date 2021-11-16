@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnGroupProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     configuration: Option[List[_]] = None,
     resources: Option[List[String]] = None,
     resourceQuery: Option[software.amazon.awscdk.services.resourcegroups.CfnGroup.ResourceQueryProperty] = None,
@@ -15,7 +15,7 @@ object CfnGroupProps {
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.resourcegroups.CfnGroupProps =
     (new software.amazon.awscdk.services.resourcegroups.CfnGroupProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .configuration(configuration.map(_.asJava).orNull)
       .resources(resources.map(_.asJava).orNull)
       .resourceQuery(resourceQuery.orNull)

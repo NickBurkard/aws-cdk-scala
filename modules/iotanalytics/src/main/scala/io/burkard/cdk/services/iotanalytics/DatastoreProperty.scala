@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object DatastoreProperty {
 
   def apply(
-    name: Option[String] = None,
-    datastoreName: Option[String] = None
+    name: String,
+    datastoreName: String
   ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.DatastoreProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.DatastoreProperty.Builder)
-      .name(name.orNull)
-      .datastoreName(datastoreName.orNull)
+      .name(name)
+      .datastoreName(datastoreName)
       .build()
 }

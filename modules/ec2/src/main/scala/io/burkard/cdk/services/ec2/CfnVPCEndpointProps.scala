@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CfnVPCEndpointProps {
 
   def apply(
+    vpcId: String,
+    serviceName: String,
     subnetIds: Option[List[String]] = None,
-    vpcId: Option[String] = None,
-    serviceName: Option[String] = None,
     securityGroupIds: Option[List[String]] = None,
     privateDnsEnabled: Option[Boolean] = None,
     vpcEndpointType: Option[String] = None,
@@ -17,9 +17,9 @@ object CfnVPCEndpointProps {
     routeTableIds: Option[List[String]] = None
   ): software.amazon.awscdk.services.ec2.CfnVPCEndpointProps =
     (new software.amazon.awscdk.services.ec2.CfnVPCEndpointProps.Builder)
+      .vpcId(vpcId)
+      .serviceName(serviceName)
       .subnetIds(subnetIds.map(_.asJava).orNull)
-      .vpcId(vpcId.orNull)
-      .serviceName(serviceName.orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .privateDnsEnabled(privateDnsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .vpcEndpointType(vpcEndpointType.orNull)

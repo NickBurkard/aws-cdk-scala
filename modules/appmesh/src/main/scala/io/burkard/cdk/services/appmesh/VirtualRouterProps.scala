@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object VirtualRouterProps {
 
   def apply(
+    mesh: software.amazon.awscdk.services.appmesh.IMesh,
     virtualRouterName: Option[String] = None,
-    listeners: Option[List[_ <: software.amazon.awscdk.services.appmesh.VirtualRouterListener]] = None,
-    mesh: Option[software.amazon.awscdk.services.appmesh.IMesh] = None
+    listeners: Option[List[_ <: software.amazon.awscdk.services.appmesh.VirtualRouterListener]] = None
   ): software.amazon.awscdk.services.appmesh.VirtualRouterProps =
     (new software.amazon.awscdk.services.appmesh.VirtualRouterProps.Builder)
+      .mesh(mesh)
       .virtualRouterName(virtualRouterName.orNull)
       .listeners(listeners.map(_.asJava).orNull)
-      .mesh(mesh.orNull)
       .build()
 }

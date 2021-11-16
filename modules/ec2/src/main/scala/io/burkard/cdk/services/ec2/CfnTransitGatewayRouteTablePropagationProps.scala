@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object CfnTransitGatewayRouteTablePropagationProps {
 
   def apply(
-    transitGatewayRouteTableId: Option[String] = None,
-    transitGatewayAttachmentId: Option[String] = None
+    transitGatewayRouteTableId: String,
+    transitGatewayAttachmentId: String
   ): software.amazon.awscdk.services.ec2.CfnTransitGatewayRouteTablePropagationProps =
     (new software.amazon.awscdk.services.ec2.CfnTransitGatewayRouteTablePropagationProps.Builder)
-      .transitGatewayRouteTableId(transitGatewayRouteTableId.orNull)
-      .transitGatewayAttachmentId(transitGatewayAttachmentId.orNull)
+      .transitGatewayRouteTableId(transitGatewayRouteTableId)
+      .transitGatewayAttachmentId(transitGatewayAttachmentId)
       .build()
 }

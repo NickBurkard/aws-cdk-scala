@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object SubscriptionDefinitionVersionProperty {
 
   def apply(
-    subscriptions: Option[List[_]] = None
+    subscriptions: List[_]
   ): software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinition.SubscriptionDefinitionVersionProperty =
     (new software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinition.SubscriptionDefinitionVersionProperty.Builder)
-      .subscriptions(subscriptions.map(_.asJava).orNull)
+      .subscriptions(subscriptions.asJava)
       .build()
 }

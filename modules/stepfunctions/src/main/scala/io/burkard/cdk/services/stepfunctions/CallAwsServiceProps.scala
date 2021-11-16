@@ -7,10 +7,11 @@ import scala.collection.JavaConverters._
 object CallAwsServiceProps {
 
   def apply(
+    service: String,
+    iamResources: List[String],
+    action: String,
     iamAction: Option[String] = None,
     resultPath: Option[String] = None,
-    service: Option[String] = None,
-    iamResources: Option[List[String]] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
@@ -18,14 +19,14 @@ object CallAwsServiceProps {
     comment: Option[String] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    parameters: Option[Map[String, _]] = None,
-    action: Option[String] = None
+    parameters: Option[Map[String, _]] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.CallAwsServiceProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.CallAwsServiceProps.Builder)
+      .service(service)
+      .iamResources(iamResources.asJava)
+      .action(action)
       .iamAction(iamAction.orNull)
       .resultPath(resultPath.orNull)
-      .service(service.orNull)
-      .iamResources(iamResources.map(_.asJava).orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)
@@ -34,6 +35,5 @@ object CallAwsServiceProps {
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
       .parameters(parameters.map(_.asJava).orNull)
-      .action(action.orNull)
       .build()
 }

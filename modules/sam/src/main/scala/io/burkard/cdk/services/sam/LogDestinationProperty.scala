@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object LogDestinationProperty {
 
   def apply(
-    cloudWatchLogsLogGroup: Option[software.amazon.awscdk.services.sam.CfnStateMachine.CloudWatchLogsLogGroupProperty] = None
+    cloudWatchLogsLogGroup: software.amazon.awscdk.services.sam.CfnStateMachine.CloudWatchLogsLogGroupProperty
   ): software.amazon.awscdk.services.sam.CfnStateMachine.LogDestinationProperty =
     (new software.amazon.awscdk.services.sam.CfnStateMachine.LogDestinationProperty.Builder)
-      .cloudWatchLogsLogGroup(cloudWatchLogsLogGroup.orNull)
+      .cloudWatchLogsLogGroup(cloudWatchLogsLogGroup)
       .build()
 }

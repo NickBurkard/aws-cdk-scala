@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object FileAccessLogProperty {
 
   def apply(
-    path: Option[String] = None
+    path: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.FileAccessLogProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.FileAccessLogProperty.Builder)
-      .path(path.orNull)
+      .path(path)
       .build()
 }

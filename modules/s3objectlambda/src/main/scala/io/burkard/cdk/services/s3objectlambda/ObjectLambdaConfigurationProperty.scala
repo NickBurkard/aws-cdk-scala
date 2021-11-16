@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object ObjectLambdaConfigurationProperty {
 
   def apply(
+    supportingAccessPoint: String,
+    transformationConfigurations: List[_],
     cloudWatchMetricsEnabled: Option[Boolean] = None,
-    supportingAccessPoint: Option[String] = None,
-    allowedFeatures: Option[List[String]] = None,
-    transformationConfigurations: Option[List[_]] = None
+    allowedFeatures: Option[List[String]] = None
   ): software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty =
     (new software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty.Builder)
+      .supportingAccessPoint(supportingAccessPoint)
+      .transformationConfigurations(transformationConfigurations.asJava)
       .cloudWatchMetricsEnabled(cloudWatchMetricsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .supportingAccessPoint(supportingAccessPoint.orNull)
       .allowedFeatures(allowedFeatures.map(_.asJava).orNull)
-      .transformationConfigurations(transformationConfigurations.map(_.asJava).orNull)
       .build()
 }

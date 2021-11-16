@@ -4,11 +4,11 @@ package io.burkard.cdk.services.datapipeline
 object PipelineTagProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.datapipeline.CfnPipeline.PipelineTagProperty =
     (new software.amazon.awscdk.services.datapipeline.CfnPipeline.PipelineTagProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

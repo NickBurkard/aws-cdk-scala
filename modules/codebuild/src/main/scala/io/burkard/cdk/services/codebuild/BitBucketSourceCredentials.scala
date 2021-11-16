@@ -5,12 +5,12 @@ object BitBucketSourceCredentials {
 
   def apply(
     internalResourceId: String,
-    username: Option[software.amazon.awscdk.SecretValue] = None,
-    password: Option[software.amazon.awscdk.SecretValue] = None
+    username: software.amazon.awscdk.SecretValue,
+    password: software.amazon.awscdk.SecretValue
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codebuild.BitBucketSourceCredentials =
     software.amazon.awscdk.services.codebuild.BitBucketSourceCredentials.Builder
       .create(stackCtx, internalResourceId)
-      .username(username.orNull)
-      .password(password.orNull)
+      .username(username)
+      .password(password)
       .build()
 }

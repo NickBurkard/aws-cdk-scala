@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnSubscriptionDefinitionVersionProps {
 
   def apply(
-    subscriptionDefinitionId: Option[String] = None,
-    subscriptions: Option[List[_]] = None
+    subscriptionDefinitionId: String,
+    subscriptions: List[_]
   ): software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersionProps =
     (new software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersionProps.Builder)
-      .subscriptionDefinitionId(subscriptionDefinitionId.orNull)
-      .subscriptions(subscriptions.map(_.asJava).orNull)
+      .subscriptionDefinitionId(subscriptionDefinitionId)
+      .subscriptions(subscriptions.asJava)
       .build()
 }

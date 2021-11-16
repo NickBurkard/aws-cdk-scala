@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object DatadogSourcePropertiesProperty {
 
   def apply(
-    `object`: Option[String] = None
+    `object`: String
   ): software.amazon.awscdk.services.appflow.CfnFlow.DatadogSourcePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.DatadogSourcePropertiesProperty.Builder)
-      .`object`(`object`.orNull)
+      .`object`(`object`)
       .build()
 }

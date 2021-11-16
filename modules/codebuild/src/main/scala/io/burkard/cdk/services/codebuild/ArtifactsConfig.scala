@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codebuild
 object ArtifactsConfig {
 
   def apply(
-    artifactsProperty: Option[software.amazon.awscdk.services.codebuild.CfnProject.ArtifactsProperty] = None
+    artifactsProperty: software.amazon.awscdk.services.codebuild.CfnProject.ArtifactsProperty
   ): software.amazon.awscdk.services.codebuild.ArtifactsConfig =
     (new software.amazon.awscdk.services.codebuild.ArtifactsConfig.Builder)
-      .artifactsProperty(artifactsProperty.orNull)
+      .artifactsProperty(artifactsProperty)
       .build()
 }

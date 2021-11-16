@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object NotificationObjectTypeProperty {
 
   def apply(
-    backupVaultEvents: Option[List[String]] = None,
-    snsTopicArn: Option[String] = None
+    backupVaultEvents: List[String],
+    snsTopicArn: String
   ): software.amazon.awscdk.services.backup.CfnBackupVault.NotificationObjectTypeProperty =
     (new software.amazon.awscdk.services.backup.CfnBackupVault.NotificationObjectTypeProperty.Builder)
-      .backupVaultEvents(backupVaultEvents.map(_.asJava).orNull)
-      .snsTopicArn(snsTopicArn.orNull)
+      .backupVaultEvents(backupVaultEvents.asJava)
+      .snsTopicArn(snsTopicArn)
       .build()
 }

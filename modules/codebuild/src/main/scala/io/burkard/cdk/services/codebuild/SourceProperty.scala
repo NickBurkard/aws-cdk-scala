@@ -4,6 +4,7 @@ package io.burkard.cdk.services.codebuild
 object SourceProperty {
 
   def apply(
+    `type`: String,
     gitSubmodulesConfig: Option[software.amazon.awscdk.services.codebuild.CfnProject.GitSubmodulesConfigProperty] = None,
     location: Option[String] = None,
     reportBuildStatus: Option[Boolean] = None,
@@ -12,10 +13,10 @@ object SourceProperty {
     buildSpec: Option[String] = None,
     gitCloneDepth: Option[Number] = None,
     buildStatusConfig: Option[software.amazon.awscdk.services.codebuild.CfnProject.BuildStatusConfigProperty] = None,
-    `type`: Option[String] = None,
     sourceIdentifier: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.SourceProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.SourceProperty.Builder)
+      .`type`(`type`)
       .gitSubmodulesConfig(gitSubmodulesConfig.orNull)
       .location(location.orNull)
       .reportBuildStatus(reportBuildStatus.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -24,7 +25,6 @@ object SourceProperty {
       .buildSpec(buildSpec.orNull)
       .gitCloneDepth(gitCloneDepth.orNull)
       .buildStatusConfig(buildStatusConfig.orNull)
-      .`type`(`type`.orNull)
       .sourceIdentifier(sourceIdentifier.orNull)
       .build()
 }

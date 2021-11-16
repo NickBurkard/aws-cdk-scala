@@ -5,16 +5,16 @@ object CfnPortfolioPrincipalAssociation {
 
   def apply(
     internalResourceId: String,
-    portfolioId: Option[String] = None,
-    principalArn: Option[String] = None,
-    acceptLanguage: Option[String] = None,
-    principalType: Option[String] = None
+    portfolioId: String,
+    principalArn: String,
+    principalType: String,
+    acceptLanguage: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnPortfolioPrincipalAssociation =
     software.amazon.awscdk.services.servicecatalog.CfnPortfolioPrincipalAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .portfolioId(portfolioId.orNull)
-      .principalArn(principalArn.orNull)
+      .portfolioId(portfolioId)
+      .principalArn(principalArn)
+      .principalType(principalType)
       .acceptLanguage(acceptLanguage.orNull)
-      .principalType(principalType.orNull)
       .build()
 }

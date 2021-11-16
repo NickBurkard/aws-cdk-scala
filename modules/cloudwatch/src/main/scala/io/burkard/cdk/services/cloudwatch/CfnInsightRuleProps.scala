@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnInsightRuleProps {
 
   def apply(
-    ruleName: Option[String] = None,
-    tags: Option[List[_]] = None,
-    ruleBody: Option[String] = None,
-    ruleState: Option[String] = None
+    ruleName: String,
+    ruleBody: String,
+    ruleState: String,
+    tags: Option[List[_]] = None
   ): software.amazon.awscdk.services.cloudwatch.CfnInsightRuleProps =
     (new software.amazon.awscdk.services.cloudwatch.CfnInsightRuleProps.Builder)
-      .ruleName(ruleName.orNull)
+      .ruleName(ruleName)
+      .ruleBody(ruleBody)
+      .ruleState(ruleState)
       .tags(tags.map(_.asJava).orNull)
-      .ruleBody(ruleBody.orNull)
-      .ruleState(ruleState.orNull)
       .build()
 }

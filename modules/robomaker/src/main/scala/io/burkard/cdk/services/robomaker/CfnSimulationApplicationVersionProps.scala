@@ -4,11 +4,11 @@ package io.burkard.cdk.services.robomaker
 object CfnSimulationApplicationVersionProps {
 
   def apply(
-    application: Option[String] = None,
+    application: String,
     currentRevisionId: Option[String] = None
   ): software.amazon.awscdk.services.robomaker.CfnSimulationApplicationVersionProps =
     (new software.amazon.awscdk.services.robomaker.CfnSimulationApplicationVersionProps.Builder)
-      .application(application.orNull)
+      .application(application)
       .currentRevisionId(currentRevisionId.orNull)
       .build()
 }

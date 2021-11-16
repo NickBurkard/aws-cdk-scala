@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ec2
 object ConnectionRule {
 
   def apply(
+    fromPort: Number,
     toPort: Option[Number] = None,
     description: Option[String] = None,
-    fromPort: Option[Number] = None,
     protocol: Option[String] = None
   ): software.amazon.awscdk.services.ec2.ConnectionRule =
     (new software.amazon.awscdk.services.ec2.ConnectionRule.Builder)
+      .fromPort(fromPort)
       .toPort(toPort.orNull)
       .description(description.orNull)
-      .fromPort(fromPort.orNull)
       .protocol(protocol.orNull)
       .build()
 }

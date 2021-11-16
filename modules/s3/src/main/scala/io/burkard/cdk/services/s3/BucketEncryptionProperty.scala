@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object BucketEncryptionProperty {
 
   def apply(
-    serverSideEncryptionConfiguration: Option[List[_]] = None
+    serverSideEncryptionConfiguration: List[_]
   ): software.amazon.awscdk.services.s3.CfnBucket.BucketEncryptionProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.BucketEncryptionProperty.Builder)
-      .serverSideEncryptionConfiguration(serverSideEncryptionConfiguration.map(_.asJava).orNull)
+      .serverSideEncryptionConfiguration(serverSideEncryptionConfiguration.asJava)
       .build()
 }

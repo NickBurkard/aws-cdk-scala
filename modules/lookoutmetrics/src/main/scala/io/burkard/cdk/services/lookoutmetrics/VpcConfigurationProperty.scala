@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object VpcConfigurationProperty {
 
   def apply(
-    securityGroupIdList: Option[List[String]] = None,
-    subnetIdList: Option[List[String]] = None
+    securityGroupIdList: List[String],
+    subnetIdList: List[String]
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.VpcConfigurationProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.VpcConfigurationProperty.Builder)
-      .securityGroupIdList(securityGroupIdList.map(_.asJava).orNull)
-      .subnetIdList(subnetIdList.map(_.asJava).orNull)
+      .securityGroupIdList(securityGroupIdList.asJava)
+      .subnetIdList(subnetIdList.asJava)
       .build()
 }

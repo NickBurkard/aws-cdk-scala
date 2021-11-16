@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnFrameworkProps {
 
   def apply(
+    frameworkControls: List[_],
     frameworkDescription: Option[String] = None,
-    frameworkControls: Option[List[_]] = None,
     frameworkName: Option[String] = None,
     frameworkTags: Option[List[_]] = None
   ): software.amazon.awscdk.services.backup.CfnFrameworkProps =
     (new software.amazon.awscdk.services.backup.CfnFrameworkProps.Builder)
+      .frameworkControls(frameworkControls.asJava)
       .frameworkDescription(frameworkDescription.orNull)
-      .frameworkControls(frameworkControls.map(_.asJava).orNull)
       .frameworkName(frameworkName.orNull)
       .frameworkTags(frameworkTags.map(_.asJava).orNull)
       .build()

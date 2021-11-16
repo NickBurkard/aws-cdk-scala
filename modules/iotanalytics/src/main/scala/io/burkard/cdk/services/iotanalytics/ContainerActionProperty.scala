@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object ContainerActionProperty {
 
   def apply(
-    image: Option[String] = None,
-    variables: Option[List[_]] = None,
-    resourceConfiguration: Option[software.amazon.awscdk.services.iotanalytics.CfnDataset.ResourceConfigurationProperty] = None,
-    executionRoleArn: Option[String] = None
+    image: String,
+    resourceConfiguration: software.amazon.awscdk.services.iotanalytics.CfnDataset.ResourceConfigurationProperty,
+    executionRoleArn: String,
+    variables: Option[List[_]] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.ContainerActionProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.ContainerActionProperty.Builder)
-      .image(image.orNull)
+      .image(image)
+      .resourceConfiguration(resourceConfiguration)
+      .executionRoleArn(executionRoleArn)
       .variables(variables.map(_.asJava).orNull)
-      .resourceConfiguration(resourceConfiguration.orNull)
-      .executionRoleArn(executionRoleArn.orNull)
       .build()
 }

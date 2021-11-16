@@ -8,26 +8,26 @@ object CfnStackSetConstraint {
 
   def apply(
     internalResourceId: String,
-    portfolioId: Option[String] = None,
-    executionRole: Option[String] = None,
-    description: Option[String] = None,
-    accountList: Option[List[String]] = None,
-    regionList: Option[List[String]] = None,
-    acceptLanguage: Option[String] = None,
-    productId: Option[String] = None,
-    adminRole: Option[String] = None,
-    stackInstanceControl: Option[String] = None
+    portfolioId: String,
+    executionRole: String,
+    description: String,
+    accountList: List[String],
+    regionList: List[String],
+    productId: String,
+    adminRole: String,
+    stackInstanceControl: String,
+    acceptLanguage: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnStackSetConstraint =
     software.amazon.awscdk.services.servicecatalog.CfnStackSetConstraint.Builder
       .create(stackCtx, internalResourceId)
-      .portfolioId(portfolioId.orNull)
-      .executionRole(executionRole.orNull)
-      .description(description.orNull)
-      .accountList(accountList.map(_.asJava).orNull)
-      .regionList(regionList.map(_.asJava).orNull)
+      .portfolioId(portfolioId)
+      .executionRole(executionRole)
+      .description(description)
+      .accountList(accountList.asJava)
+      .regionList(regionList.asJava)
+      .productId(productId)
+      .adminRole(adminRole)
+      .stackInstanceControl(stackInstanceControl)
       .acceptLanguage(acceptLanguage.orNull)
-      .productId(productId.orNull)
-      .adminRole(adminRole.orNull)
-      .stackInstanceControl(stackInstanceControl.orNull)
       .build()
 }

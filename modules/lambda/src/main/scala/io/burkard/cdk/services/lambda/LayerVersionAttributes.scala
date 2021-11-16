@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object LayerVersionAttributes {
 
   def apply(
-    compatibleRuntimes: Option[List[_ <: software.amazon.awscdk.services.lambda.Runtime]] = None,
-    layerVersionArn: Option[String] = None
+    layerVersionArn: String,
+    compatibleRuntimes: Option[List[_ <: software.amazon.awscdk.services.lambda.Runtime]] = None
   ): software.amazon.awscdk.services.lambda.LayerVersionAttributes =
     (new software.amazon.awscdk.services.lambda.LayerVersionAttributes.Builder)
+      .layerVersionArn(layerVersionArn)
       .compatibleRuntimes(compatibleRuntimes.map(_.asJava).orNull)
-      .layerVersionArn(layerVersionArn.orNull)
       .build()
 }

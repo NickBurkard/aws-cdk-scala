@@ -4,15 +4,15 @@ package io.burkard.cdk.cloudassembly
 object SSMParameterContextQuery {
 
   def apply(
-    account: Option[String] = None,
-    lookupRoleArn: Option[String] = None,
-    region: Option[String] = None,
-    parameterName: Option[String] = None
+    account: String,
+    region: String,
+    parameterName: String,
+    lookupRoleArn: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.SSMParameterContextQuery =
     (new software.amazon.awscdk.cloudassembly.schema.SSMParameterContextQuery.Builder)
-      .account(account.orNull)
+      .account(account)
+      .region(region)
+      .parameterName(parameterName)
       .lookupRoleArn(lookupRoleArn.orNull)
-      .region(region.orNull)
-      .parameterName(parameterName.orNull)
       .build()
 }

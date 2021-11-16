@@ -4,9 +4,9 @@ package io.burkard.cdk.services.emr
 object OnDemandProvisioningSpecificationProperty {
 
   def apply(
-    allocationStrategy: Option[String] = None
+    allocationStrategy: String
   ): software.amazon.awscdk.services.emr.CfnCluster.OnDemandProvisioningSpecificationProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.OnDemandProvisioningSpecificationProperty.Builder)
-      .allocationStrategy(allocationStrategy.orNull)
+      .allocationStrategy(allocationStrategy)
       .build()
 }

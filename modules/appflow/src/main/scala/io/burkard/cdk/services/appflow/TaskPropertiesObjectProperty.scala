@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appflow
 object TaskPropertiesObjectProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.appflow.CfnFlow.TaskPropertiesObjectProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.TaskPropertiesObjectProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

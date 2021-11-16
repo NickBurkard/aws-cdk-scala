@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualRouterServiceProviderProperty {
 
   def apply(
-    virtualRouterName: Option[String] = None
+    virtualRouterName: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualRouterServiceProviderProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualRouterServiceProviderProperty.Builder)
-      .virtualRouterName(virtualRouterName.orNull)
+      .virtualRouterName(virtualRouterName)
       .build()
 }

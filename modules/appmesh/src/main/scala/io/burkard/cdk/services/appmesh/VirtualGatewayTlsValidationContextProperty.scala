@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayTlsValidationContextProperty {
 
   def apply(
-    trust: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextTrustProperty] = None,
+    trust: software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextTrustProperty,
     subjectAlternativeNames: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.SubjectAlternativeNamesProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextProperty.Builder)
-      .trust(trust.orNull)
+      .trust(trust)
       .subjectAlternativeNames(subjectAlternativeNames.orNull)
       .build()
 }

@@ -5,14 +5,14 @@ object CfnServiceActionAssociation {
 
   def apply(
     internalResourceId: String,
-    serviceActionId: Option[String] = None,
-    provisioningArtifactId: Option[String] = None,
-    productId: Option[String] = None
+    serviceActionId: String,
+    provisioningArtifactId: String,
+    productId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnServiceActionAssociation =
     software.amazon.awscdk.services.servicecatalog.CfnServiceActionAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .serviceActionId(serviceActionId.orNull)
-      .provisioningArtifactId(provisioningArtifactId.orNull)
-      .productId(productId.orNull)
+      .serviceActionId(serviceActionId)
+      .provisioningArtifactId(provisioningArtifactId)
+      .productId(productId)
       .build()
 }

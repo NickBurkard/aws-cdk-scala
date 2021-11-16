@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object VeevaConnectorProfilePropertiesProperty {
 
   def apply(
-    instanceUrl: Option[String] = None
+    instanceUrl: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.VeevaConnectorProfilePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.VeevaConnectorProfilePropertiesProperty.Builder)
-      .instanceUrl(instanceUrl.orNull)
+      .instanceUrl(instanceUrl)
       .build()
 }

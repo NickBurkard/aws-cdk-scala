@@ -4,13 +4,13 @@ package io.burkard.cdk.services.appflow
 object DestinationFlowConfigProperty {
 
   def apply(
-    connectorProfileName: Option[String] = None,
-    connectorType: Option[String] = None,
-    destinationConnectorProperties: Option[software.amazon.awscdk.services.appflow.CfnFlow.DestinationConnectorPropertiesProperty] = None
+    connectorType: String,
+    destinationConnectorProperties: software.amazon.awscdk.services.appflow.CfnFlow.DestinationConnectorPropertiesProperty,
+    connectorProfileName: Option[String] = None
   ): software.amazon.awscdk.services.appflow.CfnFlow.DestinationFlowConfigProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.DestinationFlowConfigProperty.Builder)
+      .connectorType(connectorType)
+      .destinationConnectorProperties(destinationConnectorProperties)
       .connectorProfileName(connectorProfileName.orNull)
-      .connectorType(connectorType.orNull)
-      .destinationConnectorProperties(destinationConnectorProperties.orNull)
       .build()
 }

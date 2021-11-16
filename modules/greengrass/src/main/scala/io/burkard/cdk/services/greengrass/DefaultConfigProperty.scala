@@ -4,9 +4,9 @@ package io.burkard.cdk.services.greengrass
 object DefaultConfigProperty {
 
   def apply(
-    execution: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.ExecutionProperty] = None
+    execution: software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.ExecutionProperty
   ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.DefaultConfigProperty =
     (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.DefaultConfigProperty.Builder)
-      .execution(execution.orNull)
+      .execution(execution)
       .build()
 }

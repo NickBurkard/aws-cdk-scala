@@ -5,18 +5,18 @@ object CfnAlert {
 
   def apply(
     internalResourceId: String,
-    alertSensitivityThreshold: Option[Number] = None,
+    alertSensitivityThreshold: Number,
+    anomalyDetectorArn: String,
+    action: software.amazon.awscdk.services.lookoutmetrics.CfnAlert.ActionProperty,
     alertName: Option[String] = None,
-    anomalyDetectorArn: Option[String] = None,
-    alertDescription: Option[String] = None,
-    action: Option[software.amazon.awscdk.services.lookoutmetrics.CfnAlert.ActionProperty] = None
+    alertDescription: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lookoutmetrics.CfnAlert =
     software.amazon.awscdk.services.lookoutmetrics.CfnAlert.Builder
       .create(stackCtx, internalResourceId)
-      .alertSensitivityThreshold(alertSensitivityThreshold.orNull)
+      .alertSensitivityThreshold(alertSensitivityThreshold)
+      .anomalyDetectorArn(anomalyDetectorArn)
+      .action(action)
       .alertName(alertName.orNull)
-      .anomalyDetectorArn(anomalyDetectorArn.orNull)
       .alertDescription(alertDescription.orNull)
-      .action(action.orNull)
       .build()
 }

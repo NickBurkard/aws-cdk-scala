@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object TmpfsProperty {
 
   def apply(
+    size: Number,
     mountOptions: Option[List[String]] = None,
-    size: Option[Number] = None,
     containerPath: Option[String] = None
   ): software.amazon.awscdk.services.ecs.CfnTaskDefinition.TmpfsProperty =
     (new software.amazon.awscdk.services.ecs.CfnTaskDefinition.TmpfsProperty.Builder)
+      .size(size)
       .mountOptions(mountOptions.map(_.asJava).orNull)
-      .size(size.orNull)
       .containerPath(containerPath.orNull)
       .build()
 }

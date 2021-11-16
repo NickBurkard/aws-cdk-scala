@@ -4,11 +4,11 @@ package io.burkard.cdk.services.pinpoint
 object QuietTimeProperty {
 
   def apply(
-    end: Option[String] = None,
-    start: Option[String] = None
+    end: String,
+    start: String
   ): software.amazon.awscdk.services.pinpoint.CfnCampaign.QuietTimeProperty =
     (new software.amazon.awscdk.services.pinpoint.CfnCampaign.QuietTimeProperty.Builder)
-      .end(end.orNull)
-      .start(start.orNull)
+      .end(end)
+      .start(start)
       .build()
 }

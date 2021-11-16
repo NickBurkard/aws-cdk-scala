@@ -8,12 +8,12 @@ object CfnUserToGroupAddition {
 
   def apply(
     internalResourceId: String,
-    users: Option[List[String]] = None,
-    groupName: Option[String] = None
+    users: List[String],
+    groupName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iam.CfnUserToGroupAddition =
     software.amazon.awscdk.services.iam.CfnUserToGroupAddition.Builder
       .create(stackCtx, internalResourceId)
-      .users(users.map(_.asJava).orNull)
-      .groupName(groupName.orNull)
+      .users(users.asJava)
+      .groupName(groupName)
       .build()
 }

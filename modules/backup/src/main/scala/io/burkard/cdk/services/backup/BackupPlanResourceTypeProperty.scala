@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object BackupPlanResourceTypeProperty {
 
   def apply(
-    backupPlanRule: Option[List[_]] = None,
-    backupPlanName: Option[String] = None,
+    backupPlanRule: List[_],
+    backupPlanName: String,
     advancedBackupSettings: Option[List[_]] = None
   ): software.amazon.awscdk.services.backup.CfnBackupPlan.BackupPlanResourceTypeProperty =
     (new software.amazon.awscdk.services.backup.CfnBackupPlan.BackupPlanResourceTypeProperty.Builder)
-      .backupPlanRule(backupPlanRule.map(_.asJava).orNull)
-      .backupPlanName(backupPlanName.orNull)
+      .backupPlanRule(backupPlanRule.asJava)
+      .backupPlanName(backupPlanName)
       .advancedBackupSettings(advancedBackupSettings.map(_.asJava).orNull)
       .build()
 }

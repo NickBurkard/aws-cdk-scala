@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object AwsCloudFormationStackProperties {
 
   def apply(
+    templateFile: String,
     assumeRoleArn: Option[String] = None,
     validateOnSynth: Option[Boolean] = None,
     tags: Option[Map[String, String]] = None,
-    templateFile: Option[String] = None,
     terminationProtection: Option[Boolean] = None,
     assumeRoleExternalId: Option[String] = None,
     requiresBootstrapStackVersion: Option[Number] = None,
@@ -21,10 +21,10 @@ object AwsCloudFormationStackProperties {
     stackTemplateAssetObjectUrl: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.AwsCloudFormationStackProperties =
     (new software.amazon.awscdk.cloudassembly.schema.AwsCloudFormationStackProperties.Builder)
+      .templateFile(templateFile)
       .assumeRoleArn(assumeRoleArn.orNull)
       .validateOnSynth(validateOnSynth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .tags(tags.map(_.asJava).orNull)
-      .templateFile(templateFile.orNull)
       .terminationProtection(terminationProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .assumeRoleExternalId(assumeRoleExternalId.orNull)
       .requiresBootstrapStackVersion(requiresBootstrapStackVersion.orNull)

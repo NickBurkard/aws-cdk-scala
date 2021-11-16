@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object S3KeyFilterRuleProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.sam.CfnFunction.S3KeyFilterRuleProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.S3KeyFilterRuleProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appstream
 object ComputeCapacityProperty {
 
   def apply(
-    desiredInstances: Option[Number] = None
+    desiredInstances: Number
   ): software.amazon.awscdk.services.appstream.CfnFleet.ComputeCapacityProperty =
     (new software.amazon.awscdk.services.appstream.CfnFleet.ComputeCapacityProperty.Builder)
-      .desiredInstances(desiredInstances.orNull)
+      .desiredInstances(desiredInstances)
       .build()
 }

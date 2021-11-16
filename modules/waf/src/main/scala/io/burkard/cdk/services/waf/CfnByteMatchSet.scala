@@ -8,12 +8,12 @@ object CfnByteMatchSet {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     byteMatchTuples: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnByteMatchSet =
     software.amazon.awscdk.services.waf.CfnByteMatchSet.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .byteMatchTuples(byteMatchTuples.map(_.asJava).orNull)
       .build()
 }

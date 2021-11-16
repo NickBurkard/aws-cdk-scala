@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object StringParameterProperty {
 
   def apply(
-    name: Option[String] = None,
-    values: Option[List[String]] = None
+    name: String,
+    values: List[String]
   ): software.amazon.awscdk.services.quicksight.CfnDashboard.StringParameterProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDashboard.StringParameterProperty.Builder)
-      .name(name.orNull)
-      .values(values.map(_.asJava).orNull)
+      .name(name)
+      .values(values.asJava)
       .build()
 }

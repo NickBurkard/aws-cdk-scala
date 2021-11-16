@@ -4,17 +4,17 @@ package io.burkard.cdk.services.ce
 object CfnCostCategoryProps {
 
   def apply(
+    name: String,
+    ruleVersion: String,
+    rules: String,
     defaultValue: Option[String] = None,
-    name: Option[String] = None,
-    ruleVersion: Option[String] = None,
-    splitChargeRules: Option[String] = None,
-    rules: Option[String] = None
+    splitChargeRules: Option[String] = None
   ): software.amazon.awscdk.services.ce.CfnCostCategoryProps =
     (new software.amazon.awscdk.services.ce.CfnCostCategoryProps.Builder)
+      .name(name)
+      .ruleVersion(ruleVersion)
+      .rules(rules)
       .defaultValue(defaultValue.orNull)
-      .name(name.orNull)
-      .ruleVersion(ruleVersion.orNull)
       .splitChargeRules(splitChargeRules.orNull)
-      .rules(rules.orNull)
       .build()
 }

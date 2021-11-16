@@ -4,17 +4,17 @@ package io.burkard.cdk.services.codebuild
 object ProjectFileSystemLocationProperty {
 
   def apply(
-    mountOptions: Option[String] = None,
-    location: Option[String] = None,
-    identifier: Option[String] = None,
-    mountPoint: Option[String] = None,
-    `type`: Option[String] = None
+    location: String,
+    identifier: String,
+    mountPoint: String,
+    `type`: String,
+    mountOptions: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.ProjectFileSystemLocationProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.ProjectFileSystemLocationProperty.Builder)
+      .location(location)
+      .identifier(identifier)
+      .mountPoint(mountPoint)
+      .`type`(`type`)
       .mountOptions(mountOptions.orNull)
-      .location(location.orNull)
-      .identifier(identifier.orNull)
-      .mountPoint(mountPoint.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

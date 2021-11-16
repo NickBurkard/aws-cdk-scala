@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object InferenceExecutionConfigProperty {
 
   def apply(
-    mode: Option[String] = None
+    mode: String
   ): software.amazon.awscdk.services.sagemaker.CfnModel.InferenceExecutionConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModel.InferenceExecutionConfigProperty.Builder)
-      .mode(mode.orNull)
+      .mode(mode)
       .build()
 }

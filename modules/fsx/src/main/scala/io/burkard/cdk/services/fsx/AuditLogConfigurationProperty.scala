@@ -4,13 +4,13 @@ package io.burkard.cdk.services.fsx
 object AuditLogConfigurationProperty {
 
   def apply(
-    auditLogDestination: Option[String] = None,
-    fileAccessAuditLogLevel: Option[String] = None,
-    fileShareAccessAuditLogLevel: Option[String] = None
+    fileAccessAuditLogLevel: String,
+    fileShareAccessAuditLogLevel: String,
+    auditLogDestination: Option[String] = None
   ): software.amazon.awscdk.services.fsx.CfnFileSystem.AuditLogConfigurationProperty =
     (new software.amazon.awscdk.services.fsx.CfnFileSystem.AuditLogConfigurationProperty.Builder)
+      .fileAccessAuditLogLevel(fileAccessAuditLogLevel)
+      .fileShareAccessAuditLogLevel(fileShareAccessAuditLogLevel)
       .auditLogDestination(auditLogDestination.orNull)
-      .fileAccessAuditLogLevel(fileAccessAuditLogLevel.orNull)
-      .fileShareAccessAuditLogLevel(fileShareAccessAuditLogLevel.orNull)
       .build()
 }

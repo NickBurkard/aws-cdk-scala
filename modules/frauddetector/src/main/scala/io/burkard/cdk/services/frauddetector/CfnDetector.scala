@@ -8,10 +8,10 @@ object CfnDetector {
 
   def apply(
     internalResourceId: String,
-    detectorId: Option[String] = None,
-    rules: Option[List[_]] = None,
+    detectorId: String,
+    rules: List[_],
+    eventType: software.amazon.awscdk.services.frauddetector.CfnDetector.EventTypeProperty,
     ruleExecutionMode: Option[String] = None,
-    eventType: Option[software.amazon.awscdk.services.frauddetector.CfnDetector.EventTypeProperty] = None,
     detectorVersionStatus: Option[String] = None,
     description: Option[String] = None,
     associatedModels: Option[List[_]] = None,
@@ -19,10 +19,10 @@ object CfnDetector {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.frauddetector.CfnDetector =
     software.amazon.awscdk.services.frauddetector.CfnDetector.Builder
       .create(stackCtx, internalResourceId)
-      .detectorId(detectorId.orNull)
-      .rules(rules.map(_.asJava).orNull)
+      .detectorId(detectorId)
+      .rules(rules.asJava)
+      .eventType(eventType)
       .ruleExecutionMode(ruleExecutionMode.orNull)
-      .eventType(eventType.orNull)
       .detectorVersionStatus(detectorVersionStatus.orNull)
       .description(description.orNull)
       .associatedModels(associatedModels.map(_.asJava).orNull)

@@ -8,10 +8,10 @@ object QueuePolicy {
 
   def apply(
     internalResourceId: String,
-    queues: Option[List[_ <: software.amazon.awscdk.services.sqs.IQueue]] = None
+    queues: List[_ <: software.amazon.awscdk.services.sqs.IQueue]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sqs.QueuePolicy =
     software.amazon.awscdk.services.sqs.QueuePolicy.Builder
       .create(stackCtx, internalResourceId)
-      .queues(queues.map(_.asJava).orNull)
+      .queues(queues.asJava)
       .build()
 }

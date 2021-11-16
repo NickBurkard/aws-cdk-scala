@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object QueueProcessingServiceBaseProps {
 
   def apply(
+    image: software.amazon.awscdk.services.ecs.ContainerImage,
     minHealthyPercent: Option[Number] = None,
     secrets: Option[Map[String, _ <: software.amazon.awscdk.services.ecs.Secret]] = None,
     visibilityTimeout: Option[software.amazon.awscdk.Duration] = None,
@@ -19,7 +20,6 @@ object QueueProcessingServiceBaseProps {
     desiredTaskCount: Option[Number] = None,
     maxReceiveCount: Option[Number] = None,
     queue: Option[software.amazon.awscdk.services.sqs.IQueue] = None,
-    image: Option[software.amazon.awscdk.services.ecs.ContainerImage] = None,
     retentionPeriod: Option[software.amazon.awscdk.Duration] = None,
     serviceName: Option[String] = None,
     command: Option[List[String]] = None,
@@ -34,6 +34,7 @@ object QueueProcessingServiceBaseProps {
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
   ): software.amazon.awscdk.services.ecs.patterns.QueueProcessingServiceBaseProps =
     (new software.amazon.awscdk.services.ecs.patterns.QueueProcessingServiceBaseProps.Builder)
+      .image(image)
       .minHealthyPercent(minHealthyPercent.orNull)
       .secrets(secrets.map(_.asJava).orNull)
       .visibilityTimeout(visibilityTimeout.orNull)
@@ -46,7 +47,6 @@ object QueueProcessingServiceBaseProps {
       .desiredTaskCount(desiredTaskCount.orNull)
       .maxReceiveCount(maxReceiveCount.orNull)
       .queue(queue.orNull)
-      .image(image.orNull)
       .retentionPeriod(retentionPeriod.orNull)
       .serviceName(serviceName.orNull)
       .command(command.map(_.asJava).orNull)

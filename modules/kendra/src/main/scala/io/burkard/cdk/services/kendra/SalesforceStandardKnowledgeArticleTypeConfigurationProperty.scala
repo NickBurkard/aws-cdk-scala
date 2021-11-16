@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object SalesforceStandardKnowledgeArticleTypeConfigurationProperty {
 
   def apply(
+    documentDataFieldName: String,
     documentTitleFieldName: Option[String] = None,
-    documentDataFieldName: Option[String] = None,
     fieldMappings: Option[List[_]] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty.Builder)
+      .documentDataFieldName(documentDataFieldName)
       .documentTitleFieldName(documentTitleFieldName.orNull)
-      .documentDataFieldName(documentDataFieldName.orNull)
       .fieldMappings(fieldMappings.map(_.asJava).orNull)
       .build()
 }

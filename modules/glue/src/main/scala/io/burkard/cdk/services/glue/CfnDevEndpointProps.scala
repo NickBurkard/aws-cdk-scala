@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CfnDevEndpointProps {
 
   def apply(
+    roleArn: String,
     tags: Option[AnyRef] = None,
     securityGroupIds: Option[List[String]] = None,
     publicKeys: Option[List[String]] = None,
@@ -20,10 +21,10 @@ object CfnDevEndpointProps {
     extraJarsS3Path: Option[String] = None,
     subnetId: Option[String] = None,
     extraPythonLibsS3Path: Option[String] = None,
-    roleArn: Option[String] = None,
     workerType: Option[String] = None
   ): software.amazon.awscdk.services.glue.CfnDevEndpointProps =
     (new software.amazon.awscdk.services.glue.CfnDevEndpointProps.Builder)
+      .roleArn(roleArn)
       .tags(tags.orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .publicKeys(publicKeys.map(_.asJava).orNull)
@@ -37,7 +38,6 @@ object CfnDevEndpointProps {
       .extraJarsS3Path(extraJarsS3Path.orNull)
       .subnetId(subnetId.orNull)
       .extraPythonLibsS3Path(extraPythonLibsS3Path.orNull)
-      .roleArn(roleArn.orNull)
       .workerType(workerType.orNull)
       .build()
 }

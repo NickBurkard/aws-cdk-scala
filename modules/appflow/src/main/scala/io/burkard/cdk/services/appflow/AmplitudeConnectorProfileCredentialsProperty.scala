@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appflow
 object AmplitudeConnectorProfileCredentialsProperty {
 
   def apply(
-    apiKey: Option[String] = None,
-    secretKey: Option[String] = None
+    apiKey: String,
+    secretKey: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.AmplitudeConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.AmplitudeConnectorProfileCredentialsProperty.Builder)
-      .apiKey(apiKey.orNull)
-      .secretKey(secretKey.orNull)
+      .apiKey(apiKey)
+      .secretKey(secretKey)
       .build()
 }

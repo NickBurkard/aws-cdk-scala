@@ -4,13 +4,13 @@ package io.burkard.cdk.services.robomaker
 object SourceConfigProperty {
 
   def apply(
-    s3Bucket: Option[String] = None,
-    architecture: Option[String] = None,
-    s3Key: Option[String] = None
+    s3Bucket: String,
+    architecture: String,
+    s3Key: String
   ): software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SourceConfigProperty =
     (new software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SourceConfigProperty.Builder)
-      .s3Bucket(s3Bucket.orNull)
-      .architecture(architecture.orNull)
-      .s3Key(s3Key.orNull)
+      .s3Bucket(s3Bucket)
+      .architecture(architecture)
+      .s3Key(s3Key)
       .build()
 }

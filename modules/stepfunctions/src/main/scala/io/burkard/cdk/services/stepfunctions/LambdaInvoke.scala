@@ -8,13 +8,13 @@ object LambdaInvoke {
 
   def apply(
     internalResourceId: String,
+    lambdaFunction: software.amazon.awscdk.services.lambda.IFunction,
     qualifier: Option[String] = None,
     payload: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
     invocationType: Option[software.amazon.awscdk.services.stepfunctions.tasks.LambdaInvocationType] = None,
     retryOnServiceExceptions: Option[Boolean] = None,
     payloadResponseOnly: Option[Boolean] = None,
     resultPath: Option[String] = None,
-    lambdaFunction: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     clientContext: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
@@ -26,13 +26,13 @@ object LambdaInvoke {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.LambdaInvoke =
     software.amazon.awscdk.services.stepfunctions.tasks.LambdaInvoke.Builder
       .create(stackCtx, internalResourceId)
+      .lambdaFunction(lambdaFunction)
       .qualifier(qualifier.orNull)
       .payload(payload.orNull)
       .invocationType(invocationType.orNull)
       .retryOnServiceExceptions(retryOnServiceExceptions.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .payloadResponseOnly(payloadResponseOnly.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .resultPath(resultPath.orNull)
-      .lambdaFunction(lambdaFunction.orNull)
       .clientContext(clientContext.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)

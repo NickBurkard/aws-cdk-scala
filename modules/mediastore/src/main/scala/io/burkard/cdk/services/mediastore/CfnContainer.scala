@@ -8,7 +8,7 @@ object CfnContainer {
 
   def apply(
     internalResourceId: String,
-    containerName: Option[String] = None,
+    containerName: String,
     metricPolicy: Option[software.amazon.awscdk.services.mediastore.CfnContainer.MetricPolicyProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     lifecyclePolicy: Option[String] = None,
@@ -18,7 +18,7 @@ object CfnContainer {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.mediastore.CfnContainer =
     software.amazon.awscdk.services.mediastore.CfnContainer.Builder
       .create(stackCtx, internalResourceId)
-      .containerName(containerName.orNull)
+      .containerName(containerName)
       .metricPolicy(metricPolicy.orNull)
       .tags(tags.map(_.asJava).orNull)
       .lifecyclePolicy(lifecyclePolicy.orNull)

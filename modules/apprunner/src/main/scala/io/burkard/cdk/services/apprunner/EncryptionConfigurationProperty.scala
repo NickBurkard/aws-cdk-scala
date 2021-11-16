@@ -4,9 +4,9 @@ package io.burkard.cdk.services.apprunner
 object EncryptionConfigurationProperty {
 
   def apply(
-    kmsKey: Option[String] = None
+    kmsKey: String
   ): software.amazon.awscdk.services.apprunner.CfnService.EncryptionConfigurationProperty =
     (new software.amazon.awscdk.services.apprunner.CfnService.EncryptionConfigurationProperty.Builder)
-      .kmsKey(kmsKey.orNull)
+      .kmsKey(kmsKey)
       .build()
 }

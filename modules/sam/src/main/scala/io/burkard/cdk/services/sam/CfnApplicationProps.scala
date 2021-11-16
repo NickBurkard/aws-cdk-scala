@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnApplicationProps {
 
   def apply(
-    location0: Option[software.amazon.awscdk.services.sam.CfnApplication.ApplicationLocationProperty] = None,
-    location1: Option[String] = None,
+    location0: software.amazon.awscdk.services.sam.CfnApplication.ApplicationLocationProperty,
+    location1: String,
     tags: Option[Map[String, String]] = None,
     notificationArns: Option[List[String]] = None,
     timeoutInMinutes: Option[Number] = None,
     parameters: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.sam.CfnApplicationProps =
     (new software.amazon.awscdk.services.sam.CfnApplicationProps.Builder)
-      .location(location0.orNull)
-      .location(location1.orNull)
+      .location(location0)
+      .location(location1)
       .tags(tags.map(_.asJava).orNull)
       .notificationArns(notificationArns.map(_.asJava).orNull)
       .timeoutInMinutes(timeoutInMinutes.orNull)

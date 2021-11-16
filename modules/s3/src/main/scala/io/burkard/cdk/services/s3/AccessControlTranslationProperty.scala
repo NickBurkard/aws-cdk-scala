@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object AccessControlTranslationProperty {
 
   def apply(
-    owner: Option[String] = None
+    owner: String
   ): software.amazon.awscdk.services.s3.CfnBucket.AccessControlTranslationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.AccessControlTranslationProperty.Builder)
-      .owner(owner.orNull)
+      .owner(owner)
       .build()
 }

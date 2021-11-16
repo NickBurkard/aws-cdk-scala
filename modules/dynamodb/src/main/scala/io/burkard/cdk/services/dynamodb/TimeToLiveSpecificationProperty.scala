@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dynamodb
 object TimeToLiveSpecificationProperty {
 
   def apply(
-    enabled: Option[Boolean] = None,
-    attributeName: Option[String] = None
+    enabled: Boolean,
+    attributeName: String
   ): software.amazon.awscdk.services.dynamodb.CfnTable.TimeToLiveSpecificationProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnTable.TimeToLiveSpecificationProperty.Builder)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .attributeName(attributeName.orNull)
+      .enabled(enabled)
+      .attributeName(attributeName)
       .build()
 }

@@ -5,14 +5,14 @@ object CfnDocumentationPart {
 
   def apply(
     internalResourceId: String,
-    location: Option[software.amazon.awscdk.services.apigateway.CfnDocumentationPart.LocationProperty] = None,
-    properties: Option[String] = None,
-    restApiId: Option[String] = None
+    location: software.amazon.awscdk.services.apigateway.CfnDocumentationPart.LocationProperty,
+    properties: String,
+    restApiId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnDocumentationPart =
     software.amazon.awscdk.services.apigateway.CfnDocumentationPart.Builder
       .create(stackCtx, internalResourceId)
-      .location(location.orNull)
-      .properties(properties.orNull)
-      .restApiId(restApiId.orNull)
+      .location(location)
+      .properties(properties)
+      .restApiId(restApiId)
       .build()
 }

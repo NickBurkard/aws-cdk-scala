@@ -4,15 +4,15 @@ package io.burkard.cdk.services.waf
 object SizeConstraintProperty {
 
   def apply(
-    size: Option[Number] = None,
-    textTransformation: Option[String] = None,
-    comparisonOperator: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.waf.CfnSizeConstraintSet.FieldToMatchProperty] = None
+    size: Number,
+    textTransformation: String,
+    comparisonOperator: String,
+    fieldToMatch: software.amazon.awscdk.services.waf.CfnSizeConstraintSet.FieldToMatchProperty
   ): software.amazon.awscdk.services.waf.CfnSizeConstraintSet.SizeConstraintProperty =
     (new software.amazon.awscdk.services.waf.CfnSizeConstraintSet.SizeConstraintProperty.Builder)
-      .size(size.orNull)
-      .textTransformation(textTransformation.orNull)
-      .comparisonOperator(comparisonOperator.orNull)
-      .fieldToMatch(fieldToMatch.orNull)
+      .size(size)
+      .textTransformation(textTransformation)
+      .comparisonOperator(comparisonOperator)
+      .fieldToMatch(fieldToMatch)
       .build()
 }

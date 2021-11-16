@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnFirewallPolicyProps {
 
   def apply(
-    firewallPolicy: Option[software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.FirewallPolicyProperty] = None,
-    firewallPolicyName: Option[String] = None,
+    firewallPolicy: software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.FirewallPolicyProperty,
+    firewallPolicyName: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicyProps =
     (new software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicyProps.Builder)
-      .firewallPolicy(firewallPolicy.orNull)
-      .firewallPolicyName(firewallPolicyName.orNull)
+      .firewallPolicy(firewallPolicy)
+      .firewallPolicyName(firewallPolicyName)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

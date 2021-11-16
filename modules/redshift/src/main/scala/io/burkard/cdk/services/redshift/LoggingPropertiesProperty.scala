@@ -4,11 +4,11 @@ package io.burkard.cdk.services.redshift
 object LoggingPropertiesProperty {
 
   def apply(
-    bucketName: Option[String] = None,
+    bucketName: String,
     s3KeyPrefix: Option[String] = None
   ): software.amazon.awscdk.services.redshift.CfnCluster.LoggingPropertiesProperty =
     (new software.amazon.awscdk.services.redshift.CfnCluster.LoggingPropertiesProperty.Builder)
-      .bucketName(bucketName.orNull)
+      .bucketName(bucketName)
       .s3KeyPrefix(s3KeyPrefix.orNull)
       .build()
 }

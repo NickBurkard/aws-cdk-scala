@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appsync
 object HttpConfigProperty {
 
   def apply(
-    authorizationConfig: Option[software.amazon.awscdk.services.appsync.CfnDataSource.AuthorizationConfigProperty] = None,
-    endpoint: Option[String] = None
+    endpoint: String,
+    authorizationConfig: Option[software.amazon.awscdk.services.appsync.CfnDataSource.AuthorizationConfigProperty] = None
   ): software.amazon.awscdk.services.appsync.CfnDataSource.HttpConfigProperty =
     (new software.amazon.awscdk.services.appsync.CfnDataSource.HttpConfigProperty.Builder)
+      .endpoint(endpoint)
       .authorizationConfig(authorizationConfig.orNull)
-      .endpoint(endpoint.orNull)
       .build()
 }

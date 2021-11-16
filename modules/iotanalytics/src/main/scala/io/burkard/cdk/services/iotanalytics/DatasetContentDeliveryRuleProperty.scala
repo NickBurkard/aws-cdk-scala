@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object DatasetContentDeliveryRuleProperty {
 
   def apply(
-    entryName: Option[String] = None,
-    destination: Option[software.amazon.awscdk.services.iotanalytics.CfnDataset.DatasetContentDeliveryRuleDestinationProperty] = None
+    destination: software.amazon.awscdk.services.iotanalytics.CfnDataset.DatasetContentDeliveryRuleDestinationProperty,
+    entryName: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.DatasetContentDeliveryRuleProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.DatasetContentDeliveryRuleProperty.Builder)
+      .destination(destination)
       .entryName(entryName.orNull)
-      .destination(destination.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object AddNetworkActionProps {
 
   def apply(
-    action: Option[software.amazon.awscdk.services.elasticloadbalancingv2.NetworkListenerAction] = None
+    action: software.amazon.awscdk.services.elasticloadbalancingv2.NetworkListenerAction
   ): software.amazon.awscdk.services.elasticloadbalancingv2.AddNetworkActionProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.AddNetworkActionProps.Builder)
-      .action(action.orNull)
+      .action(action)
       .build()
 }

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object PredictiveScalingConfigurationProperty {
 
   def apply(
+    metricSpecifications: List[_],
     maxCapacityBuffer: Option[Number] = None,
-    metricSpecifications: Option[List[_]] = None,
     schedulingBufferTime: Option[Number] = None,
     maxCapacityBreachBehavior: Option[String] = None,
     mode: Option[String] = None
   ): software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.PredictiveScalingConfigurationProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.PredictiveScalingConfigurationProperty.Builder)
+      .metricSpecifications(metricSpecifications.asJava)
       .maxCapacityBuffer(maxCapacityBuffer.orNull)
-      .metricSpecifications(metricSpecifications.map(_.asJava).orNull)
       .schedulingBufferTime(schedulingBufferTime.orNull)
       .maxCapacityBreachBehavior(maxCapacityBreachBehavior.orNull)
       .mode(mode.orNull)

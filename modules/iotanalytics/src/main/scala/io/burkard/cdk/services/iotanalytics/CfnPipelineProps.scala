@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnPipelineProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    pipelineName: Option[String] = None,
-    pipelineActivities: Option[List[_]] = None
+    pipelineName: String,
+    pipelineActivities: List[_],
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnPipelineProps =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipelineProps.Builder)
+      .pipelineName(pipelineName)
+      .pipelineActivities(pipelineActivities.asJava)
       .tags(tags.map(_.asJava).orNull)
-      .pipelineName(pipelineName.orNull)
-      .pipelineActivities(pipelineActivities.map(_.asJava).orNull)
       .build()
 }

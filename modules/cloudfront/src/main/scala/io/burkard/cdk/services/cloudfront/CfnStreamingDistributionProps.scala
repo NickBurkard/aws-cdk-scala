@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnStreamingDistributionProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    streamingDistributionConfig: Option[software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.StreamingDistributionConfigProperty] = None
+    tags: List[_ <: software.amazon.awscdk.CfnTag],
+    streamingDistributionConfig: software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.StreamingDistributionConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnStreamingDistributionProps =
     (new software.amazon.awscdk.services.cloudfront.CfnStreamingDistributionProps.Builder)
-      .tags(tags.map(_.asJava).orNull)
-      .streamingDistributionConfig(streamingDistributionConfig.orNull)
+      .tags(tags.asJava)
+      .streamingDistributionConfig(streamingDistributionConfig)
       .build()
 }

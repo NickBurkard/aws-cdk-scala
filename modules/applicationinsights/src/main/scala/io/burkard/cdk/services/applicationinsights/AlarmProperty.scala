@@ -4,11 +4,11 @@ package io.burkard.cdk.services.applicationinsights
 object AlarmProperty {
 
   def apply(
-    severity: Option[String] = None,
-    alarmName: Option[String] = None
+    alarmName: String,
+    severity: Option[String] = None
   ): software.amazon.awscdk.services.applicationinsights.CfnApplication.AlarmProperty =
     (new software.amazon.awscdk.services.applicationinsights.CfnApplication.AlarmProperty.Builder)
+      .alarmName(alarmName)
       .severity(severity.orNull)
-      .alarmName(alarmName.orNull)
       .build()
 }

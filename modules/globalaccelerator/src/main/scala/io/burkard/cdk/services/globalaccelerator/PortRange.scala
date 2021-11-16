@@ -4,11 +4,11 @@ package io.burkard.cdk.services.globalaccelerator
 object PortRange {
 
   def apply(
-    toPort: Option[Number] = None,
-    fromPort: Option[Number] = None
+    fromPort: Number,
+    toPort: Option[Number] = None
   ): software.amazon.awscdk.services.globalaccelerator.PortRange =
     (new software.amazon.awscdk.services.globalaccelerator.PortRange.Builder)
+      .fromPort(fromPort)
       .toPort(toPort.orNull)
-      .fromPort(fromPort.orNull)
       .build()
 }

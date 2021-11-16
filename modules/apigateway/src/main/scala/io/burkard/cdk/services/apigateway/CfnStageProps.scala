@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnStageProps {
 
   def apply(
+    restApiId: String,
     clientCertificateId: Option[String] = None,
     tracingEnabled: Option[Boolean] = None,
     deploymentId: Option[String] = None,
     cacheClusterEnabled: Option[Boolean] = None,
     stageName: Option[String] = None,
     accessLogSetting: Option[software.amazon.awscdk.services.apigateway.CfnStage.AccessLogSettingProperty] = None,
-    restApiId: Option[String] = None,
     description: Option[String] = None,
     canarySetting: Option[software.amazon.awscdk.services.apigateway.CfnStage.CanarySettingProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
@@ -23,13 +23,13 @@ object CfnStageProps {
     cacheClusterSize: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.CfnStageProps =
     (new software.amazon.awscdk.services.apigateway.CfnStageProps.Builder)
+      .restApiId(restApiId)
       .clientCertificateId(clientCertificateId.orNull)
       .tracingEnabled(tracingEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .deploymentId(deploymentId.orNull)
       .cacheClusterEnabled(cacheClusterEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .stageName(stageName.orNull)
       .accessLogSetting(accessLogSetting.orNull)
-      .restApiId(restApiId.orNull)
       .description(description.orNull)
       .canarySetting(canarySetting.orNull)
       .tags(tags.map(_.asJava).orNull)

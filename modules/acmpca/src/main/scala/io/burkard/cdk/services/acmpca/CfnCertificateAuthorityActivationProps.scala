@@ -4,14 +4,14 @@ package io.burkard.cdk.services.acmpca
 object CfnCertificateAuthorityActivationProps {
 
   def apply(
-    certificate: Option[String] = None,
-    certificateAuthorityArn: Option[String] = None,
+    certificate: String,
+    certificateAuthorityArn: String,
     status: Option[String] = None,
     certificateChain: Option[String] = None
   ): software.amazon.awscdk.services.acmpca.CfnCertificateAuthorityActivationProps =
     (new software.amazon.awscdk.services.acmpca.CfnCertificateAuthorityActivationProps.Builder)
-      .certificate(certificate.orNull)
-      .certificateAuthorityArn(certificateAuthorityArn.orNull)
+      .certificate(certificate)
+      .certificateAuthorityArn(certificateAuthorityArn)
       .status(status.orNull)
       .certificateChain(certificateChain.orNull)
       .build()

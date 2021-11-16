@@ -8,28 +8,28 @@ object CfnModelQualityJobDefinition {
 
   def apply(
     internalResourceId: String,
-    modelQualityJobInput: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityJobInputProperty] = None,
+    modelQualityJobInput: software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityJobInputProperty,
+    jobResources: software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.MonitoringResourcesProperty,
+    roleArn: String,
+    modelQualityAppSpecification: software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty,
+    modelQualityJobOutputConfig: software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.MonitoringOutputConfigProperty,
     networkConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.NetworkConfigProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    jobResources: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.MonitoringResourcesProperty] = None,
-    roleArn: Option[String] = None,
     jobDefinitionName: Option[String] = None,
     stoppingCondition: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.StoppingConditionProperty] = None,
-    modelQualityBaselineConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityBaselineConfigProperty] = None,
-    modelQualityAppSpecification: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty] = None,
-    modelQualityJobOutputConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.MonitoringOutputConfigProperty] = None
+    modelQualityBaselineConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityBaselineConfigProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition =
     software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.Builder
       .create(stackCtx, internalResourceId)
-      .modelQualityJobInput(modelQualityJobInput.orNull)
+      .modelQualityJobInput(modelQualityJobInput)
+      .jobResources(jobResources)
+      .roleArn(roleArn)
+      .modelQualityAppSpecification(modelQualityAppSpecification)
+      .modelQualityJobOutputConfig(modelQualityJobOutputConfig)
       .networkConfig(networkConfig.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .jobResources(jobResources.orNull)
-      .roleArn(roleArn.orNull)
       .jobDefinitionName(jobDefinitionName.orNull)
       .stoppingCondition(stoppingCondition.orNull)
       .modelQualityBaselineConfig(modelQualityBaselineConfig.orNull)
-      .modelQualityAppSpecification(modelQualityAppSpecification.orNull)
-      .modelQualityJobOutputConfig(modelQualityJobOutputConfig.orNull)
       .build()
 }

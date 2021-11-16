@@ -4,17 +4,17 @@ package io.burkard.cdk.services.iot
 object OpenSearchActionProperty {
 
   def apply(
-    id: Option[String] = None,
-    roleArn: Option[String] = None,
-    endpoint: Option[String] = None,
-    `type`: Option[String] = None,
-    index: Option[String] = None
+    id: String,
+    roleArn: String,
+    endpoint: String,
+    `type`: String,
+    index: String
   ): software.amazon.awscdk.services.iot.CfnTopicRule.OpenSearchActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.OpenSearchActionProperty.Builder)
-      .id(id.orNull)
-      .roleArn(roleArn.orNull)
-      .endpoint(endpoint.orNull)
-      .`type`(`type`.orNull)
-      .index(index.orNull)
+      .id(id)
+      .roleArn(roleArn)
+      .endpoint(endpoint)
+      .`type`(`type`)
+      .index(index)
       .build()
 }

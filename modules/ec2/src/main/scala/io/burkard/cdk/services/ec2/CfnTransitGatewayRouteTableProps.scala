@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnTransitGatewayRouteTableProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    transitGatewayId: Option[String] = None
+    transitGatewayId: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ec2.CfnTransitGatewayRouteTableProps =
     (new software.amazon.awscdk.services.ec2.CfnTransitGatewayRouteTableProps.Builder)
+      .transitGatewayId(transitGatewayId)
       .tags(tags.map(_.asJava).orNull)
-      .transitGatewayId(transitGatewayId.orNull)
       .build()
 }

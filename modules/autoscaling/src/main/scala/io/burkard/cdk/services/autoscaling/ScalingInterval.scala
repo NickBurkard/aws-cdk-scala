@@ -4,13 +4,13 @@ package io.burkard.cdk.services.autoscaling
 object ScalingInterval {
 
   def apply(
+    change: Number,
     lower: Option[Number] = None,
-    upper: Option[Number] = None,
-    change: Option[Number] = None
+    upper: Option[Number] = None
   ): software.amazon.awscdk.services.autoscaling.common.ScalingInterval =
     (new software.amazon.awscdk.services.autoscaling.common.ScalingInterval.Builder)
+      .change(change)
       .lower(lower.orNull)
       .upper(upper.orNull)
-      .change(change.orNull)
       .build()
 }

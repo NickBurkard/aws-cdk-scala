@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object AccountAggregationSourceProperty {
 
   def apply(
+    accountIds: List[String],
     allAwsRegions: Option[Boolean] = None,
-    awsRegions: Option[List[String]] = None,
-    accountIds: Option[List[String]] = None
+    awsRegions: Option[List[String]] = None
   ): software.amazon.awscdk.services.config.CfnConfigurationAggregator.AccountAggregationSourceProperty =
     (new software.amazon.awscdk.services.config.CfnConfigurationAggregator.AccountAggregationSourceProperty.Builder)
+      .accountIds(accountIds.asJava)
       .allAwsRegions(allAwsRegions.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .awsRegions(awsRegions.map(_.asJava).orNull)
-      .accountIds(accountIds.map(_.asJava).orNull)
       .build()
 }

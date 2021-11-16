@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudwatch
 object AlarmActionConfig {
 
   def apply(
-    alarmActionArn: Option[String] = None
+    alarmActionArn: String
   ): software.amazon.awscdk.services.cloudwatch.AlarmActionConfig =
     (new software.amazon.awscdk.services.cloudwatch.AlarmActionConfig.Builder)
-      .alarmActionArn(alarmActionArn.orNull)
+      .alarmActionArn(alarmActionArn)
       .build()
 }

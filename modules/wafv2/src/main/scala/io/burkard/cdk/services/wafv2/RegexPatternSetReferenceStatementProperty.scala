@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object RegexPatternSetReferenceStatementProperty {
 
   def apply(
-    arn: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty] = None,
-    textTransformations: Option[List[_]] = None
+    arn: String,
+    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty,
+    textTransformations: List[_]
   ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.RegexPatternSetReferenceStatementProperty =
     (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.RegexPatternSetReferenceStatementProperty.Builder)
-      .arn(arn.orNull)
-      .fieldToMatch(fieldToMatch.orNull)
-      .textTransformations(textTransformations.map(_.asJava).orNull)
+      .arn(arn)
+      .fieldToMatch(fieldToMatch)
+      .textTransformations(textTransformations.asJava)
       .build()
 }

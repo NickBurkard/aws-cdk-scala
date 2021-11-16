@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object HeadersConfigProperty {
 
   def apply(
-    headerBehavior: Option[String] = None,
+    headerBehavior: String,
     headers: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnCachePolicy.HeadersConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnCachePolicy.HeadersConfigProperty.Builder)
-      .headerBehavior(headerBehavior.orNull)
+      .headerBehavior(headerBehavior)
       .headers(headers.map(_.asJava).orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotevents
 object ClearTimerProperty {
 
   def apply(
-    timerName: Option[String] = None
+    timerName: String
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.ClearTimerProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.ClearTimerProperty.Builder)
-      .timerName(timerName.orNull)
+      .timerName(timerName)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayTlsValidationContextSdsTrustProperty {
 
   def apply(
-    secretName: Option[String] = None
+    secretName: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextSdsTrustProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextSdsTrustProperty.Builder)
-      .secretName(secretName.orNull)
+      .secretName(secretName)
       .build()
 }

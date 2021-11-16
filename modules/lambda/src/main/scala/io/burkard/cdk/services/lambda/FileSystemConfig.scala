@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object FileSystemConfig {
 
   def apply(
-    arn: Option[String] = None,
+    arn: String,
+    localMountPath: String,
     dependency: Option[List[_ <: software.constructs.IDependable]] = None,
-    localMountPath: Option[String] = None,
     connections: Option[software.amazon.awscdk.services.ec2.Connections] = None,
     policies: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None
   ): software.amazon.awscdk.services.lambda.FileSystemConfig =
     (new software.amazon.awscdk.services.lambda.FileSystemConfig.Builder)
-      .arn(arn.orNull)
+      .arn(arn)
+      .localMountPath(localMountPath)
       .dependency(dependency.map(_.asJava).orNull)
-      .localMountPath(localMountPath.orNull)
       .connections(connections.orNull)
       .policies(policies.map(_.asJava).orNull)
       .build()

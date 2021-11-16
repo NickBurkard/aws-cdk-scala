@@ -4,6 +4,7 @@ package io.burkard.cdk.services.efs
 object FileSystemProps {
 
   def apply(
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     enableAutomaticBackups: Option[Boolean] = None,
     kmsKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
     lifecyclePolicy: Option[software.amazon.awscdk.services.efs.LifecyclePolicy] = None,
@@ -12,12 +13,12 @@ object FileSystemProps {
     performanceMode: Option[software.amazon.awscdk.services.efs.PerformanceMode] = None,
     encrypted: Option[Boolean] = None,
     fileSystemName: Option[String] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     throughputMode: Option[software.amazon.awscdk.services.efs.ThroughputMode] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
   ): software.amazon.awscdk.services.efs.FileSystemProps =
     (new software.amazon.awscdk.services.efs.FileSystemProps.Builder)
+      .vpc(vpc)
       .enableAutomaticBackups(enableAutomaticBackups.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .kmsKey(kmsKey.orNull)
       .lifecyclePolicy(lifecyclePolicy.orNull)
@@ -26,7 +27,6 @@ object FileSystemProps {
       .performanceMode(performanceMode.orNull)
       .encrypted(encrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .fileSystemName(fileSystemName.orNull)
-      .vpc(vpc.orNull)
       .throughputMode(throughputMode.orNull)
       .removalPolicy(removalPolicy.orNull)
       .securityGroup(securityGroup.orNull)

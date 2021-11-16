@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object PosixUserProperty {
 
   def apply(
-    gid: Option[String] = None,
-    secondaryGids: Option[List[String]] = None,
-    uid: Option[String] = None
+    gid: String,
+    uid: String,
+    secondaryGids: Option[List[String]] = None
   ): software.amazon.awscdk.services.efs.CfnAccessPoint.PosixUserProperty =
     (new software.amazon.awscdk.services.efs.CfnAccessPoint.PosixUserProperty.Builder)
-      .gid(gid.orNull)
+      .gid(gid)
+      .uid(uid)
       .secondaryGids(secondaryGids.map(_.asJava).orNull)
-      .uid(uid.orNull)
       .build()
 }

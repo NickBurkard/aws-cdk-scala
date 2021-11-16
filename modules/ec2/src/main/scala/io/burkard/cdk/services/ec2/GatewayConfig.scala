@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object GatewayConfig {
 
   def apply(
-    gatewayId: Option[String] = None,
-    az: Option[String] = None
+    gatewayId: String,
+    az: String
   ): software.amazon.awscdk.services.ec2.GatewayConfig =
     (new software.amazon.awscdk.services.ec2.GatewayConfig.Builder)
-      .gatewayId(gatewayId.orNull)
-      .az(az.orNull)
+      .gatewayId(gatewayId)
+      .az(az)
       .build()
 }

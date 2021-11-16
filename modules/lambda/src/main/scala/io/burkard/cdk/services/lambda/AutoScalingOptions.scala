@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lambda
 object AutoScalingOptions {
 
   def apply(
-    maxCapacity: Option[Number] = None,
+    maxCapacity: Number,
     minCapacity: Option[Number] = None
   ): software.amazon.awscdk.services.lambda.AutoScalingOptions =
     (new software.amazon.awscdk.services.lambda.AutoScalingOptions.Builder)
-      .maxCapacity(maxCapacity.orNull)
+      .maxCapacity(maxCapacity)
       .minCapacity(minCapacity.orNull)
       .build()
 }

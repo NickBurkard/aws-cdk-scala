@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object AssociationParameterProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[List[String]] = None
+    key: String,
+    value: List[String]
   ): software.amazon.awscdk.services.ec2.CfnInstance.AssociationParameterProperty =
     (new software.amazon.awscdk.services.ec2.CfnInstance.AssociationParameterProperty.Builder)
-      .key(key.orNull)
-      .value(value.map(_.asJava).orNull)
+      .key(key)
+      .value(value.asJava)
       .build()
 }

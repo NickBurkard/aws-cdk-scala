@@ -4,9 +4,9 @@ package io.burkard.cdk.services.autoscaling
 object ElbHealthCheckOptions {
 
   def apply(
-    grace: Option[software.amazon.awscdk.Duration] = None
+    grace: software.amazon.awscdk.Duration
   ): software.amazon.awscdk.services.autoscaling.ElbHealthCheckOptions =
     (new software.amazon.awscdk.services.autoscaling.ElbHealthCheckOptions.Builder)
-      .grace(grace.orNull)
+      .grace(grace)
       .build()
 }

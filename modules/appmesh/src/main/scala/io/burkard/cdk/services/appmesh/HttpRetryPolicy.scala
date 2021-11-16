@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object HttpRetryPolicy {
 
   def apply(
+    retryTimeout: software.amazon.awscdk.Duration,
+    retryAttempts: Number,
     tcpRetryEvents: Option[List[_ <: software.amazon.awscdk.services.appmesh.TcpRetryEvent]] = None,
-    retryTimeout: Option[software.amazon.awscdk.Duration] = None,
-    httpRetryEvents: Option[List[_ <: software.amazon.awscdk.services.appmesh.HttpRetryEvent]] = None,
-    retryAttempts: Option[Number] = None
+    httpRetryEvents: Option[List[_ <: software.amazon.awscdk.services.appmesh.HttpRetryEvent]] = None
   ): software.amazon.awscdk.services.appmesh.HttpRetryPolicy =
     (new software.amazon.awscdk.services.appmesh.HttpRetryPolicy.Builder)
+      .retryTimeout(retryTimeout)
+      .retryAttempts(retryAttempts)
       .tcpRetryEvents(tcpRetryEvents.map(_.asJava).orNull)
-      .retryTimeout(retryTimeout.orNull)
       .httpRetryEvents(httpRetryEvents.map(_.asJava).orNull)
-      .retryAttempts(retryAttempts.orNull)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object AddThingsToThingGroupParamsProperty {
 
   def apply(
-    thingGroupNames: Option[List[String]] = None,
+    thingGroupNames: List[String],
     overrideDynamicGroups: Option[Boolean] = None
   ): software.amazon.awscdk.services.iot.CfnMitigationAction.AddThingsToThingGroupParamsProperty =
     (new software.amazon.awscdk.services.iot.CfnMitigationAction.AddThingsToThingGroupParamsProperty.Builder)
-      .thingGroupNames(thingGroupNames.map(_.asJava).orNull)
+      .thingGroupNames(thingGroupNames.asJava)
       .overrideDynamicGroups(overrideDynamicGroups.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.quicksight
 object RowLevelPermissionDataSetProperty {
 
   def apply(
+    permissionPolicy: String,
+    arn: String,
     formatVersion: Option[String] = None,
-    namespace: Option[String] = None,
-    permissionPolicy: Option[String] = None,
-    arn: Option[String] = None
+    namespace: Option[String] = None
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.RowLevelPermissionDataSetProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.RowLevelPermissionDataSetProperty.Builder)
+      .permissionPolicy(permissionPolicy)
+      .arn(arn)
       .formatVersion(formatVersion.orNull)
       .namespace(namespace.orNull)
-      .permissionPolicy(permissionPolicy.orNull)
-      .arn(arn.orNull)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.lookoutmetrics
 object MetricProperty {
 
   def apply(
-    metricName: Option[String] = None,
-    aggregationFunction: Option[String] = None,
+    metricName: String,
+    aggregationFunction: String,
     namespace: Option[String] = None
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.MetricProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.MetricProperty.Builder)
-      .metricName(metricName.orNull)
-      .aggregationFunction(aggregationFunction.orNull)
+      .metricName(metricName)
+      .aggregationFunction(aggregationFunction)
       .namespace(namespace.orNull)
       .build()
 }

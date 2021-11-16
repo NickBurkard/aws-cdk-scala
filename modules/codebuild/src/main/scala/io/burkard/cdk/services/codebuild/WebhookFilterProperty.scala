@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codebuild
 object WebhookFilterProperty {
 
   def apply(
-    pattern: Option[String] = None,
-    excludeMatchedPattern: Option[Boolean] = None,
-    `type`: Option[String] = None
+    pattern: String,
+    `type`: String,
+    excludeMatchedPattern: Option[Boolean] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.WebhookFilterProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.WebhookFilterProperty.Builder)
-      .pattern(pattern.orNull)
+      .pattern(pattern)
+      .`type`(`type`)
       .excludeMatchedPattern(excludeMatchedPattern.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .`type`(`type`.orNull)
       .build()
 }

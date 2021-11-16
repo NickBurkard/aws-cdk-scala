@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnRecipeProps {
 
   def apply(
-    name: Option[String] = None,
-    steps: Option[List[_]] = None,
+    name: String,
+    steps: List[_],
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.databrew.CfnRecipeProps =
     (new software.amazon.awscdk.services.databrew.CfnRecipeProps.Builder)
-      .name(name.orNull)
-      .steps(steps.map(_.asJava).orNull)
+      .name(name)
+      .steps(steps.asJava)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

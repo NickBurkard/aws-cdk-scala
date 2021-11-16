@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object TcpRouteSpecOptions {
 
   def apply(
+    weightedTargets: List[_ <: software.amazon.awscdk.services.appmesh.WeightedTarget],
     priority: Option[Number] = None,
-    weightedTargets: Option[List[_ <: software.amazon.awscdk.services.appmesh.WeightedTarget]] = None,
     timeout: Option[software.amazon.awscdk.services.appmesh.TcpTimeout] = None
   ): software.amazon.awscdk.services.appmesh.TcpRouteSpecOptions =
     (new software.amazon.awscdk.services.appmesh.TcpRouteSpecOptions.Builder)
+      .weightedTargets(weightedTargets.asJava)
       .priority(priority.orNull)
-      .weightedTargets(weightedTargets.map(_.asJava).orNull)
       .timeout(timeout.orNull)
       .build()
 }

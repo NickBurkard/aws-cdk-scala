@@ -8,7 +8,7 @@ object CfnJobTemplate {
 
   def apply(
     internalResourceId: String,
-    settingsJson: Option[AnyRef] = None,
+    settingsJson: AnyRef,
     queue: Option[String] = None,
     statusUpdateInterval: Option[String] = None,
     category: Option[String] = None,
@@ -21,7 +21,7 @@ object CfnJobTemplate {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.mediaconvert.CfnJobTemplate =
     software.amazon.awscdk.services.mediaconvert.CfnJobTemplate.Builder
       .create(stackCtx, internalResourceId)
-      .settingsJson(settingsJson.orNull)
+      .settingsJson(settingsJson)
       .queue(queue.orNull)
       .statusUpdateInterval(statusUpdateInterval.orNull)
       .category(category.orNull)

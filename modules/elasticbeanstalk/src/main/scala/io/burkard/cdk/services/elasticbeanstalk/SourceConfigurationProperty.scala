@@ -4,11 +4,11 @@ package io.burkard.cdk.services.elasticbeanstalk
 object SourceConfigurationProperty {
 
   def apply(
-    applicationName: Option[String] = None,
-    templateName: Option[String] = None
+    applicationName: String,
+    templateName: String
   ): software.amazon.awscdk.services.elasticbeanstalk.CfnConfigurationTemplate.SourceConfigurationProperty =
     (new software.amazon.awscdk.services.elasticbeanstalk.CfnConfigurationTemplate.SourceConfigurationProperty.Builder)
-      .applicationName(applicationName.orNull)
-      .templateName(templateName.orNull)
+      .applicationName(applicationName)
+      .templateName(templateName)
       .build()
 }

@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object CfnRouteProps {
 
   def apply(
-    meshName: Option[String] = None,
-    virtualRouterName: Option[String] = None,
+    meshName: String,
+    virtualRouterName: String,
+    spec: software.amazon.awscdk.services.appmesh.CfnRoute.RouteSpecProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    spec: Option[software.amazon.awscdk.services.appmesh.CfnRoute.RouteSpecProperty] = None,
     routeName: Option[String] = None,
     meshOwner: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.CfnRouteProps =
     (new software.amazon.awscdk.services.appmesh.CfnRouteProps.Builder)
-      .meshName(meshName.orNull)
-      .virtualRouterName(virtualRouterName.orNull)
+      .meshName(meshName)
+      .virtualRouterName(virtualRouterName)
+      .spec(spec)
       .tags(tags.map(_.asJava).orNull)
-      .spec(spec.orNull)
       .routeName(routeName.orNull)
       .meshOwner(meshOwner.orNull)
       .build()

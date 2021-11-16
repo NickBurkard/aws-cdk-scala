@@ -4,15 +4,15 @@ package io.burkard.cdk.services.gamelift
 object IpPermissionProperty {
 
   def apply(
-    toPort: Option[Number] = None,
-    fromPort: Option[Number] = None,
-    ipRange: Option[String] = None,
-    protocol: Option[String] = None
+    toPort: Number,
+    fromPort: Number,
+    ipRange: String,
+    protocol: String
   ): software.amazon.awscdk.services.gamelift.CfnFleet.IpPermissionProperty =
     (new software.amazon.awscdk.services.gamelift.CfnFleet.IpPermissionProperty.Builder)
-      .toPort(toPort.orNull)
-      .fromPort(fromPort.orNull)
-      .ipRange(ipRange.orNull)
-      .protocol(protocol.orNull)
+      .toPort(toPort)
+      .fromPort(fromPort)
+      .ipRange(ipRange)
+      .protocol(protocol)
       .build()
 }

@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnAssetProps {
 
   def apply(
+    sourceRoleArn: String,
+    sourceArn: String,
+    id: String,
+    packagingGroupId: String,
     resourceId: Option[String] = None,
-    sourceRoleArn: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    sourceArn: Option[String] = None,
-    id: Option[String] = None,
-    packagingGroupId: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.mediapackage.CfnAssetProps =
     (new software.amazon.awscdk.services.mediapackage.CfnAssetProps.Builder)
+      .sourceRoleArn(sourceRoleArn)
+      .sourceArn(sourceArn)
+      .id(id)
+      .packagingGroupId(packagingGroupId)
       .resourceId(resourceId.orNull)
-      .sourceRoleArn(sourceRoleArn.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .sourceArn(sourceArn.orNull)
-      .id(id.orNull)
-      .packagingGroupId(packagingGroupId.orNull)
       .build()
 }

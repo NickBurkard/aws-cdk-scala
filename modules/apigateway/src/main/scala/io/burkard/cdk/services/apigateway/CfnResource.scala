@@ -5,14 +5,14 @@ object CfnResource {
 
   def apply(
     internalResourceId: String,
-    pathPart: Option[String] = None,
-    parentId: Option[String] = None,
-    restApiId: Option[String] = None
+    pathPart: String,
+    parentId: String,
+    restApiId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnResource =
     software.amazon.awscdk.services.apigateway.CfnResource.Builder
       .create(stackCtx, internalResourceId)
-      .pathPart(pathPart.orNull)
-      .parentId(parentId.orNull)
-      .restApiId(restApiId.orNull)
+      .pathPart(pathPart)
+      .parentId(parentId)
+      .restApiId(restApiId)
       .build()
 }

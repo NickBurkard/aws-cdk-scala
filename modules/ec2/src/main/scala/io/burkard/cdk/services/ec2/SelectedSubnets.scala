@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object SelectedSubnets {
 
   def apply(
-    hasPublic: Option[Boolean] = None,
-    internetConnectivityEstablished: Option[software.constructs.IDependable] = None,
-    availabilityZones: Option[List[String]] = None,
-    subnetIds: Option[List[String]] = None,
-    subnets: Option[List[_ <: software.amazon.awscdk.services.ec2.ISubnet]] = None
+    hasPublic: Boolean,
+    internetConnectivityEstablished: software.constructs.IDependable,
+    availabilityZones: List[String],
+    subnetIds: List[String],
+    subnets: List[_ <: software.amazon.awscdk.services.ec2.ISubnet]
   ): software.amazon.awscdk.services.ec2.SelectedSubnets =
     (new software.amazon.awscdk.services.ec2.SelectedSubnets.Builder)
-      .hasPublic(hasPublic.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .internetConnectivityEstablished(internetConnectivityEstablished.orNull)
-      .availabilityZones(availabilityZones.map(_.asJava).orNull)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .subnets(subnets.map(_.asJava).orNull)
+      .hasPublic(hasPublic)
+      .internetConnectivityEstablished(internetConnectivityEstablished)
+      .availabilityZones(availabilityZones.asJava)
+      .subnetIds(subnetIds.asJava)
+      .subnets(subnets.asJava)
       .build()
 }

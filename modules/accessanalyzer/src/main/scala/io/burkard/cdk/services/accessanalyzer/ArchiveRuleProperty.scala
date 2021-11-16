@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ArchiveRuleProperty {
 
   def apply(
-    ruleName: Option[String] = None,
-    filter: Option[List[_]] = None
+    ruleName: String,
+    filter: List[_]
   ): software.amazon.awscdk.services.accessanalyzer.CfnAnalyzer.ArchiveRuleProperty =
     (new software.amazon.awscdk.services.accessanalyzer.CfnAnalyzer.ArchiveRuleProperty.Builder)
-      .ruleName(ruleName.orNull)
-      .filter(filter.map(_.asJava).orNull)
+      .ruleName(ruleName)
+      .filter(filter.asJava)
       .build()
 }

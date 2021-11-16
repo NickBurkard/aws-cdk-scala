@@ -4,33 +4,33 @@ package io.burkard.cdk.services.sam
 object EventSourceProperty {
 
   def apply(
-    properties0: Option[software.amazon.awscdk.services.sam.CfnFunction.ScheduleEventProperty] = None,
-    properties1: Option[software.amazon.awscdk.services.sam.CfnFunction.SQSEventProperty] = None,
-    properties2: Option[software.amazon.awscdk.services.sam.CfnFunction.SNSEventProperty] = None,
-    properties3: Option[software.amazon.awscdk.services.sam.CfnFunction.ApiEventProperty] = None,
-    properties4: Option[software.amazon.awscdk.services.sam.CfnFunction.AlexaSkillEventProperty] = None,
-    properties5: Option[software.amazon.awscdk.services.sam.CfnFunction.KinesisEventProperty] = None,
-    properties6: Option[software.amazon.awscdk.services.sam.CfnFunction.CloudWatchLogsEventProperty] = None,
-    properties7: Option[software.amazon.awscdk.services.sam.CfnFunction.DynamoDBEventProperty] = None,
-    properties8: Option[software.amazon.awscdk.services.sam.CfnFunction.EventBridgeRuleEventProperty] = None,
-    properties9: Option[software.amazon.awscdk.services.sam.CfnFunction.IoTRuleEventProperty] = None,
-    properties10: Option[software.amazon.awscdk.services.sam.CfnFunction.CloudWatchEventEventProperty] = None,
-    properties11: Option[software.amazon.awscdk.services.sam.CfnFunction.S3EventProperty] = None,
-    `type`: Option[String] = None
+    properties0: software.amazon.awscdk.services.sam.CfnFunction.ScheduleEventProperty,
+    properties1: software.amazon.awscdk.services.sam.CfnFunction.SQSEventProperty,
+    properties2: software.amazon.awscdk.services.sam.CfnFunction.SNSEventProperty,
+    properties3: software.amazon.awscdk.services.sam.CfnFunction.ApiEventProperty,
+    properties4: software.amazon.awscdk.services.sam.CfnFunction.AlexaSkillEventProperty,
+    properties5: software.amazon.awscdk.services.sam.CfnFunction.KinesisEventProperty,
+    properties6: software.amazon.awscdk.services.sam.CfnFunction.CloudWatchLogsEventProperty,
+    properties7: software.amazon.awscdk.services.sam.CfnFunction.DynamoDBEventProperty,
+    properties8: software.amazon.awscdk.services.sam.CfnFunction.EventBridgeRuleEventProperty,
+    properties9: software.amazon.awscdk.services.sam.CfnFunction.IoTRuleEventProperty,
+    properties10: software.amazon.awscdk.services.sam.CfnFunction.CloudWatchEventEventProperty,
+    properties11: software.amazon.awscdk.services.sam.CfnFunction.S3EventProperty,
+    `type`: String
   ): software.amazon.awscdk.services.sam.CfnFunction.EventSourceProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.EventSourceProperty.Builder)
-      .properties(properties0.orNull)
-      .properties(properties1.orNull)
-      .properties(properties2.orNull)
-      .properties(properties3.orNull)
-      .properties(properties4.orNull)
-      .properties(properties5.orNull)
-      .properties(properties6.orNull)
-      .properties(properties7.orNull)
-      .properties(properties8.orNull)
-      .properties(properties9.orNull)
-      .properties(properties10.orNull)
-      .properties(properties11.orNull)
-      .`type`(`type`.orNull)
+      .properties(properties0)
+      .properties(properties1)
+      .properties(properties2)
+      .properties(properties3)
+      .properties(properties4)
+      .properties(properties5)
+      .properties(properties6)
+      .properties(properties7)
+      .properties(properties8)
+      .properties(properties9)
+      .properties(properties10)
+      .properties(properties11)
+      .`type`(`type`)
       .build()
 }

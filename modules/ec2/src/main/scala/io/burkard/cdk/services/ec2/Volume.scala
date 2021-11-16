@@ -5,9 +5,9 @@ object Volume {
 
   def apply(
     internalResourceId: String,
+    availabilityZone: String,
     enableMultiAttach: Option[Boolean] = None,
     size: Option[software.amazon.awscdk.Size] = None,
-    availabilityZone: Option[String] = None,
     volumeType: Option[software.amazon.awscdk.services.ec2.EbsDeviceVolumeType] = None,
     encrypted: Option[Boolean] = None,
     iops: Option[Number] = None,
@@ -19,9 +19,9 @@ object Volume {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.Volume =
     software.amazon.awscdk.services.ec2.Volume.Builder
       .create(stackCtx, internalResourceId)
+      .availabilityZone(availabilityZone)
       .enableMultiAttach(enableMultiAttach.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .size(size.orNull)
-      .availabilityZone(availabilityZone.orNull)
       .volumeType(volumeType.orNull)
       .encrypted(encrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .iops(iops.orNull)

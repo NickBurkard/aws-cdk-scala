@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnStreamKeyProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    channelArn: Option[String] = None
+    channelArn: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ivs.CfnStreamKeyProps =
     (new software.amazon.awscdk.services.ivs.CfnStreamKeyProps.Builder)
+      .channelArn(channelArn)
       .tags(tags.map(_.asJava).orNull)
-      .channelArn(channelArn.orNull)
       .build()
 }

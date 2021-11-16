@@ -4,15 +4,15 @@ package io.burkard.cdk.services.cloudfront
 object PublicKeyConfigProperty {
 
   def apply(
-    name: Option[String] = None,
-    encodedKey: Option[String] = None,
-    callerReference: Option[String] = None,
+    name: String,
+    encodedKey: String,
+    callerReference: String,
     comment: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.CfnPublicKey.PublicKeyConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnPublicKey.PublicKeyConfigProperty.Builder)
-      .name(name.orNull)
-      .encodedKey(encodedKey.orNull)
-      .callerReference(callerReference.orNull)
+      .name(name)
+      .encodedKey(encodedKey)
+      .callerReference(callerReference)
       .comment(comment.orNull)
       .build()
 }

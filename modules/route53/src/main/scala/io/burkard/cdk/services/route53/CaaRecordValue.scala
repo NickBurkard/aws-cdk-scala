@@ -4,13 +4,13 @@ package io.burkard.cdk.services.route53
 object CaaRecordValue {
 
   def apply(
-    tag: Option[software.amazon.awscdk.services.route53.CaaTag] = None,
-    flag: Option[Number] = None,
-    value: Option[String] = None
+    tag: software.amazon.awscdk.services.route53.CaaTag,
+    flag: Number,
+    value: String
   ): software.amazon.awscdk.services.route53.CaaRecordValue =
     (new software.amazon.awscdk.services.route53.CaaRecordValue.Builder)
-      .tag(tag.orNull)
-      .flag(flag.orNull)
-      .value(value.orNull)
+      .tag(tag)
+      .flag(flag)
+      .value(value)
       .build()
 }

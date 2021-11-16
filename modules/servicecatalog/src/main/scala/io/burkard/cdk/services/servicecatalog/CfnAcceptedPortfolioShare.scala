@@ -5,12 +5,12 @@ object CfnAcceptedPortfolioShare {
 
   def apply(
     internalResourceId: String,
-    portfolioId: Option[String] = None,
+    portfolioId: String,
     acceptLanguage: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnAcceptedPortfolioShare =
     software.amazon.awscdk.services.servicecatalog.CfnAcceptedPortfolioShare.Builder
       .create(stackCtx, internalResourceId)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
       .acceptLanguage(acceptLanguage.orNull)
       .build()
 }

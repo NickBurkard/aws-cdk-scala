@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object CustomerManagedS3StorageProperty {
 
   def apply(
-    bucket: Option[String] = None,
+    bucket: String,
     keyPrefix: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDatastore.CustomerManagedS3StorageProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDatastore.CustomerManagedS3StorageProperty.Builder)
-      .bucket(bucket.orNull)
+      .bucket(bucket)
       .keyPrefix(keyPrefix.orNull)
       .build()
 }

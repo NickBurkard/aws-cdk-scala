@@ -4,15 +4,15 @@ package io.burkard.cdk.services.batch
 object EvaluateOnExitProperty {
 
   def apply(
+    action: String,
     onStatusReason: Option[String] = None,
     onReason: Option[String] = None,
-    action: Option[String] = None,
     onExitCode: Option[String] = None
   ): software.amazon.awscdk.services.batch.CfnJobDefinition.EvaluateOnExitProperty =
     (new software.amazon.awscdk.services.batch.CfnJobDefinition.EvaluateOnExitProperty.Builder)
+      .action(action)
       .onStatusReason(onStatusReason.orNull)
       .onReason(onReason.orNull)
-      .action(action.orNull)
       .onExitCode(onExitCode.orNull)
       .build()
 }

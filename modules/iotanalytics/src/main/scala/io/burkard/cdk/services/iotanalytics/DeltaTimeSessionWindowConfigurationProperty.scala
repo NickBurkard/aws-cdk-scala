@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotanalytics
 object DeltaTimeSessionWindowConfigurationProperty {
 
   def apply(
-    timeoutInMinutes: Option[Number] = None
+    timeoutInMinutes: Number
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.DeltaTimeSessionWindowConfigurationProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.DeltaTimeSessionWindowConfigurationProperty.Builder)
-      .timeoutInMinutes(timeoutInMinutes.orNull)
+      .timeoutInMinutes(timeoutInMinutes)
       .build()
 }

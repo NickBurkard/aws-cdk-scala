@@ -8,14 +8,14 @@ object CfnUserGroup {
 
   def apply(
     internalResourceId: String,
-    userGroupId: Option[String] = None,
-    userIds: Option[List[String]] = None,
-    engine: Option[String] = None
+    userGroupId: String,
+    engine: String,
+    userIds: Option[List[String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticache.CfnUserGroup =
     software.amazon.awscdk.services.elasticache.CfnUserGroup.Builder
       .create(stackCtx, internalResourceId)
-      .userGroupId(userGroupId.orNull)
+      .userGroupId(userGroupId)
+      .engine(engine)
       .userIds(userIds.map(_.asJava).orNull)
-      .engine(engine.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object DeploymentCircuitBreakerProperty {
 
   def apply(
-    enable: Option[Boolean] = None,
-    rollback: Option[Boolean] = None
+    enable: Boolean,
+    rollback: Boolean
   ): software.amazon.awscdk.services.ecs.CfnService.DeploymentCircuitBreakerProperty =
     (new software.amazon.awscdk.services.ecs.CfnService.DeploymentCircuitBreakerProperty.Builder)
-      .enable(enable.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .rollback(rollback.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enable(enable)
+      .rollback(rollback)
       .build()
 }

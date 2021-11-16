@@ -4,11 +4,11 @@ package io.burkard.cdk.services.msk
 object CloudWatchLogsProperty {
 
   def apply(
-    logGroup: Option[String] = None,
-    enabled: Option[Boolean] = None
+    enabled: Boolean,
+    logGroup: Option[String] = None
   ): software.amazon.awscdk.services.msk.CfnCluster.CloudWatchLogsProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.CloudWatchLogsProperty.Builder)
+      .enabled(enabled)
       .logGroup(logGroup.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnConfigurationSetProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     tags: Option[List[_ <: software.amazon.awscdk.services.pinpointemail.CfnConfigurationSet.TagsProperty]] = None,
     reputationOptions: Option[software.amazon.awscdk.services.pinpointemail.CfnConfigurationSet.ReputationOptionsProperty] = None,
     trackingOptions: Option[software.amazon.awscdk.services.pinpointemail.CfnConfigurationSet.TrackingOptionsProperty] = None,
@@ -15,7 +15,7 @@ object CfnConfigurationSetProps {
     deliveryOptions: Option[software.amazon.awscdk.services.pinpointemail.CfnConfigurationSet.DeliveryOptionsProperty] = None
   ): software.amazon.awscdk.services.pinpointemail.CfnConfigurationSetProps =
     (new software.amazon.awscdk.services.pinpointemail.CfnConfigurationSetProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.map(_.asJava).orNull)
       .reputationOptions(reputationOptions.orNull)
       .trackingOptions(trackingOptions.orNull)

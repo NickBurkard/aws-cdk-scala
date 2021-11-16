@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnSigningProfileProps {
 
   def apply(
+    platformId: String,
     signatureValidityPeriod: Option[software.amazon.awscdk.services.signer.CfnSigningProfile.SignatureValidityPeriodProperty] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    platformId: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.signer.CfnSigningProfileProps =
     (new software.amazon.awscdk.services.signer.CfnSigningProfileProps.Builder)
+      .platformId(platformId)
       .signatureValidityPeriod(signatureValidityPeriod.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .platformId(platformId.orNull)
       .build()
 }

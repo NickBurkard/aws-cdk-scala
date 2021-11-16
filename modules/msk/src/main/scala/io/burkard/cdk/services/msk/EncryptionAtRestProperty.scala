@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object EncryptionAtRestProperty {
 
   def apply(
-    dataVolumeKmsKeyId: Option[String] = None
+    dataVolumeKmsKeyId: String
   ): software.amazon.awscdk.services.msk.CfnCluster.EncryptionAtRestProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.EncryptionAtRestProperty.Builder)
-      .dataVolumeKmsKeyId(dataVolumeKmsKeyId.orNull)
+      .dataVolumeKmsKeyId(dataVolumeKmsKeyId)
       .build()
 }

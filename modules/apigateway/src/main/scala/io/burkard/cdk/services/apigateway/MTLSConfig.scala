@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apigateway
 object MTLSConfig {
 
   def apply(
-    key: Option[String] = None,
-    version: Option[String] = None,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None
+    key: String,
+    bucket: software.amazon.awscdk.services.s3.IBucket,
+    version: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.MTLSConfig =
     (new software.amazon.awscdk.services.apigateway.MTLSConfig.Builder)
-      .key(key.orNull)
+      .key(key)
+      .bucket(bucket)
       .version(version.orNull)
-      .bucket(bucket.orNull)
       .build()
 }

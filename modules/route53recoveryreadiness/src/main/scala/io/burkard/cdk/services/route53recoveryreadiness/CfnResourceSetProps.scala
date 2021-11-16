@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnResourceSetProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    resourceSetType: Option[String] = None,
-    resourceSetName: Option[String] = None,
-    resources: Option[List[_]] = None
+    resourceSetType: String,
+    resourceSetName: String,
+    resources: List[_],
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.route53recoveryreadiness.CfnResourceSetProps =
     (new software.amazon.awscdk.services.route53recoveryreadiness.CfnResourceSetProps.Builder)
+      .resourceSetType(resourceSetType)
+      .resourceSetName(resourceSetName)
+      .resources(resources.asJava)
       .tags(tags.map(_.asJava).orNull)
-      .resourceSetType(resourceSetType.orNull)
-      .resourceSetName(resourceSetName.orNull)
-      .resources(resources.map(_.asJava).orNull)
       .build()
 }

@@ -5,16 +5,16 @@ object CfnStudioSessionMapping {
 
   def apply(
     internalResourceId: String,
-    studioId: Option[String] = None,
-    identityName: Option[String] = None,
-    sessionPolicyArn: Option[String] = None,
-    identityType: Option[String] = None
+    studioId: String,
+    identityName: String,
+    sessionPolicyArn: String,
+    identityType: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.emr.CfnStudioSessionMapping =
     software.amazon.awscdk.services.emr.CfnStudioSessionMapping.Builder
       .create(stackCtx, internalResourceId)
-      .studioId(studioId.orNull)
-      .identityName(identityName.orNull)
-      .sessionPolicyArn(sessionPolicyArn.orNull)
-      .identityType(identityType.orNull)
+      .studioId(studioId)
+      .identityName(identityName)
+      .sessionPolicyArn(sessionPolicyArn)
+      .identityType(identityType)
       .build()
 }

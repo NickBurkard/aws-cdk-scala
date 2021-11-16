@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sqs
 object DeadLetterQueue {
 
   def apply(
-    queue: Option[software.amazon.awscdk.services.sqs.IQueue] = None,
-    maxReceiveCount: Option[Number] = None
+    queue: software.amazon.awscdk.services.sqs.IQueue,
+    maxReceiveCount: Number
   ): software.amazon.awscdk.services.sqs.DeadLetterQueue =
     (new software.amazon.awscdk.services.sqs.DeadLetterQueue.Builder)
-      .queue(queue.orNull)
-      .maxReceiveCount(maxReceiveCount.orNull)
+      .queue(queue)
+      .maxReceiveCount(maxReceiveCount)
       .build()
 }

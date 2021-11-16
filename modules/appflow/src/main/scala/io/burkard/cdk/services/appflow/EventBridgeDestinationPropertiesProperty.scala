@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appflow
 object EventBridgeDestinationPropertiesProperty {
 
   def apply(
-    `object`: Option[String] = None,
+    `object`: String,
     errorHandlingConfig: Option[software.amazon.awscdk.services.appflow.CfnFlow.ErrorHandlingConfigProperty] = None
   ): software.amazon.awscdk.services.appflow.CfnFlow.EventBridgeDestinationPropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.EventBridgeDestinationPropertiesProperty.Builder)
-      .`object`(`object`.orNull)
+      .`object`(`object`)
       .errorHandlingConfig(errorHandlingConfig.orNull)
       .build()
 }

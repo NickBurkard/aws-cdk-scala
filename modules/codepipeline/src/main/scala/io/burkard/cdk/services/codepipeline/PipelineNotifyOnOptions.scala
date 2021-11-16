@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object PipelineNotifyOnOptions {
 
   def apply(
+    events: List[_ <: software.amazon.awscdk.services.codepipeline.PipelineNotificationEvents],
     enabled: Option[Boolean] = None,
     detailType: Option[software.amazon.awscdk.services.codestarnotifications.DetailType] = None,
-    notificationRuleName: Option[String] = None,
-    events: Option[List[_ <: software.amazon.awscdk.services.codepipeline.PipelineNotificationEvents]] = None
+    notificationRuleName: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.PipelineNotifyOnOptions =
     (new software.amazon.awscdk.services.codepipeline.PipelineNotifyOnOptions.Builder)
+      .events(events.asJava)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .detailType(detailType.orNull)
       .notificationRuleName(notificationRuleName.orNull)
-      .events(events.map(_.asJava).orNull)
       .build()
 }

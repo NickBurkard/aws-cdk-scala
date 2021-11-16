@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iam
 object SamlProviderProps {
 
   def apply(
-    name: Option[String] = None,
-    metadataDocument: Option[software.amazon.awscdk.services.iam.SamlMetadataDocument] = None
+    metadataDocument: software.amazon.awscdk.services.iam.SamlMetadataDocument,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.iam.SamlProviderProps =
     (new software.amazon.awscdk.services.iam.SamlProviderProps.Builder)
+      .metadataDocument(metadataDocument)
       .name(name.orNull)
-      .metadataDocument(metadataDocument.orNull)
       .build()
 }

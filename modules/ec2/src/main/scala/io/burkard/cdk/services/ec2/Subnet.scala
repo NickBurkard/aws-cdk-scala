@@ -5,16 +5,16 @@ object Subnet {
 
   def apply(
     internalResourceId: String,
-    vpcId: Option[String] = None,
-    availabilityZone: Option[String] = None,
-    cidrBlock: Option[String] = None,
+    vpcId: String,
+    availabilityZone: String,
+    cidrBlock: String,
     mapPublicIpOnLaunch: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.Subnet =
     software.amazon.awscdk.services.ec2.Subnet.Builder
       .create(stackCtx, internalResourceId)
-      .vpcId(vpcId.orNull)
-      .availabilityZone(availabilityZone.orNull)
-      .cidrBlock(cidrBlock.orNull)
+      .vpcId(vpcId)
+      .availabilityZone(availabilityZone)
+      .cidrBlock(cidrBlock)
       .mapPublicIpOnLaunch(mapPublicIpOnLaunch.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.events
 object EventBusAttributes {
 
   def apply(
-    eventSourceName: Option[String] = None,
-    eventBusPolicy: Option[String] = None,
-    eventBusArn: Option[String] = None,
-    eventBusName: Option[String] = None
+    eventBusPolicy: String,
+    eventBusArn: String,
+    eventBusName: String,
+    eventSourceName: Option[String] = None
   ): software.amazon.awscdk.services.events.EventBusAttributes =
     (new software.amazon.awscdk.services.events.EventBusAttributes.Builder)
+      .eventBusPolicy(eventBusPolicy)
+      .eventBusArn(eventBusArn)
+      .eventBusName(eventBusName)
       .eventSourceName(eventSourceName.orNull)
-      .eventBusPolicy(eventBusPolicy.orNull)
-      .eventBusArn(eventBusArn.orNull)
-      .eventBusName(eventBusName.orNull)
       .build()
 }

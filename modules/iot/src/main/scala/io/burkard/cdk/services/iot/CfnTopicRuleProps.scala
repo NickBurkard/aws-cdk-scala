@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnTopicRuleProps {
 
   def apply(
+    topicRulePayload: software.amazon.awscdk.services.iot.CfnTopicRule.TopicRulePayloadProperty,
     ruleName: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    topicRulePayload: Option[software.amazon.awscdk.services.iot.CfnTopicRule.TopicRulePayloadProperty] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRuleProps =
     (new software.amazon.awscdk.services.iot.CfnTopicRuleProps.Builder)
+      .topicRulePayload(topicRulePayload)
       .ruleName(ruleName.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .topicRulePayload(topicRulePayload.orNull)
       .build()
 }

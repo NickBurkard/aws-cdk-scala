@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object SecondaryIndexProps {
 
   def apply(
+    indexName: String,
     projectionType: Option[software.amazon.awscdk.services.dynamodb.ProjectionType] = None,
-    nonKeyAttributes: Option[List[String]] = None,
-    indexName: Option[String] = None
+    nonKeyAttributes: Option[List[String]] = None
   ): software.amazon.awscdk.services.dynamodb.SecondaryIndexProps =
     (new software.amazon.awscdk.services.dynamodb.SecondaryIndexProps.Builder)
+      .indexName(indexName)
       .projectionType(projectionType.orNull)
       .nonKeyAttributes(nonKeyAttributes.map(_.asJava).orNull)
-      .indexName(indexName.orNull)
       .build()
 }

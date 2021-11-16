@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ec2
 object CfnHostProps {
 
   def apply(
-    availabilityZone: Option[String] = None,
+    availabilityZone: String,
+    instanceType: String,
     autoPlacement: Option[String] = None,
-    instanceType: Option[String] = None,
     hostRecovery: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnHostProps =
     (new software.amazon.awscdk.services.ec2.CfnHostProps.Builder)
-      .availabilityZone(availabilityZone.orNull)
+      .availabilityZone(availabilityZone)
+      .instanceType(instanceType)
       .autoPlacement(autoPlacement.orNull)
-      .instanceType(instanceType.orNull)
       .hostRecovery(hostRecovery.orNull)
       .build()
 }

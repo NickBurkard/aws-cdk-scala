@@ -7,7 +7,8 @@ import scala.collection.JavaConverters._
 object DynamoDeleteItemProps {
 
   def apply(
-    key: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None,
+    key: Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue],
+    table: software.amazon.awscdk.services.dynamodb.ITable,
     conditionExpression: Option[String] = None,
     resultPath: Option[String] = None,
     expressionAttributeValues: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None,
@@ -21,11 +22,11 @@ object DynamoDeleteItemProps {
     returnItemCollectionMetrics: Option[software.amazon.awscdk.services.stepfunctions.tasks.DynamoItemCollectionMetrics] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    table: Option[software.amazon.awscdk.services.dynamodb.ITable] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.DynamoDeleteItemProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.DynamoDeleteItemProps.Builder)
-      .key(key.map(_.asJava).orNull)
+      .key(key.asJava)
+      .table(table)
       .conditionExpression(conditionExpression.orNull)
       .resultPath(resultPath.orNull)
       .expressionAttributeValues(expressionAttributeValues.map(_.asJava).orNull)
@@ -39,7 +40,6 @@ object DynamoDeleteItemProps {
       .returnItemCollectionMetrics(returnItemCollectionMetrics.orNull)
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
-      .table(table.orNull)
       .heartbeat(heartbeat.orNull)
       .build()
 }

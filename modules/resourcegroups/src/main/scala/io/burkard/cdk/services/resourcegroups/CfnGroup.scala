@@ -8,7 +8,7 @@ object CfnGroup {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     configuration: Option[List[_]] = None,
     resources: Option[List[String]] = None,
     resourceQuery: Option[software.amazon.awscdk.services.resourcegroups.CfnGroup.ResourceQueryProperty] = None,
@@ -17,7 +17,7 @@ object CfnGroup {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.resourcegroups.CfnGroup =
     software.amazon.awscdk.services.resourcegroups.CfnGroup.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .configuration(configuration.map(_.asJava).orNull)
       .resources(resources.map(_.asJava).orNull)
       .resourceQuery(resourceQuery.orNull)

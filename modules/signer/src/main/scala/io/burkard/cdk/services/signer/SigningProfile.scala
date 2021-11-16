@@ -5,14 +5,14 @@ object SigningProfile {
 
   def apply(
     internalResourceId: String,
+    platform: software.amazon.awscdk.services.signer.Platform,
     signingProfileName: Option[String] = None,
-    signatureValidity: Option[software.amazon.awscdk.Duration] = None,
-    platform: Option[software.amazon.awscdk.services.signer.Platform] = None
+    signatureValidity: Option[software.amazon.awscdk.Duration] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.signer.SigningProfile =
     software.amazon.awscdk.services.signer.SigningProfile.Builder
       .create(stackCtx, internalResourceId)
+      .platform(platform)
       .signingProfileName(signingProfileName.orNull)
       .signatureValidity(signatureValidity.orNull)
-      .platform(platform.orNull)
       .build()
 }

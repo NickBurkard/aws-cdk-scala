@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iam
 object UnknownPrincipalProps {
 
   def apply(
-    resource: Option[software.constructs.IConstruct] = None
+    resource: software.constructs.IConstruct
   ): software.amazon.awscdk.services.iam.UnknownPrincipalProps =
     (new software.amazon.awscdk.services.iam.UnknownPrincipalProps.Builder)
-      .resource(resource.orNull)
+      .resource(resource)
       .build()
 }

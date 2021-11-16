@@ -4,13 +4,13 @@ package io.burkard.cdk.services.eventschemas
 object CfnRegistryPolicyProps {
 
   def apply(
-    revisionId: Option[String] = None,
-    registryName: Option[String] = None,
-    policy: Option[AnyRef] = None
+    registryName: String,
+    policy: AnyRef,
+    revisionId: Option[String] = None
   ): software.amazon.awscdk.services.eventschemas.CfnRegistryPolicyProps =
     (new software.amazon.awscdk.services.eventschemas.CfnRegistryPolicyProps.Builder)
+      .registryName(registryName)
+      .policy(policy)
       .revisionId(revisionId.orNull)
-      .registryName(registryName.orNull)
-      .policy(policy.orNull)
       .build()
 }

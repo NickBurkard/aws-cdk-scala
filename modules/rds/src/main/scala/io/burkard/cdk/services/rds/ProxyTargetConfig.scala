@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object ProxyTargetConfig {
 
   def apply(
+    engineFamily: String,
     dbInstances: Option[List[_ <: software.amazon.awscdk.services.rds.IDatabaseInstance]] = None,
-    engineFamily: Option[String] = None,
     dbClusters: Option[List[_ <: software.amazon.awscdk.services.rds.IDatabaseCluster]] = None
   ): software.amazon.awscdk.services.rds.ProxyTargetConfig =
     (new software.amazon.awscdk.services.rds.ProxyTargetConfig.Builder)
+      .engineFamily(engineFamily)
       .dbInstances(dbInstances.map(_.asJava).orNull)
-      .engineFamily(engineFamily.orNull)
       .dbClusters(dbClusters.map(_.asJava).orNull)
       .build()
 }

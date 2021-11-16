@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object RouteBaseProps {
 
   def apply(
-    routeSpec: Option[software.amazon.awscdk.services.appmesh.RouteSpec] = None,
+    routeSpec: software.amazon.awscdk.services.appmesh.RouteSpec,
     routeName: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.RouteBaseProps =
     (new software.amazon.awscdk.services.appmesh.RouteBaseProps.Builder)
-      .routeSpec(routeSpec.orNull)
+      .routeSpec(routeSpec)
       .routeName(routeName.orNull)
       .build()
 }

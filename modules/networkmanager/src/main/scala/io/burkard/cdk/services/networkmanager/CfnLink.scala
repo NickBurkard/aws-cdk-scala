@@ -8,21 +8,21 @@ object CfnLink {
 
   def apply(
     internalResourceId: String,
+    bandwidth: software.amazon.awscdk.services.networkmanager.CfnLink.BandwidthProperty,
+    siteId: String,
+    globalNetworkId: String,
     provider: Option[String] = None,
-    bandwidth: Option[software.amazon.awscdk.services.networkmanager.CfnLink.BandwidthProperty] = None,
-    siteId: Option[String] = None,
     `type`: Option[String] = None,
-    globalNetworkId: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.networkmanager.CfnLink =
     software.amazon.awscdk.services.networkmanager.CfnLink.Builder
       .create(stackCtx, internalResourceId)
+      .bandwidth(bandwidth)
+      .siteId(siteId)
+      .globalNetworkId(globalNetworkId)
       .provider(provider.orNull)
-      .bandwidth(bandwidth.orNull)
-      .siteId(siteId.orNull)
       .`type`(`type`.orNull)
-      .globalNetworkId(globalNetworkId.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

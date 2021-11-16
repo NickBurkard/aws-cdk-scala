@@ -4,9 +4,9 @@ package io.burkard.cdk.services.certificatemanager
 object CfnAccountProps {
 
   def apply(
-    expiryEventsConfiguration: Option[software.amazon.awscdk.services.certificatemanager.CfnAccount.ExpiryEventsConfigurationProperty] = None
+    expiryEventsConfiguration: software.amazon.awscdk.services.certificatemanager.CfnAccount.ExpiryEventsConfigurationProperty
   ): software.amazon.awscdk.services.certificatemanager.CfnAccountProps =
     (new software.amazon.awscdk.services.certificatemanager.CfnAccountProps.Builder)
-      .expiryEventsConfiguration(expiryEventsConfiguration.orNull)
+      .expiryEventsConfiguration(expiryEventsConfiguration)
       .build()
 }

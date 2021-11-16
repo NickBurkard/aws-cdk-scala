@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnBudgetProps {
 
   def apply(
-    budget: Option[software.amazon.awscdk.services.budgets.CfnBudget.BudgetDataProperty] = None,
+    budget: software.amazon.awscdk.services.budgets.CfnBudget.BudgetDataProperty,
     notificationsWithSubscribers: Option[List[_]] = None
   ): software.amazon.awscdk.services.budgets.CfnBudgetProps =
     (new software.amazon.awscdk.services.budgets.CfnBudgetProps.Builder)
-      .budget(budget.orNull)
+      .budget(budget)
       .notificationsWithSubscribers(notificationsWithSubscribers.map(_.asJava).orNull)
       .build()
 }

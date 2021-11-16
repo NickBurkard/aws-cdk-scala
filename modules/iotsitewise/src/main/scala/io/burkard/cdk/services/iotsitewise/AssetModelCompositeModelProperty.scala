@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object AssetModelCompositeModelProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    `type`: String,
     compositeModelProperties: Option[List[_]] = None,
-    description: Option[String] = None,
-    `type`: Option[String] = None
+    description: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetModel.AssetModelCompositeModelProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetModel.AssetModelCompositeModelProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .`type`(`type`)
       .compositeModelProperties(compositeModelProperties.map(_.asJava).orNull)
       .description(description.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

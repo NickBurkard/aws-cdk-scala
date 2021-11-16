@@ -4,11 +4,11 @@ package io.burkard.cdk.services.glue
 object MLUserDataEncryptionProperty {
 
   def apply(
-    mlUserDataEncryptionMode: Option[String] = None,
+    mlUserDataEncryptionMode: String,
     kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.glue.CfnMLTransform.MLUserDataEncryptionProperty =
     (new software.amazon.awscdk.services.glue.CfnMLTransform.MLUserDataEncryptionProperty.Builder)
-      .mlUserDataEncryptionMode(mlUserDataEncryptionMode.orNull)
+      .mlUserDataEncryptionMode(mlUserDataEncryptionMode)
       .kmsKeyId(kmsKeyId.orNull)
       .build()
 }

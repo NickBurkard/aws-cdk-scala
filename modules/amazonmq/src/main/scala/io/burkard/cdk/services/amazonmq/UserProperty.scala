@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object UserProperty {
 
   def apply(
-    username: Option[String] = None,
+    username: String,
+    password: String,
     consoleAccess: Option[Boolean] = None,
-    groups: Option[List[String]] = None,
-    password: Option[String] = None
+    groups: Option[List[String]] = None
   ): software.amazon.awscdk.services.amazonmq.CfnBroker.UserProperty =
     (new software.amazon.awscdk.services.amazonmq.CfnBroker.UserProperty.Builder)
-      .username(username.orNull)
+      .username(username)
+      .password(password)
       .consoleAccess(consoleAccess.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .groups(groups.map(_.asJava).orNull)
-      .password(password.orNull)
       .build()
 }

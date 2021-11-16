@@ -8,22 +8,22 @@ object UserPoolIdentityProviderApple {
 
   def apply(
     internalResourceId: String,
-    clientId: Option[String] = None,
-    teamId: Option[String] = None,
+    clientId: String,
+    teamId: String,
+    keyId: String,
+    privateKey: String,
     attributeMapping: Option[software.amazon.awscdk.services.cognito.AttributeMapping] = None,
     scopes: Option[List[String]] = None,
-    keyId: Option[String] = None,
-    privateKey: Option[String] = None,
     userPool: Option[software.amazon.awscdk.services.cognito.IUserPool] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.UserPoolIdentityProviderApple =
     software.amazon.awscdk.services.cognito.UserPoolIdentityProviderApple.Builder
       .create(stackCtx, internalResourceId)
-      .clientId(clientId.orNull)
-      .teamId(teamId.orNull)
+      .clientId(clientId)
+      .teamId(teamId)
+      .keyId(keyId)
+      .privateKey(privateKey)
       .attributeMapping(attributeMapping.orNull)
       .scopes(scopes.map(_.asJava).orNull)
-      .keyId(keyId.orNull)
-      .privateKey(privateKey.orNull)
       .userPool(userPool.orNull)
       .build()
 }

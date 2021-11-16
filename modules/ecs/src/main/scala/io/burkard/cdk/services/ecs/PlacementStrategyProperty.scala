@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object PlacementStrategyProperty {
 
   def apply(
-    field: Option[String] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    field: Option[String] = None
   ): software.amazon.awscdk.services.ecs.CfnService.PlacementStrategyProperty =
     (new software.amazon.awscdk.services.ecs.CfnService.PlacementStrategyProperty.Builder)
+      .`type`(`type`)
       .field(field.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

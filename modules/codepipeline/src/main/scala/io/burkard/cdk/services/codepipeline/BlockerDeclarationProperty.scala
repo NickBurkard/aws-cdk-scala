@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object BlockerDeclarationProperty {
 
   def apply(
-    name: Option[String] = None,
-    `type`: Option[String] = None
+    name: String,
+    `type`: String
   ): software.amazon.awscdk.services.codepipeline.CfnPipeline.BlockerDeclarationProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnPipeline.BlockerDeclarationProperty.Builder)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .name(name)
+      .`type`(`type`)
       .build()
 }

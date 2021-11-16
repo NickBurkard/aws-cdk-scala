@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object SseKmsEncryptedObjectsProperty {
 
   def apply(
-    status: Option[String] = None
+    status: String
   ): software.amazon.awscdk.services.s3.CfnBucket.SseKmsEncryptedObjectsProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.SseKmsEncryptedObjectsProperty.Builder)
-      .status(status.orNull)
+      .status(status)
       .build()
 }

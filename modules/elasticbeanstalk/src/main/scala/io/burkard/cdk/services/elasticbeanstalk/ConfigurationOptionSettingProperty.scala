@@ -4,15 +4,15 @@ package io.burkard.cdk.services.elasticbeanstalk
 object ConfigurationOptionSettingProperty {
 
   def apply(
+    namespace: String,
+    optionName: String,
     resourceName: Option[String] = None,
-    namespace: Option[String] = None,
-    optionName: Option[String] = None,
     value: Option[String] = None
   ): software.amazon.awscdk.services.elasticbeanstalk.CfnConfigurationTemplate.ConfigurationOptionSettingProperty =
     (new software.amazon.awscdk.services.elasticbeanstalk.CfnConfigurationTemplate.ConfigurationOptionSettingProperty.Builder)
+      .namespace(namespace)
+      .optionName(optionName)
       .resourceName(resourceName.orNull)
-      .namespace(namespace.orNull)
-      .optionName(optionName.orNull)
       .value(value.orNull)
       .build()
 }

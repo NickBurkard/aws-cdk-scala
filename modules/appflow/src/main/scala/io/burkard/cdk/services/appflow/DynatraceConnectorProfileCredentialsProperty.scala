@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object DynatraceConnectorProfileCredentialsProperty {
 
   def apply(
-    apiToken: Option[String] = None
+    apiToken: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.DynatraceConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.DynatraceConnectorProfileCredentialsProperty.Builder)
-      .apiToken(apiToken.orNull)
+      .apiToken(apiToken)
       .build()
 }

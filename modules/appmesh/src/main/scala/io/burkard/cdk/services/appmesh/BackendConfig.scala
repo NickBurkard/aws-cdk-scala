@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object BackendConfig {
 
   def apply(
-    virtualServiceBackend: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.BackendProperty] = None
+    virtualServiceBackend: software.amazon.awscdk.services.appmesh.CfnVirtualNode.BackendProperty
   ): software.amazon.awscdk.services.appmesh.BackendConfig =
     (new software.amazon.awscdk.services.appmesh.BackendConfig.Builder)
-      .virtualServiceBackend(virtualServiceBackend.orNull)
+      .virtualServiceBackend(virtualServiceBackend)
       .build()
 }

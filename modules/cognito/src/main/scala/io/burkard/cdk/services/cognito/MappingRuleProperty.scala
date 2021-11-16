@@ -4,15 +4,15 @@ package io.burkard.cdk.services.cognito
 object MappingRuleProperty {
 
   def apply(
-    claim: Option[String] = None,
-    matchType: Option[String] = None,
-    roleArn: Option[String] = None,
-    value: Option[String] = None
+    claim: String,
+    matchType: String,
+    roleArn: String,
+    value: String
   ): software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachment.MappingRuleProperty =
     (new software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachment.MappingRuleProperty.Builder)
-      .claim(claim.orNull)
-      .matchType(matchType.orNull)
-      .roleArn(roleArn.orNull)
-      .value(value.orNull)
+      .claim(claim)
+      .matchType(matchType)
+      .roleArn(roleArn)
+      .value(value)
       .build()
 }

@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object ConnectionInputProperty {
 
   def apply(
+    connectionType: String,
     name: Option[String] = None,
     description: Option[String] = None,
     connectionProperties: Option[AnyRef] = None,
     matchCriteria: Option[List[String]] = None,
-    physicalConnectionRequirements: Option[software.amazon.awscdk.services.glue.CfnConnection.PhysicalConnectionRequirementsProperty] = None,
-    connectionType: Option[String] = None
+    physicalConnectionRequirements: Option[software.amazon.awscdk.services.glue.CfnConnection.PhysicalConnectionRequirementsProperty] = None
   ): software.amazon.awscdk.services.glue.CfnConnection.ConnectionInputProperty =
     (new software.amazon.awscdk.services.glue.CfnConnection.ConnectionInputProperty.Builder)
+      .connectionType(connectionType)
       .name(name.orNull)
       .description(description.orNull)
       .connectionProperties(connectionProperties.orNull)
       .matchCriteria(matchCriteria.map(_.asJava).orNull)
       .physicalConnectionRequirements(physicalConnectionRequirements.orNull)
-      .connectionType(connectionType.orNull)
       .build()
 }

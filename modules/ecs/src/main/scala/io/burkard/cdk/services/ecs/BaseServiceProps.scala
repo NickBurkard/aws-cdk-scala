@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object BaseServiceProps {
 
   def apply(
+    launchType: software.amazon.awscdk.services.ecs.LaunchType,
     minHealthyPercent: Option[Number] = None,
     healthCheckGracePeriod: Option[software.amazon.awscdk.Duration] = None,
     desiredCount: Option[Number] = None,
@@ -14,7 +15,6 @@ object BaseServiceProps {
     propagateTaskTagsFrom: Option[software.amazon.awscdk.services.ecs.PropagatedTagSource] = None,
     enableExecuteCommand: Option[Boolean] = None,
     maxHealthyPercent: Option[Number] = None,
-    launchType: Option[software.amazon.awscdk.services.ecs.LaunchType] = None,
     circuitBreaker: Option[software.amazon.awscdk.services.ecs.DeploymentCircuitBreaker] = None,
     cluster: Option[software.amazon.awscdk.services.ecs.ICluster] = None,
     deploymentController: Option[software.amazon.awscdk.services.ecs.DeploymentController] = None,
@@ -24,6 +24,7 @@ object BaseServiceProps {
     enableEcsManagedTags: Option[Boolean] = None
   ): software.amazon.awscdk.services.ecs.BaseServiceProps =
     (new software.amazon.awscdk.services.ecs.BaseServiceProps.Builder)
+      .launchType(launchType)
       .minHealthyPercent(minHealthyPercent.orNull)
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
       .desiredCount(desiredCount.orNull)
@@ -31,7 +32,6 @@ object BaseServiceProps {
       .propagateTaskTagsFrom(propagateTaskTagsFrom.orNull)
       .enableExecuteCommand(enableExecuteCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .maxHealthyPercent(maxHealthyPercent.orNull)
-      .launchType(launchType.orNull)
       .circuitBreaker(circuitBreaker.orNull)
       .cluster(cluster.orNull)
       .deploymentController(deploymentController.orNull)

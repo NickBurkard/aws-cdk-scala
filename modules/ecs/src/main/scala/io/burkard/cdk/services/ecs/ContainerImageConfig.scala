@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object ContainerImageConfig {
 
   def apply(
-    repositoryCredentials: Option[software.amazon.awscdk.services.ecs.CfnTaskDefinition.RepositoryCredentialsProperty] = None,
-    imageName: Option[String] = None
+    imageName: String,
+    repositoryCredentials: Option[software.amazon.awscdk.services.ecs.CfnTaskDefinition.RepositoryCredentialsProperty] = None
   ): software.amazon.awscdk.services.ecs.ContainerImageConfig =
     (new software.amazon.awscdk.services.ecs.ContainerImageConfig.Builder)
+      .imageName(imageName)
       .repositoryCredentials(repositoryCredentials.orNull)
-      .imageName(imageName.orNull)
       .build()
 }

@@ -8,8 +8,9 @@ object DynamoUpdateItem {
 
   def apply(
     internalResourceId: String,
+    key: Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue],
+    table: software.amazon.awscdk.services.dynamodb.ITable,
     updateExpression: Option[String] = None,
-    key: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None,
     conditionExpression: Option[String] = None,
     resultPath: Option[String] = None,
     expressionAttributeValues: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None,
@@ -23,13 +24,13 @@ object DynamoUpdateItem {
     returnItemCollectionMetrics: Option[software.amazon.awscdk.services.stepfunctions.tasks.DynamoItemCollectionMetrics] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    table: Option[software.amazon.awscdk.services.dynamodb.ITable] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.DynamoUpdateItem =
     software.amazon.awscdk.services.stepfunctions.tasks.DynamoUpdateItem.Builder
       .create(stackCtx, internalResourceId)
+      .key(key.asJava)
+      .table(table)
       .updateExpression(updateExpression.orNull)
-      .key(key.map(_.asJava).orNull)
       .conditionExpression(conditionExpression.orNull)
       .resultPath(resultPath.orNull)
       .expressionAttributeValues(expressionAttributeValues.map(_.asJava).orNull)
@@ -43,7 +44,6 @@ object DynamoUpdateItem {
       .returnItemCollectionMetrics(returnItemCollectionMetrics.orNull)
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
-      .table(table.orNull)
       .heartbeat(heartbeat.orNull)
       .build()
 }

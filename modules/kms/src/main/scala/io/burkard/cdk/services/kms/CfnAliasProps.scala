@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kms
 object CfnAliasProps {
 
   def apply(
-    targetKeyId: Option[String] = None,
-    aliasName: Option[String] = None
+    targetKeyId: String,
+    aliasName: String
   ): software.amazon.awscdk.services.kms.CfnAliasProps =
     (new software.amazon.awscdk.services.kms.CfnAliasProps.Builder)
-      .targetKeyId(targetKeyId.orNull)
-      .aliasName(aliasName.orNull)
+      .targetKeyId(targetKeyId)
+      .aliasName(aliasName)
       .build()
 }

@@ -5,10 +5,10 @@ object CfnJson {
 
   def apply(
     internalResourceId: String,
-    value: Option[AnyRef] = None
+    value: AnyRef
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.CfnJson =
     software.amazon.awscdk.CfnJson.Builder
       .create(stackCtx, internalResourceId)
-      .value(value.orNull)
+      .value(value)
       .build()
 }

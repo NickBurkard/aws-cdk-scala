@@ -4,13 +4,13 @@ package io.burkard.cdk.services.gamelift
 object LocationCapacityProperty {
 
   def apply(
-    desiredEc2Instances: Option[Number] = None,
-    maxSize: Option[Number] = None,
-    minSize: Option[Number] = None
+    desiredEc2Instances: Number,
+    maxSize: Number,
+    minSize: Number
   ): software.amazon.awscdk.services.gamelift.CfnFleet.LocationCapacityProperty =
     (new software.amazon.awscdk.services.gamelift.CfnFleet.LocationCapacityProperty.Builder)
-      .desiredEc2Instances(desiredEc2Instances.orNull)
-      .maxSize(maxSize.orNull)
-      .minSize(minSize.orNull)
+      .desiredEc2Instances(desiredEc2Instances)
+      .maxSize(maxSize)
+      .minSize(minSize)
       .build()
 }

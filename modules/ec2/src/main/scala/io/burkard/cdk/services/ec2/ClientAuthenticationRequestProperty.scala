@@ -4,14 +4,14 @@ package io.burkard.cdk.services.ec2
 object ClientAuthenticationRequestProperty {
 
   def apply(
+    `type`: String,
     federatedAuthentication: Option[software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.FederatedAuthenticationRequestProperty] = None,
-    `type`: Option[String] = None,
     mutualAuthentication: Option[software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.CertificateAuthenticationRequestProperty] = None,
     activeDirectory: Option[software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.DirectoryServiceAuthenticationRequestProperty] = None
   ): software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.ClientAuthenticationRequestProperty =
     (new software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.ClientAuthenticationRequestProperty.Builder)
+      .`type`(`type`)
       .federatedAuthentication(federatedAuthentication.orNull)
-      .`type`(`type`.orNull)
       .mutualAuthentication(mutualAuthentication.orNull)
       .activeDirectory(activeDirectory.orNull)
       .build()

@@ -8,6 +8,7 @@ object CfnReplicationGroup {
 
   def apply(
     internalResourceId: String,
+    replicationGroupDescription: String,
     authToken: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     numNodeGroups: Option[Number] = None,
@@ -30,7 +31,6 @@ object CfnReplicationGroup {
     primaryClusterId: Option[String] = None,
     cacheSubnetGroupName: Option[String] = None,
     userGroupIds: Option[List[String]] = None,
-    replicationGroupDescription: Option[String] = None,
     preferredCacheClusterAZs: Option[List[String]] = None,
     securityGroupIds: Option[List[String]] = None,
     preferredMaintenanceWindow: Option[String] = None,
@@ -45,6 +45,7 @@ object CfnReplicationGroup {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticache.CfnReplicationGroup =
     software.amazon.awscdk.services.elasticache.CfnReplicationGroup.Builder
       .create(stackCtx, internalResourceId)
+      .replicationGroupDescription(replicationGroupDescription)
       .authToken(authToken.orNull)
       .tags(tags.map(_.asJava).orNull)
       .numNodeGroups(numNodeGroups.orNull)
@@ -67,7 +68,6 @@ object CfnReplicationGroup {
       .primaryClusterId(primaryClusterId.orNull)
       .cacheSubnetGroupName(cacheSubnetGroupName.orNull)
       .userGroupIds(userGroupIds.map(_.asJava).orNull)
-      .replicationGroupDescription(replicationGroupDescription.orNull)
       .preferredCacheClusterAZs(preferredCacheClusterAZs.map(_.asJava).orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .preferredMaintenanceWindow(preferredMaintenanceWindow.orNull)

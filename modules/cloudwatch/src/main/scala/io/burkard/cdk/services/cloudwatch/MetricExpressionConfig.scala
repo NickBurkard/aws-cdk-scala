@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object MetricExpressionConfig {
 
   def apply(
+    expression: String,
+    period: Number,
+    usingMetrics: Map[String, _ <: software.amazon.awscdk.services.cloudwatch.IMetric],
     searchRegion: Option[String] = None,
-    expression: Option[String] = None,
-    period: Option[Number] = None,
-    searchAccount: Option[String] = None,
-    usingMetrics: Option[Map[String, _ <: software.amazon.awscdk.services.cloudwatch.IMetric]] = None
+    searchAccount: Option[String] = None
   ): software.amazon.awscdk.services.cloudwatch.MetricExpressionConfig =
     (new software.amazon.awscdk.services.cloudwatch.MetricExpressionConfig.Builder)
+      .expression(expression)
+      .period(period)
+      .usingMetrics(usingMetrics.asJava)
       .searchRegion(searchRegion.orNull)
-      .expression(expression.orNull)
-      .period(period.orNull)
       .searchAccount(searchAccount.orNull)
-      .usingMetrics(usingMetrics.map(_.asJava).orNull)
       .build()
 }

@@ -8,7 +8,7 @@ object Asset {
 
   def apply(
     internalResourceId: String,
-    path: Option[String] = None,
+    path: String,
     assetHash: Option[String] = None,
     sourceHash: Option[String] = None,
     bundling: Option[software.amazon.awscdk.BundlingOptions] = None,
@@ -21,7 +21,7 @@ object Asset {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3.assets.Asset =
     software.amazon.awscdk.services.s3.assets.Asset.Builder
       .create(stackCtx, internalResourceId)
-      .path(path.orNull)
+      .path(path)
       .assetHash(assetHash.orNull)
       .sourceHash(sourceHash.orNull)
       .bundling(bundling.orNull)

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.elasticloadbalancing
 object ConnectionSettingsProperty {
 
   def apply(
-    idleTimeout: Option[Number] = None
+    idleTimeout: Number
   ): software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.ConnectionSettingsProperty =
     (new software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.ConnectionSettingsProperty.Builder)
-      .idleTimeout(idleTimeout.orNull)
+      .idleTimeout(idleTimeout)
       .build()
 }

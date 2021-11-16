@@ -4,7 +4,7 @@ import java.lang.reflect.{Method, Modifier}
 import java.nio.file.{Path, Paths}
 
 import scala.annotation.nowarn
-
+import scala.util.Try
 import io.burkard.cdk.codegen.CdkBuilder.ConstructorType
 
 // Class instance builder provided by the CDK.
@@ -15,8 +15,38 @@ final case class CdkBuilder private[codegen](
   constructorType: CdkBuilder.ConstructorType,
   underlying: Class[_]
 ) {
+  // The required field names of the underlying instance.
+  private[codegen] lazy val requiredFieldNames: Set[String] =
+    requiredFieldNamesByProps
+      .orElse(requiredFieldNamesByInterface)
+      .getOrElse(Set.empty)
+
+  // Attempt to find required field names via `props` field.
+  private[this] lazy val requiredFieldNamesByProps: Option[Set[String]] =
+    for {
+      // The `props` field is a builder for all required & optional properties.
+      propsBuilder <- Try(underlying.getDeclaredField("props")).toOption.map(_.getType)
+
+      // The `build` method returns an instance of the props itself, which needs to be inspected.
+      props <- Try(propsBuilder.getDeclaredMethod("build")).toOption.map(_.getReturnType)
+    } yield props.requiredFieldNames
+
+  // Attempt to find required field names by the builder interface.
+  private[this] lazy val requiredFieldNamesByInterface: Option[Set[String]] =
+    for {
+      genericInterfaces <- Try(underlying.getGenericInterfaces).toOption.map(_.toList)
+
+      // Need to dig through generic interfaces for the associated props class name.
+      propsClassName <- genericInterfaces.collectFirst {
+        case i if i.getTypeName.startsWith("software.amazon.jsii.Builder<") =>
+          i.getTypeName.stripPrefix("software.amazon.jsii.Builder<").stripSuffix(">")
+      }
+
+      props <- Try(Class.forName(propsClassName)).toOption
+    } yield props.requiredFieldNames
+
   @nowarn("cat=deprecation")
-  // [0, N] field methods of the underlying builder. All are optional for the generated code.
+  // [0, N] field methods of the underlying builder. All non-optional fields appear before optional fields.
   private[this] lazy val fieldMethods: List[FieldMethod] =
     underlying
       .getMethods
@@ -38,7 +68,7 @@ final case class CdkBuilder private[codegen](
               methodName,
               methodName,
               typeName,
-              isOptional = true,
+              isOptional = !requiredFieldNames.contains(methodName),
               annotations
             )
           )
@@ -51,12 +81,13 @@ final case class CdkBuilder private[codegen](
               s"$methodName$index",
               methodName,
               typeName,
-              isOptional = true,
+              isOptional = !requiredFieldNames.contains(methodName),
               annotations
             )
           }
       }
       .toList
+      .sortBy(_.isOptional)
 
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 

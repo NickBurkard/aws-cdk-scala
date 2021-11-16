@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnDashboardProps {
 
   def apply(
-    dashboardDescription: Option[String] = None,
+    dashboardDescription: String,
+    dashboardName: String,
+    dashboardDefinition: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    projectId: Option[String] = None,
-    dashboardName: Option[String] = None,
-    dashboardDefinition: Option[String] = None
+    projectId: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnDashboardProps =
     (new software.amazon.awscdk.services.iotsitewise.CfnDashboardProps.Builder)
-      .dashboardDescription(dashboardDescription.orNull)
+      .dashboardDescription(dashboardDescription)
+      .dashboardName(dashboardName)
+      .dashboardDefinition(dashboardDefinition)
       .tags(tags.map(_.asJava).orNull)
       .projectId(projectId.orNull)
-      .dashboardName(dashboardName.orNull)
-      .dashboardDefinition(dashboardDefinition.orNull)
       .build()
 }

@@ -8,7 +8,7 @@ object CfnRepository {
 
   def apply(
     internalResourceId: String,
-    repositoryName: Option[String] = None,
+    repositoryName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     repositoryDescription: Option[String] = None,
     code: Option[software.amazon.awscdk.services.codecommit.CfnRepository.CodeProperty] = None,
@@ -16,7 +16,7 @@ object CfnRepository {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codecommit.CfnRepository =
     software.amazon.awscdk.services.codecommit.CfnRepository.Builder
       .create(stackCtx, internalResourceId)
-      .repositoryName(repositoryName.orNull)
+      .repositoryName(repositoryName)
       .tags(tags.map(_.asJava).orNull)
       .repositoryDescription(repositoryDescription.orNull)
       .code(code.orNull)

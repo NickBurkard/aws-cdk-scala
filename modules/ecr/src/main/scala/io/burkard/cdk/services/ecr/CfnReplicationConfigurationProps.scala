@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ecr
 object CfnReplicationConfigurationProps {
 
   def apply(
-    replicationConfiguration: Option[software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationConfigurationProperty] = None
+    replicationConfiguration: software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationConfigurationProperty
   ): software.amazon.awscdk.services.ecr.CfnReplicationConfigurationProps =
     (new software.amazon.awscdk.services.ecr.CfnReplicationConfigurationProps.Builder)
-      .replicationConfiguration(replicationConfiguration.orNull)
+      .replicationConfiguration(replicationConfiguration)
       .build()
 }

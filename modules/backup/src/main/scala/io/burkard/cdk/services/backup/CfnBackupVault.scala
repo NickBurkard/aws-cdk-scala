@@ -8,7 +8,7 @@ object CfnBackupVault {
 
   def apply(
     internalResourceId: String,
-    backupVaultName: Option[String] = None,
+    backupVaultName: String,
     encryptionKeyArn: Option[String] = None,
     backupVaultTags: Option[Map[String, String]] = None,
     notifications: Option[software.amazon.awscdk.services.backup.CfnBackupVault.NotificationObjectTypeProperty] = None,
@@ -17,7 +17,7 @@ object CfnBackupVault {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.backup.CfnBackupVault =
     software.amazon.awscdk.services.backup.CfnBackupVault.Builder
       .create(stackCtx, internalResourceId)
-      .backupVaultName(backupVaultName.orNull)
+      .backupVaultName(backupVaultName)
       .encryptionKeyArn(encryptionKeyArn.orNull)
       .backupVaultTags(backupVaultTags.map(_.asJava).orNull)
       .notifications(notifications.orNull)

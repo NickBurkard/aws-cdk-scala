@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object WindowsEventProperty {
 
   def apply(
-    eventName: Option[String] = None,
-    patternSet: Option[String] = None,
-    logGroupName: Option[String] = None,
-    eventLevels: Option[List[String]] = None
+    eventName: String,
+    logGroupName: String,
+    eventLevels: List[String],
+    patternSet: Option[String] = None
   ): software.amazon.awscdk.services.applicationinsights.CfnApplication.WindowsEventProperty =
     (new software.amazon.awscdk.services.applicationinsights.CfnApplication.WindowsEventProperty.Builder)
-      .eventName(eventName.orNull)
+      .eventName(eventName)
+      .logGroupName(logGroupName)
+      .eventLevels(eventLevels.asJava)
       .patternSet(patternSet.orNull)
-      .logGroupName(logGroupName.orNull)
-      .eventLevels(eventLevels.map(_.asJava).orNull)
       .build()
 }

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object NetworkLoadBalancerProps {
 
   def apply(
-    name: Option[String] = None,
-    listeners: Option[List[_ <: software.amazon.awscdk.services.ecs.patterns.NetworkListenerProps]] = None,
+    name: String,
+    listeners: List[_ <: software.amazon.awscdk.services.ecs.patterns.NetworkListenerProps],
     publicLoadBalancer: Option[Boolean] = None,
     domainZone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None,
     domainName: Option[String] = None
   ): software.amazon.awscdk.services.ecs.patterns.NetworkLoadBalancerProps =
     (new software.amazon.awscdk.services.ecs.patterns.NetworkLoadBalancerProps.Builder)
-      .name(name.orNull)
-      .listeners(listeners.map(_.asJava).orNull)
+      .name(name)
+      .listeners(listeners.asJava)
       .publicLoadBalancer(publicLoadBalancer.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .domainZone(domainZone.orNull)
       .domainName(domainName.orNull)

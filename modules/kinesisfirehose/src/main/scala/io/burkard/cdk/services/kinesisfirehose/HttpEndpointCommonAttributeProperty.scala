@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisfirehose
 object HttpEndpointCommonAttributeProperty {
 
   def apply(
-    attributeValue: Option[String] = None,
-    attributeName: Option[String] = None
+    attributeValue: String,
+    attributeName: String
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.HttpEndpointCommonAttributeProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.HttpEndpointCommonAttributeProperty.Builder)
-      .attributeValue(attributeValue.orNull)
-      .attributeName(attributeName.orNull)
+      .attributeValue(attributeValue)
+      .attributeName(attributeName)
       .build()
 }

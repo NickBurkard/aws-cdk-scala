@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sns
 object BetweenCondition {
 
   def apply(
-    stop: Option[Number] = None,
-    start: Option[Number] = None
+    stop: Number,
+    start: Number
   ): software.amazon.awscdk.services.sns.BetweenCondition =
     (new software.amazon.awscdk.services.sns.BetweenCondition.Builder)
-      .stop(stop.orNull)
-      .start(start.orNull)
+      .stop(stop)
+      .start(start)
       .build()
 }

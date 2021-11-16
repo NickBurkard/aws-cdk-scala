@@ -5,18 +5,18 @@ object CfnProfilePermission {
 
   def apply(
     internalResourceId: String,
-    profileVersion: Option[String] = None,
-    profileName: Option[String] = None,
-    principal: Option[String] = None,
-    statementId: Option[String] = None,
-    action: Option[String] = None
+    profileName: String,
+    principal: String,
+    statementId: String,
+    action: String,
+    profileVersion: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.signer.CfnProfilePermission =
     software.amazon.awscdk.services.signer.CfnProfilePermission.Builder
       .create(stackCtx, internalResourceId)
+      .profileName(profileName)
+      .principal(principal)
+      .statementId(statementId)
+      .action(action)
       .profileVersion(profileVersion.orNull)
-      .profileName(profileName.orNull)
-      .principal(principal.orNull)
-      .statementId(statementId.orNull)
-      .action(action.orNull)
       .build()
 }

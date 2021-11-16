@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnPackageProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    packageName: Option[String] = None
+    packageName: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.panorama.CfnPackageProps =
     (new software.amazon.awscdk.services.panorama.CfnPackageProps.Builder)
+      .packageName(packageName)
       .tags(tags.map(_.asJava).orNull)
-      .packageName(packageName.orNull)
       .build()
 }

@@ -8,6 +8,7 @@ object GlueStartJobRun {
 
   def apply(
     internalResourceId: String,
+    glueJobName: String,
     resultPath: Option[String] = None,
     securityConfiguration: Option[String] = None,
     notifyDelayAfter: Option[software.amazon.awscdk.Duration] = None,
@@ -15,7 +16,6 @@ object GlueStartJobRun {
     outputPath: Option[String] = None,
     comment: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
-    glueJobName: Option[String] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
@@ -23,6 +23,7 @@ object GlueStartJobRun {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.GlueStartJobRun =
     software.amazon.awscdk.services.stepfunctions.tasks.GlueStartJobRun.Builder
       .create(stackCtx, internalResourceId)
+      .glueJobName(glueJobName)
       .resultPath(resultPath.orNull)
       .securityConfiguration(securityConfiguration.orNull)
       .notifyDelayAfter(notifyDelayAfter.orNull)
@@ -30,7 +31,6 @@ object GlueStartJobRun {
       .outputPath(outputPath.orNull)
       .comment(comment.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .glueJobName(glueJobName.orNull)
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
       .heartbeat(heartbeat.orNull)

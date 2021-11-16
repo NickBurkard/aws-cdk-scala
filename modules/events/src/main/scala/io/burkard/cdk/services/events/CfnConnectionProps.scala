@@ -4,15 +4,15 @@ package io.burkard.cdk.services.events
 object CfnConnectionProps {
 
   def apply(
+    authParameters: AnyRef,
+    authorizationType: String,
     name: Option[String] = None,
-    authParameters: Option[AnyRef] = None,
-    description: Option[String] = None,
-    authorizationType: Option[String] = None
+    description: Option[String] = None
   ): software.amazon.awscdk.services.events.CfnConnectionProps =
     (new software.amazon.awscdk.services.events.CfnConnectionProps.Builder)
+      .authParameters(authParameters)
+      .authorizationType(authorizationType)
       .name(name.orNull)
-      .authParameters(authParameters.orNull)
       .description(description.orNull)
-      .authorizationType(authorizationType.orNull)
       .build()
 }

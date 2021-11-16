@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object OutputDataConfig {
 
   def apply(
-    s3OutputLocation: Option[software.amazon.awscdk.services.stepfunctions.tasks.S3Location] = None,
+    s3OutputLocation: software.amazon.awscdk.services.stepfunctions.tasks.S3Location,
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.OutputDataConfig =
     (new software.amazon.awscdk.services.stepfunctions.tasks.OutputDataConfig.Builder)
-      .s3OutputLocation(s3OutputLocation.orNull)
+      .s3OutputLocation(s3OutputLocation)
       .encryptionKey(encryptionKey.orNull)
       .build()
 }

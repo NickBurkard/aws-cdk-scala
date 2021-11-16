@@ -7,23 +7,23 @@ import scala.collection.JavaConverters._
 object JenkinsActionProps {
 
   def apply(
-    projectName: Option[String] = None,
-    jenkinsProvider: Option[software.amazon.awscdk.services.codepipeline.actions.IJenkinsProvider] = None,
+    projectName: String,
+    jenkinsProvider: software.amazon.awscdk.services.codepipeline.actions.IJenkinsProvider,
+    `type`: software.amazon.awscdk.services.codepipeline.actions.JenkinsActionType,
     outputs: Option[List[_ <: software.amazon.awscdk.services.codepipeline.Artifact]] = None,
     variablesNamespace: Option[String] = None,
     inputs: Option[List[_ <: software.amazon.awscdk.services.codepipeline.Artifact]] = None,
     runOrder: Option[Number] = None,
-    actionName: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.codepipeline.actions.JenkinsActionType] = None
+    actionName: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.actions.JenkinsActionProps =
     (new software.amazon.awscdk.services.codepipeline.actions.JenkinsActionProps.Builder)
-      .projectName(projectName.orNull)
-      .jenkinsProvider(jenkinsProvider.orNull)
+      .projectName(projectName)
+      .jenkinsProvider(jenkinsProvider)
+      .`type`(`type`)
       .outputs(outputs.map(_.asJava).orNull)
       .variablesNamespace(variablesNamespace.orNull)
       .inputs(inputs.map(_.asJava).orNull)
       .runOrder(runOrder.orNull)
       .actionName(actionName.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

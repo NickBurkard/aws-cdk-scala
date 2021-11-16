@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotevents
 object SetVariableProperty {
 
   def apply(
-    variableName: Option[String] = None,
-    value: Option[String] = None
+    variableName: String,
+    value: String
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.SetVariableProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.SetVariableProperty.Builder)
-      .variableName(variableName.orNull)
-      .value(value.orNull)
+      .variableName(variableName)
+      .value(value)
       .build()
 }

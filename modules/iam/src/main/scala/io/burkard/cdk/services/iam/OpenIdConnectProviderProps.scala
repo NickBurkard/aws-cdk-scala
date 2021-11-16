@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object OpenIdConnectProviderProps {
 
   def apply(
-    url: Option[String] = None,
+    url: String,
     thumbprints: Option[List[String]] = None,
     clientIds: Option[List[String]] = None
   ): software.amazon.awscdk.services.iam.OpenIdConnectProviderProps =
     (new software.amazon.awscdk.services.iam.OpenIdConnectProviderProps.Builder)
-      .url(url.orNull)
+      .url(url)
       .thumbprints(thumbprints.map(_.asJava).orNull)
       .clientIds(clientIds.map(_.asJava).orNull)
       .build()

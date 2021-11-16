@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iotsitewise
 object AssetPropertyProperty {
 
   def apply(
+    logicalId: String,
     alias: Option[String] = None,
-    notificationState: Option[String] = None,
-    logicalId: Option[String] = None
+    notificationState: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnAsset.AssetPropertyProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAsset.AssetPropertyProperty.Builder)
+      .logicalId(logicalId)
       .alias(alias.orNull)
       .notificationState(notificationState.orNull)
-      .logicalId(logicalId.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codebuild
 object BatchBuildConfig {
 
   def apply(
-    role: Option[software.amazon.awscdk.services.iam.IRole] = None
+    role: software.amazon.awscdk.services.iam.IRole
   ): software.amazon.awscdk.services.codebuild.BatchBuildConfig =
     (new software.amazon.awscdk.services.codebuild.BatchBuildConfig.Builder)
-      .role(role.orNull)
+      .role(role)
       .build()
 }

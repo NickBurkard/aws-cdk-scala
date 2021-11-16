@@ -4,13 +4,13 @@ package io.burkard.cdk.services.s3
 object LambdaConfigurationProperty {
 
   def apply(
-    event: Option[String] = None,
-    filter: Option[software.amazon.awscdk.services.s3.CfnBucket.NotificationFilterProperty] = None,
-    function: Option[String] = None
+    event: String,
+    function: String,
+    filter: Option[software.amazon.awscdk.services.s3.CfnBucket.NotificationFilterProperty] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.LambdaConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.LambdaConfigurationProperty.Builder)
-      .event(event.orNull)
+      .event(event)
+      .function(function)
       .filter(filter.orNull)
-      .function(function.orNull)
       .build()
 }

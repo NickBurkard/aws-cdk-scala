@@ -8,16 +8,16 @@ object ClusterParameterGroup {
 
   def apply(
     internalResourceId: String,
+    family: String,
+    parameters: Map[String, String],
     description: Option[String] = None,
-    dbClusterParameterGroupName: Option[String] = None,
-    family: Option[String] = None,
-    parameters: Option[Map[String, String]] = None
+    dbClusterParameterGroupName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.docdb.ClusterParameterGroup =
     software.amazon.awscdk.services.docdb.ClusterParameterGroup.Builder
       .create(stackCtx, internalResourceId)
+      .family(family)
+      .parameters(parameters.asJava)
       .description(description.orNull)
       .dbClusterParameterGroupName(dbClusterParameterGroupName.orNull)
-      .family(family.orNull)
-      .parameters(parameters.map(_.asJava).orNull)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codepipeline
 object ArtifactStoreProperty {
 
   def apply(
-    location: Option[String] = None,
-    `type`: Option[String] = None,
+    location: String,
+    `type`: String,
     encryptionKey: Option[software.amazon.awscdk.services.codepipeline.CfnPipeline.EncryptionKeyProperty] = None
   ): software.amazon.awscdk.services.codepipeline.CfnPipeline.ArtifactStoreProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnPipeline.ArtifactStoreProperty.Builder)
-      .location(location.orNull)
-      .`type`(`type`.orNull)
+      .location(location)
+      .`type`(`type`)
       .encryptionKey(encryptionKey.orNull)
       .build()
 }

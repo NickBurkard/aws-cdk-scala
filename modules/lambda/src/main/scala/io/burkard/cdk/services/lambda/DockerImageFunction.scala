@@ -8,6 +8,7 @@ object DockerImageFunction {
 
   def apply(
     internalResourceId: String,
+    code: software.amazon.awscdk.services.lambda.DockerImageCode,
     initialPolicy: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None,
     layers: Option[List[_ <: software.amazon.awscdk.services.lambda.ILayerVersion]] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -31,7 +32,6 @@ object DockerImageFunction {
     environmentEncryption: Option[software.amazon.awscdk.services.kms.IKey] = None,
     allowPublicSubnet: Option[Boolean] = None,
     architecture: Option[software.amazon.awscdk.services.lambda.Architecture] = None,
-    code: Option[software.amazon.awscdk.services.lambda.DockerImageCode] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     insightsVersion: Option[software.amazon.awscdk.services.lambda.LambdaInsightsVersion] = None,
     allowAllOutbound: Option[Boolean] = None,
@@ -47,6 +47,7 @@ object DockerImageFunction {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.DockerImageFunction =
     software.amazon.awscdk.services.lambda.DockerImageFunction.Builder
       .create(stackCtx, internalResourceId)
+      .code(code)
       .initialPolicy(initialPolicy.map(_.asJava).orNull)
       .layers(layers.map(_.asJava).orNull)
       .role(role.orNull)
@@ -70,7 +71,6 @@ object DockerImageFunction {
       .environmentEncryption(environmentEncryption.orNull)
       .allowPublicSubnet(allowPublicSubnet.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .architecture(architecture.orNull)
-      .code(code.orNull)
       .vpcSubnets(vpcSubnets.orNull)
       .insightsVersion(insightsVersion.orNull)
       .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

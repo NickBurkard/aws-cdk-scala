@@ -4,15 +4,15 @@ package io.burkard.cdk.services.cloudfront
 object XSSProtectionProperty {
 
   def apply(
-    `override`: Option[Boolean] = None,
+    `override`: Boolean,
+    protection: Boolean,
     modeBlock: Option[Boolean] = None,
-    protection: Option[Boolean] = None,
     reportUri: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.XSSProtectionProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.XSSProtectionProperty.Builder)
-      .`override`(`override`.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .`override`(`override`)
+      .protection(protection)
       .modeBlock(modeBlock.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .protection(protection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .reportUri(reportUri.orNull)
       .build()
 }

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.emr
 object CfnStudioSessionMappingProps {
 
   def apply(
-    studioId: Option[String] = None,
-    identityName: Option[String] = None,
-    sessionPolicyArn: Option[String] = None,
-    identityType: Option[String] = None
+    studioId: String,
+    identityName: String,
+    sessionPolicyArn: String,
+    identityType: String
   ): software.amazon.awscdk.services.emr.CfnStudioSessionMappingProps =
     (new software.amazon.awscdk.services.emr.CfnStudioSessionMappingProps.Builder)
-      .studioId(studioId.orNull)
-      .identityName(identityName.orNull)
-      .sessionPolicyArn(sessionPolicyArn.orNull)
-      .identityType(identityType.orNull)
+      .studioId(studioId)
+      .identityName(identityName)
+      .sessionPolicyArn(sessionPolicyArn)
+      .identityType(identityType)
       .build()
 }

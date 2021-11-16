@@ -4,13 +4,13 @@ package io.burkard.cdk.services.connect
 object HoursOfOperationConfigProperty {
 
   def apply(
-    startTime: Option[software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationTimeSliceProperty] = None,
-    endTime: Option[software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationTimeSliceProperty] = None,
-    day: Option[String] = None
+    startTime: software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationTimeSliceProperty,
+    endTime: software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationTimeSliceProperty,
+    day: String
   ): software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationConfigProperty =
     (new software.amazon.awscdk.services.connect.CfnHoursOfOperation.HoursOfOperationConfigProperty.Builder)
-      .startTime(startTime.orNull)
-      .endTime(endTime.orNull)
-      .day(day.orNull)
+      .startTime(startTime)
+      .endTime(endTime)
+      .day(day)
       .build()
 }

@@ -4,12 +4,12 @@ package io.burkard.cdk.services.logs
 object SubscriptionFilterProps {
 
   def apply(
-    logGroup: Option[software.amazon.awscdk.services.logs.ILogGroup] = None,
+    logGroup: software.amazon.awscdk.services.logs.ILogGroup,
     filterPattern: Option[software.amazon.awscdk.services.logs.IFilterPattern] = None,
     destination: Option[software.amazon.awscdk.services.logs.ILogSubscriptionDestination] = None
   ): software.amazon.awscdk.services.logs.SubscriptionFilterProps =
     (new software.amazon.awscdk.services.logs.SubscriptionFilterProps.Builder)
-      .logGroup(logGroup.orNull)
+      .logGroup(logGroup)
       .filterPattern(filterPattern.orNull)
       .destination(destination.orNull)
       .build()

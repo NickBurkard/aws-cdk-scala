@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object FileAssetSource {
 
   def apply(
+    sourceHash: String,
     packaging: Option[software.amazon.awscdk.FileAssetPackaging] = None,
     fileName: Option[String] = None,
-    sourceHash: Option[String] = None,
     executable: Option[List[String]] = None
   ): software.amazon.awscdk.FileAssetSource =
     (new software.amazon.awscdk.FileAssetSource.Builder)
+      .sourceHash(sourceHash)
       .packaging(packaging.orNull)
       .fileName(fileName.orNull)
-      .sourceHash(sourceHash.orNull)
       .executable(executable.map(_.asJava).orNull)
       .build()
 }

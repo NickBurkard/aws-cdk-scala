@@ -5,10 +5,10 @@ object GitHubEnterpriseSourceCredentials {
 
   def apply(
     internalResourceId: String,
-    accessToken: Option[software.amazon.awscdk.SecretValue] = None
+    accessToken: software.amazon.awscdk.SecretValue
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codebuild.GitHubEnterpriseSourceCredentials =
     software.amazon.awscdk.services.codebuild.GitHubEnterpriseSourceCredentials.Builder
       .create(stackCtx, internalResourceId)
-      .accessToken(accessToken.orNull)
+      .accessToken(accessToken)
       .build()
 }

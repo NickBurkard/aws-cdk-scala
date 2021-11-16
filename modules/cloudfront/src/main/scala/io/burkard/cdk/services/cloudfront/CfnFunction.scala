@@ -5,7 +5,7 @@ object CfnFunction {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     functionMetadata: Option[software.amazon.awscdk.services.cloudfront.CfnFunction.FunctionMetadataProperty] = None,
     functionCode: Option[String] = None,
     autoPublish: Option[Boolean] = None,
@@ -13,7 +13,7 @@ object CfnFunction {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.CfnFunction =
     software.amazon.awscdk.services.cloudfront.CfnFunction.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .functionMetadata(functionMetadata.orNull)
       .functionCode(functionCode.orNull)
       .autoPublish(autoPublish.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

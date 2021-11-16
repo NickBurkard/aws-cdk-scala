@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object NonIpInstanceProps {
 
   def apply(
+    service: software.amazon.awscdk.services.servicediscovery.IService,
     instanceId: Option[String] = None,
-    service: Option[software.amazon.awscdk.services.servicediscovery.IService] = None,
     customAttributes: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.servicediscovery.NonIpInstanceProps =
     (new software.amazon.awscdk.services.servicediscovery.NonIpInstanceProps.Builder)
+      .service(service)
       .instanceId(instanceId.orNull)
-      .service(service.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualRouterAttributes {
 
   def apply(
-    virtualRouterName: Option[String] = None,
-    mesh: Option[software.amazon.awscdk.services.appmesh.IMesh] = None
+    virtualRouterName: String,
+    mesh: software.amazon.awscdk.services.appmesh.IMesh
   ): software.amazon.awscdk.services.appmesh.VirtualRouterAttributes =
     (new software.amazon.awscdk.services.appmesh.VirtualRouterAttributes.Builder)
-      .virtualRouterName(virtualRouterName.orNull)
-      .mesh(mesh.orNull)
+      .virtualRouterName(virtualRouterName)
+      .mesh(mesh)
       .build()
 }

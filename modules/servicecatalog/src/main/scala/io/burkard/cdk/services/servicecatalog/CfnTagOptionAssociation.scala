@@ -5,12 +5,12 @@ object CfnTagOptionAssociation {
 
   def apply(
     internalResourceId: String,
-    resourceId: Option[String] = None,
-    tagOptionId: Option[String] = None
+    resourceId: String,
+    tagOptionId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnTagOptionAssociation =
     software.amazon.awscdk.services.servicecatalog.CfnTagOptionAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .resourceId(resourceId.orNull)
-      .tagOptionId(tagOptionId.orNull)
+      .resourceId(resourceId)
+      .tagOptionId(tagOptionId)
       .build()
 }

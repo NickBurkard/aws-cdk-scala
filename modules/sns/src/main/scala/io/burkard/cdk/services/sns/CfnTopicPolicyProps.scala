@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnTopicPolicyProps {
 
   def apply(
-    topics: Option[List[String]] = None,
-    policyDocument: Option[AnyRef] = None
+    topics: List[String],
+    policyDocument: AnyRef
   ): software.amazon.awscdk.services.sns.CfnTopicPolicyProps =
     (new software.amazon.awscdk.services.sns.CfnTopicPolicyProps.Builder)
-      .topics(topics.map(_.asJava).orNull)
-      .policyDocument(policyDocument.orNull)
+      .topics(topics.asJava)
+      .policyDocument(policyDocument)
       .build()
 }

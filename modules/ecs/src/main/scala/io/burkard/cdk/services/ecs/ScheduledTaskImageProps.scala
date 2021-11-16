@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object ScheduledTaskImageProps {
 
   def apply(
+    image: software.amazon.awscdk.services.ecs.ContainerImage,
     secrets: Option[Map[String, _ <: software.amazon.awscdk.services.ecs.Secret]] = None,
-    image: Option[software.amazon.awscdk.services.ecs.ContainerImage] = None,
     command: Option[List[String]] = None,
     logDriver: Option[software.amazon.awscdk.services.ecs.LogDriver] = None,
     environment: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.ecs.patterns.ScheduledTaskImageProps =
     (new software.amazon.awscdk.services.ecs.patterns.ScheduledTaskImageProps.Builder)
+      .image(image)
       .secrets(secrets.map(_.asJava).orNull)
-      .image(image.orNull)
       .command(command.map(_.asJava).orNull)
       .logDriver(logDriver.orNull)
       .environment(environment.map(_.asJava).orNull)

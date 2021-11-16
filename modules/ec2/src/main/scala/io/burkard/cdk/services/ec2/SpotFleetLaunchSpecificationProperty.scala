@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object SpotFleetLaunchSpecificationProperty {
 
   def apply(
+    imageId: String,
     ebsOptimized: Option[Boolean] = None,
     tagSpecifications: Option[List[_]] = None,
     networkInterfaces: Option[List[_]] = None,
@@ -16,7 +17,6 @@ object SpotFleetLaunchSpecificationProperty {
     instanceType: Option[String] = None,
     instanceRequirements: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.InstanceRequirementsRequestProperty] = None,
     placement: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotPlacementProperty] = None,
-    imageId: Option[String] = None,
     weightedCapacity: Option[Number] = None,
     blockDeviceMappings: Option[List[_]] = None,
     subnetId: Option[String] = None,
@@ -27,6 +27,7 @@ object SpotFleetLaunchSpecificationProperty {
     kernelId: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotFleetLaunchSpecificationProperty =
     (new software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotFleetLaunchSpecificationProperty.Builder)
+      .imageId(imageId)
       .ebsOptimized(ebsOptimized.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .tagSpecifications(tagSpecifications.map(_.asJava).orNull)
       .networkInterfaces(networkInterfaces.map(_.asJava).orNull)
@@ -36,7 +37,6 @@ object SpotFleetLaunchSpecificationProperty {
       .instanceType(instanceType.orNull)
       .instanceRequirements(instanceRequirements.orNull)
       .placement(placement.orNull)
-      .imageId(imageId.orNull)
       .weightedCapacity(weightedCapacity.orNull)
       .blockDeviceMappings(blockDeviceMappings.map(_.asJava).orNull)
       .subnetId(subnetId.orNull)

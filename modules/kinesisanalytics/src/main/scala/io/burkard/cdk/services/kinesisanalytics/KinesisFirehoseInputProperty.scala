@@ -4,9 +4,9 @@ package io.burkard.cdk.services.kinesisanalytics
 object KinesisFirehoseInputProperty {
 
   def apply(
-    resourceArn: Option[String] = None
+    resourceArn: String
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.KinesisFirehoseInputProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.KinesisFirehoseInputProperty.Builder)
-      .resourceArn(resourceArn.orNull)
+      .resourceArn(resourceArn)
       .build()
 }

@@ -8,7 +8,7 @@ object CfnApp {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     repository: Option[String] = None,
     environmentVariables: Option[List[_]] = None,
     oauthToken: Option[String] = None,
@@ -25,7 +25,7 @@ object CfnApp {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.amplify.CfnApp =
     software.amazon.awscdk.services.amplify.CfnApp.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .repository(repository.orNull)
       .environmentVariables(environmentVariables.map(_.asJava).orNull)
       .oauthToken(oauthToken.orNull)

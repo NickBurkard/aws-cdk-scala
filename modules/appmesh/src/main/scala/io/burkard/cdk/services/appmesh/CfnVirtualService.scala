@@ -8,18 +8,18 @@ object CfnVirtualService {
 
   def apply(
     internalResourceId: String,
-    meshName: Option[String] = None,
+    meshName: String,
+    virtualServiceName: String,
+    spec: software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualServiceSpecProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    meshOwner: Option[String] = None,
-    virtualServiceName: Option[String] = None,
-    spec: Option[software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualServiceSpecProperty] = None
+    meshOwner: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appmesh.CfnVirtualService =
     software.amazon.awscdk.services.appmesh.CfnVirtualService.Builder
       .create(stackCtx, internalResourceId)
-      .meshName(meshName.orNull)
+      .meshName(meshName)
+      .virtualServiceName(virtualServiceName)
+      .spec(spec)
       .tags(tags.map(_.asJava).orNull)
       .meshOwner(meshOwner.orNull)
-      .virtualServiceName(virtualServiceName.orNull)
-      .spec(spec.orNull)
       .build()
 }

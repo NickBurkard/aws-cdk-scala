@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object EndpointGroupProps {
 
   def apply(
+    listener: software.amazon.awscdk.services.globalaccelerator.IListener,
     endpoints: Option[List[_ <: software.amazon.awscdk.services.globalaccelerator.IEndpoint]] = None,
     endpointGroupName: Option[String] = None,
     healthCheckInterval: Option[software.amazon.awscdk.Duration] = None,
@@ -16,10 +17,10 @@ object EndpointGroupProps {
     region: Option[String] = None,
     healthCheckThreshold: Option[Number] = None,
     portOverrides: Option[List[_ <: software.amazon.awscdk.services.globalaccelerator.PortOverride]] = None,
-    listener: Option[software.amazon.awscdk.services.globalaccelerator.IListener] = None,
     healthCheckProtocol: Option[software.amazon.awscdk.services.globalaccelerator.HealthCheckProtocol] = None
   ): software.amazon.awscdk.services.globalaccelerator.EndpointGroupProps =
     (new software.amazon.awscdk.services.globalaccelerator.EndpointGroupProps.Builder)
+      .listener(listener)
       .endpoints(endpoints.map(_.asJava).orNull)
       .endpointGroupName(endpointGroupName.orNull)
       .healthCheckInterval(healthCheckInterval.orNull)
@@ -29,7 +30,6 @@ object EndpointGroupProps {
       .region(region.orNull)
       .healthCheckThreshold(healthCheckThreshold.orNull)
       .portOverrides(portOverrides.map(_.asJava).orNull)
-      .listener(listener.orNull)
       .healthCheckProtocol(healthCheckProtocol.orNull)
       .build()
 }

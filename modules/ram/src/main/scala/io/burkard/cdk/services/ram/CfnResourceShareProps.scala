@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnResourceShareProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     principals: Option[List[String]] = None,
     resourceArns: Option[List[String]] = None,
     permissionArns: Option[List[String]] = None,
@@ -15,7 +15,7 @@ object CfnResourceShareProps {
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ram.CfnResourceShareProps =
     (new software.amazon.awscdk.services.ram.CfnResourceShareProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .principals(principals.map(_.asJava).orNull)
       .resourceArns(resourceArns.map(_.asJava).orNull)
       .permissionArns(permissionArns.map(_.asJava).orNull)

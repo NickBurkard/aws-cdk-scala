@@ -4,9 +4,9 @@ package io.burkard.cdk.services.elasticache
 object KinesisFirehoseDestinationDetailsProperty {
 
   def apply(
-    deliveryStream: Option[String] = None
+    deliveryStream: String
   ): software.amazon.awscdk.services.elasticache.CfnReplicationGroup.KinesisFirehoseDestinationDetailsProperty =
     (new software.amazon.awscdk.services.elasticache.CfnReplicationGroup.KinesisFirehoseDestinationDetailsProperty.Builder)
-      .deliveryStream(deliveryStream.orNull)
+      .deliveryStream(deliveryStream)
       .build()
 }

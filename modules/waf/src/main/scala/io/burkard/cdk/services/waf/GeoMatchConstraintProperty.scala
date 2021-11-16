@@ -4,11 +4,11 @@ package io.burkard.cdk.services.waf
 object GeoMatchConstraintProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    value: Option[String] = None
+    `type`: String,
+    value: String
   ): software.amazon.awscdk.services.waf.regional.CfnGeoMatchSet.GeoMatchConstraintProperty =
     (new software.amazon.awscdk.services.waf.regional.CfnGeoMatchSet.GeoMatchConstraintProperty.Builder)
-      .`type`(`type`.orNull)
-      .value(value.orNull)
+      .`type`(`type`)
+      .value(value)
       .build()
 }

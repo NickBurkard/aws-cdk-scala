@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object TlsClientPolicy {
 
   def apply(
+    validation: software.amazon.awscdk.services.appmesh.TlsValidation,
     mutualTlsCertificate: Option[software.amazon.awscdk.services.appmesh.MutualTlsCertificate] = None,
     ports: Option[List[_ <: Number]] = None,
-    enforce: Option[Boolean] = None,
-    validation: Option[software.amazon.awscdk.services.appmesh.TlsValidation] = None
+    enforce: Option[Boolean] = None
   ): software.amazon.awscdk.services.appmesh.TlsClientPolicy =
     (new software.amazon.awscdk.services.appmesh.TlsClientPolicy.Builder)
+      .validation(validation)
       .mutualTlsCertificate(mutualTlsCertificate.orNull)
       .ports(ports.map(_.asJava).orNull)
       .enforce(enforce.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .validation(validation.orNull)
       .build()
 }

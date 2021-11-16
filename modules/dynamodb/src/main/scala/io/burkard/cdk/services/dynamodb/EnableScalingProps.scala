@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dynamodb
 object EnableScalingProps {
 
   def apply(
-    maxCapacity: Option[Number] = None,
-    minCapacity: Option[Number] = None
+    maxCapacity: Number,
+    minCapacity: Number
   ): software.amazon.awscdk.services.dynamodb.EnableScalingProps =
     (new software.amazon.awscdk.services.dynamodb.EnableScalingProps.Builder)
-      .maxCapacity(maxCapacity.orNull)
-      .minCapacity(minCapacity.orNull)
+      .maxCapacity(maxCapacity)
+      .minCapacity(minCapacity)
       .build()
 }

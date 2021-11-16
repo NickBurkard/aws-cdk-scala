@@ -8,17 +8,17 @@ object CfnVirtualNode {
 
   def apply(
     internalResourceId: String,
-    meshName: Option[String] = None,
+    meshName: String,
+    spec: software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeSpecProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    spec: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeSpecProperty] = None,
     meshOwner: Option[String] = None,
     virtualNodeName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appmesh.CfnVirtualNode =
     software.amazon.awscdk.services.appmesh.CfnVirtualNode.Builder
       .create(stackCtx, internalResourceId)
-      .meshName(meshName.orNull)
+      .meshName(meshName)
+      .spec(spec)
       .tags(tags.map(_.asJava).orNull)
-      .spec(spec.orNull)
       .meshOwner(meshOwner.orNull)
       .virtualNodeName(virtualNodeName.orNull)
       .build()

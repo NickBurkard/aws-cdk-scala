@@ -4,9 +4,9 @@ package io.burkard.cdk.services.applicationinsights
 object AlarmMetricProperty {
 
   def apply(
-    alarmMetricName: Option[String] = None
+    alarmMetricName: String
   ): software.amazon.awscdk.services.applicationinsights.CfnApplication.AlarmMetricProperty =
     (new software.amazon.awscdk.services.applicationinsights.CfnApplication.AlarmMetricProperty.Builder)
-      .alarmMetricName(alarmMetricName.orNull)
+      .alarmMetricName(alarmMetricName)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dlm
 object EventSourceProperty {
 
   def apply(
-    `type`: Option[String] = None,
+    `type`: String,
     parameters: Option[software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EventParametersProperty] = None
   ): software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EventSourceProperty =
     (new software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EventSourceProperty.Builder)
-      .`type`(`type`.orNull)
+      .`type`(`type`)
       .parameters(parameters.orNull)
       .build()
 }

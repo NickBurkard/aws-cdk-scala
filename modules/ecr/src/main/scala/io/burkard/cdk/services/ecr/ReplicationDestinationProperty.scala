@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecr
 object ReplicationDestinationProperty {
 
   def apply(
-    registryId: Option[String] = None,
-    region: Option[String] = None
+    registryId: String,
+    region: String
   ): software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationDestinationProperty =
     (new software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationDestinationProperty.Builder)
-      .registryId(registryId.orNull)
-      .region(region.orNull)
+      .registryId(registryId)
+      .region(region)
       .build()
 }

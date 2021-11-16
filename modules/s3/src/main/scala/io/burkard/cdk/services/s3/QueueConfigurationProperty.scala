@@ -4,13 +4,13 @@ package io.burkard.cdk.services.s3
 object QueueConfigurationProperty {
 
   def apply(
-    filter: Option[software.amazon.awscdk.services.s3.CfnBucket.NotificationFilterProperty] = None,
-    event: Option[String] = None,
-    queue: Option[String] = None
+    event: String,
+    queue: String,
+    filter: Option[software.amazon.awscdk.services.s3.CfnBucket.NotificationFilterProperty] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.QueueConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.QueueConfigurationProperty.Builder)
+      .event(event)
+      .queue(queue)
       .filter(filter.orNull)
-      .event(event.orNull)
-      .queue(queue.orNull)
       .build()
 }

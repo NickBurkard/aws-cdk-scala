@@ -5,12 +5,12 @@ object VirtualService {
 
   def apply(
     internalResourceId: String,
-    virtualServiceProvider: Option[software.amazon.awscdk.services.appmesh.VirtualServiceProvider] = None,
+    virtualServiceProvider: software.amazon.awscdk.services.appmesh.VirtualServiceProvider,
     virtualServiceName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appmesh.VirtualService =
     software.amazon.awscdk.services.appmesh.VirtualService.Builder
       .create(stackCtx, internalResourceId)
-      .virtualServiceProvider(virtualServiceProvider.orNull)
+      .virtualServiceProvider(virtualServiceProvider)
       .virtualServiceName(virtualServiceName.orNull)
       .build()
 }

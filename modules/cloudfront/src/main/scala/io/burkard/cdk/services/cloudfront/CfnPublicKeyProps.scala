@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object CfnPublicKeyProps {
 
   def apply(
-    publicKeyConfig: Option[software.amazon.awscdk.services.cloudfront.CfnPublicKey.PublicKeyConfigProperty] = None
+    publicKeyConfig: software.amazon.awscdk.services.cloudfront.CfnPublicKey.PublicKeyConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnPublicKeyProps =
     (new software.amazon.awscdk.services.cloudfront.CfnPublicKeyProps.Builder)
-      .publicKeyConfig(publicKeyConfig.orNull)
+      .publicKeyConfig(publicKeyConfig)
       .build()
 }

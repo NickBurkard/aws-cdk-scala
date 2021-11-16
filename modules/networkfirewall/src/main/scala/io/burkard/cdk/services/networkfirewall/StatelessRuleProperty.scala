@@ -4,11 +4,11 @@ package io.burkard.cdk.services.networkfirewall
 object StatelessRuleProperty {
 
   def apply(
-    priority: Option[Number] = None,
-    ruleDefinition: Option[software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RuleDefinitionProperty] = None
+    priority: Number,
+    ruleDefinition: software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RuleDefinitionProperty
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.StatelessRuleProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.StatelessRuleProperty.Builder)
-      .priority(priority.orNull)
-      .ruleDefinition(ruleDefinition.orNull)
+      .priority(priority)
+      .ruleDefinition(ruleDefinition)
       .build()
 }

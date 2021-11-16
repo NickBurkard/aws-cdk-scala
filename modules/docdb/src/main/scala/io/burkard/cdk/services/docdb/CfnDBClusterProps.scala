@@ -7,6 +7,8 @@ import scala.collection.JavaConverters._
 object CfnDBClusterProps {
 
   def apply(
+    masterUserPassword: String,
+    masterUsername: String,
     snapshotIdentifier: Option[String] = None,
     preferredMaintenanceWindow: Option[String] = None,
     deletionProtection: Option[Boolean] = None,
@@ -16,17 +18,17 @@ object CfnDBClusterProps {
     storageEncrypted: Option[Boolean] = None,
     dbClusterIdentifier: Option[String] = None,
     vpcSecurityGroupIds: Option[List[String]] = None,
-    masterUserPassword: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     port: Option[Number] = None,
     backupRetentionPeriod: Option[Number] = None,
     dbSubnetGroupName: Option[String] = None,
     dbClusterParameterGroupName: Option[String] = None,
-    masterUsername: Option[String] = None,
     preferredBackupWindow: Option[String] = None,
     availabilityZones: Option[List[String]] = None
   ): software.amazon.awscdk.services.docdb.CfnDBClusterProps =
     (new software.amazon.awscdk.services.docdb.CfnDBClusterProps.Builder)
+      .masterUserPassword(masterUserPassword)
+      .masterUsername(masterUsername)
       .snapshotIdentifier(snapshotIdentifier.orNull)
       .preferredMaintenanceWindow(preferredMaintenanceWindow.orNull)
       .deletionProtection(deletionProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -36,13 +38,11 @@ object CfnDBClusterProps {
       .storageEncrypted(storageEncrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .dbClusterIdentifier(dbClusterIdentifier.orNull)
       .vpcSecurityGroupIds(vpcSecurityGroupIds.map(_.asJava).orNull)
-      .masterUserPassword(masterUserPassword.orNull)
       .tags(tags.map(_.asJava).orNull)
       .port(port.orNull)
       .backupRetentionPeriod(backupRetentionPeriod.orNull)
       .dbSubnetGroupName(dbSubnetGroupName.orNull)
       .dbClusterParameterGroupName(dbClusterParameterGroupName.orNull)
-      .masterUsername(masterUsername.orNull)
       .preferredBackupWindow(preferredBackupWindow.orNull)
       .availabilityZones(availabilityZones.map(_.asJava).orNull)
       .build()

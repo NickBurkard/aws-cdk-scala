@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object CfnVPCGatewayAttachmentProps {
 
   def apply(
+    vpcId: String,
     vpnGatewayId: Option[String] = None,
-    vpcId: Option[String] = None,
     internetGatewayId: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnVPCGatewayAttachmentProps =
     (new software.amazon.awscdk.services.ec2.CfnVPCGatewayAttachmentProps.Builder)
+      .vpcId(vpcId)
       .vpnGatewayId(vpnGatewayId.orNull)
-      .vpcId(vpcId.orNull)
       .internetGatewayId(internetGatewayId.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rds
 object ParameterGroupClusterConfig {
 
   def apply(
-    parameterGroupName: Option[String] = None
+    parameterGroupName: String
   ): software.amazon.awscdk.services.rds.ParameterGroupClusterConfig =
     (new software.amazon.awscdk.services.rds.ParameterGroupClusterConfig.Builder)
-      .parameterGroupName(parameterGroupName.orNull)
+      .parameterGroupName(parameterGroupName)
       .build()
 }

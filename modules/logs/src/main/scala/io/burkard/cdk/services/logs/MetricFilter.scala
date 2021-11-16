@@ -5,7 +5,7 @@ object MetricFilter {
 
   def apply(
     internalResourceId: String,
-    logGroup: Option[software.amazon.awscdk.services.logs.ILogGroup] = None,
+    logGroup: software.amazon.awscdk.services.logs.ILogGroup,
     filterPattern: Option[software.amazon.awscdk.services.logs.IFilterPattern] = None,
     metricName: Option[String] = None,
     metricNamespace: Option[String] = None,
@@ -14,7 +14,7 @@ object MetricFilter {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.logs.MetricFilter =
     software.amazon.awscdk.services.logs.MetricFilter.Builder
       .create(stackCtx, internalResourceId)
-      .logGroup(logGroup.orNull)
+      .logGroup(logGroup)
       .filterPattern(filterPattern.orNull)
       .metricName(metricName.orNull)
       .metricNamespace(metricNamespace.orNull)

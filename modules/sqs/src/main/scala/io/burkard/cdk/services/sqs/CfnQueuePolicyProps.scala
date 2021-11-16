@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnQueuePolicyProps {
 
   def apply(
-    queues: Option[List[String]] = None,
-    policyDocument: Option[AnyRef] = None
+    queues: List[String],
+    policyDocument: AnyRef
   ): software.amazon.awscdk.services.sqs.CfnQueuePolicyProps =
     (new software.amazon.awscdk.services.sqs.CfnQueuePolicyProps.Builder)
-      .queues(queues.map(_.asJava).orNull)
-      .policyDocument(policyDocument.orNull)
+      .queues(queues.asJava)
+      .policyDocument(policyDocument)
       .build()
 }

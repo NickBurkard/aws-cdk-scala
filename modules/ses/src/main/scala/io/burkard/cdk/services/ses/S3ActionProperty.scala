@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ses
 object S3ActionProperty {
 
   def apply(
+    bucketName: String,
     objectKeyPrefix: Option[String] = None,
     topicArn: Option[String] = None,
-    kmsKeyArn: Option[String] = None,
-    bucketName: Option[String] = None
+    kmsKeyArn: Option[String] = None
   ): software.amazon.awscdk.services.ses.CfnReceiptRule.S3ActionProperty =
     (new software.amazon.awscdk.services.ses.CfnReceiptRule.S3ActionProperty.Builder)
+      .bucketName(bucketName)
       .objectKeyPrefix(objectKeyPrefix.orNull)
       .topicArn(topicArn.orNull)
       .kmsKeyArn(kmsKeyArn.orNull)
-      .bucketName(bucketName.orNull)
       .build()
 }

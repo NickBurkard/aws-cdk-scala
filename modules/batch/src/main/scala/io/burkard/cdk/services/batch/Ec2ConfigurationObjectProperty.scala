@@ -4,11 +4,11 @@ package io.burkard.cdk.services.batch
 object Ec2ConfigurationObjectProperty {
 
   def apply(
-    imageIdOverride: Option[String] = None,
-    imageType: Option[String] = None
+    imageType: String,
+    imageIdOverride: Option[String] = None
   ): software.amazon.awscdk.services.batch.CfnComputeEnvironment.Ec2ConfigurationObjectProperty =
     (new software.amazon.awscdk.services.batch.CfnComputeEnvironment.Ec2ConfigurationObjectProperty.Builder)
+      .imageType(imageType)
       .imageIdOverride(imageIdOverride.orNull)
-      .imageType(imageType.orNull)
       .build()
 }

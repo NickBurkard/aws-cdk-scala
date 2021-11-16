@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CustomComponentProperty {
 
   def apply(
-    componentName: Option[String] = None,
-    resourceList: Option[List[String]] = None
+    componentName: String,
+    resourceList: List[String]
   ): software.amazon.awscdk.services.applicationinsights.CfnApplication.CustomComponentProperty =
     (new software.amazon.awscdk.services.applicationinsights.CfnApplication.CustomComponentProperty.Builder)
-      .componentName(componentName.orNull)
-      .resourceList(resourceList.map(_.asJava).orNull)
+      .componentName(componentName)
+      .resourceList(resourceList.asJava)
       .build()
 }

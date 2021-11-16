@@ -8,6 +8,7 @@ object CfnDBInstance {
 
   def apply(
     internalResourceId: String,
+    dbInstanceClass: String,
     dbParameterGroupName: Option[String] = None,
     monitoringRoleArn: Option[String] = None,
     storageType: Option[String] = None,
@@ -18,7 +19,6 @@ object CfnDBInstance {
     dbInstanceIdentifier: Option[String] = None,
     kmsKeyId: Option[String] = None,
     engineVersion: Option[String] = None,
-    dbInstanceClass: Option[String] = None,
     vpcSecurityGroups: Option[List[String]] = None,
     storageEncrypted: Option[Boolean] = None,
     dbClusterIdentifier: Option[String] = None,
@@ -63,6 +63,7 @@ object CfnDBInstance {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.CfnDBInstance =
     software.amazon.awscdk.services.rds.CfnDBInstance.Builder
       .create(stackCtx, internalResourceId)
+      .dbInstanceClass(dbInstanceClass)
       .dbParameterGroupName(dbParameterGroupName.orNull)
       .monitoringRoleArn(monitoringRoleArn.orNull)
       .storageType(storageType.orNull)
@@ -73,7 +74,6 @@ object CfnDBInstance {
       .dbInstanceIdentifier(dbInstanceIdentifier.orNull)
       .kmsKeyId(kmsKeyId.orNull)
       .engineVersion(engineVersion.orNull)
-      .dbInstanceClass(dbInstanceClass.orNull)
       .vpcSecurityGroups(vpcSecurityGroups.map(_.asJava).orNull)
       .storageEncrypted(storageEncrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .dbClusterIdentifier(dbClusterIdentifier.orNull)

@@ -5,12 +5,12 @@ object CfnDataCatalogEncryptionSettings {
 
   def apply(
     internalResourceId: String,
-    dataCatalogEncryptionSettings: Option[software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettings.DataCatalogEncryptionSettingsProperty] = None,
-    catalogId: Option[String] = None
+    dataCatalogEncryptionSettings: software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettings.DataCatalogEncryptionSettingsProperty,
+    catalogId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettings =
     software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettings.Builder
       .create(stackCtx, internalResourceId)
-      .dataCatalogEncryptionSettings(dataCatalogEncryptionSettings.orNull)
-      .catalogId(catalogId.orNull)
+      .dataCatalogEncryptionSettings(dataCatalogEncryptionSettings)
+      .catalogId(catalogId)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.sagemaker
 object CognitoMemberDefinitionProperty {
 
   def apply(
-    cognitoClientId: Option[String] = None,
-    cognitoUserGroup: Option[String] = None,
-    cognitoUserPool: Option[String] = None
+    cognitoClientId: String,
+    cognitoUserGroup: String,
+    cognitoUserPool: String
   ): software.amazon.awscdk.services.sagemaker.CfnWorkteam.CognitoMemberDefinitionProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnWorkteam.CognitoMemberDefinitionProperty.Builder)
-      .cognitoClientId(cognitoClientId.orNull)
-      .cognitoUserGroup(cognitoUserGroup.orNull)
-      .cognitoUserPool(cognitoUserPool.orNull)
+      .cognitoClientId(cognitoClientId)
+      .cognitoUserGroup(cognitoUserGroup)
+      .cognitoUserPool(cognitoUserPool)
       .build()
 }

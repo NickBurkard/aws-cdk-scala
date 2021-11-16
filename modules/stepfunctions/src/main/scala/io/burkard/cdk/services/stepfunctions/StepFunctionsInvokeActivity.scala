@@ -8,9 +8,9 @@ object StepFunctionsInvokeActivity {
 
   def apply(
     internalResourceId: String,
+    activity: software.amazon.awscdk.services.stepfunctions.IActivity,
     resultPath: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
-    activity: Option[software.amazon.awscdk.services.stepfunctions.IActivity] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
     outputPath: Option[String] = None,
@@ -20,9 +20,9 @@ object StepFunctionsInvokeActivity {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.StepFunctionsInvokeActivity =
     software.amazon.awscdk.services.stepfunctions.tasks.StepFunctionsInvokeActivity.Builder
       .create(stackCtx, internalResourceId)
+      .activity(activity)
       .resultPath(resultPath.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .activity(activity.orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)
       .outputPath(outputPath.orNull)

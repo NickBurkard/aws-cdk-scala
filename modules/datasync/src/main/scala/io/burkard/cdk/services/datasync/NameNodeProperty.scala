@@ -4,11 +4,11 @@ package io.burkard.cdk.services.datasync
 object NameNodeProperty {
 
   def apply(
-    hostname: Option[String] = None,
-    port: Option[Number] = None
+    hostname: String,
+    port: Number
   ): software.amazon.awscdk.services.datasync.CfnLocationHDFS.NameNodeProperty =
     (new software.amazon.awscdk.services.datasync.CfnLocationHDFS.NameNodeProperty.Builder)
-      .hostname(hostname.orNull)
-      .port(port.orNull)
+      .hostname(hostname)
+      .port(port)
       .build()
 }

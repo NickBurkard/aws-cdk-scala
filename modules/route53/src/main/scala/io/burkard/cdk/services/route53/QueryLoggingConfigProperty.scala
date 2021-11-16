@@ -4,9 +4,9 @@ package io.burkard.cdk.services.route53
 object QueryLoggingConfigProperty {
 
   def apply(
-    cloudWatchLogsLogGroupArn: Option[String] = None
+    cloudWatchLogsLogGroupArn: String
   ): software.amazon.awscdk.services.route53.CfnHostedZone.QueryLoggingConfigProperty =
     (new software.amazon.awscdk.services.route53.CfnHostedZone.QueryLoggingConfigProperty.Builder)
-      .cloudWatchLogsLogGroupArn(cloudWatchLogsLogGroupArn.orNull)
+      .cloudWatchLogsLogGroupArn(cloudWatchLogsLogGroupArn)
       .build()
 }

@@ -5,14 +5,14 @@ object CfnMaster {
 
   def apply(
     internalResourceId: String,
-    detectorId: Option[String] = None,
-    masterId: Option[String] = None,
+    detectorId: String,
+    masterId: String,
     invitationId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.guardduty.CfnMaster =
     software.amazon.awscdk.services.guardduty.CfnMaster.Builder
       .create(stackCtx, internalResourceId)
-      .detectorId(detectorId.orNull)
-      .masterId(masterId.orNull)
+      .detectorId(detectorId)
+      .masterId(masterId)
       .invitationId(invitationId.orNull)
       .build()
 }

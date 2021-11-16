@@ -4,16 +4,16 @@ package io.burkard.cdk.cloudassembly
 object DockerImageDestination {
 
   def apply(
-    repositoryName: Option[String] = None,
+    repositoryName: String,
+    imageTag: String,
     assumeRoleArn: Option[String] = None,
-    imageTag: Option[String] = None,
     assumeRoleExternalId: Option[String] = None,
     region: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.DockerImageDestination =
     (new software.amazon.awscdk.cloudassembly.schema.DockerImageDestination.Builder)
-      .repositoryName(repositoryName.orNull)
+      .repositoryName(repositoryName)
+      .imageTag(imageTag)
       .assumeRoleArn(assumeRoleArn.orNull)
-      .imageTag(imageTag.orNull)
       .assumeRoleExternalId(assumeRoleExternalId.orNull)
       .region(region.orNull)
       .build()

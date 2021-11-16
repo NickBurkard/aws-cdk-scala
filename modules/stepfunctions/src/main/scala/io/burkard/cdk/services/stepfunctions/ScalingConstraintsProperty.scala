@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object ScalingConstraintsProperty {
 
   def apply(
-    maxCapacity: Option[Number] = None,
-    minCapacity: Option[Number] = None
+    maxCapacity: Number,
+    minCapacity: Number
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingConstraintsProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingConstraintsProperty.Builder)
-      .maxCapacity(maxCapacity.orNull)
-      .minCapacity(minCapacity.orNull)
+      .maxCapacity(maxCapacity)
+      .minCapacity(minCapacity)
       .build()
 }

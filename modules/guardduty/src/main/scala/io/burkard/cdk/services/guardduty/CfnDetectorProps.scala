@@ -4,12 +4,12 @@ package io.burkard.cdk.services.guardduty
 object CfnDetectorProps {
 
   def apply(
-    enable: Option[Boolean] = None,
+    enable: Boolean,
     findingPublishingFrequency: Option[String] = None,
     dataSources: Option[software.amazon.awscdk.services.guardduty.CfnDetector.CFNDataSourceConfigurationsProperty] = None
   ): software.amazon.awscdk.services.guardduty.CfnDetectorProps =
     (new software.amazon.awscdk.services.guardduty.CfnDetectorProps.Builder)
-      .enable(enable.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enable(enable)
       .findingPublishingFrequency(findingPublishingFrequency.orNull)
       .dataSources(dataSources.orNull)
       .build()

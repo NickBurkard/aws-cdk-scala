@@ -4,13 +4,13 @@ package io.burkard.cdk.alexa
 object CfnSkillProps {
 
   def apply(
-    skillPackage: Option[software.amazon.awscdk.alexa.ask.CfnSkill.SkillPackageProperty] = None,
-    vendorId: Option[String] = None,
-    authenticationConfiguration: Option[software.amazon.awscdk.alexa.ask.CfnSkill.AuthenticationConfigurationProperty] = None
+    skillPackage: software.amazon.awscdk.alexa.ask.CfnSkill.SkillPackageProperty,
+    vendorId: String,
+    authenticationConfiguration: software.amazon.awscdk.alexa.ask.CfnSkill.AuthenticationConfigurationProperty
   ): software.amazon.awscdk.alexa.ask.CfnSkillProps =
     (new software.amazon.awscdk.alexa.ask.CfnSkillProps.Builder)
-      .skillPackage(skillPackage.orNull)
-      .vendorId(vendorId.orNull)
-      .authenticationConfiguration(authenticationConfiguration.orNull)
+      .skillPackage(skillPackage)
+      .vendorId(vendorId)
+      .authenticationConfiguration(authenticationConfiguration)
       .build()
 }

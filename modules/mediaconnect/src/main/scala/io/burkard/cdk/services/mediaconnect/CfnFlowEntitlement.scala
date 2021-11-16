@@ -8,22 +8,22 @@ object CfnFlowEntitlement {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    subscribers: Option[List[String]] = None,
-    description: Option[String] = None,
+    name: String,
+    subscribers: List[String],
+    description: String,
+    flowArn: String,
     dataTransferSubscriberFeePercent: Option[Number] = None,
     encryption: Option[software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlement.EncryptionProperty] = None,
-    flowArn: Option[String] = None,
     entitlementStatus: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlement =
     software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlement.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .subscribers(subscribers.map(_.asJava).orNull)
-      .description(description.orNull)
+      .name(name)
+      .subscribers(subscribers.asJava)
+      .description(description)
+      .flowArn(flowArn)
       .dataTransferSubscriberFeePercent(dataTransferSubscriberFeePercent.orNull)
       .encryption(encryption.orNull)
-      .flowArn(flowArn.orNull)
       .entitlementStatus(entitlementStatus.orNull)
       .build()
 }

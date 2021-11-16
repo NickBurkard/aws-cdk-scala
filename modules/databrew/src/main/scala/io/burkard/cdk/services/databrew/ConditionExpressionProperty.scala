@@ -4,13 +4,13 @@ package io.burkard.cdk.services.databrew
 object ConditionExpressionProperty {
 
   def apply(
-    condition: Option[String] = None,
-    value: Option[String] = None,
-    targetColumn: Option[String] = None
+    condition: String,
+    targetColumn: String,
+    value: Option[String] = None
   ): software.amazon.awscdk.services.databrew.CfnRecipe.ConditionExpressionProperty =
     (new software.amazon.awscdk.services.databrew.CfnRecipe.ConditionExpressionProperty.Builder)
-      .condition(condition.orNull)
+      .condition(condition)
+      .targetColumn(targetColumn)
       .value(value.orNull)
-      .targetColumn(targetColumn.orNull)
       .build()
 }

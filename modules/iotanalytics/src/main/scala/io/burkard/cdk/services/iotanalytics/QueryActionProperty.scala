@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object QueryActionProperty {
 
   def apply(
-    sqlQuery: Option[String] = None,
+    sqlQuery: String,
     filters: Option[List[_]] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.QueryActionProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.QueryActionProperty.Builder)
-      .sqlQuery(sqlQuery.orNull)
+      .sqlQuery(sqlQuery)
       .filters(filters.map(_.asJava).orNull)
       .build()
 }

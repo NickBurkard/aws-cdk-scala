@@ -8,17 +8,17 @@ object CfnQuickConnect {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    quickConnectConfig: Option[software.amazon.awscdk.services.connect.CfnQuickConnect.QuickConnectConfigProperty] = None,
-    instanceArn: Option[String] = None,
+    name: String,
+    quickConnectConfig: software.amazon.awscdk.services.connect.CfnQuickConnect.QuickConnectConfigProperty,
+    instanceArn: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.connect.CfnQuickConnect =
     software.amazon.awscdk.services.connect.CfnQuickConnect.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .quickConnectConfig(quickConnectConfig.orNull)
-      .instanceArn(instanceArn.orNull)
+      .name(name)
+      .quickConnectConfig(quickConnectConfig)
+      .instanceArn(instanceArn)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

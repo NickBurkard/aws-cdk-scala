@@ -8,30 +8,30 @@ object CfnGlobalTable {
 
   def apply(
     internalResourceId: String,
+    keySchema: List[_],
+    attributeDefinitions: List[_],
+    replicas: List[_],
     streamSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.StreamSpecificationProperty] = None,
     timeToLiveSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.TimeToLiveSpecificationProperty] = None,
     sseSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.SSESpecificationProperty] = None,
     tableName: Option[String] = None,
     localSecondaryIndexes: Option[List[_]] = None,
     writeProvisionedThroughputSettings: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.WriteProvisionedThroughputSettingsProperty] = None,
-    keySchema: Option[List[_]] = None,
-    attributeDefinitions: Option[List[_]] = None,
     globalSecondaryIndexes: Option[List[_]] = None,
-    billingMode: Option[String] = None,
-    replicas: Option[List[_]] = None
+    billingMode: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.dynamodb.CfnGlobalTable =
     software.amazon.awscdk.services.dynamodb.CfnGlobalTable.Builder
       .create(stackCtx, internalResourceId)
+      .keySchema(keySchema.asJava)
+      .attributeDefinitions(attributeDefinitions.asJava)
+      .replicas(replicas.asJava)
       .streamSpecification(streamSpecification.orNull)
       .timeToLiveSpecification(timeToLiveSpecification.orNull)
       .sseSpecification(sseSpecification.orNull)
       .tableName(tableName.orNull)
       .localSecondaryIndexes(localSecondaryIndexes.map(_.asJava).orNull)
       .writeProvisionedThroughputSettings(writeProvisionedThroughputSettings.orNull)
-      .keySchema(keySchema.map(_.asJava).orNull)
-      .attributeDefinitions(attributeDefinitions.map(_.asJava).orNull)
       .globalSecondaryIndexes(globalSecondaryIndexes.map(_.asJava).orNull)
       .billingMode(billingMode.orNull)
-      .replicas(replicas.map(_.asJava).orNull)
       .build()
 }

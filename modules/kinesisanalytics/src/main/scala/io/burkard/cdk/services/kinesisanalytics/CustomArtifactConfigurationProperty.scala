@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kinesisanalytics
 object CustomArtifactConfigurationProperty {
 
   def apply(
+    artifactType: String,
     s3ContentLocation: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.S3ContentLocationProperty] = None,
-    mavenReference: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.MavenReferenceProperty] = None,
-    artifactType: Option[String] = None
+    mavenReference: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.MavenReferenceProperty] = None
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.CustomArtifactConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.CustomArtifactConfigurationProperty.Builder)
+      .artifactType(artifactType)
       .s3ContentLocation(s3ContentLocation.orNull)
       .mavenReference(mavenReference.orNull)
-      .artifactType(artifactType.orNull)
       .build()
 }

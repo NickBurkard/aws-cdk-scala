@@ -5,14 +5,14 @@ object CfnInstance {
 
   def apply(
     internalResourceId: String,
-    instanceId: Option[String] = None,
-    instanceAttributes: Option[AnyRef] = None,
-    serviceId: Option[String] = None
+    instanceAttributes: AnyRef,
+    serviceId: String,
+    instanceId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicediscovery.CfnInstance =
     software.amazon.awscdk.services.servicediscovery.CfnInstance.Builder
       .create(stackCtx, internalResourceId)
+      .instanceAttributes(instanceAttributes)
+      .serviceId(serviceId)
       .instanceId(instanceId.orNull)
-      .instanceAttributes(instanceAttributes.orNull)
-      .serviceId(serviceId.orNull)
       .build()
 }

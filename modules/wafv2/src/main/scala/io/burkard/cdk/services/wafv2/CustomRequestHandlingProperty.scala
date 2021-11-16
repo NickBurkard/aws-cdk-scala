@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CustomRequestHandlingProperty {
 
   def apply(
-    insertHeaders: Option[List[_]] = None
+    insertHeaders: List[_]
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.CustomRequestHandlingProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.CustomRequestHandlingProperty.Builder)
-      .insertHeaders(insertHeaders.map(_.asJava).orNull)
+      .insertHeaders(insertHeaders.asJava)
       .build()
 }

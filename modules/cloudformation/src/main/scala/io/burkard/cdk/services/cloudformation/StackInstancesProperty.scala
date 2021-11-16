@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object StackInstancesProperty {
 
   def apply(
-    regions: Option[List[String]] = None,
-    deploymentTargets: Option[software.amazon.awscdk.services.cloudformation.CfnStackSet.DeploymentTargetsProperty] = None,
+    regions: List[String],
+    deploymentTargets: software.amazon.awscdk.services.cloudformation.CfnStackSet.DeploymentTargetsProperty,
     parameterOverrides: Option[List[_]] = None
   ): software.amazon.awscdk.services.cloudformation.CfnStackSet.StackInstancesProperty =
     (new software.amazon.awscdk.services.cloudformation.CfnStackSet.StackInstancesProperty.Builder)
-      .regions(regions.map(_.asJava).orNull)
-      .deploymentTargets(deploymentTargets.orNull)
+      .regions(regions.asJava)
+      .deploymentTargets(deploymentTargets)
       .parameterOverrides(parameterOverrides.map(_.asJava).orNull)
       .build()
 }

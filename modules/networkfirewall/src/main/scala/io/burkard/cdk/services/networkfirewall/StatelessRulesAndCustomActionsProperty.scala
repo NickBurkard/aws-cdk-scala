@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object StatelessRulesAndCustomActionsProperty {
 
   def apply(
-    statelessRules: Option[List[_]] = None,
+    statelessRules: List[_],
     customActions: Option[List[_]] = None
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.StatelessRulesAndCustomActionsProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.StatelessRulesAndCustomActionsProperty.Builder)
-      .statelessRules(statelessRules.map(_.asJava).orNull)
+      .statelessRules(statelessRules.asJava)
       .customActions(customActions.map(_.asJava).orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object AddHeaderActionProperty {
 
   def apply(
-    headerName: Option[String] = None,
-    headerValue: Option[String] = None
+    headerName: String,
+    headerValue: String
   ): software.amazon.awscdk.services.ses.CfnReceiptRule.AddHeaderActionProperty =
     (new software.amazon.awscdk.services.ses.CfnReceiptRule.AddHeaderActionProperty.Builder)
-      .headerName(headerName.orNull)
-      .headerValue(headerValue.orNull)
+      .headerName(headerName)
+      .headerValue(headerValue)
       .build()
 }

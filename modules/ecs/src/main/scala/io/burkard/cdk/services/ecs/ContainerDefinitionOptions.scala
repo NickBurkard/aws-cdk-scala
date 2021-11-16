@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object ContainerDefinitionOptions {
 
   def apply(
+    image: software.amazon.awscdk.services.ecs.ContainerImage,
     dockerSecurityOptions: Option[List[String]] = None,
     healthCheck: Option[software.amazon.awscdk.services.ecs.HealthCheck] = None,
     hostname: Option[String] = None,
@@ -28,7 +29,6 @@ object ContainerDefinitionOptions {
     portMappings: Option[List[_ <: software.amazon.awscdk.services.ecs.PortMapping]] = None,
     essential: Option[Boolean] = None,
     readonlyRootFilesystem: Option[Boolean] = None,
-    image: Option[software.amazon.awscdk.services.ecs.ContainerImage] = None,
     gpuCount: Option[Number] = None,
     inferenceAcceleratorResources: Option[List[String]] = None,
     cpu: Option[Number] = None,
@@ -39,6 +39,7 @@ object ContainerDefinitionOptions {
     dnsServers: Option[List[String]] = None
   ): software.amazon.awscdk.services.ecs.ContainerDefinitionOptions =
     (new software.amazon.awscdk.services.ecs.ContainerDefinitionOptions.Builder)
+      .image(image)
       .dockerSecurityOptions(dockerSecurityOptions.map(_.asJava).orNull)
       .healthCheck(healthCheck.orNull)
       .hostname(hostname.orNull)
@@ -60,7 +61,6 @@ object ContainerDefinitionOptions {
       .portMappings(portMappings.map(_.asJava).orNull)
       .essential(essential.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .readonlyRootFilesystem(readonlyRootFilesystem.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .image(image.orNull)
       .gpuCount(gpuCount.orNull)
       .inferenceAcceleratorResources(inferenceAcceleratorResources.map(_.asJava).orNull)
       .cpu(cpu.orNull)

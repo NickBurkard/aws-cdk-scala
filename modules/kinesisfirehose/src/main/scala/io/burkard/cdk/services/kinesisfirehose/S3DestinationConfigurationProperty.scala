@@ -4,23 +4,23 @@ package io.burkard.cdk.services.kinesisfirehose
 object S3DestinationConfigurationProperty {
 
   def apply(
+    bucketArn: String,
+    roleArn: String,
     encryptionConfiguration: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.EncryptionConfigurationProperty] = None,
     errorOutputPrefix: Option[String] = None,
     compressionFormat: Option[String] = None,
-    bucketArn: Option[String] = None,
     prefix: Option[String] = None,
     cloudWatchLoggingOptions: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.CloudWatchLoggingOptionsProperty] = None,
-    roleArn: Option[String] = None,
     bufferingHints: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.BufferingHintsProperty] = None
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.S3DestinationConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.S3DestinationConfigurationProperty.Builder)
+      .bucketArn(bucketArn)
+      .roleArn(roleArn)
       .encryptionConfiguration(encryptionConfiguration.orNull)
       .errorOutputPrefix(errorOutputPrefix.orNull)
       .compressionFormat(compressionFormat.orNull)
-      .bucketArn(bucketArn.orNull)
       .prefix(prefix.orNull)
       .cloudWatchLoggingOptions(cloudWatchLoggingOptions.orNull)
-      .roleArn(roleArn.orNull)
       .bufferingHints(bufferingHints.orNull)
       .build()
 }

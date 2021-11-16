@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object VirtualGatewayTlsValidationContextAcmTrustProperty {
 
   def apply(
-    certificateAuthorityArns: Option[List[String]] = None
+    certificateAuthorityArns: List[String]
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextAcmTrustProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextAcmTrustProperty.Builder)
-      .certificateAuthorityArns(certificateAuthorityArns.map(_.asJava).orNull)
+      .certificateAuthorityArns(certificateAuthorityArns.asJava)
       .build()
 }

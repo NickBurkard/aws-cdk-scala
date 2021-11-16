@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object TopicSAMPTProperty {
 
   def apply(
-    topicName: Option[String] = None
+    topicName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.TopicSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.TopicSAMPTProperty.Builder)
-      .topicName(topicName.orNull)
+      .topicName(topicName)
       .build()
 }

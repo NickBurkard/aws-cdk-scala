@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnIdentityPoolRoleAttachmentProps {
 
   def apply(
+    identityPoolId: String,
     roleMappings: Option[Map[String, _]] = None,
-    identityPoolId: Option[String] = None,
     roles: Option[AnyRef] = None
   ): software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachmentProps =
     (new software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachmentProps.Builder)
+      .identityPoolId(identityPoolId)
       .roleMappings(roleMappings.map(_.asJava).orNull)
-      .identityPoolId(identityPoolId.orNull)
       .roles(roles.orNull)
       .build()
 }

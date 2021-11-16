@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CustomActionRegistrationProps {
 
   def apply(
+    artifactBounds: software.amazon.awscdk.services.codepipeline.ActionArtifactBounds,
+    provider: String,
+    category: software.amazon.awscdk.services.codepipeline.ActionCategory,
     entityUrl: Option[String] = None,
-    artifactBounds: Option[software.amazon.awscdk.services.codepipeline.ActionArtifactBounds] = None,
-    provider: Option[String] = None,
     version: Option[String] = None,
     executionUrl: Option[String] = None,
-    category: Option[software.amazon.awscdk.services.codepipeline.ActionCategory] = None,
     actionProperties: Option[List[_ <: software.amazon.awscdk.services.codepipeline.CustomActionProperty]] = None
   ): software.amazon.awscdk.services.codepipeline.CustomActionRegistrationProps =
     (new software.amazon.awscdk.services.codepipeline.CustomActionRegistrationProps.Builder)
+      .artifactBounds(artifactBounds)
+      .provider(provider)
+      .category(category)
       .entityUrl(entityUrl.orNull)
-      .artifactBounds(artifactBounds.orNull)
-      .provider(provider.orNull)
       .version(version.orNull)
       .executionUrl(executionUrl.orNull)
-      .category(category.orNull)
       .actionProperties(actionProperties.map(_.asJava).orNull)
       .build()
 }

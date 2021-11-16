@@ -4,11 +4,11 @@ package io.burkard.cdk.services.wafv2
 object TextTransformationProperty {
 
   def apply(
-    priority: Option[Number] = None,
-    `type`: Option[String] = None
+    priority: Number,
+    `type`: String
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.TextTransformationProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.TextTransformationProperty.Builder)
-      .priority(priority.orNull)
-      .`type`(`type`.orNull)
+      .priority(priority)
+      .`type`(`type`)
       .build()
 }

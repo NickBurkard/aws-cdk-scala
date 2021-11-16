@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object EnableIoTLoggingParamsProperty {
 
   def apply(
-    roleArnForLogging: Option[String] = None,
-    logLevel: Option[String] = None
+    roleArnForLogging: String,
+    logLevel: String
   ): software.amazon.awscdk.services.iot.CfnMitigationAction.EnableIoTLoggingParamsProperty =
     (new software.amazon.awscdk.services.iot.CfnMitigationAction.EnableIoTLoggingParamsProperty.Builder)
-      .roleArnForLogging(roleArnForLogging.orNull)
-      .logLevel(logLevel.orNull)
+      .roleArnForLogging(roleArnForLogging)
+      .logLevel(logLevel)
       .build()
 }

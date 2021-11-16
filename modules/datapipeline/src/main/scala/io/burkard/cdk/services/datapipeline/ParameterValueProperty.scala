@@ -4,11 +4,11 @@ package io.burkard.cdk.services.datapipeline
 object ParameterValueProperty {
 
   def apply(
-    id: Option[String] = None,
-    stringValue: Option[String] = None
+    id: String,
+    stringValue: String
   ): software.amazon.awscdk.services.datapipeline.CfnPipeline.ParameterValueProperty =
     (new software.amazon.awscdk.services.datapipeline.CfnPipeline.ParameterValueProperty.Builder)
-      .id(id.orNull)
-      .stringValue(stringValue.orNull)
+      .id(id)
+      .stringValue(stringValue)
       .build()
 }

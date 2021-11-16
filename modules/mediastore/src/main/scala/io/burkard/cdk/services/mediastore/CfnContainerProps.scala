@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnContainerProps {
 
   def apply(
-    containerName: Option[String] = None,
+    containerName: String,
     metricPolicy: Option[software.amazon.awscdk.services.mediastore.CfnContainer.MetricPolicyProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     lifecyclePolicy: Option[String] = None,
@@ -16,7 +16,7 @@ object CfnContainerProps {
     policy: Option[String] = None
   ): software.amazon.awscdk.services.mediastore.CfnContainerProps =
     (new software.amazon.awscdk.services.mediastore.CfnContainerProps.Builder)
-      .containerName(containerName.orNull)
+      .containerName(containerName)
       .metricPolicy(metricPolicy.orNull)
       .tags(tags.map(_.asJava).orNull)
       .lifecyclePolicy(lifecyclePolicy.orNull)

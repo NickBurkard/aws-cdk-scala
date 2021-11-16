@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cloudfront
 object LoggingProperty {
 
   def apply(
+    bucket: String,
     prefix: Option[String] = None,
-    bucket: Option[String] = None,
     includeCookies: Option[Boolean] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.LoggingProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.LoggingProperty.Builder)
+      .bucket(bucket)
       .prefix(prefix.orNull)
-      .bucket(bucket.orNull)
       .includeCookies(includeCookies.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

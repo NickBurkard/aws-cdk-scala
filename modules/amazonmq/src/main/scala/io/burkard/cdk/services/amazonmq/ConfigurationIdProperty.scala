@@ -4,11 +4,11 @@ package io.burkard.cdk.services.amazonmq
 object ConfigurationIdProperty {
 
   def apply(
-    revision: Option[Number] = None,
-    id: Option[String] = None
+    revision: Number,
+    id: String
   ): software.amazon.awscdk.services.amazonmq.CfnBroker.ConfigurationIdProperty =
     (new software.amazon.awscdk.services.amazonmq.CfnBroker.ConfigurationIdProperty.Builder)
-      .revision(revision.orNull)
-      .id(id.orNull)
+      .revision(revision)
+      .id(id)
       .build()
 }

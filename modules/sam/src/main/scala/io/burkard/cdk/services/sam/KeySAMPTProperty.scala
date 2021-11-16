@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object KeySAMPTProperty {
 
   def apply(
-    keyId: Option[String] = None
+    keyId: String
   ): software.amazon.awscdk.services.sam.CfnFunction.KeySAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.KeySAMPTProperty.Builder)
-      .keyId(keyId.orNull)
+      .keyId(keyId)
       .build()
 }

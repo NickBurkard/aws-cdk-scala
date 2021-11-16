@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object VolumeAttributes {
 
   def apply(
-    availabilityZone: Option[String] = None,
-    volumeId: Option[String] = None,
+    availabilityZone: String,
+    volumeId: String,
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.ec2.VolumeAttributes =
     (new software.amazon.awscdk.services.ec2.VolumeAttributes.Builder)
-      .availabilityZone(availabilityZone.orNull)
-      .volumeId(volumeId.orNull)
+      .availabilityZone(availabilityZone)
+      .volumeId(volumeId)
       .encryptionKey(encryptionKey.orNull)
       .build()
 }

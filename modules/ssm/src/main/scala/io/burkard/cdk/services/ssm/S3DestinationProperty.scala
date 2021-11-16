@@ -4,17 +4,17 @@ package io.burkard.cdk.services.ssm
 object S3DestinationProperty {
 
   def apply(
-    bucketRegion: Option[String] = None,
+    bucketRegion: String,
+    bucketName: String,
+    syncFormat: String,
     kmsKeyArn: Option[String] = None,
-    bucketPrefix: Option[String] = None,
-    bucketName: Option[String] = None,
-    syncFormat: Option[String] = None
+    bucketPrefix: Option[String] = None
   ): software.amazon.awscdk.services.ssm.CfnResourceDataSync.S3DestinationProperty =
     (new software.amazon.awscdk.services.ssm.CfnResourceDataSync.S3DestinationProperty.Builder)
-      .bucketRegion(bucketRegion.orNull)
+      .bucketRegion(bucketRegion)
+      .bucketName(bucketName)
+      .syncFormat(syncFormat)
       .kmsKeyArn(kmsKeyArn.orNull)
       .bucketPrefix(bucketPrefix.orNull)
-      .bucketName(bucketName.orNull)
-      .syncFormat(syncFormat.orNull)
       .build()
 }

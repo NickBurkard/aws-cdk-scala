@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudwatch
 object MetricStreamFilterProperty {
 
   def apply(
-    namespace: Option[String] = None
+    namespace: String
   ): software.amazon.awscdk.services.cloudwatch.CfnMetricStream.MetricStreamFilterProperty =
     (new software.amazon.awscdk.services.cloudwatch.CfnMetricStream.MetricStreamFilterProperty.Builder)
-      .namespace(namespace.orNull)
+      .namespace(namespace)
       .build()
 }

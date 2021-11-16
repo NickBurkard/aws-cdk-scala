@@ -8,16 +8,16 @@ object CfnMitigationAction {
 
   def apply(
     internalResourceId: String,
+    actionParams: software.amazon.awscdk.services.iot.CfnMitigationAction.ActionParamsProperty,
+    roleArn: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    actionParams: Option[software.amazon.awscdk.services.iot.CfnMitigationAction.ActionParamsProperty] = None,
-    roleArn: Option[String] = None,
     actionName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnMitigationAction =
     software.amazon.awscdk.services.iot.CfnMitigationAction.Builder
       .create(stackCtx, internalResourceId)
+      .actionParams(actionParams)
+      .roleArn(roleArn)
       .tags(tags.map(_.asJava).orNull)
-      .actionParams(actionParams.orNull)
-      .roleArn(roleArn.orNull)
       .actionName(actionName.orNull)
       .build()
 }

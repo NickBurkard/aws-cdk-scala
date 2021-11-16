@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ecs
 object FargateServiceAttributes {
 
   def apply(
+    cluster: software.amazon.awscdk.services.ecs.ICluster,
     serviceName: Option[String] = None,
-    serviceArn: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.ecs.ICluster] = None
+    serviceArn: Option[String] = None
   ): software.amazon.awscdk.services.ecs.FargateServiceAttributes =
     (new software.amazon.awscdk.services.ecs.FargateServiceAttributes.Builder)
+      .cluster(cluster)
       .serviceName(serviceName.orNull)
       .serviceArn(serviceArn.orNull)
-      .cluster(cluster.orNull)
       .build()
 }

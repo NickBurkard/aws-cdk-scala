@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object LocalSecondaryIndexProperty {
 
   def apply(
-    projection: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ProjectionProperty] = None,
-    indexName: Option[String] = None,
-    keySchema: Option[List[_]] = None
+    projection: software.amazon.awscdk.services.dynamodb.CfnTable.ProjectionProperty,
+    indexName: String,
+    keySchema: List[_]
   ): software.amazon.awscdk.services.dynamodb.CfnTable.LocalSecondaryIndexProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnTable.LocalSecondaryIndexProperty.Builder)
-      .projection(projection.orNull)
-      .indexName(indexName.orNull)
-      .keySchema(keySchema.map(_.asJava).orNull)
+      .projection(projection)
+      .indexName(indexName)
+      .keySchema(keySchema.asJava)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CommonGrantOptions {
 
   def apply(
-    resourceArns: Option[List[String]] = None,
-    grantee: Option[software.amazon.awscdk.services.iam.IGrantable] = None,
-    actions: Option[List[String]] = None
+    resourceArns: List[String],
+    grantee: software.amazon.awscdk.services.iam.IGrantable,
+    actions: List[String]
   ): software.amazon.awscdk.services.iam.CommonGrantOptions =
     (new software.amazon.awscdk.services.iam.CommonGrantOptions.Builder)
-      .resourceArns(resourceArns.map(_.asJava).orNull)
-      .grantee(grantee.orNull)
-      .actions(actions.map(_.asJava).orNull)
+      .resourceArns(resourceArns.asJava)
+      .grantee(grantee)
+      .actions(actions.asJava)
       .build()
 }

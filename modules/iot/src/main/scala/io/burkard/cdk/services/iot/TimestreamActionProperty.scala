@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object TimestreamActionProperty {
 
   def apply(
+    tableName: String,
+    roleArn: String,
+    dimensions: List[_],
+    databaseName: String,
     timestamp: Option[software.amazon.awscdk.services.iot.CfnTopicRule.TimestreamTimestampProperty] = None,
-    tableName: Option[String] = None,
-    roleArn: Option[String] = None,
-    dimensions: Option[List[_]] = None,
-    databaseName: Option[String] = None,
     batchMode: Option[Boolean] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.TimestreamActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.TimestreamActionProperty.Builder)
+      .tableName(tableName)
+      .roleArn(roleArn)
+      .dimensions(dimensions.asJava)
+      .databaseName(databaseName)
       .timestamp(timestamp.orNull)
-      .tableName(tableName.orNull)
-      .roleArn(roleArn.orNull)
-      .dimensions(dimensions.map(_.asJava).orNull)
-      .databaseName(databaseName.orNull)
       .batchMode(batchMode.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

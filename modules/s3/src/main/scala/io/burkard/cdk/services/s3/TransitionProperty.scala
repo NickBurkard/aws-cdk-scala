@@ -4,13 +4,13 @@ package io.burkard.cdk.services.s3
 object TransitionProperty {
 
   def apply(
+    storageClass: String,
     transitionInDays: Option[Number] = None,
-    storageClass: Option[String] = None,
     transitionDate: Option[java.time.Instant] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.TransitionProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.TransitionProperty.Builder)
+      .storageClass(storageClass)
       .transitionInDays(transitionInDays.orNull)
-      .storageClass(storageClass.orNull)
       .transitionDate(transitionDate.orNull)
       .build()
 }

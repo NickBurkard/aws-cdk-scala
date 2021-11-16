@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object DirectoryServiceAuthenticationRequestProperty {
 
   def apply(
-    directoryId: Option[String] = None
+    directoryId: String
   ): software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.DirectoryServiceAuthenticationRequestProperty =
     (new software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.DirectoryServiceAuthenticationRequestProperty.Builder)
-      .directoryId(directoryId.orNull)
+      .directoryId(directoryId)
       .build()
 }

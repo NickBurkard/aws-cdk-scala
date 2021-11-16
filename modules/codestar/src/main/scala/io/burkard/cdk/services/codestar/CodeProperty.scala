@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codestar
 object CodeProperty {
 
   def apply(
-    s3: Option[software.amazon.awscdk.services.codestar.CfnGitHubRepository.S3Property] = None
+    s3: software.amazon.awscdk.services.codestar.CfnGitHubRepository.S3Property
   ): software.amazon.awscdk.services.codestar.CfnGitHubRepository.CodeProperty =
     (new software.amazon.awscdk.services.codestar.CfnGitHubRepository.CodeProperty.Builder)
-      .s3(s3.orNull)
+      .s3(s3)
       .build()
 }

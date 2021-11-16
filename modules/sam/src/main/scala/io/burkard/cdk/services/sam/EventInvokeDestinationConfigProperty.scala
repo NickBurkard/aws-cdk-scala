@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object EventInvokeDestinationConfigProperty {
 
   def apply(
-    onSuccess: Option[software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty] = None,
-    onFailure: Option[software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty] = None
+    onSuccess: software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty,
+    onFailure: software.amazon.awscdk.services.sam.CfnFunction.DestinationProperty
   ): software.amazon.awscdk.services.sam.CfnFunction.EventInvokeDestinationConfigProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.EventInvokeDestinationConfigProperty.Builder)
-      .onSuccess(onSuccess.orNull)
-      .onFailure(onFailure.orNull)
+      .onSuccess(onSuccess)
+      .onFailure(onFailure)
       .build()
 }

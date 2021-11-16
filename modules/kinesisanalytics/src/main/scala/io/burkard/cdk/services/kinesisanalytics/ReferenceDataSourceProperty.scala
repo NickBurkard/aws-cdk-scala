@@ -4,12 +4,12 @@ package io.burkard.cdk.services.kinesisanalytics
 object ReferenceDataSourceProperty {
 
   def apply(
-    referenceSchema: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty] = None,
+    referenceSchema: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty,
     tableName: Option[String] = None,
     s3ReferenceDataSource: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.S3ReferenceDataSourceProperty] = None
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceDataSourceProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceDataSourceProperty.Builder)
-      .referenceSchema(referenceSchema.orNull)
+      .referenceSchema(referenceSchema)
       .tableName(tableName.orNull)
       .s3ReferenceDataSource(s3ReferenceDataSource.orNull)
       .build()

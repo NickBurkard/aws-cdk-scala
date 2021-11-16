@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnDomainProps {
 
   def apply(
+    domainName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    domainName: Option[String] = None,
     defaultEncryptionKey: Option[String] = None,
     defaultExpirationDays: Option[Number] = None,
     deadLetterQueueUrl: Option[String] = None
   ): software.amazon.awscdk.services.customerprofiles.CfnDomainProps =
     (new software.amazon.awscdk.services.customerprofiles.CfnDomainProps.Builder)
+      .domainName(domainName)
       .tags(tags.map(_.asJava).orNull)
-      .domainName(domainName.orNull)
       .defaultEncryptionKey(defaultEncryptionKey.orNull)
       .defaultExpirationDays(defaultExpirationDays.orNull)
       .deadLetterQueueUrl(deadLetterQueueUrl.orNull)
