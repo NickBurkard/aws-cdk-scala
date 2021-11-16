@@ -37,8 +37,9 @@ final case class CdkBuilder private[codegen](
       genericInterfaces <- Try(underlying.getGenericInterfaces).toOption.map(_.toList)
 
       // Need to dig through generic interfaces for the associated props class name.
-      propsClassName <- genericInterfaces.collectFirst { case i if i.getTypeName.contains("Builder") =>
-        i.getTypeName.stripPrefix("software.amazon.jsii.Builder<").stripSuffix(">")
+      propsClassName <- genericInterfaces.collectFirst {
+        case i if i.getTypeName.startsWith("software.amazon.jsii.Builder<") =>
+          i.getTypeName.stripPrefix("software.amazon.jsii.Builder<").stripSuffix(">")
       }
 
       props <- Try(Class.forName(propsClassName)).toOption
