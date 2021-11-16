@@ -8,6 +8,7 @@ object CfnNetworkInterface {
 
   def apply(
     internalResourceId: String,
+    subnetId: String,
     interfaceType: Option[String] = None,
     ipv6Addresses: Option[List[_]] = None,
     ipv6AddressCount: Option[Number] = None,
@@ -17,11 +18,11 @@ object CfnNetworkInterface {
     privateIpAddress: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    subnetId: Option[String] = None,
     privateIpAddresses: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnNetworkInterface =
     software.amazon.awscdk.services.ec2.CfnNetworkInterface.Builder
       .create(stackCtx, internalResourceId)
+      .subnetId(subnetId)
       .interfaceType(interfaceType.orNull)
       .ipv6Addresses(ipv6Addresses.map(_.asJava).orNull)
       .ipv6AddressCount(ipv6AddressCount.orNull)
@@ -31,7 +32,6 @@ object CfnNetworkInterface {
       .privateIpAddress(privateIpAddress.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .subnetId(subnetId.orNull)
       .privateIpAddresses(privateIpAddresses.map(_.asJava).orNull)
       .build()
 }

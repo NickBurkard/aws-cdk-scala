@@ -20,6 +20,8 @@ object ExampleApp extends App {
 
     CfnApplicationV2(
       internalResourceId = "Runtime",
+      serviceExecutionRole = "arn:example-role",
+      runtimeEnvironment = "FLINK-1_13",
       tags = Some(
         List(
           CfnTag(key = Some("env"), value = Some(env)),
@@ -46,9 +48,7 @@ object ExampleApp extends App {
             )
           )
         )
-      ),
-      serviceExecutionRole = Some("arn:example-role"),
-      runtimeEnvironment = Some("FLINK-1_13")
+      )
     )
   }
 }

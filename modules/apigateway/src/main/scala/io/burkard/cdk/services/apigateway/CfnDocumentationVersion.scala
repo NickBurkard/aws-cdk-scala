@@ -5,14 +5,14 @@ object CfnDocumentationVersion {
 
   def apply(
     internalResourceId: String,
-    description: Option[String] = None,
-    documentationVersion: Option[String] = None,
-    restApiId: Option[String] = None
+    documentationVersion: String,
+    restApiId: String,
+    description: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnDocumentationVersion =
     software.amazon.awscdk.services.apigateway.CfnDocumentationVersion.Builder
       .create(stackCtx, internalResourceId)
+      .documentationVersion(documentationVersion)
+      .restApiId(restApiId)
       .description(description.orNull)
-      .documentationVersion(documentationVersion.orNull)
-      .restApiId(restApiId.orNull)
       .build()
 }

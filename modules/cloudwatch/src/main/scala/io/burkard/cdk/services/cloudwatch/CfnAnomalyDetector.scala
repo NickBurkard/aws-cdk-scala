@@ -8,18 +8,18 @@ object CfnAnomalyDetector {
 
   def apply(
     internalResourceId: String,
-    stat: Option[String] = None,
-    metricName: Option[String] = None,
+    stat: String,
+    metricName: String,
+    namespace: String,
     configuration: Option[software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.ConfigurationProperty] = None,
-    dimensions: Option[List[_]] = None,
-    namespace: Option[String] = None
+    dimensions: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector =
     software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.Builder
       .create(stackCtx, internalResourceId)
-      .stat(stat.orNull)
-      .metricName(metricName.orNull)
+      .stat(stat)
+      .metricName(metricName)
+      .namespace(namespace)
       .configuration(configuration.orNull)
       .dimensions(dimensions.map(_.asJava).orNull)
-      .namespace(namespace.orNull)
       .build()
 }

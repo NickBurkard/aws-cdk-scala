@@ -5,16 +5,16 @@ object CustomLambdaDeploymentConfig {
 
   def apply(
     internalResourceId: String,
-    percentage: Option[Number] = None,
-    interval: Option[software.amazon.awscdk.Duration] = None,
-    deploymentConfigName: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigType] = None
+    percentage: Number,
+    interval: software.amazon.awscdk.Duration,
+    `type`: software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigType,
+    deploymentConfigName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfig =
     software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfig.Builder
       .create(stackCtx, internalResourceId)
-      .percentage(percentage.orNull)
-      .interval(interval.orNull)
+      .percentage(percentage)
+      .interval(interval)
+      .`type`(`type`)
       .deploymentConfigName(deploymentConfigName.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

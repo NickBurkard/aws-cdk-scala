@@ -5,9 +5,9 @@ object CfnScalingPolicy {
 
   def apply(
     internalResourceId: String,
+    policyName: String,
+    policyType: String,
     serviceNamespace: Option[String] = None,
-    policyName: Option[String] = None,
-    policyType: Option[String] = None,
     stepScalingPolicyConfiguration: Option[software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicy.StepScalingPolicyConfigurationProperty] = None,
     scalableDimension: Option[String] = None,
     resourceId: Option[String] = None,
@@ -16,9 +16,9 @@ object CfnScalingPolicy {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicy =
     software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicy.Builder
       .create(stackCtx, internalResourceId)
+      .policyName(policyName)
+      .policyType(policyType)
       .serviceNamespace(serviceNamespace.orNull)
-      .policyName(policyName.orNull)
-      .policyType(policyType.orNull)
       .stepScalingPolicyConfiguration(stepScalingPolicyConfiguration.orNull)
       .scalableDimension(scalableDimension.orNull)
       .resourceId(resourceId.orNull)

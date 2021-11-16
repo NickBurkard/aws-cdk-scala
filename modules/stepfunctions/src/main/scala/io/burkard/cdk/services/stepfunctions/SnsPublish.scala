@@ -8,11 +8,11 @@ object SnsPublish {
 
   def apply(
     internalResourceId: String,
+    message: software.amazon.awscdk.services.stepfunctions.TaskInput,
+    topic: software.amazon.awscdk.services.sns.ITopic,
     subject: Option[String] = None,
     resultPath: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
-    message: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
-    topic: Option[software.amazon.awscdk.services.sns.ITopic] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
     messageAttributes: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.MessageAttribute]] = None,
@@ -24,11 +24,11 @@ object SnsPublish {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.SnsPublish =
     software.amazon.awscdk.services.stepfunctions.tasks.SnsPublish.Builder
       .create(stackCtx, internalResourceId)
+      .message(message)
+      .topic(topic)
       .subject(subject.orNull)
       .resultPath(resultPath.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .message(message.orNull)
-      .topic(topic.orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)
       .messageAttributes(messageAttributes.map(_.asJava).orNull)

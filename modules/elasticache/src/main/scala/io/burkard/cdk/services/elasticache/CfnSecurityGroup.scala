@@ -8,12 +8,12 @@ object CfnSecurityGroup {
 
   def apply(
     internalResourceId: String,
-    description: Option[String] = None,
+    description: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticache.CfnSecurityGroup =
     software.amazon.awscdk.services.elasticache.CfnSecurityGroup.Builder
       .create(stackCtx, internalResourceId)
-      .description(description.orNull)
+      .description(description)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

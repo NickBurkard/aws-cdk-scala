@@ -8,7 +8,8 @@ object DynamoDeleteItem {
 
   def apply(
     internalResourceId: String,
-    key: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None,
+    key: Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue],
+    table: software.amazon.awscdk.services.dynamodb.ITable,
     conditionExpression: Option[String] = None,
     resultPath: Option[String] = None,
     expressionAttributeValues: Option[Map[String, _ <: software.amazon.awscdk.services.stepfunctions.tasks.DynamoAttributeValue]] = None,
@@ -22,12 +23,12 @@ object DynamoDeleteItem {
     returnItemCollectionMetrics: Option[software.amazon.awscdk.services.stepfunctions.tasks.DynamoItemCollectionMetrics] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    table: Option[software.amazon.awscdk.services.dynamodb.ITable] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.DynamoDeleteItem =
     software.amazon.awscdk.services.stepfunctions.tasks.DynamoDeleteItem.Builder
       .create(stackCtx, internalResourceId)
-      .key(key.map(_.asJava).orNull)
+      .key(key.asJava)
+      .table(table)
       .conditionExpression(conditionExpression.orNull)
       .resultPath(resultPath.orNull)
       .expressionAttributeValues(expressionAttributeValues.map(_.asJava).orNull)
@@ -41,7 +42,6 @@ object DynamoDeleteItem {
       .returnItemCollectionMetrics(returnItemCollectionMetrics.orNull)
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
-      .table(table.orNull)
       .heartbeat(heartbeat.orNull)
       .build()
 }

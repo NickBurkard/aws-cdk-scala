@@ -5,10 +5,10 @@ object CfnFlowSource {
 
   def apply(
     internalResourceId: String,
+    name: String,
+    description: String,
     maxBitrate: Option[Number] = None,
-    name: Option[String] = None,
     streamId: Option[String] = None,
-    description: Option[String] = None,
     decryption: Option[software.amazon.awscdk.services.mediaconnect.CfnFlowSource.EncryptionProperty] = None,
     maxLatency: Option[Number] = None,
     vpcInterfaceName: Option[String] = None,
@@ -20,10 +20,10 @@ object CfnFlowSource {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.mediaconnect.CfnFlowSource =
     software.amazon.awscdk.services.mediaconnect.CfnFlowSource.Builder
       .create(stackCtx, internalResourceId)
+      .name(name)
+      .description(description)
       .maxBitrate(maxBitrate.orNull)
-      .name(name.orNull)
       .streamId(streamId.orNull)
-      .description(description.orNull)
       .decryption(decryption.orNull)
       .maxLatency(maxLatency.orNull)
       .vpcInterfaceName(vpcInterfaceName.orNull)

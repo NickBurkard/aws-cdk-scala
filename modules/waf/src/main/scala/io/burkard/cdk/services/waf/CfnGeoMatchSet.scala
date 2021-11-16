@@ -8,12 +8,12 @@ object CfnGeoMatchSet {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     geoMatchConstraints: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnGeoMatchSet =
     software.amazon.awscdk.services.waf.regional.CfnGeoMatchSet.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .geoMatchConstraints(geoMatchConstraints.map(_.asJava).orNull)
       .build()
 }

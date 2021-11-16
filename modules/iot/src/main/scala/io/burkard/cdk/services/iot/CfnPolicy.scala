@@ -5,12 +5,12 @@ object CfnPolicy {
 
   def apply(
     internalResourceId: String,
-    policyName: Option[String] = None,
-    policyDocument: Option[AnyRef] = None
+    policyDocument: AnyRef,
+    policyName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnPolicy =
     software.amazon.awscdk.services.iot.CfnPolicy.Builder
       .create(stackCtx, internalResourceId)
+      .policyDocument(policyDocument)
       .policyName(policyName.orNull)
-      .policyDocument(policyDocument.orNull)
       .build()
 }

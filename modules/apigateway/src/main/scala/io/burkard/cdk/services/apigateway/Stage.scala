@@ -8,6 +8,7 @@ object Stage {
 
   def apply(
     internalResourceId: String,
+    deployment: software.amazon.awscdk.services.apigateway.Deployment,
     throttlingBurstLimit: Option[Number] = None,
     clientCertificateId: Option[String] = None,
     description: Option[String] = None,
@@ -19,7 +20,6 @@ object Stage {
     throttlingRateLimit: Option[Number] = None,
     accessLogFormat: Option[software.amazon.awscdk.services.apigateway.AccessLogFormat] = None,
     cacheClusterSize: Option[String] = None,
-    deployment: Option[software.amazon.awscdk.services.apigateway.Deployment] = None,
     methodOptions: Option[Map[String, _ <: software.amazon.awscdk.services.apigateway.MethodDeploymentOptions]] = None,
     documentationVersion: Option[String] = None,
     variables: Option[Map[String, String]] = None,
@@ -31,6 +31,7 @@ object Stage {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.Stage =
     software.amazon.awscdk.services.apigateway.Stage.Builder
       .create(stackCtx, internalResourceId)
+      .deployment(deployment)
       .throttlingBurstLimit(throttlingBurstLimit.orNull)
       .clientCertificateId(clientCertificateId.orNull)
       .description(description.orNull)
@@ -42,7 +43,6 @@ object Stage {
       .throttlingRateLimit(throttlingRateLimit.orNull)
       .accessLogFormat(accessLogFormat.orNull)
       .cacheClusterSize(cacheClusterSize.orNull)
-      .deployment(deployment.orNull)
       .methodOptions(methodOptions.map(_.asJava).orNull)
       .documentationVersion(documentationVersion.orNull)
       .variables(variables.map(_.asJava).orNull)

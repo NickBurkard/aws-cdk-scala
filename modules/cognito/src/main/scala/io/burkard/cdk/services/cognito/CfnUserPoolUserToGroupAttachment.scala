@@ -5,14 +5,14 @@ object CfnUserPoolUserToGroupAttachment {
 
   def apply(
     internalResourceId: String,
-    username: Option[String] = None,
-    groupName: Option[String] = None,
-    userPoolId: Option[String] = None
+    username: String,
+    groupName: String,
+    userPoolId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.CfnUserPoolUserToGroupAttachment =
     software.amazon.awscdk.services.cognito.CfnUserPoolUserToGroupAttachment.Builder
       .create(stackCtx, internalResourceId)
-      .username(username.orNull)
-      .groupName(groupName.orNull)
-      .userPoolId(userPoolId.orNull)
+      .username(username)
+      .groupName(groupName)
+      .userPoolId(userPoolId)
       .build()
 }

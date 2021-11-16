@@ -5,15 +5,15 @@ object CfnCertificateAuthorityActivation {
 
   def apply(
     internalResourceId: String,
-    certificate: Option[String] = None,
-    certificateAuthorityArn: Option[String] = None,
+    certificate: String,
+    certificateAuthorityArn: String,
     status: Option[String] = None,
     certificateChain: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.acmpca.CfnCertificateAuthorityActivation =
     software.amazon.awscdk.services.acmpca.CfnCertificateAuthorityActivation.Builder
       .create(stackCtx, internalResourceId)
-      .certificate(certificate.orNull)
-      .certificateAuthorityArn(certificateAuthorityArn.orNull)
+      .certificate(certificate)
+      .certificateAuthorityArn(certificateAuthorityArn)
       .status(status.orNull)
       .certificateChain(certificateChain.orNull)
       .build()

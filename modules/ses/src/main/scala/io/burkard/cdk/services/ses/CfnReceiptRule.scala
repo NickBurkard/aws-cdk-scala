@@ -5,14 +5,14 @@ object CfnReceiptRule {
 
   def apply(
     internalResourceId: String,
-    ruleSetName: Option[String] = None,
-    rule: Option[software.amazon.awscdk.services.ses.CfnReceiptRule.RuleProperty] = None,
+    ruleSetName: String,
+    rule: software.amazon.awscdk.services.ses.CfnReceiptRule.RuleProperty,
     after: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ses.CfnReceiptRule =
     software.amazon.awscdk.services.ses.CfnReceiptRule.Builder
       .create(stackCtx, internalResourceId)
-      .ruleSetName(ruleSetName.orNull)
-      .rule(rule.orNull)
+      .ruleSetName(ruleSetName)
+      .rule(rule)
       .after(after.orNull)
       .build()
 }

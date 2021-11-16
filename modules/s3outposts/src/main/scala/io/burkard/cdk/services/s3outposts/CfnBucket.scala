@@ -8,16 +8,16 @@ object CfnBucket {
 
   def apply(
     internalResourceId: String,
-    outpostId: Option[String] = None,
+    outpostId: String,
+    bucketName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    lifecycleConfiguration: Option[software.amazon.awscdk.services.s3outposts.CfnBucket.LifecycleConfigurationProperty] = None,
-    bucketName: Option[String] = None
+    lifecycleConfiguration: Option[software.amazon.awscdk.services.s3outposts.CfnBucket.LifecycleConfigurationProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3outposts.CfnBucket =
     software.amazon.awscdk.services.s3outposts.CfnBucket.Builder
       .create(stackCtx, internalResourceId)
-      .outpostId(outpostId.orNull)
+      .outpostId(outpostId)
+      .bucketName(bucketName)
       .tags(tags.map(_.asJava).orNull)
       .lifecycleConfiguration(lifecycleConfiguration.orNull)
-      .bucketName(bucketName.orNull)
       .build()
 }

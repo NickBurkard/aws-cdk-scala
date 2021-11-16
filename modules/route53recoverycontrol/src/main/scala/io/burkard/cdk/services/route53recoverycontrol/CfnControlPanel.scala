@@ -8,13 +8,13 @@ object CfnControlPanel {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     clusterArn: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53recoverycontrol.CfnControlPanel =
     software.amazon.awscdk.services.route53recoverycontrol.CfnControlPanel.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.map(_.asJava).orNull)
       .clusterArn(clusterArn.orNull)
       .build()

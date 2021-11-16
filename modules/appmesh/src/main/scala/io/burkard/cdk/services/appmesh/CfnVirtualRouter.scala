@@ -8,18 +8,18 @@ object CfnVirtualRouter {
 
   def apply(
     internalResourceId: String,
-    meshName: Option[String] = None,
+    meshName: String,
+    spec: software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterSpecProperty,
     virtualRouterName: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    spec: Option[software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterSpecProperty] = None,
     meshOwner: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appmesh.CfnVirtualRouter =
     software.amazon.awscdk.services.appmesh.CfnVirtualRouter.Builder
       .create(stackCtx, internalResourceId)
-      .meshName(meshName.orNull)
+      .meshName(meshName)
+      .spec(spec)
       .virtualRouterName(virtualRouterName.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .spec(spec.orNull)
       .meshOwner(meshOwner.orNull)
       .build()
 }

@@ -8,7 +8,7 @@ object CfnHostedZone {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     queryLoggingConfig: Option[software.amazon.awscdk.services.route53.CfnHostedZone.QueryLoggingConfigProperty] = None,
     hostedZoneTags: Option[List[_ <: software.amazon.awscdk.services.route53.CfnHostedZone.HostedZoneTagProperty]] = None,
     hostedZoneConfig: Option[software.amazon.awscdk.services.route53.CfnHostedZone.HostedZoneConfigProperty] = None,
@@ -16,7 +16,7 @@ object CfnHostedZone {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.CfnHostedZone =
     software.amazon.awscdk.services.route53.CfnHostedZone.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .queryLoggingConfig(queryLoggingConfig.orNull)
       .hostedZoneTags(hostedZoneTags.map(_.asJava).orNull)
       .hostedZoneConfig(hostedZoneConfig.orNull)

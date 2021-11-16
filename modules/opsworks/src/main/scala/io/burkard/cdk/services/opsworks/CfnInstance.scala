@@ -8,10 +8,12 @@ object CfnInstance {
 
   def apply(
     internalResourceId: String,
+    stackId: String,
+    instanceType: String,
+    layerIds: List[String],
     ebsOptimized: Option[Boolean] = None,
     sshKeyName: Option[String] = None,
     timeBasedAutoScaling: Option[software.amazon.awscdk.services.opsworks.CfnInstance.TimeBasedAutoScalingProperty] = None,
-    stackId: Option[String] = None,
     amiId: Option[String] = None,
     tenancy: Option[String] = None,
     agentVersion: Option[String] = None,
@@ -21,10 +23,8 @@ object CfnInstance {
     os: Option[String] = None,
     subnetId: Option[String] = None,
     architecture: Option[String] = None,
-    instanceType: Option[String] = None,
     volumes: Option[List[String]] = None,
     rootDeviceType: Option[String] = None,
-    layerIds: Option[List[String]] = None,
     blockDeviceMappings: Option[List[_]] = None,
     elasticIps: Option[List[String]] = None,
     virtualizationType: Option[String] = None,
@@ -32,10 +32,12 @@ object CfnInstance {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.opsworks.CfnInstance =
     software.amazon.awscdk.services.opsworks.CfnInstance.Builder
       .create(stackCtx, internalResourceId)
+      .stackId(stackId)
+      .instanceType(instanceType)
+      .layerIds(layerIds.asJava)
       .ebsOptimized(ebsOptimized.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .sshKeyName(sshKeyName.orNull)
       .timeBasedAutoScaling(timeBasedAutoScaling.orNull)
-      .stackId(stackId.orNull)
       .amiId(amiId.orNull)
       .tenancy(tenancy.orNull)
       .agentVersion(agentVersion.orNull)
@@ -45,10 +47,8 @@ object CfnInstance {
       .os(os.orNull)
       .subnetId(subnetId.orNull)
       .architecture(architecture.orNull)
-      .instanceType(instanceType.orNull)
       .volumes(volumes.map(_.asJava).orNull)
       .rootDeviceType(rootDeviceType.orNull)
-      .layerIds(layerIds.map(_.asJava).orNull)
       .blockDeviceMappings(blockDeviceMappings.map(_.asJava).orNull)
       .elasticIps(elasticIps.map(_.asJava).orNull)
       .virtualizationType(virtualizationType.orNull)

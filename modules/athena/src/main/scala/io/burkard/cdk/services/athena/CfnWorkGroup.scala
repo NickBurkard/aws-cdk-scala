@@ -8,7 +8,7 @@ object CfnWorkGroup {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     state: Option[String] = None,
     workGroupConfiguration: Option[software.amazon.awscdk.services.athena.CfnWorkGroup.WorkGroupConfigurationProperty] = None,
     workGroupConfigurationUpdates: Option[software.amazon.awscdk.services.athena.CfnWorkGroup.WorkGroupConfigurationUpdatesProperty] = None,
@@ -18,7 +18,7 @@ object CfnWorkGroup {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.athena.CfnWorkGroup =
     software.amazon.awscdk.services.athena.CfnWorkGroup.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .state(state.orNull)
       .workGroupConfiguration(workGroupConfiguration.orNull)
       .workGroupConfigurationUpdates(workGroupConfigurationUpdates.orNull)

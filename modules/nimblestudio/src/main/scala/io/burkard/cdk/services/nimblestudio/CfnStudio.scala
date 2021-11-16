@@ -8,20 +8,20 @@ object CfnStudio {
 
   def apply(
     internalResourceId: String,
+    studioName: String,
+    adminRoleArn: String,
+    userRoleArn: String,
+    displayName: String,
     tags: Option[Map[String, String]] = None,
-    studioName: Option[String] = None,
-    adminRoleArn: Option[String] = None,
-    userRoleArn: Option[String] = None,
-    studioEncryptionConfiguration: Option[software.amazon.awscdk.services.nimblestudio.CfnStudio.StudioEncryptionConfigurationProperty] = None,
-    displayName: Option[String] = None
+    studioEncryptionConfiguration: Option[software.amazon.awscdk.services.nimblestudio.CfnStudio.StudioEncryptionConfigurationProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.nimblestudio.CfnStudio =
     software.amazon.awscdk.services.nimblestudio.CfnStudio.Builder
       .create(stackCtx, internalResourceId)
+      .studioName(studioName)
+      .adminRoleArn(adminRoleArn)
+      .userRoleArn(userRoleArn)
+      .displayName(displayName)
       .tags(tags.map(_.asJava).orNull)
-      .studioName(studioName.orNull)
-      .adminRoleArn(adminRoleArn.orNull)
-      .userRoleArn(userRoleArn.orNull)
       .studioEncryptionConfiguration(studioEncryptionConfiguration.orNull)
-      .displayName(displayName.orNull)
       .build()
 }

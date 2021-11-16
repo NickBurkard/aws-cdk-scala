@@ -8,10 +8,10 @@ object EksCall {
 
   def apply(
     internalResourceId: String,
-    httpPath: Option[String] = None,
-    httpMethod: Option[software.amazon.awscdk.services.stepfunctions.tasks.HttpMethods] = None,
+    httpPath: String,
+    httpMethod: software.amazon.awscdk.services.stepfunctions.tasks.HttpMethods,
+    cluster: software.amazon.awscdk.services.eks.ICluster,
     resultPath: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.eks.ICluster] = None,
     resultSelector: Option[Map[String, _]] = None,
     queryParameters: Option[Map[String, _ <: List[String]]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
@@ -24,10 +24,10 @@ object EksCall {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.EksCall =
     software.amazon.awscdk.services.stepfunctions.tasks.EksCall.Builder
       .create(stackCtx, internalResourceId)
-      .httpPath(httpPath.orNull)
-      .httpMethod(httpMethod.orNull)
+      .httpPath(httpPath)
+      .httpMethod(httpMethod)
+      .cluster(cluster)
       .resultPath(resultPath.orNull)
-      .cluster(cluster.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .queryParameters(queryParameters.map(_.mapValues(_.asJava).toMap.asJava).orNull)
       .heartbeat(heartbeat.orNull)

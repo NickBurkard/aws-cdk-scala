@@ -8,6 +8,7 @@ object SpecRestApi {
 
   def apply(
     internalResourceId: String,
+    apiDefinition: software.amazon.awscdk.services.apigateway.ApiDefinition,
     endpointExportName: Option[String] = None,
     cloudWatchRole: Option[Boolean] = None,
     deployOptions: Option[software.amazon.awscdk.services.apigateway.StageOptions] = None,
@@ -19,11 +20,11 @@ object SpecRestApi {
     domainName: Option[software.amazon.awscdk.services.apigateway.DomainNameOptions] = None,
     failOnWarnings: Option[Boolean] = None,
     parameters: Option[Map[String, String]] = None,
-    policy: Option[software.amazon.awscdk.services.iam.PolicyDocument] = None,
-    apiDefinition: Option[software.amazon.awscdk.services.apigateway.ApiDefinition] = None
+    policy: Option[software.amazon.awscdk.services.iam.PolicyDocument] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.SpecRestApi =
     software.amazon.awscdk.services.apigateway.SpecRestApi.Builder
       .create(stackCtx, internalResourceId)
+      .apiDefinition(apiDefinition)
       .endpointExportName(endpointExportName.orNull)
       .cloudWatchRole(cloudWatchRole.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .deployOptions(deployOptions.orNull)
@@ -36,6 +37,5 @@ object SpecRestApi {
       .failOnWarnings(failOnWarnings.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .parameters(parameters.map(_.asJava).orNull)
       .policy(policy.orNull)
-      .apiDefinition(apiDefinition.orNull)
       .build()
 }

@@ -8,6 +8,7 @@ object DatabaseProxy {
 
   def apply(
     internalResourceId: String,
+    proxyTarget: software.amazon.awscdk.services.rds.ProxyTarget,
     iamAuth: Option[Boolean] = None,
     maxConnectionsPercent: Option[Number] = None,
     maxIdleConnectionsPercent: Option[Number] = None,
@@ -17,7 +18,6 @@ object DatabaseProxy {
     secrets: Option[List[_ <: software.amazon.awscdk.services.secretsmanager.ISecret]] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     sessionPinningFilters: Option[List[_ <: software.amazon.awscdk.services.rds.SessionPinningFilter]] = None,
-    proxyTarget: Option[software.amazon.awscdk.services.rds.ProxyTarget] = None,
     initQuery: Option[String] = None,
     debugLogging: Option[Boolean] = None,
     borrowTimeout: Option[software.amazon.awscdk.Duration] = None,
@@ -27,6 +27,7 @@ object DatabaseProxy {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.DatabaseProxy =
     software.amazon.awscdk.services.rds.DatabaseProxy.Builder
       .create(stackCtx, internalResourceId)
+      .proxyTarget(proxyTarget)
       .iamAuth(iamAuth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .maxConnectionsPercent(maxConnectionsPercent.orNull)
       .maxIdleConnectionsPercent(maxIdleConnectionsPercent.orNull)
@@ -36,7 +37,6 @@ object DatabaseProxy {
       .secrets(secrets.map(_.asJava).orNull)
       .role(role.orNull)
       .sessionPinningFilters(sessionPinningFilters.map(_.asJava).orNull)
-      .proxyTarget(proxyTarget.orNull)
       .initQuery(initQuery.orNull)
       .debugLogging(debugLogging.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .borrowTimeout(borrowTimeout.orNull)

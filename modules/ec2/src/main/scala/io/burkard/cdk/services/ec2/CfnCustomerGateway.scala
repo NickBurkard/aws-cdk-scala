@@ -8,16 +8,16 @@ object CfnCustomerGateway {
 
   def apply(
     internalResourceId: String,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    bgpAsn: Option[Number] = None,
-    ipAddress: Option[String] = None,
-    `type`: Option[String] = None
+    bgpAsn: Number,
+    ipAddress: String,
+    `type`: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnCustomerGateway =
     software.amazon.awscdk.services.ec2.CfnCustomerGateway.Builder
       .create(stackCtx, internalResourceId)
+      .bgpAsn(bgpAsn)
+      .ipAddress(ipAddress)
+      .`type`(`type`)
       .tags(tags.map(_.asJava).orNull)
-      .bgpAsn(bgpAsn.orNull)
-      .ipAddress(ipAddress.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

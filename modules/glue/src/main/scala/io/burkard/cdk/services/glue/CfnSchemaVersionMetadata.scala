@@ -5,14 +5,14 @@ object CfnSchemaVersionMetadata {
 
   def apply(
     internalResourceId: String,
-    key: Option[String] = None,
-    value: Option[String] = None,
-    schemaVersionId: Option[String] = None
+    key: String,
+    value: String,
+    schemaVersionId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.glue.CfnSchemaVersionMetadata =
     software.amazon.awscdk.services.glue.CfnSchemaVersionMetadata.Builder
       .create(stackCtx, internalResourceId)
-      .key(key.orNull)
-      .value(value.orNull)
-      .schemaVersionId(schemaVersionId.orNull)
+      .key(key)
+      .value(value)
+      .schemaVersionId(schemaVersionId)
       .build()
 }

@@ -8,13 +8,13 @@ object KeyGroup {
 
   def apply(
     internalResourceId: String,
-    items: Option[List[_ <: software.amazon.awscdk.services.cloudfront.IPublicKey]] = None,
+    items: List[_ <: software.amazon.awscdk.services.cloudfront.IPublicKey],
     comment: Option[String] = None,
     keyGroupName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.KeyGroup =
     software.amazon.awscdk.services.cloudfront.KeyGroup.Builder
       .create(stackCtx, internalResourceId)
-      .items(items.map(_.asJava).orNull)
+      .items(items.asJava)
       .comment(comment.orNull)
       .keyGroupName(keyGroupName.orNull)
       .build()

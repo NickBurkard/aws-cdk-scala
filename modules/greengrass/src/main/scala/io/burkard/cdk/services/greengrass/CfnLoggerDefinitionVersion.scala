@@ -8,12 +8,12 @@ object CfnLoggerDefinitionVersion {
 
   def apply(
     internalResourceId: String,
-    loggers: Option[List[_]] = None,
-    loggerDefinitionId: Option[String] = None
+    loggers: List[_],
+    loggerDefinitionId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnLoggerDefinitionVersion =
     software.amazon.awscdk.services.greengrass.CfnLoggerDefinitionVersion.Builder
       .create(stackCtx, internalResourceId)
-      .loggers(loggers.map(_.asJava).orNull)
-      .loggerDefinitionId(loggerDefinitionId.orNull)
+      .loggers(loggers.asJava)
+      .loggerDefinitionId(loggerDefinitionId)
       .build()
 }

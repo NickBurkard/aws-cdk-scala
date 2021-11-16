@@ -5,9 +5,9 @@ object ScheduledAction {
 
   def apply(
     internalResourceId: String,
+    autoScalingGroup: software.amazon.awscdk.services.autoscaling.IAutoScalingGroup,
     maxCapacity: Option[Number] = None,
     startTime: Option[java.time.Instant] = None,
-    autoScalingGroup: Option[software.amazon.awscdk.services.autoscaling.IAutoScalingGroup] = None,
     endTime: Option[java.time.Instant] = None,
     minCapacity: Option[Number] = None,
     desiredCapacity: Option[Number] = None,
@@ -15,9 +15,9 @@ object ScheduledAction {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscaling.ScheduledAction =
     software.amazon.awscdk.services.autoscaling.ScheduledAction.Builder
       .create(stackCtx, internalResourceId)
+      .autoScalingGroup(autoScalingGroup)
       .maxCapacity(maxCapacity.orNull)
       .startTime(startTime.orNull)
-      .autoScalingGroup(autoScalingGroup.orNull)
       .endTime(endTime.orNull)
       .minCapacity(minCapacity.orNull)
       .desiredCapacity(desiredCapacity.orNull)

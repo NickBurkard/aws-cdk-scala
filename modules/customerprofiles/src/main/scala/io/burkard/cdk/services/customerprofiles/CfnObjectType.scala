@@ -8,8 +8,8 @@ object CfnObjectType {
 
   def apply(
     internalResourceId: String,
+    domainName: String,
     allowProfileCreation: Option[Boolean] = None,
-    domainName: Option[String] = None,
     objectTypeName: Option[String] = None,
     templateId: Option[String] = None,
     fields: Option[List[_]] = None,
@@ -21,8 +21,8 @@ object CfnObjectType {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.customerprofiles.CfnObjectType =
     software.amazon.awscdk.services.customerprofiles.CfnObjectType.Builder
       .create(stackCtx, internalResourceId)
+      .domainName(domainName)
       .allowProfileCreation(allowProfileCreation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .domainName(domainName.orNull)
       .objectTypeName(objectTypeName.orNull)
       .templateId(templateId.orNull)
       .fields(fields.map(_.asJava).orNull)

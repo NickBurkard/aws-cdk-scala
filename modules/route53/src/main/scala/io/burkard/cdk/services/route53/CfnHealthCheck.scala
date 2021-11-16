@@ -8,12 +8,12 @@ object CfnHealthCheck {
 
   def apply(
     internalResourceId: String,
-    healthCheckConfig: Option[software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckConfigProperty] = None,
+    healthCheckConfig: software.amazon.awscdk.services.route53.CfnHealthCheck.HealthCheckConfigProperty,
     healthCheckTags: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.CfnHealthCheck =
     software.amazon.awscdk.services.route53.CfnHealthCheck.Builder
       .create(stackCtx, internalResourceId)
-      .healthCheckConfig(healthCheckConfig.orNull)
+      .healthCheckConfig(healthCheckConfig)
       .healthCheckTags(healthCheckTags.map(_.asJava).orNull)
       .build()
 }

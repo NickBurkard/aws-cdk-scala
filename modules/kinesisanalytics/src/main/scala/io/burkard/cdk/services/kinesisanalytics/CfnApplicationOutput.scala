@@ -5,12 +5,12 @@ object CfnApplicationOutput {
 
   def apply(
     internalResourceId: String,
-    applicationName: Option[String] = None,
-    output: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.OutputProperty] = None
+    applicationName: String,
+    output: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.OutputProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput =
     software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutput.Builder
       .create(stackCtx, internalResourceId)
-      .applicationName(applicationName.orNull)
-      .output(output.orNull)
+      .applicationName(applicationName)
+      .output(output)
       .build()
 }

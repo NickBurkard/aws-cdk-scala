@@ -8,12 +8,12 @@ object CfnDataflowEndpointGroup {
 
   def apply(
     internalResourceId: String,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    endpointDetails: Option[List[_]] = None
+    endpointDetails: List[_],
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.groundstation.CfnDataflowEndpointGroup =
     software.amazon.awscdk.services.groundstation.CfnDataflowEndpointGroup.Builder
       .create(stackCtx, internalResourceId)
+      .endpointDetails(endpointDetails.asJava)
       .tags(tags.map(_.asJava).orNull)
-      .endpointDetails(endpointDetails.map(_.asJava).orNull)
       .build()
 }

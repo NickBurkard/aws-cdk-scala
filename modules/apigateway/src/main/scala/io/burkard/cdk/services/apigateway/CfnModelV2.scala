@@ -6,18 +6,18 @@ object CfnModelV2 {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
+    apiId: String,
+    schema: AnyRef,
     description: Option[String] = None,
-    apiId: Option[String] = None,
-    schema: Option[AnyRef] = None,
     contentType: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnModelV2 =
     software.amazon.awscdk.services.apigateway.CfnModelV2.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .apiId(apiId)
+      .schema(schema)
       .description(description.orNull)
-      .apiId(apiId.orNull)
-      .schema(schema.orNull)
       .contentType(contentType.orNull)
       .build()
 }

@@ -8,12 +8,12 @@ object TopicPolicy {
 
   def apply(
     internalResourceId: String,
-    topics: Option[List[_ <: software.amazon.awscdk.services.sns.ITopic]] = None,
+    topics: List[_ <: software.amazon.awscdk.services.sns.ITopic],
     policyDocument: Option[software.amazon.awscdk.services.iam.PolicyDocument] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sns.TopicPolicy =
     software.amazon.awscdk.services.sns.TopicPolicy.Builder
       .create(stackCtx, internalResourceId)
-      .topics(topics.map(_.asJava).orNull)
+      .topics(topics.asJava)
       .policyDocument(policyDocument.orNull)
       .build()
 }

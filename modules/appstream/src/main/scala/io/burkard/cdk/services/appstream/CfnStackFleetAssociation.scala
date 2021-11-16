@@ -5,12 +5,12 @@ object CfnStackFleetAssociation {
 
   def apply(
     internalResourceId: String,
-    fleetName: Option[String] = None,
-    stackName: Option[String] = None
+    fleetName: String,
+    stackName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appstream.CfnStackFleetAssociation =
     software.amazon.awscdk.services.appstream.CfnStackFleetAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .fleetName(fleetName.orNull)
-      .stackName(stackName.orNull)
+      .fleetName(fleetName)
+      .stackName(stackName)
       .build()
 }

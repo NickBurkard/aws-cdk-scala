@@ -5,14 +5,14 @@ object CfnVPCGatewayAttachment {
 
   def apply(
     internalResourceId: String,
+    vpcId: String,
     vpnGatewayId: Option[String] = None,
-    vpcId: Option[String] = None,
     internetGatewayId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVPCGatewayAttachment =
     software.amazon.awscdk.services.ec2.CfnVPCGatewayAttachment.Builder
       .create(stackCtx, internalResourceId)
+      .vpcId(vpcId)
       .vpnGatewayId(vpnGatewayId.orNull)
-      .vpcId(vpcId.orNull)
       .internetGatewayId(internetGatewayId.orNull)
       .build()
 }

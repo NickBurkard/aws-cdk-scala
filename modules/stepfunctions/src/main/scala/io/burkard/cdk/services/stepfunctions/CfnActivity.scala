@@ -8,12 +8,12 @@ object CfnActivity {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     tags: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.CfnActivity.TagsEntryProperty]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.CfnActivity =
     software.amazon.awscdk.services.stepfunctions.CfnActivity.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

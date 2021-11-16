@@ -8,6 +8,7 @@ object CfnUserPoolClient {
 
   def apply(
     internalResourceId: String,
+    userPoolId: String,
     accessTokenValidity: Option[Number] = None,
     writeAttributes: Option[List[String]] = None,
     enableTokenRevocation: Option[Boolean] = None,
@@ -23,7 +24,6 @@ object CfnUserPoolClient {
     allowedOAuthFlowsUserPoolClient: Option[Boolean] = None,
     callbackUrLs: Option[List[String]] = None,
     clientName: Option[String] = None,
-    userPoolId: Option[String] = None,
     idTokenValidity: Option[Number] = None,
     generateSecret: Option[Boolean] = None,
     explicitAuthFlows: Option[List[String]] = None,
@@ -31,6 +31,7 @@ object CfnUserPoolClient {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.CfnUserPoolClient =
     software.amazon.awscdk.services.cognito.CfnUserPoolClient.Builder
       .create(stackCtx, internalResourceId)
+      .userPoolId(userPoolId)
       .accessTokenValidity(accessTokenValidity.orNull)
       .writeAttributes(writeAttributes.map(_.asJava).orNull)
       .enableTokenRevocation(enableTokenRevocation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -46,7 +47,6 @@ object CfnUserPoolClient {
       .allowedOAuthFlowsUserPoolClient(allowedOAuthFlowsUserPoolClient.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .callbackUrLs(callbackUrLs.map(_.asJava).orNull)
       .clientName(clientName.orNull)
-      .userPoolId(userPoolId.orNull)
       .idTokenValidity(idTokenValidity.orNull)
       .generateSecret(generateSecret.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .explicitAuthFlows(explicitAuthFlows.map(_.asJava).orNull)

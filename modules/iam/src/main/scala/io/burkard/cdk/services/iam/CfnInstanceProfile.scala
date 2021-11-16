@@ -8,14 +8,14 @@ object CfnInstanceProfile {
 
   def apply(
     internalResourceId: String,
+    roles: List[String],
     path: Option[String] = None,
-    instanceProfileName: Option[String] = None,
-    roles: Option[List[String]] = None
+    instanceProfileName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iam.CfnInstanceProfile =
     software.amazon.awscdk.services.iam.CfnInstanceProfile.Builder
       .create(stackCtx, internalResourceId)
+      .roles(roles.asJava)
       .path(path.orNull)
       .instanceProfileName(instanceProfileName.orNull)
-      .roles(roles.map(_.asJava).orNull)
       .build()
 }

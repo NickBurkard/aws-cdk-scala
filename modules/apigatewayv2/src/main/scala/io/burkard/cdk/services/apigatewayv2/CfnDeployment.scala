@@ -5,14 +5,14 @@ object CfnDeployment {
 
   def apply(
     internalResourceId: String,
+    apiId: String,
     description: Option[String] = None,
-    stageName: Option[String] = None,
-    apiId: Option[String] = None
+    stageName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigatewayv2.CfnDeployment =
     software.amazon.awscdk.services.apigatewayv2.CfnDeployment.Builder
       .create(stackCtx, internalResourceId)
+      .apiId(apiId)
       .description(description.orNull)
       .stageName(stageName.orNull)
-      .apiId(apiId.orNull)
       .build()
 }

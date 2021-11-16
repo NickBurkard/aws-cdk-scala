@@ -8,14 +8,14 @@ object CfnClusterSubnetGroup {
 
   def apply(
     internalResourceId: String,
-    subnetIds: Option[List[String]] = None,
-    description: Option[String] = None,
+    subnetIds: List[String],
+    description: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.redshift.CfnClusterSubnetGroup =
     software.amazon.awscdk.services.redshift.CfnClusterSubnetGroup.Builder
       .create(stackCtx, internalResourceId)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .description(description.orNull)
+      .subnetIds(subnetIds.asJava)
+      .description(description)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

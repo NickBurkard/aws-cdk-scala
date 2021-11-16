@@ -5,18 +5,18 @@ object CfnNamedQuery {
 
   def apply(
     internalResourceId: String,
+    database: String,
+    queryString: String,
     workGroup: Option[String] = None,
-    database: Option[String] = None,
     name: Option[String] = None,
-    description: Option[String] = None,
-    queryString: Option[String] = None
+    description: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.athena.CfnNamedQuery =
     software.amazon.awscdk.services.athena.CfnNamedQuery.Builder
       .create(stackCtx, internalResourceId)
+      .database(database)
+      .queryString(queryString)
       .workGroup(workGroup.orNull)
-      .database(database.orNull)
       .name(name.orNull)
       .description(description.orNull)
-      .queryString(queryString.orNull)
       .build()
 }

@@ -8,16 +8,16 @@ object CfnOrganizationConfigRule {
 
   def apply(
     internalResourceId: String,
+    organizationConfigRuleName: String,
     organizationCustomRuleMetadata: Option[software.amazon.awscdk.services.config.CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty] = None,
     excludedAccounts: Option[List[String]] = None,
-    organizationConfigRuleName: Option[String] = None,
     organizationManagedRuleMetadata: Option[software.amazon.awscdk.services.config.CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.config.CfnOrganizationConfigRule =
     software.amazon.awscdk.services.config.CfnOrganizationConfigRule.Builder
       .create(stackCtx, internalResourceId)
+      .organizationConfigRuleName(organizationConfigRuleName)
       .organizationCustomRuleMetadata(organizationCustomRuleMetadata.orNull)
       .excludedAccounts(excludedAccounts.map(_.asJava).orNull)
-      .organizationConfigRuleName(organizationConfigRuleName.orNull)
       .organizationManagedRuleMetadata(organizationManagedRuleMetadata.orNull)
       .build()
 }

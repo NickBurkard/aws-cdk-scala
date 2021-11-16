@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object SimpleSynthAction {
 
   def apply(
-    synthCommand: Option[String] = None,
+    synthCommand: String,
     projectName: Option[String] = None,
     rolePolicyStatements: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None,
     environmentVariables: Option[Map[String, _ <: software.amazon.awscdk.services.codebuild.BuildEnvironmentVariable]] = None,
@@ -29,7 +29,7 @@ object SimpleSynthAction {
   ): software.amazon.awscdk.pipelines.SimpleSynthAction =
     software.amazon.awscdk.pipelines.SimpleSynthAction.Builder
       .create()
-      .synthCommand(synthCommand.orNull)
+      .synthCommand(synthCommand)
       .projectName(projectName.orNull)
       .rolePolicyStatements(rolePolicyStatements.map(_.asJava).orNull)
       .environmentVariables(environmentVariables.map(_.asJava).orNull)

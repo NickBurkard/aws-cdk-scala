@@ -8,6 +8,7 @@ object EventSourceMapping {
 
   def apply(
     internalResourceId: String,
+    target: software.amazon.awscdk.services.lambda.IFunction,
     batchSize: Option[Number] = None,
     parallelizationFactor: Option[Number] = None,
     enabled: Option[Boolean] = None,
@@ -15,7 +16,6 @@ object EventSourceMapping {
     tumblingWindow: Option[software.amazon.awscdk.Duration] = None,
     eventSourceArn: Option[String] = None,
     kafkaBootstrapServers: Option[List[String]] = None,
-    target: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     retryAttempts: Option[Number] = None,
     onFailure: Option[software.amazon.awscdk.services.lambda.IEventSourceDlq] = None,
     maxRecordAge: Option[software.amazon.awscdk.Duration] = None,
@@ -27,6 +27,7 @@ object EventSourceMapping {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.EventSourceMapping =
     software.amazon.awscdk.services.lambda.EventSourceMapping.Builder
       .create(stackCtx, internalResourceId)
+      .target(target)
       .batchSize(batchSize.orNull)
       .parallelizationFactor(parallelizationFactor.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -34,7 +35,6 @@ object EventSourceMapping {
       .tumblingWindow(tumblingWindow.orNull)
       .eventSourceArn(eventSourceArn.orNull)
       .kafkaBootstrapServers(kafkaBootstrapServers.map(_.asJava).orNull)
-      .target(target.orNull)
       .retryAttempts(retryAttempts.orNull)
       .onFailure(onFailure.orNull)
       .maxRecordAge(maxRecordAge.orNull)

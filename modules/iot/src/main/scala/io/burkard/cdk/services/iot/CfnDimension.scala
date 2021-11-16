@@ -8,16 +8,16 @@ object CfnDimension {
 
   def apply(
     internalResourceId: String,
+    stringValues: List[String],
+    `type`: String,
     name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    stringValues: Option[List[String]] = None,
-    `type`: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnDimension =
     software.amazon.awscdk.services.iot.CfnDimension.Builder
       .create(stackCtx, internalResourceId)
+      .stringValues(stringValues.asJava)
+      .`type`(`type`)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .stringValues(stringValues.map(_.asJava).orNull)
-      .`type`(`type`.orNull)
       .build()
 }

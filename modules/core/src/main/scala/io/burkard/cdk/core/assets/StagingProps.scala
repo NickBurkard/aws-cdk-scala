@@ -1,4 +1,4 @@
-package io.burkard.cdk.assets
+package io.burkard.cdk.core.assets
 
 import scala.collection.JavaConverters._
 

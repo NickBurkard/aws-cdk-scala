@@ -8,14 +8,14 @@ object CfnSAMLProvider {
 
   def apply(
     internalResourceId: String,
+    samlMetadataDocument: String,
     name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    samlMetadataDocument: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iam.CfnSAMLProvider =
     software.amazon.awscdk.services.iam.CfnSAMLProvider.Builder
       .create(stackCtx, internalResourceId)
+      .samlMetadataDocument(samlMetadataDocument)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .samlMetadataDocument(samlMetadataDocument.orNull)
       .build()
 }

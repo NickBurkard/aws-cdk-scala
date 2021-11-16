@@ -8,12 +8,12 @@ object CfnConnectorDefinitionVersion {
 
   def apply(
     internalResourceId: String,
-    connectors: Option[List[_]] = None,
-    connectorDefinitionId: Option[String] = None
+    connectors: List[_],
+    connectorDefinitionId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersion =
     software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersion.Builder
       .create(stackCtx, internalResourceId)
-      .connectors(connectors.map(_.asJava).orNull)
-      .connectorDefinitionId(connectorDefinitionId.orNull)
+      .connectors(connectors.asJava)
+      .connectorDefinitionId(connectorDefinitionId)
       .build()
 }

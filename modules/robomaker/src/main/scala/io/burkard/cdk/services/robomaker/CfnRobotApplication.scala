@@ -8,18 +8,18 @@ object CfnRobotApplication {
 
   def apply(
     internalResourceId: String,
-    robotSoftwareSuite: Option[software.amazon.awscdk.services.robomaker.CfnRobotApplication.RobotSoftwareSuiteProperty] = None,
+    robotSoftwareSuite: software.amazon.awscdk.services.robomaker.CfnRobotApplication.RobotSoftwareSuiteProperty,
+    sources: List[_],
     name: Option[String] = None,
     tags: Option[AnyRef] = None,
-    currentRevisionId: Option[String] = None,
-    sources: Option[List[_]] = None
+    currentRevisionId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.robomaker.CfnRobotApplication =
     software.amazon.awscdk.services.robomaker.CfnRobotApplication.Builder
       .create(stackCtx, internalResourceId)
-      .robotSoftwareSuite(robotSoftwareSuite.orNull)
+      .robotSoftwareSuite(robotSoftwareSuite)
+      .sources(sources.asJava)
       .name(name.orNull)
       .tags(tags.orNull)
       .currentRevisionId(currentRevisionId.orNull)
-      .sources(sources.map(_.asJava).orNull)
       .build()
 }

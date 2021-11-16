@@ -5,12 +5,12 @@ object CfnEnclaveCertificateIamRoleAssociation {
 
   def apply(
     internalResourceId: String,
-    certificateArn: Option[String] = None,
-    roleArn: Option[String] = None
+    certificateArn: String,
+    roleArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnEnclaveCertificateIamRoleAssociation =
     software.amazon.awscdk.services.ec2.CfnEnclaveCertificateIamRoleAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .certificateArn(certificateArn.orNull)
-      .roleArn(roleArn.orNull)
+      .certificateArn(certificateArn)
+      .roleArn(roleArn)
       .build()
 }

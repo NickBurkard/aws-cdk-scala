@@ -31,6 +31,13 @@ class CdkBuilderSpec extends AnyFlatSpec with Matchers with OptionValues {
       .value mustBe directConstructorCdkBuilder
   }
 
+  it should "identify required fields" in {
+    CdkBuilder
+      .build(requiredFieldsServiceName, requiredFieldsBuilderClass)
+      .value
+      .requiredFieldNames mustBe requiredFieldsNames
+  }
+
   it should "reject a non-builder class" in {
     import CdkBuilderTestFixtures.Invalid._
 

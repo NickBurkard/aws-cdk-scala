@@ -8,12 +8,12 @@ object CfnSuiteDefinition {
 
   def apply(
     internalResourceId: String,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    suiteDefinitionConfiguration: Option[AnyRef] = None
+    suiteDefinitionConfiguration: AnyRef,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iotcoredeviceadvisor.CfnSuiteDefinition =
     software.amazon.awscdk.services.iotcoredeviceadvisor.CfnSuiteDefinition.Builder
       .create(stackCtx, internalResourceId)
+      .suiteDefinitionConfiguration(suiteDefinitionConfiguration)
       .tags(tags.map(_.asJava).orNull)
-      .suiteDefinitionConfiguration(suiteDefinitionConfiguration.orNull)
       .build()
 }

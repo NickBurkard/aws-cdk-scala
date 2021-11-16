@@ -8,12 +8,12 @@ object CfnAuthorizer {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    authorizerType: Option[String] = None,
+    name: String,
+    authorizerType: String,
+    apiId: String,
     authorizerResultTtlInSeconds: Option[Number] = None,
     identitySource: Option[List[String]] = None,
     identityValidationExpression: Option[String] = None,
-    apiId: Option[String] = None,
     authorizerPayloadFormatVersion: Option[String] = None,
     authorizerCredentialsArn: Option[String] = None,
     jwtConfiguration: Option[software.amazon.awscdk.services.apigatewayv2.CfnAuthorizer.JWTConfigurationProperty] = None,
@@ -22,12 +22,12 @@ object CfnAuthorizer {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigatewayv2.CfnAuthorizer =
     software.amazon.awscdk.services.apigatewayv2.CfnAuthorizer.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .authorizerType(authorizerType.orNull)
+      .name(name)
+      .authorizerType(authorizerType)
+      .apiId(apiId)
       .authorizerResultTtlInSeconds(authorizerResultTtlInSeconds.orNull)
       .identitySource(identitySource.map(_.asJava).orNull)
       .identityValidationExpression(identityValidationExpression.orNull)
-      .apiId(apiId.orNull)
       .authorizerPayloadFormatVersion(authorizerPayloadFormatVersion.orNull)
       .authorizerCredentialsArn(authorizerCredentialsArn.orNull)
       .jwtConfiguration(jwtConfiguration.orNull)

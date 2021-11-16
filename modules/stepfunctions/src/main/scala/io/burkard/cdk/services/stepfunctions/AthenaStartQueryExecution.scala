@@ -8,8 +8,8 @@ object AthenaStartQueryExecution {
 
   def apply(
     internalResourceId: String,
+    queryString: String,
     workGroup: Option[String] = None,
-    queryString: Option[String] = None,
     resultPath: Option[String] = None,
     clientRequestToken: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
@@ -24,8 +24,8 @@ object AthenaStartQueryExecution {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.AthenaStartQueryExecution =
     software.amazon.awscdk.services.stepfunctions.tasks.AthenaStartQueryExecution.Builder
       .create(stackCtx, internalResourceId)
+      .queryString(queryString)
       .workGroup(workGroup.orNull)
-      .queryString(queryString.orNull)
       .resultPath(resultPath.orNull)
       .clientRequestToken(clientRequestToken.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)

@@ -5,10 +5,10 @@ object CfnCloudFrontOriginAccessIdentity {
 
   def apply(
     internalResourceId: String,
-    cloudFrontOriginAccessIdentityConfig: Option[software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty] = None
+    cloudFrontOriginAccessIdentityConfig: software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity =
     software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity.Builder
       .create(stackCtx, internalResourceId)
-      .cloudFrontOriginAccessIdentityConfig(cloudFrontOriginAccessIdentityConfig.orNull)
+      .cloudFrontOriginAccessIdentityConfig(cloudFrontOriginAccessIdentityConfig)
       .build()
 }

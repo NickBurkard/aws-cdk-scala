@@ -8,14 +8,14 @@ object CfnIdentityPoolRoleAttachment {
 
   def apply(
     internalResourceId: String,
+    identityPoolId: String,
     roleMappings: Option[Map[String, _]] = None,
-    identityPoolId: Option[String] = None,
     roles: Option[AnyRef] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachment =
     software.amazon.awscdk.services.cognito.CfnIdentityPoolRoleAttachment.Builder
       .create(stackCtx, internalResourceId)
+      .identityPoolId(identityPoolId)
       .roleMappings(roleMappings.map(_.asJava).orNull)
-      .identityPoolId(identityPoolId.orNull)
       .roles(roles.orNull)
       .build()
 }

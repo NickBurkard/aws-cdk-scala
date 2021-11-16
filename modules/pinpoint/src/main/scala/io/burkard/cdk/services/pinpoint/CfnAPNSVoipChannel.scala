@@ -5,6 +5,7 @@ object CfnAPNSVoipChannel {
 
   def apply(
     internalResourceId: String,
+    applicationId: String,
     tokenKeyId: Option[String] = None,
     bundleId: Option[String] = None,
     certificate: Option[String] = None,
@@ -12,11 +13,11 @@ object CfnAPNSVoipChannel {
     tokenKey: Option[String] = None,
     privateKey: Option[String] = None,
     defaultAuthenticationMethod: Option[String] = None,
-    applicationId: Option[String] = None,
     enabled: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnAPNSVoipChannel =
     software.amazon.awscdk.services.pinpoint.CfnAPNSVoipChannel.Builder
       .create(stackCtx, internalResourceId)
+      .applicationId(applicationId)
       .tokenKeyId(tokenKeyId.orNull)
       .bundleId(bundleId.orNull)
       .certificate(certificate.orNull)
@@ -24,7 +25,6 @@ object CfnAPNSVoipChannel {
       .tokenKey(tokenKey.orNull)
       .privateKey(privateKey.orNull)
       .defaultAuthenticationMethod(defaultAuthenticationMethod.orNull)
-      .applicationId(applicationId.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

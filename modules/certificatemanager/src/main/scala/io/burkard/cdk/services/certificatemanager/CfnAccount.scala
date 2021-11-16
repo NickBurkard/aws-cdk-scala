@@ -5,10 +5,10 @@ object CfnAccount {
 
   def apply(
     internalResourceId: String,
-    expiryEventsConfiguration: Option[software.amazon.awscdk.services.certificatemanager.CfnAccount.ExpiryEventsConfigurationProperty] = None
+    expiryEventsConfiguration: software.amazon.awscdk.services.certificatemanager.CfnAccount.ExpiryEventsConfigurationProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.certificatemanager.CfnAccount =
     software.amazon.awscdk.services.certificatemanager.CfnAccount.Builder
       .create(stackCtx, internalResourceId)
-      .expiryEventsConfiguration(expiryEventsConfiguration.orNull)
+      .expiryEventsConfiguration(expiryEventsConfiguration)
       .build()
 }

@@ -8,17 +8,18 @@ object CfnEventSubscription {
 
   def apply(
     internalResourceId: String,
+    subscriptionName: String,
     sourceType: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     enabled: Option[Boolean] = None,
     eventCategories: Option[List[String]] = None,
     severity: Option[String] = None,
     snsTopicArn: Option[String] = None,
-    sourceIds: Option[List[String]] = None,
-    subscriptionName: Option[String] = None
+    sourceIds: Option[List[String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.redshift.CfnEventSubscription =
     software.amazon.awscdk.services.redshift.CfnEventSubscription.Builder
       .create(stackCtx, internalResourceId)
+      .subscriptionName(subscriptionName)
       .sourceType(sourceType.orNull)
       .tags(tags.map(_.asJava).orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -26,6 +27,5 @@ object CfnEventSubscription {
       .severity(severity.orNull)
       .snsTopicArn(snsTopicArn.orNull)
       .sourceIds(sourceIds.map(_.asJava).orNull)
-      .subscriptionName(subscriptionName.orNull)
       .build()
 }

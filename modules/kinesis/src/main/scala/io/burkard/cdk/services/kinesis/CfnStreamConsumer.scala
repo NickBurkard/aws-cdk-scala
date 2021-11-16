@@ -5,12 +5,12 @@ object CfnStreamConsumer {
 
   def apply(
     internalResourceId: String,
-    consumerName: Option[String] = None,
-    streamArn: Option[String] = None
+    consumerName: String,
+    streamArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.kinesis.CfnStreamConsumer =
     software.amazon.awscdk.services.kinesis.CfnStreamConsumer.Builder
       .create(stackCtx, internalResourceId)
-      .consumerName(consumerName.orNull)
-      .streamArn(streamArn.orNull)
+      .consumerName(consumerName)
+      .streamArn(streamArn)
       .build()
 }

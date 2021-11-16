@@ -8,9 +8,9 @@ object CfnIdentityPool {
 
   def apply(
     internalResourceId: String,
+    allowUnauthenticatedIdentities: Boolean,
     allowClassicFlow: Option[Boolean] = None,
     identityPoolName: Option[String] = None,
-    allowUnauthenticatedIdentities: Option[Boolean] = None,
     pushSync: Option[software.amazon.awscdk.services.cognito.CfnIdentityPool.PushSyncProperty] = None,
     cognitoStreams: Option[software.amazon.awscdk.services.cognito.CfnIdentityPool.CognitoStreamsProperty] = None,
     supportedLoginProviders: Option[AnyRef] = None,
@@ -22,9 +22,9 @@ object CfnIdentityPool {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.CfnIdentityPool =
     software.amazon.awscdk.services.cognito.CfnIdentityPool.Builder
       .create(stackCtx, internalResourceId)
+      .allowUnauthenticatedIdentities(allowUnauthenticatedIdentities)
       .allowClassicFlow(allowClassicFlow.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .identityPoolName(identityPoolName.orNull)
-      .allowUnauthenticatedIdentities(allowUnauthenticatedIdentities.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .pushSync(pushSync.orNull)
       .cognitoStreams(cognitoStreams.orNull)
       .supportedLoginProviders(supportedLoginProviders.orNull)

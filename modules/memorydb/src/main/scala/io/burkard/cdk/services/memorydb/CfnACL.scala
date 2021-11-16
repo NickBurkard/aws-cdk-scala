@@ -8,14 +8,14 @@ object CfnACL {
 
   def apply(
     internalResourceId: String,
+    aclName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    aclName: Option[String] = None,
     userNames: Option[List[String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.memorydb.CfnACL =
     software.amazon.awscdk.services.memorydb.CfnACL.Builder
       .create(stackCtx, internalResourceId)
+      .aclName(aclName)
       .tags(tags.map(_.asJava).orNull)
-      .aclName(aclName.orNull)
       .userNames(userNames.map(_.asJava).orNull)
       .build()
 }

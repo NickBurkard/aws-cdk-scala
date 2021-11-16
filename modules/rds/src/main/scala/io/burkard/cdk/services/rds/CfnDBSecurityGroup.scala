@@ -8,16 +8,16 @@ object CfnDBSecurityGroup {
 
   def apply(
     internalResourceId: String,
+    groupDescription: String,
+    dbSecurityGroupIngress: List[_],
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    groupDescription: Option[String] = None,
-    dbSecurityGroupIngress: Option[List[_]] = None,
     ec2VpcId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.CfnDBSecurityGroup =
     software.amazon.awscdk.services.rds.CfnDBSecurityGroup.Builder
       .create(stackCtx, internalResourceId)
+      .groupDescription(groupDescription)
+      .dbSecurityGroupIngress(dbSecurityGroupIngress.asJava)
       .tags(tags.map(_.asJava).orNull)
-      .groupDescription(groupDescription.orNull)
-      .dbSecurityGroupIngress(dbSecurityGroupIngress.map(_.asJava).orNull)
       .ec2VpcId(ec2VpcId.orNull)
       .build()
 }

@@ -5,12 +5,12 @@ object CfnVoiceChannel {
 
   def apply(
     internalResourceId: String,
-    applicationId: Option[String] = None,
+    applicationId: String,
     enabled: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnVoiceChannel =
     software.amazon.awscdk.services.pinpoint.CfnVoiceChannel.Builder
       .create(stackCtx, internalResourceId)
-      .applicationId(applicationId.orNull)
+      .applicationId(applicationId)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

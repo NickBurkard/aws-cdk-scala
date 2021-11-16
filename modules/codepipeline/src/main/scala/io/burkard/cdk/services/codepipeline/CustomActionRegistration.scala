@@ -8,22 +8,22 @@ object CustomActionRegistration {
 
   def apply(
     internalResourceId: String,
+    artifactBounds: software.amazon.awscdk.services.codepipeline.ActionArtifactBounds,
+    provider: String,
+    category: software.amazon.awscdk.services.codepipeline.ActionCategory,
     entityUrl: Option[String] = None,
-    artifactBounds: Option[software.amazon.awscdk.services.codepipeline.ActionArtifactBounds] = None,
-    provider: Option[String] = None,
     version: Option[String] = None,
     executionUrl: Option[String] = None,
-    category: Option[software.amazon.awscdk.services.codepipeline.ActionCategory] = None,
     actionProperties: Option[List[_ <: software.amazon.awscdk.services.codepipeline.CustomActionProperty]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codepipeline.CustomActionRegistration =
     software.amazon.awscdk.services.codepipeline.CustomActionRegistration.Builder
       .create(stackCtx, internalResourceId)
+      .artifactBounds(artifactBounds)
+      .provider(provider)
+      .category(category)
       .entityUrl(entityUrl.orNull)
-      .artifactBounds(artifactBounds.orNull)
-      .provider(provider.orNull)
       .version(version.orNull)
       .executionUrl(executionUrl.orNull)
-      .category(category.orNull)
       .actionProperties(actionProperties.map(_.asJava).orNull)
       .build()
 }

@@ -8,7 +8,7 @@ object CdkPipeline {
 
   def apply(
     internalResourceId: String,
-    cloudAssemblyArtifact: Option[software.amazon.awscdk.services.codepipeline.Artifact] = None,
+    cloudAssemblyArtifact: software.amazon.awscdk.services.codepipeline.Artifact,
     crossAccountKeys: Option[Boolean] = None,
     supportDockerAssets: Option[Boolean] = None,
     pipelineName: Option[String] = None,
@@ -28,7 +28,7 @@ object CdkPipeline {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.pipelines.CdkPipeline =
     software.amazon.awscdk.pipelines.CdkPipeline.Builder
       .create(stackCtx, internalResourceId)
-      .cloudAssemblyArtifact(cloudAssemblyArtifact.orNull)
+      .cloudAssemblyArtifact(cloudAssemblyArtifact)
       .crossAccountKeys(crossAccountKeys.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .supportDockerAssets(supportDockerAssets.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .pipelineName(pipelineName.orNull)

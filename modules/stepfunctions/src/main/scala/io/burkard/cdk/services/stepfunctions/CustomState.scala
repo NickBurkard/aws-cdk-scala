@@ -8,10 +8,10 @@ object CustomState {
 
   def apply(
     internalResourceId: String,
-    stateJson: Option[Map[String, _]] = None
+    stateJson: Map[String, _]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.CustomState =
     software.amazon.awscdk.services.stepfunctions.CustomState.Builder
       .create(stackCtx, internalResourceId)
-      .stateJson(stateJson.map(_.asJava).orNull)
+      .stateJson(stateJson.asJava)
       .build()
 }

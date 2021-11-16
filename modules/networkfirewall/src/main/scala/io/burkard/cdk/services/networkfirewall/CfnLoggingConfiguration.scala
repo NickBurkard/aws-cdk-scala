@@ -5,14 +5,14 @@ object CfnLoggingConfiguration {
 
   def apply(
     internalResourceId: String,
-    loggingConfiguration: Option[software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration.LoggingConfigurationProperty] = None,
-    firewallName: Option[String] = None,
-    firewallArn: Option[String] = None
+    loggingConfiguration: software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration.LoggingConfigurationProperty,
+    firewallArn: String,
+    firewallName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration =
     software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration.Builder
       .create(stackCtx, internalResourceId)
-      .loggingConfiguration(loggingConfiguration.orNull)
+      .loggingConfiguration(loggingConfiguration)
+      .firewallArn(firewallArn)
       .firewallName(firewallName.orNull)
-      .firewallArn(firewallArn.orNull)
       .build()
 }

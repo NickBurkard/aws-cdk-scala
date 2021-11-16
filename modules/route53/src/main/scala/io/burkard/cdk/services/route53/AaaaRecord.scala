@@ -5,17 +5,17 @@ object AaaaRecord {
 
   def apply(
     internalResourceId: String,
+    target: software.amazon.awscdk.services.route53.RecordTarget,
     recordName: Option[String] = None,
     comment: Option[String] = None,
-    target: Option[software.amazon.awscdk.services.route53.RecordTarget] = None,
     ttl: Option[software.amazon.awscdk.Duration] = None,
     zone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.AaaaRecord =
     software.amazon.awscdk.services.route53.AaaaRecord.Builder
       .create(stackCtx, internalResourceId)
+      .target(target)
       .recordName(recordName.orNull)
       .comment(comment.orNull)
-      .target(target.orNull)
       .ttl(ttl.orNull)
       .zone(zone.orNull)
       .build()

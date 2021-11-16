@@ -8,6 +8,7 @@ object DatabaseInstanceFromSnapshot {
 
   def apply(
     internalResourceId: String,
+    snapshotIdentifier: String,
     s3ExportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     backupRetention: Option[software.amazon.awscdk.Duration] = None,
     vpcPlacement: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
@@ -22,7 +23,6 @@ object DatabaseInstanceFromSnapshot {
     databaseName: Option[String] = None,
     preferredBackupWindow: Option[String] = None,
     s3ExportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
-    snapshotIdentifier: Option[String] = None,
     subnetGroup: Option[software.amazon.awscdk.services.rds.ISubnetGroup] = None,
     iamAuthentication: Option[Boolean] = None,
     s3ImportBuckets: Option[List[_ <: software.amazon.awscdk.services.s3.IBucket]] = None,
@@ -59,6 +59,7 @@ object DatabaseInstanceFromSnapshot {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.DatabaseInstanceFromSnapshot =
     software.amazon.awscdk.services.rds.DatabaseInstanceFromSnapshot.Builder
       .create(stackCtx, internalResourceId)
+      .snapshotIdentifier(snapshotIdentifier)
       .s3ExportRole(s3ExportRole.orNull)
       .backupRetention(backupRetention.orNull)
       .vpcPlacement(vpcPlacement.orNull)
@@ -73,7 +74,6 @@ object DatabaseInstanceFromSnapshot {
       .databaseName(databaseName.orNull)
       .preferredBackupWindow(preferredBackupWindow.orNull)
       .s3ExportBuckets(s3ExportBuckets.map(_.asJava).orNull)
-      .snapshotIdentifier(snapshotIdentifier.orNull)
       .subnetGroup(subnetGroup.orNull)
       .iamAuthentication(iamAuthentication.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .s3ImportBuckets(s3ImportBuckets.map(_.asJava).orNull)

@@ -5,10 +5,10 @@ object CfnResponseHeadersPolicy {
 
   def apply(
     internalResourceId: String,
-    responseHeadersPolicyConfig: Option[software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty] = None
+    responseHeadersPolicyConfig: software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy =
     software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.Builder
       .create(stackCtx, internalResourceId)
-      .responseHeadersPolicyConfig(responseHeadersPolicyConfig.orNull)
+      .responseHeadersPolicyConfig(responseHeadersPolicyConfig)
       .build()
 }

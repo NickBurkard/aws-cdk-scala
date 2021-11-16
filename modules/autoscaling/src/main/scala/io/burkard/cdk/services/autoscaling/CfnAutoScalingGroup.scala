@@ -8,6 +8,8 @@ object CfnAutoScalingGroup {
 
   def apply(
     internalResourceId: String,
+    minSize: String,
+    maxSize: String,
     instanceId: Option[String] = None,
     terminationPolicies: Option[List[String]] = None,
     healthCheckGracePeriod: Option[Number] = None,
@@ -20,7 +22,6 @@ object CfnAutoScalingGroup {
     cooldown: Option[String] = None,
     metricsCollection: Option[List[_]] = None,
     desiredCapacity: Option[String] = None,
-    minSize: Option[String] = None,
     launchConfigurationName: Option[String] = None,
     serviceLinkedRoleArn: Option[String] = None,
     desiredCapacityType: Option[String] = None,
@@ -32,12 +33,13 @@ object CfnAutoScalingGroup {
     vpcZoneIdentifier: Option[List[String]] = None,
     newInstancesProtectedFromScaleIn: Option[Boolean] = None,
     targetGroupArns: Option[List[String]] = None,
-    maxSize: Option[String] = None,
     availabilityZones: Option[List[String]] = None,
     autoScalingGroupName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup =
     software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.Builder
       .create(stackCtx, internalResourceId)
+      .minSize(minSize)
+      .maxSize(maxSize)
       .instanceId(instanceId.orNull)
       .terminationPolicies(terminationPolicies.map(_.asJava).orNull)
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
@@ -50,7 +52,6 @@ object CfnAutoScalingGroup {
       .cooldown(cooldown.orNull)
       .metricsCollection(metricsCollection.map(_.asJava).orNull)
       .desiredCapacity(desiredCapacity.orNull)
-      .minSize(minSize.orNull)
       .launchConfigurationName(launchConfigurationName.orNull)
       .serviceLinkedRoleArn(serviceLinkedRoleArn.orNull)
       .desiredCapacityType(desiredCapacityType.orNull)
@@ -62,7 +63,6 @@ object CfnAutoScalingGroup {
       .vpcZoneIdentifier(vpcZoneIdentifier.map(_.asJava).orNull)
       .newInstancesProtectedFromScaleIn(newInstancesProtectedFromScaleIn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .targetGroupArns(targetGroupArns.map(_.asJava).orNull)
-      .maxSize(maxSize.orNull)
       .availabilityZones(availabilityZones.map(_.asJava).orNull)
       .autoScalingGroupName(autoScalingGroupName.orNull)
       .build()

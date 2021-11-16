@@ -5,16 +5,16 @@ object CfnMap {
 
   def apply(
     internalResourceId: String,
-    mapName: Option[String] = None,
-    description: Option[String] = None,
-    configuration: Option[software.amazon.awscdk.services.location.CfnMap.MapConfigurationProperty] = None,
-    pricingPlan: Option[String] = None
+    mapName: String,
+    configuration: software.amazon.awscdk.services.location.CfnMap.MapConfigurationProperty,
+    pricingPlan: String,
+    description: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.location.CfnMap =
     software.amazon.awscdk.services.location.CfnMap.Builder
       .create(stackCtx, internalResourceId)
-      .mapName(mapName.orNull)
+      .mapName(mapName)
+      .configuration(configuration)
+      .pricingPlan(pricingPlan)
       .description(description.orNull)
-      .configuration(configuration.orNull)
-      .pricingPlan(pricingPlan.orNull)
       .build()
 }

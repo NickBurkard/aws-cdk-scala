@@ -8,14 +8,14 @@ object CfnRecoveryGroup {
 
   def apply(
     internalResourceId: String,
+    recoveryGroupName: String,
     cells: Option[List[String]] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    recoveryGroupName: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53recoveryreadiness.CfnRecoveryGroup =
     software.amazon.awscdk.services.route53recoveryreadiness.CfnRecoveryGroup.Builder
       .create(stackCtx, internalResourceId)
+      .recoveryGroupName(recoveryGroupName)
       .cells(cells.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)
-      .recoveryGroupName(recoveryGroupName.orNull)
       .build()
 }

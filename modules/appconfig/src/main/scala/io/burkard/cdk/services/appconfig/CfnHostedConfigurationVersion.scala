@@ -5,20 +5,20 @@ object CfnHostedConfigurationVersion {
 
   def apply(
     internalResourceId: String,
+    applicationId: String,
+    contentType: String,
+    content: String,
+    configurationProfileId: String,
     description: Option[String] = None,
-    applicationId: Option[String] = None,
-    contentType: Option[String] = None,
-    latestVersionNumber: Option[Number] = None,
-    content: Option[String] = None,
-    configurationProfileId: Option[String] = None
+    latestVersionNumber: Option[Number] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appconfig.CfnHostedConfigurationVersion =
     software.amazon.awscdk.services.appconfig.CfnHostedConfigurationVersion.Builder
       .create(stackCtx, internalResourceId)
+      .applicationId(applicationId)
+      .contentType(contentType)
+      .content(content)
+      .configurationProfileId(configurationProfileId)
       .description(description.orNull)
-      .applicationId(applicationId.orNull)
-      .contentType(contentType.orNull)
       .latestVersionNumber(latestVersionNumber.orNull)
-      .content(content.orNull)
-      .configurationProfileId(configurationProfileId.orNull)
       .build()
 }

@@ -8,14 +8,14 @@ object CfnCodeRepository {
 
   def apply(
     internalResourceId: String,
+    gitConfig: software.amazon.awscdk.services.sagemaker.CfnCodeRepository.GitConfigProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    codeRepositoryName: Option[String] = None,
-    gitConfig: Option[software.amazon.awscdk.services.sagemaker.CfnCodeRepository.GitConfigProperty] = None
+    codeRepositoryName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sagemaker.CfnCodeRepository =
     software.amazon.awscdk.services.sagemaker.CfnCodeRepository.Builder
       .create(stackCtx, internalResourceId)
+      .gitConfig(gitConfig)
       .tags(tags.map(_.asJava).orNull)
       .codeRepositoryName(codeRepositoryName.orNull)
-      .gitConfig(gitConfig.orNull)
       .build()
 }

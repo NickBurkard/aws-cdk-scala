@@ -8,12 +8,12 @@ object CfnReplicationSet {
 
   def apply(
     internalResourceId: String,
-    regions: Option[List[_]] = None,
+    regions: List[_],
     deletionProtected: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ssmincidents.CfnReplicationSet =
     software.amazon.awscdk.services.ssmincidents.CfnReplicationSet.Builder
       .create(stackCtx, internalResourceId)
-      .regions(regions.map(_.asJava).orNull)
+      .regions(regions.asJava)
       .deletionProtected(deletionProtected.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

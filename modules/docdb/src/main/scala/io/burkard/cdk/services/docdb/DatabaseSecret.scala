@@ -5,7 +5,7 @@ object DatabaseSecret {
 
   def apply(
     internalResourceId: String,
-    username: Option[String] = None,
+    username: String,
     masterSecret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     excludeCharacters: Option[String] = None,
     secretName: Option[String] = None,
@@ -13,7 +13,7 @@ object DatabaseSecret {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.docdb.DatabaseSecret =
     software.amazon.awscdk.services.docdb.DatabaseSecret.Builder
       .create(stackCtx, internalResourceId)
-      .username(username.orNull)
+      .username(username)
       .masterSecret(masterSecret.orNull)
       .excludeCharacters(excludeCharacters.orNull)
       .secretName(secretName.orNull)

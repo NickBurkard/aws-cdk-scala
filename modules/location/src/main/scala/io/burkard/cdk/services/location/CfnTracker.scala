@@ -5,20 +5,20 @@ object CfnTracker {
 
   def apply(
     internalResourceId: String,
+    trackerName: String,
+    pricingPlan: String,
     description: Option[String] = None,
     positionFiltering: Option[String] = None,
-    trackerName: Option[String] = None,
     pricingPlanDataSource: Option[String] = None,
-    kmsKeyId: Option[String] = None,
-    pricingPlan: Option[String] = None
+    kmsKeyId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.location.CfnTracker =
     software.amazon.awscdk.services.location.CfnTracker.Builder
       .create(stackCtx, internalResourceId)
+      .trackerName(trackerName)
+      .pricingPlan(pricingPlan)
       .description(description.orNull)
       .positionFiltering(positionFiltering.orNull)
-      .trackerName(trackerName.orNull)
       .pricingPlanDataSource(pricingPlanDataSource.orNull)
       .kmsKeyId(kmsKeyId.orNull)
-      .pricingPlan(pricingPlan.orNull)
       .build()
 }

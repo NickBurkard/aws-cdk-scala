@@ -5,14 +5,14 @@ object CfnPrimaryTaskSet {
 
   def apply(
     internalResourceId: String,
-    service: Option[String] = None,
-    cluster: Option[String] = None,
-    taskSetId: Option[String] = None
+    service: String,
+    cluster: String,
+    taskSetId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecs.CfnPrimaryTaskSet =
     software.amazon.awscdk.services.ecs.CfnPrimaryTaskSet.Builder
       .create(stackCtx, internalResourceId)
-      .service(service.orNull)
-      .cluster(cluster.orNull)
-      .taskSetId(taskSetId.orNull)
+      .service(service)
+      .cluster(cluster)
+      .taskSetId(taskSetId)
       .build()
 }

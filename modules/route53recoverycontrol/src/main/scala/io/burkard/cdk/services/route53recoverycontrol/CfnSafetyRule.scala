@@ -8,20 +8,20 @@ object CfnSafetyRule {
 
   def apply(
     internalResourceId: String,
+    ruleConfig: software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule.RuleConfigProperty,
+    controlPanelArn: String,
+    name: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    ruleConfig: Option[software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule.RuleConfigProperty] = None,
     assertionRule: Option[software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule.AssertionRuleProperty] = None,
-    controlPanelArn: Option[String] = None,
-    name: Option[String] = None,
     gatingRule: Option[software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule.GatingRuleProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule =
     software.amazon.awscdk.services.route53recoverycontrol.CfnSafetyRule.Builder
       .create(stackCtx, internalResourceId)
+      .ruleConfig(ruleConfig)
+      .controlPanelArn(controlPanelArn)
+      .name(name)
       .tags(tags.map(_.asJava).orNull)
-      .ruleConfig(ruleConfig.orNull)
       .assertionRule(assertionRule.orNull)
-      .controlPanelArn(controlPanelArn.orNull)
-      .name(name.orNull)
       .gatingRule(gatingRule.orNull)
       .build()
 }

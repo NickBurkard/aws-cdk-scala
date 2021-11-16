@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object LogQueryWidget {
 
   def apply(
-    logGroupNames: Option[List[String]] = None,
+    logGroupNames: List[String],
     height: Option[Number] = None,
     queryString: Option[String] = None,
     queryLines: Option[List[String]] = None,
@@ -18,7 +18,7 @@ object LogQueryWidget {
   ): software.amazon.awscdk.services.cloudwatch.LogQueryWidget =
     software.amazon.awscdk.services.cloudwatch.LogQueryWidget.Builder
       .create()
-      .logGroupNames(logGroupNames.map(_.asJava).orNull)
+      .logGroupNames(logGroupNames.asJava)
       .height(height.orNull)
       .queryString(queryString.orNull)
       .queryLines(queryLines.map(_.asJava).orNull)

@@ -5,8 +5,8 @@ object LifecycleHook {
 
   def apply(
     internalResourceId: String,
+    autoScalingGroup: software.amazon.awscdk.services.autoscaling.IAutoScalingGroup,
     notificationMetadata: Option[String] = None,
-    autoScalingGroup: Option[software.amazon.awscdk.services.autoscaling.IAutoScalingGroup] = None,
     notificationTarget: Option[software.amazon.awscdk.services.autoscaling.ILifecycleHookTarget] = None,
     lifecycleTransition: Option[software.amazon.awscdk.services.autoscaling.LifecycleTransition] = None,
     defaultResult: Option[software.amazon.awscdk.services.autoscaling.DefaultResult] = None,
@@ -16,8 +16,8 @@ object LifecycleHook {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscaling.LifecycleHook =
     software.amazon.awscdk.services.autoscaling.LifecycleHook.Builder
       .create(stackCtx, internalResourceId)
+      .autoScalingGroup(autoScalingGroup)
       .notificationMetadata(notificationMetadata.orNull)
-      .autoScalingGroup(autoScalingGroup.orNull)
       .notificationTarget(notificationTarget.orNull)
       .lifecycleTransition(lifecycleTransition.orNull)
       .defaultResult(defaultResult.orNull)

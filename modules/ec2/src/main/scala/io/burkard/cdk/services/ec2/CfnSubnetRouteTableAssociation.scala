@@ -5,12 +5,12 @@ object CfnSubnetRouteTableAssociation {
 
   def apply(
     internalResourceId: String,
-    routeTableId: Option[String] = None,
-    subnetId: Option[String] = None
+    routeTableId: String,
+    subnetId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnSubnetRouteTableAssociation =
     software.amazon.awscdk.services.ec2.CfnSubnetRouteTableAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .routeTableId(routeTableId.orNull)
-      .subnetId(subnetId.orNull)
+      .routeTableId(routeTableId)
+      .subnetId(subnetId)
       .build()
 }

@@ -5,14 +5,14 @@ object CfnResolverRuleAssociation {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    resolverRuleId: Option[String] = None,
-    vpcId: Option[String] = None
+    resolverRuleId: String,
+    vpcId: String,
+    name: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53resolver.CfnResolverRuleAssociation =
     software.amazon.awscdk.services.route53resolver.CfnResolverRuleAssociation.Builder
       .create(stackCtx, internalResourceId)
+      .resolverRuleId(resolverRuleId)
+      .vpcId(vpcId)
       .name(name.orNull)
-      .resolverRuleId(resolverRuleId.orNull)
-      .vpcId(vpcId.orNull)
       .build()
 }

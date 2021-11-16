@@ -5,12 +5,12 @@ object BucketPolicy {
 
   def apply(
     internalResourceId: String,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None,
+    bucket: software.amazon.awscdk.services.s3.IBucket,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3.BucketPolicy =
     software.amazon.awscdk.services.s3.BucketPolicy.Builder
       .create(stackCtx, internalResourceId)
-      .bucket(bucket.orNull)
+      .bucket(bucket)
       .removalPolicy(removalPolicy.orNull)
       .build()
 }

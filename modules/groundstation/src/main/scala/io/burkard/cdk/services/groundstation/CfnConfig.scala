@@ -8,14 +8,14 @@ object CfnConfig {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    configData: Option[software.amazon.awscdk.services.groundstation.CfnConfig.ConfigDataProperty] = None
+    name: String,
+    configData: software.amazon.awscdk.services.groundstation.CfnConfig.ConfigDataProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.groundstation.CfnConfig =
     software.amazon.awscdk.services.groundstation.CfnConfig.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .configData(configData)
       .tags(tags.map(_.asJava).orNull)
-      .configData(configData.orNull)
       .build()
 }

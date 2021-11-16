@@ -8,14 +8,14 @@ object CfnTopicRule {
 
   def apply(
     internalResourceId: String,
+    topicRulePayload: software.amazon.awscdk.services.iot.CfnTopicRule.TopicRulePayloadProperty,
     ruleName: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    topicRulePayload: Option[software.amazon.awscdk.services.iot.CfnTopicRule.TopicRulePayloadProperty] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnTopicRule =
     software.amazon.awscdk.services.iot.CfnTopicRule.Builder
       .create(stackCtx, internalResourceId)
+      .topicRulePayload(topicRulePayload)
       .ruleName(ruleName.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .topicRulePayload(topicRulePayload.orNull)
       .build()
 }

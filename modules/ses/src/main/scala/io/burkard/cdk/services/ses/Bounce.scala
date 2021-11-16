@@ -4,14 +4,14 @@ package io.burkard.cdk.services.ses
 object Bounce {
 
   def apply(
-    template: Option[software.amazon.awscdk.services.ses.actions.BounceTemplate] = None,
-    sender: Option[String] = None,
+    template: software.amazon.awscdk.services.ses.actions.BounceTemplate,
+    sender: String,
     topic: Option[software.amazon.awscdk.services.sns.ITopic] = None
   ): software.amazon.awscdk.services.ses.actions.Bounce =
     software.amazon.awscdk.services.ses.actions.Bounce.Builder
       .create()
-      .template(template.orNull)
-      .sender(sender.orNull)
+      .template(template)
+      .sender(sender)
       .topic(topic.orNull)
       .build()
 }

@@ -5,11 +5,11 @@ object CfnPushTemplate {
 
   def apply(
     internalResourceId: String,
+    templateName: String,
     templateDescription: Option[String] = None,
     defaultSubstitutions: Option[String] = None,
     tags: Option[AnyRef] = None,
     apns: Option[software.amazon.awscdk.services.pinpoint.CfnPushTemplate.APNSPushNotificationTemplateProperty] = None,
-    templateName: Option[String] = None,
     adm: Option[software.amazon.awscdk.services.pinpoint.CfnPushTemplate.AndroidPushNotificationTemplateProperty] = None,
     gcm: Option[software.amazon.awscdk.services.pinpoint.CfnPushTemplate.AndroidPushNotificationTemplateProperty] = None,
     baidu: Option[software.amazon.awscdk.services.pinpoint.CfnPushTemplate.AndroidPushNotificationTemplateProperty] = None,
@@ -17,11 +17,11 @@ object CfnPushTemplate {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnPushTemplate =
     software.amazon.awscdk.services.pinpoint.CfnPushTemplate.Builder
       .create(stackCtx, internalResourceId)
+      .templateName(templateName)
       .templateDescription(templateDescription.orNull)
       .defaultSubstitutions(defaultSubstitutions.orNull)
       .tags(tags.orNull)
       .apns(apns.orNull)
-      .templateName(templateName.orNull)
       .adm(adm.orNull)
       .gcm(gcm.orNull)
       .baidu(baidu.orNull)

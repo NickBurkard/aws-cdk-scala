@@ -5,12 +5,12 @@ object CfnApplicationReferenceDataSourceV2 {
 
   def apply(
     internalResourceId: String,
-    referenceDataSource: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceDataSourceProperty] = None,
-    applicationName: Option[String] = None
+    referenceDataSource: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceDataSourceProperty,
+    applicationName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2 =
     software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.Builder
       .create(stackCtx, internalResourceId)
-      .referenceDataSource(referenceDataSource.orNull)
-      .applicationName(applicationName.orNull)
+      .referenceDataSource(referenceDataSource)
+      .applicationName(applicationName)
       .build()
 }

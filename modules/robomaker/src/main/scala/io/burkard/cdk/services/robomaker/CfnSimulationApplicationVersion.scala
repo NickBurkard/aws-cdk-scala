@@ -5,12 +5,12 @@ object CfnSimulationApplicationVersion {
 
   def apply(
     internalResourceId: String,
-    application: Option[String] = None,
+    application: String,
     currentRevisionId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.robomaker.CfnSimulationApplicationVersion =
     software.amazon.awscdk.services.robomaker.CfnSimulationApplicationVersion.Builder
       .create(stackCtx, internalResourceId)
-      .application(application.orNull)
+      .application(application)
       .currentRevisionId(currentRevisionId.orNull)
       .build()
 }

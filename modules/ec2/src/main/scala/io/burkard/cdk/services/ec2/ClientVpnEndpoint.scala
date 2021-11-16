@@ -8,6 +8,7 @@ object ClientVpnEndpoint {
 
   def apply(
     internalResourceId: String,
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     logGroup: Option[software.amazon.awscdk.services.logs.ILogGroup] = None,
     logging: Option[Boolean] = None,
     cidr: Option[String] = None,
@@ -23,12 +24,12 @@ object ClientVpnEndpoint {
     serverCertificateArn: Option[String] = None,
     authorizeAllUsersToVpcCidr: Option[Boolean] = None,
     selfServicePortal: Option[Boolean] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     splitTunnel: Option[Boolean] = None,
     clientCertificateArn: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.ClientVpnEndpoint =
     software.amazon.awscdk.services.ec2.ClientVpnEndpoint.Builder
       .create(stackCtx, internalResourceId)
+      .vpc(vpc)
       .logGroup(logGroup.orNull)
       .logging(logging.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cidr(cidr.orNull)
@@ -44,7 +45,6 @@ object ClientVpnEndpoint {
       .serverCertificateArn(serverCertificateArn.orNull)
       .authorizeAllUsersToVpcCidr(authorizeAllUsersToVpcCidr.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .selfServicePortal(selfServicePortal.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .vpc(vpc.orNull)
       .splitTunnel(splitTunnel.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .clientCertificateArn(clientCertificateArn.orNull)
       .build()

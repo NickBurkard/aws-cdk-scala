@@ -5,12 +5,12 @@ object CfnAlias {
 
   def apply(
     internalResourceId: String,
-    targetKeyId: Option[String] = None,
-    aliasName: Option[String] = None
+    targetKeyId: String,
+    aliasName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.kms.CfnAlias =
     software.amazon.awscdk.services.kms.CfnAlias.Builder
       .create(stackCtx, internalResourceId)
-      .targetKeyId(targetKeyId.orNull)
-      .aliasName(aliasName.orNull)
+      .targetKeyId(targetKeyId)
+      .aliasName(aliasName)
       .build()
 }

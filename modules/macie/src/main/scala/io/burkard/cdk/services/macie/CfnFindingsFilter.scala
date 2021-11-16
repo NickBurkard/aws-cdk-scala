@@ -5,18 +5,18 @@ object CfnFindingsFilter {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
+    findingCriteria: software.amazon.awscdk.services.macie.CfnFindingsFilter.FindingCriteriaProperty,
     position: Option[Number] = None,
     action: Option[String] = None,
-    description: Option[String] = None,
-    findingCriteria: Option[software.amazon.awscdk.services.macie.CfnFindingsFilter.FindingCriteriaProperty] = None
+    description: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.macie.CfnFindingsFilter =
     software.amazon.awscdk.services.macie.CfnFindingsFilter.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .findingCriteria(findingCriteria)
       .position(position.orNull)
       .action(action.orNull)
       .description(description.orNull)
-      .findingCriteria(findingCriteria.orNull)
       .build()
 }

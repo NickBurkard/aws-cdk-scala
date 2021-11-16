@@ -5,12 +5,12 @@ object CfnElasticLoadBalancerAttachment {
 
   def apply(
     internalResourceId: String,
-    layerId: Option[String] = None,
-    elasticLoadBalancerName: Option[String] = None
+    layerId: String,
+    elasticLoadBalancerName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.opsworks.CfnElasticLoadBalancerAttachment =
     software.amazon.awscdk.services.opsworks.CfnElasticLoadBalancerAttachment.Builder
       .create(stackCtx, internalResourceId)
-      .layerId(layerId.orNull)
-      .elasticLoadBalancerName(elasticLoadBalancerName.orNull)
+      .layerId(layerId)
+      .elasticLoadBalancerName(elasticLoadBalancerName)
       .build()
 }

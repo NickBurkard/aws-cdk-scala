@@ -5,14 +5,14 @@ object VpcEndpointServiceDomainName {
 
   def apply(
     internalResourceId: String,
-    endpointService: Option[software.amazon.awscdk.services.ec2.IVpcEndpointService] = None,
-    publicHostedZone: Option[software.amazon.awscdk.services.route53.IPublicHostedZone] = None,
-    domainName: Option[String] = None
+    endpointService: software.amazon.awscdk.services.ec2.IVpcEndpointService,
+    publicHostedZone: software.amazon.awscdk.services.route53.IPublicHostedZone,
+    domainName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.VpcEndpointServiceDomainName =
     software.amazon.awscdk.services.route53.VpcEndpointServiceDomainName.Builder
       .create(stackCtx, internalResourceId)
-      .endpointService(endpointService.orNull)
-      .publicHostedZone(publicHostedZone.orNull)
-      .domainName(domainName.orNull)
+      .endpointService(endpointService)
+      .publicHostedZone(publicHostedZone)
+      .domainName(domainName)
       .build()
 }

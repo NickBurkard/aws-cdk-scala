@@ -8,8 +8,8 @@ object CfnDBInstance {
 
   def apply(
     internalResourceId: String,
-    dbInstanceClass: Option[String] = None,
-    dbClusterIdentifier: Option[String] = None,
+    dbInstanceClass: String,
+    dbClusterIdentifier: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     availabilityZone: Option[String] = None,
     dbInstanceIdentifier: Option[String] = None,
@@ -18,8 +18,8 @@ object CfnDBInstance {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.docdb.CfnDBInstance =
     software.amazon.awscdk.services.docdb.CfnDBInstance.Builder
       .create(stackCtx, internalResourceId)
-      .dbInstanceClass(dbInstanceClass.orNull)
-      .dbClusterIdentifier(dbClusterIdentifier.orNull)
+      .dbInstanceClass(dbInstanceClass)
+      .dbClusterIdentifier(dbClusterIdentifier)
       .tags(tags.map(_.asJava).orNull)
       .availabilityZone(availabilityZone.orNull)
       .dbInstanceIdentifier(dbInstanceIdentifier.orNull)

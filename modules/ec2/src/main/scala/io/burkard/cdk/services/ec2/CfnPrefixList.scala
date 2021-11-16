@@ -8,18 +8,18 @@ object CfnPrefixList {
 
   def apply(
     internalResourceId: String,
+    maxEntries: Number,
+    prefixListName: String,
+    addressFamily: String,
     entries: Option[List[_]] = None,
-    maxEntries: Option[Number] = None,
-    prefixListName: Option[String] = None,
-    addressFamily: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnPrefixList =
     software.amazon.awscdk.services.ec2.CfnPrefixList.Builder
       .create(stackCtx, internalResourceId)
+      .maxEntries(maxEntries)
+      .prefixListName(prefixListName)
+      .addressFamily(addressFamily)
       .entries(entries.map(_.asJava).orNull)
-      .maxEntries(maxEntries.orNull)
-      .prefixListName(prefixListName.orNull)
-      .addressFamily(addressFamily.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

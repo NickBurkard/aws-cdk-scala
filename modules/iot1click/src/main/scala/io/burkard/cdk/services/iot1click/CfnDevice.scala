@@ -5,12 +5,12 @@ object CfnDevice {
 
   def apply(
     internalResourceId: String,
-    enabled: Option[Boolean] = None,
-    deviceId: Option[String] = None
+    enabled: Boolean,
+    deviceId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot1click.CfnDevice =
     software.amazon.awscdk.services.iot1click.CfnDevice.Builder
       .create(stackCtx, internalResourceId)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .deviceId(deviceId.orNull)
+      .enabled(enabled)
+      .deviceId(deviceId)
       .build()
 }

@@ -5,16 +5,16 @@ object CfnKeySigningKey {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    hostedZoneId: Option[String] = None,
-    keyManagementServiceArn: Option[String] = None,
-    status: Option[String] = None
+    name: String,
+    hostedZoneId: String,
+    keyManagementServiceArn: String,
+    status: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.CfnKeySigningKey =
     software.amazon.awscdk.services.route53.CfnKeySigningKey.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .hostedZoneId(hostedZoneId.orNull)
-      .keyManagementServiceArn(keyManagementServiceArn.orNull)
-      .status(status.orNull)
+      .name(name)
+      .hostedZoneId(hostedZoneId)
+      .keyManagementServiceArn(keyManagementServiceArn)
+      .status(status)
       .build()
 }

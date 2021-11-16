@@ -8,26 +8,26 @@ object CfnApplicationInstance {
 
   def apply(
     internalResourceId: String,
+    manifestPayload: software.amazon.awscdk.services.panorama.CfnApplicationInstance.ManifestPayloadProperty,
+    defaultRuntimeContextDevice: String,
     statusFilter: Option[String] = None,
     name: Option[String] = None,
     runtimeRoleArn: Option[String] = None,
     manifestOverridesPayload: Option[software.amazon.awscdk.services.panorama.CfnApplicationInstance.ManifestOverridesPayloadProperty] = None,
     applicationInstanceIdToReplace: Option[String] = None,
-    manifestPayload: Option[software.amazon.awscdk.services.panorama.CfnApplicationInstance.ManifestPayloadProperty] = None,
-    defaultRuntimeContextDevice: Option[String] = None,
     deviceId: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.panorama.CfnApplicationInstance =
     software.amazon.awscdk.services.panorama.CfnApplicationInstance.Builder
       .create(stackCtx, internalResourceId)
+      .manifestPayload(manifestPayload)
+      .defaultRuntimeContextDevice(defaultRuntimeContextDevice)
       .statusFilter(statusFilter.orNull)
       .name(name.orNull)
       .runtimeRoleArn(runtimeRoleArn.orNull)
       .manifestOverridesPayload(manifestOverridesPayload.orNull)
       .applicationInstanceIdToReplace(applicationInstanceIdToReplace.orNull)
-      .manifestPayload(manifestPayload.orNull)
-      .defaultRuntimeContextDevice(defaultRuntimeContextDevice.orNull)
       .deviceId(deviceId.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

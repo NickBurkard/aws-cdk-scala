@@ -5,20 +5,20 @@ object CfnMember {
 
   def apply(
     internalResourceId: String,
-    detectorId: Option[String] = None,
-    email: Option[String] = None,
+    detectorId: String,
+    email: String,
+    memberId: String,
     disableEmailNotification: Option[Boolean] = None,
     status: Option[String] = None,
-    message: Option[String] = None,
-    memberId: Option[String] = None
+    message: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.guardduty.CfnMember =
     software.amazon.awscdk.services.guardduty.CfnMember.Builder
       .create(stackCtx, internalResourceId)
-      .detectorId(detectorId.orNull)
-      .email(email.orNull)
+      .detectorId(detectorId)
+      .email(email)
+      .memberId(memberId)
       .disableEmailNotification(disableEmailNotification.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .status(status.orNull)
       .message(message.orNull)
-      .memberId(memberId.orNull)
       .build()
 }

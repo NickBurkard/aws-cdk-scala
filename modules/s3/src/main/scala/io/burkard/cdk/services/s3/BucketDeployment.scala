@@ -8,6 +8,8 @@ object BucketDeployment {
 
   def apply(
     internalResourceId: String,
+    sources: List[_ <: software.amazon.awscdk.services.s3.deployment.ISource],
+    destinationBucket: software.amazon.awscdk.services.s3.IBucket,
     retainOnDelete: Option[Boolean] = None,
     contentLanguage: Option[String] = None,
     serverSideEncryptionAwsKmsKeyId: Option[String] = None,
@@ -17,12 +19,10 @@ object BucketDeployment {
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     contentType: Option[String] = None,
     contentDisposition: Option[String] = None,
-    sources: Option[List[_ <: software.amazon.awscdk.services.s3.deployment.ISource]] = None,
     serverSideEncryption: Option[software.amazon.awscdk.services.s3.deployment.ServerSideEncryption] = None,
     expires: Option[software.amazon.awscdk.Expiration] = None,
     cacheControl: Option[List[_ <: software.amazon.awscdk.services.s3.deployment.CacheControl]] = None,
     memoryLimit: Option[Number] = None,
-    destinationBucket: Option[software.amazon.awscdk.services.s3.IBucket] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     useEfs: Option[Boolean] = None,
     distribution: Option[software.amazon.awscdk.services.cloudfront.IDistribution] = None,
@@ -38,6 +38,8 @@ object BucketDeployment {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3.deployment.BucketDeployment =
     software.amazon.awscdk.services.s3.deployment.BucketDeployment.Builder
       .create(stackCtx, internalResourceId)
+      .sources(sources.asJava)
+      .destinationBucket(destinationBucket)
       .retainOnDelete(retainOnDelete.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .contentLanguage(contentLanguage.orNull)
       .serverSideEncryptionAwsKmsKeyId(serverSideEncryptionAwsKmsKeyId.orNull)
@@ -47,12 +49,10 @@ object BucketDeployment {
       .vpcSubnets(vpcSubnets.orNull)
       .contentType(contentType.orNull)
       .contentDisposition(contentDisposition.orNull)
-      .sources(sources.map(_.asJava).orNull)
       .serverSideEncryption(serverSideEncryption.orNull)
       .expires(expires.orNull)
       .cacheControl(cacheControl.map(_.asJava).orNull)
       .memoryLimit(memoryLimit.orNull)
-      .destinationBucket(destinationBucket.orNull)
       .role(role.orNull)
       .useEfs(useEfs.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .distribution(distribution.orNull)

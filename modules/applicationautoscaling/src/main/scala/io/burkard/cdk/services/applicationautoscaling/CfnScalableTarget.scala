@@ -8,24 +8,24 @@ object CfnScalableTarget {
 
   def apply(
     internalResourceId: String,
-    maxCapacity: Option[Number] = None,
+    maxCapacity: Number,
+    serviceNamespace: String,
+    minCapacity: Number,
+    roleArn: String,
+    scalableDimension: String,
+    resourceId: String,
     scheduledActions: Option[List[_]] = None,
-    serviceNamespace: Option[String] = None,
-    minCapacity: Option[Number] = None,
-    roleArn: Option[String] = None,
-    suspendedState: Option[software.amazon.awscdk.services.applicationautoscaling.CfnScalableTarget.SuspendedStateProperty] = None,
-    scalableDimension: Option[String] = None,
-    resourceId: Option[String] = None
+    suspendedState: Option[software.amazon.awscdk.services.applicationautoscaling.CfnScalableTarget.SuspendedStateProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.applicationautoscaling.CfnScalableTarget =
     software.amazon.awscdk.services.applicationautoscaling.CfnScalableTarget.Builder
       .create(stackCtx, internalResourceId)
-      .maxCapacity(maxCapacity.orNull)
+      .maxCapacity(maxCapacity)
+      .serviceNamespace(serviceNamespace)
+      .minCapacity(minCapacity)
+      .roleArn(roleArn)
+      .scalableDimension(scalableDimension)
+      .resourceId(resourceId)
       .scheduledActions(scheduledActions.map(_.asJava).orNull)
-      .serviceNamespace(serviceNamespace.orNull)
-      .minCapacity(minCapacity.orNull)
-      .roleArn(roleArn.orNull)
       .suspendedState(suspendedState.orNull)
-      .scalableDimension(scalableDimension.orNull)
-      .resourceId(resourceId.orNull)
       .build()
 }

@@ -8,9 +8,9 @@ object CfnVolume {
 
   def apply(
     internalResourceId: String,
+    availabilityZone: String,
     size: Option[Number] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    availabilityZone: Option[String] = None,
     volumeType: Option[String] = None,
     autoEnableIo: Option[Boolean] = None,
     encrypted: Option[Boolean] = None,
@@ -23,9 +23,9 @@ object CfnVolume {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVolume =
     software.amazon.awscdk.services.ec2.CfnVolume.Builder
       .create(stackCtx, internalResourceId)
+      .availabilityZone(availabilityZone)
       .size(size.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .availabilityZone(availabilityZone.orNull)
       .volumeType(volumeType.orNull)
       .autoEnableIo(autoEnableIo.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .encrypted(encrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

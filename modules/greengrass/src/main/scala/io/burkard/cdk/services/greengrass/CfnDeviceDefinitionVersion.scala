@@ -8,12 +8,12 @@ object CfnDeviceDefinitionVersion {
 
   def apply(
     internalResourceId: String,
-    deviceDefinitionId: Option[String] = None,
-    devices: Option[List[_]] = None
+    deviceDefinitionId: String,
+    devices: List[_]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnDeviceDefinitionVersion =
     software.amazon.awscdk.services.greengrass.CfnDeviceDefinitionVersion.Builder
       .create(stackCtx, internalResourceId)
-      .deviceDefinitionId(deviceDefinitionId.orNull)
-      .devices(devices.map(_.asJava).orNull)
+      .deviceDefinitionId(deviceDefinitionId)
+      .devices(devices.asJava)
       .build()
 }

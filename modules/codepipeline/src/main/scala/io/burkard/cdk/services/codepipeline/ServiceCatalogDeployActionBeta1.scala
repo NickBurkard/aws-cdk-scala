@@ -4,24 +4,24 @@ package io.burkard.cdk.services.codepipeline
 object ServiceCatalogDeployActionBeta1 {
 
   def apply(
+    productVersionName: String,
+    productId: String,
+    templatePath: software.amazon.awscdk.services.codepipeline.ArtifactPath,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     productVersionDescription: Option[String] = None,
-    productVersionName: Option[String] = None,
     variablesNamespace: Option[String] = None,
     runOrder: Option[Number] = None,
-    actionName: Option[String] = None,
-    productId: Option[String] = None,
-    templatePath: Option[software.amazon.awscdk.services.codepipeline.ArtifactPath] = None
+    actionName: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.actions.ServiceCatalogDeployActionBeta1 =
     software.amazon.awscdk.services.codepipeline.actions.ServiceCatalogDeployActionBeta1.Builder
       .create()
+      .productVersionName(productVersionName)
+      .productId(productId)
+      .templatePath(templatePath)
       .role(role.orNull)
       .productVersionDescription(productVersionDescription.orNull)
-      .productVersionName(productVersionName.orNull)
       .variablesNamespace(variablesNamespace.orNull)
       .runOrder(runOrder.orNull)
       .actionName(actionName.orNull)
-      .productId(productId.orNull)
-      .templatePath(templatePath.orNull)
       .build()
 }

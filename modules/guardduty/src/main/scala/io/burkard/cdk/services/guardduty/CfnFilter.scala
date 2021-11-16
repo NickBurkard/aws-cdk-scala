@@ -5,20 +5,20 @@ object CfnFilter {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    detectorId: Option[String] = None,
-    rank: Option[Number] = None,
-    action: Option[String] = None,
-    description: Option[String] = None,
-    findingCriteria: Option[software.amazon.awscdk.services.guardduty.CfnFilter.FindingCriteriaProperty] = None
+    name: String,
+    detectorId: String,
+    rank: Number,
+    action: String,
+    description: String,
+    findingCriteria: software.amazon.awscdk.services.guardduty.CfnFilter.FindingCriteriaProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.guardduty.CfnFilter =
     software.amazon.awscdk.services.guardduty.CfnFilter.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .detectorId(detectorId.orNull)
-      .rank(rank.orNull)
-      .action(action.orNull)
-      .description(description.orNull)
-      .findingCriteria(findingCriteria.orNull)
+      .name(name)
+      .detectorId(detectorId)
+      .rank(rank)
+      .action(action)
+      .description(description)
+      .findingCriteria(findingCriteria)
       .build()
 }

@@ -5,13 +5,14 @@ object CfnIntegration {
 
   def apply(
     internalResourceId: String,
+    apiId: String,
+    integrationType: String,
     integrationUri: Option[String] = None,
     requestParameters: Option[AnyRef] = None,
     timeoutInMillis: Option[Number] = None,
     templateSelectionExpression: Option[String] = None,
     description: Option[String] = None,
     responseParameters: Option[AnyRef] = None,
-    apiId: Option[String] = None,
     connectionId: Option[String] = None,
     credentialsArn: Option[String] = None,
     contentHandlingStrategy: Option[String] = None,
@@ -21,18 +22,18 @@ object CfnIntegration {
     tlsConfig: Option[software.amazon.awscdk.services.apigatewayv2.CfnIntegration.TlsConfigProperty] = None,
     integrationSubtype: Option[String] = None,
     requestTemplates: Option[AnyRef] = None,
-    integrationType: Option[String] = None,
     payloadFormatVersion: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigatewayv2.CfnIntegration =
     software.amazon.awscdk.services.apigatewayv2.CfnIntegration.Builder
       .create(stackCtx, internalResourceId)
+      .apiId(apiId)
+      .integrationType(integrationType)
       .integrationUri(integrationUri.orNull)
       .requestParameters(requestParameters.orNull)
       .timeoutInMillis(timeoutInMillis.orNull)
       .templateSelectionExpression(templateSelectionExpression.orNull)
       .description(description.orNull)
       .responseParameters(responseParameters.orNull)
-      .apiId(apiId.orNull)
       .connectionId(connectionId.orNull)
       .credentialsArn(credentialsArn.orNull)
       .contentHandlingStrategy(contentHandlingStrategy.orNull)
@@ -42,7 +43,6 @@ object CfnIntegration {
       .tlsConfig(tlsConfig.orNull)
       .integrationSubtype(integrationSubtype.orNull)
       .requestTemplates(requestTemplates.orNull)
-      .integrationType(integrationType.orNull)
       .payloadFormatVersion(payloadFormatVersion.orNull)
       .build()
 }

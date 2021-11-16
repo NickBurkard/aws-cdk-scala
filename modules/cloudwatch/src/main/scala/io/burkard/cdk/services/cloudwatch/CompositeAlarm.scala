@@ -5,15 +5,15 @@ object CompositeAlarm {
 
   def apply(
     internalResourceId: String,
+    alarmRule: software.amazon.awscdk.services.cloudwatch.IAlarmRule,
     actionsEnabled: Option[Boolean] = None,
-    alarmRule: Option[software.amazon.awscdk.services.cloudwatch.IAlarmRule] = None,
     compositeAlarmName: Option[String] = None,
     alarmDescription: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudwatch.CompositeAlarm =
     software.amazon.awscdk.services.cloudwatch.CompositeAlarm.Builder
       .create(stackCtx, internalResourceId)
+      .alarmRule(alarmRule)
       .actionsEnabled(actionsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .alarmRule(alarmRule.orNull)
       .compositeAlarmName(compositeAlarmName.orNull)
       .alarmDescription(alarmDescription.orNull)
       .build()

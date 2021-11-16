@@ -5,12 +5,12 @@ object ServerDeploymentConfig {
 
   def apply(
     internalResourceId: String,
-    minimumHealthyHosts: Option[software.amazon.awscdk.services.codedeploy.MinimumHealthyHosts] = None,
+    minimumHealthyHosts: software.amazon.awscdk.services.codedeploy.MinimumHealthyHosts,
     deploymentConfigName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codedeploy.ServerDeploymentConfig =
     software.amazon.awscdk.services.codedeploy.ServerDeploymentConfig.Builder
       .create(stackCtx, internalResourceId)
-      .minimumHealthyHosts(minimumHealthyHosts.orNull)
+      .minimumHealthyHosts(minimumHealthyHosts)
       .deploymentConfigName(deploymentConfigName.orNull)
       .build()
 }

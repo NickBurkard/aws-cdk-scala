@@ -1,4 +1,4 @@
-package io.burkard.cdk.assets
+package io.burkard.cdk.core.assets
 
 @scala.annotation.nowarn("cat=deprecation")
 sealed abstract class FollowMode(val underlying: software.amazon.awscdk.assets.FollowMode)

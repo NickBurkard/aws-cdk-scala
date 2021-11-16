@@ -8,12 +8,12 @@ object Domain {
 
   def apply(
     internalResourceId: String,
+    version: software.amazon.awscdk.services.opensearchservice.EngineVersion,
     tlsSecurityPolicy: Option[software.amazon.awscdk.services.opensearchservice.TLSSecurityPolicy] = None,
     useUnsignedBasicAuth: Option[Boolean] = None,
     customEndpoint: Option[software.amazon.awscdk.services.opensearchservice.CustomEndpointOptions] = None,
     nodeToNodeEncryption: Option[Boolean] = None,
     domainName: Option[String] = None,
-    version: Option[software.amazon.awscdk.services.opensearchservice.EngineVersion] = None,
     fineGrainedAccessControl: Option[software.amazon.awscdk.services.opensearchservice.AdvancedSecurityOptions] = None,
     accessPolicies: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None,
     enableVersionUpgrade: Option[Boolean] = None,
@@ -33,12 +33,12 @@ object Domain {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.opensearchservice.Domain =
     software.amazon.awscdk.services.opensearchservice.Domain.Builder
       .create(stackCtx, internalResourceId)
+      .version(version)
       .tlsSecurityPolicy(tlsSecurityPolicy.orNull)
       .useUnsignedBasicAuth(useUnsignedBasicAuth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .customEndpoint(customEndpoint.orNull)
       .nodeToNodeEncryption(nodeToNodeEncryption.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .domainName(domainName.orNull)
-      .version(version.orNull)
       .fineGrainedAccessControl(fineGrainedAccessControl.orNull)
       .accessPolicies(accessPolicies.map(_.asJava).orNull)
       .enableVersionUpgrade(enableVersionUpgrade.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

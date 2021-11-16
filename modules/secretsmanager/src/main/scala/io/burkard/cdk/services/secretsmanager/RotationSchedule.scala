@@ -5,14 +5,14 @@ object RotationSchedule {
 
   def apply(
     internalResourceId: String,
-    secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
+    secret: software.amazon.awscdk.services.secretsmanager.ISecret,
     rotationLambda: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     automaticallyAfter: Option[software.amazon.awscdk.Duration] = None,
     hostedRotation: Option[software.amazon.awscdk.services.secretsmanager.HostedRotation] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.secretsmanager.RotationSchedule =
     software.amazon.awscdk.services.secretsmanager.RotationSchedule.Builder
       .create(stackCtx, internalResourceId)
-      .secret(secret.orNull)
+      .secret(secret)
       .rotationLambda(rotationLambda.orNull)
       .automaticallyAfter(automaticallyAfter.orNull)
       .hostedRotation(hostedRotation.orNull)

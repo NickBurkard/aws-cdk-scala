@@ -8,13 +8,13 @@ object CfnScalingPolicy {
 
   def apply(
     internalResourceId: String,
+    autoScalingGroupName: String,
     metricAggregationType: Option[String] = None,
     cooldown: Option[String] = None,
     targetTrackingConfiguration: Option[software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.TargetTrackingConfigurationProperty] = None,
     estimatedInstanceWarmup: Option[Number] = None,
     adjustmentType: Option[String] = None,
     predictiveScalingConfiguration: Option[software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.PredictiveScalingConfigurationProperty] = None,
-    autoScalingGroupName: Option[String] = None,
     stepAdjustments: Option[List[_]] = None,
     minAdjustmentMagnitude: Option[Number] = None,
     scalingAdjustment: Option[Number] = None,
@@ -22,13 +22,13 @@ object CfnScalingPolicy {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscaling.CfnScalingPolicy =
     software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.Builder
       .create(stackCtx, internalResourceId)
+      .autoScalingGroupName(autoScalingGroupName)
       .metricAggregationType(metricAggregationType.orNull)
       .cooldown(cooldown.orNull)
       .targetTrackingConfiguration(targetTrackingConfiguration.orNull)
       .estimatedInstanceWarmup(estimatedInstanceWarmup.orNull)
       .adjustmentType(adjustmentType.orNull)
       .predictiveScalingConfiguration(predictiveScalingConfiguration.orNull)
-      .autoScalingGroupName(autoScalingGroupName.orNull)
       .stepAdjustments(stepAdjustments.map(_.asJava).orNull)
       .minAdjustmentMagnitude(minAdjustmentMagnitude.orNull)
       .scalingAdjustment(scalingAdjustment.orNull)

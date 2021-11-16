@@ -5,11 +5,11 @@ object CfnMLTransform {
 
   def apply(
     internalResourceId: String,
+    role: String,
+    inputRecordTables: software.amazon.awscdk.services.glue.CfnMLTransform.InputRecordTablesProperty,
+    transformParameters: software.amazon.awscdk.services.glue.CfnMLTransform.TransformParametersProperty,
     transformEncryption: Option[software.amazon.awscdk.services.glue.CfnMLTransform.TransformEncryptionProperty] = None,
     numberOfWorkers: Option[Number] = None,
-    role: Option[String] = None,
-    inputRecordTables: Option[software.amazon.awscdk.services.glue.CfnMLTransform.InputRecordTablesProperty] = None,
-    transformParameters: Option[software.amazon.awscdk.services.glue.CfnMLTransform.TransformParametersProperty] = None,
     timeout: Option[Number] = None,
     glueVersion: Option[String] = None,
     name: Option[String] = None,
@@ -21,11 +21,11 @@ object CfnMLTransform {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.glue.CfnMLTransform =
     software.amazon.awscdk.services.glue.CfnMLTransform.Builder
       .create(stackCtx, internalResourceId)
+      .role(role)
+      .inputRecordTables(inputRecordTables)
+      .transformParameters(transformParameters)
       .transformEncryption(transformEncryption.orNull)
       .numberOfWorkers(numberOfWorkers.orNull)
-      .role(role.orNull)
-      .inputRecordTables(inputRecordTables.orNull)
-      .transformParameters(transformParameters.orNull)
       .timeout(timeout.orNull)
       .glueVersion(glueVersion.orNull)
       .name(name.orNull)

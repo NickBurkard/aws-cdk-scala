@@ -8,14 +8,14 @@ object CfnFunctionDefinitionVersion {
 
   def apply(
     internalResourceId: String,
-    functionDefinitionId: Option[String] = None,
-    defaultConfig: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.DefaultConfigProperty] = None,
-    functions: Option[List[_]] = None
+    functionDefinitionId: String,
+    functions: List[_],
+    defaultConfig: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.DefaultConfigProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion =
     software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.Builder
       .create(stackCtx, internalResourceId)
-      .functionDefinitionId(functionDefinitionId.orNull)
+      .functionDefinitionId(functionDefinitionId)
+      .functions(functions.asJava)
       .defaultConfig(defaultConfig.orNull)
-      .functions(functions.map(_.asJava).orNull)
       .build()
 }

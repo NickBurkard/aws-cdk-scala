@@ -8,12 +8,12 @@ object CfnInstanceAccessControlAttributeConfiguration {
 
   def apply(
     internalResourceId: String,
-    accessControlAttributes: Option[List[_]] = None,
-    instanceArn: Option[String] = None
+    instanceArn: String,
+    accessControlAttributes: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration =
     software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration.Builder
       .create(stackCtx, internalResourceId)
+      .instanceArn(instanceArn)
       .accessControlAttributes(accessControlAttributes.map(_.asJava).orNull)
-      .instanceArn(instanceArn.orNull)
       .build()
 }

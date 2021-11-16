@@ -5,12 +5,12 @@ object CfnPublisher {
 
   def apply(
     internalResourceId: String,
-    connectionArn: Option[String] = None,
-    acceptTermsAndConditions: Option[Boolean] = None
+    acceptTermsAndConditions: Boolean,
+    connectionArn: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudformation.CfnPublisher =
     software.amazon.awscdk.services.cloudformation.CfnPublisher.Builder
       .create(stackCtx, internalResourceId)
+      .acceptTermsAndConditions(acceptTermsAndConditions)
       .connectionArn(connectionArn.orNull)
-      .acceptTermsAndConditions(acceptTermsAndConditions.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

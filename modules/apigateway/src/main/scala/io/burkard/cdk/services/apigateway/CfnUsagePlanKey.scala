@@ -5,14 +5,14 @@ object CfnUsagePlanKey {
 
   def apply(
     internalResourceId: String,
-    keyType: Option[String] = None,
-    keyId: Option[String] = None,
-    usagePlanId: Option[String] = None
+    keyType: String,
+    keyId: String,
+    usagePlanId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.CfnUsagePlanKey =
     software.amazon.awscdk.services.apigateway.CfnUsagePlanKey.Builder
       .create(stackCtx, internalResourceId)
-      .keyType(keyType.orNull)
-      .keyId(keyId.orNull)
-      .usagePlanId(usagePlanId.orNull)
+      .keyType(keyType)
+      .keyId(keyId)
+      .usagePlanId(usagePlanId)
       .build()
 }

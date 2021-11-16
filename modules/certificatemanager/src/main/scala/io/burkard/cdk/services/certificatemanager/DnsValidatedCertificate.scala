@@ -8,8 +8,8 @@ object DnsValidatedCertificate {
 
   def apply(
     internalResourceId: String,
+    hostedZone: software.amazon.awscdk.services.route53.IHostedZone,
     domainName: Option[String] = None,
-    hostedZone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None,
     validationDomains: Option[Map[String, String]] = None,
     subjectAlternativeNames: Option[List[String]] = None,
     region: Option[String] = None,
@@ -20,8 +20,8 @@ object DnsValidatedCertificate {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.certificatemanager.DnsValidatedCertificate =
     software.amazon.awscdk.services.certificatemanager.DnsValidatedCertificate.Builder
       .create(stackCtx, internalResourceId)
+      .hostedZone(hostedZone)
       .domainName(domainName.orNull)
-      .hostedZone(hostedZone.orNull)
       .validationDomains(validationDomains.map(_.asJava).orNull)
       .subjectAlternativeNames(subjectAlternativeNames.map(_.asJava).orNull)
       .region(region.orNull)

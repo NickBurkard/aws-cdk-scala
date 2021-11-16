@@ -8,9 +8,9 @@ object CfnEventSourceMapping {
 
   def apply(
     internalResourceId: String,
+    functionName: String,
     topics: Option[List[String]] = None,
     selfManagedEventSource: Option[software.amazon.awscdk.services.lambda.CfnEventSourceMapping.SelfManagedEventSourceProperty] = None,
-    functionName: Option[String] = None,
     batchSize: Option[Number] = None,
     sourceAccessConfigurations: Option[List[_]] = None,
     queues: Option[List[String]] = None,
@@ -29,9 +29,9 @@ object CfnEventSourceMapping {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.CfnEventSourceMapping =
     software.amazon.awscdk.services.lambda.CfnEventSourceMapping.Builder
       .create(stackCtx, internalResourceId)
+      .functionName(functionName)
       .topics(topics.map(_.asJava).orNull)
       .selfManagedEventSource(selfManagedEventSource.orNull)
-      .functionName(functionName.orNull)
       .batchSize(batchSize.orNull)
       .sourceAccessConfigurations(sourceAccessConfigurations.map(_.asJava).orNull)
       .queues(queues.map(_.asJava).orNull)

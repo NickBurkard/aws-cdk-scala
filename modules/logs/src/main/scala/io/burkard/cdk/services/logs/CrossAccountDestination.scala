@@ -5,14 +5,14 @@ object CrossAccountDestination {
 
   def apply(
     internalResourceId: String,
-    role: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    targetArn: Option[String] = None,
+    role: software.amazon.awscdk.services.iam.IRole,
+    targetArn: String,
     destinationName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.logs.CrossAccountDestination =
     software.amazon.awscdk.services.logs.CrossAccountDestination.Builder
       .create(stackCtx, internalResourceId)
-      .role(role.orNull)
-      .targetArn(targetArn.orNull)
+      .role(role)
+      .targetArn(targetArn)
       .destinationName(destinationName.orNull)
       .build()
 }

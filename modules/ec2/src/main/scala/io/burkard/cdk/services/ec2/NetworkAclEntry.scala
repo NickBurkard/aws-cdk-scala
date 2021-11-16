@@ -5,7 +5,7 @@ object NetworkAclEntry {
 
   def apply(
     internalResourceId: String,
-    networkAcl: Option[software.amazon.awscdk.services.ec2.INetworkAcl] = None,
+    networkAcl: software.amazon.awscdk.services.ec2.INetworkAcl,
     direction: Option[software.amazon.awscdk.services.ec2.TrafficDirection] = None,
     traffic: Option[software.amazon.awscdk.services.ec2.AclTraffic] = None,
     ruleNumber: Option[Number] = None,
@@ -15,7 +15,7 @@ object NetworkAclEntry {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.NetworkAclEntry =
     software.amazon.awscdk.services.ec2.NetworkAclEntry.Builder
       .create(stackCtx, internalResourceId)
-      .networkAcl(networkAcl.orNull)
+      .networkAcl(networkAcl)
       .direction(direction.orNull)
       .traffic(traffic.orNull)
       .ruleNumber(ruleNumber.orNull)

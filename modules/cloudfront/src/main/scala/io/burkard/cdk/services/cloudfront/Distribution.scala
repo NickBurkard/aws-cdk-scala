@@ -8,10 +8,10 @@ object Distribution {
 
   def apply(
     internalResourceId: String,
+    defaultBehavior: software.amazon.awscdk.services.cloudfront.BehaviorOptions,
     domainNames: Option[List[String]] = None,
     logIncludesCookies: Option[Boolean] = None,
     enabled: Option[Boolean] = None,
-    defaultBehavior: Option[software.amazon.awscdk.services.cloudfront.BehaviorOptions] = None,
     errorResponses: Option[List[_ <: software.amazon.awscdk.services.cloudfront.ErrorResponse]] = None,
     logFilePrefix: Option[String] = None,
     geoRestriction: Option[software.amazon.awscdk.services.cloudfront.GeoRestriction] = None,
@@ -29,10 +29,10 @@ object Distribution {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.Distribution =
     software.amazon.awscdk.services.cloudfront.Distribution.Builder
       .create(stackCtx, internalResourceId)
+      .defaultBehavior(defaultBehavior)
       .domainNames(domainNames.map(_.asJava).orNull)
       .logIncludesCookies(logIncludesCookies.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .defaultBehavior(defaultBehavior.orNull)
       .errorResponses(errorResponses.map(_.asJava).orNull)
       .logFilePrefix(logFilePrefix.orNull)
       .geoRestriction(geoRestriction.orNull)

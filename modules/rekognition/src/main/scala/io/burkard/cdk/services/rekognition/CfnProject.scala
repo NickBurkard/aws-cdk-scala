@@ -5,10 +5,10 @@ object CfnProject {
 
   def apply(
     internalResourceId: String,
-    projectName: Option[String] = None
+    projectName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rekognition.CfnProject =
     software.amazon.awscdk.services.rekognition.CfnProject.Builder
       .create(stackCtx, internalResourceId)
-      .projectName(projectName.orNull)
+      .projectName(projectName)
       .build()
 }

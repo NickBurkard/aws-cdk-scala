@@ -5,16 +5,16 @@ object BasePathMapping {
 
   def apply(
     internalResourceId: String,
+    domainName: software.amazon.awscdk.services.apigateway.IDomainName,
+    restApi: software.amazon.awscdk.services.apigateway.IRestApi,
     stage: Option[software.amazon.awscdk.services.apigateway.Stage] = None,
-    basePath: Option[String] = None,
-    domainName: Option[software.amazon.awscdk.services.apigateway.IDomainName] = None,
-    restApi: Option[software.amazon.awscdk.services.apigateway.IRestApi] = None
+    basePath: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.BasePathMapping =
     software.amazon.awscdk.services.apigateway.BasePathMapping.Builder
       .create(stackCtx, internalResourceId)
+      .domainName(domainName)
+      .restApi(restApi)
       .stage(stage.orNull)
       .basePath(basePath.orNull)
-      .domainName(domainName.orNull)
-      .restApi(restApi.orNull)
       .build()
 }

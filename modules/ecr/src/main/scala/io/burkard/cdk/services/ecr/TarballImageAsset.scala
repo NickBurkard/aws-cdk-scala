@@ -5,10 +5,10 @@ object TarballImageAsset {
 
   def apply(
     internalResourceId: String,
-    tarballFile: Option[String] = None
+    tarballFile: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecr.assets.TarballImageAsset =
     software.amazon.awscdk.services.ecr.assets.TarballImageAsset.Builder
       .create(stackCtx, internalResourceId)
-      .tarballFile(tarballFile.orNull)
+      .tarballFile(tarballFile)
       .build()
 }

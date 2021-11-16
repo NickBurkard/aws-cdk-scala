@@ -5,12 +5,12 @@ object CfnVPCDHCPOptionsAssociation {
 
   def apply(
     internalResourceId: String,
-    dhcpOptionsId: Option[String] = None,
-    vpcId: Option[String] = None
+    dhcpOptionsId: String,
+    vpcId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnVPCDHCPOptionsAssociation =
     software.amazon.awscdk.services.ec2.CfnVPCDHCPOptionsAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .dhcpOptionsId(dhcpOptionsId.orNull)
-      .vpcId(vpcId.orNull)
+      .dhcpOptionsId(dhcpOptionsId)
+      .vpcId(vpcId)
       .build()
 }

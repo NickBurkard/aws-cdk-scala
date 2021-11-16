@@ -5,12 +5,12 @@ object CfnPolicyPrincipalAttachment {
 
   def apply(
     internalResourceId: String,
-    policyName: Option[String] = None,
-    principal: Option[String] = None
+    policyName: String,
+    principal: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnPolicyPrincipalAttachment =
     software.amazon.awscdk.services.iot.CfnPolicyPrincipalAttachment.Builder
       .create(stackCtx, internalResourceId)
-      .policyName(policyName.orNull)
-      .principal(principal.orNull)
+      .policyName(policyName)
+      .principal(principal)
       .build()
 }

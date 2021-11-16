@@ -5,16 +5,16 @@ object Model {
 
   def apply(
     internalResourceId: String,
+    restApi: software.amazon.awscdk.services.apigateway.IRestApi,
     description: Option[String] = None,
-    restApi: Option[software.amazon.awscdk.services.apigateway.IRestApi] = None,
     modelName: Option[String] = None,
     schema: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
     contentType: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.Model =
     software.amazon.awscdk.services.apigateway.Model.Builder
       .create(stackCtx, internalResourceId)
+      .restApi(restApi)
       .description(description.orNull)
-      .restApi(restApi.orNull)
       .modelName(modelName.orNull)
       .schema(schema.orNull)
       .contentType(contentType.orNull)

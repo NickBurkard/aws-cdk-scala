@@ -8,16 +8,16 @@ object AliasTargetInstance {
 
   def apply(
     internalResourceId: String,
+    service: software.amazon.awscdk.services.servicediscovery.IService,
+    dnsName: String,
     instanceId: Option[String] = None,
-    service: Option[software.amazon.awscdk.services.servicediscovery.IService] = None,
-    dnsName: Option[String] = None,
     customAttributes: Option[Map[String, String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicediscovery.AliasTargetInstance =
     software.amazon.awscdk.services.servicediscovery.AliasTargetInstance.Builder
       .create(stackCtx, internalResourceId)
+      .service(service)
+      .dnsName(dnsName)
       .instanceId(instanceId.orNull)
-      .service(service.orNull)
-      .dnsName(dnsName.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .build()
 }

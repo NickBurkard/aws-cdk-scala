@@ -8,14 +8,14 @@ object NonIpInstance {
 
   def apply(
     internalResourceId: String,
+    service: software.amazon.awscdk.services.servicediscovery.IService,
     instanceId: Option[String] = None,
-    service: Option[software.amazon.awscdk.services.servicediscovery.IService] = None,
     customAttributes: Option[Map[String, String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicediscovery.NonIpInstance =
     software.amazon.awscdk.services.servicediscovery.NonIpInstance.Builder
       .create(stackCtx, internalResourceId)
+      .service(service)
       .instanceId(instanceId.orNull)
-      .service(service.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .build()
 }

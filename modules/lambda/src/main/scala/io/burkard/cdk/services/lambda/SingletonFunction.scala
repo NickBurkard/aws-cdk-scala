@@ -8,6 +8,7 @@ object SingletonFunction {
 
   def apply(
     internalResourceId: String,
+    uuid: String,
     initialPolicy: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None,
     layers: Option[List[_ <: software.amazon.awscdk.services.lambda.ILayerVersion]] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -29,7 +30,6 @@ object SingletonFunction {
     functionName: Option[String] = None,
     filesystem: Option[software.amazon.awscdk.services.lambda.FileSystem] = None,
     deadLetterQueue: Option[software.amazon.awscdk.services.sqs.IQueue] = None,
-    uuid: Option[String] = None,
     environmentEncryption: Option[software.amazon.awscdk.services.kms.IKey] = None,
     allowPublicSubnet: Option[Boolean] = None,
     architecture: Option[software.amazon.awscdk.services.lambda.Architecture] = None,
@@ -51,6 +51,7 @@ object SingletonFunction {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.SingletonFunction =
     software.amazon.awscdk.services.lambda.SingletonFunction.Builder
       .create(stackCtx, internalResourceId)
+      .uuid(uuid)
       .initialPolicy(initialPolicy.map(_.asJava).orNull)
       .layers(layers.map(_.asJava).orNull)
       .role(role.orNull)
@@ -72,7 +73,6 @@ object SingletonFunction {
       .functionName(functionName.orNull)
       .filesystem(filesystem.orNull)
       .deadLetterQueue(deadLetterQueue.orNull)
-      .uuid(uuid.orNull)
       .environmentEncryption(environmentEncryption.orNull)
       .allowPublicSubnet(allowPublicSubnet.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .architecture(architecture.orNull)

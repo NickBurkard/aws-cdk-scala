@@ -5,12 +5,12 @@ object CfnModuleVersion {
 
   def apply(
     internalResourceId: String,
-    moduleName: Option[String] = None,
-    modulePackage: Option[String] = None
+    moduleName: String,
+    modulePackage: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.CfnModuleVersion =
     software.amazon.awscdk.CfnModuleVersion.Builder
       .create(stackCtx, internalResourceId)
-      .moduleName(moduleName.orNull)
-      .modulePackage(modulePackage.orNull)
+      .moduleName(moduleName)
+      .modulePackage(modulePackage)
       .build()
 }

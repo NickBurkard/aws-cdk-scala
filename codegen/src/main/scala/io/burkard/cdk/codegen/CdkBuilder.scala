@@ -4,6 +4,9 @@ import java.lang.reflect.{Method, Modifier}
 import java.nio.file.{Path, Paths}
 
 import scala.annotation.nowarn
+import scala.util.Try
+
+import com.google.common.base.CaseFormat
 
 import io.burkard.cdk.codegen.CdkBuilder.ConstructorType
 
@@ -15,8 +18,26 @@ final case class CdkBuilder private[codegen](
   constructorType: CdkBuilder.ConstructorType,
   underlying: Class[_]
 ) {
+  // The required field names of the underlying builder props.
+  private[codegen] lazy val requiredFieldNames: Set[String] =
+    (for {
+      // The `props` field is a builder for all required & optional properties.
+      propsBuilder <- Try(underlying.getDeclaredField("props")).map(_.getType)
+
+      // The `build` method returns an instance of the props itself, which needs to be inspected.
+      props <- Try(propsBuilder.getDeclaredMethod("build")).map(_.getReturnType)
+
+      // Dig into `props` for all non-static `get` methods without a default implementation.
+      requiredFields = props.getDeclaredMethods.toList
+        .collect {
+          case m if !Modifier.isStatic(m.getModifiers) && m.getName.startsWith("get") && !m.isDefault =>
+            CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, m.getName.stripPrefix("get"))
+        }
+        .toSet
+    } yield requiredFields).getOrElse(Set.empty)
+
   @nowarn("cat=deprecation")
-  // [0, N] field methods of the underlying builder. All are optional for the generated code.
+  // [0, N] field methods of the underlying builder. All non-optional fields appear before optional fields.
   private[this] lazy val fieldMethods: List[FieldMethod] =
     underlying
       .getMethods
@@ -38,7 +59,7 @@ final case class CdkBuilder private[codegen](
               methodName,
               methodName,
               typeName,
-              isOptional = true,
+              isOptional = !requiredFieldNames.contains(methodName),
               annotations
             )
           )
@@ -51,12 +72,13 @@ final case class CdkBuilder private[codegen](
               s"$methodName$index",
               methodName,
               typeName,
-              isOptional = true,
+              isOptional = !requiredFieldNames.contains(methodName),
               annotations
             )
           }
       }
       .toList
+      .sortBy(_.isOptional)
 
   lazy val packageName: String = renamePackage(underlying.getPackageName)
 

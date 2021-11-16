@@ -5,14 +5,14 @@ object CfnGroup {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
+    name: String,
     tags: Option[AnyRef] = None,
     roleArn: Option[String] = None,
     initialVersion: Option[software.amazon.awscdk.services.greengrass.CfnGroup.GroupVersionProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.greengrass.CfnGroup =
     software.amazon.awscdk.services.greengrass.CfnGroup.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.orNull)
       .roleArn(roleArn.orNull)
       .initialVersion(initialVersion.orNull)

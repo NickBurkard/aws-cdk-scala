@@ -8,16 +8,16 @@ object CfnProject {
 
   def apply(
     internalResourceId: String,
-    projectName: Option[String] = None,
+    projectName: String,
+    serviceCatalogProvisioningDetails: AnyRef,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    projectDescription: Option[String] = None,
-    serviceCatalogProvisioningDetails: Option[AnyRef] = None
+    projectDescription: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sagemaker.CfnProject =
     software.amazon.awscdk.services.sagemaker.CfnProject.Builder
       .create(stackCtx, internalResourceId)
-      .projectName(projectName.orNull)
+      .projectName(projectName)
+      .serviceCatalogProvisioningDetails(serviceCatalogProvisioningDetails)
       .tags(tags.map(_.asJava).orNull)
       .projectDescription(projectDescription.orNull)
-      .serviceCatalogProvisioningDetails(serviceCatalogProvisioningDetails.orNull)
       .build()
 }

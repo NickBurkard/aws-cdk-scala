@@ -8,9 +8,10 @@ object CfnRecordSet {
 
   def apply(
     internalResourceId: String,
+    name: String,
+    `type`: String,
     geoLocation: Option[software.amazon.awscdk.services.route53.CfnRecordSet.GeoLocationProperty] = None,
     weight: Option[Number] = None,
-    name: Option[String] = None,
     healthCheckId: Option[String] = None,
     aliasTarget: Option[software.amazon.awscdk.services.route53.CfnRecordSet.AliasTargetProperty] = None,
     hostedZoneId: Option[String] = None,
@@ -21,14 +22,14 @@ object CfnRecordSet {
     resourceRecords: Option[List[String]] = None,
     region: Option[String] = None,
     failover: Option[String] = None,
-    ttl: Option[String] = None,
-    `type`: Option[String] = None
+    ttl: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.CfnRecordSet =
     software.amazon.awscdk.services.route53.CfnRecordSet.Builder
       .create(stackCtx, internalResourceId)
+      .name(name)
+      .`type`(`type`)
       .geoLocation(geoLocation.orNull)
       .weight(weight.orNull)
-      .name(name.orNull)
       .healthCheckId(healthCheckId.orNull)
       .aliasTarget(aliasTarget.orNull)
       .hostedZoneId(hostedZoneId.orNull)
@@ -40,6 +41,5 @@ object CfnRecordSet {
       .region(region.orNull)
       .failover(failover.orNull)
       .ttl(ttl.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

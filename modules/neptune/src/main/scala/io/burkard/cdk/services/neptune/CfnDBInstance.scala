@@ -8,7 +8,7 @@ object CfnDBInstance {
 
   def apply(
     internalResourceId: String,
-    dbInstanceClass: Option[String] = None,
+    dbInstanceClass: String,
     dbParameterGroupName: Option[String] = None,
     dbClusterIdentifier: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
@@ -22,7 +22,7 @@ object CfnDBInstance {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.neptune.CfnDBInstance =
     software.amazon.awscdk.services.neptune.CfnDBInstance.Builder
       .create(stackCtx, internalResourceId)
-      .dbInstanceClass(dbInstanceClass.orNull)
+      .dbInstanceClass(dbInstanceClass)
       .dbParameterGroupName(dbParameterGroupName.orNull)
       .dbClusterIdentifier(dbClusterIdentifier.orNull)
       .tags(tags.map(_.asJava).orNull)

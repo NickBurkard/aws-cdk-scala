@@ -8,18 +8,18 @@ object CfnLaunchNotificationConstraint {
 
   def apply(
     internalResourceId: String,
-    portfolioId: Option[String] = None,
+    portfolioId: String,
+    notificationArns: List[String],
+    productId: String,
     description: Option[String] = None,
-    notificationArns: Option[List[String]] = None,
-    acceptLanguage: Option[String] = None,
-    productId: Option[String] = None
+    acceptLanguage: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalog.CfnLaunchNotificationConstraint =
     software.amazon.awscdk.services.servicecatalog.CfnLaunchNotificationConstraint.Builder
       .create(stackCtx, internalResourceId)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
+      .notificationArns(notificationArns.asJava)
+      .productId(productId)
       .description(description.orNull)
-      .notificationArns(notificationArns.map(_.asJava).orNull)
       .acceptLanguage(acceptLanguage.orNull)
-      .productId(productId.orNull)
       .build()
 }

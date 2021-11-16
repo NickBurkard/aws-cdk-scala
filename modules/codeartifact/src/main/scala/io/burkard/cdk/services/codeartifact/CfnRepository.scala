@@ -8,9 +8,9 @@ object CfnRepository {
 
   def apply(
     internalResourceId: String,
-    repositoryName: Option[String] = None,
+    repositoryName: String,
+    domainName: String,
     permissionsPolicyDocument: Option[AnyRef] = None,
-    domainName: Option[String] = None,
     upstreams: Option[List[String]] = None,
     externalConnections: Option[List[String]] = None,
     domainOwner: Option[String] = None,
@@ -19,9 +19,9 @@ object CfnRepository {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codeartifact.CfnRepository =
     software.amazon.awscdk.services.codeartifact.CfnRepository.Builder
       .create(stackCtx, internalResourceId)
-      .repositoryName(repositoryName.orNull)
+      .repositoryName(repositoryName)
+      .domainName(domainName)
       .permissionsPolicyDocument(permissionsPolicyDocument.orNull)
-      .domainName(domainName.orNull)
       .upstreams(upstreams.map(_.asJava).orNull)
       .externalConnections(externalConnections.map(_.asJava).orNull)
       .domainOwner(domainOwner.orNull)

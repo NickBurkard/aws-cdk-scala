@@ -5,10 +5,10 @@ object CfnResourceCollection {
 
   def apply(
     internalResourceId: String,
-    resourceCollectionFilter: Option[software.amazon.awscdk.services.devopsguru.CfnResourceCollection.ResourceCollectionFilterProperty] = None
+    resourceCollectionFilter: software.amazon.awscdk.services.devopsguru.CfnResourceCollection.ResourceCollectionFilterProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.devopsguru.CfnResourceCollection =
     software.amazon.awscdk.services.devopsguru.CfnResourceCollection.Builder
       .create(stackCtx, internalResourceId)
-      .resourceCollectionFilter(resourceCollectionFilter.orNull)
+      .resourceCollectionFilter(resourceCollectionFilter)
       .build()
 }

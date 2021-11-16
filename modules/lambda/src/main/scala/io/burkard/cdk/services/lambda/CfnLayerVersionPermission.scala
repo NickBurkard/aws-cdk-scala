@@ -5,16 +5,16 @@ object CfnLayerVersionPermission {
 
   def apply(
     internalResourceId: String,
-    layerVersionArn: Option[String] = None,
-    principal: Option[String] = None,
-    organizationId: Option[String] = None,
-    action: Option[String] = None
+    layerVersionArn: String,
+    principal: String,
+    action: String,
+    organizationId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lambda.CfnLayerVersionPermission =
     software.amazon.awscdk.services.lambda.CfnLayerVersionPermission.Builder
       .create(stackCtx, internalResourceId)
-      .layerVersionArn(layerVersionArn.orNull)
-      .principal(principal.orNull)
+      .layerVersionArn(layerVersionArn)
+      .principal(principal)
+      .action(action)
       .organizationId(organizationId.orNull)
-      .action(action.orNull)
       .build()
 }

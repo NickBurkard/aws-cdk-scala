@@ -8,16 +8,16 @@ object CfnSubnetGroup {
 
   def apply(
     internalResourceId: String,
-    subnetIds: Option[List[String]] = None,
+    subnetIds: List[String],
+    description: String,
     cacheSubnetGroupName: Option[String] = None,
-    description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticache.CfnSubnetGroup =
     software.amazon.awscdk.services.elasticache.CfnSubnetGroup.Builder
       .create(stackCtx, internalResourceId)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
+      .description(description)
       .cacheSubnetGroupName(cacheSubnetGroupName.orNull)
-      .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

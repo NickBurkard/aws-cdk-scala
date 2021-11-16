@@ -5,12 +5,12 @@ object CfnBackupSelection {
 
   def apply(
     internalResourceId: String,
-    backupPlanId: Option[String] = None,
-    backupSelection: Option[software.amazon.awscdk.services.backup.CfnBackupSelection.BackupSelectionResourceTypeProperty] = None
+    backupPlanId: String,
+    backupSelection: software.amazon.awscdk.services.backup.CfnBackupSelection.BackupSelectionResourceTypeProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.backup.CfnBackupSelection =
     software.amazon.awscdk.services.backup.CfnBackupSelection.Builder
       .create(stackCtx, internalResourceId)
-      .backupPlanId(backupPlanId.orNull)
-      .backupSelection(backupSelection.orNull)
+      .backupPlanId(backupPlanId)
+      .backupSelection(backupSelection)
       .build()
 }

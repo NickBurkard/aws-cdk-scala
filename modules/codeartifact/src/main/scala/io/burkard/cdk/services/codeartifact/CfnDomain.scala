@@ -8,16 +8,16 @@ object CfnDomain {
 
   def apply(
     internalResourceId: String,
+    domainName: String,
     permissionsPolicyDocument: Option[AnyRef] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    domainName: Option[String] = None,
     encryptionKey: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.codeartifact.CfnDomain =
     software.amazon.awscdk.services.codeartifact.CfnDomain.Builder
       .create(stackCtx, internalResourceId)
+      .domainName(domainName)
       .permissionsPolicyDocument(permissionsPolicyDocument.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .domainName(domainName.orNull)
       .encryptionKey(encryptionKey.orNull)
       .build()
 }

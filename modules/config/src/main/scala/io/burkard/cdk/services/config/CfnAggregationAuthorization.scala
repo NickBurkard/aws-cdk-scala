@@ -8,14 +8,14 @@ object CfnAggregationAuthorization {
 
   def apply(
     internalResourceId: String,
-    authorizedAccountId: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    authorizedAwsRegion: Option[String] = None
+    authorizedAccountId: String,
+    authorizedAwsRegion: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.config.CfnAggregationAuthorization =
     software.amazon.awscdk.services.config.CfnAggregationAuthorization.Builder
       .create(stackCtx, internalResourceId)
-      .authorizedAccountId(authorizedAccountId.orNull)
+      .authorizedAccountId(authorizedAccountId)
+      .authorizedAwsRegion(authorizedAwsRegion)
       .tags(tags.map(_.asJava).orNull)
-      .authorizedAwsRegion(authorizedAwsRegion.orNull)
       .build()
 }

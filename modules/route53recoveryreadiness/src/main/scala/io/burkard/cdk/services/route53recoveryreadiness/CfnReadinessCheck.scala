@@ -8,14 +8,14 @@ object CfnReadinessCheck {
 
   def apply(
     internalResourceId: String,
+    readinessCheckName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    resourceSetName: Option[String] = None,
-    readinessCheckName: Option[String] = None
+    resourceSetName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53recoveryreadiness.CfnReadinessCheck =
     software.amazon.awscdk.services.route53recoveryreadiness.CfnReadinessCheck.Builder
       .create(stackCtx, internalResourceId)
+      .readinessCheckName(readinessCheckName)
       .tags(tags.map(_.asJava).orNull)
       .resourceSetName(resourceSetName.orNull)
-      .readinessCheckName(readinessCheckName.orNull)
       .build()
 }

@@ -8,15 +8,15 @@ object CfnAttributeGroup {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    attributes: Option[AnyRef] = None,
+    name: String,
+    attributes: AnyRef,
     description: Option[String] = None,
     tags: Option[Map[String, String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalogappregistry.CfnAttributeGroup =
     software.amazon.awscdk.services.servicecatalogappregistry.CfnAttributeGroup.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .attributes(attributes.orNull)
+      .name(name)
+      .attributes(attributes)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

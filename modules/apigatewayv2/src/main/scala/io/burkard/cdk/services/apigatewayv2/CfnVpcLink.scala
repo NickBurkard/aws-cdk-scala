@@ -8,15 +8,15 @@ object CfnVpcLink {
 
   def apply(
     internalResourceId: String,
-    subnetIds: Option[List[String]] = None,
-    name: Option[String] = None,
+    subnetIds: List[String],
+    name: String,
     tags: Option[AnyRef] = None,
     securityGroupIds: Option[List[String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigatewayv2.CfnVpcLink =
     software.amazon.awscdk.services.apigatewayv2.CfnVpcLink.Builder
       .create(stackCtx, internalResourceId)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .name(name.orNull)
+      .subnetIds(subnetIds.asJava)
+      .name(name)
       .tags(tags.orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .build()

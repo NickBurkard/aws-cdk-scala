@@ -5,12 +5,12 @@ object CfnSubnetNetworkAclAssociation {
 
   def apply(
     internalResourceId: String,
-    networkAclId: Option[String] = None,
-    subnetId: Option[String] = None
+    networkAclId: String,
+    subnetId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnSubnetNetworkAclAssociation =
     software.amazon.awscdk.services.ec2.CfnSubnetNetworkAclAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .networkAclId(networkAclId.orNull)
-      .subnetId(subnetId.orNull)
+      .networkAclId(networkAclId)
+      .subnetId(subnetId)
       .build()
 }

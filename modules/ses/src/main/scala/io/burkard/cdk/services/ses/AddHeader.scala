@@ -4,12 +4,12 @@ package io.burkard.cdk.services.ses
 object AddHeader {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.ses.actions.AddHeader =
     software.amazon.awscdk.services.ses.actions.AddHeader.Builder
       .create()
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

@@ -8,12 +8,12 @@ object CfnStorageLens {
 
   def apply(
     internalResourceId: String,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    storageLensConfiguration: Option[software.amazon.awscdk.services.s3.CfnStorageLens.StorageLensConfigurationProperty] = None
+    storageLensConfiguration: software.amazon.awscdk.services.s3.CfnStorageLens.StorageLensConfigurationProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3.CfnStorageLens =
     software.amazon.awscdk.services.s3.CfnStorageLens.Builder
       .create(stackCtx, internalResourceId)
+      .storageLensConfiguration(storageLensConfiguration)
       .tags(tags.map(_.asJava).orNull)
-      .storageLensConfiguration(storageLensConfiguration.orNull)
       .build()
 }

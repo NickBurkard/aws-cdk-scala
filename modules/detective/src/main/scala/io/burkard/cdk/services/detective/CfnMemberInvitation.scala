@@ -5,18 +5,18 @@ object CfnMemberInvitation {
 
   def apply(
     internalResourceId: String,
-    graphArn: Option[String] = None,
+    graphArn: String,
+    memberEmailAddress: String,
+    memberId: String,
     disableEmailNotification: Option[Boolean] = None,
-    memberEmailAddress: Option[String] = None,
-    message: Option[String] = None,
-    memberId: Option[String] = None
+    message: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.detective.CfnMemberInvitation =
     software.amazon.awscdk.services.detective.CfnMemberInvitation.Builder
       .create(stackCtx, internalResourceId)
-      .graphArn(graphArn.orNull)
+      .graphArn(graphArn)
+      .memberEmailAddress(memberEmailAddress)
+      .memberId(memberId)
       .disableEmailNotification(disableEmailNotification.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .memberEmailAddress(memberEmailAddress.orNull)
       .message(message.orNull)
-      .memberId(memberId.orNull)
       .build()
 }

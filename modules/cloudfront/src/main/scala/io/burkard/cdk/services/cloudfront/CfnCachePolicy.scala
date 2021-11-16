@@ -5,10 +5,10 @@ object CfnCachePolicy {
 
   def apply(
     internalResourceId: String,
-    cachePolicyConfig: Option[software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CachePolicyConfigProperty] = None
+    cachePolicyConfig: software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CachePolicyConfigProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.CfnCachePolicy =
     software.amazon.awscdk.services.cloudfront.CfnCachePolicy.Builder
       .create(stackCtx, internalResourceId)
-      .cachePolicyConfig(cachePolicyConfig.orNull)
+      .cachePolicyConfig(cachePolicyConfig)
       .build()
 }

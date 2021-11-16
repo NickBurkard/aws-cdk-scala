@@ -5,16 +5,16 @@ object CfnAccountAuditConfiguration {
 
   def apply(
     internalResourceId: String,
-    accountId: Option[String] = None,
-    roleArn: Option[String] = None,
-    auditCheckConfigurations: Option[software.amazon.awscdk.services.iot.CfnAccountAuditConfiguration.AuditCheckConfigurationsProperty] = None,
+    accountId: String,
+    roleArn: String,
+    auditCheckConfigurations: software.amazon.awscdk.services.iot.CfnAccountAuditConfiguration.AuditCheckConfigurationsProperty,
     auditNotificationTargetConfigurations: Option[software.amazon.awscdk.services.iot.CfnAccountAuditConfiguration.AuditNotificationTargetConfigurationsProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnAccountAuditConfiguration =
     software.amazon.awscdk.services.iot.CfnAccountAuditConfiguration.Builder
       .create(stackCtx, internalResourceId)
-      .accountId(accountId.orNull)
-      .roleArn(roleArn.orNull)
-      .auditCheckConfigurations(auditCheckConfigurations.orNull)
+      .accountId(accountId)
+      .roleArn(roleArn)
+      .auditCheckConfigurations(auditCheckConfigurations)
       .auditNotificationTargetConfigurations(auditNotificationTargetConfigurations.orNull)
       .build()
 }

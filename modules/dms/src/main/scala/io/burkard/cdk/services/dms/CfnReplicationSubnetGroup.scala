@@ -8,16 +8,16 @@ object CfnReplicationSubnetGroup {
 
   def apply(
     internalResourceId: String,
-    subnetIds: Option[List[String]] = None,
+    subnetIds: List[String],
+    replicationSubnetGroupDescription: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    replicationSubnetGroupDescription: Option[String] = None,
     replicationSubnetGroupIdentifier: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.dms.CfnReplicationSubnetGroup =
     software.amazon.awscdk.services.dms.CfnReplicationSubnetGroup.Builder
       .create(stackCtx, internalResourceId)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
+      .replicationSubnetGroupDescription(replicationSubnetGroupDescription)
       .tags(tags.map(_.asJava).orNull)
-      .replicationSubnetGroupDescription(replicationSubnetGroupDescription.orNull)
       .replicationSubnetGroupIdentifier(replicationSubnetGroupIdentifier.orNull)
       .build()
 }

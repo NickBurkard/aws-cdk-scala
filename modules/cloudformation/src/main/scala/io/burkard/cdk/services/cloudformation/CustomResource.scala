@@ -8,14 +8,14 @@ object CustomResource {
 
   def apply(
     internalResourceId: String,
-    provider: Option[software.amazon.awscdk.services.cloudformation.ICustomResourceProvider] = None,
+    provider: software.amazon.awscdk.services.cloudformation.ICustomResourceProvider,
     resourceType: Option[String] = None,
     properties: Option[Map[String, _]] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudformation.CustomResource =
     software.amazon.awscdk.services.cloudformation.CustomResource.Builder
       .create(stackCtx, internalResourceId)
-      .provider(provider.orNull)
+      .provider(provider)
       .resourceType(resourceType.orNull)
       .properties(properties.map(_.asJava).orNull)
       .removalPolicy(removalPolicy.orNull)

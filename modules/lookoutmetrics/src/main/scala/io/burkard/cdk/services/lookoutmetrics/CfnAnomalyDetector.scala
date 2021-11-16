@@ -8,17 +8,17 @@ object CfnAnomalyDetector {
 
   def apply(
     internalResourceId: String,
+    anomalyDetectorConfig: software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.AnomalyDetectorConfigProperty,
+    metricSetList: List[_],
     anomalyDetectorDescription: Option[String] = None,
-    anomalyDetectorConfig: Option[software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.AnomalyDetectorConfigProperty] = None,
-    metricSetList: Option[List[_]] = None,
     kmsKeyArn: Option[String] = None,
     anomalyDetectorName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector =
     software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.Builder
       .create(stackCtx, internalResourceId)
+      .anomalyDetectorConfig(anomalyDetectorConfig)
+      .metricSetList(metricSetList.asJava)
       .anomalyDetectorDescription(anomalyDetectorDescription.orNull)
-      .anomalyDetectorConfig(anomalyDetectorConfig.orNull)
-      .metricSetList(metricSetList.map(_.asJava).orNull)
       .kmsKeyArn(kmsKeyArn.orNull)
       .anomalyDetectorName(anomalyDetectorName.orNull)
       .build()

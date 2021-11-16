@@ -8,12 +8,12 @@ object CfnDistribution {
 
   def apply(
     internalResourceId: String,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    distributionConfig: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.DistributionConfigProperty] = None
+    distributionConfig: software.amazon.awscdk.services.cloudfront.CfnDistribution.DistributionConfigProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.CfnDistribution =
     software.amazon.awscdk.services.cloudfront.CfnDistribution.Builder
       .create(stackCtx, internalResourceId)
+      .distributionConfig(distributionConfig)
       .tags(tags.map(_.asJava).orNull)
-      .distributionConfig(distributionConfig.orNull)
       .build()
 }

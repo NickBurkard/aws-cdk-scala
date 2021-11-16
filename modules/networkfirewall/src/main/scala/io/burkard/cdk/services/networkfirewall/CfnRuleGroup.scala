@@ -8,19 +8,19 @@ object CfnRuleGroup {
 
   def apply(
     internalResourceId: String,
-    ruleGroupName: Option[String] = None,
+    ruleGroupName: String,
+    `type`: String,
+    capacity: Number,
     ruleGroup: Option[software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RuleGroupProperty] = None,
-    `type`: Option[String] = None,
-    capacity: Option[Number] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup =
     software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.Builder
       .create(stackCtx, internalResourceId)
-      .ruleGroupName(ruleGroupName.orNull)
+      .ruleGroupName(ruleGroupName)
+      .`type`(`type`)
+      .capacity(capacity)
       .ruleGroup(ruleGroup.orNull)
-      .`type`(`type`.orNull)
-      .capacity(capacity.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

@@ -8,16 +8,16 @@ object CfnTransitGatewayAttachment {
 
   def apply(
     internalResourceId: String,
-    subnetIds: Option[List[String]] = None,
-    vpcId: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    transitGatewayId: Option[String] = None
+    subnetIds: List[String],
+    vpcId: String,
+    transitGatewayId: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnTransitGatewayAttachment =
     software.amazon.awscdk.services.ec2.CfnTransitGatewayAttachment.Builder
       .create(stackCtx, internalResourceId)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .vpcId(vpcId.orNull)
+      .subnetIds(subnetIds.asJava)
+      .vpcId(vpcId)
+      .transitGatewayId(transitGatewayId)
       .tags(tags.map(_.asJava).orNull)
-      .transitGatewayId(transitGatewayId.orNull)
       .build()
 }

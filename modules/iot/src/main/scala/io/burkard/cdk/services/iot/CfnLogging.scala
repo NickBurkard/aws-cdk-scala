@@ -5,14 +5,14 @@ object CfnLogging {
 
   def apply(
     internalResourceId: String,
-    accountId: Option[String] = None,
-    defaultLogLevel: Option[String] = None,
-    roleArn: Option[String] = None
+    accountId: String,
+    defaultLogLevel: String,
+    roleArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnLogging =
     software.amazon.awscdk.services.iot.CfnLogging.Builder
       .create(stackCtx, internalResourceId)
-      .accountId(accountId.orNull)
-      .defaultLogLevel(defaultLogLevel.orNull)
-      .roleArn(roleArn.orNull)
+      .accountId(accountId)
+      .defaultLogLevel(defaultLogLevel)
+      .roleArn(roleArn)
       .build()
 }

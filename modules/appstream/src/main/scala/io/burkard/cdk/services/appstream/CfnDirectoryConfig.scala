@@ -8,14 +8,14 @@ object CfnDirectoryConfig {
 
   def apply(
     internalResourceId: String,
-    organizationalUnitDistinguishedNames: Option[List[String]] = None,
-    serviceAccountCredentials: Option[software.amazon.awscdk.services.appstream.CfnDirectoryConfig.ServiceAccountCredentialsProperty] = None,
-    directoryName: Option[String] = None
+    organizationalUnitDistinguishedNames: List[String],
+    serviceAccountCredentials: software.amazon.awscdk.services.appstream.CfnDirectoryConfig.ServiceAccountCredentialsProperty,
+    directoryName: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.appstream.CfnDirectoryConfig =
     software.amazon.awscdk.services.appstream.CfnDirectoryConfig.Builder
       .create(stackCtx, internalResourceId)
-      .organizationalUnitDistinguishedNames(organizationalUnitDistinguishedNames.map(_.asJava).orNull)
-      .serviceAccountCredentials(serviceAccountCredentials.orNull)
-      .directoryName(directoryName.orNull)
+      .organizationalUnitDistinguishedNames(organizationalUnitDistinguishedNames.asJava)
+      .serviceAccountCredentials(serviceAccountCredentials)
+      .directoryName(directoryName)
       .build()
 }

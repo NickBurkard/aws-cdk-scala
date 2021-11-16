@@ -8,12 +8,12 @@ object CfnBudget {
 
   def apply(
     internalResourceId: String,
-    budget: Option[software.amazon.awscdk.services.budgets.CfnBudget.BudgetDataProperty] = None,
+    budget: software.amazon.awscdk.services.budgets.CfnBudget.BudgetDataProperty,
     notificationsWithSubscribers: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.budgets.CfnBudget =
     software.amazon.awscdk.services.budgets.CfnBudget.Builder
       .create(stackCtx, internalResourceId)
-      .budget(budget.orNull)
+      .budget(budget)
       .notificationsWithSubscribers(notificationsWithSubscribers.map(_.asJava).orNull)
       .build()
 }

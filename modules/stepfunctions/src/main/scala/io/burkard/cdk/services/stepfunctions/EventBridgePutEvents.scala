@@ -8,8 +8,8 @@ object EventBridgePutEvents {
 
   def apply(
     internalResourceId: String,
+    entries: List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEventsEntry],
     resultPath: Option[String] = None,
-    entries: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEventsEntry]] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
@@ -20,8 +20,8 @@ object EventBridgePutEvents {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEvents =
     software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEvents.Builder
       .create(stackCtx, internalResourceId)
+      .entries(entries.asJava)
       .resultPath(resultPath.orNull)
-      .entries(entries.map(_.asJava).orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)

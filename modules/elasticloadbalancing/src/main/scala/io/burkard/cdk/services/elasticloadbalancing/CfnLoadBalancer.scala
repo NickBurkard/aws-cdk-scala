@@ -8,9 +8,9 @@ object CfnLoadBalancer {
 
   def apply(
     internalResourceId: String,
+    listeners: List[_],
     connectionDrainingPolicy: Option[software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.ConnectionDrainingPolicyProperty] = None,
     crossZone: Option[Boolean] = None,
-    listeners: Option[List[_]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     instances: Option[List[String]] = None,
     lbCookieStickinessPolicy: Option[List[_]] = None,
@@ -27,9 +27,9 @@ object CfnLoadBalancer {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer =
     software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.Builder
       .create(stackCtx, internalResourceId)
+      .listeners(listeners.asJava)
       .connectionDrainingPolicy(connectionDrainingPolicy.orNull)
       .crossZone(crossZone.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .listeners(listeners.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)
       .instances(instances.map(_.asJava).orNull)
       .lbCookieStickinessPolicy(lbCookieStickinessPolicy.map(_.asJava).orNull)

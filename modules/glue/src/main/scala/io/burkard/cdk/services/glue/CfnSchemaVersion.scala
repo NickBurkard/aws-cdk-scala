@@ -5,12 +5,12 @@ object CfnSchemaVersion {
 
   def apply(
     internalResourceId: String,
-    schemaDefinition: Option[String] = None,
-    schema: Option[software.amazon.awscdk.services.glue.CfnSchemaVersion.SchemaProperty] = None
+    schemaDefinition: String,
+    schema: software.amazon.awscdk.services.glue.CfnSchemaVersion.SchemaProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.glue.CfnSchemaVersion =
     software.amazon.awscdk.services.glue.CfnSchemaVersion.Builder
       .create(stackCtx, internalResourceId)
-      .schemaDefinition(schemaDefinition.orNull)
-      .schema(schema.orNull)
+      .schemaDefinition(schemaDefinition)
+      .schema(schema)
       .build()
 }

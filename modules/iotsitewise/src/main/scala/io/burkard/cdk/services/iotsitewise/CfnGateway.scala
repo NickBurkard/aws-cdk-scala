@@ -8,16 +8,16 @@ object CfnGateway {
 
   def apply(
     internalResourceId: String,
+    gatewayName: String,
+    gatewayPlatform: software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayPlatformProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    gatewayName: Option[String] = None,
-    gatewayPlatform: Option[software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayPlatformProperty] = None,
     gatewayCapabilitySummaries: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iotsitewise.CfnGateway =
     software.amazon.awscdk.services.iotsitewise.CfnGateway.Builder
       .create(stackCtx, internalResourceId)
+      .gatewayName(gatewayName)
+      .gatewayPlatform(gatewayPlatform)
       .tags(tags.map(_.asJava).orNull)
-      .gatewayName(gatewayName.orNull)
-      .gatewayPlatform(gatewayPlatform.orNull)
       .gatewayCapabilitySummaries(gatewayCapabilitySummaries.map(_.asJava).orNull)
       .build()
 }

@@ -5,8 +5,8 @@ object CfnEnvironment {
 
   def apply(
     internalResourceId: String,
+    name: String,
     pluginsS3Path: Option[String] = None,
-    name: Option[String] = None,
     weeklyMaintenanceWindowStart: Option[String] = None,
     pluginsS3ObjectVersion: Option[String] = None,
     airflowConfigurationOptions: Option[AnyRef] = None,
@@ -28,8 +28,8 @@ object CfnEnvironment {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.mwaa.CfnEnvironment =
     software.amazon.awscdk.services.mwaa.CfnEnvironment.Builder
       .create(stackCtx, internalResourceId)
+      .name(name)
       .pluginsS3Path(pluginsS3Path.orNull)
-      .name(name.orNull)
       .weeklyMaintenanceWindowStart(weeklyMaintenanceWindowStart.orNull)
       .pluginsS3ObjectVersion(pluginsS3ObjectVersion.orNull)
       .airflowConfigurationOptions(airflowConfigurationOptions.orNull)

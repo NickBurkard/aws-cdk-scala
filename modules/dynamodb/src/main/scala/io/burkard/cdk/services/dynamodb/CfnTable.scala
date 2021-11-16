@@ -8,13 +8,13 @@ object CfnTable {
 
   def apply(
     internalResourceId: String,
+    keySchema: List[_],
     streamSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.StreamSpecificationProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     timeToLiveSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.TimeToLiveSpecificationProperty] = None,
     provisionedThroughput: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ProvisionedThroughputProperty] = None,
     sseSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.SSESpecificationProperty] = None,
     tableName: Option[String] = None,
-    keySchema: Option[List[_]] = None,
     attributeDefinitions: Option[List[_]] = None,
     globalSecondaryIndexes: Option[List[_]] = None,
     pointInTimeRecoverySpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.PointInTimeRecoverySpecificationProperty] = None,
@@ -25,13 +25,13 @@ object CfnTable {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.dynamodb.CfnTable =
     software.amazon.awscdk.services.dynamodb.CfnTable.Builder
       .create(stackCtx, internalResourceId)
+      .keySchema(keySchema.asJava)
       .streamSpecification(streamSpecification.orNull)
       .tags(tags.map(_.asJava).orNull)
       .timeToLiveSpecification(timeToLiveSpecification.orNull)
       .provisionedThroughput(provisionedThroughput.orNull)
       .sseSpecification(sseSpecification.orNull)
       .tableName(tableName.orNull)
-      .keySchema(keySchema.map(_.asJava).orNull)
       .attributeDefinitions(attributeDefinitions.map(_.asJava).orNull)
       .globalSecondaryIndexes(globalSecondaryIndexes.map(_.asJava).orNull)
       .pointInTimeRecoverySpecification(pointInTimeRecoverySpecification.orNull)

@@ -8,19 +8,19 @@ object CfnScheduledAudit {
 
   def apply(
     internalResourceId: String,
-    targetCheckNames: Option[List[String]] = None,
+    targetCheckNames: List[String],
+    frequency: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     dayOfMonth: Option[String] = None,
-    frequency: Option[String] = None,
     scheduledAuditName: Option[String] = None,
     dayOfWeek: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnScheduledAudit =
     software.amazon.awscdk.services.iot.CfnScheduledAudit.Builder
       .create(stackCtx, internalResourceId)
-      .targetCheckNames(targetCheckNames.map(_.asJava).orNull)
+      .targetCheckNames(targetCheckNames.asJava)
+      .frequency(frequency)
       .tags(tags.map(_.asJava).orNull)
       .dayOfMonth(dayOfMonth.orNull)
-      .frequency(frequency.orNull)
       .scheduledAuditName(scheduledAuditName.orNull)
       .dayOfWeek(dayOfWeek.orNull)
       .build()

@@ -8,12 +8,12 @@ object CfnLaunchConfiguration {
 
   def apply(
     internalResourceId: String,
+    instanceType: String,
+    imageId: String,
     instanceId: Option[String] = None,
     ebsOptimized: Option[Boolean] = None,
     userData: Option[String] = None,
     iamInstanceProfile: Option[String] = None,
-    instanceType: Option[String] = None,
-    imageId: Option[String] = None,
     metadataOptions: Option[software.amazon.awscdk.services.autoscaling.CfnLaunchConfiguration.MetadataOptionsProperty] = None,
     ramDiskId: Option[String] = None,
     launchConfigurationName: Option[String] = None,
@@ -30,12 +30,12 @@ object CfnLaunchConfiguration {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscaling.CfnLaunchConfiguration =
     software.amazon.awscdk.services.autoscaling.CfnLaunchConfiguration.Builder
       .create(stackCtx, internalResourceId)
+      .instanceType(instanceType)
+      .imageId(imageId)
       .instanceId(instanceId.orNull)
       .ebsOptimized(ebsOptimized.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .userData(userData.orNull)
       .iamInstanceProfile(iamInstanceProfile.orNull)
-      .instanceType(instanceType.orNull)
-      .imageId(imageId.orNull)
       .metadataOptions(metadataOptions.orNull)
       .ramDiskId(ramDiskId.orNull)
       .launchConfigurationName(launchConfigurationName.orNull)

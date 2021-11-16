@@ -8,8 +8,9 @@ object CfnEC2Fleet {
 
   def apply(
     internalResourceId: String,
+    launchTemplateConfigs: List[_],
+    targetCapacitySpecification: software.amazon.awscdk.services.ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty,
     tagSpecifications: Option[List[_]] = None,
-    launchTemplateConfigs: Option[List[_]] = None,
     validUntil: Option[String] = None,
     context: Option[String] = None,
     validFrom: Option[String] = None,
@@ -17,14 +18,14 @@ object CfnEC2Fleet {
     excessCapacityTerminationPolicy: Option[String] = None,
     replaceUnhealthyInstances: Option[Boolean] = None,
     onDemandOptions: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.OnDemandOptionsRequestProperty] = None,
-    targetCapacitySpecification: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty] = None,
     `type`: Option[String] = None,
     terminateInstancesWithExpiration: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnEC2Fleet =
     software.amazon.awscdk.services.ec2.CfnEC2Fleet.Builder
       .create(stackCtx, internalResourceId)
+      .launchTemplateConfigs(launchTemplateConfigs.asJava)
+      .targetCapacitySpecification(targetCapacitySpecification)
       .tagSpecifications(tagSpecifications.map(_.asJava).orNull)
-      .launchTemplateConfigs(launchTemplateConfigs.map(_.asJava).orNull)
       .validUntil(validUntil.orNull)
       .context(context.orNull)
       .validFrom(validFrom.orNull)
@@ -32,7 +33,6 @@ object CfnEC2Fleet {
       .excessCapacityTerminationPolicy(excessCapacityTerminationPolicy.orNull)
       .replaceUnhealthyInstances(replaceUnhealthyInstances.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .onDemandOptions(onDemandOptions.orNull)
-      .targetCapacitySpecification(targetCapacitySpecification.orNull)
       .`type`(`type`.orNull)
       .terminateInstancesWithExpiration(terminateInstancesWithExpiration.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()

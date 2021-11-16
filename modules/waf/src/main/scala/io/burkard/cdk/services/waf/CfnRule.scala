@@ -8,14 +8,14 @@ object CfnRule {
 
   def apply(
     internalResourceId: String,
-    metricName: Option[String] = None,
-    name: Option[String] = None,
+    metricName: String,
+    name: String,
     predicates: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnRule =
     software.amazon.awscdk.services.waf.regional.CfnRule.Builder
       .create(stackCtx, internalResourceId)
-      .metricName(metricName.orNull)
-      .name(name.orNull)
+      .metricName(metricName)
+      .name(name)
       .predicates(predicates.map(_.asJava).orNull)
       .build()
 }

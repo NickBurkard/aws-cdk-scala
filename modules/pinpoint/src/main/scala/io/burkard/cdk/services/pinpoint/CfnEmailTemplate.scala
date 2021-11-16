@@ -5,9 +5,9 @@ object CfnEmailTemplate {
 
   def apply(
     internalResourceId: String,
+    templateName: String,
+    subject: String,
     tags: Option[AnyRef] = None,
-    templateName: Option[String] = None,
-    subject: Option[String] = None,
     textPart: Option[String] = None,
     templateDescription: Option[String] = None,
     defaultSubstitutions: Option[String] = None,
@@ -15,9 +15,9 @@ object CfnEmailTemplate {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnEmailTemplate =
     software.amazon.awscdk.services.pinpoint.CfnEmailTemplate.Builder
       .create(stackCtx, internalResourceId)
+      .templateName(templateName)
+      .subject(subject)
       .tags(tags.orNull)
-      .templateName(templateName.orNull)
-      .subject(subject.orNull)
       .textPart(textPart.orNull)
       .templateDescription(templateDescription.orNull)
       .defaultSubstitutions(defaultSubstitutions.orNull)

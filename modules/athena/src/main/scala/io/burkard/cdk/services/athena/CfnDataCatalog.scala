@@ -8,16 +8,16 @@ object CfnDataCatalog {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    `type`: Option[String] = None,
+    name: String,
+    `type`: String,
     parameters: Option[Map[String, String]] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.athena.CfnDataCatalog =
     software.amazon.awscdk.services.athena.CfnDataCatalog.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .name(name)
+      .`type`(`type`)
       .parameters(parameters.map(_.asJava).orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

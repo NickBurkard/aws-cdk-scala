@@ -5,14 +5,14 @@ object CfnUserPoolDomain {
 
   def apply(
     internalResourceId: String,
-    domain: Option[String] = None,
-    customDomainConfig: Option[software.amazon.awscdk.services.cognito.CfnUserPoolDomain.CustomDomainConfigTypeProperty] = None,
-    userPoolId: Option[String] = None
+    domain: String,
+    userPoolId: String,
+    customDomainConfig: Option[software.amazon.awscdk.services.cognito.CfnUserPoolDomain.CustomDomainConfigTypeProperty] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cognito.CfnUserPoolDomain =
     software.amazon.awscdk.services.cognito.CfnUserPoolDomain.Builder
       .create(stackCtx, internalResourceId)
-      .domain(domain.orNull)
+      .domain(domain)
+      .userPoolId(userPoolId)
       .customDomainConfig(customDomainConfig.orNull)
-      .userPoolId(userPoolId.orNull)
       .build()
 }

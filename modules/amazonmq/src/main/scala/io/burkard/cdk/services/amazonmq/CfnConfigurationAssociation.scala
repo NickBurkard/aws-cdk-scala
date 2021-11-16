@@ -5,12 +5,12 @@ object CfnConfigurationAssociation {
 
   def apply(
     internalResourceId: String,
-    broker: Option[String] = None,
-    configuration: Option[software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty] = None
+    broker: String,
+    configuration: software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation =
     software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .broker(broker.orNull)
-      .configuration(configuration.orNull)
+      .broker(broker)
+      .configuration(configuration)
       .build()
 }

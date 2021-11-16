@@ -8,12 +8,12 @@ object CfnRouteTable {
 
   def apply(
     internalResourceId: String,
-    vpcId: Option[String] = None,
+    vpcId: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnRouteTable =
     software.amazon.awscdk.services.ec2.CfnRouteTable.Builder
       .create(stackCtx, internalResourceId)
-      .vpcId(vpcId.orNull)
+      .vpcId(vpcId)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

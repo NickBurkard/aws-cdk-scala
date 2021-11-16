@@ -5,16 +5,16 @@ object PrivateHostedZone {
 
   def apply(
     internalResourceId: String,
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     queryLogsLogGroupArn: Option[String] = None,
     zoneName: Option[String] = None,
-    comment: Option[String] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
+    comment: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.route53.PrivateHostedZone =
     software.amazon.awscdk.services.route53.PrivateHostedZone.Builder
       .create(stackCtx, internalResourceId)
+      .vpc(vpc)
       .queryLogsLogGroupArn(queryLogsLogGroupArn.orNull)
       .zoneName(zoneName.orNull)
       .comment(comment.orNull)
-      .vpc(vpc.orNull)
       .build()
 }

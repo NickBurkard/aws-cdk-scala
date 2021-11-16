@@ -5,14 +5,14 @@ object SubnetNetworkAclAssociation {
 
   def apply(
     internalResourceId: String,
-    networkAcl: Option[software.amazon.awscdk.services.ec2.INetworkAcl] = None,
-    subnetNetworkAclAssociationName: Option[String] = None,
-    subnet: Option[software.amazon.awscdk.services.ec2.ISubnet] = None
+    networkAcl: software.amazon.awscdk.services.ec2.INetworkAcl,
+    subnet: software.amazon.awscdk.services.ec2.ISubnet,
+    subnetNetworkAclAssociationName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.SubnetNetworkAclAssociation =
     software.amazon.awscdk.services.ec2.SubnetNetworkAclAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .networkAcl(networkAcl.orNull)
+      .networkAcl(networkAcl)
+      .subnet(subnet)
       .subnetNetworkAclAssociationName(subnetNetworkAclAssociationName.orNull)
-      .subnet(subnet.orNull)
       .build()
 }

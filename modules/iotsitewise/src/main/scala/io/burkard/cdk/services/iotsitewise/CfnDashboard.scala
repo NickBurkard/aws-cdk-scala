@@ -8,18 +8,18 @@ object CfnDashboard {
 
   def apply(
     internalResourceId: String,
-    dashboardDescription: Option[String] = None,
+    dashboardDescription: String,
+    dashboardName: String,
+    dashboardDefinition: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    projectId: Option[String] = None,
-    dashboardName: Option[String] = None,
-    dashboardDefinition: Option[String] = None
+    projectId: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iotsitewise.CfnDashboard =
     software.amazon.awscdk.services.iotsitewise.CfnDashboard.Builder
       .create(stackCtx, internalResourceId)
-      .dashboardDescription(dashboardDescription.orNull)
+      .dashboardDescription(dashboardDescription)
+      .dashboardName(dashboardName)
+      .dashboardDefinition(dashboardDefinition)
       .tags(tags.map(_.asJava).orNull)
       .projectId(projectId.orNull)
-      .dashboardName(dashboardName.orNull)
-      .dashboardDefinition(dashboardDefinition.orNull)
       .build()
 }

@@ -8,16 +8,16 @@ object CfnDBParameterGroup {
 
   def apply(
     internalResourceId: String,
-    family: Option[String] = None,
+    family: String,
+    description: String,
     parameters: Option[Map[String, String]] = None,
-    description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.rds.CfnDBParameterGroup =
     software.amazon.awscdk.services.rds.CfnDBParameterGroup.Builder
       .create(stackCtx, internalResourceId)
-      .family(family.orNull)
+      .family(family)
+      .description(description)
       .parameters(parameters.map(_.asJava).orNull)
-      .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

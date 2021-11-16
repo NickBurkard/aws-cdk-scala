@@ -8,16 +8,16 @@ object CfnLoggingConfiguration {
 
   def apply(
     internalResourceId: String,
-    resourceArn: Option[String] = None,
+    resourceArn: String,
+    logDestinationConfigs: List[String],
     redactedFields: Option[List[_]] = None,
-    logDestinationConfigs: Option[List[String]] = None,
     loggingFilter: Option[AnyRef] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.wafv2.CfnLoggingConfiguration =
     software.amazon.awscdk.services.wafv2.CfnLoggingConfiguration.Builder
       .create(stackCtx, internalResourceId)
-      .resourceArn(resourceArn.orNull)
+      .resourceArn(resourceArn)
+      .logDestinationConfigs(logDestinationConfigs.asJava)
       .redactedFields(redactedFields.map(_.asJava).orNull)
-      .logDestinationConfigs(logDestinationConfigs.map(_.asJava).orNull)
       .loggingFilter(loggingFilter.orNull)
       .build()
 }

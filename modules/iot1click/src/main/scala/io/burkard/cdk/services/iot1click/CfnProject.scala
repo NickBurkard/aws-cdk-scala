@@ -5,14 +5,14 @@ object CfnProject {
 
   def apply(
     internalResourceId: String,
+    placementTemplate: software.amazon.awscdk.services.iot1click.CfnProject.PlacementTemplateProperty,
     projectName: Option[String] = None,
-    description: Option[String] = None,
-    placementTemplate: Option[software.amazon.awscdk.services.iot1click.CfnProject.PlacementTemplateProperty] = None
+    description: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot1click.CfnProject =
     software.amazon.awscdk.services.iot1click.CfnProject.Builder
       .create(stackCtx, internalResourceId)
+      .placementTemplate(placementTemplate)
       .projectName(projectName.orNull)
       .description(description.orNull)
-      .placementTemplate(placementTemplate.orNull)
       .build()
 }

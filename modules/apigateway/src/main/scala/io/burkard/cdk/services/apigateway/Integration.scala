@@ -4,16 +4,16 @@ package io.burkard.cdk.services.apigateway
 object Integration {
 
   def apply(
+    `type`: software.amazon.awscdk.services.apigateway.IntegrationType,
     integrationHttpMethod: Option[String] = None,
     uri: Option[AnyRef] = None,
-    options: Option[software.amazon.awscdk.services.apigateway.IntegrationOptions] = None,
-    `type`: Option[software.amazon.awscdk.services.apigateway.IntegrationType] = None
+    options: Option[software.amazon.awscdk.services.apigateway.IntegrationOptions] = None
   ): software.amazon.awscdk.services.apigateway.Integration =
     software.amazon.awscdk.services.apigateway.Integration.Builder
       .create()
+      .`type`(`type`)
       .integrationHttpMethod(integrationHttpMethod.orNull)
       .uri(uri.orNull)
       .options(options.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

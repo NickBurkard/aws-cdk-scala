@@ -4,14 +4,14 @@ package io.burkard.cdk.services.ses
 object BounceTemplate {
 
   def apply(
-    statusCode: Option[String] = None,
-    smtpReplyCode: Option[String] = None,
-    message: Option[String] = None
+    smtpReplyCode: String,
+    message: String,
+    statusCode: Option[String] = None
   ): software.amazon.awscdk.services.ses.actions.BounceTemplate =
     software.amazon.awscdk.services.ses.actions.BounceTemplate.Builder
       .create()
+      .smtpReplyCode(smtpReplyCode)
+      .message(message)
       .statusCode(statusCode.orNull)
-      .smtpReplyCode(smtpReplyCode.orNull)
-      .message(message.orNull)
       .build()
 }

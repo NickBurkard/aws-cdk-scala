@@ -5,18 +5,18 @@ object CfnClientVpnAuthorizationRule {
 
   def apply(
     internalResourceId: String,
+    clientVpnEndpointId: String,
+    targetNetworkCidr: String,
     authorizeAllGroups: Option[Boolean] = None,
-    clientVpnEndpointId: Option[String] = None,
     accessGroupId: Option[String] = None,
-    description: Option[String] = None,
-    targetNetworkCidr: Option[String] = None
+    description: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnClientVpnAuthorizationRule =
     software.amazon.awscdk.services.ec2.CfnClientVpnAuthorizationRule.Builder
       .create(stackCtx, internalResourceId)
+      .clientVpnEndpointId(clientVpnEndpointId)
+      .targetNetworkCidr(targetNetworkCidr)
       .authorizeAllGroups(authorizeAllGroups.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .clientVpnEndpointId(clientVpnEndpointId.orNull)
       .accessGroupId(accessGroupId.orNull)
       .description(description.orNull)
-      .targetNetworkCidr(targetNetworkCidr.orNull)
       .build()
 }

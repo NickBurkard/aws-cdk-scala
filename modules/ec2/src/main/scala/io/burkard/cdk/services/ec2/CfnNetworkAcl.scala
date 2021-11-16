@@ -8,12 +8,12 @@ object CfnNetworkAcl {
 
   def apply(
     internalResourceId: String,
-    vpcId: Option[String] = None,
+    vpcId: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnNetworkAcl =
     software.amazon.awscdk.services.ec2.CfnNetworkAcl.Builder
       .create(stackCtx, internalResourceId)
-      .vpcId(vpcId.orNull)
+      .vpcId(vpcId)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

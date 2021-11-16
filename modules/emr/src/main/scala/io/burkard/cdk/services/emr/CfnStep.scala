@@ -5,16 +5,16 @@ object CfnStep {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    hadoopJarStep: Option[software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty] = None,
-    actionOnFailure: Option[String] = None,
-    jobFlowId: Option[String] = None
+    name: String,
+    hadoopJarStep: software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty,
+    actionOnFailure: String,
+    jobFlowId: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.emr.CfnStep =
     software.amazon.awscdk.services.emr.CfnStep.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .hadoopJarStep(hadoopJarStep.orNull)
-      .actionOnFailure(actionOnFailure.orNull)
-      .jobFlowId(jobFlowId.orNull)
+      .name(name)
+      .hadoopJarStep(hadoopJarStep)
+      .actionOnFailure(actionOnFailure)
+      .jobFlowId(jobFlowId)
       .build()
 }

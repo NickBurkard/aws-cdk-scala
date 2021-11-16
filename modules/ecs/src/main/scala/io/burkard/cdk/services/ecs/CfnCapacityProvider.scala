@@ -8,14 +8,14 @@ object CfnCapacityProvider {
 
   def apply(
     internalResourceId: String,
+    autoScalingGroupProvider: software.amazon.awscdk.services.ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty,
     name: Option[String] = None,
-    autoScalingGroupProvider: Option[software.amazon.awscdk.services.ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecs.CfnCapacityProvider =
     software.amazon.awscdk.services.ecs.CfnCapacityProvider.Builder
       .create(stackCtx, internalResourceId)
+      .autoScalingGroupProvider(autoScalingGroupProvider)
       .name(name.orNull)
-      .autoScalingGroupProvider(autoScalingGroupProvider.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

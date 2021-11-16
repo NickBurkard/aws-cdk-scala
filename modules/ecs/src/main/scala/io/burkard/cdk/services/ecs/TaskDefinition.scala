@@ -8,10 +8,10 @@ object TaskDefinition {
 
   def apply(
     internalResourceId: String,
+    compatibility: software.amazon.awscdk.services.ecs.Compatibility,
     pidMode: Option[software.amazon.awscdk.services.ecs.PidMode] = None,
     memoryMiB: Option[String] = None,
     ipcMode: Option[software.amazon.awscdk.services.ecs.IpcMode] = None,
-    compatibility: Option[software.amazon.awscdk.services.ecs.Compatibility] = None,
     proxyConfiguration: Option[software.amazon.awscdk.services.ecs.ProxyConfiguration] = None,
     cpu: Option[String] = None,
     placementConstraints: Option[List[_ <: software.amazon.awscdk.services.ecs.PlacementConstraint]] = None,
@@ -25,10 +25,10 @@ object TaskDefinition {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecs.TaskDefinition =
     software.amazon.awscdk.services.ecs.TaskDefinition.Builder
       .create(stackCtx, internalResourceId)
+      .compatibility(compatibility)
       .pidMode(pidMode.orNull)
       .memoryMiB(memoryMiB.orNull)
       .ipcMode(ipcMode.orNull)
-      .compatibility(compatibility.orNull)
       .proxyConfiguration(proxyConfiguration.orNull)
       .cpu(cpu.orNull)
       .placementConstraints(placementConstraints.map(_.asJava).orNull)

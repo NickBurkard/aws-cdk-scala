@@ -8,16 +8,16 @@ object CfnAnalyzer {
 
   def apply(
     internalResourceId: String,
+    `type`: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     analyzerName: Option[String] = None,
-    `type`: Option[String] = None,
     archiveRules: Option[List[_]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.accessanalyzer.CfnAnalyzer =
     software.amazon.awscdk.services.accessanalyzer.CfnAnalyzer.Builder
       .create(stackCtx, internalResourceId)
+      .`type`(`type`)
       .tags(tags.map(_.asJava).orNull)
       .analyzerName(analyzerName.orNull)
-      .`type`(`type`.orNull)
       .archiveRules(archiveRules.map(_.asJava).orNull)
       .build()
 }

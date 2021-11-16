@@ -5,16 +5,16 @@ object CfnBaiduChannel {
 
   def apply(
     internalResourceId: String,
-    apiKey: Option[String] = None,
-    secretKey: Option[String] = None,
-    applicationId: Option[String] = None,
+    apiKey: String,
+    secretKey: String,
+    applicationId: String,
     enabled: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.pinpoint.CfnBaiduChannel =
     software.amazon.awscdk.services.pinpoint.CfnBaiduChannel.Builder
       .create(stackCtx, internalResourceId)
-      .apiKey(apiKey.orNull)
-      .secretKey(secretKey.orNull)
-      .applicationId(applicationId.orNull)
+      .apiKey(apiKey)
+      .secretKey(secretKey)
+      .applicationId(applicationId)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

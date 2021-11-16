@@ -5,13 +5,13 @@ object CfnSecurityGroupIngress {
 
   def apply(
     internalResourceId: String,
+    ipProtocol: String,
     sourceSecurityGroupName: Option[String] = None,
     sourcePrefixListId: Option[String] = None,
     sourceSecurityGroupId: Option[String] = None,
     toPort: Option[Number] = None,
     description: Option[String] = None,
     sourceSecurityGroupOwnerId: Option[String] = None,
-    ipProtocol: Option[String] = None,
     groupId: Option[String] = None,
     fromPort: Option[Number] = None,
     groupName: Option[String] = None,
@@ -20,13 +20,13 @@ object CfnSecurityGroupIngress {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.CfnSecurityGroupIngress =
     software.amazon.awscdk.services.ec2.CfnSecurityGroupIngress.Builder
       .create(stackCtx, internalResourceId)
+      .ipProtocol(ipProtocol)
       .sourceSecurityGroupName(sourceSecurityGroupName.orNull)
       .sourcePrefixListId(sourcePrefixListId.orNull)
       .sourceSecurityGroupId(sourceSecurityGroupId.orNull)
       .toPort(toPort.orNull)
       .description(description.orNull)
       .sourceSecurityGroupOwnerId(sourceSecurityGroupOwnerId.orNull)
-      .ipProtocol(ipProtocol.orNull)
       .groupId(groupId.orNull)
       .fromPort(fromPort.orNull)
       .groupName(groupName.orNull)

@@ -8,14 +8,14 @@ object CfnVirtualCluster {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    containerProvider: Option[software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.ContainerProviderProperty] = None
+    name: String,
+    containerProvider: software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.ContainerProviderProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster =
     software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
+      .name(name)
+      .containerProvider(containerProvider)
       .tags(tags.map(_.asJava).orNull)
-      .containerProvider(containerProvider.orNull)
       .build()
 }

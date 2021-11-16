@@ -8,16 +8,16 @@ object GatewayResponse {
 
   def apply(
     internalResourceId: String,
+    restApi: software.amazon.awscdk.services.apigateway.IRestApi,
     statusCode: Option[String] = None,
-    restApi: Option[software.amazon.awscdk.services.apigateway.IRestApi] = None,
     responseHeaders: Option[Map[String, String]] = None,
     templates: Option[Map[String, String]] = None,
     `type`: Option[software.amazon.awscdk.services.apigateway.ResponseType] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.apigateway.GatewayResponse =
     software.amazon.awscdk.services.apigateway.GatewayResponse.Builder
       .create(stackCtx, internalResourceId)
+      .restApi(restApi)
       .statusCode(statusCode.orNull)
-      .restApi(restApi.orNull)
       .responseHeaders(responseHeaders.map(_.asJava).orNull)
       .templates(templates.map(_.asJava).orNull)
       .`type`(`type`.orNull)

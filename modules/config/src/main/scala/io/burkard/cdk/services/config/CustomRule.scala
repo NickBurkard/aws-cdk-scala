@@ -8,9 +8,9 @@ object CustomRule {
 
   def apply(
     internalResourceId: String,
+    lambdaFunction: software.amazon.awscdk.services.lambda.IFunction,
     description: Option[String] = None,
     configurationChanges: Option[Boolean] = None,
-    lambdaFunction: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     ruleScope: Option[software.amazon.awscdk.services.config.RuleScope] = None,
     maximumExecutionFrequency: Option[software.amazon.awscdk.services.config.MaximumExecutionFrequency] = None,
     periodic: Option[Boolean] = None,
@@ -19,9 +19,9 @@ object CustomRule {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.config.CustomRule =
     software.amazon.awscdk.services.config.CustomRule.Builder
       .create(stackCtx, internalResourceId)
+      .lambdaFunction(lambdaFunction)
       .description(description.orNull)
       .configurationChanges(configurationChanges.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .lambdaFunction(lambdaFunction.orNull)
       .ruleScope(ruleScope.orNull)
       .maximumExecutionFrequency(maximumExecutionFrequency.orNull)
       .periodic(periodic.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

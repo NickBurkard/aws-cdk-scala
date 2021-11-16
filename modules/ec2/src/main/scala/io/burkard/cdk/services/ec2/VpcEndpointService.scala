@@ -8,7 +8,7 @@ object VpcEndpointService {
 
   def apply(
     internalResourceId: String,
-    vpcEndpointServiceLoadBalancers: Option[List[_ <: software.amazon.awscdk.services.ec2.IVpcEndpointServiceLoadBalancer]] = None,
+    vpcEndpointServiceLoadBalancers: List[_ <: software.amazon.awscdk.services.ec2.IVpcEndpointServiceLoadBalancer],
     whitelistedPrincipals: Option[List[_ <: software.amazon.awscdk.services.iam.ArnPrincipal]] = None,
     vpcEndpointServiceName: Option[String] = None,
     allowedPrincipals: Option[List[_ <: software.amazon.awscdk.services.iam.ArnPrincipal]] = None,
@@ -16,7 +16,7 @@ object VpcEndpointService {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ec2.VpcEndpointService =
     software.amazon.awscdk.services.ec2.VpcEndpointService.Builder
       .create(stackCtx, internalResourceId)
-      .vpcEndpointServiceLoadBalancers(vpcEndpointServiceLoadBalancers.map(_.asJava).orNull)
+      .vpcEndpointServiceLoadBalancers(vpcEndpointServiceLoadBalancers.asJava)
       .whitelistedPrincipals(whitelistedPrincipals.map(_.asJava).orNull)
       .vpcEndpointServiceName(vpcEndpointServiceName.orNull)
       .allowedPrincipals(allowedPrincipals.map(_.asJava).orNull)

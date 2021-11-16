@@ -5,14 +5,14 @@ object CfnResourceSpecificLogging {
 
   def apply(
     internalResourceId: String,
-    targetName: Option[String] = None,
-    targetType: Option[String] = None,
-    logLevel: Option[String] = None
+    targetName: String,
+    targetType: String,
+    logLevel: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iot.CfnResourceSpecificLogging =
     software.amazon.awscdk.services.iot.CfnResourceSpecificLogging.Builder
       .create(stackCtx, internalResourceId)
-      .targetName(targetName.orNull)
-      .targetType(targetType.orNull)
-      .logLevel(logLevel.orNull)
+      .targetName(targetName)
+      .targetType(targetType)
+      .logLevel(logLevel)
       .build()
 }

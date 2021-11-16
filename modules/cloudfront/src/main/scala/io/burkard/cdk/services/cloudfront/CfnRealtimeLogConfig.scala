@@ -8,16 +8,16 @@ object CfnRealtimeLogConfig {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    endPoints: Option[List[_]] = None,
-    samplingRate: Option[Number] = None,
-    fields: Option[List[String]] = None
+    name: String,
+    endPoints: List[_],
+    samplingRate: Number,
+    fields: List[String]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig =
     software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig.Builder
       .create(stackCtx, internalResourceId)
-      .name(name.orNull)
-      .endPoints(endPoints.map(_.asJava).orNull)
-      .samplingRate(samplingRate.orNull)
-      .fields(fields.map(_.asJava).orNull)
+      .name(name)
+      .endPoints(endPoints.asJava)
+      .samplingRate(samplingRate)
+      .fields(fields.asJava)
       .build()
 }

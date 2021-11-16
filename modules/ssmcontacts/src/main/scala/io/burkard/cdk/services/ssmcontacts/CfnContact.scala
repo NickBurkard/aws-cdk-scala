@@ -8,16 +8,16 @@ object CfnContact {
 
   def apply(
     internalResourceId: String,
-    displayName: Option[String] = None,
-    alias: Option[String] = None,
-    `type`: Option[String] = None,
-    plan: Option[List[_]] = None
+    displayName: String,
+    alias: String,
+    `type`: String,
+    plan: List[_]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ssmcontacts.CfnContact =
     software.amazon.awscdk.services.ssmcontacts.CfnContact.Builder
       .create(stackCtx, internalResourceId)
-      .displayName(displayName.orNull)
-      .alias(alias.orNull)
-      .`type`(`type`.orNull)
-      .plan(plan.map(_.asJava).orNull)
+      .displayName(displayName)
+      .alias(alias)
+      .`type`(`type`)
+      .plan(plan.asJava)
       .build()
 }

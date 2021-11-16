@@ -8,16 +8,16 @@ object CfnLocationEFS {
 
   def apply(
     internalResourceId: String,
+    efsFilesystemArn: String,
+    ec2Config: software.amazon.awscdk.services.datasync.CfnLocationEFS.Ec2ConfigProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    efsFilesystemArn: Option[String] = None,
-    ec2Config: Option[software.amazon.awscdk.services.datasync.CfnLocationEFS.Ec2ConfigProperty] = None,
     subdirectory: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.datasync.CfnLocationEFS =
     software.amazon.awscdk.services.datasync.CfnLocationEFS.Builder
       .create(stackCtx, internalResourceId)
+      .efsFilesystemArn(efsFilesystemArn)
+      .ec2Config(ec2Config)
       .tags(tags.map(_.asJava).orNull)
-      .efsFilesystemArn(efsFilesystemArn.orNull)
-      .ec2Config(ec2Config.orNull)
       .subdirectory(subdirectory.orNull)
       .build()
 }

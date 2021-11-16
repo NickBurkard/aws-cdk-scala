@@ -5,14 +5,14 @@ object CfnResourceAssociation {
 
   def apply(
     internalResourceId: String,
-    application: Option[String] = None,
-    resourceType: Option[String] = None,
-    resource: Option[String] = None
+    application: String,
+    resourceType: String,
+    resource: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.servicecatalogappregistry.CfnResourceAssociation =
     software.amazon.awscdk.services.servicecatalogappregistry.CfnResourceAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .application(application.orNull)
-      .resourceType(resourceType.orNull)
-      .resource(resource.orNull)
+      .application(application)
+      .resourceType(resourceType)
+      .resource(resource)
       .build()
 }

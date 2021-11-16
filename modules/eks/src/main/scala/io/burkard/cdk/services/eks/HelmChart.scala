@@ -8,6 +8,7 @@ object HelmChart {
 
   def apply(
     internalResourceId: String,
+    cluster: software.amazon.awscdk.services.eks.ICluster,
     createNamespace: Option[Boolean] = None,
     repository: Option[String] = None,
     chart: Option[String] = None,
@@ -15,11 +16,11 @@ object HelmChart {
     release: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
     namespace: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.eks.ICluster] = None,
     version: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.eks.HelmChart =
     software.amazon.awscdk.services.eks.HelmChart.Builder
       .create(stackCtx, internalResourceId)
+      .cluster(cluster)
       .createNamespace(createNamespace.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .repository(repository.orNull)
       .chart(chart.orNull)
@@ -27,7 +28,6 @@ object HelmChart {
       .release(release.orNull)
       .timeout(timeout.orNull)
       .namespace(namespace.orNull)
-      .cluster(cluster.orNull)
       .version(version.orNull)
       .build()
 }

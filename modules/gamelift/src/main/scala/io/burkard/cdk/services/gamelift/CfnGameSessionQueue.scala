@@ -8,8 +8,8 @@ object CfnGameSessionQueue {
 
   def apply(
     internalResourceId: String,
+    name: String,
     timeoutInSeconds: Option[Number] = None,
-    name: Option[String] = None,
     customEventData: Option[String] = None,
     destinations: Option[List[_]] = None,
     priorityConfiguration: Option[software.amazon.awscdk.services.gamelift.CfnGameSessionQueue.PriorityConfigurationProperty] = None,
@@ -19,8 +19,8 @@ object CfnGameSessionQueue {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.gamelift.CfnGameSessionQueue =
     software.amazon.awscdk.services.gamelift.CfnGameSessionQueue.Builder
       .create(stackCtx, internalResourceId)
+      .name(name)
       .timeoutInSeconds(timeoutInSeconds.orNull)
-      .name(name.orNull)
       .customEventData(customEventData.orNull)
       .destinations(destinations.map(_.asJava).orNull)
       .priorityConfiguration(priorityConfiguration.orNull)

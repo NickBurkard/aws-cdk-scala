@@ -5,12 +5,12 @@ object CfnWebACLAssociation {
 
   def apply(
     internalResourceId: String,
-    resourceArn: Option[String] = None,
-    webAclArn: Option[String] = None
+    resourceArn: String,
+    webAclArn: String
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.wafv2.CfnWebACLAssociation =
     software.amazon.awscdk.services.wafv2.CfnWebACLAssociation.Builder
       .create(stackCtx, internalResourceId)
-      .resourceArn(resourceArn.orNull)
-      .webAclArn(webAclArn.orNull)
+      .resourceArn(resourceArn)
+      .webAclArn(webAclArn)
       .build()
 }

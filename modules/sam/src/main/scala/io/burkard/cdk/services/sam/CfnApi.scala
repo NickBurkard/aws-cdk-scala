@@ -8,6 +8,7 @@ object CfnApi {
 
   def apply(
     internalResourceId: String,
+    stageName: String,
     openApiVersion: Option[String] = None,
     name: Option[String] = None,
     auth: Option[software.amazon.awscdk.services.sam.CfnApi.AuthProperty] = None,
@@ -17,10 +18,9 @@ object CfnApi {
     cacheClusterEnabled: Option[Boolean] = None,
     cors0: Option[String] = None,
     cors1: Option[software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty] = None,
-    stageName: Option[String] = None,
     accessLogSetting: Option[software.amazon.awscdk.services.sam.CfnApi.AccessLogSettingProperty] = None,
-    endpointConfiguration0: Option[String] = None,
-    endpointConfiguration1: Option[software.amazon.awscdk.services.sam.CfnApi.EndpointConfigurationProperty] = None,
+    endpointConfiguration0: Option[software.amazon.awscdk.services.sam.CfnApi.EndpointConfigurationProperty] = None,
+    endpointConfiguration1: Option[String] = None,
     models: Option[Map[String, String]] = None,
     minimumCompressionSize: Option[Number] = None,
     description: Option[String] = None,
@@ -35,6 +35,7 @@ object CfnApi {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.sam.CfnApi =
     software.amazon.awscdk.services.sam.CfnApi.Builder
       .create(stackCtx, internalResourceId)
+      .stageName(stageName)
       .openApiVersion(openApiVersion.orNull)
       .name(name.orNull)
       .auth(auth.orNull)
@@ -44,7 +45,6 @@ object CfnApi {
       .cacheClusterEnabled(cacheClusterEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cors(cors0.orNull)
       .cors(cors1.orNull)
-      .stageName(stageName.orNull)
       .accessLogSetting(accessLogSetting.orNull)
       .endpointConfiguration(endpointConfiguration0.orNull)
       .endpointConfiguration(endpointConfiguration1.orNull)

@@ -8,10 +8,10 @@ object SqsSendMessage {
 
   def apply(
     internalResourceId: String,
+    queue: software.amazon.awscdk.services.sqs.IQueue,
+    messageBody: software.amazon.awscdk.services.stepfunctions.TaskInput,
     delay: Option[software.amazon.awscdk.Duration] = None,
     messageDeduplicationId: Option[String] = None,
-    queue: Option[software.amazon.awscdk.services.sqs.IQueue] = None,
-    messageBody: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
     resultPath: Option[String] = None,
     messageGroupId: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
@@ -24,10 +24,10 @@ object SqsSendMessage {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.stepfunctions.tasks.SqsSendMessage =
     software.amazon.awscdk.services.stepfunctions.tasks.SqsSendMessage.Builder
       .create(stackCtx, internalResourceId)
+      .queue(queue)
+      .messageBody(messageBody)
       .delay(delay.orNull)
       .messageDeduplicationId(messageDeduplicationId.orNull)
-      .queue(queue.orNull)
-      .messageBody(messageBody.orNull)
       .resultPath(resultPath.orNull)
       .messageGroupId(messageGroupId.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)

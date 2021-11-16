@@ -8,11 +8,11 @@ object CfnStack {
 
   def apply(
     internalResourceId: String,
+    defaultInstanceProfileArn: String,
+    name: String,
+    serviceRoleArn: String,
     sourceStackId: Option[String] = None,
-    defaultInstanceProfileArn: Option[String] = None,
-    name: Option[String] = None,
     vpcId: Option[String] = None,
-    serviceRoleArn: Option[String] = None,
     defaultRootDeviceType: Option[String] = None,
     attributes: Option[Map[String, String]] = None,
     customJson: Option[AnyRef] = None,
@@ -36,11 +36,11 @@ object CfnStack {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.opsworks.CfnStack =
     software.amazon.awscdk.services.opsworks.CfnStack.Builder
       .create(stackCtx, internalResourceId)
+      .defaultInstanceProfileArn(defaultInstanceProfileArn)
+      .name(name)
+      .serviceRoleArn(serviceRoleArn)
       .sourceStackId(sourceStackId.orNull)
-      .defaultInstanceProfileArn(defaultInstanceProfileArn.orNull)
-      .name(name.orNull)
       .vpcId(vpcId.orNull)
-      .serviceRoleArn(serviceRoleArn.orNull)
       .defaultRootDeviceType(defaultRootDeviceType.orNull)
       .attributes(attributes.map(_.asJava).orNull)
       .customJson(customJson.orNull)

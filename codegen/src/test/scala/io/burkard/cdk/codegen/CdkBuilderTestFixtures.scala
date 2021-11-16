@@ -3,6 +3,7 @@ package io.burkard.cdk.codegen
 import software.amazon.awscdk.Tag
 import software.amazon.awscdk.services.cloudwatch.CfnDashboardProps
 import software.amazon.awscdk.services.ec2.Connections
+import software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2
 import software.amazon.awscdk.services.route53.CaaRecord
 
 object CdkBuilderTestFixtures {
@@ -79,6 +80,14 @@ object CdkBuilderTestFixtures {
         constructorType = CdkBuilder.ConstructorType.DirectConstructorNoParameters,
         underlying = directConstructorBuilderClass
       )
+
+    val requiredFieldsServiceName: String = "kinesisanalytics"
+
+    lazy val requiredFieldsBuilderClass: Class[CfnApplicationV2.Builder] =
+      classOf[CfnApplicationV2.Builder]
+
+    val requiredFieldsNames: Set[String] =
+      Set("serviceExecutionRole", "runtimeEnvironment")
   }
 
   object Invalid {

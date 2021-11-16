@@ -8,16 +8,16 @@ object CfnEndpointAuthorization {
 
   def apply(
     internalResourceId: String,
+    clusterIdentifier: String,
+    account: String,
     force: Option[Boolean] = None,
-    clusterIdentifier: Option[String] = None,
-    vpcIds: Option[List[String]] = None,
-    account: Option[String] = None
+    vpcIds: Option[List[String]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.redshift.CfnEndpointAuthorization =
     software.amazon.awscdk.services.redshift.CfnEndpointAuthorization.Builder
       .create(stackCtx, internalResourceId)
+      .clusterIdentifier(clusterIdentifier)
+      .account(account)
       .force(force.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .clusterIdentifier(clusterIdentifier.orNull)
       .vpcIds(vpcIds.map(_.asJava).orNull)
-      .account(account.orNull)
       .build()
 }

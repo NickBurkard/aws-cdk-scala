@@ -8,12 +8,12 @@ object CfnListenerCertificate {
 
   def apply(
     internalResourceId: String,
-    listenerArn: Option[String] = None,
-    certificates: Option[List[_]] = None
+    listenerArn: String,
+    certificates: List[_]
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerCertificate =
     software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerCertificate.Builder
       .create(stackCtx, internalResourceId)
-      .listenerArn(listenerArn.orNull)
-      .certificates(certificates.map(_.asJava).orNull)
+      .listenerArn(listenerArn)
+      .certificates(certificates.asJava)
       .build()
 }

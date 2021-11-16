@@ -8,12 +8,12 @@ object CfnPackage {
 
   def apply(
     internalResourceId: String,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    packageName: Option[String] = None
+    packageName: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.panorama.CfnPackage =
     software.amazon.awscdk.services.panorama.CfnPackage.Builder
       .create(stackCtx, internalResourceId)
+      .packageName(packageName)
       .tags(tags.map(_.asJava).orNull)
-      .packageName(packageName.orNull)
       .build()
 }
