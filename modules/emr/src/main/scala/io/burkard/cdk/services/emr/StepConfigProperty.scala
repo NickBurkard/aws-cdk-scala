@@ -4,13 +4,13 @@ package io.burkard.cdk.services.emr
 object StepConfigProperty {
 
   def apply(
-    name: Option[String] = None,
-    hadoopJarStep: Option[software.amazon.awscdk.services.emr.CfnCluster.HadoopJarStepConfigProperty] = None,
+    name: String,
+    hadoopJarStep: software.amazon.awscdk.services.emr.CfnCluster.HadoopJarStepConfigProperty,
     actionOnFailure: Option[String] = None
   ): software.amazon.awscdk.services.emr.CfnCluster.StepConfigProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.StepConfigProperty.Builder)
-      .name(name.orNull)
-      .hadoopJarStep(hadoopJarStep.orNull)
+      .name(name)
+      .hadoopJarStep(hadoopJarStep)
       .actionOnFailure(actionOnFailure.orNull)
       .build()
 }

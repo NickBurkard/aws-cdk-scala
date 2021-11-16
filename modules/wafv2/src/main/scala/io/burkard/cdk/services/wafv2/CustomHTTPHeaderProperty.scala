@@ -4,11 +4,11 @@ package io.burkard.cdk.services.wafv2
 object CustomHTTPHeaderProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.CustomHTTPHeaderProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.CustomHTTPHeaderProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

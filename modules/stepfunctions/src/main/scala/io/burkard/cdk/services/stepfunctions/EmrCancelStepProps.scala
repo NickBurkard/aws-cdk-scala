@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object EmrCancelStepProps {
 
   def apply(
+    clusterId: String,
+    stepId: String,
     resultPath: Option[String] = None,
-    clusterId: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
-    stepId: Option[String] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
     outputPath: Option[String] = None,
@@ -19,10 +19,10 @@ object EmrCancelStepProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCancelStepProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCancelStepProps.Builder)
+      .clusterId(clusterId)
+      .stepId(stepId)
       .resultPath(resultPath.orNull)
-      .clusterId(clusterId.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .stepId(stepId.orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)
       .outputPath(outputPath.orNull)

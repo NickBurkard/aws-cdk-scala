@@ -4,13 +4,13 @@ package io.burkard.cdk.services.waf
 object PredicateProperty {
 
   def apply(
-    dataId: Option[String] = None,
-    `type`: Option[String] = None,
-    negated: Option[Boolean] = None
+    dataId: String,
+    `type`: String,
+    negated: Boolean
   ): software.amazon.awscdk.services.waf.CfnRule.PredicateProperty =
     (new software.amazon.awscdk.services.waf.CfnRule.PredicateProperty.Builder)
-      .dataId(dataId.orNull)
-      .`type`(`type`.orNull)
-      .negated(negated.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .dataId(dataId)
+      .`type`(`type`)
+      .negated(negated)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.elasticbeanstalk
 object SourceBundleProperty {
 
   def apply(
-    s3Bucket: Option[String] = None,
-    s3Key: Option[String] = None
+    s3Bucket: String,
+    s3Key: String
   ): software.amazon.awscdk.services.elasticbeanstalk.CfnApplicationVersion.SourceBundleProperty =
     (new software.amazon.awscdk.services.elasticbeanstalk.CfnApplicationVersion.SourceBundleProperty.Builder)
-      .s3Bucket(s3Bucket.orNull)
-      .s3Key(s3Key.orNull)
+      .s3Bucket(s3Bucket)
+      .s3Key(s3Key)
       .build()
 }

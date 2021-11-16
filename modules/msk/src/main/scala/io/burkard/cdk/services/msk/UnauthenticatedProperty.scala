@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object UnauthenticatedProperty {
 
   def apply(
-    enabled: Option[Boolean] = None
+    enabled: Boolean
   ): software.amazon.awscdk.services.msk.CfnCluster.UnauthenticatedProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.UnauthenticatedProperty.Builder)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enabled(enabled)
       .build()
 }

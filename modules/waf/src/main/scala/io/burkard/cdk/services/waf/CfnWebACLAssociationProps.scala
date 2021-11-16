@@ -4,11 +4,11 @@ package io.burkard.cdk.services.waf
 object CfnWebACLAssociationProps {
 
   def apply(
-    resourceArn: Option[String] = None,
-    webAclId: Option[String] = None
+    resourceArn: String,
+    webAclId: String
   ): software.amazon.awscdk.services.waf.regional.CfnWebACLAssociationProps =
     (new software.amazon.awscdk.services.waf.regional.CfnWebACLAssociationProps.Builder)
-      .resourceArn(resourceArn.orNull)
-      .webAclId(webAclId.orNull)
+      .resourceArn(resourceArn)
+      .webAclId(webAclId)
       .build()
 }

@@ -4,25 +4,25 @@ package io.burkard.cdk.services.kinesisfirehose
 object SplunkDestinationConfigurationProperty {
 
   def apply(
-    hecEndpoint: Option[String] = None,
+    hecEndpoint: String,
+    hecToken: String,
+    s3Configuration: software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.S3DestinationConfigurationProperty,
+    hecEndpointType: String,
     hecAcknowledgmentTimeoutInSeconds: Option[Number] = None,
     cloudWatchLoggingOptions: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.CloudWatchLoggingOptionsProperty] = None,
-    hecToken: Option[String] = None,
-    s3Configuration: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.S3DestinationConfigurationProperty] = None,
     retryOptions: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.SplunkRetryOptionsProperty] = None,
     processingConfiguration: Option[software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.ProcessingConfigurationProperty] = None,
-    hecEndpointType: Option[String] = None,
     s3BackupMode: Option[String] = None
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.SplunkDestinationConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.SplunkDestinationConfigurationProperty.Builder)
-      .hecEndpoint(hecEndpoint.orNull)
+      .hecEndpoint(hecEndpoint)
+      .hecToken(hecToken)
+      .s3Configuration(s3Configuration)
+      .hecEndpointType(hecEndpointType)
       .hecAcknowledgmentTimeoutInSeconds(hecAcknowledgmentTimeoutInSeconds.orNull)
       .cloudWatchLoggingOptions(cloudWatchLoggingOptions.orNull)
-      .hecToken(hecToken.orNull)
-      .s3Configuration(s3Configuration.orNull)
       .retryOptions(retryOptions.orNull)
       .processingConfiguration(processingConfiguration.orNull)
-      .hecEndpointType(hecEndpointType.orNull)
       .s3BackupMode(s3BackupMode.orNull)
       .build()
 }

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.sagemaker
 object ClusterConfigProperty {
 
   def apply(
-    volumeSizeInGb: Option[Number] = None,
-    volumeKmsKeyId: Option[String] = None,
-    instanceType: Option[String] = None,
-    instanceCount: Option[Number] = None
+    volumeSizeInGb: Number,
+    instanceType: String,
+    instanceCount: Number,
+    volumeKmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty.Builder)
-      .volumeSizeInGb(volumeSizeInGb.orNull)
+      .volumeSizeInGb(volumeSizeInGb)
+      .instanceType(instanceType)
+      .instanceCount(instanceCount)
       .volumeKmsKeyId(volumeKmsKeyId.orNull)
-      .instanceType(instanceType.orNull)
-      .instanceCount(instanceCount.orNull)
       .build()
 }

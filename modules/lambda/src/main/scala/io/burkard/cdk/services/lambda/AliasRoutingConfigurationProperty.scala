@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AliasRoutingConfigurationProperty {
 
   def apply(
-    additionalVersionWeights: Option[List[_]] = None
+    additionalVersionWeights: List[_]
   ): software.amazon.awscdk.services.lambda.CfnAlias.AliasRoutingConfigurationProperty =
     (new software.amazon.awscdk.services.lambda.CfnAlias.AliasRoutingConfigurationProperty.Builder)
-      .additionalVersionWeights(additionalVersionWeights.map(_.asJava).orNull)
+      .additionalVersionWeights(additionalVersionWeights.asJava)
       .build()
 }

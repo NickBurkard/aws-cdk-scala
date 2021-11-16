@@ -4,13 +4,13 @@ package io.burkard.cdk.services.pinpoint
 object CfnGCMChannelProps {
 
   def apply(
-    apiKey: Option[String] = None,
-    applicationId: Option[String] = None,
+    apiKey: String,
+    applicationId: String,
     enabled: Option[Boolean] = None
   ): software.amazon.awscdk.services.pinpoint.CfnGCMChannelProps =
     (new software.amazon.awscdk.services.pinpoint.CfnGCMChannelProps.Builder)
-      .apiKey(apiKey.orNull)
-      .applicationId(applicationId.orNull)
+      .apiKey(apiKey)
+      .applicationId(applicationId)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

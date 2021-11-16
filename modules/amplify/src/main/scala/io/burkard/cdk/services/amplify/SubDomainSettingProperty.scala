@@ -4,11 +4,11 @@ package io.burkard.cdk.services.amplify
 object SubDomainSettingProperty {
 
   def apply(
-    prefix: Option[String] = None,
-    branchName: Option[String] = None
+    prefix: String,
+    branchName: String
   ): software.amazon.awscdk.services.amplify.CfnDomain.SubDomainSettingProperty =
     (new software.amazon.awscdk.services.amplify.CfnDomain.SubDomainSettingProperty.Builder)
-      .prefix(prefix.orNull)
-      .branchName(branchName.orNull)
+      .prefix(prefix)
+      .branchName(branchName)
       .build()
 }

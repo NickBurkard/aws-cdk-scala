@@ -4,9 +4,9 @@ package io.burkard.cdk.services.gamelift
 object TargetTrackingConfigurationProperty {
 
   def apply(
-    targetValue: Option[Number] = None
+    targetValue: Number
   ): software.amazon.awscdk.services.gamelift.CfnGameServerGroup.TargetTrackingConfigurationProperty =
     (new software.amazon.awscdk.services.gamelift.CfnGameServerGroup.TargetTrackingConfigurationProperty.Builder)
-      .targetValue(targetValue.orNull)
+      .targetValue(targetValue)
       .build()
 }

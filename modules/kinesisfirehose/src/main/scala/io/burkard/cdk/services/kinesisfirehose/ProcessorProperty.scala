@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ProcessorProperty {
 
   def apply(
-    `type`: Option[String] = None,
+    `type`: String,
     parameters: Option[List[_]] = None
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.ProcessorProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.ProcessorProperty.Builder)
-      .`type`(`type`.orNull)
+      .`type`(`type`)
       .parameters(parameters.map(_.asJava).orNull)
       .build()
 }

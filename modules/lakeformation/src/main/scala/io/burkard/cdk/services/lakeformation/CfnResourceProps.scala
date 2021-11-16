@@ -4,13 +4,13 @@ package io.burkard.cdk.services.lakeformation
 object CfnResourceProps {
 
   def apply(
-    resourceArn: Option[String] = None,
-    useServiceLinkedRole: Option[Boolean] = None,
+    resourceArn: String,
+    useServiceLinkedRole: Boolean,
     roleArn: Option[String] = None
   ): software.amazon.awscdk.services.lakeformation.CfnResourceProps =
     (new software.amazon.awscdk.services.lakeformation.CfnResourceProps.Builder)
-      .resourceArn(resourceArn.orNull)
-      .useServiceLinkedRole(useServiceLinkedRole.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .resourceArn(resourceArn)
+      .useServiceLinkedRole(useServiceLinkedRole)
       .roleArn(roleArn.orNull)
       .build()
 }

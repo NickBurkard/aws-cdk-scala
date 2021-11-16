@@ -4,9 +4,9 @@ package io.burkard.cdk.services.kinesisanalytics
 object KinesisFirehoseOutputProperty {
 
   def apply(
-    resourceArn: Option[String] = None
+    resourceArn: String
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.KinesisFirehoseOutputProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationOutputV2.KinesisFirehoseOutputProperty.Builder)
-      .resourceArn(resourceArn.orNull)
+      .resourceArn(resourceArn)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object LogConfigurationProperty {
 
   def apply(
+    logDriver: String,
     secretOptions: Option[List[_]] = None,
-    logDriver: Option[String] = None,
     options: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.ecs.CfnTaskDefinition.LogConfigurationProperty =
     (new software.amazon.awscdk.services.ecs.CfnTaskDefinition.LogConfigurationProperty.Builder)
+      .logDriver(logDriver)
       .secretOptions(secretOptions.map(_.asJava).orNull)
-      .logDriver(logDriver.orNull)
       .options(options.map(_.asJava).orNull)
       .build()
 }

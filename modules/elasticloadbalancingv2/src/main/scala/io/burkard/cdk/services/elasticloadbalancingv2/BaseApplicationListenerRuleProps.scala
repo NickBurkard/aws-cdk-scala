@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object BaseApplicationListenerRuleProps {
 
   def apply(
+    priority: Number,
     conditions: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.ListenerCondition]] = None,
-    priority: Option[Number] = None,
     pathPattern: Option[String] = None,
     fixedResponse: Option[software.amazon.awscdk.services.elasticloadbalancingv2.FixedResponse] = None,
     redirectResponse: Option[software.amazon.awscdk.services.elasticloadbalancingv2.RedirectResponse] = None,
@@ -18,8 +18,8 @@ object BaseApplicationListenerRuleProps {
     pathPatterns: Option[List[String]] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.BaseApplicationListenerRuleProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.BaseApplicationListenerRuleProps.Builder)
+      .priority(priority)
       .conditions(conditions.map(_.asJava).orNull)
-      .priority(priority.orNull)
       .pathPattern(pathPattern.orNull)
       .fixedResponse(fixedResponse.orNull)
       .redirectResponse(redirectResponse.orNull)

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.amazonmq
 object TagsEntryProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.amazonmq.CfnBroker.TagsEntryProperty =
     (new software.amazon.awscdk.services.amazonmq.CfnBroker.TagsEntryProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

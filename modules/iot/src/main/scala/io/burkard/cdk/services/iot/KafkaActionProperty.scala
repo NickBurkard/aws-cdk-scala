@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object KafkaActionProperty {
 
   def apply(
+    clientProperties: Map[String, String],
+    destinationArn: String,
+    topic: String,
     partition: Option[String] = None,
-    clientProperties: Option[Map[String, String]] = None,
-    key: Option[String] = None,
-    destinationArn: Option[String] = None,
-    topic: Option[String] = None
+    key: Option[String] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.KafkaActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.KafkaActionProperty.Builder)
+      .clientProperties(clientProperties.asJava)
+      .destinationArn(destinationArn)
+      .topic(topic)
       .partition(partition.orNull)
-      .clientProperties(clientProperties.map(_.asJava).orNull)
       .key(key.orNull)
-      .destinationArn(destinationArn.orNull)
-      .topic(topic.orNull)
       .build()
 }

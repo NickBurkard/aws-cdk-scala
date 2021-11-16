@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object FrameOptionsProperty {
 
   def apply(
-    frameOption: Option[String] = None,
-    `override`: Option[Boolean] = None
+    frameOption: String,
+    `override`: Boolean
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.FrameOptionsProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.FrameOptionsProperty.Builder)
-      .frameOption(frameOption.orNull)
-      .`override`(`override`.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .frameOption(frameOption)
+      .`override`(`override`)
       .build()
 }

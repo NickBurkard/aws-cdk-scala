@@ -7,22 +7,22 @@ import scala.collection.JavaConverters._
 object CfnFirewallProps {
 
   def apply(
-    firewallPolicyArn: Option[String] = None,
-    subnetMappings: Option[List[_]] = None,
+    firewallPolicyArn: String,
+    subnetMappings: List[_],
+    vpcId: String,
+    firewallName: String,
     firewallPolicyChangeProtection: Option[Boolean] = None,
-    vpcId: Option[String] = None,
-    firewallName: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     subnetChangeProtection: Option[Boolean] = None,
     deleteProtection: Option[Boolean] = None
   ): software.amazon.awscdk.services.networkfirewall.CfnFirewallProps =
     (new software.amazon.awscdk.services.networkfirewall.CfnFirewallProps.Builder)
-      .firewallPolicyArn(firewallPolicyArn.orNull)
-      .subnetMappings(subnetMappings.map(_.asJava).orNull)
+      .firewallPolicyArn(firewallPolicyArn)
+      .subnetMappings(subnetMappings.asJava)
+      .vpcId(vpcId)
+      .firewallName(firewallName)
       .firewallPolicyChangeProtection(firewallPolicyChangeProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .vpcId(vpcId.orNull)
-      .firewallName(firewallName.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .subnetChangeProtection(subnetChangeProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

@@ -4,15 +4,15 @@ package io.burkard.cdk.services.servicecatalog
 object ProvisioningArtifactPropertiesProperty {
 
   def apply(
+    info: AnyRef,
     name: Option[String] = None,
     description: Option[String] = None,
-    disableTemplateValidation: Option[Boolean] = None,
-    info: Option[AnyRef] = None
+    disableTemplateValidation: Option[Boolean] = None
   ): software.amazon.awscdk.services.servicecatalog.CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty =
     (new software.amazon.awscdk.services.servicecatalog.CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty.Builder)
+      .info(info)
       .name(name.orNull)
       .description(description.orNull)
       .disableTemplateValidation(disableTemplateValidation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .info(info.orNull)
       .build()
 }

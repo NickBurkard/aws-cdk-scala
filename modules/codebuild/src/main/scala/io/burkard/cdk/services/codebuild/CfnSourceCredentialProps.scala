@@ -4,15 +4,15 @@ package io.burkard.cdk.services.codebuild
 object CfnSourceCredentialProps {
 
   def apply(
-    username: Option[String] = None,
-    authType: Option[String] = None,
-    token: Option[String] = None,
-    serverType: Option[String] = None
+    authType: String,
+    token: String,
+    serverType: String,
+    username: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.CfnSourceCredentialProps =
     (new software.amazon.awscdk.services.codebuild.CfnSourceCredentialProps.Builder)
+      .authType(authType)
+      .token(token)
+      .serverType(serverType)
       .username(username.orNull)
-      .authType(authType.orNull)
-      .token(token.orNull)
-      .serverType(serverType.orNull)
       .build()
 }

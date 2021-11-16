@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object DatadogConnectorProfilePropertiesProperty {
 
   def apply(
-    instanceUrl: Option[String] = None
+    instanceUrl: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.DatadogConnectorProfilePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.DatadogConnectorProfilePropertiesProperty.Builder)
-      .instanceUrl(instanceUrl.orNull)
+      .instanceUrl(instanceUrl)
       .build()
 }

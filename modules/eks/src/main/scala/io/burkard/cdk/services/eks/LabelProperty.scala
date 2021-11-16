@@ -4,11 +4,11 @@ package io.burkard.cdk.services.eks
 object LabelProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.eks.CfnFargateProfile.LabelProperty =
     (new software.amazon.awscdk.services.eks.CfnFargateProfile.LabelProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

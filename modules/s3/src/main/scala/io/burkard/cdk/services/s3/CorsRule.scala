@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CorsRule {
 
   def apply(
-    allowedMethods: Option[List[_ <: software.amazon.awscdk.services.s3.HttpMethods]] = None,
+    allowedMethods: List[_ <: software.amazon.awscdk.services.s3.HttpMethods],
+    allowedOrigins: List[String],
     exposedHeaders: Option[List[String]] = None,
     id: Option[String] = None,
     allowedHeaders: Option[List[String]] = None,
-    maxAge: Option[Number] = None,
-    allowedOrigins: Option[List[String]] = None
+    maxAge: Option[Number] = None
   ): software.amazon.awscdk.services.s3.CorsRule =
     (new software.amazon.awscdk.services.s3.CorsRule.Builder)
-      .allowedMethods(allowedMethods.map(_.asJava).orNull)
+      .allowedMethods(allowedMethods.asJava)
+      .allowedOrigins(allowedOrigins.asJava)
       .exposedHeaders(exposedHeaders.map(_.asJava).orNull)
       .id(id.orNull)
       .allowedHeaders(allowedHeaders.map(_.asJava).orNull)
       .maxAge(maxAge.orNull)
-      .allowedOrigins(allowedOrigins.map(_.asJava).orNull)
       .build()
 }

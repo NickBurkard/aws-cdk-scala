@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object NetworkLoadBalancedTaskImageProps {
 
   def apply(
+    image: software.amazon.awscdk.services.ecs.ContainerImage,
     containerName: Option[String] = None,
     secrets: Option[Map[String, _ <: software.amazon.awscdk.services.ecs.Secret]] = None,
     taskRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
@@ -16,10 +17,10 @@ object NetworkLoadBalancedTaskImageProps {
     environment: Option[Map[String, String]] = None,
     dockerLabels: Option[Map[String, String]] = None,
     family: Option[String] = None,
-    image: Option[software.amazon.awscdk.services.ecs.ContainerImage] = None,
     executionRole: Option[software.amazon.awscdk.services.iam.IRole] = None
   ): software.amazon.awscdk.services.ecs.patterns.NetworkLoadBalancedTaskImageProps =
     (new software.amazon.awscdk.services.ecs.patterns.NetworkLoadBalancedTaskImageProps.Builder)
+      .image(image)
       .containerName(containerName.orNull)
       .secrets(secrets.map(_.asJava).orNull)
       .taskRole(taskRole.orNull)
@@ -29,7 +30,6 @@ object NetworkLoadBalancedTaskImageProps {
       .environment(environment.map(_.asJava).orNull)
       .dockerLabels(dockerLabels.map(_.asJava).orNull)
       .family(family.orNull)
-      .image(image.orNull)
       .executionRole(executionRole.orNull)
       .build()
 }

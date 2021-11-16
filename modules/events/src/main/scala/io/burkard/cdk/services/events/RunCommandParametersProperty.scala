@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object RunCommandParametersProperty {
 
   def apply(
-    runCommandTargets: Option[List[_]] = None
+    runCommandTargets: List[_]
   ): software.amazon.awscdk.services.events.CfnRule.RunCommandParametersProperty =
     (new software.amazon.awscdk.services.events.CfnRule.RunCommandParametersProperty.Builder)
-      .runCommandTargets(runCommandTargets.map(_.asJava).orNull)
+      .runCommandTargets(runCommandTargets.asJava)
       .build()
 }

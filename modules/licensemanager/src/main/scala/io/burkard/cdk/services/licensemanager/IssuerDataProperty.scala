@@ -4,11 +4,11 @@ package io.burkard.cdk.services.licensemanager
 object IssuerDataProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     signKey: Option[String] = None
   ): software.amazon.awscdk.services.licensemanager.CfnLicense.IssuerDataProperty =
     (new software.amazon.awscdk.services.licensemanager.CfnLicense.IssuerDataProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .signKey(signKey.orNull)
       .build()
 }

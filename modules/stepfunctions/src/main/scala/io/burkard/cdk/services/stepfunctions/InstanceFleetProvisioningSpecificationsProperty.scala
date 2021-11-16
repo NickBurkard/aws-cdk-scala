@@ -4,9 +4,9 @@ package io.burkard.cdk.services.stepfunctions
 object InstanceFleetProvisioningSpecificationsProperty {
 
   def apply(
-    spotSpecification: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotProvisioningSpecificationProperty] = None
+    spotSpecification: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SpotProvisioningSpecificationProperty
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceFleetProvisioningSpecificationsProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceFleetProvisioningSpecificationsProperty.Builder)
-      .spotSpecification(spotSpecification.orNull)
+      .spotSpecification(spotSpecification)
       .build()
 }

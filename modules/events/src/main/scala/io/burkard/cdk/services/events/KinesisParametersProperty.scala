@@ -4,9 +4,9 @@ package io.burkard.cdk.services.events
 object KinesisParametersProperty {
 
   def apply(
-    partitionKeyPath: Option[String] = None
+    partitionKeyPath: String
   ): software.amazon.awscdk.services.events.CfnRule.KinesisParametersProperty =
     (new software.amazon.awscdk.services.events.CfnRule.KinesisParametersProperty.Builder)
-      .partitionKeyPath(partitionKeyPath.orNull)
+      .partitionKeyPath(partitionKeyPath)
       .build()
 }

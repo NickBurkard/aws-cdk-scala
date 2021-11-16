@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object MetricDimensionProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.MetricDimensionProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.MetricDimensionProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

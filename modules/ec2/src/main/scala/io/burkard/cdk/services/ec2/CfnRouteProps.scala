@@ -4,8 +4,8 @@ package io.burkard.cdk.services.ec2
 object CfnRouteProps {
 
   def apply(
+    routeTableId: String,
     instanceId: Option[String] = None,
-    routeTableId: Option[String] = None,
     gatewayId: Option[String] = None,
     localGatewayId: Option[String] = None,
     carrierGatewayId: Option[String] = None,
@@ -19,8 +19,8 @@ object CfnRouteProps {
     networkInterfaceId: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnRouteProps =
     (new software.amazon.awscdk.services.ec2.CfnRouteProps.Builder)
+      .routeTableId(routeTableId)
       .instanceId(instanceId.orNull)
-      .routeTableId(routeTableId.orNull)
       .gatewayId(gatewayId.orNull)
       .localGatewayId(localGatewayId.orNull)
       .carrierGatewayId(carrierGatewayId.orNull)

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object CfnNetworkInterfacePermissionProps {
 
   def apply(
-    awsAccountId: Option[String] = None,
-    permission: Option[String] = None,
-    networkInterfaceId: Option[String] = None
+    awsAccountId: String,
+    permission: String,
+    networkInterfaceId: String
   ): software.amazon.awscdk.services.ec2.CfnNetworkInterfacePermissionProps =
     (new software.amazon.awscdk.services.ec2.CfnNetworkInterfacePermissionProps.Builder)
-      .awsAccountId(awsAccountId.orNull)
-      .permission(permission.orNull)
-      .networkInterfaceId(networkInterfaceId.orNull)
+      .awsAccountId(awsAccountId)
+      .permission(permission)
+      .networkInterfaceId(networkInterfaceId)
       .build()
 }

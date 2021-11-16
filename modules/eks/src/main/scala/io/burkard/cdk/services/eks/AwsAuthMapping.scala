@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object AwsAuthMapping {
 
   def apply(
-    username: Option[String] = None,
-    groups: Option[List[String]] = None
+    groups: List[String],
+    username: Option[String] = None
   ): software.amazon.awscdk.services.eks.AwsAuthMapping =
     (new software.amazon.awscdk.services.eks.AwsAuthMapping.Builder)
+      .groups(groups.asJava)
       .username(username.orNull)
-      .groups(groups.map(_.asJava).orNull)
       .build()
 }

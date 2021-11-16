@@ -4,13 +4,13 @@ package io.burkard.cdk.services.glue
 object CfnTableProps {
 
   def apply(
-    catalogId: Option[String] = None,
-    tableInput: Option[software.amazon.awscdk.services.glue.CfnTable.TableInputProperty] = None,
-    databaseName: Option[String] = None
+    catalogId: String,
+    tableInput: software.amazon.awscdk.services.glue.CfnTable.TableInputProperty,
+    databaseName: String
   ): software.amazon.awscdk.services.glue.CfnTableProps =
     (new software.amazon.awscdk.services.glue.CfnTableProps.Builder)
-      .catalogId(catalogId.orNull)
-      .tableInput(tableInput.orNull)
-      .databaseName(databaseName.orNull)
+      .catalogId(catalogId)
+      .tableInput(tableInput)
+      .databaseName(databaseName)
       .build()
 }

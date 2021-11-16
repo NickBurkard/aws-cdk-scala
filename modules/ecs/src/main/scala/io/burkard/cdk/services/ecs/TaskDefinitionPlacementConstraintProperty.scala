@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object TaskDefinitionPlacementConstraintProperty {
 
   def apply(
-    expression: Option[String] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    expression: Option[String] = None
   ): software.amazon.awscdk.services.ecs.CfnTaskDefinition.TaskDefinitionPlacementConstraintProperty =
     (new software.amazon.awscdk.services.ecs.CfnTaskDefinition.TaskDefinitionPlacementConstraintProperty.Builder)
+      .`type`(`type`)
       .expression(expression.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

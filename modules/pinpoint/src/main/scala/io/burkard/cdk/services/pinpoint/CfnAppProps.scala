@@ -4,11 +4,11 @@ package io.burkard.cdk.services.pinpoint
 object CfnAppProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     tags: Option[AnyRef] = None
   ): software.amazon.awscdk.services.pinpoint.CfnAppProps =
     (new software.amazon.awscdk.services.pinpoint.CfnAppProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.orNull)
       .build()
 }

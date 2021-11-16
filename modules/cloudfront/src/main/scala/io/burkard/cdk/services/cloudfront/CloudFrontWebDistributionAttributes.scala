@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object CloudFrontWebDistributionAttributes {
 
   def apply(
-    domainName: Option[String] = None,
-    distributionId: Option[String] = None
+    domainName: String,
+    distributionId: String
   ): software.amazon.awscdk.services.cloudfront.CloudFrontWebDistributionAttributes =
     (new software.amazon.awscdk.services.cloudfront.CloudFrontWebDistributionAttributes.Builder)
-      .domainName(domainName.orNull)
-      .distributionId(distributionId.orNull)
+      .domainName(domainName)
+      .distributionId(distributionId)
       .build()
 }

@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object VpcEndpointServiceProps {
 
   def apply(
-    vpcEndpointServiceLoadBalancers: Option[List[_ <: software.amazon.awscdk.services.ec2.IVpcEndpointServiceLoadBalancer]] = None,
+    vpcEndpointServiceLoadBalancers: List[_ <: software.amazon.awscdk.services.ec2.IVpcEndpointServiceLoadBalancer],
     whitelistedPrincipals: Option[List[_ <: software.amazon.awscdk.services.iam.ArnPrincipal]] = None,
     vpcEndpointServiceName: Option[String] = None,
     allowedPrincipals: Option[List[_ <: software.amazon.awscdk.services.iam.ArnPrincipal]] = None,
     acceptanceRequired: Option[Boolean] = None
   ): software.amazon.awscdk.services.ec2.VpcEndpointServiceProps =
     (new software.amazon.awscdk.services.ec2.VpcEndpointServiceProps.Builder)
-      .vpcEndpointServiceLoadBalancers(vpcEndpointServiceLoadBalancers.map(_.asJava).orNull)
+      .vpcEndpointServiceLoadBalancers(vpcEndpointServiceLoadBalancers.asJava)
       .whitelistedPrincipals(whitelistedPrincipals.map(_.asJava).orNull)
       .vpcEndpointServiceName(vpcEndpointServiceName.orNull)
       .allowedPrincipals(allowedPrincipals.map(_.asJava).orNull)

@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnQuickConnectProps {
 
   def apply(
-    name: Option[String] = None,
-    quickConnectConfig: Option[software.amazon.awscdk.services.connect.CfnQuickConnect.QuickConnectConfigProperty] = None,
-    instanceArn: Option[String] = None,
+    name: String,
+    quickConnectConfig: software.amazon.awscdk.services.connect.CfnQuickConnect.QuickConnectConfigProperty,
+    instanceArn: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.connect.CfnQuickConnectProps =
     (new software.amazon.awscdk.services.connect.CfnQuickConnectProps.Builder)
-      .name(name.orNull)
-      .quickConnectConfig(quickConnectConfig.orNull)
-      .instanceArn(instanceArn.orNull)
+      .name(name)
+      .quickConnectConfig(quickConnectConfig)
+      .instanceArn(instanceArn)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

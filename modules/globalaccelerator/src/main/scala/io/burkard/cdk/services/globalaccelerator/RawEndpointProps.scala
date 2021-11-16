@@ -4,15 +4,15 @@ package io.burkard.cdk.services.globalaccelerator
 object RawEndpointProps {
 
   def apply(
+    endpointId: String,
     weight: Option[Number] = None,
     preserveClientIp: Option[Boolean] = None,
-    endpointId: Option[String] = None,
     region: Option[String] = None
   ): software.amazon.awscdk.services.globalaccelerator.RawEndpointProps =
     (new software.amazon.awscdk.services.globalaccelerator.RawEndpointProps.Builder)
+      .endpointId(endpointId)
       .weight(weight.orNull)
       .preserveClientIp(preserveClientIp.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .endpointId(endpointId.orNull)
       .region(region.orNull)
       .build()
 }

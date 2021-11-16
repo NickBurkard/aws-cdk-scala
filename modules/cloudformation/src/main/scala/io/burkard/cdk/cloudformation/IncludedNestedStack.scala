@@ -4,11 +4,11 @@ package io.burkard.cdk.cloudformation
 object IncludedNestedStack {
 
   def apply(
-    includedTemplate: Option[software.amazon.awscdk.cloudformation.include.CfnInclude] = None,
-    stack: Option[software.amazon.awscdk.NestedStack] = None
+    includedTemplate: software.amazon.awscdk.cloudformation.include.CfnInclude,
+    stack: software.amazon.awscdk.NestedStack
   ): software.amazon.awscdk.cloudformation.include.IncludedNestedStack =
     (new software.amazon.awscdk.cloudformation.include.IncludedNestedStack.Builder)
-      .includedTemplate(includedTemplate.orNull)
-      .stack(stack.orNull)
+      .includedTemplate(includedTemplate)
+      .stack(stack)
       .build()
 }

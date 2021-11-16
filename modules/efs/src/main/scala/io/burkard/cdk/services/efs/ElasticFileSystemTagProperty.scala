@@ -4,11 +4,11 @@ package io.burkard.cdk.services.efs
 object ElasticFileSystemTagProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.efs.CfnFileSystem.ElasticFileSystemTagProperty =
     (new software.amazon.awscdk.services.efs.CfnFileSystem.ElasticFileSystemTagProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

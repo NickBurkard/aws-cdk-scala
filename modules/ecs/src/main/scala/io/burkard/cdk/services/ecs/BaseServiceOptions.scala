@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object BaseServiceOptions {
 
   def apply(
+    cluster: software.amazon.awscdk.services.ecs.ICluster,
     minHealthyPercent: Option[Number] = None,
     healthCheckGracePeriod: Option[software.amazon.awscdk.Duration] = None,
     desiredCount: Option[Number] = None,
@@ -15,7 +16,6 @@ object BaseServiceOptions {
     enableExecuteCommand: Option[Boolean] = None,
     maxHealthyPercent: Option[Number] = None,
     circuitBreaker: Option[software.amazon.awscdk.services.ecs.DeploymentCircuitBreaker] = None,
-    cluster: Option[software.amazon.awscdk.services.ecs.ICluster] = None,
     deploymentController: Option[software.amazon.awscdk.services.ecs.DeploymentController] = None,
     cloudMapOptions: Option[software.amazon.awscdk.services.ecs.CloudMapOptions] = None,
     capacityProviderStrategies: Option[List[_ <: software.amazon.awscdk.services.ecs.CapacityProviderStrategy]] = None,
@@ -23,6 +23,7 @@ object BaseServiceOptions {
     enableEcsManagedTags: Option[Boolean] = None
   ): software.amazon.awscdk.services.ecs.BaseServiceOptions =
     (new software.amazon.awscdk.services.ecs.BaseServiceOptions.Builder)
+      .cluster(cluster)
       .minHealthyPercent(minHealthyPercent.orNull)
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
       .desiredCount(desiredCount.orNull)
@@ -31,7 +32,6 @@ object BaseServiceOptions {
       .enableExecuteCommand(enableExecuteCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .maxHealthyPercent(maxHealthyPercent.orNull)
       .circuitBreaker(circuitBreaker.orNull)
-      .cluster(cluster.orNull)
       .deploymentController(deploymentController.orNull)
       .cloudMapOptions(cloudMapOptions.orNull)
       .capacityProviderStrategies(capacityProviderStrategies.map(_.asJava).orNull)

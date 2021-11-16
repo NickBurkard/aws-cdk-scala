@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object SourceProperty {
 
   def apply(
-    owner: Option[String] = None,
-    sourceIdentifier: Option[String] = None,
+    owner: String,
+    sourceIdentifier: String,
     sourceDetails: Option[List[_]] = None
   ): software.amazon.awscdk.services.config.CfnConfigRule.SourceProperty =
     (new software.amazon.awscdk.services.config.CfnConfigRule.SourceProperty.Builder)
-      .owner(owner.orNull)
-      .sourceIdentifier(sourceIdentifier.orNull)
+      .owner(owner)
+      .sourceIdentifier(sourceIdentifier)
       .sourceDetails(sourceDetails.map(_.asJava).orNull)
       .build()
 }

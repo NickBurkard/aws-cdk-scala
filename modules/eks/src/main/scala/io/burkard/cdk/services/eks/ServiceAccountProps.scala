@@ -4,13 +4,13 @@ package io.burkard.cdk.services.eks
 object ServiceAccountProps {
 
   def apply(
+    cluster: software.amazon.awscdk.services.eks.ICluster,
     name: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.eks.ICluster] = None,
     namespace: Option[String] = None
   ): software.amazon.awscdk.services.eks.ServiceAccountProps =
     (new software.amazon.awscdk.services.eks.ServiceAccountProps.Builder)
+      .cluster(cluster)
       .name(name.orNull)
-      .cluster(cluster.orNull)
       .namespace(namespace.orNull)
       .build()
 }

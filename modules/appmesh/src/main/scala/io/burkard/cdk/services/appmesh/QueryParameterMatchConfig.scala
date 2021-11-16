@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object QueryParameterMatchConfig {
 
   def apply(
-    queryParameterMatch: Option[software.amazon.awscdk.services.appmesh.CfnRoute.QueryParameterProperty] = None
+    queryParameterMatch: software.amazon.awscdk.services.appmesh.CfnRoute.QueryParameterProperty
   ): software.amazon.awscdk.services.appmesh.QueryParameterMatchConfig =
     (new software.amazon.awscdk.services.appmesh.QueryParameterMatchConfig.Builder)
-      .queryParameterMatch(queryParameterMatch.orNull)
+      .queryParameterMatch(queryParameterMatch)
       .build()
 }

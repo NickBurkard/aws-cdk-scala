@@ -4,15 +4,15 @@ package io.burkard.cdk.services.route53
 object CnameRecordProps {
 
   def apply(
+    domainName: String,
     recordName: Option[String] = None,
-    domainName: Option[String] = None,
     comment: Option[String] = None,
     ttl: Option[software.amazon.awscdk.Duration] = None,
     zone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None
   ): software.amazon.awscdk.services.route53.CnameRecordProps =
     (new software.amazon.awscdk.services.route53.CnameRecordProps.Builder)
+      .domainName(domainName)
       .recordName(recordName.orNull)
-      .domainName(domainName.orNull)
       .comment(comment.orNull)
       .ttl(ttl.orNull)
       .zone(zone.orNull)

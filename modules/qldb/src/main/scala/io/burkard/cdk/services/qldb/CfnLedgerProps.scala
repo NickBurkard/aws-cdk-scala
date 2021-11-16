@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnLedgerProps {
 
   def apply(
+    permissionsMode: String,
     name: Option[String] = None,
     kmsKey: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    deletionProtection: Option[Boolean] = None,
-    permissionsMode: Option[String] = None
+    deletionProtection: Option[Boolean] = None
   ): software.amazon.awscdk.services.qldb.CfnLedgerProps =
     (new software.amazon.awscdk.services.qldb.CfnLedgerProps.Builder)
+      .permissionsMode(permissionsMode)
       .name(name.orNull)
       .kmsKey(kmsKey.orNull)
       .tags(tags.map(_.asJava).orNull)
       .deletionProtection(deletionProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .permissionsMode(permissionsMode.orNull)
       .build()
 }

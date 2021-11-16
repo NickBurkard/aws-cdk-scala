@@ -4,11 +4,11 @@ package io.burkard.cdk.services.glue
 object CfnDataCatalogEncryptionSettingsProps {
 
   def apply(
-    dataCatalogEncryptionSettings: Option[software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettings.DataCatalogEncryptionSettingsProperty] = None,
-    catalogId: Option[String] = None
+    dataCatalogEncryptionSettings: software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettings.DataCatalogEncryptionSettingsProperty,
+    catalogId: String
   ): software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettingsProps =
     (new software.amazon.awscdk.services.glue.CfnDataCatalogEncryptionSettingsProps.Builder)
-      .dataCatalogEncryptionSettings(dataCatalogEncryptionSettings.orNull)
-      .catalogId(catalogId.orNull)
+      .dataCatalogEncryptionSettings(dataCatalogEncryptionSettings)
+      .catalogId(catalogId)
       .build()
 }

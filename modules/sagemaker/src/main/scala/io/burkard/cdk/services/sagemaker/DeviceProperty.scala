@@ -4,12 +4,12 @@ package io.burkard.cdk.services.sagemaker
 object DeviceProperty {
 
   def apply(
-    deviceName: Option[String] = None,
+    deviceName: String,
     description: Option[String] = None,
     iotThingName: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnDevice.DeviceProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnDevice.DeviceProperty.Builder)
-      .deviceName(deviceName.orNull)
+      .deviceName(deviceName)
       .description(description.orNull)
       .iotThingName(iotThingName.orNull)
       .build()

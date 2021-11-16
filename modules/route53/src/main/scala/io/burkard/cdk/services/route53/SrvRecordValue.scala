@@ -4,15 +4,15 @@ package io.burkard.cdk.services.route53
 object SrvRecordValue {
 
   def apply(
-    weight: Option[Number] = None,
-    priority: Option[Number] = None,
-    hostName: Option[String] = None,
-    port: Option[Number] = None
+    weight: Number,
+    priority: Number,
+    hostName: String,
+    port: Number
   ): software.amazon.awscdk.services.route53.SrvRecordValue =
     (new software.amazon.awscdk.services.route53.SrvRecordValue.Builder)
-      .weight(weight.orNull)
-      .priority(priority.orNull)
-      .hostName(hostName.orNull)
-      .port(port.orNull)
+      .weight(weight)
+      .priority(priority)
+      .hostName(hostName)
+      .port(port)
       .build()
 }

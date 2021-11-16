@@ -4,15 +4,15 @@ package io.burkard.cdk.services.cognito
 object CfnUserPoolGroupProps {
 
   def apply(
+    userPoolId: String,
     description: Option[String] = None,
-    userPoolId: Option[String] = None,
     precedence: Option[Number] = None,
     roleArn: Option[String] = None,
     groupName: Option[String] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolGroupProps =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolGroupProps.Builder)
+      .userPoolId(userPoolId)
       .description(description.orNull)
-      .userPoolId(userPoolId.orNull)
       .precedence(precedence.orNull)
       .roleArn(roleArn.orNull)
       .groupName(groupName.orNull)

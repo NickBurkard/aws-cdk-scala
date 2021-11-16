@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CnameInstanceProps {
 
   def apply(
+    service: software.amazon.awscdk.services.servicediscovery.IService,
     instanceId: Option[String] = None,
-    service: Option[software.amazon.awscdk.services.servicediscovery.IService] = None,
     instanceCname: Option[String] = None,
     customAttributes: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.servicediscovery.CnameInstanceProps =
     (new software.amazon.awscdk.services.servicediscovery.CnameInstanceProps.Builder)
+      .service(service)
       .instanceId(instanceId.orNull)
-      .service(service.orNull)
       .instanceCname(instanceCname.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .build()

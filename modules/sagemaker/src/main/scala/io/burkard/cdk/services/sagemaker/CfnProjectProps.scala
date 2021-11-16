@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnProjectProps {
 
   def apply(
-    projectName: Option[String] = None,
+    projectName: String,
+    serviceCatalogProvisioningDetails: AnyRef,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    projectDescription: Option[String] = None,
-    serviceCatalogProvisioningDetails: Option[AnyRef] = None
+    projectDescription: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnProjectProps =
     (new software.amazon.awscdk.services.sagemaker.CfnProjectProps.Builder)
-      .projectName(projectName.orNull)
+      .projectName(projectName)
+      .serviceCatalogProvisioningDetails(serviceCatalogProvisioningDetails)
       .tags(tags.map(_.asJava).orNull)
       .projectDescription(projectDescription.orNull)
-      .serviceCatalogProvisioningDetails(serviceCatalogProvisioningDetails.orNull)
       .build()
 }

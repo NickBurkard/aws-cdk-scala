@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnListenerProps {
 
   def apply(
-    acceleratorArn: Option[String] = None,
-    clientAffinity: Option[String] = None,
-    portRanges: Option[List[_]] = None,
-    protocol: Option[String] = None
+    acceleratorArn: String,
+    portRanges: List[_],
+    protocol: String,
+    clientAffinity: Option[String] = None
   ): software.amazon.awscdk.services.globalaccelerator.CfnListenerProps =
     (new software.amazon.awscdk.services.globalaccelerator.CfnListenerProps.Builder)
-      .acceleratorArn(acceleratorArn.orNull)
+      .acceleratorArn(acceleratorArn)
+      .portRanges(portRanges.asJava)
+      .protocol(protocol)
       .clientAffinity(clientAffinity.orNull)
-      .portRanges(portRanges.map(_.asJava).orNull)
-      .protocol(protocol.orNull)
       .build()
 }

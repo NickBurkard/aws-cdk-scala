@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object ApplicationConfigProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     version: Option[String] = None,
     additionalInfo: Option[Map[String, String]] = None,
     args: Option[List[String]] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ApplicationConfigProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ApplicationConfigProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .version(version.orNull)
       .additionalInfo(additionalInfo.map(_.asJava).orNull)
       .args(args.map(_.asJava).orNull)

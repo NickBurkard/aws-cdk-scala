@@ -4,13 +4,13 @@ package io.burkard.cdk.services.guardduty
 object CfnMasterProps {
 
   def apply(
-    detectorId: Option[String] = None,
-    masterId: Option[String] = None,
+    detectorId: String,
+    masterId: String,
     invitationId: Option[String] = None
   ): software.amazon.awscdk.services.guardduty.CfnMasterProps =
     (new software.amazon.awscdk.services.guardduty.CfnMasterProps.Builder)
-      .detectorId(detectorId.orNull)
-      .masterId(masterId.orNull)
+      .detectorId(detectorId)
+      .masterId(masterId)
       .invitationId(invitationId.orNull)
       .build()
 }

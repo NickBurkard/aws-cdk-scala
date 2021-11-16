@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnAssociationProps {
 
   def apply(
+    name: String,
     documentVersion: Option[String] = None,
-    name: Option[String] = None,
     targets: Option[List[_]] = None,
     applyOnlyAtCronInterval: Option[Boolean] = None,
     complianceSeverity: Option[String] = None,
@@ -25,8 +25,8 @@ object CfnAssociationProps {
     scheduleExpression: Option[String] = None
   ): software.amazon.awscdk.services.ssm.CfnAssociationProps =
     (new software.amazon.awscdk.services.ssm.CfnAssociationProps.Builder)
+      .name(name)
       .documentVersion(documentVersion.orNull)
-      .name(name.orNull)
       .targets(targets.map(_.asJava).orNull)
       .applyOnlyAtCronInterval(applyOnlyAtCronInterval.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .complianceSeverity(complianceSeverity.orNull)

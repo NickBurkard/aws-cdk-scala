@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apigateway
 object CfnUsagePlanKeyProps {
 
   def apply(
-    keyType: Option[String] = None,
-    keyId: Option[String] = None,
-    usagePlanId: Option[String] = None
+    keyType: String,
+    keyId: String,
+    usagePlanId: String
   ): software.amazon.awscdk.services.apigateway.CfnUsagePlanKeyProps =
     (new software.amazon.awscdk.services.apigateway.CfnUsagePlanKeyProps.Builder)
-      .keyType(keyType.orNull)
-      .keyId(keyId.orNull)
-      .usagePlanId(usagePlanId.orNull)
+      .keyType(keyType)
+      .keyId(keyId)
+      .usagePlanId(usagePlanId)
       .build()
 }

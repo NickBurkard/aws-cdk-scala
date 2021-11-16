@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object WorkflowDetailsProperty {
 
   def apply(
-    onUpload: Option[List[_]] = None
+    onUpload: List[_]
   ): software.amazon.awscdk.services.transfer.CfnServer.WorkflowDetailsProperty =
     (new software.amazon.awscdk.services.transfer.CfnServer.WorkflowDetailsProperty.Builder)
-      .onUpload(onUpload.map(_.asJava).orNull)
+      .onUpload(onUpload.asJava)
       .build()
 }

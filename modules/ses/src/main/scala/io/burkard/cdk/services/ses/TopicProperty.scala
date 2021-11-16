@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ses
 object TopicProperty {
 
   def apply(
-    displayName: Option[String] = None,
-    defaultSubscriptionStatus: Option[String] = None,
-    description: Option[String] = None,
-    topicName: Option[String] = None
+    displayName: String,
+    defaultSubscriptionStatus: String,
+    topicName: String,
+    description: Option[String] = None
   ): software.amazon.awscdk.services.ses.CfnContactList.TopicProperty =
     (new software.amazon.awscdk.services.ses.CfnContactList.TopicProperty.Builder)
-      .displayName(displayName.orNull)
-      .defaultSubscriptionStatus(defaultSubscriptionStatus.orNull)
+      .displayName(displayName)
+      .defaultSubscriptionStatus(defaultSubscriptionStatus)
+      .topicName(topicName)
       .description(description.orNull)
-      .topicName(topicName.orNull)
       .build()
 }

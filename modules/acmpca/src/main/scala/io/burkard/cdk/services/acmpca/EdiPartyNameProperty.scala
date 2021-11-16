@@ -4,11 +4,11 @@ package io.burkard.cdk.services.acmpca
 object EdiPartyNameProperty {
 
   def apply(
-    partyName: Option[String] = None,
-    nameAssigner: Option[String] = None
+    partyName: String,
+    nameAssigner: String
   ): software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.EdiPartyNameProperty =
     (new software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.EdiPartyNameProperty.Builder)
-      .partyName(partyName.orNull)
-      .nameAssigner(nameAssigner.orNull)
+      .partyName(partyName)
+      .nameAssigner(nameAssigner)
       .build()
 }

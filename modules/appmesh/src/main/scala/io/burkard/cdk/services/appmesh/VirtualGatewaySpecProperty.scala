@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object VirtualGatewaySpecProperty {
 
   def apply(
+    listeners: List[_],
     backendDefaults: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayBackendDefaultsProperty] = None,
-    logging: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayLoggingProperty] = None,
-    listeners: Option[List[_]] = None
+    logging: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayLoggingProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewaySpecProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewaySpecProperty.Builder)
+      .listeners(listeners.asJava)
       .backendDefaults(backendDefaults.orNull)
       .logging(logging.orNull)
-      .listeners(listeners.map(_.asJava).orNull)
       .build()
 }

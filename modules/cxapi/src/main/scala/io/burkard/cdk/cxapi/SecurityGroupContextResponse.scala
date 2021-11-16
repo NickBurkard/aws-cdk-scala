@@ -4,11 +4,11 @@ package io.burkard.cdk.cxapi
 object SecurityGroupContextResponse {
 
   def apply(
-    securityGroupId: Option[String] = None,
-    allowAllOutbound: Option[Boolean] = None
+    securityGroupId: String,
+    allowAllOutbound: Boolean
   ): software.amazon.awscdk.cxapi.SecurityGroupContextResponse =
     (new software.amazon.awscdk.cxapi.SecurityGroupContextResponse.Builder)
-      .securityGroupId(securityGroupId.orNull)
-      .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .securityGroupId(securityGroupId)
+      .allowAllOutbound(allowAllOutbound)
       .build()
 }

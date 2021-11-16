@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object AwsVpcConfigurationProperty {
 
   def apply(
-    subnets: Option[List[String]] = None,
+    subnets: List[String],
     assignPublicIp: Option[String] = None,
     securityGroups: Option[List[String]] = None
   ): software.amazon.awscdk.services.events.CfnRule.AwsVpcConfigurationProperty =
     (new software.amazon.awscdk.services.events.CfnRule.AwsVpcConfigurationProperty.Builder)
-      .subnets(subnets.map(_.asJava).orNull)
+      .subnets(subnets.asJava)
       .assignPublicIp(assignPublicIp.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .build()

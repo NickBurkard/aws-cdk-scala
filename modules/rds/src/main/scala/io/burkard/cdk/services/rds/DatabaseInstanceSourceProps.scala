@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object DatabaseInstanceSourceProps {
 
   def apply(
+    engine: software.amazon.awscdk.services.rds.IInstanceEngine,
     s3ExportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     subnetGroup: Option[software.amazon.awscdk.services.rds.ISubnetGroup] = None,
     backupRetention: Option[software.amazon.awscdk.Duration] = None,
@@ -50,11 +51,11 @@ object DatabaseInstanceSourceProps {
     publiclyAccessible: Option[Boolean] = None,
     cloudwatchLogsRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
-    engine: Option[software.amazon.awscdk.services.rds.IInstanceEngine] = None,
     monitoringInterval: Option[software.amazon.awscdk.Duration] = None,
     enablePerformanceInsights: Option[Boolean] = None
   ): software.amazon.awscdk.services.rds.DatabaseInstanceSourceProps =
     (new software.amazon.awscdk.services.rds.DatabaseInstanceSourceProps.Builder)
+      .engine(engine)
       .s3ExportRole(s3ExportRole.orNull)
       .subnetGroup(subnetGroup.orNull)
       .backupRetention(backupRetention.orNull)
@@ -98,7 +99,6 @@ object DatabaseInstanceSourceProps {
       .publiclyAccessible(publiclyAccessible.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cloudwatchLogsRetention(cloudwatchLogsRetention.orNull)
       .removalPolicy(removalPolicy.orNull)
-      .engine(engine.orNull)
       .monitoringInterval(monitoringInterval.orNull)
       .enablePerformanceInsights(enablePerformanceInsights.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()

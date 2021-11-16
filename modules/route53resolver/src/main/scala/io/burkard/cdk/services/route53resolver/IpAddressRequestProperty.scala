@@ -4,11 +4,11 @@ package io.burkard.cdk.services.route53resolver
 object IpAddressRequestProperty {
 
   def apply(
-    ip: Option[String] = None,
-    subnetId: Option[String] = None
+    subnetId: String,
+    ip: Option[String] = None
   ): software.amazon.awscdk.services.route53resolver.CfnResolverEndpoint.IpAddressRequestProperty =
     (new software.amazon.awscdk.services.route53resolver.CfnResolverEndpoint.IpAddressRequestProperty.Builder)
+      .subnetId(subnetId)
       .ip(ip.orNull)
-      .subnetId(subnetId.orNull)
       .build()
 }

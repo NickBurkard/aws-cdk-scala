@@ -24,8 +24,8 @@ object ExampleApp extends App {
       runtimeEnvironment = "FLINK-1_13",
       tags = Some(
         List(
-          CfnTag(key = Some("env"), value = Some(env)),
-          CfnTag(key = Some("region"), value = Some(region))
+          CfnTag(key = "env", value = env),
+          CfnTag(key = "region", value = region)
         )
       ),
       applicationName = Some(s"prefix-$env-app-name-$region"),
@@ -33,18 +33,16 @@ object ExampleApp extends App {
         ApplicationConfigurationProperty(
           applicationCodeConfiguration = Some(
             ApplicationCodeConfigurationProperty(
-              codeContent = Some(
-                CodeContentProperty(
-                  s3ContentLocation = Some(
-                    S3ContentLocationProperty(
-                      fileKey = Some("code-key-in-s3"),
-                      bucketArn = Some(bucket.getBucketArn),
-                      objectVersion = Some("code-version")
-                    )
+              codeContent = CodeContentProperty(
+                s3ContentLocation = Some(
+                  S3ContentLocationProperty(
+                    fileKey = Some("code-key-in-s3"),
+                    bucketArn = Some(bucket.getBucketArn),
+                    objectVersion = Some("code-version")
                   )
                 )
               ),
-              codeContentType = Some("ZIPFILE")
+              codeContentType = "ZIPFILE"
             )
           )
         )

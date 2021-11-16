@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object SAPODataSourcePropertiesProperty {
 
   def apply(
-    objectPath: Option[String] = None
+    objectPath: String
   ): software.amazon.awscdk.services.appflow.CfnFlow.SAPODataSourcePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.SAPODataSourcePropertiesProperty.Builder)
-      .objectPath(objectPath.orNull)
+      .objectPath(objectPath)
       .build()
 }

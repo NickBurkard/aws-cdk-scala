@@ -4,13 +4,13 @@ package io.burkard.cdk.services.servicecatalogappregistry
 object CfnResourceAssociationProps {
 
   def apply(
-    application: Option[String] = None,
-    resourceType: Option[String] = None,
-    resource: Option[String] = None
+    application: String,
+    resourceType: String,
+    resource: String
   ): software.amazon.awscdk.services.servicecatalogappregistry.CfnResourceAssociationProps =
     (new software.amazon.awscdk.services.servicecatalogappregistry.CfnResourceAssociationProps.Builder)
-      .application(application.orNull)
-      .resourceType(resourceType.orNull)
-      .resource(resource.orNull)
+      .application(application)
+      .resourceType(resourceType)
+      .resource(resource)
       .build()
 }

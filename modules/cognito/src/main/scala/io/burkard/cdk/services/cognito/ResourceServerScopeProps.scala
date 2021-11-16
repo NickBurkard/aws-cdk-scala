@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object ResourceServerScopeProps {
 
   def apply(
-    scopeDescription: Option[String] = None,
-    scopeName: Option[String] = None
+    scopeDescription: String,
+    scopeName: String
   ): software.amazon.awscdk.services.cognito.ResourceServerScopeProps =
     (new software.amazon.awscdk.services.cognito.ResourceServerScopeProps.Builder)
-      .scopeDescription(scopeDescription.orNull)
-      .scopeName(scopeName.orNull)
+      .scopeDescription(scopeDescription)
+      .scopeName(scopeName)
       .build()
 }

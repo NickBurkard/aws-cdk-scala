@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnStorageLensProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    storageLensConfiguration: Option[software.amazon.awscdk.services.s3.CfnStorageLens.StorageLensConfigurationProperty] = None
+    storageLensConfiguration: software.amazon.awscdk.services.s3.CfnStorageLens.StorageLensConfigurationProperty,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.s3.CfnStorageLensProps =
     (new software.amazon.awscdk.services.s3.CfnStorageLensProps.Builder)
+      .storageLensConfiguration(storageLensConfiguration)
       .tags(tags.map(_.asJava).orNull)
-      .storageLensConfiguration(storageLensConfiguration.orNull)
       .build()
 }

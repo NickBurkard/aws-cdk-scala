@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnParameterGroupProps {
 
   def apply(
+    cacheParameterGroupFamily: String,
+    description: String,
     properties: Option[Map[String, String]] = None,
-    cacheParameterGroupFamily: Option[String] = None,
-    description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.elasticache.CfnParameterGroupProps =
     (new software.amazon.awscdk.services.elasticache.CfnParameterGroupProps.Builder)
+      .cacheParameterGroupFamily(cacheParameterGroupFamily)
+      .description(description)
       .properties(properties.map(_.asJava).orNull)
-      .cacheParameterGroupFamily(cacheParameterGroupFamily.orNull)
-      .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

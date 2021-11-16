@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object KinesisActionProperty {
 
   def apply(
-    partitionKey: Option[String] = None,
-    roleArn: Option[String] = None,
-    streamName: Option[String] = None
+    roleArn: String,
+    streamName: String,
+    partitionKey: Option[String] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.KinesisActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.KinesisActionProperty.Builder)
+      .roleArn(roleArn)
+      .streamName(streamName)
       .partitionKey(partitionKey.orNull)
-      .roleArn(roleArn.orNull)
-      .streamName(streamName.orNull)
       .build()
 }

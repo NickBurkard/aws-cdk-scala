@@ -4,11 +4,11 @@ package io.burkard.cdk.services.elasticloadbalancing
 object ConnectionDrainingPolicyProperty {
 
   def apply(
-    enabled: Option[Boolean] = None,
+    enabled: Boolean,
     timeout: Option[Number] = None
   ): software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.ConnectionDrainingPolicyProperty =
     (new software.amazon.awscdk.services.elasticloadbalancing.CfnLoadBalancer.ConnectionDrainingPolicyProperty.Builder)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enabled(enabled)
       .timeout(timeout.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lookoutvision
 object CfnProjectProps {
 
   def apply(
-    projectName: Option[String] = None
+    projectName: String
   ): software.amazon.awscdk.services.lookoutvision.CfnProjectProps =
     (new software.amazon.awscdk.services.lookoutvision.CfnProjectProps.Builder)
-      .projectName(projectName.orNull)
+      .projectName(projectName)
       .build()
 }

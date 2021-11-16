@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object TcpRouteProperty {
 
   def apply(
-    timeout: Option[software.amazon.awscdk.services.appmesh.CfnRoute.TcpTimeoutProperty] = None,
-    action: Option[software.amazon.awscdk.services.appmesh.CfnRoute.TcpRouteActionProperty] = None
+    action: software.amazon.awscdk.services.appmesh.CfnRoute.TcpRouteActionProperty,
+    timeout: Option[software.amazon.awscdk.services.appmesh.CfnRoute.TcpTimeoutProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnRoute.TcpRouteProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.TcpRouteProperty.Builder)
+      .action(action)
       .timeout(timeout.orNull)
-      .action(action.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ecs
 object ScheduledEc2TaskDefinitionOptions {
 
   def apply(
-    taskDefinition: Option[software.amazon.awscdk.services.ecs.Ec2TaskDefinition] = None
+    taskDefinition: software.amazon.awscdk.services.ecs.Ec2TaskDefinition
   ): software.amazon.awscdk.services.ecs.patterns.ScheduledEc2TaskDefinitionOptions =
     (new software.amazon.awscdk.services.ecs.patterns.ScheduledEc2TaskDefinitionOptions.Builder)
-      .taskDefinition(taskDefinition.orNull)
+      .taskDefinition(taskDefinition)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object DeploymentSourceContext {
 
   def apply(
-    handlerRole: Option[software.amazon.awscdk.services.iam.IRole] = None
+    handlerRole: software.amazon.awscdk.services.iam.IRole
   ): software.amazon.awscdk.services.s3.deployment.DeploymentSourceContext =
     (new software.amazon.awscdk.services.s3.deployment.DeploymentSourceContext.Builder)
-      .handlerRole(handlerRole.orNull)
+      .handlerRole(handlerRole)
       .build()
 }

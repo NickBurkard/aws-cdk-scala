@@ -4,15 +4,15 @@ package io.burkard.cdk.core
 object ResolveOptions {
 
   def apply(
-    scope: Option[software.constructs.IConstruct] = None,
+    scope: software.constructs.IConstruct,
+    resolver: software.amazon.awscdk.ITokenResolver,
     preparing: Option[Boolean] = None,
-    resolver: Option[software.amazon.awscdk.ITokenResolver] = None,
     removeEmpty: Option[Boolean] = None
   ): software.amazon.awscdk.ResolveOptions =
     (new software.amazon.awscdk.ResolveOptions.Builder)
-      .scope(scope.orNull)
+      .scope(scope)
+      .resolver(resolver)
       .preparing(preparing.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .resolver(resolver.orNull)
       .removeEmpty(removeEmpty.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

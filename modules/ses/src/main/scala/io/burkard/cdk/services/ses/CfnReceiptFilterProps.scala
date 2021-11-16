@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ses
 object CfnReceiptFilterProps {
 
   def apply(
-    filter: Option[software.amazon.awscdk.services.ses.CfnReceiptFilter.FilterProperty] = None
+    filter: software.amazon.awscdk.services.ses.CfnReceiptFilter.FilterProperty
   ): software.amazon.awscdk.services.ses.CfnReceiptFilterProps =
     (new software.amazon.awscdk.services.ses.CfnReceiptFilterProps.Builder)
-      .filter(filter.orNull)
+      .filter(filter)
       .build()
 }

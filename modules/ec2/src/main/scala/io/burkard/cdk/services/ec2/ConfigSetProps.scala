@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ConfigSetProps {
 
   def apply(
-    configs: Option[Map[String, _ <: software.amazon.awscdk.services.ec2.InitConfig]] = None,
-    configSets: Option[Map[String, _ <: List[String]]] = None
+    configs: Map[String, _ <: software.amazon.awscdk.services.ec2.InitConfig],
+    configSets: Map[String, _ <: List[String]]
   ): software.amazon.awscdk.services.ec2.ConfigSetProps =
     (new software.amazon.awscdk.services.ec2.ConfigSetProps.Builder)
-      .configs(configs.map(_.asJava).orNull)
-      .configSets(configSets.map(_.mapValues(_.asJava).toMap.asJava).orNull)
+      .configs(configs.asJava)
+      .configSets(configSets.mapValues(_.asJava).toMap.asJava)
       .build()
 }

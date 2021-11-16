@@ -4,17 +4,17 @@ package io.burkard.cdk.services.cloudfront
 object OriginRequestPolicyConfigProperty {
 
   def apply(
-    name: Option[String] = None,
-    headersConfig: Option[software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.HeadersConfigProperty] = None,
-    cookiesConfig: Option[software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.CookiesConfigProperty] = None,
-    queryStringsConfig: Option[software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty] = None,
+    name: String,
+    headersConfig: software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.HeadersConfigProperty,
+    cookiesConfig: software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.CookiesConfigProperty,
+    queryStringsConfig: software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.QueryStringsConfigProperty,
     comment: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty.Builder)
-      .name(name.orNull)
-      .headersConfig(headersConfig.orNull)
-      .cookiesConfig(cookiesConfig.orNull)
-      .queryStringsConfig(queryStringsConfig.orNull)
+      .name(name)
+      .headersConfig(headersConfig)
+      .cookiesConfig(cookiesConfig)
+      .queryStringsConfig(queryStringsConfig)
       .comment(comment.orNull)
       .build()
 }

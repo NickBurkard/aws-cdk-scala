@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object GetContextValueOptions {
 
   def apply(
+    dummyValue: AnyRef,
     provider: Option[String] = None,
-    dummyValue: Option[AnyRef] = None,
     props: Option[Map[String, _]] = None
   ): software.amazon.awscdk.GetContextValueOptions =
     (new software.amazon.awscdk.GetContextValueOptions.Builder)
+      .dummyValue(dummyValue)
       .provider(provider.orNull)
-      .dummyValue(dummyValue.orNull)
       .props(props.map(_.asJava).orNull)
       .build()
 }

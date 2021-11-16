@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnVPNGatewayProps {
 
   def apply(
+    `type`: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    amazonSideAsn: Option[Number] = None,
-    `type`: Option[String] = None
+    amazonSideAsn: Option[Number] = None
   ): software.amazon.awscdk.services.ec2.CfnVPNGatewayProps =
     (new software.amazon.awscdk.services.ec2.CfnVPNGatewayProps.Builder)
+      .`type`(`type`)
       .tags(tags.map(_.asJava).orNull)
       .amazonSideAsn(amazonSideAsn.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

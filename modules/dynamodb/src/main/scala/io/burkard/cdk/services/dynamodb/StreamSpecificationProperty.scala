@@ -4,9 +4,9 @@ package io.burkard.cdk.services.dynamodb
 object StreamSpecificationProperty {
 
   def apply(
-    streamViewType: Option[String] = None
+    streamViewType: String
   ): software.amazon.awscdk.services.dynamodb.CfnTable.StreamSpecificationProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnTable.StreamSpecificationProperty.Builder)
-      .streamViewType(streamViewType.orNull)
+      .streamViewType(streamViewType)
       .build()
 }

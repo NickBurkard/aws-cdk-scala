@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecr
 object RepositoryFilterProperty {
 
   def apply(
-    filterType: Option[String] = None,
-    filter: Option[String] = None
+    filterType: String,
+    filter: String
   ): software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.RepositoryFilterProperty =
     (new software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.RepositoryFilterProperty.Builder)
-      .filterType(filterType.orNull)
-      .filter(filter.orNull)
+      .filterType(filterType)
+      .filter(filter)
       .build()
 }

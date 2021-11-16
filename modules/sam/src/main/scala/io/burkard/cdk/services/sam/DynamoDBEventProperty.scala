@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object DynamoDBEventProperty {
 
   def apply(
+    stream: String,
+    startingPosition: String,
     batchSize: Option[Number] = None,
-    stream: Option[String] = None,
-    startingPosition: Option[String] = None,
     maximumRetryAttempts: Option[Number] = None,
     maximumRecordAgeInSeconds: Option[Number] = None,
     parallelizationFactor: Option[Number] = None,
@@ -16,9 +16,9 @@ object DynamoDBEventProperty {
     bisectBatchOnFunctionError: Option[Boolean] = None
   ): software.amazon.awscdk.services.sam.CfnFunction.DynamoDBEventProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.DynamoDBEventProperty.Builder)
+      .stream(stream)
+      .startingPosition(startingPosition)
       .batchSize(batchSize.orNull)
-      .stream(stream.orNull)
-      .startingPosition(startingPosition.orNull)
       .maximumRetryAttempts(maximumRetryAttempts.orNull)
       .maximumRecordAgeInSeconds(maximumRecordAgeInSeconds.orNull)
       .parallelizationFactor(parallelizationFactor.orNull)

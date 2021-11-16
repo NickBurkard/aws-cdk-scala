@@ -4,9 +4,9 @@ package io.burkard.cdk.services.mediapackage
 object CmafEncryptionProperty {
 
   def apply(
-    spekeKeyProvider: Option[software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty] = None
+    spekeKeyProvider: software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty
   ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.CmafEncryptionProperty =
     (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.CmafEncryptionProperty.Builder)
-      .spekeKeyProvider(spekeKeyProvider.orNull)
+      .spekeKeyProvider(spekeKeyProvider)
       .build()
 }

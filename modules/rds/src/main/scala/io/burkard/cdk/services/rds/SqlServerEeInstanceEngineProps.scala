@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rds
 object SqlServerEeInstanceEngineProps {
 
   def apply(
-    version: Option[software.amazon.awscdk.services.rds.SqlServerEngineVersion] = None
+    version: software.amazon.awscdk.services.rds.SqlServerEngineVersion
   ): software.amazon.awscdk.services.rds.SqlServerEeInstanceEngineProps =
     (new software.amazon.awscdk.services.rds.SqlServerEeInstanceEngineProps.Builder)
-      .version(version.orNull)
+      .version(version)
       .build()
 }

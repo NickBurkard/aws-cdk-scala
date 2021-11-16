@@ -4,17 +4,17 @@ package io.burkard.cdk.services.location
 object CfnGeofenceCollectionProps {
 
   def apply(
+    collectionName: String,
+    pricingPlan: String,
     description: Option[String] = None,
-    collectionName: Option[String] = None,
     pricingPlanDataSource: Option[String] = None,
-    kmsKeyId: Option[String] = None,
-    pricingPlan: Option[String] = None
+    kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.location.CfnGeofenceCollectionProps =
     (new software.amazon.awscdk.services.location.CfnGeofenceCollectionProps.Builder)
+      .collectionName(collectionName)
+      .pricingPlan(pricingPlan)
       .description(description.orNull)
-      .collectionName(collectionName.orNull)
       .pricingPlanDataSource(pricingPlanDataSource.orNull)
       .kmsKeyId(kmsKeyId.orNull)
-      .pricingPlan(pricingPlan.orNull)
       .build()
 }

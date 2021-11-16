@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lambda
 object SourceAccessConfiguration {
 
   def apply(
-    uri: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.lambda.SourceAccessConfigurationType] = None
+    uri: String,
+    `type`: software.amazon.awscdk.services.lambda.SourceAccessConfigurationType
   ): software.amazon.awscdk.services.lambda.SourceAccessConfiguration =
     (new software.amazon.awscdk.services.lambda.SourceAccessConfiguration.Builder)
-      .uri(uri.orNull)
-      .`type`(`type`.orNull)
+      .uri(uri)
+      .`type`(`type`)
       .build()
 }

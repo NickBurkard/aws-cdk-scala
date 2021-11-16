@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object ImageConfigProperty {
 
   def apply(
-    repositoryAuthConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModel.RepositoryAuthConfigProperty] = None,
-    repositoryAccessMode: Option[String] = None
+    repositoryAccessMode: String,
+    repositoryAuthConfig: Option[software.amazon.awscdk.services.sagemaker.CfnModel.RepositoryAuthConfigProperty] = None
   ): software.amazon.awscdk.services.sagemaker.CfnModel.ImageConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModel.ImageConfigProperty.Builder)
+      .repositoryAccessMode(repositoryAccessMode)
       .repositoryAuthConfig(repositoryAuthConfig.orNull)
-      .repositoryAccessMode(repositoryAccessMode.orNull)
       .build()
 }

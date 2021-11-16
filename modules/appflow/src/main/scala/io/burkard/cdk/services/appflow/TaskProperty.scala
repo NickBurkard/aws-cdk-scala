@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object TaskProperty {
 
   def apply(
+    sourceFields: List[String],
+    taskType: String,
     taskProperties: Option[List[_]] = None,
     connectorOperator: Option[software.amazon.awscdk.services.appflow.CfnFlow.ConnectorOperatorProperty] = None,
-    sourceFields: Option[List[String]] = None,
-    destinationField: Option[String] = None,
-    taskType: Option[String] = None
+    destinationField: Option[String] = None
   ): software.amazon.awscdk.services.appflow.CfnFlow.TaskProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.TaskProperty.Builder)
+      .sourceFields(sourceFields.asJava)
+      .taskType(taskType)
       .taskProperties(taskProperties.map(_.asJava).orNull)
       .connectorOperator(connectorOperator.orNull)
-      .sourceFields(sourceFields.map(_.asJava).orNull)
       .destinationField(destinationField.orNull)
-      .taskType(taskType.orNull)
       .build()
 }

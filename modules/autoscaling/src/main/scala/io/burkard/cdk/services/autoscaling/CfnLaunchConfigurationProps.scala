@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object CfnLaunchConfigurationProps {
 
   def apply(
+    instanceType: String,
+    imageId: String,
     instanceId: Option[String] = None,
     ebsOptimized: Option[Boolean] = None,
     userData: Option[String] = None,
     iamInstanceProfile: Option[String] = None,
-    instanceType: Option[String] = None,
-    imageId: Option[String] = None,
     metadataOptions: Option[software.amazon.awscdk.services.autoscaling.CfnLaunchConfiguration.MetadataOptionsProperty] = None,
     ramDiskId: Option[String] = None,
     launchConfigurationName: Option[String] = None,
@@ -28,12 +28,12 @@ object CfnLaunchConfigurationProps {
     blockDeviceMappings: Option[List[_]] = None
   ): software.amazon.awscdk.services.autoscaling.CfnLaunchConfigurationProps =
     (new software.amazon.awscdk.services.autoscaling.CfnLaunchConfigurationProps.Builder)
+      .instanceType(instanceType)
+      .imageId(imageId)
       .instanceId(instanceId.orNull)
       .ebsOptimized(ebsOptimized.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .userData(userData.orNull)
       .iamInstanceProfile(iamInstanceProfile.orNull)
-      .instanceType(instanceType.orNull)
-      .imageId(imageId.orNull)
       .metadataOptions(metadataOptions.orNull)
       .ramDiskId(ramDiskId.orNull)
       .launchConfigurationName(launchConfigurationName.orNull)

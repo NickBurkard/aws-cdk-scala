@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object DataQualityJobInputProperty {
 
   def apply(
-    endpointInput: Option[software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.EndpointInputProperty] = None
+    endpointInput: software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.EndpointInputProperty
   ): software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.DataQualityJobInputProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.DataQualityJobInputProperty.Builder)
-      .endpointInput(endpointInput.orNull)
+      .endpointInput(endpointInput)
       .build()
 }

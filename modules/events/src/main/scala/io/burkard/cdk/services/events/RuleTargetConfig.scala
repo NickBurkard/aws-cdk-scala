@@ -5,6 +5,7 @@ package io.burkard.cdk.services.events
 object RuleTargetConfig {
 
   def apply(
+    arn: String,
     ecsParameters: Option[software.amazon.awscdk.services.events.CfnRule.EcsParametersProperty] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     httpParameters: Option[software.amazon.awscdk.services.events.CfnRule.HttpParametersProperty] = None,
@@ -13,13 +14,13 @@ object RuleTargetConfig {
     sqsParameters: Option[software.amazon.awscdk.services.events.CfnRule.SqsParametersProperty] = None,
     input: Option[software.amazon.awscdk.services.events.RuleTargetInput] = None,
     deadLetterConfig: Option[software.amazon.awscdk.services.events.CfnRule.DeadLetterConfigProperty] = None,
-    arn: Option[String] = None,
     runCommandParameters: Option[software.amazon.awscdk.services.events.CfnRule.RunCommandParametersProperty] = None,
     targetResource: Option[software.constructs.IConstruct] = None,
     kinesisParameters: Option[software.amazon.awscdk.services.events.CfnRule.KinesisParametersProperty] = None,
     retryPolicy: Option[software.amazon.awscdk.services.events.CfnRule.RetryPolicyProperty] = None
   ): software.amazon.awscdk.services.events.RuleTargetConfig =
     (new software.amazon.awscdk.services.events.RuleTargetConfig.Builder)
+      .arn(arn)
       .ecsParameters(ecsParameters.orNull)
       .role(role.orNull)
       .httpParameters(httpParameters.orNull)
@@ -28,7 +29,6 @@ object RuleTargetConfig {
       .sqsParameters(sqsParameters.orNull)
       .input(input.orNull)
       .deadLetterConfig(deadLetterConfig.orNull)
-      .arn(arn.orNull)
       .runCommandParameters(runCommandParameters.orNull)
       .targetResource(targetResource.orNull)
       .kinesisParameters(kinesisParameters.orNull)

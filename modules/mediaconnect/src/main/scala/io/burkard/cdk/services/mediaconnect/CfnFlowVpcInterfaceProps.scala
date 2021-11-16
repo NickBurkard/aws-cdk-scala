@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnFlowVpcInterfaceProps {
 
   def apply(
-    name: Option[String] = None,
-    securityGroupIds: Option[List[String]] = None,
-    subnetId: Option[String] = None,
-    roleArn: Option[String] = None,
-    flowArn: Option[String] = None
+    name: String,
+    securityGroupIds: List[String],
+    subnetId: String,
+    roleArn: String,
+    flowArn: String
   ): software.amazon.awscdk.services.mediaconnect.CfnFlowVpcInterfaceProps =
     (new software.amazon.awscdk.services.mediaconnect.CfnFlowVpcInterfaceProps.Builder)
-      .name(name.orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
-      .subnetId(subnetId.orNull)
-      .roleArn(roleArn.orNull)
-      .flowArn(flowArn.orNull)
+      .name(name)
+      .securityGroupIds(securityGroupIds.asJava)
+      .subnetId(subnetId)
+      .roleArn(roleArn)
+      .flowArn(flowArn)
       .build()
 }

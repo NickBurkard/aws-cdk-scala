@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object ParameterGroupProps {
 
   def apply(
+    engine: software.amazon.awscdk.services.rds.IEngine,
     description: Option[String] = None,
-    parameters: Option[Map[String, String]] = None,
-    engine: Option[software.amazon.awscdk.services.rds.IEngine] = None
+    parameters: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.rds.ParameterGroupProps =
     (new software.amazon.awscdk.services.rds.ParameterGroupProps.Builder)
+      .engine(engine)
       .description(description.orNull)
       .parameters(parameters.map(_.asJava).orNull)
-      .engine(engine.orNull)
       .build()
 }

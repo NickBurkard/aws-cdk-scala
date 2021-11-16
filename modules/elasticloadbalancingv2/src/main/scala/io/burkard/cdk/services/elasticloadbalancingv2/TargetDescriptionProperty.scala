@@ -4,13 +4,13 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object TargetDescriptionProperty {
 
   def apply(
+    id: String,
     availabilityZone: Option[String] = None,
-    id: Option[String] = None,
     port: Option[Number] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnTargetGroup.TargetDescriptionProperty =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnTargetGroup.TargetDescriptionProperty.Builder)
+      .id(id)
       .availabilityZone(availabilityZone.orNull)
-      .id(id.orNull)
       .port(port.orNull)
       .build()
 }

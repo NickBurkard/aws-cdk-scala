@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object MonitoringInputProperty {
 
   def apply(
-    endpointInput: Option[software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.EndpointInputProperty] = None
+    endpointInput: software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.EndpointInputProperty
   ): software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringInputProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringInputProperty.Builder)
-      .endpointInput(endpointInput.orNull)
+      .endpointInput(endpointInput)
       .build()
 }

@@ -4,12 +4,12 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object FixedResponseConfigProperty {
 
   def apply(
-    statusCode: Option[String] = None,
+    statusCode: String,
     messageBody: Option[String] = None,
     contentType: Option[String] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.FixedResponseConfigProperty =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.FixedResponseConfigProperty.Builder)
-      .statusCode(statusCode.orNull)
+      .statusCode(statusCode)
       .messageBody(messageBody.orNull)
       .contentType(contentType.orNull)
       .build()

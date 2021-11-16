@@ -4,15 +4,15 @@ package io.burkard.cdk.services.secretsmanager
 object CfnRotationScheduleProps {
 
   def apply(
+    secretId: String,
     rotationRules: Option[software.amazon.awscdk.services.secretsmanager.CfnRotationSchedule.RotationRulesProperty] = None,
     hostedRotationLambda: Option[software.amazon.awscdk.services.secretsmanager.CfnRotationSchedule.HostedRotationLambdaProperty] = None,
-    secretId: Option[String] = None,
     rotationLambdaArn: Option[String] = None
   ): software.amazon.awscdk.services.secretsmanager.CfnRotationScheduleProps =
     (new software.amazon.awscdk.services.secretsmanager.CfnRotationScheduleProps.Builder)
+      .secretId(secretId)
       .rotationRules(rotationRules.orNull)
       .hostedRotationLambda(hostedRotationLambda.orNull)
-      .secretId(secretId.orNull)
       .rotationLambdaArn(rotationLambdaArn.orNull)
       .build()
 }

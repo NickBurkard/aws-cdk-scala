@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnGatewayProps {
 
   def apply(
+    gatewayName: String,
+    gatewayPlatform: software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayPlatformProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    gatewayName: Option[String] = None,
-    gatewayPlatform: Option[software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayPlatformProperty] = None,
     gatewayCapabilitySummaries: Option[List[_]] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnGatewayProps =
     (new software.amazon.awscdk.services.iotsitewise.CfnGatewayProps.Builder)
+      .gatewayName(gatewayName)
+      .gatewayPlatform(gatewayPlatform)
       .tags(tags.map(_.asJava).orNull)
-      .gatewayName(gatewayName.orNull)
-      .gatewayPlatform(gatewayPlatform.orNull)
       .gatewayCapabilitySummaries(gatewayCapabilitySummaries.map(_.asJava).orNull)
       .build()
 }

@@ -4,16 +4,16 @@ package io.burkard.cdk.services.apigateway
 object CfnModelProps {
 
   def apply(
+    restApiId: String,
     name: Option[String] = None,
     description: Option[String] = None,
-    restApiId: Option[String] = None,
     schema: Option[AnyRef] = None,
     contentType: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.CfnModelProps =
     (new software.amazon.awscdk.services.apigateway.CfnModelProps.Builder)
+      .restApiId(restApiId)
       .name(name.orNull)
       .description(description.orNull)
-      .restApiId(restApiId.orNull)
       .schema(schema.orNull)
       .contentType(contentType.orNull)
       .build()

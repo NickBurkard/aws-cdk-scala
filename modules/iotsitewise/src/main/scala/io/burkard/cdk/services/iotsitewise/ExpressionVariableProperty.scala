@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotsitewise
 object ExpressionVariableProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[software.amazon.awscdk.services.iotsitewise.CfnAssetModel.VariableValueProperty] = None
+    name: String,
+    value: software.amazon.awscdk.services.iotsitewise.CfnAssetModel.VariableValueProperty
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetModel.ExpressionVariableProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetModel.ExpressionVariableProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

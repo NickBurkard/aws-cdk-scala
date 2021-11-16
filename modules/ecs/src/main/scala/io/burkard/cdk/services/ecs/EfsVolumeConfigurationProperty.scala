@@ -4,17 +4,17 @@ package io.burkard.cdk.services.ecs
 object EfsVolumeConfigurationProperty {
 
   def apply(
+    fileSystemId: String,
     authorizationConfig: Option[software.amazon.awscdk.services.ecs.CfnTaskDefinition.AuthorizationConfigProperty] = None,
     transitEncryption: Option[String] = None,
     transitEncryptionPort: Option[Number] = None,
-    rootDirectory: Option[String] = None,
-    fileSystemId: Option[String] = None
+    rootDirectory: Option[String] = None
   ): software.amazon.awscdk.services.ecs.CfnTaskDefinition.EfsVolumeConfigurationProperty =
     (new software.amazon.awscdk.services.ecs.CfnTaskDefinition.EfsVolumeConfigurationProperty.Builder)
+      .fileSystemId(fileSystemId)
       .authorizationConfig(authorizationConfig.orNull)
       .transitEncryption(transitEncryption.orNull)
       .transitEncryptionPort(transitEncryptionPort.orNull)
       .rootDirectory(rootDirectory.orNull)
-      .fileSystemId(fileSystemId.orNull)
       .build()
 }

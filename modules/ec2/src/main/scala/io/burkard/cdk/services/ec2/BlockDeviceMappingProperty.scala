@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object BlockDeviceMappingProperty {
 
   def apply(
-    deviceName: Option[String] = None,
+    deviceName: String,
     ebs: Option[software.amazon.awscdk.services.ec2.CfnInstance.EbsProperty] = None,
     virtualName: Option[String] = None,
     noDevice: Option[software.amazon.awscdk.services.ec2.CfnInstance.NoDeviceProperty] = None
   ): software.amazon.awscdk.services.ec2.CfnInstance.BlockDeviceMappingProperty =
     (new software.amazon.awscdk.services.ec2.CfnInstance.BlockDeviceMappingProperty.Builder)
-      .deviceName(deviceName.orNull)
+      .deviceName(deviceName)
       .ebs(ebs.orNull)
       .virtualName(virtualName.orNull)
       .noDevice(noDevice.orNull)

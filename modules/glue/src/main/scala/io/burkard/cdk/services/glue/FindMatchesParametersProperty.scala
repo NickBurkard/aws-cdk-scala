@@ -4,15 +4,15 @@ package io.burkard.cdk.services.glue
 object FindMatchesParametersProperty {
 
   def apply(
+    primaryKeyColumnName: String,
     accuracyCostTradeoff: Option[Number] = None,
     precisionRecallTradeoff: Option[Number] = None,
-    primaryKeyColumnName: Option[String] = None,
     enforceProvidedLabels: Option[Boolean] = None
   ): software.amazon.awscdk.services.glue.CfnMLTransform.FindMatchesParametersProperty =
     (new software.amazon.awscdk.services.glue.CfnMLTransform.FindMatchesParametersProperty.Builder)
+      .primaryKeyColumnName(primaryKeyColumnName)
       .accuracyCostTradeoff(accuracyCostTradeoff.orNull)
       .precisionRecallTradeoff(precisionRecallTradeoff.orNull)
-      .primaryKeyColumnName(primaryKeyColumnName.orNull)
       .enforceProvidedLabels(enforceProvidedLabels.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

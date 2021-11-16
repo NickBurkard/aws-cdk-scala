@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object EncryptionConfigurationProperty {
 
   def apply(
-    replicaKmsKeyId: Option[String] = None
+    replicaKmsKeyId: String
   ): software.amazon.awscdk.services.s3.CfnBucket.EncryptionConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.EncryptionConfigurationProperty.Builder)
-      .replicaKmsKeyId(replicaKmsKeyId.orNull)
+      .replicaKmsKeyId(replicaKmsKeyId)
       .build()
 }

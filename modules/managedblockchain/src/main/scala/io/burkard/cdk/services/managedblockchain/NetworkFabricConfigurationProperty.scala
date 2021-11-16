@@ -4,9 +4,9 @@ package io.burkard.cdk.services.managedblockchain
 object NetworkFabricConfigurationProperty {
 
   def apply(
-    edition: Option[String] = None
+    edition: String
   ): software.amazon.awscdk.services.managedblockchain.CfnMember.NetworkFabricConfigurationProperty =
     (new software.amazon.awscdk.services.managedblockchain.CfnMember.NetworkFabricConfigurationProperty.Builder)
-      .edition(edition.orNull)
+      .edition(edition)
       .build()
 }

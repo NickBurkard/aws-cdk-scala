@@ -4,11 +4,11 @@ package io.burkard.cdk.services.wafv2
 object LabelMatchStatementProperty {
 
   def apply(
-    scope: Option[String] = None,
-    key: Option[String] = None
+    scope: String,
+    key: String
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.LabelMatchStatementProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.LabelMatchStatementProperty.Builder)
-      .scope(scope.orNull)
-      .key(key.orNull)
+      .scope(scope)
+      .key(key)
       .build()
 }

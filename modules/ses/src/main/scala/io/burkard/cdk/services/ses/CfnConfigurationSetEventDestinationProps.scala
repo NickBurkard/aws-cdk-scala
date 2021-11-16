@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object CfnConfigurationSetEventDestinationProps {
 
   def apply(
-    configurationSetName: Option[String] = None,
-    eventDestination: Option[software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestination.EventDestinationProperty] = None
+    configurationSetName: String,
+    eventDestination: software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestination.EventDestinationProperty
   ): software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestinationProps =
     (new software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestinationProps.Builder)
-      .configurationSetName(configurationSetName.orNull)
-      .eventDestination(eventDestination.orNull)
+      .configurationSetName(configurationSetName)
+      .eventDestination(eventDestination)
       .build()
 }

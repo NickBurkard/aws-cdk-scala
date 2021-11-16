@@ -4,13 +4,13 @@ package io.burkard.cdk.services.secretsmanager
 object CfnSecretTargetAttachmentProps {
 
   def apply(
-    secretId: Option[String] = None,
-    targetId: Option[String] = None,
-    targetType: Option[String] = None
+    secretId: String,
+    targetId: String,
+    targetType: String
   ): software.amazon.awscdk.services.secretsmanager.CfnSecretTargetAttachmentProps =
     (new software.amazon.awscdk.services.secretsmanager.CfnSecretTargetAttachmentProps.Builder)
-      .secretId(secretId.orNull)
-      .targetId(targetId.orNull)
-      .targetType(targetType.orNull)
+      .secretId(secretId)
+      .targetId(targetId)
+      .targetType(targetType)
       .build()
 }

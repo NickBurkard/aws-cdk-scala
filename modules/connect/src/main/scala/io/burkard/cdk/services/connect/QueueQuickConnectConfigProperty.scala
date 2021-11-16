@@ -4,11 +4,11 @@ package io.burkard.cdk.services.connect
 object QueueQuickConnectConfigProperty {
 
   def apply(
-    queueArn: Option[String] = None,
-    contactFlowArn: Option[String] = None
+    queueArn: String,
+    contactFlowArn: String
   ): software.amazon.awscdk.services.connect.CfnQuickConnect.QueueQuickConnectConfigProperty =
     (new software.amazon.awscdk.services.connect.CfnQuickConnect.QueueQuickConnectConfigProperty.Builder)
-      .queueArn(queueArn.orNull)
-      .contactFlowArn(contactFlowArn.orNull)
+      .queueArn(queueArn)
+      .contactFlowArn(contactFlowArn)
       .build()
 }

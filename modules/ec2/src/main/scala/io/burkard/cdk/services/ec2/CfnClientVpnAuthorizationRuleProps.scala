@@ -4,17 +4,17 @@ package io.burkard.cdk.services.ec2
 object CfnClientVpnAuthorizationRuleProps {
 
   def apply(
+    clientVpnEndpointId: String,
+    targetNetworkCidr: String,
     authorizeAllGroups: Option[Boolean] = None,
-    clientVpnEndpointId: Option[String] = None,
     accessGroupId: Option[String] = None,
-    description: Option[String] = None,
-    targetNetworkCidr: Option[String] = None
+    description: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnClientVpnAuthorizationRuleProps =
     (new software.amazon.awscdk.services.ec2.CfnClientVpnAuthorizationRuleProps.Builder)
+      .clientVpnEndpointId(clientVpnEndpointId)
+      .targetNetworkCidr(targetNetworkCidr)
       .authorizeAllGroups(authorizeAllGroups.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .clientVpnEndpointId(clientVpnEndpointId.orNull)
       .accessGroupId(accessGroupId.orNull)
       .description(description.orNull)
-      .targetNetworkCidr(targetNetworkCidr.orNull)
       .build()
 }

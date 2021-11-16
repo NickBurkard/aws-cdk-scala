@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnUserProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    accessString: Option[String] = None,
-    authenticationMode: Option[AnyRef] = None,
-    userName: Option[String] = None
+    accessString: String,
+    authenticationMode: AnyRef,
+    userName: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.memorydb.CfnUserProps =
     (new software.amazon.awscdk.services.memorydb.CfnUserProps.Builder)
+      .accessString(accessString)
+      .authenticationMode(authenticationMode)
+      .userName(userName)
       .tags(tags.map(_.asJava).orNull)
-      .accessString(accessString.orNull)
-      .authenticationMode(authenticationMode.orNull)
-      .userName(userName.orNull)
       .build()
 }

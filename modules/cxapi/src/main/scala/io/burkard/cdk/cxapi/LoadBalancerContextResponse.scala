@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object LoadBalancerContextResponse {
 
   def apply(
-    loadBalancerDnsName: Option[String] = None,
-    loadBalancerArn: Option[String] = None,
-    vpcId: Option[String] = None,
-    securityGroupIds: Option[List[String]] = None,
-    ipAddressType: Option[software.amazon.awscdk.cxapi.LoadBalancerIpAddressType] = None,
-    loadBalancerCanonicalHostedZoneId: Option[String] = None
+    loadBalancerDnsName: String,
+    loadBalancerArn: String,
+    vpcId: String,
+    securityGroupIds: List[String],
+    ipAddressType: software.amazon.awscdk.cxapi.LoadBalancerIpAddressType,
+    loadBalancerCanonicalHostedZoneId: String
   ): software.amazon.awscdk.cxapi.LoadBalancerContextResponse =
     (new software.amazon.awscdk.cxapi.LoadBalancerContextResponse.Builder)
-      .loadBalancerDnsName(loadBalancerDnsName.orNull)
-      .loadBalancerArn(loadBalancerArn.orNull)
-      .vpcId(vpcId.orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
-      .ipAddressType(ipAddressType.orNull)
-      .loadBalancerCanonicalHostedZoneId(loadBalancerCanonicalHostedZoneId.orNull)
+      .loadBalancerDnsName(loadBalancerDnsName)
+      .loadBalancerArn(loadBalancerArn)
+      .vpcId(vpcId)
+      .securityGroupIds(securityGroupIds.asJava)
+      .ipAddressType(ipAddressType)
+      .loadBalancerCanonicalHostedZoneId(loadBalancerCanonicalHostedZoneId)
       .build()
 }

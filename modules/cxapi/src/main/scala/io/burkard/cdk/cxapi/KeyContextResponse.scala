@@ -4,9 +4,9 @@ package io.burkard.cdk.cxapi
 object KeyContextResponse {
 
   def apply(
-    keyId: Option[String] = None
+    keyId: String
   ): software.amazon.awscdk.cxapi.KeyContextResponse =
     (new software.amazon.awscdk.cxapi.KeyContextResponse.Builder)
-      .keyId(keyId.orNull)
+      .keyId(keyId)
       .build()
 }

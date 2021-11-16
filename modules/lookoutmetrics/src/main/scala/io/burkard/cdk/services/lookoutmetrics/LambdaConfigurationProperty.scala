@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lookoutmetrics
 object LambdaConfigurationProperty {
 
   def apply(
-    lambdaArn: Option[String] = None,
-    roleArn: Option[String] = None
+    lambdaArn: String,
+    roleArn: String
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAlert.LambdaConfigurationProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAlert.LambdaConfigurationProperty.Builder)
-      .lambdaArn(lambdaArn.orNull)
-      .roleArn(roleArn.orNull)
+      .lambdaArn(lambdaArn)
+      .roleArn(roleArn)
       .build()
 }

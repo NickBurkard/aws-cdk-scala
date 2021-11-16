@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object UserPoolIdentityProviderAmazonProps {
 
   def apply(
-    clientId: Option[String] = None,
+    clientId: String,
+    clientSecret: String,
     attributeMapping: Option[software.amazon.awscdk.services.cognito.AttributeMapping] = None,
     scopes: Option[List[String]] = None,
-    clientSecret: Option[String] = None,
     userPool: Option[software.amazon.awscdk.services.cognito.IUserPool] = None
   ): software.amazon.awscdk.services.cognito.UserPoolIdentityProviderAmazonProps =
     (new software.amazon.awscdk.services.cognito.UserPoolIdentityProviderAmazonProps.Builder)
-      .clientId(clientId.orNull)
+      .clientId(clientId)
+      .clientSecret(clientSecret)
       .attributeMapping(attributeMapping.orNull)
       .scopes(scopes.map(_.asJava).orNull)
-      .clientSecret(clientSecret.orNull)
       .userPool(userPool.orNull)
       .build()
 }

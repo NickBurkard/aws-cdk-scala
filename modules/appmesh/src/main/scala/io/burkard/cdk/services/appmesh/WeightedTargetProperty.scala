@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object WeightedTargetProperty {
 
   def apply(
-    weight: Option[Number] = None,
-    virtualNode: Option[String] = None
+    weight: Number,
+    virtualNode: String
   ): software.amazon.awscdk.services.appmesh.CfnRoute.WeightedTargetProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.WeightedTargetProperty.Builder)
-      .weight(weight.orNull)
-      .virtualNode(virtualNode.orNull)
+      .weight(weight)
+      .virtualNode(virtualNode)
       .build()
 }

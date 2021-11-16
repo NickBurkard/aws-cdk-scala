@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnDBProxyTargetGroupProps {
 
   def apply(
+    targetGroupName: String,
+    dbProxyName: String,
     connectionPoolConfigurationInfo: Option[software.amazon.awscdk.services.rds.CfnDBProxyTargetGroup.ConnectionPoolConfigurationInfoFormatProperty] = None,
     dbInstanceIdentifiers: Option[List[String]] = None,
-    targetGroupName: Option[String] = None,
-    dbClusterIdentifiers: Option[List[String]] = None,
-    dbProxyName: Option[String] = None
+    dbClusterIdentifiers: Option[List[String]] = None
   ): software.amazon.awscdk.services.rds.CfnDBProxyTargetGroupProps =
     (new software.amazon.awscdk.services.rds.CfnDBProxyTargetGroupProps.Builder)
+      .targetGroupName(targetGroupName)
+      .dbProxyName(dbProxyName)
       .connectionPoolConfigurationInfo(connectionPoolConfigurationInfo.orNull)
       .dbInstanceIdentifiers(dbInstanceIdentifiers.map(_.asJava).orNull)
-      .targetGroupName(targetGroupName.orNull)
       .dbClusterIdentifiers(dbClusterIdentifiers.map(_.asJava).orNull)
-      .dbProxyName(dbProxyName.orNull)
       .build()
 }

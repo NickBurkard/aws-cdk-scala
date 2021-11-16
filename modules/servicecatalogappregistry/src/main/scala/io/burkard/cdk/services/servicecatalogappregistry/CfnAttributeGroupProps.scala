@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnAttributeGroupProps {
 
   def apply(
-    name: Option[String] = None,
-    attributes: Option[AnyRef] = None,
+    name: String,
+    attributes: AnyRef,
     description: Option[String] = None,
     tags: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.servicecatalogappregistry.CfnAttributeGroupProps =
     (new software.amazon.awscdk.services.servicecatalogappregistry.CfnAttributeGroupProps.Builder)
-      .name(name.orNull)
-      .attributes(attributes.orNull)
+      .name(name)
+      .attributes(attributes)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

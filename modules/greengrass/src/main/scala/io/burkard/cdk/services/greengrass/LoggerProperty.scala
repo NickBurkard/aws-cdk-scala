@@ -4,17 +4,17 @@ package io.burkard.cdk.services.greengrass
 object LoggerProperty {
 
   def apply(
-    id: Option[String] = None,
-    space: Option[Number] = None,
-    `type`: Option[String] = None,
-    component: Option[String] = None,
-    level: Option[String] = None
+    id: String,
+    `type`: String,
+    component: String,
+    level: String,
+    space: Option[Number] = None
   ): software.amazon.awscdk.services.greengrass.CfnLoggerDefinition.LoggerProperty =
     (new software.amazon.awscdk.services.greengrass.CfnLoggerDefinition.LoggerProperty.Builder)
-      .id(id.orNull)
+      .id(id)
+      .`type`(`type`)
+      .component(component)
+      .level(level)
       .space(space.orNull)
-      .`type`(`type`.orNull)
-      .component(component.orNull)
-      .level(level.orNull)
       .build()
 }

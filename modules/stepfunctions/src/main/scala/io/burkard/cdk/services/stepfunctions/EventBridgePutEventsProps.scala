@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object EventBridgePutEventsProps {
 
   def apply(
+    entries: List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEventsEntry],
     resultPath: Option[String] = None,
-    entries: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEventsEntry]] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
@@ -18,8 +18,8 @@ object EventBridgePutEventsProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEventsProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EventBridgePutEventsProps.Builder)
+      .entries(entries.asJava)
       .resultPath(resultPath.orNull)
-      .entries(entries.map(_.asJava).orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)

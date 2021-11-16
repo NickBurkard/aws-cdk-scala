@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CfnResourceGroupProps {
 
   def apply(
-    resourceGroupTags: Option[List[_]] = None
+    resourceGroupTags: List[_]
   ): software.amazon.awscdk.services.inspector.CfnResourceGroupProps =
     (new software.amazon.awscdk.services.inspector.CfnResourceGroupProps.Builder)
-      .resourceGroupTags(resourceGroupTags.map(_.asJava).orNull)
+      .resourceGroupTags(resourceGroupTags.asJava)
       .build()
 }

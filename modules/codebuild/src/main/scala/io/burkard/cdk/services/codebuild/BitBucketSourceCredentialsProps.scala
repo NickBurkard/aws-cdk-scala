@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codebuild
 object BitBucketSourceCredentialsProps {
 
   def apply(
-    username: Option[software.amazon.awscdk.SecretValue] = None,
-    password: Option[software.amazon.awscdk.SecretValue] = None
+    username: software.amazon.awscdk.SecretValue,
+    password: software.amazon.awscdk.SecretValue
   ): software.amazon.awscdk.services.codebuild.BitBucketSourceCredentialsProps =
     (new software.amazon.awscdk.services.codebuild.BitBucketSourceCredentialsProps.Builder)
-      .username(username.orNull)
-      .password(password.orNull)
+      .username(username)
+      .password(password)
       .build()
 }

@@ -4,7 +4,7 @@ package io.burkard.cdk.services.ec2
 object NetworkAclEntryProps {
 
   def apply(
-    networkAcl: Option[software.amazon.awscdk.services.ec2.INetworkAcl] = None,
+    networkAcl: software.amazon.awscdk.services.ec2.INetworkAcl,
     direction: Option[software.amazon.awscdk.services.ec2.TrafficDirection] = None,
     traffic: Option[software.amazon.awscdk.services.ec2.AclTraffic] = None,
     ruleNumber: Option[Number] = None,
@@ -13,7 +13,7 @@ object NetworkAclEntryProps {
     cidr: Option[software.amazon.awscdk.services.ec2.AclCidr] = None
   ): software.amazon.awscdk.services.ec2.NetworkAclEntryProps =
     (new software.amazon.awscdk.services.ec2.NetworkAclEntryProps.Builder)
-      .networkAcl(networkAcl.orNull)
+      .networkAcl(networkAcl)
       .direction(direction.orNull)
       .traffic(traffic.orNull)
       .ruleNumber(ruleNumber.orNull)

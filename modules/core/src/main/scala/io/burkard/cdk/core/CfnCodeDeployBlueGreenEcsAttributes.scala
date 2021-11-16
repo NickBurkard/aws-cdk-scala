@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnCodeDeployBlueGreenEcsAttributes {
 
   def apply(
-    taskDefinitions: Option[List[String]] = None,
-    taskSets: Option[List[String]] = None,
-    trafficRouting: Option[software.amazon.awscdk.CfnTrafficRouting] = None
+    taskDefinitions: List[String],
+    taskSets: List[String],
+    trafficRouting: software.amazon.awscdk.CfnTrafficRouting
   ): software.amazon.awscdk.CfnCodeDeployBlueGreenEcsAttributes =
     (new software.amazon.awscdk.CfnCodeDeployBlueGreenEcsAttributes.Builder)
-      .taskDefinitions(taskDefinitions.map(_.asJava).orNull)
-      .taskSets(taskSets.map(_.asJava).orNull)
-      .trafficRouting(trafficRouting.orNull)
+      .taskDefinitions(taskDefinitions.asJava)
+      .taskSets(taskSets.asJava)
+      .trafficRouting(trafficRouting)
       .build()
 }

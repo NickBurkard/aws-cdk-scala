@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object StepFunctionsStartExecutionProps {
 
   def apply(
+    stateMachine: software.amazon.awscdk.services.stepfunctions.IStateMachine,
     name: Option[String] = None,
     resultPath: Option[String] = None,
-    stateMachine: Option[software.amazon.awscdk.services.stepfunctions.IStateMachine] = None,
     input: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
@@ -21,9 +21,9 @@ object StepFunctionsStartExecutionProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.StepFunctionsStartExecutionProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.StepFunctionsStartExecutionProps.Builder)
+      .stateMachine(stateMachine)
       .name(name.orNull)
       .resultPath(resultPath.orNull)
-      .stateMachine(stateMachine.orNull)
       .input(input.orNull)
       .heartbeat(heartbeat.orNull)
       .integrationPattern(integrationPattern.orNull)

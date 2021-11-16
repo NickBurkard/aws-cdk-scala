@@ -4,13 +4,13 @@ package io.burkard.cdk.services.elasticsearch
 object CognitoOptions {
 
   def apply(
-    role: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    identityPoolId: Option[String] = None,
-    userPoolId: Option[String] = None
+    role: software.amazon.awscdk.services.iam.IRole,
+    identityPoolId: String,
+    userPoolId: String
   ): software.amazon.awscdk.services.elasticsearch.CognitoOptions =
     (new software.amazon.awscdk.services.elasticsearch.CognitoOptions.Builder)
-      .role(role.orNull)
-      .identityPoolId(identityPoolId.orNull)
-      .userPoolId(userPoolId.orNull)
+      .role(role)
+      .identityPoolId(identityPoolId)
+      .userPoolId(userPoolId)
       .build()
 }

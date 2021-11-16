@@ -4,9 +4,9 @@ package io.burkard.cdk.services.datasync
 object TaskScheduleProperty {
 
   def apply(
-    scheduleExpression: Option[String] = None
+    scheduleExpression: String
   ): software.amazon.awscdk.services.datasync.CfnTask.TaskScheduleProperty =
     (new software.amazon.awscdk.services.datasync.CfnTask.TaskScheduleProperty.Builder)
-      .scheduleExpression(scheduleExpression.orNull)
+      .scheduleExpression(scheduleExpression)
       .build()
 }

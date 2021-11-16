@@ -4,18 +4,18 @@ package io.burkard.cdk.services.lambda
 object CfnPermissionProps {
 
   def apply(
+    functionName: String,
+    principal: String,
+    action: String,
     eventSourceToken: Option[String] = None,
-    functionName: Option[String] = None,
-    principal: Option[String] = None,
-    action: Option[String] = None,
     sourceArn: Option[String] = None,
     sourceAccount: Option[String] = None
   ): software.amazon.awscdk.services.lambda.CfnPermissionProps =
     (new software.amazon.awscdk.services.lambda.CfnPermissionProps.Builder)
+      .functionName(functionName)
+      .principal(principal)
+      .action(action)
       .eventSourceToken(eventSourceToken.orNull)
-      .functionName(functionName.orNull)
-      .principal(principal.orNull)
-      .action(action.orNull)
       .sourceArn(sourceArn.orNull)
       .sourceAccount(sourceAccount.orNull)
       .build()

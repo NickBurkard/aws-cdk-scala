@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object TcpConnectionPool {
 
   def apply(
-    maxConnections: Option[Number] = None
+    maxConnections: Number
   ): software.amazon.awscdk.services.appmesh.TcpConnectionPool =
     (new software.amazon.awscdk.services.appmesh.TcpConnectionPool.Builder)
-      .maxConnections(maxConnections.orNull)
+      .maxConnections(maxConnections)
       .build()
 }

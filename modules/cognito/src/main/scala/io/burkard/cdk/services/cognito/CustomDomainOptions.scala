@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object CustomDomainOptions {
 
   def apply(
-    certificate: Option[software.amazon.awscdk.services.certificatemanager.ICertificate] = None,
-    domainName: Option[String] = None
+    certificate: software.amazon.awscdk.services.certificatemanager.ICertificate,
+    domainName: String
   ): software.amazon.awscdk.services.cognito.CustomDomainOptions =
     (new software.amazon.awscdk.services.cognito.CustomDomainOptions.Builder)
-      .certificate(certificate.orNull)
-      .domainName(domainName.orNull)
+      .certificate(certificate)
+      .domainName(domainName)
       .build()
 }

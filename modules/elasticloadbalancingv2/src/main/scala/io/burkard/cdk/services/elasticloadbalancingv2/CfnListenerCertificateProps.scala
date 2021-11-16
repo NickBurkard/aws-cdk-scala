@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnListenerCertificateProps {
 
   def apply(
-    listenerArn: Option[String] = None,
-    certificates: Option[List[_]] = None
+    listenerArn: String,
+    certificates: List[_]
   ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerCertificateProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerCertificateProps.Builder)
-      .listenerArn(listenerArn.orNull)
-      .certificates(certificates.map(_.asJava).orNull)
+      .listenerArn(listenerArn)
+      .certificates(certificates.asJava)
       .build()
 }

@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object EventDestinationProperty {
 
   def apply(
+    matchingEventTypes: List[String],
     name: Option[String] = None,
     kinesisFirehoseDestination: Option[software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestination.KinesisFirehoseDestinationProperty] = None,
     enabled: Option[Boolean] = None,
-    cloudWatchDestination: Option[software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestination.CloudWatchDestinationProperty] = None,
-    matchingEventTypes: Option[List[String]] = None
+    cloudWatchDestination: Option[software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestination.CloudWatchDestinationProperty] = None
   ): software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestination.EventDestinationProperty =
     (new software.amazon.awscdk.services.ses.CfnConfigurationSetEventDestination.EventDestinationProperty.Builder)
+      .matchingEventTypes(matchingEventTypes.asJava)
       .name(name.orNull)
       .kinesisFirehoseDestination(kinesisFirehoseDestination.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cloudWatchDestination(cloudWatchDestination.orNull)
-      .matchingEventTypes(matchingEventTypes.map(_.asJava).orNull)
       .build()
 }

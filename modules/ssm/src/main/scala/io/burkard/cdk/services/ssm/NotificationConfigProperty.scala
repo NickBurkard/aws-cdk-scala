@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object NotificationConfigProperty {
 
   def apply(
+    notificationArn: String,
     notificationEvents: Option[List[String]] = None,
-    notificationArn: Option[String] = None,
     notificationType: Option[String] = None
   ): software.amazon.awscdk.services.ssm.CfnMaintenanceWindowTask.NotificationConfigProperty =
     (new software.amazon.awscdk.services.ssm.CfnMaintenanceWindowTask.NotificationConfigProperty.Builder)
+      .notificationArn(notificationArn)
       .notificationEvents(notificationEvents.map(_.asJava).orNull)
-      .notificationArn(notificationArn.orNull)
       .notificationType(notificationType.orNull)
       .build()
 }

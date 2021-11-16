@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object MutualTlsValidation {
 
   def apply(
-    trust: Option[software.amazon.awscdk.services.appmesh.MutualTlsValidationTrust] = None,
+    trust: software.amazon.awscdk.services.appmesh.MutualTlsValidationTrust,
     subjectAlternativeNames: Option[software.amazon.awscdk.services.appmesh.SubjectAlternativeNames] = None
   ): software.amazon.awscdk.services.appmesh.MutualTlsValidation =
     (new software.amazon.awscdk.services.appmesh.MutualTlsValidation.Builder)
-      .trust(trust.orNull)
+      .trust(trust)
       .subjectAlternativeNames(subjectAlternativeNames.orNull)
       .build()
 }

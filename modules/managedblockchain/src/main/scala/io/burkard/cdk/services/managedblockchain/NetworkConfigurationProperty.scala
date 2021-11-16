@@ -4,19 +4,19 @@ package io.burkard.cdk.services.managedblockchain
 object NetworkConfigurationProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    framework: String,
+    votingPolicy: software.amazon.awscdk.services.managedblockchain.CfnMember.VotingPolicyProperty,
+    frameworkVersion: String,
     description: Option[String] = None,
-    framework: Option[String] = None,
-    votingPolicy: Option[software.amazon.awscdk.services.managedblockchain.CfnMember.VotingPolicyProperty] = None,
-    networkFrameworkConfiguration: Option[software.amazon.awscdk.services.managedblockchain.CfnMember.NetworkFrameworkConfigurationProperty] = None,
-    frameworkVersion: Option[String] = None
+    networkFrameworkConfiguration: Option[software.amazon.awscdk.services.managedblockchain.CfnMember.NetworkFrameworkConfigurationProperty] = None
   ): software.amazon.awscdk.services.managedblockchain.CfnMember.NetworkConfigurationProperty =
     (new software.amazon.awscdk.services.managedblockchain.CfnMember.NetworkConfigurationProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .framework(framework)
+      .votingPolicy(votingPolicy)
+      .frameworkVersion(frameworkVersion)
       .description(description.orNull)
-      .framework(framework.orNull)
-      .votingPolicy(votingPolicy.orNull)
       .networkFrameworkConfiguration(networkFrameworkConfiguration.orNull)
-      .frameworkVersion(frameworkVersion.orNull)
       .build()
 }

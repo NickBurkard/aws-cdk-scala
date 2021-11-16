@@ -4,15 +4,15 @@ package io.burkard.cdk.services.sqs
 object QueueAttributes {
 
   def apply(
+    queueArn: String,
     queueUrl: Option[String] = None,
-    queueArn: Option[String] = None,
     keyArn: Option[String] = None,
     queueName: Option[String] = None,
     fifo: Option[Boolean] = None
   ): software.amazon.awscdk.services.sqs.QueueAttributes =
     (new software.amazon.awscdk.services.sqs.QueueAttributes.Builder)
+      .queueArn(queueArn)
       .queueUrl(queueUrl.orNull)
-      .queueArn(queueArn.orNull)
       .keyArn(keyArn.orNull)
       .queueName(queueName.orNull)
       .fifo(fifo.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

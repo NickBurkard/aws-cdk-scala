@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnGameSessionQueueProps {
 
   def apply(
+    name: String,
     timeoutInSeconds: Option[Number] = None,
-    name: Option[String] = None,
     customEventData: Option[String] = None,
     destinations: Option[List[_]] = None,
     priorityConfiguration: Option[software.amazon.awscdk.services.gamelift.CfnGameSessionQueue.PriorityConfigurationProperty] = None,
@@ -17,8 +17,8 @@ object CfnGameSessionQueueProps {
     playerLatencyPolicies: Option[List[_]] = None
   ): software.amazon.awscdk.services.gamelift.CfnGameSessionQueueProps =
     (new software.amazon.awscdk.services.gamelift.CfnGameSessionQueueProps.Builder)
+      .name(name)
       .timeoutInSeconds(timeoutInSeconds.orNull)
-      .name(name.orNull)
       .customEventData(customEventData.orNull)
       .destinations(destinations.map(_.asJava).orNull)
       .priorityConfiguration(priorityConfiguration.orNull)

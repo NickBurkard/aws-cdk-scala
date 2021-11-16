@@ -4,9 +4,9 @@ package io.burkard.cdk.services.emrcontainers
 object ContainerInfoProperty {
 
   def apply(
-    eksInfo: Option[software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.EksInfoProperty] = None
+    eksInfo: software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.EksInfoProperty
   ): software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.ContainerInfoProperty =
     (new software.amazon.awscdk.services.emrcontainers.CfnVirtualCluster.ContainerInfoProperty.Builder)
-      .eksInfo(eksInfo.orNull)
+      .eksInfo(eksInfo)
       .build()
 }

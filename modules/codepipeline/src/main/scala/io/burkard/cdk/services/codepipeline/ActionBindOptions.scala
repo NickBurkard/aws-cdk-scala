@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object ActionBindOptions {
 
   def apply(
-    role: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None
+    role: software.amazon.awscdk.services.iam.IRole,
+    bucket: software.amazon.awscdk.services.s3.IBucket
   ): software.amazon.awscdk.services.codepipeline.ActionBindOptions =
     (new software.amazon.awscdk.services.codepipeline.ActionBindOptions.Builder)
-      .role(role.orNull)
-      .bucket(bucket.orNull)
+      .role(role)
+      .bucket(bucket)
       .build()
 }

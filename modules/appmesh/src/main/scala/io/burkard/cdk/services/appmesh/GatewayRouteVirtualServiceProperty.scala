@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object GatewayRouteVirtualServiceProperty {
 
   def apply(
-    virtualServiceName: Option[String] = None
+    virtualServiceName: String
   ): software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteVirtualServiceProperty =
     (new software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteVirtualServiceProperty.Builder)
-      .virtualServiceName(virtualServiceName.orNull)
+      .virtualServiceName(virtualServiceName)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rds
 object MySqlInstanceEngineProps {
 
   def apply(
-    version: Option[software.amazon.awscdk.services.rds.MysqlEngineVersion] = None
+    version: software.amazon.awscdk.services.rds.MysqlEngineVersion
   ): software.amazon.awscdk.services.rds.MySqlInstanceEngineProps =
     (new software.amazon.awscdk.services.rds.MySqlInstanceEngineProps.Builder)
-      .version(version.orNull)
+      .version(version)
       .build()
 }

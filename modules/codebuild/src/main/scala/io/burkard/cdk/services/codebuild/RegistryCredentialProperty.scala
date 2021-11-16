@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codebuild
 object RegistryCredentialProperty {
 
   def apply(
-    credentialProvider: Option[String] = None,
-    credential: Option[String] = None
+    credentialProvider: String,
+    credential: String
   ): software.amazon.awscdk.services.codebuild.CfnProject.RegistryCredentialProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.RegistryCredentialProperty.Builder)
-      .credentialProvider(credentialProvider.orNull)
-      .credential(credential.orNull)
+      .credentialProvider(credentialProvider)
+      .credential(credential)
       .build()
 }

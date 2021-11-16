@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnSuiteDefinitionProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    suiteDefinitionConfiguration: Option[AnyRef] = None
+    suiteDefinitionConfiguration: AnyRef,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iotcoredeviceadvisor.CfnSuiteDefinitionProps =
     (new software.amazon.awscdk.services.iotcoredeviceadvisor.CfnSuiteDefinitionProps.Builder)
+      .suiteDefinitionConfiguration(suiteDefinitionConfiguration)
       .tags(tags.map(_.asJava).orNull)
-      .suiteDefinitionConfiguration(suiteDefinitionConfiguration.orNull)
       .build()
 }

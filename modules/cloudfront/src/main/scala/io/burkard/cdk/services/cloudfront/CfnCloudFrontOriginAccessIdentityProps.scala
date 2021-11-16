@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object CfnCloudFrontOriginAccessIdentityProps {
 
   def apply(
-    cloudFrontOriginAccessIdentityConfig: Option[software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty] = None
+    cloudFrontOriginAccessIdentityConfig: software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentityProps =
     (new software.amazon.awscdk.services.cloudfront.CfnCloudFrontOriginAccessIdentityProps.Builder)
-      .cloudFrontOriginAccessIdentityConfig(cloudFrontOriginAccessIdentityConfig.orNull)
+      .cloudFrontOriginAccessIdentityConfig(cloudFrontOriginAccessIdentityConfig)
       .build()
 }

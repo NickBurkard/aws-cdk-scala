@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudformation
 object ParameterProperty {
 
   def apply(
-    parameterKey: Option[String] = None,
-    parameterValue: Option[String] = None
+    parameterKey: String,
+    parameterValue: String
   ): software.amazon.awscdk.services.cloudformation.CfnStackSet.ParameterProperty =
     (new software.amazon.awscdk.services.cloudformation.CfnStackSet.ParameterProperty.Builder)
-      .parameterKey(parameterKey.orNull)
-      .parameterValue(parameterValue.orNull)
+      .parameterKey(parameterKey)
+      .parameterValue(parameterValue)
       .build()
 }

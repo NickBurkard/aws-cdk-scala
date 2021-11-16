@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnImageProps {
 
   def apply(
+    infrastructureConfigurationArn: String,
     enhancedImageMetadataEnabled: Option[Boolean] = None,
-    infrastructureConfigurationArn: Option[String] = None,
     imageRecipeArn: Option[String] = None,
     imageTestsConfiguration: Option[software.amazon.awscdk.services.imagebuilder.CfnImage.ImageTestsConfigurationProperty] = None,
     distributionConfigurationArn: Option[String] = None,
@@ -16,8 +16,8 @@ object CfnImageProps {
     tags: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.imagebuilder.CfnImageProps =
     (new software.amazon.awscdk.services.imagebuilder.CfnImageProps.Builder)
+      .infrastructureConfigurationArn(infrastructureConfigurationArn)
       .enhancedImageMetadataEnabled(enhancedImageMetadataEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .infrastructureConfigurationArn(infrastructureConfigurationArn.orNull)
       .imageRecipeArn(imageRecipeArn.orNull)
       .imageTestsConfiguration(imageTestsConfiguration.orNull)
       .distributionConfigurationArn(distributionConfigurationArn.orNull)

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cognito
 object CfnUserPoolUserToGroupAttachmentProps {
 
   def apply(
-    username: Option[String] = None,
-    groupName: Option[String] = None,
-    userPoolId: Option[String] = None
+    username: String,
+    groupName: String,
+    userPoolId: String
   ): software.amazon.awscdk.services.cognito.CfnUserPoolUserToGroupAttachmentProps =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolUserToGroupAttachmentProps.Builder)
-      .username(username.orNull)
-      .groupName(groupName.orNull)
-      .userPoolId(userPoolId.orNull)
+      .username(username)
+      .groupName(groupName)
+      .userPoolId(userPoolId)
       .build()
 }

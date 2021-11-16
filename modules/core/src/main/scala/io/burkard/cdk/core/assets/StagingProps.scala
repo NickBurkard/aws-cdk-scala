@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object StagingProps {
 
   def apply(
-    sourcePath: Option[String] = None,
+    sourcePath: String,
     extraHash: Option[String] = None,
     exclude: Option[List[String]] = None,
     ignoreMode: Option[software.amazon.awscdk.IgnoreMode] = None,
     follow: Option[software.amazon.awscdk.assets.FollowMode] = None
   ): software.amazon.awscdk.assets.StagingProps =
     (new software.amazon.awscdk.assets.StagingProps.Builder)
-      .sourcePath(sourcePath.orNull)
+      .sourcePath(sourcePath)
       .extraHash(extraHash.orNull)
       .exclude(exclude.map(_.asJava).orNull)
       .ignoreMode(ignoreMode.orNull)

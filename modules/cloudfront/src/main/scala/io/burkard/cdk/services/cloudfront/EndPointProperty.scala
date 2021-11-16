@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object EndPointProperty {
 
   def apply(
-    streamType: Option[String] = None,
-    kinesisStreamConfig: Option[software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig.KinesisStreamConfigProperty] = None
+    streamType: String,
+    kinesisStreamConfig: software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig.KinesisStreamConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig.EndPointProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig.EndPointProperty.Builder)
-      .streamType(streamType.orNull)
-      .kinesisStreamConfig(kinesisStreamConfig.orNull)
+      .streamType(streamType)
+      .kinesisStreamConfig(kinesisStreamConfig)
       .build()
 }

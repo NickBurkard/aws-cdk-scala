@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object GlueDataBrewStartJobRunProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     resultPath: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
@@ -18,7 +18,7 @@ object GlueDataBrewStartJobRunProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.GlueDataBrewStartJobRunProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.GlueDataBrewStartJobRunProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .resultPath(resultPath.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)

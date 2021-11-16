@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotevents
 object IotEventsProperty {
 
   def apply(
-    payload: Option[software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty] = None,
-    inputName: Option[String] = None
+    inputName: String,
+    payload: Option[software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty] = None
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.IotEventsProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.IotEventsProperty.Builder)
+      .inputName(inputName)
       .payload(payload.orNull)
-      .inputName(inputName.orNull)
       .build()
 }

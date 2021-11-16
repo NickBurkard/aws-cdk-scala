@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object SqsActionProperty {
 
   def apply(
-    queueUrl: Option[String] = None,
-    useBase64: Option[Boolean] = None,
-    roleArn: Option[String] = None
+    queueUrl: String,
+    roleArn: String,
+    useBase64: Option[Boolean] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.SqsActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.SqsActionProperty.Builder)
-      .queueUrl(queueUrl.orNull)
+      .queueUrl(queueUrl)
+      .roleArn(roleArn)
       .useBase64(useBase64.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .roleArn(roleArn.orNull)
       .build()
 }

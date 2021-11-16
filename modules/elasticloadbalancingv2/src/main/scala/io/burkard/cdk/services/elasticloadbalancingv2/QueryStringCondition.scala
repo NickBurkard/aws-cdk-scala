@@ -4,11 +4,11 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object QueryStringCondition {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    value: String,
+    key: Option[String] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.QueryStringCondition =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.QueryStringCondition.Builder)
+      .value(value)
       .key(key.orNull)
-      .value(value.orNull)
       .build()
 }

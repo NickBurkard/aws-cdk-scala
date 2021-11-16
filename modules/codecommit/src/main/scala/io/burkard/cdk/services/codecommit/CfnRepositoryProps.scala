@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnRepositoryProps {
 
   def apply(
-    repositoryName: Option[String] = None,
+    repositoryName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     repositoryDescription: Option[String] = None,
     code: Option[software.amazon.awscdk.services.codecommit.CfnRepository.CodeProperty] = None,
     triggers: Option[List[_]] = None
   ): software.amazon.awscdk.services.codecommit.CfnRepositoryProps =
     (new software.amazon.awscdk.services.codecommit.CfnRepositoryProps.Builder)
-      .repositoryName(repositoryName.orNull)
+      .repositoryName(repositoryName)
       .tags(tags.map(_.asJava).orNull)
       .repositoryDescription(repositoryDescription.orNull)
       .code(code.orNull)

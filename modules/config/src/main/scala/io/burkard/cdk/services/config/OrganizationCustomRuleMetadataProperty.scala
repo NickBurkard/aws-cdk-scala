@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object OrganizationCustomRuleMetadataProperty {
 
   def apply(
-    organizationConfigRuleTriggerTypes: Option[List[String]] = None,
+    organizationConfigRuleTriggerTypes: List[String],
+    lambdaFunctionArn: String,
     description: Option[String] = None,
-    lambdaFunctionArn: Option[String] = None,
     resourceTypesScope: Option[List[String]] = None,
     maximumExecutionFrequency: Option[String] = None,
     tagKeyScope: Option[String] = None,
@@ -18,9 +18,9 @@ object OrganizationCustomRuleMetadataProperty {
     tagValueScope: Option[String] = None
   ): software.amazon.awscdk.services.config.CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty =
     (new software.amazon.awscdk.services.config.CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.Builder)
-      .organizationConfigRuleTriggerTypes(organizationConfigRuleTriggerTypes.map(_.asJava).orNull)
+      .organizationConfigRuleTriggerTypes(organizationConfigRuleTriggerTypes.asJava)
+      .lambdaFunctionArn(lambdaFunctionArn)
       .description(description.orNull)
-      .lambdaFunctionArn(lambdaFunctionArn.orNull)
       .resourceTypesScope(resourceTypesScope.map(_.asJava).orNull)
       .maximumExecutionFrequency(maximumExecutionFrequency.orNull)
       .tagKeyScope(tagKeyScope.orNull)

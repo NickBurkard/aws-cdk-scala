@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnInstanceProfileProps {
 
   def apply(
+    roles: List[String],
     path: Option[String] = None,
-    instanceProfileName: Option[String] = None,
-    roles: Option[List[String]] = None
+    instanceProfileName: Option[String] = None
   ): software.amazon.awscdk.services.iam.CfnInstanceProfileProps =
     (new software.amazon.awscdk.services.iam.CfnInstanceProfileProps.Builder)
+      .roles(roles.asJava)
       .path(path.orNull)
       .instanceProfileName(instanceProfileName.orNull)
-      .roles(roles.map(_.asJava).orNull)
       .build()
 }

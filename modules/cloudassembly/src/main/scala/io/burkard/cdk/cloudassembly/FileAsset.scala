@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object FileAsset {
 
   def apply(
-    source: Option[software.amazon.awscdk.cloudassembly.schema.FileSource] = None,
-    destinations: Option[Map[String, _ <: software.amazon.awscdk.cloudassembly.schema.FileDestination]] = None
+    source: software.amazon.awscdk.cloudassembly.schema.FileSource,
+    destinations: Map[String, _ <: software.amazon.awscdk.cloudassembly.schema.FileDestination]
   ): software.amazon.awscdk.cloudassembly.schema.FileAsset =
     (new software.amazon.awscdk.cloudassembly.schema.FileAsset.Builder)
-      .source(source.orNull)
-      .destinations(destinations.map(_.asJava).orNull)
+      .source(source)
+      .destinations(destinations.asJava)
       .build()
 }

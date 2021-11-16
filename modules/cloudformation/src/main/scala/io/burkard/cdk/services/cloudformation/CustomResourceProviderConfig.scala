@@ -5,9 +5,9 @@ package io.burkard.cdk.services.cloudformation
 object CustomResourceProviderConfig {
 
   def apply(
-    serviceToken: Option[String] = None
+    serviceToken: String
   ): software.amazon.awscdk.services.cloudformation.CustomResourceProviderConfig =
     (new software.amazon.awscdk.services.cloudformation.CustomResourceProviderConfig.Builder)
-      .serviceToken(serviceToken.orNull)
+      .serviceToken(serviceToken)
       .build()
 }

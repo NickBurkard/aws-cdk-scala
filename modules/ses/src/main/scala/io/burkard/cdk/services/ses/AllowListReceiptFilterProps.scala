@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AllowListReceiptFilterProps {
 
   def apply(
-    ips: Option[List[String]] = None
+    ips: List[String]
   ): software.amazon.awscdk.services.ses.AllowListReceiptFilterProps =
     (new software.amazon.awscdk.services.ses.AllowListReceiptFilterProps.Builder)
-      .ips(ips.map(_.asJava).orNull)
+      .ips(ips.asJava)
       .build()
 }

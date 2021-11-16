@@ -5,19 +5,19 @@ package io.burkard.cdk.pipelines
 object CdkStageProps {
 
   def apply(
-    host: Option[software.amazon.awscdk.pipelines.IStageHost] = None,
-    cloudAssemblyArtifact: Option[software.amazon.awscdk.services.codepipeline.Artifact] = None,
-    stageName: Option[String] = None,
+    host: software.amazon.awscdk.pipelines.IStageHost,
+    cloudAssemblyArtifact: software.amazon.awscdk.services.codepipeline.Artifact,
+    stageName: String,
+    pipelineStage: software.amazon.awscdk.services.codepipeline.IStage,
     confirmBroadeningPermissions: Option[Boolean] = None,
-    pipelineStage: Option[software.amazon.awscdk.services.codepipeline.IStage] = None,
     securityNotificationTopic: Option[software.amazon.awscdk.services.sns.ITopic] = None
   ): software.amazon.awscdk.pipelines.CdkStageProps =
     (new software.amazon.awscdk.pipelines.CdkStageProps.Builder)
-      .host(host.orNull)
-      .cloudAssemblyArtifact(cloudAssemblyArtifact.orNull)
-      .stageName(stageName.orNull)
+      .host(host)
+      .cloudAssemblyArtifact(cloudAssemblyArtifact)
+      .stageName(stageName)
+      .pipelineStage(pipelineStage)
       .confirmBroadeningPermissions(confirmBroadeningPermissions.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .pipelineStage(pipelineStage.orNull)
       .securityNotificationTopic(securityNotificationTopic.orNull)
       .build()
 }

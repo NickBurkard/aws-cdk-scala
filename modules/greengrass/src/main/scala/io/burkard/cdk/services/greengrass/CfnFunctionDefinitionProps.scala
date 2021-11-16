@@ -4,12 +4,12 @@ package io.burkard.cdk.services.greengrass
 object CfnFunctionDefinitionProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     tags: Option[AnyRef] = None,
     initialVersion: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.FunctionDefinitionVersionProperty] = None
   ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionProps =
     (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.orNull)
       .initialVersion(initialVersion.orNull)
       .build()

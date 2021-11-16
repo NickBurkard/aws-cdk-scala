@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object EcsParametersProperty {
 
   def apply(
-    taskDefinitionArn: Option[String] = None,
+    taskDefinitionArn: String,
     platformVersion: Option[String] = None,
     networkConfiguration: Option[software.amazon.awscdk.services.events.CfnRule.NetworkConfigurationProperty] = None,
     enableExecuteCommand: Option[Boolean] = None,
@@ -23,7 +23,7 @@ object EcsParametersProperty {
     placementStrategies: Option[List[_]] = None
   ): software.amazon.awscdk.services.events.CfnRule.EcsParametersProperty =
     (new software.amazon.awscdk.services.events.CfnRule.EcsParametersProperty.Builder)
-      .taskDefinitionArn(taskDefinitionArn.orNull)
+      .taskDefinitionArn(taskDefinitionArn)
       .platformVersion(platformVersion.orNull)
       .networkConfiguration(networkConfiguration.orNull)
       .enableExecuteCommand(enableExecuteCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

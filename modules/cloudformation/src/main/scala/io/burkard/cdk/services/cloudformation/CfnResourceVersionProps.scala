@@ -4,14 +4,14 @@ package io.burkard.cdk.services.cloudformation
 object CfnResourceVersionProps {
 
   def apply(
-    schemaHandlerPackage: Option[String] = None,
-    typeName: Option[String] = None,
+    schemaHandlerPackage: String,
+    typeName: String,
     executionRoleArn: Option[String] = None,
     loggingConfig: Option[software.amazon.awscdk.services.cloudformation.CfnResourceVersion.LoggingConfigProperty] = None
   ): software.amazon.awscdk.services.cloudformation.CfnResourceVersionProps =
     (new software.amazon.awscdk.services.cloudformation.CfnResourceVersionProps.Builder)
-      .schemaHandlerPackage(schemaHandlerPackage.orNull)
-      .typeName(typeName.orNull)
+      .schemaHandlerPackage(schemaHandlerPackage)
+      .typeName(typeName)
       .executionRoleArn(executionRoleArn.orNull)
       .loggingConfig(loggingConfig.orNull)
       .build()

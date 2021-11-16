@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object VolumeProps {
 
   def apply(
+    availabilityZone: String,
     enableMultiAttach: Option[Boolean] = None,
     size: Option[software.amazon.awscdk.Size] = None,
-    availabilityZone: Option[String] = None,
     volumeType: Option[software.amazon.awscdk.services.ec2.EbsDeviceVolumeType] = None,
     encrypted: Option[Boolean] = None,
     iops: Option[Number] = None,
@@ -17,9 +17,9 @@ object VolumeProps {
     snapshotId: Option[String] = None
   ): software.amazon.awscdk.services.ec2.VolumeProps =
     (new software.amazon.awscdk.services.ec2.VolumeProps.Builder)
+      .availabilityZone(availabilityZone)
       .enableMultiAttach(enableMultiAttach.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .size(size.orNull)
-      .availabilityZone(availabilityZone.orNull)
       .volumeType(volumeType.orNull)
       .encrypted(encrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .iops(iops.orNull)

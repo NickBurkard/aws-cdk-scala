@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object ExecuteFileOptions {
 
   def apply(
-    filePath: Option[String] = None,
+    filePath: String,
     arguments: Option[String] = None
   ): software.amazon.awscdk.services.ec2.ExecuteFileOptions =
     (new software.amazon.awscdk.services.ec2.ExecuteFileOptions.Builder)
-      .filePath(filePath.orNull)
+      .filePath(filePath)
       .arguments(arguments.orNull)
       .build()
 }

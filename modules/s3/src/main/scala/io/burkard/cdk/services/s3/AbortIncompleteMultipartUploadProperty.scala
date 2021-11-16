@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object AbortIncompleteMultipartUploadProperty {
 
   def apply(
-    daysAfterInitiation: Option[Number] = None
+    daysAfterInitiation: Number
   ): software.amazon.awscdk.services.s3.CfnBucket.AbortIncompleteMultipartUploadProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.AbortIncompleteMultipartUploadProperty.Builder)
-      .daysAfterInitiation(daysAfterInitiation.orNull)
+      .daysAfterInitiation(daysAfterInitiation)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object SigV4AuthorizationProperty {
 
   def apply(
-    signingRegion: Option[String] = None,
-    serviceName: Option[String] = None,
-    roleArn: Option[String] = None
+    signingRegion: String,
+    serviceName: String,
+    roleArn: String
   ): software.amazon.awscdk.services.iot.CfnTopicRule.SigV4AuthorizationProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.SigV4AuthorizationProperty.Builder)
-      .signingRegion(signingRegion.orNull)
-      .serviceName(serviceName.orNull)
-      .roleArn(roleArn.orNull)
+      .signingRegion(signingRegion)
+      .serviceName(serviceName)
+      .roleArn(roleArn)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.quicksight
 object RedshiftParametersProperty {
 
   def apply(
-    database: Option[String] = None,
+    database: String,
     host: Option[String] = None,
     clusterId: Option[String] = None,
     port: Option[Number] = None
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.RedshiftParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.RedshiftParametersProperty.Builder)
-      .database(database.orNull)
+      .database(database)
       .host(host.orNull)
       .clusterId(clusterId.orNull)
       .port(port.orNull)

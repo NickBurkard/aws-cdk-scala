@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisfirehose
 object KinesisStreamSourceConfigurationProperty {
 
   def apply(
-    kinesisStreamArn: Option[String] = None,
-    roleArn: Option[String] = None
+    kinesisStreamArn: String,
+    roleArn: String
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.KinesisStreamSourceConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.KinesisStreamSourceConfigurationProperty.Builder)
-      .kinesisStreamArn(kinesisStreamArn.orNull)
-      .roleArn(roleArn.orNull)
+      .kinesisStreamArn(kinesisStreamArn)
+      .roleArn(roleArn)
       .build()
 }

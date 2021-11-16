@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object ClusterParameterGroupProps {
 
   def apply(
+    family: String,
+    parameters: Map[String, String],
     description: Option[String] = None,
-    dbClusterParameterGroupName: Option[String] = None,
-    family: Option[String] = None,
-    parameters: Option[Map[String, String]] = None
+    dbClusterParameterGroupName: Option[String] = None
   ): software.amazon.awscdk.services.docdb.ClusterParameterGroupProps =
     (new software.amazon.awscdk.services.docdb.ClusterParameterGroupProps.Builder)
+      .family(family)
+      .parameters(parameters.asJava)
       .description(description.orNull)
       .dbClusterParameterGroupName(dbClusterParameterGroupName.orNull)
-      .family(family.orNull)
-      .parameters(parameters.map(_.asJava).orNull)
       .build()
 }

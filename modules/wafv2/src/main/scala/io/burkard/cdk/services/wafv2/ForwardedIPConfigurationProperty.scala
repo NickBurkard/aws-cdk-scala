@@ -4,11 +4,11 @@ package io.burkard.cdk.services.wafv2
 object ForwardedIPConfigurationProperty {
 
   def apply(
-    headerName: Option[String] = None,
-    fallbackBehavior: Option[String] = None
+    headerName: String,
+    fallbackBehavior: String
   ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty =
     (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty.Builder)
-      .headerName(headerName.orNull)
-      .fallbackBehavior(fallbackBehavior.orNull)
+      .headerName(headerName)
+      .fallbackBehavior(fallbackBehavior)
       .build()
 }

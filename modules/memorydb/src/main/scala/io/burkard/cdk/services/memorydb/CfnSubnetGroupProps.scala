@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnSubnetGroupProps {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
-    subnetGroupName: Option[String] = None,
+    subnetIds: List[String],
+    subnetGroupName: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.memorydb.CfnSubnetGroupProps =
     (new software.amazon.awscdk.services.memorydb.CfnSubnetGroupProps.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .subnetGroupName(subnetGroupName.orNull)
+      .subnetIds(subnetIds.asJava)
+      .subnetGroupName(subnetGroupName)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

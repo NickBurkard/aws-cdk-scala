@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object TmpfsProperty {
 
   def apply(
-    mountOptions: Option[List[String]] = None,
-    size: Option[Number] = None,
-    containerPath: Option[String] = None
+    size: Number,
+    containerPath: String,
+    mountOptions: Option[List[String]] = None
   ): software.amazon.awscdk.services.batch.CfnJobDefinition.TmpfsProperty =
     (new software.amazon.awscdk.services.batch.CfnJobDefinition.TmpfsProperty.Builder)
+      .size(size)
+      .containerPath(containerPath)
       .mountOptions(mountOptions.map(_.asJava).orNull)
-      .size(size.orNull)
-      .containerPath(containerPath.orNull)
       .build()
 }

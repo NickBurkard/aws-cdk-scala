@@ -4,15 +4,15 @@ package io.burkard.cdk.services.appmesh
 object OutlierDetection {
 
   def apply(
-    maxEjectionPercent: Option[Number] = None,
-    baseEjectionDuration: Option[software.amazon.awscdk.Duration] = None,
-    interval: Option[software.amazon.awscdk.Duration] = None,
-    maxServerErrors: Option[Number] = None
+    maxEjectionPercent: Number,
+    baseEjectionDuration: software.amazon.awscdk.Duration,
+    interval: software.amazon.awscdk.Duration,
+    maxServerErrors: Number
   ): software.amazon.awscdk.services.appmesh.OutlierDetection =
     (new software.amazon.awscdk.services.appmesh.OutlierDetection.Builder)
-      .maxEjectionPercent(maxEjectionPercent.orNull)
-      .baseEjectionDuration(baseEjectionDuration.orNull)
-      .interval(interval.orNull)
-      .maxServerErrors(maxServerErrors.orNull)
+      .maxEjectionPercent(maxEjectionPercent)
+      .baseEjectionDuration(baseEjectionDuration)
+      .interval(interval)
+      .maxServerErrors(maxServerErrors)
       .build()
 }

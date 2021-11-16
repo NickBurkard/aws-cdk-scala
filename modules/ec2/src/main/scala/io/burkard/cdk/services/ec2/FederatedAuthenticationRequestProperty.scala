@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object FederatedAuthenticationRequestProperty {
 
   def apply(
-    samlProviderArn: Option[String] = None,
+    samlProviderArn: String,
     selfServiceSamlProviderArn: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.FederatedAuthenticationRequestProperty =
     (new software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.FederatedAuthenticationRequestProperty.Builder)
-      .samlProviderArn(samlProviderArn.orNull)
+      .samlProviderArn(samlProviderArn)
       .selfServiceSamlProviderArn(selfServiceSamlProviderArn.orNull)
       .build()
 }

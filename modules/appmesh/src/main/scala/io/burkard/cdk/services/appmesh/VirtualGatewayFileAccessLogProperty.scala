@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayFileAccessLogProperty {
 
   def apply(
-    path: Option[String] = None
+    path: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayFileAccessLogProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayFileAccessLogProperty.Builder)
-      .path(path.orNull)
+      .path(path)
       .build()
 }

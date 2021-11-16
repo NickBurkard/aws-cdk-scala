@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnVPCEndpointConnectionNotificationProps {
 
   def apply(
-    connectionNotificationArn: Option[String] = None,
-    connectionEvents: Option[List[String]] = None,
+    connectionNotificationArn: String,
+    connectionEvents: List[String],
     serviceId: Option[String] = None,
     vpcEndpointId: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnVPCEndpointConnectionNotificationProps =
     (new software.amazon.awscdk.services.ec2.CfnVPCEndpointConnectionNotificationProps.Builder)
-      .connectionNotificationArn(connectionNotificationArn.orNull)
-      .connectionEvents(connectionEvents.map(_.asJava).orNull)
+      .connectionNotificationArn(connectionNotificationArn)
+      .connectionEvents(connectionEvents.asJava)
       .serviceId(serviceId.orNull)
       .vpcEndpointId(vpcEndpointId.orNull)
       .build()

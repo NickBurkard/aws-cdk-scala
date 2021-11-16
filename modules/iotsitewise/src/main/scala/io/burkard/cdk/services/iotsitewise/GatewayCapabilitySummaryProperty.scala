@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotsitewise
 object GatewayCapabilitySummaryProperty {
 
   def apply(
-    capabilityNamespace: Option[String] = None,
+    capabilityNamespace: String,
     capabilityConfiguration: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayCapabilitySummaryProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayCapabilitySummaryProperty.Builder)
-      .capabilityNamespace(capabilityNamespace.orNull)
+      .capabilityNamespace(capabilityNamespace)
       .capabilityConfiguration(capabilityConfiguration.orNull)
       .build()
 }

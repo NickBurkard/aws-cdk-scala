@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesis
 object StreamEncryptionProperty {
 
   def apply(
-    keyId: Option[String] = None,
-    encryptionType: Option[String] = None
+    keyId: String,
+    encryptionType: String
   ): software.amazon.awscdk.services.kinesis.CfnStream.StreamEncryptionProperty =
     (new software.amazon.awscdk.services.kinesis.CfnStream.StreamEncryptionProperty.Builder)
-      .keyId(keyId.orNull)
-      .encryptionType(encryptionType.orNull)
+      .keyId(keyId)
+      .encryptionType(encryptionType)
       .build()
 }

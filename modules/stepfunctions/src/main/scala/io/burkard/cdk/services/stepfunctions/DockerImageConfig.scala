@@ -4,9 +4,9 @@ package io.burkard.cdk.services.stepfunctions
 object DockerImageConfig {
 
   def apply(
-    imageUri: Option[String] = None
+    imageUri: String
   ): software.amazon.awscdk.services.stepfunctions.tasks.DockerImageConfig =
     (new software.amazon.awscdk.services.stepfunctions.tasks.DockerImageConfig.Builder)
-      .imageUri(imageUri.orNull)
+      .imageUri(imageUri)
       .build()
 }

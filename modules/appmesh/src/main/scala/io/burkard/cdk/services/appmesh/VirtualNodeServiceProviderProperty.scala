@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualNodeServiceProviderProperty {
 
   def apply(
-    virtualNodeName: Option[String] = None
+    virtualNodeName: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualNodeServiceProviderProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualService.VirtualNodeServiceProviderProperty.Builder)
-      .virtualNodeName(virtualNodeName.orNull)
+      .virtualNodeName(virtualNodeName)
       .build()
 }

@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object ContainerOverride {
 
   def apply(
-    containerName: Option[String] = None,
+    containerName: String,
     memoryLimit: Option[Number] = None,
     command: Option[List[String]] = None,
     memoryReservation: Option[Number] = None,
@@ -15,7 +15,7 @@ object ContainerOverride {
     environment: Option[List[_ <: software.amazon.awscdk.services.events.targets.TaskEnvironmentVariable]] = None
   ): software.amazon.awscdk.services.events.targets.ContainerOverride =
     (new software.amazon.awscdk.services.events.targets.ContainerOverride.Builder)
-      .containerName(containerName.orNull)
+      .containerName(containerName)
       .memoryLimit(memoryLimit.orNull)
       .command(command.map(_.asJava).orNull)
       .memoryReservation(memoryReservation.orNull)

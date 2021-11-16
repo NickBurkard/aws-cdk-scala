@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object ZendeskConnectorProfilePropertiesProperty {
 
   def apply(
-    instanceUrl: Option[String] = None
+    instanceUrl: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.ZendeskConnectorProfilePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.ZendeskConnectorProfilePropertiesProperty.Builder)
-      .instanceUrl(instanceUrl.orNull)
+      .instanceUrl(instanceUrl)
       .build()
 }

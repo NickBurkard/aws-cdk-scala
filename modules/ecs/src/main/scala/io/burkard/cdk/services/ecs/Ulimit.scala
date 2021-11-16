@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ecs
 object Ulimit {
 
   def apply(
-    hardLimit: Option[Number] = None,
-    name: Option[software.amazon.awscdk.services.ecs.UlimitName] = None,
-    softLimit: Option[Number] = None
+    hardLimit: Number,
+    name: software.amazon.awscdk.services.ecs.UlimitName,
+    softLimit: Number
   ): software.amazon.awscdk.services.ecs.Ulimit =
     (new software.amazon.awscdk.services.ecs.Ulimit.Builder)
-      .hardLimit(hardLimit.orNull)
-      .name(name.orNull)
-      .softLimit(softLimit.orNull)
+      .hardLimit(hardLimit)
+      .name(name)
+      .softLimit(softLimit)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotsitewise
 object AssetHierarchyProperty {
 
   def apply(
-    childAssetId: Option[String] = None,
-    logicalId: Option[String] = None
+    childAssetId: String,
+    logicalId: String
   ): software.amazon.awscdk.services.iotsitewise.CfnAsset.AssetHierarchyProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAsset.AssetHierarchyProperty.Builder)
-      .childAssetId(childAssetId.orNull)
-      .logicalId(logicalId.orNull)
+      .childAssetId(childAssetId)
+      .logicalId(logicalId)
       .build()
 }

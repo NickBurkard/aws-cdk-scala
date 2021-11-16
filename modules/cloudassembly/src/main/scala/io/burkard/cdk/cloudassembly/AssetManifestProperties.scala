@@ -4,13 +4,13 @@ package io.burkard.cdk.cloudassembly
 object AssetManifestProperties {
 
   def apply(
+    file: String,
     requiresBootstrapStackVersion: Option[Number] = None,
-    file: Option[String] = None,
     bootstrapStackVersionSsmParameter: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.AssetManifestProperties =
     (new software.amazon.awscdk.cloudassembly.schema.AssetManifestProperties.Builder)
+      .file(file)
       .requiresBootstrapStackVersion(requiresBootstrapStackVersion.orNull)
-      .file(file.orNull)
       .bootstrapStackVersionSsmParameter(bootstrapStackVersionSsmParameter.orNull)
       .build()
 }

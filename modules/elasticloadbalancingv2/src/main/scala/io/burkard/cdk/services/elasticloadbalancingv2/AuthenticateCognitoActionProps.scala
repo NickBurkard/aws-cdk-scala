@@ -7,24 +7,24 @@ import scala.collection.JavaConverters._
 object AuthenticateCognitoActionProps {
 
   def apply(
-    userPoolDomain: Option[software.amazon.awscdk.services.cognito.IUserPoolDomain] = None,
+    userPoolDomain: software.amazon.awscdk.services.cognito.IUserPoolDomain,
+    userPoolClient: software.amazon.awscdk.services.cognito.IUserPoolClient,
+    next: software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction,
+    userPool: software.amazon.awscdk.services.cognito.IUserPool,
     scope: Option[String] = None,
     sessionCookieName: Option[String] = None,
     sessionTimeout: Option[software.amazon.awscdk.Duration] = None,
-    userPoolClient: Option[software.amazon.awscdk.services.cognito.IUserPoolClient] = None,
-    next: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction] = None,
-    userPool: Option[software.amazon.awscdk.services.cognito.IUserPool] = None,
     onUnauthenticatedRequest: Option[software.amazon.awscdk.services.elasticloadbalancingv2.UnauthenticatedAction] = None,
     authenticationRequestExtraParams: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.actions.AuthenticateCognitoActionProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.actions.AuthenticateCognitoActionProps.Builder)
-      .userPoolDomain(userPoolDomain.orNull)
+      .userPoolDomain(userPoolDomain)
+      .userPoolClient(userPoolClient)
+      .next(next)
+      .userPool(userPool)
       .scope(scope.orNull)
       .sessionCookieName(sessionCookieName.orNull)
       .sessionTimeout(sessionTimeout.orNull)
-      .userPoolClient(userPoolClient.orNull)
-      .next(next.orNull)
-      .userPool(userPool.orNull)
       .onUnauthenticatedRequest(onUnauthenticatedRequest.orNull)
       .authenticationRequestExtraParams(authenticationRequestExtraParams.map(_.asJava).orNull)
       .build()

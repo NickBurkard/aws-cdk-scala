@@ -7,25 +7,25 @@ import scala.collection.JavaConverters._
 object CfnAnalysisProps {
 
   def apply(
+    awsAccountId: String,
+    analysisId: String,
+    sourceEntity: software.amazon.awscdk.services.quicksight.CfnAnalysis.AnalysisSourceEntityProperty,
     name: Option[String] = None,
-    awsAccountId: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     permissions: Option[List[_]] = None,
     errors: Option[List[_]] = None,
-    analysisId: Option[String] = None,
     themeArn: Option[String] = None,
-    parameters: Option[software.amazon.awscdk.services.quicksight.CfnAnalysis.ParametersProperty] = None,
-    sourceEntity: Option[software.amazon.awscdk.services.quicksight.CfnAnalysis.AnalysisSourceEntityProperty] = None
+    parameters: Option[software.amazon.awscdk.services.quicksight.CfnAnalysis.ParametersProperty] = None
   ): software.amazon.awscdk.services.quicksight.CfnAnalysisProps =
     (new software.amazon.awscdk.services.quicksight.CfnAnalysisProps.Builder)
+      .awsAccountId(awsAccountId)
+      .analysisId(analysisId)
+      .sourceEntity(sourceEntity)
       .name(name.orNull)
-      .awsAccountId(awsAccountId.orNull)
       .tags(tags.map(_.asJava).orNull)
       .permissions(permissions.map(_.asJava).orNull)
       .errors(errors.map(_.asJava).orNull)
-      .analysisId(analysisId.orNull)
       .themeArn(themeArn.orNull)
       .parameters(parameters.orNull)
-      .sourceEntity(sourceEntity.orNull)
       .build()
 }

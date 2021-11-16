@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object NetworkingProperty {
 
   def apply(
-    monthlyTransfer: Option[Number] = None,
-    ports: Option[List[_]] = None
+    ports: List[_],
+    monthlyTransfer: Option[Number] = None
   ): software.amazon.awscdk.services.lightsail.CfnInstance.NetworkingProperty =
     (new software.amazon.awscdk.services.lightsail.CfnInstance.NetworkingProperty.Builder)
+      .ports(ports.asJava)
       .monthlyTransfer(monthlyTransfer.orNull)
-      .ports(ports.map(_.asJava).orNull)
       .build()
 }

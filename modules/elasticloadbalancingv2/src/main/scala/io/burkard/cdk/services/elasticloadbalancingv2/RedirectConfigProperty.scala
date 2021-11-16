@@ -4,7 +4,7 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object RedirectConfigProperty {
 
   def apply(
-    statusCode: Option[String] = None,
+    statusCode: String,
     path: Option[String] = None,
     host: Option[String] = None,
     query: Option[String] = None,
@@ -12,7 +12,7 @@ object RedirectConfigProperty {
     protocol: Option[String] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.RedirectConfigProperty =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.RedirectConfigProperty.Builder)
-      .statusCode(statusCode.orNull)
+      .statusCode(statusCode)
       .path(path.orNull)
       .host(host.orNull)
       .query(query.orNull)

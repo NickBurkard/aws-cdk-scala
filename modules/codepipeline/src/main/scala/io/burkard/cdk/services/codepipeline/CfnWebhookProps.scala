@@ -7,23 +7,23 @@ import scala.collection.JavaConverters._
 object CfnWebhookProps {
 
   def apply(
+    targetPipeline: String,
+    filters: List[_],
+    targetAction: String,
+    targetPipelineVersion: Number,
+    authentication: String,
+    authenticationConfiguration: software.amazon.awscdk.services.codepipeline.CfnWebhook.WebhookAuthConfigurationProperty,
     name: Option[String] = None,
-    targetPipeline: Option[String] = None,
-    registerWithThirdParty: Option[Boolean] = None,
-    filters: Option[List[_]] = None,
-    targetAction: Option[String] = None,
-    targetPipelineVersion: Option[Number] = None,
-    authentication: Option[String] = None,
-    authenticationConfiguration: Option[software.amazon.awscdk.services.codepipeline.CfnWebhook.WebhookAuthConfigurationProperty] = None
+    registerWithThirdParty: Option[Boolean] = None
   ): software.amazon.awscdk.services.codepipeline.CfnWebhookProps =
     (new software.amazon.awscdk.services.codepipeline.CfnWebhookProps.Builder)
+      .targetPipeline(targetPipeline)
+      .filters(filters.asJava)
+      .targetAction(targetAction)
+      .targetPipelineVersion(targetPipelineVersion)
+      .authentication(authentication)
+      .authenticationConfiguration(authenticationConfiguration)
       .name(name.orNull)
-      .targetPipeline(targetPipeline.orNull)
       .registerWithThirdParty(registerWithThirdParty.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .filters(filters.map(_.asJava).orNull)
-      .targetAction(targetAction.orNull)
-      .targetPipelineVersion(targetPipelineVersion.orNull)
-      .authentication(authentication.orNull)
-      .authenticationConfiguration(authenticationConfiguration.orNull)
       .build()
 }

@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object AmiContextQuery {
 
   def apply(
+    filters: Map[String, _ <: List[String]],
+    region: String,
+    account: String,
     owners: Option[List[String]] = None,
-    filters: Option[Map[String, _ <: List[String]]] = None,
-    region: Option[String] = None,
-    account: Option[String] = None,
     lookupRoleArn: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.AmiContextQuery =
     (new software.amazon.awscdk.cloudassembly.schema.AmiContextQuery.Builder)
+      .filters(filters.mapValues(_.asJava).toMap.asJava)
+      .region(region)
+      .account(account)
       .owners(owners.map(_.asJava).orNull)
-      .filters(filters.map(_.mapValues(_.asJava).toMap.asJava).orNull)
-      .region(region.orNull)
-      .account(account.orNull)
       .lookupRoleArn(lookupRoleArn.orNull)
       .build()
 }

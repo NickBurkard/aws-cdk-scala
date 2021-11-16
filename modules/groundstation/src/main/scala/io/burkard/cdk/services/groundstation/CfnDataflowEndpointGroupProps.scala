@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnDataflowEndpointGroupProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    endpointDetails: Option[List[_]] = None
+    endpointDetails: List[_],
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.groundstation.CfnDataflowEndpointGroupProps =
     (new software.amazon.awscdk.services.groundstation.CfnDataflowEndpointGroupProps.Builder)
+      .endpointDetails(endpointDetails.asJava)
       .tags(tags.map(_.asJava).orNull)
-      .endpointDetails(endpointDetails.map(_.asJava).orNull)
       .build()
 }

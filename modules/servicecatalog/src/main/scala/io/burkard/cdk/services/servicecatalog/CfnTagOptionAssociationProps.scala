@@ -4,11 +4,11 @@ package io.burkard.cdk.services.servicecatalog
 object CfnTagOptionAssociationProps {
 
   def apply(
-    resourceId: Option[String] = None,
-    tagOptionId: Option[String] = None
+    resourceId: String,
+    tagOptionId: String
   ): software.amazon.awscdk.services.servicecatalog.CfnTagOptionAssociationProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnTagOptionAssociationProps.Builder)
-      .resourceId(resourceId.orNull)
-      .tagOptionId(tagOptionId.orNull)
+      .resourceId(resourceId)
+      .tagOptionId(tagOptionId)
       .build()
 }

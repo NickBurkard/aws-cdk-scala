@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codedeploy
 object ServerDeploymentConfigProps {
 
   def apply(
-    minimumHealthyHosts: Option[software.amazon.awscdk.services.codedeploy.MinimumHealthyHosts] = None,
+    minimumHealthyHosts: software.amazon.awscdk.services.codedeploy.MinimumHealthyHosts,
     deploymentConfigName: Option[String] = None
   ): software.amazon.awscdk.services.codedeploy.ServerDeploymentConfigProps =
     (new software.amazon.awscdk.services.codedeploy.ServerDeploymentConfigProps.Builder)
-      .minimumHealthyHosts(minimumHealthyHosts.orNull)
+      .minimumHealthyHosts(minimumHealthyHosts)
       .deploymentConfigName(deploymentConfigName.orNull)
       .build()
 }

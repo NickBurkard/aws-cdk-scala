@@ -4,13 +4,13 @@ package io.burkard.cdk.services.amazonmq
 object MaintenanceWindowProperty {
 
   def apply(
-    timeZone: Option[String] = None,
-    timeOfDay: Option[String] = None,
-    dayOfWeek: Option[String] = None
+    timeZone: String,
+    timeOfDay: String,
+    dayOfWeek: String
   ): software.amazon.awscdk.services.amazonmq.CfnBroker.MaintenanceWindowProperty =
     (new software.amazon.awscdk.services.amazonmq.CfnBroker.MaintenanceWindowProperty.Builder)
-      .timeZone(timeZone.orNull)
-      .timeOfDay(timeOfDay.orNull)
-      .dayOfWeek(dayOfWeek.orNull)
+      .timeZone(timeZone)
+      .timeOfDay(timeOfDay)
+      .dayOfWeek(dayOfWeek)
       .build()
 }

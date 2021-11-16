@@ -4,13 +4,13 @@ package io.burkard.cdk.services.secretsmanager
 object CfnResourcePolicyProps {
 
   def apply(
-    secretId: Option[String] = None,
-    blockPublicPolicy: Option[Boolean] = None,
-    resourcePolicy: Option[AnyRef] = None
+    secretId: String,
+    resourcePolicy: AnyRef,
+    blockPublicPolicy: Option[Boolean] = None
   ): software.amazon.awscdk.services.secretsmanager.CfnResourcePolicyProps =
     (new software.amazon.awscdk.services.secretsmanager.CfnResourcePolicyProps.Builder)
-      .secretId(secretId.orNull)
+      .secretId(secretId)
+      .resourcePolicy(resourcePolicy)
       .blockPublicPolicy(blockPublicPolicy.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .resourcePolicy(resourcePolicy.orNull)
       .build()
 }

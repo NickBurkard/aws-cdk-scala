@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object EvaluateExpressionProps {
 
   def apply(
+    expression: String,
     resultPath: Option[String] = None,
-    expression: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
     runtime: Option[software.amazon.awscdk.services.lambda.Runtime] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
@@ -19,8 +19,8 @@ object EvaluateExpressionProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EvaluateExpressionProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EvaluateExpressionProps.Builder)
+      .expression(expression)
       .resultPath(resultPath.orNull)
-      .expression(expression.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .runtime(runtime.orNull)
       .heartbeat(heartbeat.orNull)

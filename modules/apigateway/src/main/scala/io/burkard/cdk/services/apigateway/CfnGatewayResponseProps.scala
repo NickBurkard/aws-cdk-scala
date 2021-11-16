@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnGatewayResponseProps {
 
   def apply(
+    responseType: String,
+    restApiId: String,
     statusCode: Option[String] = None,
     responseParameters: Option[Map[String, String]] = None,
-    responseType: Option[String] = None,
-    restApiId: Option[String] = None,
     responseTemplates: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.apigateway.CfnGatewayResponseProps =
     (new software.amazon.awscdk.services.apigateway.CfnGatewayResponseProps.Builder)
+      .responseType(responseType)
+      .restApiId(restApiId)
       .statusCode(statusCode.orNull)
       .responseParameters(responseParameters.map(_.asJava).orNull)
-      .responseType(responseType.orNull)
-      .restApiId(restApiId.orNull)
       .responseTemplates(responseTemplates.map(_.asJava).orNull)
       .build()
 }

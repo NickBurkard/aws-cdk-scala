@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object StageProperty {
 
   def apply(
-    targets: Option[List[_]] = None,
-    durationInMinutes: Option[Number] = None
+    durationInMinutes: Number,
+    targets: Option[List[_]] = None
   ): software.amazon.awscdk.services.ssmcontacts.CfnContact.StageProperty =
     (new software.amazon.awscdk.services.ssmcontacts.CfnContact.StageProperty.Builder)
+      .durationInMinutes(durationInMinutes)
       .targets(targets.map(_.asJava).orNull)
-      .durationInMinutes(durationInMinutes.orNull)
       .build()
 }

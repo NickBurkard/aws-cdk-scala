@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object SsmAssociationProperty {
 
   def apply(
-    documentName: Option[String] = None,
+    documentName: String,
     associationParameters: Option[List[_]] = None
   ): software.amazon.awscdk.services.ec2.CfnInstance.SsmAssociationProperty =
     (new software.amazon.awscdk.services.ec2.CfnInstance.SsmAssociationProperty.Builder)
-      .documentName(documentName.orNull)
+      .documentName(documentName)
       .associationParameters(associationParameters.map(_.asJava).orNull)
       .build()
 }

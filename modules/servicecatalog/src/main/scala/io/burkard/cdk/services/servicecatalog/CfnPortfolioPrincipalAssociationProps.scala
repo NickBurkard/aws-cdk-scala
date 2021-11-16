@@ -4,15 +4,15 @@ package io.burkard.cdk.services.servicecatalog
 object CfnPortfolioPrincipalAssociationProps {
 
   def apply(
-    portfolioId: Option[String] = None,
-    principalArn: Option[String] = None,
-    acceptLanguage: Option[String] = None,
-    principalType: Option[String] = None
+    portfolioId: String,
+    principalArn: String,
+    principalType: String,
+    acceptLanguage: Option[String] = None
   ): software.amazon.awscdk.services.servicecatalog.CfnPortfolioPrincipalAssociationProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnPortfolioPrincipalAssociationProps.Builder)
-      .portfolioId(portfolioId.orNull)
-      .principalArn(principalArn.orNull)
+      .portfolioId(portfolioId)
+      .principalArn(principalArn)
+      .principalType(principalType)
       .acceptLanguage(acceptLanguage.orNull)
-      .principalType(principalType.orNull)
       .build()
 }

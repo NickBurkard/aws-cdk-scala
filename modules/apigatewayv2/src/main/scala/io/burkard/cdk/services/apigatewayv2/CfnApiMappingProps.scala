@@ -4,15 +4,15 @@ package io.burkard.cdk.services.apigatewayv2
 object CfnApiMappingProps {
 
   def apply(
-    stage: Option[String] = None,
-    apiMappingKey: Option[String] = None,
-    domainName: Option[String] = None,
-    apiId: Option[String] = None
+    stage: String,
+    domainName: String,
+    apiId: String,
+    apiMappingKey: Option[String] = None
   ): software.amazon.awscdk.services.apigatewayv2.CfnApiMappingProps =
     (new software.amazon.awscdk.services.apigatewayv2.CfnApiMappingProps.Builder)
-      .stage(stage.orNull)
+      .stage(stage)
+      .domainName(domainName)
+      .apiId(apiId)
       .apiMappingKey(apiMappingKey.orNull)
-      .domainName(domainName.orNull)
-      .apiId(apiId.orNull)
       .build()
 }

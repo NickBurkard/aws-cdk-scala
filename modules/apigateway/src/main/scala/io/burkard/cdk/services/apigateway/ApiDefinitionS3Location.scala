@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apigateway
 object ApiDefinitionS3Location {
 
   def apply(
-    key: Option[String] = None,
-    version: Option[String] = None,
-    bucket: Option[String] = None
+    key: String,
+    bucket: String,
+    version: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.ApiDefinitionS3Location =
     (new software.amazon.awscdk.services.apigateway.ApiDefinitionS3Location.Builder)
-      .key(key.orNull)
+      .key(key)
+      .bucket(bucket)
       .version(version.orNull)
-      .bucket(bucket.orNull)
       .build()
 }

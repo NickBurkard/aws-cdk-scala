@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codestarnotifications
 object TargetProperty {
 
   def apply(
-    targetAddress: Option[String] = None,
-    targetType: Option[String] = None
+    targetAddress: String,
+    targetType: String
   ): software.amazon.awscdk.services.codestarnotifications.CfnNotificationRule.TargetProperty =
     (new software.amazon.awscdk.services.codestarnotifications.CfnNotificationRule.TargetProperty.Builder)
-      .targetAddress(targetAddress.orNull)
-      .targetType(targetType.orNull)
+      .targetAddress(targetAddress)
+      .targetType(targetType)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object LoadBalancerTargetProps {
 
   def apply(
-    targetJson: Option[AnyRef] = None,
-    targetType: Option[software.amazon.awscdk.services.elasticloadbalancingv2.TargetType] = None
+    targetType: software.amazon.awscdk.services.elasticloadbalancingv2.TargetType,
+    targetJson: Option[AnyRef] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.LoadBalancerTargetProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.LoadBalancerTargetProps.Builder)
+      .targetType(targetType)
       .targetJson(targetJson.orNull)
-      .targetType(targetType.orNull)
       .build()
 }

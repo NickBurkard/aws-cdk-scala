@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object SsmAutomationProperty {
 
   def apply(
+    documentName: String,
+    roleArn: String,
     documentVersion: Option[String] = None,
-    documentName: Option[String] = None,
-    roleArn: Option[String] = None,
     parameters: Option[List[_]] = None,
     targetAccount: Option[String] = None
   ): software.amazon.awscdk.services.ssmincidents.CfnResponsePlan.SsmAutomationProperty =
     (new software.amazon.awscdk.services.ssmincidents.CfnResponsePlan.SsmAutomationProperty.Builder)
+      .documentName(documentName)
+      .roleArn(roleArn)
       .documentVersion(documentVersion.orNull)
-      .documentName(documentName.orNull)
-      .roleArn(roleArn.orNull)
       .parameters(parameters.map(_.asJava).orNull)
       .targetAccount(targetAccount.orNull)
       .build()

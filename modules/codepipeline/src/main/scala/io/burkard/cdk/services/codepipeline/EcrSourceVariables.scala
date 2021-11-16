@@ -4,17 +4,17 @@ package io.burkard.cdk.services.codepipeline
 object EcrSourceVariables {
 
   def apply(
-    repositoryName: Option[String] = None,
-    imageTag: Option[String] = None,
-    registryId: Option[String] = None,
-    imageDigest: Option[String] = None,
-    imageUri: Option[String] = None
+    repositoryName: String,
+    imageTag: String,
+    registryId: String,
+    imageDigest: String,
+    imageUri: String
   ): software.amazon.awscdk.services.codepipeline.actions.EcrSourceVariables =
     (new software.amazon.awscdk.services.codepipeline.actions.EcrSourceVariables.Builder)
-      .repositoryName(repositoryName.orNull)
-      .imageTag(imageTag.orNull)
-      .registryId(registryId.orNull)
-      .imageDigest(imageDigest.orNull)
-      .imageUri(imageUri.orNull)
+      .repositoryName(repositoryName)
+      .imageTag(imageTag)
+      .registryId(registryId)
+      .imageDigest(imageDigest)
+      .imageUri(imageUri)
       .build()
 }

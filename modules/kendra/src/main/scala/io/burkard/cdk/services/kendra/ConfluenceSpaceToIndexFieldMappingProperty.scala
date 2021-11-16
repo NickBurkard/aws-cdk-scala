@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kendra
 object ConfluenceSpaceToIndexFieldMappingProperty {
 
   def apply(
-    indexFieldName: Option[String] = None,
-    dataSourceFieldName: Option[String] = None,
+    indexFieldName: String,
+    dataSourceFieldName: String,
     dateFieldFormat: Option[String] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.Builder)
-      .indexFieldName(indexFieldName.orNull)
-      .dataSourceFieldName(dataSourceFieldName.orNull)
+      .indexFieldName(indexFieldName)
+      .dataSourceFieldName(dataSourceFieldName)
       .dateFieldFormat(dateFieldFormat.orNull)
       .build()
 }

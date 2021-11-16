@@ -4,15 +4,15 @@ package io.burkard.cdk.cloudassembly
 object KeyContextQuery {
 
   def apply(
-    region: Option[String] = None,
-    account: Option[String] = None,
-    lookupRoleArn: Option[String] = None,
-    aliasName: Option[String] = None
+    region: String,
+    account: String,
+    aliasName: String,
+    lookupRoleArn: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.KeyContextQuery =
     (new software.amazon.awscdk.cloudassembly.schema.KeyContextQuery.Builder)
-      .region(region.orNull)
-      .account(account.orNull)
+      .region(region)
+      .account(account)
+      .aliasName(aliasName)
       .lookupRoleArn(lookupRoleArn.orNull)
-      .aliasName(aliasName.orNull)
       .build()
 }

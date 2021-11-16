@@ -4,11 +4,11 @@ package io.burkard.cdk.services.emr
 object ScalingActionProperty {
 
   def apply(
-    simpleScalingPolicyConfiguration: Option[software.amazon.awscdk.services.emr.CfnCluster.SimpleScalingPolicyConfigurationProperty] = None,
+    simpleScalingPolicyConfiguration: software.amazon.awscdk.services.emr.CfnCluster.SimpleScalingPolicyConfigurationProperty,
     market: Option[String] = None
   ): software.amazon.awscdk.services.emr.CfnCluster.ScalingActionProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.ScalingActionProperty.Builder)
-      .simpleScalingPolicyConfiguration(simpleScalingPolicyConfiguration.orNull)
+      .simpleScalingPolicyConfiguration(simpleScalingPolicyConfiguration)
       .market(market.orNull)
       .build()
 }

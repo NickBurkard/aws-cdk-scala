@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object ArtifactStoreMapProperty {
 
   def apply(
-    artifactStore: Option[software.amazon.awscdk.services.codepipeline.CfnPipeline.ArtifactStoreProperty] = None,
-    region: Option[String] = None
+    artifactStore: software.amazon.awscdk.services.codepipeline.CfnPipeline.ArtifactStoreProperty,
+    region: String
   ): software.amazon.awscdk.services.codepipeline.CfnPipeline.ArtifactStoreMapProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnPipeline.ArtifactStoreMapProperty.Builder)
-      .artifactStore(artifactStore.orNull)
-      .region(region.orNull)
+      .artifactStore(artifactStore)
+      .region(region)
       .build()
 }

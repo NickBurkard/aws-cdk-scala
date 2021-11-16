@@ -4,15 +4,15 @@ package io.burkard.cdk.services.dynamodb
 object CapacityAutoScalingSettingsProperty {
 
   def apply(
-    maxCapacity: Option[Number] = None,
-    minCapacity: Option[Number] = None,
-    targetTrackingScalingPolicyConfiguration: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty] = None,
+    maxCapacity: Number,
+    minCapacity: Number,
+    targetTrackingScalingPolicyConfiguration: software.amazon.awscdk.services.dynamodb.CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty,
     seedCapacity: Option[Number] = None
   ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.CapacityAutoScalingSettingsProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.CapacityAutoScalingSettingsProperty.Builder)
-      .maxCapacity(maxCapacity.orNull)
-      .minCapacity(minCapacity.orNull)
-      .targetTrackingScalingPolicyConfiguration(targetTrackingScalingPolicyConfiguration.orNull)
+      .maxCapacity(maxCapacity)
+      .minCapacity(minCapacity)
+      .targetTrackingScalingPolicyConfiguration(targetTrackingScalingPolicyConfiguration)
       .seedCapacity(seedCapacity.orNull)
       .build()
 }

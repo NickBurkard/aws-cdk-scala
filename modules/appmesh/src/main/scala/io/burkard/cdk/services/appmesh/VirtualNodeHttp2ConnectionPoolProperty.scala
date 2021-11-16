@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualNodeHttp2ConnectionPoolProperty {
 
   def apply(
-    maxRequests: Option[Number] = None
+    maxRequests: Number
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeHttp2ConnectionPoolProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeHttp2ConnectionPoolProperty.Builder)
-      .maxRequests(maxRequests.orNull)
+      .maxRequests(maxRequests)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object CapacitySizeProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    value: Option[Number] = None
+    `type`: String,
+    value: Number
   ): software.amazon.awscdk.services.sagemaker.CfnEndpoint.CapacitySizeProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnEndpoint.CapacitySizeProperty.Builder)
-      .`type`(`type`.orNull)
-      .value(value.orNull)
+      .`type`(`type`)
+      .value(value)
       .build()
 }

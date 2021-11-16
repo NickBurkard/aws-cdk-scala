@@ -7,10 +7,10 @@ object TagManager {
     tagType: software.amazon.awscdk.TagType,
     resourceTypeName: String,
     tagStructure: AnyRef,
-    tagPropertyName: Option[String] = None
+    tagPropertyName: String
   ): software.amazon.awscdk.TagManager =
     software.amazon.awscdk.TagManager.Builder
       .create(tagType, resourceTypeName, tagStructure)
-      .tagPropertyName(tagPropertyName.orNull)
+      .tagPropertyName(tagPropertyName)
       .build()
 }

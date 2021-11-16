@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object StepFunctionsTaskConfig {
 
   def apply(
+    resourceArn: String,
     metricDimensions: Option[Map[String, _]] = None,
-    resourceArn: Option[String] = None,
     metricPrefixPlural: Option[String] = None,
     metricPrefixSingular: Option[String] = None,
     policyStatements: Option[List[_ <: software.amazon.awscdk.services.iam.PolicyStatement]] = None,
@@ -16,8 +16,8 @@ object StepFunctionsTaskConfig {
     heartbeat: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.StepFunctionsTaskConfig =
     (new software.amazon.awscdk.services.stepfunctions.StepFunctionsTaskConfig.Builder)
+      .resourceArn(resourceArn)
       .metricDimensions(metricDimensions.map(_.asJava).orNull)
-      .resourceArn(resourceArn.orNull)
       .metricPrefixPlural(metricPrefixPlural.orNull)
       .metricPrefixSingular(metricPrefixSingular.orNull)
       .policyStatements(policyStatements.map(_.asJava).orNull)

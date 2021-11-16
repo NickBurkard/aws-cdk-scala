@@ -4,15 +4,15 @@ package io.burkard.cdk.services.appstream
 object CfnStackUserAssociationProps {
 
   def apply(
-    authenticationType: Option[String] = None,
-    sendEmailNotification: Option[Boolean] = None,
-    stackName: Option[String] = None,
-    userName: Option[String] = None
+    authenticationType: String,
+    stackName: String,
+    userName: String,
+    sendEmailNotification: Option[Boolean] = None
   ): software.amazon.awscdk.services.appstream.CfnStackUserAssociationProps =
     (new software.amazon.awscdk.services.appstream.CfnStackUserAssociationProps.Builder)
-      .authenticationType(authenticationType.orNull)
+      .authenticationType(authenticationType)
+      .stackName(stackName)
+      .userName(userName)
       .sendEmailNotification(sendEmailNotification.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .stackName(stackName.orNull)
-      .userName(userName.orNull)
       .build()
 }

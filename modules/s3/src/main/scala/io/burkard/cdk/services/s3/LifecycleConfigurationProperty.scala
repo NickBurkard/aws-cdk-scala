@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object LifecycleConfigurationProperty {
 
   def apply(
-    rules: Option[List[_]] = None
+    rules: List[_]
   ): software.amazon.awscdk.services.s3.CfnBucket.LifecycleConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.LifecycleConfigurationProperty.Builder)
-      .rules(rules.map(_.asJava).orNull)
+      .rules(rules.asJava)
       .build()
 }

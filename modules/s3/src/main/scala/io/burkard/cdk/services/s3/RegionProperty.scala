@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object RegionProperty {
 
   def apply(
-    bucket: Option[String] = None
+    bucket: String
   ): software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint.RegionProperty =
     (new software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint.RegionProperty.Builder)
-      .bucket(bucket.orNull)
+      .bucket(bucket)
       .build()
 }

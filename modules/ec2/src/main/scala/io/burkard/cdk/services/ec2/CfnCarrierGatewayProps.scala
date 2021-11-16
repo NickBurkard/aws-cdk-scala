@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnCarrierGatewayProps {
 
   def apply(
-    vpcId: Option[String] = None,
+    vpcId: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ec2.CfnCarrierGatewayProps =
     (new software.amazon.awscdk.services.ec2.CfnCarrierGatewayProps.Builder)
-      .vpcId(vpcId.orNull)
+      .vpcId(vpcId)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

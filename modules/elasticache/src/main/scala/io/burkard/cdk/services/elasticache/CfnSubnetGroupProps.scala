@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnSubnetGroupProps {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
+    subnetIds: List[String],
+    description: String,
     cacheSubnetGroupName: Option[String] = None,
-    description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.elasticache.CfnSubnetGroupProps =
     (new software.amazon.awscdk.services.elasticache.CfnSubnetGroupProps.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
+      .description(description)
       .cacheSubnetGroupName(cacheSubnetGroupName.orNull)
-      .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotanalytics
 object TriggeringDatasetProperty {
 
   def apply(
-    datasetName: Option[String] = None
+    datasetName: String
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.TriggeringDatasetProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.TriggeringDatasetProperty.Builder)
-      .datasetName(datasetName.orNull)
+      .datasetName(datasetName)
       .build()
 }

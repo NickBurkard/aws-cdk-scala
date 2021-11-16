@@ -4,11 +4,11 @@ package io.burkard.cdk.services.msk
 object ConfigurationInfoProperty {
 
   def apply(
-    arn: Option[String] = None,
-    revision: Option[Number] = None
+    arn: String,
+    revision: Number
   ): software.amazon.awscdk.services.msk.CfnCluster.ConfigurationInfoProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.ConfigurationInfoProperty.Builder)
-      .arn(arn.orNull)
-      .revision(revision.orNull)
+      .arn(arn)
+      .revision(revision)
       .build()
 }

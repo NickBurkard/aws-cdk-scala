@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cassandra
 object ColumnProperty {
 
   def apply(
-    columnName: Option[String] = None,
-    columnType: Option[String] = None
+    columnName: String,
+    columnType: String
   ): software.amazon.awscdk.services.cassandra.CfnTable.ColumnProperty =
     (new software.amazon.awscdk.services.cassandra.CfnTable.ColumnProperty.Builder)
-      .columnName(columnName.orNull)
-      .columnType(columnType.orNull)
+      .columnName(columnName)
+      .columnType(columnType)
       .build()
 }

@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object Device {
 
   def apply(
-    hostPath: Option[String] = None,
+    hostPath: String,
     permissions: Option[List[_ <: software.amazon.awscdk.services.ecs.DevicePermission]] = None,
     containerPath: Option[String] = None
   ): software.amazon.awscdk.services.ecs.Device =
     (new software.amazon.awscdk.services.ecs.Device.Builder)
-      .hostPath(hostPath.orNull)
+      .hostPath(hostPath)
       .permissions(permissions.map(_.asJava).orNull)
       .containerPath(containerPath.orNull)
       .build()

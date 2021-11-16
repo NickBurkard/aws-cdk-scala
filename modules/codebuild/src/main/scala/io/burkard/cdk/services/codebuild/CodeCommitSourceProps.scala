@@ -4,14 +4,14 @@ package io.burkard.cdk.services.codebuild
 object CodeCommitSourceProps {
 
   def apply(
-    repository: Option[software.amazon.awscdk.services.codecommit.IRepository] = None,
+    repository: software.amazon.awscdk.services.codecommit.IRepository,
     identifier: Option[String] = None,
     branchOrRef: Option[String] = None,
     cloneDepth: Option[Number] = None,
     fetchSubmodules: Option[Boolean] = None
   ): software.amazon.awscdk.services.codebuild.CodeCommitSourceProps =
     (new software.amazon.awscdk.services.codebuild.CodeCommitSourceProps.Builder)
-      .repository(repository.orNull)
+      .repository(repository)
       .identifier(identifier.orNull)
       .branchOrRef(branchOrRef.orNull)
       .cloneDepth(cloneDepth.orNull)

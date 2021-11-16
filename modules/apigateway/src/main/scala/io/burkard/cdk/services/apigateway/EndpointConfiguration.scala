@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object EndpointConfiguration {
 
   def apply(
-    vpcEndpoints: Option[List[_ <: software.amazon.awscdk.services.ec2.IVpcEndpoint]] = None,
-    types: Option[List[_ <: software.amazon.awscdk.services.apigateway.EndpointType]] = None
+    types: List[_ <: software.amazon.awscdk.services.apigateway.EndpointType],
+    vpcEndpoints: Option[List[_ <: software.amazon.awscdk.services.ec2.IVpcEndpoint]] = None
   ): software.amazon.awscdk.services.apigateway.EndpointConfiguration =
     (new software.amazon.awscdk.services.apigateway.EndpointConfiguration.Builder)
+      .types(types.asJava)
       .vpcEndpoints(vpcEndpoints.map(_.asJava).orNull)
-      .types(types.map(_.asJava).orNull)
       .build()
 }

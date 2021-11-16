@@ -4,15 +4,15 @@ package io.burkard.cdk.services.emr
 object SpotProvisioningSpecificationProperty {
 
   def apply(
+    timeoutAction: String,
+    timeoutDurationMinutes: Number,
     allocationStrategy: Option[String] = None,
-    timeoutAction: Option[String] = None,
-    blockDurationMinutes: Option[Number] = None,
-    timeoutDurationMinutes: Option[Number] = None
+    blockDurationMinutes: Option[Number] = None
   ): software.amazon.awscdk.services.emr.CfnCluster.SpotProvisioningSpecificationProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.SpotProvisioningSpecificationProperty.Builder)
+      .timeoutAction(timeoutAction)
+      .timeoutDurationMinutes(timeoutDurationMinutes)
       .allocationStrategy(allocationStrategy.orNull)
-      .timeoutAction(timeoutAction.orNull)
       .blockDurationMinutes(blockDurationMinutes.orNull)
-      .timeoutDurationMinutes(timeoutDurationMinutes.orNull)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnVPNGatewayRoutePropagationProps {
 
   def apply(
-    vpnGatewayId: Option[String] = None,
-    routeTableIds: Option[List[String]] = None
+    vpnGatewayId: String,
+    routeTableIds: List[String]
   ): software.amazon.awscdk.services.ec2.CfnVPNGatewayRoutePropagationProps =
     (new software.amazon.awscdk.services.ec2.CfnVPNGatewayRoutePropagationProps.Builder)
-      .vpnGatewayId(vpnGatewayId.orNull)
-      .routeTableIds(routeTableIds.map(_.asJava).orNull)
+      .vpnGatewayId(vpnGatewayId)
+      .routeTableIds(routeTableIds.asJava)
       .build()
 }

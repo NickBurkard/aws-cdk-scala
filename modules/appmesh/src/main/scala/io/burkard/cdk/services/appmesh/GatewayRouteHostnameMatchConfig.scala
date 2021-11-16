@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object GatewayRouteHostnameMatchConfig {
 
   def apply(
-    hostnameMatch: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteHostnameMatchProperty] = None
+    hostnameMatch: software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteHostnameMatchProperty
   ): software.amazon.awscdk.services.appmesh.GatewayRouteHostnameMatchConfig =
     (new software.amazon.awscdk.services.appmesh.GatewayRouteHostnameMatchConfig.Builder)
-      .hostnameMatch(hostnameMatch.orNull)
+      .hostnameMatch(hostnameMatch)
       .build()
 }

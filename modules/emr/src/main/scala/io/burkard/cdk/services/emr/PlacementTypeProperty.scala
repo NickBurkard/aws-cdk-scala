@@ -4,9 +4,9 @@ package io.burkard.cdk.services.emr
 object PlacementTypeProperty {
 
   def apply(
-    availabilityZone: Option[String] = None
+    availabilityZone: String
   ): software.amazon.awscdk.services.emr.CfnCluster.PlacementTypeProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.PlacementTypeProperty.Builder)
-      .availabilityZone(availabilityZone.orNull)
+      .availabilityZone(availabilityZone)
       .build()
 }

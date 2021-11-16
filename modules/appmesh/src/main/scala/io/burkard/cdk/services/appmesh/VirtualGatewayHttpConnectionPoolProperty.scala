@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayHttpConnectionPoolProperty {
 
   def apply(
-    maxConnections: Option[Number] = None,
+    maxConnections: Number,
     maxPendingRequests: Option[Number] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayHttpConnectionPoolProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayHttpConnectionPoolProperty.Builder)
-      .maxConnections(maxConnections.orNull)
+      .maxConnections(maxConnections)
       .maxPendingRequests(maxPendingRequests.orNull)
       .build()
 }

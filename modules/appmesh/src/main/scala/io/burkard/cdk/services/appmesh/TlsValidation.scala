@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object TlsValidation {
 
   def apply(
-    trust: Option[software.amazon.awscdk.services.appmesh.TlsValidationTrust] = None,
+    trust: software.amazon.awscdk.services.appmesh.TlsValidationTrust,
     subjectAlternativeNames: Option[software.amazon.awscdk.services.appmesh.SubjectAlternativeNames] = None
   ): software.amazon.awscdk.services.appmesh.TlsValidation =
     (new software.amazon.awscdk.services.appmesh.TlsValidation.Builder)
-      .trust(trust.orNull)
+      .trust(trust)
       .subjectAlternativeNames(subjectAlternativeNames.orNull)
       .build()
 }

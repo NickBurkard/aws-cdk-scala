@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnConnectorDefinitionVersionProps {
 
   def apply(
-    connectors: Option[List[_]] = None,
-    connectorDefinitionId: Option[String] = None
+    connectors: List[_],
+    connectorDefinitionId: String
   ): software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersionProps =
     (new software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersionProps.Builder)
-      .connectors(connectors.map(_.asJava).orNull)
-      .connectorDefinitionId(connectorDefinitionId.orNull)
+      .connectors(connectors.asJava)
+      .connectorDefinitionId(connectorDefinitionId)
       .build()
 }

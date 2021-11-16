@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnAggregationAuthorizationProps {
 
   def apply(
-    authorizedAccountId: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    authorizedAwsRegion: Option[String] = None
+    authorizedAccountId: String,
+    authorizedAwsRegion: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.config.CfnAggregationAuthorizationProps =
     (new software.amazon.awscdk.services.config.CfnAggregationAuthorizationProps.Builder)
-      .authorizedAccountId(authorizedAccountId.orNull)
+      .authorizedAccountId(authorizedAccountId)
+      .authorizedAwsRegion(authorizedAwsRegion)
       .tags(tags.map(_.asJava).orNull)
-      .authorizedAwsRegion(authorizedAwsRegion.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.athena
 object EncryptionConfigurationProperty {
 
   def apply(
-    kmsKey: Option[String] = None,
-    encryptionOption: Option[String] = None
+    encryptionOption: String,
+    kmsKey: Option[String] = None
   ): software.amazon.awscdk.services.athena.CfnWorkGroup.EncryptionConfigurationProperty =
     (new software.amazon.awscdk.services.athena.CfnWorkGroup.EncryptionConfigurationProperty.Builder)
+      .encryptionOption(encryptionOption)
       .kmsKey(kmsKey.orNull)
-      .encryptionOption(encryptionOption.orNull)
       .build()
 }

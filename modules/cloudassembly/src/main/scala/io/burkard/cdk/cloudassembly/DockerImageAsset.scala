@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object DockerImageAsset {
 
   def apply(
-    source: Option[software.amazon.awscdk.cloudassembly.schema.DockerImageSource] = None,
-    destinations: Option[Map[String, _ <: software.amazon.awscdk.cloudassembly.schema.DockerImageDestination]] = None
+    source: software.amazon.awscdk.cloudassembly.schema.DockerImageSource,
+    destinations: Map[String, _ <: software.amazon.awscdk.cloudassembly.schema.DockerImageDestination]
   ): software.amazon.awscdk.cloudassembly.schema.DockerImageAsset =
     (new software.amazon.awscdk.cloudassembly.schema.DockerImageAsset.Builder)
-      .source(source.orNull)
-      .destinations(destinations.map(_.asJava).orNull)
+      .source(source)
+      .destinations(destinations.asJava)
       .build()
 }

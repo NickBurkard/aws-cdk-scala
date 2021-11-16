@@ -4,12 +4,12 @@ package io.burkard.cdk.services.ecs
 object LoadBalancerTargetOptions {
 
   def apply(
-    containerName: Option[String] = None,
+    containerName: String,
     containerPort: Option[Number] = None,
     protocol: Option[software.amazon.awscdk.services.ecs.Protocol] = None
   ): software.amazon.awscdk.services.ecs.LoadBalancerTargetOptions =
     (new software.amazon.awscdk.services.ecs.LoadBalancerTargetOptions.Builder)
-      .containerName(containerName.orNull)
+      .containerName(containerName)
       .containerPort(containerPort.orNull)
       .protocol(protocol.orNull)
       .build()

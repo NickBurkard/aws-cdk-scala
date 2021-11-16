@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object JmxExporterProperty {
 
   def apply(
-    enabledInBroker: Option[Boolean] = None
+    enabledInBroker: Boolean
   ): software.amazon.awscdk.services.msk.CfnCluster.JmxExporterProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.JmxExporterProperty.Builder)
-      .enabledInBroker(enabledInBroker.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enabledInBroker(enabledInBroker)
       .build()
 }

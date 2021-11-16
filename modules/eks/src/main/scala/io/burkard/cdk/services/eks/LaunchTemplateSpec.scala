@@ -4,11 +4,11 @@ package io.burkard.cdk.services.eks
 object LaunchTemplateSpec {
 
   def apply(
-    version: Option[String] = None,
-    id: Option[String] = None
+    id: String,
+    version: Option[String] = None
   ): software.amazon.awscdk.services.eks.LaunchTemplateSpec =
     (new software.amazon.awscdk.services.eks.LaunchTemplateSpec.Builder)
+      .id(id)
       .version(version.orNull)
-      .id(id.orNull)
       .build()
 }

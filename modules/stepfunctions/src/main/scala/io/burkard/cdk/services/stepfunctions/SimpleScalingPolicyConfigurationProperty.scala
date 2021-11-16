@@ -4,13 +4,13 @@ package io.burkard.cdk.services.stepfunctions
 object SimpleScalingPolicyConfigurationProperty {
 
   def apply(
+    scalingAdjustment: Number,
     coolDown: Option[Number] = None,
-    scalingAdjustment: Option[Number] = None,
     adjustmentType: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingAdjustmentType] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SimpleScalingPolicyConfigurationProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.SimpleScalingPolicyConfigurationProperty.Builder)
+      .scalingAdjustment(scalingAdjustment)
       .coolDown(coolDown.orNull)
-      .scalingAdjustment(scalingAdjustment.orNull)
       .adjustmentType(adjustmentType.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.pinpoint
 object CfnVoiceChannelProps {
 
   def apply(
-    applicationId: Option[String] = None,
+    applicationId: String,
     enabled: Option[Boolean] = None
   ): software.amazon.awscdk.services.pinpoint.CfnVoiceChannelProps =
     (new software.amazon.awscdk.services.pinpoint.CfnVoiceChannelProps.Builder)
-      .applicationId(applicationId.orNull)
+      .applicationId(applicationId)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

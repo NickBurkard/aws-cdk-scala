@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object CaptureOptionProperty {
 
   def apply(
-    captureMode: Option[String] = None
+    captureMode: String
   ): software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.CaptureOptionProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.CaptureOptionProperty.Builder)
-      .captureMode(captureMode.orNull)
+      .captureMode(captureMode)
       .build()
 }

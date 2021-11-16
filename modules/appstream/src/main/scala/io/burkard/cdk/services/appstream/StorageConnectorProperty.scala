@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object StorageConnectorProperty {
 
   def apply(
+    connectorType: String,
     domains: Option[List[String]] = None,
-    connectorType: Option[String] = None,
     resourceIdentifier: Option[String] = None
   ): software.amazon.awscdk.services.appstream.CfnStack.StorageConnectorProperty =
     (new software.amazon.awscdk.services.appstream.CfnStack.StorageConnectorProperty.Builder)
+      .connectorType(connectorType)
       .domains(domains.map(_.asJava).orNull)
-      .connectorType(connectorType.orNull)
       .resourceIdentifier(resourceIdentifier.orNull)
       .build()
 }

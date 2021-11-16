@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appflow
 object ServiceNowConnectorProfileCredentialsProperty {
 
   def apply(
-    username: Option[String] = None,
-    password: Option[String] = None
+    username: String,
+    password: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.ServiceNowConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.ServiceNowConnectorProfileCredentialsProperty.Builder)
-      .username(username.orNull)
-      .password(password.orNull)
+      .username(username)
+      .password(password)
       .build()
 }

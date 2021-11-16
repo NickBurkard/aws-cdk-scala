@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codedeploy
 object LambdaDeploymentConfigImportProps {
 
   def apply(
-    deploymentConfigName: Option[String] = None
+    deploymentConfigName: String
   ): software.amazon.awscdk.services.codedeploy.LambdaDeploymentConfigImportProps =
     (new software.amazon.awscdk.services.codedeploy.LambdaDeploymentConfigImportProps.Builder)
-      .deploymentConfigName(deploymentConfigName.orNull)
+      .deploymentConfigName(deploymentConfigName)
       .build()
 }

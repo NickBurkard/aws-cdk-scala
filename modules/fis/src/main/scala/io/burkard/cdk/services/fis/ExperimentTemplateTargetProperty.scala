@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object ExperimentTemplateTargetProperty {
 
   def apply(
-    resourceType: Option[String] = None,
+    resourceType: String,
+    selectionMode: String,
     resourceTags: Option[Map[String, String]] = None,
     filters: Option[List[_]] = None,
-    resourceArns: Option[List[String]] = None,
-    selectionMode: Option[String] = None
+    resourceArns: Option[List[String]] = None
   ): software.amazon.awscdk.services.fis.CfnExperimentTemplate.ExperimentTemplateTargetProperty =
     (new software.amazon.awscdk.services.fis.CfnExperimentTemplate.ExperimentTemplateTargetProperty.Builder)
-      .resourceType(resourceType.orNull)
+      .resourceType(resourceType)
+      .selectionMode(selectionMode)
       .resourceTags(resourceTags.map(_.asJava).orNull)
       .filters(filters.map(_.asJava).orNull)
       .resourceArns(resourceArns.map(_.asJava).orNull)
-      .selectionMode(selectionMode.orNull)
       .build()
 }

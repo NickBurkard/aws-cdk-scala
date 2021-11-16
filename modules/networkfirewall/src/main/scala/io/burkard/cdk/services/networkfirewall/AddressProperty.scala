@@ -4,9 +4,9 @@ package io.burkard.cdk.services.networkfirewall
 object AddressProperty {
 
   def apply(
-    addressDefinition: Option[String] = None
+    addressDefinition: String
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.AddressProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.AddressProperty.Builder)
-      .addressDefinition(addressDefinition.orNull)
+      .addressDefinition(addressDefinition)
       .build()
 }

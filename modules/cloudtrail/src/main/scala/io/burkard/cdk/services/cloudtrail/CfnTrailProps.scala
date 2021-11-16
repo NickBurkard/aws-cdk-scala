@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnTrailProps {
 
   def apply(
+    s3BucketName: String,
+    isLogging: Boolean,
     includeGlobalServiceEvents: Option[Boolean] = None,
     insightSelectors: Option[List[_]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     isOrganizationTrail: Option[Boolean] = None,
     cloudWatchLogsLogGroupArn: Option[String] = None,
-    s3BucketName: Option[String] = None,
     eventSelectors: Option[List[_]] = None,
     kmsKeyId: Option[String] = None,
     cloudWatchLogsRoleArn: Option[String] = None,
-    isLogging: Option[Boolean] = None,
     s3KeyPrefix: Option[String] = None,
     isMultiRegionTrail: Option[Boolean] = None,
     enableLogFileValidation: Option[Boolean] = None,
@@ -24,16 +24,16 @@ object CfnTrailProps {
     snsTopicName: Option[String] = None
   ): software.amazon.awscdk.services.cloudtrail.CfnTrailProps =
     (new software.amazon.awscdk.services.cloudtrail.CfnTrailProps.Builder)
+      .s3BucketName(s3BucketName)
+      .isLogging(isLogging)
       .includeGlobalServiceEvents(includeGlobalServiceEvents.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .insightSelectors(insightSelectors.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)
       .isOrganizationTrail(isOrganizationTrail.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .cloudWatchLogsLogGroupArn(cloudWatchLogsLogGroupArn.orNull)
-      .s3BucketName(s3BucketName.orNull)
       .eventSelectors(eventSelectors.map(_.asJava).orNull)
       .kmsKeyId(kmsKeyId.orNull)
       .cloudWatchLogsRoleArn(cloudWatchLogsRoleArn.orNull)
-      .isLogging(isLogging.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .s3KeyPrefix(s3KeyPrefix.orNull)
       .isMultiRegionTrail(isMultiRegionTrail.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .enableLogFileValidation(enableLogFileValidation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

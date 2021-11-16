@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object ProjectCacheProperty {
 
   def apply(
+    `type`: String,
     modes: Option[List[String]] = None,
-    location: Option[String] = None,
-    `type`: Option[String] = None
+    location: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.CfnProject.ProjectCacheProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.ProjectCacheProperty.Builder)
+      .`type`(`type`)
       .modes(modes.map(_.asJava).orNull)
       .location(location.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object CustomResponseProperty {
 
   def apply(
-    responseCode: Option[Number] = None,
+    responseCode: Number,
     customResponseBodyKey: Option[String] = None,
     responseHeaders: Option[List[_]] = None
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.CustomResponseProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.CustomResponseProperty.Builder)
-      .responseCode(responseCode.orNull)
+      .responseCode(responseCode)
       .customResponseBodyKey(customResponseBodyKey.orNull)
       .responseHeaders(responseHeaders.map(_.asJava).orNull)
       .build()

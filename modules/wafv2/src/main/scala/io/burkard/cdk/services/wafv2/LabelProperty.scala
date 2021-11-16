@@ -4,9 +4,9 @@ package io.burkard.cdk.services.wafv2
 object LabelProperty {
 
   def apply(
-    name: Option[String] = None
+    name: String
   ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.LabelProperty =
     (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.LabelProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .build()
 }

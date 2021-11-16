@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object InputTransformerProperty {
 
   def apply(
-    inputTemplate: Option[String] = None,
+    inputTemplate: String,
     inputPathsMap: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.events.CfnRule.InputTransformerProperty =
     (new software.amazon.awscdk.services.events.CfnRule.InputTransformerProperty.Builder)
-      .inputTemplate(inputTemplate.orNull)
+      .inputTemplate(inputTemplate)
       .inputPathsMap(inputPathsMap.map(_.asJava).orNull)
       .build()
 }

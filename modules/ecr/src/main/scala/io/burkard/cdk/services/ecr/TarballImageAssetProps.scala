@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ecr
 object TarballImageAssetProps {
 
   def apply(
-    tarballFile: Option[String] = None
+    tarballFile: String
   ): software.amazon.awscdk.services.ecr.assets.TarballImageAssetProps =
     (new software.amazon.awscdk.services.ecr.assets.TarballImageAssetProps.Builder)
-      .tarballFile(tarballFile.orNull)
+      .tarballFile(tarballFile)
       .build()
 }

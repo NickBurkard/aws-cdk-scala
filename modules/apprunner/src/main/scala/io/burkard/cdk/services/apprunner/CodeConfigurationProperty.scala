@@ -4,11 +4,11 @@ package io.burkard.cdk.services.apprunner
 object CodeConfigurationProperty {
 
   def apply(
-    codeConfigurationValues: Option[software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationValuesProperty] = None,
-    configurationSource: Option[String] = None
+    configurationSource: String,
+    codeConfigurationValues: Option[software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationValuesProperty] = None
   ): software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationProperty =
     (new software.amazon.awscdk.services.apprunner.CfnService.CodeConfigurationProperty.Builder)
+      .configurationSource(configurationSource)
       .codeConfigurationValues(codeConfigurationValues.orNull)
-      .configurationSource(configurationSource.orNull)
       .build()
 }

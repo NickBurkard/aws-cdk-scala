@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object LambdaRestApiProps {
 
   def apply(
+    handler: software.amazon.awscdk.services.lambda.IFunction,
     apiKeySourceType: Option[software.amazon.awscdk.services.apigateway.ApiKeySourceType] = None,
     description: Option[String] = None,
     endpointExportName: Option[String] = None,
@@ -28,11 +29,11 @@ object LambdaRestApiProps {
     deploy: Option[Boolean] = None,
     defaultMethodOptions: Option[software.amazon.awscdk.services.apigateway.MethodOptions] = None,
     parameters: Option[Map[String, String]] = None,
-    handler: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     policy: Option[software.amazon.awscdk.services.iam.PolicyDocument] = None,
     defaultIntegration: Option[software.amazon.awscdk.services.apigateway.Integration] = None
   ): software.amazon.awscdk.services.apigateway.LambdaRestApiProps =
     (new software.amazon.awscdk.services.apigateway.LambdaRestApiProps.Builder)
+      .handler(handler)
       .apiKeySourceType(apiKeySourceType.orNull)
       .description(description.orNull)
       .endpointExportName(endpointExportName.orNull)
@@ -54,7 +55,6 @@ object LambdaRestApiProps {
       .deploy(deploy.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .defaultMethodOptions(defaultMethodOptions.orNull)
       .parameters(parameters.map(_.asJava).orNull)
-      .handler(handler.orNull)
       .policy(policy.orNull)
       .defaultIntegration(defaultIntegration.orNull)
       .build()

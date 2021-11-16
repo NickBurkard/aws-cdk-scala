@@ -4,15 +4,15 @@ package io.burkard.cdk.services.iot
 object FirehoseActionProperty {
 
   def apply(
+    roleArn: String,
+    deliveryStreamName: String,
     separator: Option[String] = None,
-    roleArn: Option[String] = None,
-    deliveryStreamName: Option[String] = None,
     batchMode: Option[Boolean] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.FirehoseActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.FirehoseActionProperty.Builder)
+      .roleArn(roleArn)
+      .deliveryStreamName(deliveryStreamName)
       .separator(separator.orNull)
-      .roleArn(roleArn.orNull)
-      .deliveryStreamName(deliveryStreamName.orNull)
       .batchMode(batchMode.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

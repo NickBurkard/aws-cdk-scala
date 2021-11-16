@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnVpcLinkProps {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
-    name: Option[String] = None,
+    subnetIds: List[String],
+    name: String,
     tags: Option[AnyRef] = None,
     securityGroupIds: Option[List[String]] = None
   ): software.amazon.awscdk.services.apigatewayv2.CfnVpcLinkProps =
     (new software.amazon.awscdk.services.apigatewayv2.CfnVpcLinkProps.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .name(name.orNull)
+      .subnetIds(subnetIds.asJava)
+      .name(name)
       .tags(tags.orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .build()

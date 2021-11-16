@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnPipelineProps {
 
   def apply(
+    pipelineName: String,
+    pipelineDefinition: AnyRef,
+    roleArn: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     pipelineDescription: Option[String] = None,
-    pipelineName: Option[String] = None,
-    pipelineDefinition: Option[AnyRef] = None,
-    roleArn: Option[String] = None,
     pipelineDisplayName: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnPipelineProps =
     (new software.amazon.awscdk.services.sagemaker.CfnPipelineProps.Builder)
+      .pipelineName(pipelineName)
+      .pipelineDefinition(pipelineDefinition)
+      .roleArn(roleArn)
       .tags(tags.map(_.asJava).orNull)
       .pipelineDescription(pipelineDescription.orNull)
-      .pipelineName(pipelineName.orNull)
-      .pipelineDefinition(pipelineDefinition.orNull)
-      .roleArn(roleArn.orNull)
       .pipelineDisplayName(pipelineDisplayName.orNull)
       .build()
 }

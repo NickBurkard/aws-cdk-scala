@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appsync
 object LambdaConfigProperty {
 
   def apply(
-    lambdaFunctionArn: Option[String] = None
+    lambdaFunctionArn: String
   ): software.amazon.awscdk.services.appsync.CfnDataSource.LambdaConfigProperty =
     (new software.amazon.awscdk.services.appsync.CfnDataSource.LambdaConfigProperty.Builder)
-      .lambdaFunctionArn(lambdaFunctionArn.orNull)
+      .lambdaFunctionArn(lambdaFunctionArn)
       .build()
 }

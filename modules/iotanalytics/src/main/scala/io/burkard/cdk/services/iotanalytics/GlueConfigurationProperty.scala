@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object GlueConfigurationProperty {
 
   def apply(
-    tableName: Option[String] = None,
-    databaseName: Option[String] = None
+    tableName: String,
+    databaseName: String
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.GlueConfigurationProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.GlueConfigurationProperty.Builder)
-      .tableName(tableName.orNull)
-      .databaseName(databaseName.orNull)
+      .tableName(tableName)
+      .databaseName(databaseName)
       .build()
 }

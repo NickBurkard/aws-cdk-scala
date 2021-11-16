@@ -4,13 +4,13 @@ package io.burkard.cdk.services.waf
 object RuleProperty {
 
   def apply(
-    priority: Option[Number] = None,
-    action: Option[software.amazon.awscdk.services.waf.regional.CfnWebACL.ActionProperty] = None,
-    ruleId: Option[String] = None
+    priority: Number,
+    action: software.amazon.awscdk.services.waf.regional.CfnWebACL.ActionProperty,
+    ruleId: String
   ): software.amazon.awscdk.services.waf.regional.CfnWebACL.RuleProperty =
     (new software.amazon.awscdk.services.waf.regional.CfnWebACL.RuleProperty.Builder)
-      .priority(priority.orNull)
-      .action(action.orNull)
-      .ruleId(ruleId.orNull)
+      .priority(priority)
+      .action(action)
+      .ruleId(ruleId)
       .build()
 }

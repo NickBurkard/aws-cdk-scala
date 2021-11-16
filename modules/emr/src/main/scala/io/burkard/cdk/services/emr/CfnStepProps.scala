@@ -4,15 +4,15 @@ package io.burkard.cdk.services.emr
 object CfnStepProps {
 
   def apply(
-    name: Option[String] = None,
-    hadoopJarStep: Option[software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty] = None,
-    actionOnFailure: Option[String] = None,
-    jobFlowId: Option[String] = None
+    name: String,
+    hadoopJarStep: software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty,
+    actionOnFailure: String,
+    jobFlowId: String
   ): software.amazon.awscdk.services.emr.CfnStepProps =
     (new software.amazon.awscdk.services.emr.CfnStepProps.Builder)
-      .name(name.orNull)
-      .hadoopJarStep(hadoopJarStep.orNull)
-      .actionOnFailure(actionOnFailure.orNull)
-      .jobFlowId(jobFlowId.orNull)
+      .name(name)
+      .hadoopJarStep(hadoopJarStep)
+      .actionOnFailure(actionOnFailure)
+      .jobFlowId(jobFlowId)
       .build()
 }

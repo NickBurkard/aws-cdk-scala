@@ -4,9 +4,9 @@ package io.burkard.cdk.services.pinpointemail
 object SnsDestinationProperty {
 
   def apply(
-    topicArn: Option[String] = None
+    topicArn: String
   ): software.amazon.awscdk.services.pinpointemail.CfnConfigurationSetEventDestination.SnsDestinationProperty =
     (new software.amazon.awscdk.services.pinpointemail.CfnConfigurationSetEventDestination.SnsDestinationProperty.Builder)
-      .topicArn(topicArn.orNull)
+      .topicArn(topicArn)
       .build()
 }

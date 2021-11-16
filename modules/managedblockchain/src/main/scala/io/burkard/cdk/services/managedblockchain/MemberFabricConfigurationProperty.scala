@@ -4,11 +4,11 @@ package io.burkard.cdk.services.managedblockchain
 object MemberFabricConfigurationProperty {
 
   def apply(
-    adminUsername: Option[String] = None,
-    adminPassword: Option[String] = None
+    adminUsername: String,
+    adminPassword: String
   ): software.amazon.awscdk.services.managedblockchain.CfnMember.MemberFabricConfigurationProperty =
     (new software.amazon.awscdk.services.managedblockchain.CfnMember.MemberFabricConfigurationProperty.Builder)
-      .adminUsername(adminUsername.orNull)
-      .adminPassword(adminPassword.orNull)
+      .adminUsername(adminUsername)
+      .adminPassword(adminPassword)
       .build()
 }

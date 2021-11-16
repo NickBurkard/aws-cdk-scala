@@ -4,11 +4,11 @@ package io.burkard.cdk.core
 object ParameterProperty {
 
   def apply(
-    parameterKey: Option[String] = None,
-    parameterValue: Option[String] = None
+    parameterKey: String,
+    parameterValue: String
   ): software.amazon.awscdk.CfnStackSet.ParameterProperty =
     (new software.amazon.awscdk.CfnStackSet.ParameterProperty.Builder)
-      .parameterKey(parameterKey.orNull)
-      .parameterValue(parameterValue.orNull)
+      .parameterKey(parameterKey)
+      .parameterValue(parameterValue)
       .build()
 }

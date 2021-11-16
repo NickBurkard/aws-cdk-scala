@@ -4,12 +4,12 @@ package io.burkard.cdk.services.ecs
 object CloudMapNamespaceOptions {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     `type`: Option[software.amazon.awscdk.services.servicediscovery.NamespaceType] = None
   ): software.amazon.awscdk.services.ecs.CloudMapNamespaceOptions =
     (new software.amazon.awscdk.services.ecs.CloudMapNamespaceOptions.Builder)
-      .name(name.orNull)
+      .name(name)
       .vpc(vpc.orNull)
       .`type`(`type`.orNull)
       .build()

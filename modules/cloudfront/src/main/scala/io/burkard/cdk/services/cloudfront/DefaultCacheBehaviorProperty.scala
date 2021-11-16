@@ -7,6 +7,8 @@ import scala.collection.JavaConverters._
 object DefaultCacheBehaviorProperty {
 
   def apply(
+    targetOriginId: String,
+    viewerProtocolPolicy: String,
     forwardedValues: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.ForwardedValuesProperty] = None,
     defaultTtl: Option[Number] = None,
     functionAssociations: Option[List[_]] = None,
@@ -19,14 +21,14 @@ object DefaultCacheBehaviorProperty {
     cachePolicyId: Option[String] = None,
     realtimeLogConfigArn: Option[String] = None,
     allowedMethods: Option[List[String]] = None,
-    targetOriginId: Option[String] = None,
-    viewerProtocolPolicy: Option[String] = None,
     maxTtl: Option[Number] = None,
     originRequestPolicyId: Option[String] = None,
     compress: Option[Boolean] = None,
     minTtl: Option[Number] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.DefaultCacheBehaviorProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.DefaultCacheBehaviorProperty.Builder)
+      .targetOriginId(targetOriginId)
+      .viewerProtocolPolicy(viewerProtocolPolicy)
       .forwardedValues(forwardedValues.orNull)
       .defaultTtl(defaultTtl.orNull)
       .functionAssociations(functionAssociations.map(_.asJava).orNull)
@@ -39,8 +41,6 @@ object DefaultCacheBehaviorProperty {
       .cachePolicyId(cachePolicyId.orNull)
       .realtimeLogConfigArn(realtimeLogConfigArn.orNull)
       .allowedMethods(allowedMethods.map(_.asJava).orNull)
-      .targetOriginId(targetOriginId.orNull)
-      .viewerProtocolPolicy(viewerProtocolPolicy.orNull)
       .maxTtl(maxTtl.orNull)
       .originRequestPolicyId(originRequestPolicyId.orNull)
       .compress(compress.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

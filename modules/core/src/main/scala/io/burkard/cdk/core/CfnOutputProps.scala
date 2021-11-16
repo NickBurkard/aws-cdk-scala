@@ -4,15 +4,15 @@ package io.burkard.cdk.core
 object CfnOutputProps {
 
   def apply(
+    value: String,
     description: Option[String] = None,
     condition: Option[software.amazon.awscdk.CfnCondition] = None,
-    value: Option[String] = None,
     exportName: Option[String] = None
   ): software.amazon.awscdk.CfnOutputProps =
     (new software.amazon.awscdk.CfnOutputProps.Builder)
+      .value(value)
       .description(description.orNull)
       .condition(condition.orNull)
-      .value(value.orNull)
       .exportName(exportName.orNull)
       .build()
 }

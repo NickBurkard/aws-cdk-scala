@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayGrpcConnectionPoolProperty {
 
   def apply(
-    maxRequests: Option[Number] = None
+    maxRequests: Number
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayGrpcConnectionPoolProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayGrpcConnectionPoolProperty.Builder)
-      .maxRequests(maxRequests.orNull)
+      .maxRequests(maxRequests)
       .build()
 }

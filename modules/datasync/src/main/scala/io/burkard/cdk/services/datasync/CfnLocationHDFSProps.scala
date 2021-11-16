@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnLocationHDFSProps {
 
   def apply(
-    authenticationType: Option[String] = None,
+    authenticationType: String,
+    agentArns: List[String],
+    nameNodes: List[_],
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    agentArns: Option[List[String]] = None,
     kmsKeyProviderUri: Option[String] = None,
     blockSize: Option[Number] = None,
     simpleUser: Option[String] = None,
-    nameNodes: Option[List[_]] = None,
     qopConfiguration: Option[software.amazon.awscdk.services.datasync.CfnLocationHDFS.QopConfigurationProperty] = None,
     kerberosPrincipal: Option[String] = None,
     kerberosKeytab: Option[String] = None,
@@ -22,13 +22,13 @@ object CfnLocationHDFSProps {
     subdirectory: Option[String] = None
   ): software.amazon.awscdk.services.datasync.CfnLocationHDFSProps =
     (new software.amazon.awscdk.services.datasync.CfnLocationHDFSProps.Builder)
-      .authenticationType(authenticationType.orNull)
+      .authenticationType(authenticationType)
+      .agentArns(agentArns.asJava)
+      .nameNodes(nameNodes.asJava)
       .tags(tags.map(_.asJava).orNull)
-      .agentArns(agentArns.map(_.asJava).orNull)
       .kmsKeyProviderUri(kmsKeyProviderUri.orNull)
       .blockSize(blockSize.orNull)
       .simpleUser(simpleUser.orNull)
-      .nameNodes(nameNodes.map(_.asJava).orNull)
       .qopConfiguration(qopConfiguration.orNull)
       .kerberosPrincipal(kerberosPrincipal.orNull)
       .kerberosKeytab(kerberosKeytab.orNull)

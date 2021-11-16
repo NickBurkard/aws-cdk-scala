@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CustomOriginConfig {
 
   def apply(
-    domainName: Option[String] = None,
+    domainName: String,
     httpsPort: Option[Number] = None,
     originReadTimeout: Option[software.amazon.awscdk.Duration] = None,
     originShieldRegion: Option[String] = None,
@@ -19,7 +19,7 @@ object CustomOriginConfig {
     httpPort: Option[Number] = None
   ): software.amazon.awscdk.services.cloudfront.CustomOriginConfig =
     (new software.amazon.awscdk.services.cloudfront.CustomOriginConfig.Builder)
-      .domainName(domainName.orNull)
+      .domainName(domainName)
       .httpsPort(httpsPort.orNull)
       .originReadTimeout(originReadTimeout.orNull)
       .originShieldRegion(originShieldRegion.orNull)

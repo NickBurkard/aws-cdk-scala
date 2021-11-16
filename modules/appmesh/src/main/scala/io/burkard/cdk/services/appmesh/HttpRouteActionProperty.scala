@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object HttpRouteActionProperty {
 
   def apply(
-    weightedTargets: Option[List[_]] = None
+    weightedTargets: List[_]
   ): software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteActionProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.HttpRouteActionProperty.Builder)
-      .weightedTargets(weightedTargets.map(_.asJava).orNull)
+      .weightedTargets(weightedTargets.asJava)
       .build()
 }

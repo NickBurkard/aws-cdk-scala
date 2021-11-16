@@ -4,11 +4,11 @@ package io.burkard.cdk.services.secretsmanager
 object SecretAttachmentTargetProps {
 
   def apply(
-    targetId: Option[String] = None,
-    targetType: Option[software.amazon.awscdk.services.secretsmanager.AttachmentTargetType] = None
+    targetId: String,
+    targetType: software.amazon.awscdk.services.secretsmanager.AttachmentTargetType
   ): software.amazon.awscdk.services.secretsmanager.SecretAttachmentTargetProps =
     (new software.amazon.awscdk.services.secretsmanager.SecretAttachmentTargetProps.Builder)
-      .targetId(targetId.orNull)
-      .targetType(targetType.orNull)
+      .targetId(targetId)
+      .targetType(targetType)
       .build()
 }

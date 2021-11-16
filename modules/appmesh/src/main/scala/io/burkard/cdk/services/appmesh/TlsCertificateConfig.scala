@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object TlsCertificateConfig {
 
   def apply(
-    tlsCertificate: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsCertificateProperty] = None
+    tlsCertificate: software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsCertificateProperty
   ): software.amazon.awscdk.services.appmesh.TlsCertificateConfig =
     (new software.amazon.awscdk.services.appmesh.TlsCertificateConfig.Builder)
-      .tlsCertificate(tlsCertificate.orNull)
+      .tlsCertificate(tlsCertificate)
       .build()
 }

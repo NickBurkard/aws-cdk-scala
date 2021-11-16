@@ -4,17 +4,17 @@ package io.burkard.cdk.services.kendra
 object ConnectionConfigurationProperty {
 
   def apply(
-    databasePort: Option[Number] = None,
-    tableName: Option[String] = None,
-    secretArn: Option[String] = None,
-    databaseName: Option[String] = None,
-    databaseHost: Option[String] = None
+    databasePort: Number,
+    tableName: String,
+    secretArn: String,
+    databaseName: String,
+    databaseHost: String
   ): software.amazon.awscdk.services.kendra.CfnDataSource.ConnectionConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.ConnectionConfigurationProperty.Builder)
-      .databasePort(databasePort.orNull)
-      .tableName(tableName.orNull)
-      .secretArn(secretArn.orNull)
-      .databaseName(databaseName.orNull)
-      .databaseHost(databaseHost.orNull)
+      .databasePort(databasePort)
+      .tableName(tableName)
+      .secretArn(secretArn)
+      .databaseName(databaseName)
+      .databaseHost(databaseHost)
       .build()
 }

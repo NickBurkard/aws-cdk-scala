@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CustomStateProps {
 
   def apply(
-    stateJson: Option[Map[String, _]] = None
+    stateJson: Map[String, _]
   ): software.amazon.awscdk.services.stepfunctions.CustomStateProps =
     (new software.amazon.awscdk.services.stepfunctions.CustomStateProps.Builder)
-      .stateJson(stateJson.map(_.asJava).orNull)
+      .stateJson(stateJson.asJava)
       .build()
 }

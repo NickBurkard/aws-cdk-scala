@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codedeploy
 object TimeBasedCanaryProperty {
 
   def apply(
-    canaryInterval: Option[Number] = None,
-    canaryPercentage: Option[Number] = None
+    canaryInterval: Number,
+    canaryPercentage: Number
   ): software.amazon.awscdk.services.codedeploy.CfnDeploymentConfig.TimeBasedCanaryProperty =
     (new software.amazon.awscdk.services.codedeploy.CfnDeploymentConfig.TimeBasedCanaryProperty.Builder)
-      .canaryInterval(canaryInterval.orNull)
-      .canaryPercentage(canaryPercentage.orNull)
+      .canaryInterval(canaryInterval)
+      .canaryPercentage(canaryPercentage)
       .build()
 }

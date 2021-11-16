@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object ListenerTlsAcmCertificateProperty {
 
   def apply(
-    certificateArn: Option[String] = None
+    certificateArn: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsAcmCertificateProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerTlsAcmCertificateProperty.Builder)
-      .certificateArn(certificateArn.orNull)
+      .certificateArn(certificateArn)
       .build()
 }

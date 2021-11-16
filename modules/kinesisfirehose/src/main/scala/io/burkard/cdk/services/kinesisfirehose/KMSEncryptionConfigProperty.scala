@@ -4,9 +4,9 @@ package io.burkard.cdk.services.kinesisfirehose
 object KMSEncryptionConfigProperty {
 
   def apply(
-    awskmsKeyArn: Option[String] = None
+    awskmsKeyArn: String
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.KMSEncryptionConfigProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.KMSEncryptionConfigProperty.Builder)
-      .awskmsKeyArn(awskmsKeyArn.orNull)
+      .awskmsKeyArn(awskmsKeyArn)
       .build()
 }

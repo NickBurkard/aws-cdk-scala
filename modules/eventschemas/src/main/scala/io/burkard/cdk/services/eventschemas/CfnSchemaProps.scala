@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object CfnSchemaProps {
 
   def apply(
+    content: String,
+    registryName: String,
+    `type`: String,
     schemaName: Option[String] = None,
-    content: Option[String] = None,
-    registryName: Option[String] = None,
-    `type`: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.services.eventschemas.CfnSchema.TagsEntryProperty]] = None
   ): software.amazon.awscdk.services.eventschemas.CfnSchemaProps =
     (new software.amazon.awscdk.services.eventschemas.CfnSchemaProps.Builder)
+      .content(content)
+      .registryName(registryName)
+      .`type`(`type`)
       .schemaName(schemaName.orNull)
-      .content(content.orNull)
-      .registryName(registryName.orNull)
-      .`type`(`type`.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

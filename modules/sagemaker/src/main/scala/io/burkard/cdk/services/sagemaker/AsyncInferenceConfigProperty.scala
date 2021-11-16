@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object AsyncInferenceConfigProperty {
 
   def apply(
-    outputConfig: Option[software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.AsyncInferenceOutputConfigProperty] = None,
+    outputConfig: software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.AsyncInferenceOutputConfigProperty,
     clientConfig: Option[software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.AsyncInferenceClientConfigProperty] = None
   ): software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.AsyncInferenceConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnEndpointConfig.AsyncInferenceConfigProperty.Builder)
-      .outputConfig(outputConfig.orNull)
+      .outputConfig(outputConfig)
       .clientConfig(clientConfig.orNull)
       .build()
 }

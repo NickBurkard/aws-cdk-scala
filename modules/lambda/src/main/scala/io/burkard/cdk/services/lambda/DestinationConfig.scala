@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lambda
 object DestinationConfig {
 
   def apply(
-    destination: Option[String] = None
+    destination: String
   ): software.amazon.awscdk.services.lambda.DestinationConfig =
     (new software.amazon.awscdk.services.lambda.DestinationConfig.Builder)
-      .destination(destination.orNull)
+      .destination(destination)
       .build()
 }

@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object CfnAddonProps {
 
   def apply(
+    clusterName: String,
+    addonName: String,
     resolveConflicts: Option[String] = None,
     addonVersion: Option[String] = None,
-    clusterName: Option[String] = None,
-    addonName: Option[String] = None,
     serviceAccountRoleArn: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.eks.CfnAddonProps =
     (new software.amazon.awscdk.services.eks.CfnAddonProps.Builder)
+      .clusterName(clusterName)
+      .addonName(addonName)
       .resolveConflicts(resolveConflicts.orNull)
       .addonVersion(addonVersion.orNull)
-      .clusterName(clusterName.orNull)
-      .addonName(addonName.orNull)
       .serviceAccountRoleArn(serviceAccountRoleArn.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

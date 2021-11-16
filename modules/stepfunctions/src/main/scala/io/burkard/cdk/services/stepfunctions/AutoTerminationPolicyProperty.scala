@@ -4,9 +4,9 @@ package io.burkard.cdk.services.stepfunctions
 object AutoTerminationPolicyProperty {
 
   def apply(
-    idleTimeout: Option[software.amazon.awscdk.Duration] = None
+    idleTimeout: software.amazon.awscdk.Duration
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.AutoTerminationPolicyProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.AutoTerminationPolicyProperty.Builder)
-      .idleTimeout(idleTimeout.orNull)
+      .idleTimeout(idleTimeout)
       .build()
 }

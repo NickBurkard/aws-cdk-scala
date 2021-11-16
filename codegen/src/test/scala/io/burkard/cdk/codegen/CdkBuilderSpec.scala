@@ -31,11 +31,18 @@ class CdkBuilderSpec extends AnyFlatSpec with Matchers with OptionValues {
       .value mustBe directConstructorCdkBuilder
   }
 
-  it should "identify required fields" in {
+  it should "identify required fields from props" in {
     CdkBuilder
-      .build(requiredFieldsServiceName, requiredFieldsBuilderClass)
+      .build(requiredFieldsPropsServiceName, requiredFieldsPropsBuilderClass)
       .value
-      .requiredFieldNames mustBe requiredFieldsNames
+      .requiredFieldNames mustBe requiredFieldsPropsNames
+  }
+
+  it should "identify required fields from interface" in {
+    CdkBuilder
+      .build(requiredFieldsInterfaceServiceName, requiredFieldsInterfaceBuilderClass)
+      .value
+      .requiredFieldNames mustBe requiredFieldsInterfaceNames
   }
 
   it should "reject a non-builder class" in {

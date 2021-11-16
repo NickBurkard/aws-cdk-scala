@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object TieringProperty {
 
   def apply(
-    accessTier: Option[String] = None,
-    days: Option[Number] = None
+    accessTier: String,
+    days: Number
   ): software.amazon.awscdk.services.s3.CfnBucket.TieringProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.TieringProperty.Builder)
-      .accessTier(accessTier.orNull)
-      .days(days.orNull)
+      .accessTier(accessTier)
+      .days(days)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object AlarmProperty {
 
   def apply(
-    alarmName: Option[String] = None
+    alarmName: String
   ): software.amazon.awscdk.services.sagemaker.CfnEndpoint.AlarmProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnEndpoint.AlarmProperty.Builder)
-      .alarmName(alarmName.orNull)
+      .alarmName(alarmName)
       .build()
 }

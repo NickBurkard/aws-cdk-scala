@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codedeploy
 object GitHubLocationProperty {
 
   def apply(
-    repository: Option[String] = None,
-    commitId: Option[String] = None
+    repository: String,
+    commitId: String
   ): software.amazon.awscdk.services.codedeploy.CfnDeploymentGroup.GitHubLocationProperty =
     (new software.amazon.awscdk.services.codedeploy.CfnDeploymentGroup.GitHubLocationProperty.Builder)
-      .repository(repository.orNull)
-      .commitId(commitId.orNull)
+      .repository(repository)
+      .commitId(commitId)
       .build()
 }

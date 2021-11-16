@@ -4,11 +4,11 @@ package io.burkard.cdk.services.secretsmanager
 object ReplicaRegionProperty {
 
   def apply(
-    region: Option[String] = None,
+    region: String,
     kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.secretsmanager.CfnSecret.ReplicaRegionProperty =
     (new software.amazon.awscdk.services.secretsmanager.CfnSecret.ReplicaRegionProperty.Builder)
-      .region(region.orNull)
+      .region(region)
       .kmsKeyId(kmsKeyId.orNull)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnConnectionProps {
 
   def apply(
-    connectionName: Option[String] = None,
+    connectionName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     hostArn: Option[String] = None,
     providerType: Option[String] = None
   ): software.amazon.awscdk.services.codestarconnections.CfnConnectionProps =
     (new software.amazon.awscdk.services.codestarconnections.CfnConnectionProps.Builder)
-      .connectionName(connectionName.orNull)
+      .connectionName(connectionName)
       .tags(tags.map(_.asJava).orNull)
       .hostArn(hostArn.orNull)
       .providerType(providerType.orNull)

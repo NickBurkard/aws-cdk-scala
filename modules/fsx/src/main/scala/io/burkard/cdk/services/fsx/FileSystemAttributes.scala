@@ -4,13 +4,13 @@ package io.burkard.cdk.services.fsx
 object FileSystemAttributes {
 
   def apply(
-    dnsName: Option[String] = None,
-    fileSystemId: Option[String] = None,
-    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
+    dnsName: String,
+    fileSystemId: String,
+    securityGroup: software.amazon.awscdk.services.ec2.ISecurityGroup
   ): software.amazon.awscdk.services.fsx.FileSystemAttributes =
     (new software.amazon.awscdk.services.fsx.FileSystemAttributes.Builder)
-      .dnsName(dnsName.orNull)
-      .fileSystemId(fileSystemId.orNull)
-      .securityGroup(securityGroup.orNull)
+      .dnsName(dnsName)
+      .fileSystemId(fileSystemId)
+      .securityGroup(securityGroup)
       .build()
 }

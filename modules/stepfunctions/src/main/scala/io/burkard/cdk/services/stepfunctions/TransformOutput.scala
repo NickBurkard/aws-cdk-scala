@@ -4,14 +4,14 @@ package io.burkard.cdk.services.stepfunctions
 object TransformOutput {
 
   def apply(
+    s3OutputPath: String,
     accept: Option[String] = None,
-    s3OutputPath: Option[String] = None,
     assembleWith: Option[software.amazon.awscdk.services.stepfunctions.tasks.AssembleWith] = None,
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.TransformOutput =
     (new software.amazon.awscdk.services.stepfunctions.tasks.TransformOutput.Builder)
+      .s3OutputPath(s3OutputPath)
       .accept(accept.orNull)
-      .s3OutputPath(s3OutputPath.orNull)
       .assembleWith(assembleWith.orNull)
       .encryptionKey(encryptionKey.orNull)
       .build()

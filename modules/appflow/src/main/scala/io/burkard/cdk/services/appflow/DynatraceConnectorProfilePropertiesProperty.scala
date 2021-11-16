@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object DynatraceConnectorProfilePropertiesProperty {
 
   def apply(
-    instanceUrl: Option[String] = None
+    instanceUrl: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.DynatraceConnectorProfilePropertiesProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.DynatraceConnectorProfilePropertiesProperty.Builder)
-      .instanceUrl(instanceUrl.orNull)
+      .instanceUrl(instanceUrl)
       .build()
 }

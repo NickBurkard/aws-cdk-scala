@@ -4,11 +4,11 @@ package io.burkard.cdk.services.globalaccelerator
 object PortOverrideProperty {
 
   def apply(
-    endpointPort: Option[Number] = None,
-    listenerPort: Option[Number] = None
+    endpointPort: Number,
+    listenerPort: Number
   ): software.amazon.awscdk.services.globalaccelerator.CfnEndpointGroup.PortOverrideProperty =
     (new software.amazon.awscdk.services.globalaccelerator.CfnEndpointGroup.PortOverrideProperty.Builder)
-      .endpointPort(endpointPort.orNull)
-      .listenerPort(listenerPort.orNull)
+      .endpointPort(endpointPort)
+      .listenerPort(listenerPort)
       .build()
 }

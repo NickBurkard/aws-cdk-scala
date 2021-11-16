@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iam
 object PolicyProperty {
 
   def apply(
-    policyName: Option[String] = None,
-    policyDocument: Option[AnyRef] = None
+    policyName: String,
+    policyDocument: AnyRef
   ): software.amazon.awscdk.services.iam.CfnUser.PolicyProperty =
     (new software.amazon.awscdk.services.iam.CfnUser.PolicyProperty.Builder)
-      .policyName(policyName.orNull)
-      .policyDocument(policyDocument.orNull)
+      .policyName(policyName)
+      .policyDocument(policyDocument)
       .build()
 }

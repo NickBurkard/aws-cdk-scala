@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnVPCEndpointServicePermissionsProps {
 
   def apply(
-    allowedPrincipals: Option[List[String]] = None,
-    serviceId: Option[String] = None
+    serviceId: String,
+    allowedPrincipals: Option[List[String]] = None
   ): software.amazon.awscdk.services.ec2.CfnVPCEndpointServicePermissionsProps =
     (new software.amazon.awscdk.services.ec2.CfnVPCEndpointServicePermissionsProps.Builder)
+      .serviceId(serviceId)
       .allowedPrincipals(allowedPrincipals.map(_.asJava).orNull)
-      .serviceId(serviceId.orNull)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apprunner
 object ImageRepositoryProperty {
 
   def apply(
-    imageIdentifier: Option[String] = None,
-    imageConfiguration: Option[software.amazon.awscdk.services.apprunner.CfnService.ImageConfigurationProperty] = None,
-    imageRepositoryType: Option[String] = None
+    imageIdentifier: String,
+    imageRepositoryType: String,
+    imageConfiguration: Option[software.amazon.awscdk.services.apprunner.CfnService.ImageConfigurationProperty] = None
   ): software.amazon.awscdk.services.apprunner.CfnService.ImageRepositoryProperty =
     (new software.amazon.awscdk.services.apprunner.CfnService.ImageRepositoryProperty.Builder)
-      .imageIdentifier(imageIdentifier.orNull)
+      .imageIdentifier(imageIdentifier)
+      .imageRepositoryType(imageRepositoryType)
       .imageConfiguration(imageConfiguration.orNull)
-      .imageRepositoryType(imageRepositoryType.orNull)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnMultiRegionAccessPointProps {
 
   def apply(
+    regions: List[_],
     name: Option[String] = None,
-    regions: Option[List[_]] = None,
     publicAccessBlockConfiguration: Option[software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint.PublicAccessBlockConfigurationProperty] = None
   ): software.amazon.awscdk.services.s3.CfnMultiRegionAccessPointProps =
     (new software.amazon.awscdk.services.s3.CfnMultiRegionAccessPointProps.Builder)
+      .regions(regions.asJava)
       .name(name.orNull)
-      .regions(regions.map(_.asJava).orNull)
       .publicAccessBlockConfiguration(publicAccessBlockConfiguration.orNull)
       .build()
 }

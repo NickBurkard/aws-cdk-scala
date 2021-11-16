@@ -4,9 +4,9 @@ package io.burkard.cdk.services.quicksight
 object S3ParametersProperty {
 
   def apply(
-    manifestFileLocation: Option[software.amazon.awscdk.services.quicksight.CfnDataSource.ManifestFileLocationProperty] = None
+    manifestFileLocation: software.amazon.awscdk.services.quicksight.CfnDataSource.ManifestFileLocationProperty
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.S3ParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.S3ParametersProperty.Builder)
-      .manifestFileLocation(manifestFileLocation.orNull)
+      .manifestFileLocation(manifestFileLocation)
       .build()
 }

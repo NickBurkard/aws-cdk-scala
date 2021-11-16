@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object Ec2ServiceProps {
 
   def apply(
+    taskDefinition: software.amazon.awscdk.services.ecs.TaskDefinition,
     minHealthyPercent: Option[Number] = None,
     healthCheckGracePeriod: Option[software.amazon.awscdk.Duration] = None,
     desiredCount: Option[Number] = None,
@@ -25,12 +26,12 @@ object Ec2ServiceProps {
     assignPublicIp: Option[Boolean] = None,
     propagateTags: Option[software.amazon.awscdk.services.ecs.PropagatedTagSource] = None,
     enableEcsManagedTags: Option[Boolean] = None,
-    taskDefinition: Option[software.amazon.awscdk.services.ecs.TaskDefinition] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
     placementConstraints: Option[List[_ <: software.amazon.awscdk.services.ecs.PlacementConstraint]] = None,
     placementStrategies: Option[List[_ <: software.amazon.awscdk.services.ecs.PlacementStrategy]] = None
   ): software.amazon.awscdk.services.ecs.Ec2ServiceProps =
     (new software.amazon.awscdk.services.ecs.Ec2ServiceProps.Builder)
+      .taskDefinition(taskDefinition)
       .minHealthyPercent(minHealthyPercent.orNull)
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
       .desiredCount(desiredCount.orNull)
@@ -49,7 +50,6 @@ object Ec2ServiceProps {
       .assignPublicIp(assignPublicIp.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .propagateTags(propagateTags.orNull)
       .enableEcsManagedTags(enableEcsManagedTags.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .taskDefinition(taskDefinition.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .placementConstraints(placementConstraints.map(_.asJava).orNull)
       .placementStrategies(placementStrategies.map(_.asJava).orNull)

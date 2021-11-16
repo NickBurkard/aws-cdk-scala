@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnDomainProps {
 
   def apply(
+    domainName: String,
     permissionsPolicyDocument: Option[AnyRef] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    domainName: Option[String] = None,
     encryptionKey: Option[String] = None
   ): software.amazon.awscdk.services.codeartifact.CfnDomainProps =
     (new software.amazon.awscdk.services.codeartifact.CfnDomainProps.Builder)
+      .domainName(domainName)
       .permissionsPolicyDocument(permissionsPolicyDocument.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .domainName(domainName.orNull)
       .encryptionKey(encryptionKey.orNull)
       .build()
 }

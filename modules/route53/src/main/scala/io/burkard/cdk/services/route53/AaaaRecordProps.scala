@@ -4,16 +4,16 @@ package io.burkard.cdk.services.route53
 object AaaaRecordProps {
 
   def apply(
+    target: software.amazon.awscdk.services.route53.RecordTarget,
     recordName: Option[String] = None,
     comment: Option[String] = None,
-    target: Option[software.amazon.awscdk.services.route53.RecordTarget] = None,
     ttl: Option[software.amazon.awscdk.Duration] = None,
     zone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None
   ): software.amazon.awscdk.services.route53.AaaaRecordProps =
     (new software.amazon.awscdk.services.route53.AaaaRecordProps.Builder)
+      .target(target)
       .recordName(recordName.orNull)
       .comment(comment.orNull)
-      .target(target.orNull)
       .ttl(ttl.orNull)
       .zone(zone.orNull)
       .build()

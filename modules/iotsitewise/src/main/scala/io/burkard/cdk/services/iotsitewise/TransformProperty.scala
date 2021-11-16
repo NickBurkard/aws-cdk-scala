@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TransformProperty {
 
   def apply(
-    variables: Option[List[_]] = None,
-    expression: Option[String] = None
+    variables: List[_],
+    expression: String
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetModel.TransformProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetModel.TransformProperty.Builder)
-      .variables(variables.map(_.asJava).orNull)
-      .expression(expression.orNull)
+      .variables(variables.asJava)
+      .expression(expression)
       .build()
 }

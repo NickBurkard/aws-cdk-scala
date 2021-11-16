@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnActivityProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     tags: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.CfnActivity.TagsEntryProperty]] = None
   ): software.amazon.awscdk.services.stepfunctions.CfnActivityProps =
     (new software.amazon.awscdk.services.stepfunctions.CfnActivityProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

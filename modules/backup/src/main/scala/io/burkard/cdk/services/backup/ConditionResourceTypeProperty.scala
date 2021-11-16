@@ -4,13 +4,13 @@ package io.burkard.cdk.services.backup
 object ConditionResourceTypeProperty {
 
   def apply(
-    conditionType: Option[String] = None,
-    conditionValue: Option[String] = None,
-    conditionKey: Option[String] = None
+    conditionType: String,
+    conditionValue: String,
+    conditionKey: String
   ): software.amazon.awscdk.services.backup.CfnBackupSelection.ConditionResourceTypeProperty =
     (new software.amazon.awscdk.services.backup.CfnBackupSelection.ConditionResourceTypeProperty.Builder)
-      .conditionType(conditionType.orNull)
-      .conditionValue(conditionValue.orNull)
-      .conditionKey(conditionKey.orNull)
+      .conditionType(conditionType)
+      .conditionValue(conditionValue)
+      .conditionKey(conditionKey)
       .build()
 }

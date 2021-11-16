@@ -4,15 +4,15 @@ package io.burkard.cdk.services.route53
 object CfnKeySigningKeyProps {
 
   def apply(
-    name: Option[String] = None,
-    hostedZoneId: Option[String] = None,
-    keyManagementServiceArn: Option[String] = None,
-    status: Option[String] = None
+    name: String,
+    hostedZoneId: String,
+    keyManagementServiceArn: String,
+    status: String
   ): software.amazon.awscdk.services.route53.CfnKeySigningKeyProps =
     (new software.amazon.awscdk.services.route53.CfnKeySigningKeyProps.Builder)
-      .name(name.orNull)
-      .hostedZoneId(hostedZoneId.orNull)
-      .keyManagementServiceArn(keyManagementServiceArn.orNull)
-      .status(status.orNull)
+      .name(name)
+      .hostedZoneId(hostedZoneId)
+      .keyManagementServiceArn(keyManagementServiceArn)
+      .status(status)
       .build()
 }

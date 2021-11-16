@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object DetectorModelDefinitionProperty {
 
   def apply(
-    initialStateName: Option[String] = None,
-    states: Option[List[_]] = None
+    initialStateName: String,
+    states: List[_]
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.DetectorModelDefinitionProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.DetectorModelDefinitionProperty.Builder)
-      .initialStateName(initialStateName.orNull)
-      .states(states.map(_.asJava).orNull)
+      .initialStateName(initialStateName)
+      .states(states.asJava)
       .build()
 }

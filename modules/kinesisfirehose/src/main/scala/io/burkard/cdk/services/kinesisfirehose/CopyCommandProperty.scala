@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kinesisfirehose
 object CopyCommandProperty {
 
   def apply(
+    dataTableName: String,
     dataTableColumns: Option[String] = None,
-    dataTableName: Option[String] = None,
     copyOptions: Option[String] = None
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.CopyCommandProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.CopyCommandProperty.Builder)
+      .dataTableName(dataTableName)
       .dataTableColumns(dataTableColumns.orNull)
-      .dataTableName(dataTableName.orNull)
       .copyOptions(copyOptions.orNull)
       .build()
 }

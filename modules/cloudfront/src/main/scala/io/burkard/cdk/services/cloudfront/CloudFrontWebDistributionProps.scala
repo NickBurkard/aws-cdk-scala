@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CloudFrontWebDistributionProps {
 
   def apply(
+    originConfigs: List[_ <: software.amazon.awscdk.services.cloudfront.SourceConfiguration],
     aliasConfiguration: Option[software.amazon.awscdk.services.cloudfront.AliasConfiguration] = None,
-    originConfigs: Option[List[_ <: software.amazon.awscdk.services.cloudfront.SourceConfiguration]] = None,
     enabled: Option[Boolean] = None,
     errorConfigurations: Option[List[_ <: software.amazon.awscdk.services.cloudfront.CfnDistribution.CustomErrorResponseProperty]] = None,
     comment: Option[String] = None,
@@ -23,8 +23,8 @@ object CloudFrontWebDistributionProps {
     viewerProtocolPolicy: Option[software.amazon.awscdk.services.cloudfront.ViewerProtocolPolicy] = None
   ): software.amazon.awscdk.services.cloudfront.CloudFrontWebDistributionProps =
     (new software.amazon.awscdk.services.cloudfront.CloudFrontWebDistributionProps.Builder)
+      .originConfigs(originConfigs.asJava)
       .aliasConfiguration(aliasConfiguration.orNull)
-      .originConfigs(originConfigs.map(_.asJava).orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .errorConfigurations(errorConfigurations.map(_.asJava).orNull)
       .comment(comment.orNull)

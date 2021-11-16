@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codeguruprofiler
 object ChannelProperty {
 
   def apply(
-    channelUri: Option[String] = None,
+    channelUri: String,
     channelId: Option[String] = None
   ): software.amazon.awscdk.services.codeguruprofiler.CfnProfilingGroup.ChannelProperty =
     (new software.amazon.awscdk.services.codeguruprofiler.CfnProfilingGroup.ChannelProperty.Builder)
-      .channelUri(channelUri.orNull)
+      .channelUri(channelUri)
       .channelId(channelId.orNull)
       .build()
 }

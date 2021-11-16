@@ -4,13 +4,13 @@ package io.burkard.cdk.services.gamelift
 object RoutingStrategyProperty {
 
   def apply(
+    `type`: String,
     fleetId: Option[String] = None,
-    message: Option[String] = None,
-    `type`: Option[String] = None
+    message: Option[String] = None
   ): software.amazon.awscdk.services.gamelift.CfnAlias.RoutingStrategyProperty =
     (new software.amazon.awscdk.services.gamelift.CfnAlias.RoutingStrategyProperty.Builder)
+      .`type`(`type`)
       .fleetId(fleetId.orNull)
       .message(message.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

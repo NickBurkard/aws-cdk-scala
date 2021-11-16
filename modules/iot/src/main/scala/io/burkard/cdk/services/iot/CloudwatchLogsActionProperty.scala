@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object CloudwatchLogsActionProperty {
 
   def apply(
-    roleArn: Option[String] = None,
-    logGroupName: Option[String] = None
+    roleArn: String,
+    logGroupName: String
   ): software.amazon.awscdk.services.iot.CfnTopicRule.CloudwatchLogsActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.CloudwatchLogsActionProperty.Builder)
-      .roleArn(roleArn.orNull)
-      .logGroupName(logGroupName.orNull)
+      .roleArn(roleArn)
+      .logGroupName(logGroupName)
       .build()
 }

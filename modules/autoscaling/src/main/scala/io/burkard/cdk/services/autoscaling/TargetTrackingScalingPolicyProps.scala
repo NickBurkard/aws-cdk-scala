@@ -4,9 +4,9 @@ package io.burkard.cdk.services.autoscaling
 object TargetTrackingScalingPolicyProps {
 
   def apply(
+    autoScalingGroup: software.amazon.awscdk.services.autoscaling.IAutoScalingGroup,
     customMetric: Option[software.amazon.awscdk.services.cloudwatch.IMetric] = None,
     disableScaleIn: Option[Boolean] = None,
-    autoScalingGroup: Option[software.amazon.awscdk.services.autoscaling.IAutoScalingGroup] = None,
     estimatedInstanceWarmup: Option[software.amazon.awscdk.Duration] = None,
     resourceLabel: Option[String] = None,
     targetValue: Option[Number] = None,
@@ -14,9 +14,9 @@ object TargetTrackingScalingPolicyProps {
     predefinedMetric: Option[software.amazon.awscdk.services.autoscaling.PredefinedMetric] = None
   ): software.amazon.awscdk.services.autoscaling.TargetTrackingScalingPolicyProps =
     (new software.amazon.awscdk.services.autoscaling.TargetTrackingScalingPolicyProps.Builder)
+      .autoScalingGroup(autoScalingGroup)
       .customMetric(customMetric.orNull)
       .disableScaleIn(disableScaleIn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .autoScalingGroup(autoScalingGroup.orNull)
       .estimatedInstanceWarmup(estimatedInstanceWarmup.orNull)
       .resourceLabel(resourceLabel.orNull)
       .targetValue(targetValue.orNull)

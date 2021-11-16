@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rds
 object PostgresInstanceEngineProps {
 
   def apply(
-    version: Option[software.amazon.awscdk.services.rds.PostgresEngineVersion] = None
+    version: software.amazon.awscdk.services.rds.PostgresEngineVersion
   ): software.amazon.awscdk.services.rds.PostgresInstanceEngineProps =
     (new software.amazon.awscdk.services.rds.PostgresInstanceEngineProps.Builder)
-      .version(version.orNull)
+      .version(version)
       .build()
 }

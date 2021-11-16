@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object MissingContext {
 
   def apply(
-    provider: Option[String] = None,
-    key: Option[String] = None,
-    props: Option[Map[String, _]] = None
+    provider: String,
+    key: String,
+    props: Map[String, _]
   ): software.amazon.awscdk.cxapi.MissingContext =
     (new software.amazon.awscdk.cxapi.MissingContext.Builder)
-      .provider(provider.orNull)
-      .key(key.orNull)
-      .props(props.map(_.asJava).orNull)
+      .provider(provider)
+      .key(key)
+      .props(props.asJava)
       .build()
 }

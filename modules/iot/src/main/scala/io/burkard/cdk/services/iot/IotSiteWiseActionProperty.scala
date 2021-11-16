@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object IotSiteWiseActionProperty {
 
   def apply(
-    roleArn: Option[String] = None,
-    putAssetPropertyValueEntries: Option[List[_]] = None
+    roleArn: String,
+    putAssetPropertyValueEntries: List[_]
   ): software.amazon.awscdk.services.iot.CfnTopicRule.IotSiteWiseActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.IotSiteWiseActionProperty.Builder)
-      .roleArn(roleArn.orNull)
-      .putAssetPropertyValueEntries(putAssetPropertyValueEntries.map(_.asJava).orNull)
+      .roleArn(roleArn)
+      .putAssetPropertyValueEntries(putAssetPropertyValueEntries.asJava)
       .build()
 }

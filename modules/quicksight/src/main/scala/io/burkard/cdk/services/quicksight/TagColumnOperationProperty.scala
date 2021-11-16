@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TagColumnOperationProperty {
 
   def apply(
-    columnName: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.services.quicksight.CfnDataSet.ColumnTagProperty]] = None
+    columnName: String,
+    tags: List[_ <: software.amazon.awscdk.services.quicksight.CfnDataSet.ColumnTagProperty]
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.TagColumnOperationProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.TagColumnOperationProperty.Builder)
-      .columnName(columnName.orNull)
-      .tags(tags.map(_.asJava).orNull)
+      .columnName(columnName)
+      .tags(tags.asJava)
       .build()
 }

@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnDistributionConfigurationProps {
 
   def apply(
-    name: Option[String] = None,
-    distributions: Option[List[_]] = None,
+    name: String,
+    distributions: List[_],
     description: Option[String] = None,
     tags: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.imagebuilder.CfnDistributionConfigurationProps =
     (new software.amazon.awscdk.services.imagebuilder.CfnDistributionConfigurationProps.Builder)
-      .name(name.orNull)
-      .distributions(distributions.map(_.asJava).orNull)
+      .name(name)
+      .distributions(distributions.asJava)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

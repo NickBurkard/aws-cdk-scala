@@ -4,13 +4,13 @@ package io.burkard.cdk.services.servicediscovery
 object HttpNamespaceAttributes {
 
   def apply(
-    namespaceArn: Option[String] = None,
-    namespaceName: Option[String] = None,
-    namespaceId: Option[String] = None
+    namespaceArn: String,
+    namespaceName: String,
+    namespaceId: String
   ): software.amazon.awscdk.services.servicediscovery.HttpNamespaceAttributes =
     (new software.amazon.awscdk.services.servicediscovery.HttpNamespaceAttributes.Builder)
-      .namespaceArn(namespaceArn.orNull)
-      .namespaceName(namespaceName.orNull)
-      .namespaceId(namespaceId.orNull)
+      .namespaceArn(namespaceArn)
+      .namespaceName(namespaceName)
+      .namespaceId(namespaceId)
       .build()
 }

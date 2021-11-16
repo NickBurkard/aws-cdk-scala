@@ -4,11 +4,11 @@ package io.burkard.cdk.services.apprunner
 object SourceCodeVersionProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    value: Option[String] = None
+    `type`: String,
+    value: String
   ): software.amazon.awscdk.services.apprunner.CfnService.SourceCodeVersionProperty =
     (new software.amazon.awscdk.services.apprunner.CfnService.SourceCodeVersionProperty.Builder)
-      .`type`(`type`.orNull)
-      .value(value.orNull)
+      .`type`(`type`)
+      .value(value)
       .build()
 }

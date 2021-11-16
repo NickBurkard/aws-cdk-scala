@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object FlowDefinitionProperty {
 
   def apply(
-    kmsArn: Option[String] = None,
-    flowName: Option[String] = None,
-    tasks: Option[List[_]] = None,
-    sourceFlowConfig: Option[software.amazon.awscdk.services.customerprofiles.CfnIntegration.SourceFlowConfigProperty] = None,
-    description: Option[String] = None,
-    triggerConfig: Option[software.amazon.awscdk.services.customerprofiles.CfnIntegration.TriggerConfigProperty] = None
+    kmsArn: String,
+    flowName: String,
+    tasks: List[_],
+    sourceFlowConfig: software.amazon.awscdk.services.customerprofiles.CfnIntegration.SourceFlowConfigProperty,
+    triggerConfig: software.amazon.awscdk.services.customerprofiles.CfnIntegration.TriggerConfigProperty,
+    description: Option[String] = None
   ): software.amazon.awscdk.services.customerprofiles.CfnIntegration.FlowDefinitionProperty =
     (new software.amazon.awscdk.services.customerprofiles.CfnIntegration.FlowDefinitionProperty.Builder)
-      .kmsArn(kmsArn.orNull)
-      .flowName(flowName.orNull)
-      .tasks(tasks.map(_.asJava).orNull)
-      .sourceFlowConfig(sourceFlowConfig.orNull)
+      .kmsArn(kmsArn)
+      .flowName(flowName)
+      .tasks(tasks.asJava)
+      .sourceFlowConfig(sourceFlowConfig)
+      .triggerConfig(triggerConfig)
       .description(description.orNull)
-      .triggerConfig(triggerConfig.orNull)
       .build()
 }

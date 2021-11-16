@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualNodeTcpConnectionPoolProperty {
 
   def apply(
-    maxConnections: Option[Number] = None
+    maxConnections: Number
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeTcpConnectionPoolProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeTcpConnectionPoolProperty.Builder)
-      .maxConnections(maxConnections.orNull)
+      .maxConnections(maxConnections)
       .build()
 }

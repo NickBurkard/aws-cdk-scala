@@ -4,9 +4,9 @@ package io.burkard.cdk.services.quicksight
 object AmazonOpenSearchParametersProperty {
 
   def apply(
-    domain: Option[String] = None
+    domain: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.AmazonOpenSearchParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.AmazonOpenSearchParametersProperty.Builder)
-      .domain(domain.orNull)
+      .domain(domain)
       .build()
 }

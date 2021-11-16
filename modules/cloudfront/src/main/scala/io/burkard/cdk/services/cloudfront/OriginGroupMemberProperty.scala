@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object OriginGroupMemberProperty {
 
   def apply(
-    originId: Option[String] = None
+    originId: String
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupMemberProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupMemberProperty.Builder)
-      .originId(originId.orNull)
+      .originId(originId)
       .build()
 }

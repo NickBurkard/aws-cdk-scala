@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object OpenMonitoringProperty {
 
   def apply(
-    prometheus: Option[software.amazon.awscdk.services.msk.CfnCluster.PrometheusProperty] = None
+    prometheus: software.amazon.awscdk.services.msk.CfnCluster.PrometheusProperty
   ): software.amazon.awscdk.services.msk.CfnCluster.OpenMonitoringProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.OpenMonitoringProperty.Builder)
-      .prometheus(prometheus.orNull)
+      .prometheus(prometheus)
       .build()
 }

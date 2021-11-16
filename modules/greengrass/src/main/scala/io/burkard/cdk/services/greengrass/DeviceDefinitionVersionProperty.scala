@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object DeviceDefinitionVersionProperty {
 
   def apply(
-    devices: Option[List[_]] = None
+    devices: List[_]
   ): software.amazon.awscdk.services.greengrass.CfnDeviceDefinition.DeviceDefinitionVersionProperty =
     (new software.amazon.awscdk.services.greengrass.CfnDeviceDefinition.DeviceDefinitionVersionProperty.Builder)
-      .devices(devices.map(_.asJava).orNull)
+      .devices(devices.asJava)
       .build()
 }

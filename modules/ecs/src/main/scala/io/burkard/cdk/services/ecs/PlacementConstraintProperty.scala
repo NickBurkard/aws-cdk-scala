@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object PlacementConstraintProperty {
 
   def apply(
-    expression: Option[String] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    expression: Option[String] = None
   ): software.amazon.awscdk.services.ecs.CfnService.PlacementConstraintProperty =
     (new software.amazon.awscdk.services.ecs.CfnService.PlacementConstraintProperty.Builder)
+      .`type`(`type`)
       .expression(expression.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

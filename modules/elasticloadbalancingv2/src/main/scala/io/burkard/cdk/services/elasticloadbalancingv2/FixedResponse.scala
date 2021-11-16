@@ -5,12 +5,12 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object FixedResponse {
 
   def apply(
-    statusCode: Option[String] = None,
+    statusCode: String,
     messageBody: Option[String] = None,
     contentType: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ContentType] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.FixedResponse =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.FixedResponse.Builder)
-      .statusCode(statusCode.orNull)
+      .statusCode(statusCode)
       .messageBody(messageBody.orNull)
       .contentType(contentType.orNull)
       .build()

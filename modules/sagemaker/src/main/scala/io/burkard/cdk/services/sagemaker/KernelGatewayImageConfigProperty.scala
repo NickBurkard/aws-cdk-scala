@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object KernelGatewayImageConfigProperty {
 
   def apply(
-    kernelSpecs: Option[List[_]] = None,
+    kernelSpecs: List[_],
     fileSystemConfig: Option[software.amazon.awscdk.services.sagemaker.CfnAppImageConfig.FileSystemConfigProperty] = None
   ): software.amazon.awscdk.services.sagemaker.CfnAppImageConfig.KernelGatewayImageConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnAppImageConfig.KernelGatewayImageConfigProperty.Builder)
-      .kernelSpecs(kernelSpecs.map(_.asJava).orNull)
+      .kernelSpecs(kernelSpecs.asJava)
       .fileSystemConfig(fileSystemConfig.orNull)
       .build()
 }

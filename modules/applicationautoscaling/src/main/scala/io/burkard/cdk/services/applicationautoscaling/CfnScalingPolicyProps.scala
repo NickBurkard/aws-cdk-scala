@@ -4,9 +4,9 @@ package io.burkard.cdk.services.applicationautoscaling
 object CfnScalingPolicyProps {
 
   def apply(
+    policyName: String,
+    policyType: String,
     serviceNamespace: Option[String] = None,
-    policyName: Option[String] = None,
-    policyType: Option[String] = None,
     stepScalingPolicyConfiguration: Option[software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicy.StepScalingPolicyConfigurationProperty] = None,
     scalableDimension: Option[String] = None,
     resourceId: Option[String] = None,
@@ -14,9 +14,9 @@ object CfnScalingPolicyProps {
     targetTrackingScalingPolicyConfiguration: Option[software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicy.TargetTrackingScalingPolicyConfigurationProperty] = None
   ): software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicyProps =
     (new software.amazon.awscdk.services.applicationautoscaling.CfnScalingPolicyProps.Builder)
+      .policyName(policyName)
+      .policyType(policyType)
       .serviceNamespace(serviceNamespace.orNull)
-      .policyName(policyName.orNull)
-      .policyType(policyType.orNull)
       .stepScalingPolicyConfiguration(stepScalingPolicyConfiguration.orNull)
       .scalableDimension(scalableDimension.orNull)
       .resourceId(resourceId.orNull)

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rekognition
 object CfnProjectProps {
 
   def apply(
-    projectName: Option[String] = None
+    projectName: String
   ): software.amazon.awscdk.services.rekognition.CfnProjectProps =
     (new software.amazon.awscdk.services.rekognition.CfnProjectProps.Builder)
-      .projectName(projectName.orNull)
+      .projectName(projectName)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object ResourceServerScopeTypeProperty {
 
   def apply(
-    scopeDescription: Option[String] = None,
-    scopeName: Option[String] = None
+    scopeDescription: String,
+    scopeName: String
   ): software.amazon.awscdk.services.cognito.CfnUserPoolResourceServer.ResourceServerScopeTypeProperty =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolResourceServer.ResourceServerScopeTypeProperty.Builder)
-      .scopeDescription(scopeDescription.orNull)
-      .scopeName(scopeName.orNull)
+      .scopeDescription(scopeDescription)
+      .scopeName(scopeName)
       .build()
 }

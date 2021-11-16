@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object RuleProperty {
 
   def apply(
-    statement: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.StatementProperty] = None,
+    statement: software.amazon.awscdk.services.wafv2.CfnRuleGroup.StatementProperty,
+    name: String,
+    visibilityConfig: software.amazon.awscdk.services.wafv2.CfnRuleGroup.VisibilityConfigProperty,
+    priority: Number,
     ruleLabels: Option[List[_]] = None,
-    action: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleActionProperty] = None,
-    name: Option[String] = None,
-    visibilityConfig: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.VisibilityConfigProperty] = None,
-    priority: Option[Number] = None
+    action: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleActionProperty] = None
   ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleProperty =
     (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleProperty.Builder)
-      .statement(statement.orNull)
+      .statement(statement)
+      .name(name)
+      .visibilityConfig(visibilityConfig)
+      .priority(priority)
       .ruleLabels(ruleLabels.map(_.asJava).orNull)
       .action(action.orNull)
-      .name(name.orNull)
-      .visibilityConfig(visibilityConfig.orNull)
-      .priority(priority.orNull)
       .build()
 }

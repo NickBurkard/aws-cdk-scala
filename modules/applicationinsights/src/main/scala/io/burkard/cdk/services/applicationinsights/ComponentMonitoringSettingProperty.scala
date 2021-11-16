@@ -4,17 +4,17 @@ package io.burkard.cdk.services.applicationinsights
 object ComponentMonitoringSettingProperty {
 
   def apply(
-    tier: Option[String] = None,
+    tier: String,
+    componentConfigurationMode: String,
     defaultOverwriteComponentConfiguration: Option[software.amazon.awscdk.services.applicationinsights.CfnApplication.ComponentConfigurationProperty] = None,
-    componentConfigurationMode: Option[String] = None,
     customComponentConfiguration: Option[software.amazon.awscdk.services.applicationinsights.CfnApplication.ComponentConfigurationProperty] = None,
     componentArn: Option[String] = None,
     componentName: Option[String] = None
   ): software.amazon.awscdk.services.applicationinsights.CfnApplication.ComponentMonitoringSettingProperty =
     (new software.amazon.awscdk.services.applicationinsights.CfnApplication.ComponentMonitoringSettingProperty.Builder)
-      .tier(tier.orNull)
+      .tier(tier)
+      .componentConfigurationMode(componentConfigurationMode)
       .defaultOverwriteComponentConfiguration(defaultOverwriteComponentConfiguration.orNull)
-      .componentConfigurationMode(componentConfigurationMode.orNull)
       .customComponentConfiguration(customComponentConfiguration.orNull)
       .componentArn(componentArn.orNull)
       .componentName(componentName.orNull)

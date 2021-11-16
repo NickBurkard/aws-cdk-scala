@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnCustomMetricProps {
 
   def apply(
+    metricType: String,
     displayName: Option[String] = None,
     metricName: Option[String] = None,
-    metricType: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iot.CfnCustomMetricProps =
     (new software.amazon.awscdk.services.iot.CfnCustomMetricProps.Builder)
+      .metricType(metricType)
       .displayName(displayName.orNull)
       .metricName(metricName.orNull)
-      .metricType(metricType.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

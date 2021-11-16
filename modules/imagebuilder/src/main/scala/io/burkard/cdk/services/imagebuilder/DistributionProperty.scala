@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object DistributionProperty {
 
   def apply(
+    region: String,
     licenseConfigurationArns: Option[List[String]] = None,
     launchTemplateConfigurations: Option[List[_]] = None,
     amiDistributionConfiguration: Option[AnyRef] = None,
-    region: Option[String] = None,
     containerDistributionConfiguration: Option[AnyRef] = None
   ): software.amazon.awscdk.services.imagebuilder.CfnDistributionConfiguration.DistributionProperty =
     (new software.amazon.awscdk.services.imagebuilder.CfnDistributionConfiguration.DistributionProperty.Builder)
+      .region(region)
       .licenseConfigurationArns(licenseConfigurationArns.map(_.asJava).orNull)
       .launchTemplateConfigurations(launchTemplateConfigurations.map(_.asJava).orNull)
       .amiDistributionConfiguration(amiDistributionConfiguration.orNull)
-      .region(region.orNull)
       .containerDistributionConfiguration(containerDistributionConfiguration.orNull)
       .build()
 }

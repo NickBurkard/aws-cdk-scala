@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ce
 object SubscriberProperty {
 
   def apply(
-    status: Option[String] = None,
-    address: Option[String] = None,
-    `type`: Option[String] = None
+    address: String,
+    `type`: String,
+    status: Option[String] = None
   ): software.amazon.awscdk.services.ce.CfnAnomalySubscription.SubscriberProperty =
     (new software.amazon.awscdk.services.ce.CfnAnomalySubscription.SubscriberProperty.Builder)
+      .address(address)
+      .`type`(`type`)
       .status(status.orNull)
-      .address(address.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

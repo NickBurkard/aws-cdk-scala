@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rds
 object AuroraClusterEngineProps {
 
   def apply(
-    version: Option[software.amazon.awscdk.services.rds.AuroraEngineVersion] = None
+    version: software.amazon.awscdk.services.rds.AuroraEngineVersion
   ): software.amazon.awscdk.services.rds.AuroraClusterEngineProps =
     (new software.amazon.awscdk.services.rds.AuroraClusterEngineProps.Builder)
-      .version(version.orNull)
+      .version(version)
       .build()
 }

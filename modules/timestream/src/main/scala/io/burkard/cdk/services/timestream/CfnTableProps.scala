@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnTableProps {
 
   def apply(
+    databaseName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     retentionProperties: Option[AnyRef] = None,
-    tableName: Option[String] = None,
-    databaseName: Option[String] = None
+    tableName: Option[String] = None
   ): software.amazon.awscdk.services.timestream.CfnTableProps =
     (new software.amazon.awscdk.services.timestream.CfnTableProps.Builder)
+      .databaseName(databaseName)
       .tags(tags.map(_.asJava).orNull)
       .retentionProperties(retentionProperties.orNull)
       .tableName(tableName.orNull)
-      .databaseName(databaseName.orNull)
       .build()
 }

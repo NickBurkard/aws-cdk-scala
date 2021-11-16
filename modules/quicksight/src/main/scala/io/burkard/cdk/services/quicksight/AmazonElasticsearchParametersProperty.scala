@@ -4,9 +4,9 @@ package io.burkard.cdk.services.quicksight
 object AmazonElasticsearchParametersProperty {
 
   def apply(
-    domain: Option[String] = None
+    domain: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.AmazonElasticsearchParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.AmazonElasticsearchParametersProperty.Builder)
-      .domain(domain.orNull)
+      .domain(domain)
       .build()
 }

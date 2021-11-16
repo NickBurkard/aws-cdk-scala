@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object OrganizationManagedRuleMetadataProperty {
 
   def apply(
-    ruleIdentifier: Option[String] = None,
+    ruleIdentifier: String,
     description: Option[String] = None,
     resourceTypesScope: Option[List[String]] = None,
     maximumExecutionFrequency: Option[String] = None,
@@ -17,7 +17,7 @@ object OrganizationManagedRuleMetadataProperty {
     tagValueScope: Option[String] = None
   ): software.amazon.awscdk.services.config.CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty =
     (new software.amazon.awscdk.services.config.CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.Builder)
-      .ruleIdentifier(ruleIdentifier.orNull)
+      .ruleIdentifier(ruleIdentifier)
       .description(description.orNull)
       .resourceTypesScope(resourceTypesScope.map(_.asJava).orNull)
       .maximumExecutionFrequency(maximumExecutionFrequency.orNull)

@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object CfnStreamingImageProps {
 
   def apply(
-    name: Option[String] = None,
-    ec2ImageId: Option[String] = None,
-    studioId: Option[String] = None,
+    name: String,
+    ec2ImageId: String,
+    studioId: String,
     description: Option[String] = None,
     tags: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.nimblestudio.CfnStreamingImageProps =
     (new software.amazon.awscdk.services.nimblestudio.CfnStreamingImageProps.Builder)
-      .name(name.orNull)
-      .ec2ImageId(ec2ImageId.orNull)
-      .studioId(studioId.orNull)
+      .name(name)
+      .ec2ImageId(ec2ImageId)
+      .studioId(studioId)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

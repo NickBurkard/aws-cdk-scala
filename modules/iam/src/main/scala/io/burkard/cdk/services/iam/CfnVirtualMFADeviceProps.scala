@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnVirtualMFADeviceProps {
 
   def apply(
+    users: List[String],
     path: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    users: Option[List[String]] = None,
     virtualMfaDeviceName: Option[String] = None
   ): software.amazon.awscdk.services.iam.CfnVirtualMFADeviceProps =
     (new software.amazon.awscdk.services.iam.CfnVirtualMFADeviceProps.Builder)
+      .users(users.asJava)
       .path(path.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .users(users.map(_.asJava).orNull)
       .virtualMfaDeviceName(virtualMfaDeviceName.orNull)
       .build()
 }

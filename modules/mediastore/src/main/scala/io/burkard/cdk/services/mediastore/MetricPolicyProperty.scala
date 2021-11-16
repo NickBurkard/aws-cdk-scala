@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object MetricPolicyProperty {
 
   def apply(
-    metricPolicyRules: Option[List[_]] = None,
-    containerLevelMetrics: Option[String] = None
+    containerLevelMetrics: String,
+    metricPolicyRules: Option[List[_]] = None
   ): software.amazon.awscdk.services.mediastore.CfnContainer.MetricPolicyProperty =
     (new software.amazon.awscdk.services.mediastore.CfnContainer.MetricPolicyProperty.Builder)
+      .containerLevelMetrics(containerLevelMetrics)
       .metricPolicyRules(metricPolicyRules.map(_.asJava).orNull)
-      .containerLevelMetrics(containerLevelMetrics.orNull)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object StatusCodesProperty {
 
   def apply(
-    quantity: Option[Number] = None,
-    items: Option[List[_ <: Number]] = None
+    quantity: Number,
+    items: List[_ <: Number]
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.StatusCodesProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.StatusCodesProperty.Builder)
-      .quantity(quantity.orNull)
-      .items(items.map(_.asJava).orNull)
+      .quantity(quantity)
+      .items(items.asJava)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.glue
 object CfnJobProps {
 
   def apply(
+    role: String,
+    command: software.amazon.awscdk.services.glue.CfnJob.JobCommandProperty,
     notificationProperty: Option[software.amazon.awscdk.services.glue.CfnJob.NotificationPropertyProperty] = None,
     numberOfWorkers: Option[Number] = None,
-    role: Option[String] = None,
     executionProperty: Option[software.amazon.awscdk.services.glue.CfnJob.ExecutionPropertyProperty] = None,
-    command: Option[software.amazon.awscdk.services.glue.CfnJob.JobCommandProperty] = None,
     timeout: Option[Number] = None,
     glueVersion: Option[String] = None,
     connections: Option[software.amazon.awscdk.services.glue.CfnJob.ConnectionsListProperty] = None,
@@ -24,11 +24,11 @@ object CfnJobProps {
     maxRetries: Option[Number] = None
   ): software.amazon.awscdk.services.glue.CfnJobProps =
     (new software.amazon.awscdk.services.glue.CfnJobProps.Builder)
+      .role(role)
+      .command(command)
       .notificationProperty(notificationProperty.orNull)
       .numberOfWorkers(numberOfWorkers.orNull)
-      .role(role.orNull)
       .executionProperty(executionProperty.orNull)
-      .command(command.orNull)
       .timeout(timeout.orNull)
       .glueVersion(glueVersion.orNull)
       .connections(connections.orNull)

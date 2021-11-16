@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lambda
 object VersionWeightProperty {
 
   def apply(
-    functionVersion: Option[String] = None,
-    functionWeight: Option[Number] = None
+    functionVersion: String,
+    functionWeight: Number
   ): software.amazon.awscdk.services.lambda.CfnAlias.VersionWeightProperty =
     (new software.amazon.awscdk.services.lambda.CfnAlias.VersionWeightProperty.Builder)
-      .functionVersion(functionVersion.orNull)
-      .functionWeight(functionWeight.orNull)
+      .functionVersion(functionVersion)
+      .functionWeight(functionWeight)
       .build()
 }

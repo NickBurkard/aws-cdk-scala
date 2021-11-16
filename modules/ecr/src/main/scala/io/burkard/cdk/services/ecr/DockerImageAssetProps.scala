@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object DockerImageAssetProps {
 
   def apply(
+    directory: String,
     invalidation: Option[software.amazon.awscdk.services.ecr.assets.DockerImageAssetInvalidationOptions] = None,
     extraHash: Option[String] = None,
     followSymlinks: Option[software.amazon.awscdk.SymlinkFollowMode] = None,
@@ -16,10 +17,10 @@ object DockerImageAssetProps {
     file: Option[String] = None,
     target: Option[String] = None,
     exclude: Option[List[String]] = None,
-    follow: Option[software.amazon.awscdk.assets.FollowMode] = None,
-    directory: Option[String] = None
+    follow: Option[software.amazon.awscdk.assets.FollowMode] = None
   ): software.amazon.awscdk.services.ecr.assets.DockerImageAssetProps =
     (new software.amazon.awscdk.services.ecr.assets.DockerImageAssetProps.Builder)
+      .directory(directory)
       .invalidation(invalidation.orNull)
       .extraHash(extraHash.orNull)
       .followSymlinks(followSymlinks.orNull)
@@ -30,6 +31,5 @@ object DockerImageAssetProps {
       .target(target.orNull)
       .exclude(exclude.map(_.asJava).orNull)
       .follow(follow.orNull)
-      .directory(directory.orNull)
       .build()
 }

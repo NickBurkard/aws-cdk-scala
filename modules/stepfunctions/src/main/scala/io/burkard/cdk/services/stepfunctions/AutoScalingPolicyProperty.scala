@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object AutoScalingPolicyProperty {
 
   def apply(
-    constraints: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingConstraintsProperty] = None,
-    rules: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingRuleProperty]] = None
+    constraints: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingConstraintsProperty,
+    rules: List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingRuleProperty]
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.AutoScalingPolicyProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.AutoScalingPolicyProperty.Builder)
-      .constraints(constraints.orNull)
-      .rules(rules.map(_.asJava).orNull)
+      .constraints(constraints)
+      .rules(rules.asJava)
       .build()
 }

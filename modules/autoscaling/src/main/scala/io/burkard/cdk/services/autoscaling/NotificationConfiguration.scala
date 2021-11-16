@@ -4,11 +4,11 @@ package io.burkard.cdk.services.autoscaling
 object NotificationConfiguration {
 
   def apply(
-    scalingEvents: Option[software.amazon.awscdk.services.autoscaling.ScalingEvents] = None,
-    topic: Option[software.amazon.awscdk.services.sns.ITopic] = None
+    topic: software.amazon.awscdk.services.sns.ITopic,
+    scalingEvents: Option[software.amazon.awscdk.services.autoscaling.ScalingEvents] = None
   ): software.amazon.awscdk.services.autoscaling.NotificationConfiguration =
     (new software.amazon.awscdk.services.autoscaling.NotificationConfiguration.Builder)
+      .topic(topic)
       .scalingEvents(scalingEvents.orNull)
-      .topic(topic.orNull)
       .build()
 }

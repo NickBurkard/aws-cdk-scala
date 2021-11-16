@@ -4,13 +4,13 @@ package io.burkard.cdk.services.events
 object CapacityProviderStrategyItemProperty {
 
   def apply(
+    capacityProvider: String,
     weight: Option[Number] = None,
-    capacityProvider: Option[String] = None,
     base: Option[Number] = None
   ): software.amazon.awscdk.services.events.CfnRule.CapacityProviderStrategyItemProperty =
     (new software.amazon.awscdk.services.events.CfnRule.CapacityProviderStrategyItemProperty.Builder)
+      .capacityProvider(capacityProvider)
       .weight(weight.orNull)
-      .capacityProvider(capacityProvider.orNull)
       .base(base.orNull)
       .build()
 }

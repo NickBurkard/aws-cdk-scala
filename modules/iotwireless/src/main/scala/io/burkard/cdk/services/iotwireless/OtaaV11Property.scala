@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iotwireless
 object OtaaV11Property {
 
   def apply(
-    appKey: Option[String] = None,
-    nwkKey: Option[String] = None,
-    joinEui: Option[String] = None
+    appKey: String,
+    nwkKey: String,
+    joinEui: String
   ): software.amazon.awscdk.services.iotwireless.CfnWirelessDevice.OtaaV11Property =
     (new software.amazon.awscdk.services.iotwireless.CfnWirelessDevice.OtaaV11Property.Builder)
-      .appKey(appKey.orNull)
-      .nwkKey(nwkKey.orNull)
-      .joinEui(joinEui.orNull)
+      .appKey(appKey)
+      .nwkKey(nwkKey)
+      .joinEui(joinEui)
       .build()
 }

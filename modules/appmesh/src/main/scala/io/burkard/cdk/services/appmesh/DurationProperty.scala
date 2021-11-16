@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object DurationProperty {
 
   def apply(
-    unit: Option[String] = None,
-    value: Option[Number] = None
+    unit: String,
+    value: Number
   ): software.amazon.awscdk.services.appmesh.CfnRoute.DurationProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.DurationProperty.Builder)
-      .unit(unit.orNull)
-      .value(value.orNull)
+      .unit(unit)
+      .value(value)
       .build()
 }

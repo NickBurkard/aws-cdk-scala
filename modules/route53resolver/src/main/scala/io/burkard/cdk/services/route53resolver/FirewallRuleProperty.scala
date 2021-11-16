@@ -4,21 +4,21 @@ package io.burkard.cdk.services.route53resolver
 object FirewallRuleProperty {
 
   def apply(
+    action: String,
+    priority: Number,
+    firewallDomainListId: String,
     blockOverrideDnsType: Option[String] = None,
     blockResponse: Option[String] = None,
-    action: Option[String] = None,
     blockOverrideTtl: Option[Number] = None,
-    priority: Option[Number] = None,
-    blockOverrideDomain: Option[String] = None,
-    firewallDomainListId: Option[String] = None
+    blockOverrideDomain: Option[String] = None
   ): software.amazon.awscdk.services.route53resolver.CfnFirewallRuleGroup.FirewallRuleProperty =
     (new software.amazon.awscdk.services.route53resolver.CfnFirewallRuleGroup.FirewallRuleProperty.Builder)
+      .action(action)
+      .priority(priority)
+      .firewallDomainListId(firewallDomainListId)
       .blockOverrideDnsType(blockOverrideDnsType.orNull)
       .blockResponse(blockResponse.orNull)
-      .action(action.orNull)
       .blockOverrideTtl(blockOverrideTtl.orNull)
-      .priority(priority.orNull)
       .blockOverrideDomain(blockOverrideDomain.orNull)
-      .firewallDomainListId(firewallDomainListId.orNull)
       .build()
 }

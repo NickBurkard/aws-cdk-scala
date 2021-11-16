@@ -4,15 +4,15 @@ package io.burkard.cdk.services.elasticache
 object LogDeliveryConfigurationRequestProperty {
 
   def apply(
-    logType: Option[String] = None,
-    destinationDetails: Option[software.amazon.awscdk.services.elasticache.CfnCacheCluster.DestinationDetailsProperty] = None,
-    destinationType: Option[String] = None,
-    logFormat: Option[String] = None
+    logType: String,
+    destinationDetails: software.amazon.awscdk.services.elasticache.CfnCacheCluster.DestinationDetailsProperty,
+    destinationType: String,
+    logFormat: String
   ): software.amazon.awscdk.services.elasticache.CfnCacheCluster.LogDeliveryConfigurationRequestProperty =
     (new software.amazon.awscdk.services.elasticache.CfnCacheCluster.LogDeliveryConfigurationRequestProperty.Builder)
-      .logType(logType.orNull)
-      .destinationDetails(destinationDetails.orNull)
-      .destinationType(destinationType.orNull)
-      .logFormat(logFormat.orNull)
+      .logType(logType)
+      .destinationDetails(destinationDetails)
+      .destinationType(destinationType)
+      .logFormat(logFormat)
       .build()
 }

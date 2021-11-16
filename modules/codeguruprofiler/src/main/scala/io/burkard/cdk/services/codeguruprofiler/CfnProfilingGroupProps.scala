@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnProfilingGroupProps {
 
   def apply(
-    profilingGroupName: Option[String] = None,
+    profilingGroupName: String,
     computePlatform: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     agentPermissions: Option[AnyRef] = None,
     anomalyDetectionNotificationConfiguration: Option[List[_]] = None
   ): software.amazon.awscdk.services.codeguruprofiler.CfnProfilingGroupProps =
     (new software.amazon.awscdk.services.codeguruprofiler.CfnProfilingGroupProps.Builder)
-      .profilingGroupName(profilingGroupName.orNull)
+      .profilingGroupName(profilingGroupName)
       .computePlatform(computePlatform.orNull)
       .tags(tags.map(_.asJava).orNull)
       .agentPermissions(agentPermissions.orNull)

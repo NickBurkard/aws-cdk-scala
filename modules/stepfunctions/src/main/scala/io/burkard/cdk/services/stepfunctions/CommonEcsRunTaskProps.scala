@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CommonEcsRunTaskProps {
 
   def apply(
+    cluster: software.amazon.awscdk.services.ecs.ICluster,
+    taskDefinition: software.amazon.awscdk.services.ecs.TaskDefinition,
     containerOverrides: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.ContainerOverride]] = None,
-    cluster: Option[software.amazon.awscdk.services.ecs.ICluster] = None,
-    integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.ServiceIntegrationPattern] = None,
-    taskDefinition: Option[software.amazon.awscdk.services.ecs.TaskDefinition] = None
+    integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.ServiceIntegrationPattern] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.CommonEcsRunTaskProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.CommonEcsRunTaskProps.Builder)
+      .cluster(cluster)
+      .taskDefinition(taskDefinition)
       .containerOverrides(containerOverrides.map(_.asJava).orNull)
-      .cluster(cluster.orNull)
       .integrationPattern(integrationPattern.orNull)
-      .taskDefinition(taskDefinition.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object RepositoryAuthConfigProperty {
 
   def apply(
-    repositoryCredentialsProviderArn: Option[String] = None
+    repositoryCredentialsProviderArn: String
   ): software.amazon.awscdk.services.sagemaker.CfnModel.RepositoryAuthConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModel.RepositoryAuthConfigProperty.Builder)
-      .repositoryCredentialsProviderArn(repositoryCredentialsProviderArn.orNull)
+      .repositoryCredentialsProviderArn(repositoryCredentialsProviderArn)
       .build()
 }

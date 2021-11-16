@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object ScramProperty {
 
   def apply(
-    enabled: Option[Boolean] = None
+    enabled: Boolean
   ): software.amazon.awscdk.services.msk.CfnCluster.ScramProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.ScramProperty.Builder)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enabled(enabled)
       .build()
 }

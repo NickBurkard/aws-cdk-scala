@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnFlowEntitlementProps {
 
   def apply(
-    name: Option[String] = None,
-    subscribers: Option[List[String]] = None,
-    description: Option[String] = None,
+    name: String,
+    subscribers: List[String],
+    description: String,
+    flowArn: String,
     dataTransferSubscriberFeePercent: Option[Number] = None,
     encryption: Option[software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlement.EncryptionProperty] = None,
-    flowArn: Option[String] = None,
     entitlementStatus: Option[String] = None
   ): software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlementProps =
     (new software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlementProps.Builder)
-      .name(name.orNull)
-      .subscribers(subscribers.map(_.asJava).orNull)
-      .description(description.orNull)
+      .name(name)
+      .subscribers(subscribers.asJava)
+      .description(description)
+      .flowArn(flowArn)
       .dataTransferSubscriberFeePercent(dataTransferSubscriberFeePercent.orNull)
       .encryption(encryption.orNull)
-      .flowArn(flowArn.orNull)
       .entitlementStatus(entitlementStatus.orNull)
       .build()
 }

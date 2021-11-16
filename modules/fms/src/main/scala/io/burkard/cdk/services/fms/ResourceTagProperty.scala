@@ -4,11 +4,11 @@ package io.burkard.cdk.services.fms
 object ResourceTagProperty {
 
   def apply(
-    key: Option[String] = None,
+    key: String,
     value: Option[String] = None
   ): software.amazon.awscdk.services.fms.CfnPolicy.ResourceTagProperty =
     (new software.amazon.awscdk.services.fms.CfnPolicy.ResourceTagProperty.Builder)
-      .key(key.orNull)
+      .key(key)
       .value(value.orNull)
       .build()
 }

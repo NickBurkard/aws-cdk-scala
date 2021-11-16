@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codepipeline
 object S3SourceVariables {
 
   def apply(
-    versionId: Option[String] = None,
-    eTag: Option[String] = None
+    versionId: String,
+    eTag: String
   ): software.amazon.awscdk.services.codepipeline.actions.S3SourceVariables =
     (new software.amazon.awscdk.services.codepipeline.actions.S3SourceVariables.Builder)
-      .versionId(versionId.orNull)
-      .eTag(eTag.orNull)
+      .versionId(versionId)
+      .eTag(eTag)
       .build()
 }

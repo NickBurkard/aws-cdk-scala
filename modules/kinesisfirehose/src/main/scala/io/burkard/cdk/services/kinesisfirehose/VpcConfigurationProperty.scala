@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object VpcConfigurationProperty {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
-    securityGroupIds: Option[List[String]] = None,
-    roleArn: Option[String] = None
+    subnetIds: List[String],
+    securityGroupIds: List[String],
+    roleArn: String
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.VpcConfigurationProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.VpcConfigurationProperty.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
-      .roleArn(roleArn.orNull)
+      .subnetIds(subnetIds.asJava)
+      .securityGroupIds(securityGroupIds.asJava)
+      .roleArn(roleArn)
       .build()
 }

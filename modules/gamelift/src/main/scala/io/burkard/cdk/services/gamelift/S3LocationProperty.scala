@@ -4,15 +4,15 @@ package io.burkard.cdk.services.gamelift
 object S3LocationProperty {
 
   def apply(
-    key: Option[String] = None,
-    roleArn: Option[String] = None,
-    bucket: Option[String] = None,
+    key: String,
+    roleArn: String,
+    bucket: String,
     objectVersion: Option[String] = None
   ): software.amazon.awscdk.services.gamelift.CfnBuild.S3LocationProperty =
     (new software.amazon.awscdk.services.gamelift.CfnBuild.S3LocationProperty.Builder)
-      .key(key.orNull)
-      .roleArn(roleArn.orNull)
-      .bucket(bucket.orNull)
+      .key(key)
+      .roleArn(roleArn)
+      .bucket(bucket)
       .objectVersion(objectVersion.orNull)
       .build()
 }

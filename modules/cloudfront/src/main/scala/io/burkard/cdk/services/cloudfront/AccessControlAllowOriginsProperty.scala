@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AccessControlAllowOriginsProperty {
 
   def apply(
-    items: Option[List[String]] = None
+    items: List[String]
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.AccessControlAllowOriginsProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.AccessControlAllowOriginsProperty.Builder)
-      .items(items.map(_.asJava).orNull)
+      .items(items.asJava)
       .build()
 }

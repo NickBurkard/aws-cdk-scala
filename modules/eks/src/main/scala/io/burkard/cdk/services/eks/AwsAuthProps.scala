@@ -4,9 +4,9 @@ package io.burkard.cdk.services.eks
 object AwsAuthProps {
 
   def apply(
-    cluster: Option[software.amazon.awscdk.services.eks.Cluster] = None
+    cluster: software.amazon.awscdk.services.eks.Cluster
   ): software.amazon.awscdk.services.eks.AwsAuthProps =
     (new software.amazon.awscdk.services.eks.AwsAuthProps.Builder)
-      .cluster(cluster.orNull)
+      .cluster(cluster)
       .build()
 }

@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object DockerVolumeConfiguration {
 
   def apply(
-    scope: Option[software.amazon.awscdk.services.ecs.Scope] = None,
+    scope: software.amazon.awscdk.services.ecs.Scope,
+    driver: String,
     labels: Option[Map[String, String]] = None,
     driverOpts: Option[Map[String, String]] = None,
-    autoprovision: Option[Boolean] = None,
-    driver: Option[String] = None
+    autoprovision: Option[Boolean] = None
   ): software.amazon.awscdk.services.ecs.DockerVolumeConfiguration =
     (new software.amazon.awscdk.services.ecs.DockerVolumeConfiguration.Builder)
-      .scope(scope.orNull)
+      .scope(scope)
+      .driver(driver)
       .labels(labels.map(_.asJava).orNull)
       .driverOpts(driverOpts.map(_.asJava).orNull)
       .autoprovision(autoprovision.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .driver(driver.orNull)
       .build()
 }

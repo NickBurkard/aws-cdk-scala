@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appflow
 object SingularConnectorProfileCredentialsProperty {
 
   def apply(
-    apiKey: Option[String] = None
+    apiKey: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.SingularConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.SingularConnectorProfileCredentialsProperty.Builder)
-      .apiKey(apiKey.orNull)
+      .apiKey(apiKey)
       .build()
 }

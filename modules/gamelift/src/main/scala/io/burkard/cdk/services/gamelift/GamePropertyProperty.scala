@@ -4,11 +4,11 @@ package io.burkard.cdk.services.gamelift
 object GamePropertyProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.gamelift.CfnMatchmakingConfiguration.GamePropertyProperty =
     (new software.amazon.awscdk.services.gamelift.CfnMatchmakingConfiguration.GamePropertyProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

@@ -4,19 +4,19 @@ package io.burkard.cdk.services.cloudfront
 object CachePolicyConfigProperty {
 
   def apply(
-    name: Option[String] = None,
-    defaultTtl: Option[Number] = None,
-    maxTtl: Option[Number] = None,
-    parametersInCacheKeyAndForwardedToOrigin: Option[software.amazon.awscdk.services.cloudfront.CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty] = None,
-    comment: Option[String] = None,
-    minTtl: Option[Number] = None
+    name: String,
+    defaultTtl: Number,
+    maxTtl: Number,
+    parametersInCacheKeyAndForwardedToOrigin: software.amazon.awscdk.services.cloudfront.CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty,
+    minTtl: Number,
+    comment: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CachePolicyConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnCachePolicy.CachePolicyConfigProperty.Builder)
-      .name(name.orNull)
-      .defaultTtl(defaultTtl.orNull)
-      .maxTtl(maxTtl.orNull)
-      .parametersInCacheKeyAndForwardedToOrigin(parametersInCacheKeyAndForwardedToOrigin.orNull)
+      .name(name)
+      .defaultTtl(defaultTtl)
+      .maxTtl(maxTtl)
+      .parametersInCacheKeyAndForwardedToOrigin(parametersInCacheKeyAndForwardedToOrigin)
+      .minTtl(minTtl)
       .comment(comment.orNull)
-      .minTtl(minTtl.orNull)
       .build()
 }

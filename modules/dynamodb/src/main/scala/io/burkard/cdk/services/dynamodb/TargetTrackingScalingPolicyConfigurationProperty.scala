@@ -4,15 +4,15 @@ package io.burkard.cdk.services.dynamodb
 object TargetTrackingScalingPolicyConfigurationProperty {
 
   def apply(
+    targetValue: Number,
     disableScaleIn: Option[Boolean] = None,
     scaleOutCooldown: Option[Number] = None,
-    scaleInCooldown: Option[Number] = None,
-    targetValue: Option[Number] = None
+    scaleInCooldown: Option[Number] = None
   ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.Builder)
+      .targetValue(targetValue)
       .disableScaleIn(disableScaleIn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .scaleOutCooldown(scaleOutCooldown.orNull)
       .scaleInCooldown(scaleInCooldown.orNull)
-      .targetValue(targetValue.orNull)
       .build()
 }

@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnStreamProps {
 
   def apply(
+    inclusiveStartTime: String,
+    ledgerName: String,
+    roleArn: String,
+    kinesisConfiguration: software.amazon.awscdk.services.qldb.CfnStream.KinesisConfigurationProperty,
+    streamName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    inclusiveStartTime: Option[String] = None,
-    ledgerName: Option[String] = None,
-    roleArn: Option[String] = None,
-    exclusiveEndTime: Option[String] = None,
-    kinesisConfiguration: Option[software.amazon.awscdk.services.qldb.CfnStream.KinesisConfigurationProperty] = None,
-    streamName: Option[String] = None
+    exclusiveEndTime: Option[String] = None
   ): software.amazon.awscdk.services.qldb.CfnStreamProps =
     (new software.amazon.awscdk.services.qldb.CfnStreamProps.Builder)
+      .inclusiveStartTime(inclusiveStartTime)
+      .ledgerName(ledgerName)
+      .roleArn(roleArn)
+      .kinesisConfiguration(kinesisConfiguration)
+      .streamName(streamName)
       .tags(tags.map(_.asJava).orNull)
-      .inclusiveStartTime(inclusiveStartTime.orNull)
-      .ledgerName(ledgerName.orNull)
-      .roleArn(roleArn.orNull)
       .exclusiveEndTime(exclusiveEndTime.orNull)
-      .kinesisConfiguration(kinesisConfiguration.orNull)
-      .streamName(streamName.orNull)
       .build()
 }

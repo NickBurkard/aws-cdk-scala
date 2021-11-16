@@ -4,13 +4,13 @@ package io.burkard.cdk.services.route53
 object AliasTargetProperty {
 
   def apply(
-    hostedZoneId: Option[String] = None,
-    dnsName: Option[String] = None,
+    hostedZoneId: String,
+    dnsName: String,
     evaluateTargetHealth: Option[Boolean] = None
   ): software.amazon.awscdk.services.route53.CfnRecordSet.AliasTargetProperty =
     (new software.amazon.awscdk.services.route53.CfnRecordSet.AliasTargetProperty.Builder)
-      .hostedZoneId(hostedZoneId.orNull)
-      .dnsName(dnsName.orNull)
+      .hostedZoneId(hostedZoneId)
+      .dnsName(dnsName)
       .evaluateTargetHealth(evaluateTargetHealth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

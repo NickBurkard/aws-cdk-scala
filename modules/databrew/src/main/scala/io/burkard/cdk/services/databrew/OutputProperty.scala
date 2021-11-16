@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object OutputProperty {
 
   def apply(
+    location: software.amazon.awscdk.services.databrew.CfnJob.S3LocationProperty,
     format: Option[String] = None,
-    location: Option[software.amazon.awscdk.services.databrew.CfnJob.S3LocationProperty] = None,
     formatOptions: Option[software.amazon.awscdk.services.databrew.CfnJob.OutputFormatOptionsProperty] = None,
     partitionColumns: Option[List[String]] = None,
     compressionFormat: Option[String] = None,
     overwrite: Option[Boolean] = None
   ): software.amazon.awscdk.services.databrew.CfnJob.OutputProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.OutputProperty.Builder)
+      .location(location)
       .format(format.orNull)
-      .location(location.orNull)
       .formatOptions(formatOptions.orNull)
       .partitionColumns(partitionColumns.map(_.asJava).orNull)
       .compressionFormat(compressionFormat.orNull)

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object ScheduleConfigProperty {
 
   def apply(
-    scheduleExpression: Option[String] = None
+    scheduleExpression: String
   ): software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.ScheduleConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.ScheduleConfigProperty.Builder)
-      .scheduleExpression(scheduleExpression.orNull)
+      .scheduleExpression(scheduleExpression)
       .build()
 }

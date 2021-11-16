@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object IdentitySAMPTProperty {
 
   def apply(
-    identityName: Option[String] = None
+    identityName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.IdentitySAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.IdentitySAMPTProperty.Builder)
-      .identityName(identityName.orNull)
+      .identityName(identityName)
       .build()
 }

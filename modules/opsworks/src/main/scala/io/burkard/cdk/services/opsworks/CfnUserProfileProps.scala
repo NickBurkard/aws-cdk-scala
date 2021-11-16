@@ -4,15 +4,15 @@ package io.burkard.cdk.services.opsworks
 object CfnUserProfileProps {
 
   def apply(
+    iamUserArn: String,
     sshPublicKey: Option[String] = None,
     allowSelfManagement: Option[Boolean] = None,
-    sshUsername: Option[String] = None,
-    iamUserArn: Option[String] = None
+    sshUsername: Option[String] = None
   ): software.amazon.awscdk.services.opsworks.CfnUserProfileProps =
     (new software.amazon.awscdk.services.opsworks.CfnUserProfileProps.Builder)
+      .iamUserArn(iamUserArn)
       .sshPublicKey(sshPublicKey.orNull)
       .allowSelfManagement(allowSelfManagement.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .sshUsername(sshUsername.orNull)
-      .iamUserArn(iamUserArn.orNull)
       .build()
 }

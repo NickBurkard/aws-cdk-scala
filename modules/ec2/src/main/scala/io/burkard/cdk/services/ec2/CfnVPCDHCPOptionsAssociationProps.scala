@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object CfnVPCDHCPOptionsAssociationProps {
 
   def apply(
-    dhcpOptionsId: Option[String] = None,
-    vpcId: Option[String] = None
+    dhcpOptionsId: String,
+    vpcId: String
   ): software.amazon.awscdk.services.ec2.CfnVPCDHCPOptionsAssociationProps =
     (new software.amazon.awscdk.services.ec2.CfnVPCDHCPOptionsAssociationProps.Builder)
-      .dhcpOptionsId(dhcpOptionsId.orNull)
-      .vpcId(vpcId.orNull)
+      .dhcpOptionsId(dhcpOptionsId)
+      .vpcId(vpcId)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object KinesisStreamConfigProperty {
 
   def apply(
-    roleArn: Option[String] = None,
-    streamArn: Option[String] = None
+    roleArn: String,
+    streamArn: String
   ): software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig.KinesisStreamConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfig.KinesisStreamConfigProperty.Builder)
-      .roleArn(roleArn.orNull)
-      .streamArn(streamArn.orNull)
+      .roleArn(roleArn)
+      .streamArn(streamArn)
       .build()
 }

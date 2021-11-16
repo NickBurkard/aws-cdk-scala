@@ -4,13 +4,13 @@ package io.burkard.cdk.services.servicediscovery
 object CfnInstanceProps {
 
   def apply(
-    instanceId: Option[String] = None,
-    instanceAttributes: Option[AnyRef] = None,
-    serviceId: Option[String] = None
+    instanceAttributes: AnyRef,
+    serviceId: String,
+    instanceId: Option[String] = None
   ): software.amazon.awscdk.services.servicediscovery.CfnInstanceProps =
     (new software.amazon.awscdk.services.servicediscovery.CfnInstanceProps.Builder)
+      .instanceAttributes(instanceAttributes)
+      .serviceId(serviceId)
       .instanceId(instanceId.orNull)
-      .instanceAttributes(instanceAttributes.orNull)
-      .serviceId(serviceId.orNull)
       .build()
 }

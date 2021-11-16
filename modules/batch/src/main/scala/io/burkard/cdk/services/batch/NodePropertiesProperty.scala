@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object NodePropertiesProperty {
 
   def apply(
-    nodeRangeProperties: Option[List[_]] = None,
-    mainNode: Option[Number] = None,
-    numNodes: Option[Number] = None
+    nodeRangeProperties: List[_],
+    mainNode: Number,
+    numNodes: Number
   ): software.amazon.awscdk.services.batch.CfnJobDefinition.NodePropertiesProperty =
     (new software.amazon.awscdk.services.batch.CfnJobDefinition.NodePropertiesProperty.Builder)
-      .nodeRangeProperties(nodeRangeProperties.map(_.asJava).orNull)
-      .mainNode(mainNode.orNull)
-      .numNodes(numNodes.orNull)
+      .nodeRangeProperties(nodeRangeProperties.asJava)
+      .mainNode(mainNode)
+      .numNodes(numNodes)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.amplify
 object EnvironmentVariableProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.amplify.CfnBranch.EnvironmentVariableProperty =
     (new software.amazon.awscdk.services.amplify.CfnBranch.EnvironmentVariableProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

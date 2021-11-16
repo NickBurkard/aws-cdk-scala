@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object PolicyInformationProperty {
 
   def apply(
-    certPolicyId: Option[String] = None,
+    certPolicyId: String,
     policyQualifiers: Option[List[_]] = None
   ): software.amazon.awscdk.services.acmpca.CfnCertificate.PolicyInformationProperty =
     (new software.amazon.awscdk.services.acmpca.CfnCertificate.PolicyInformationProperty.Builder)
-      .certPolicyId(certPolicyId.orNull)
+      .certPolicyId(certPolicyId)
       .policyQualifiers(policyQualifiers.map(_.asJava).orNull)
       .build()
 }

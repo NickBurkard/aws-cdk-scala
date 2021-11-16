@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object CfnHoursOfOperationProps {
 
   def apply(
-    name: Option[String] = None,
-    config: Option[List[_]] = None,
-    instanceArn: Option[String] = None,
-    timeZone: Option[String] = None,
+    name: String,
+    config: List[_],
+    instanceArn: String,
+    timeZone: String,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.connect.CfnHoursOfOperationProps =
     (new software.amazon.awscdk.services.connect.CfnHoursOfOperationProps.Builder)
-      .name(name.orNull)
-      .config(config.map(_.asJava).orNull)
-      .instanceArn(instanceArn.orNull)
-      .timeZone(timeZone.orNull)
+      .name(name)
+      .config(config.asJava)
+      .instanceArn(instanceArn)
+      .timeZone(timeZone)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnJobQueueProps {
 
   def apply(
+    priority: Number,
+    computeEnvironmentOrder: List[_],
     jobQueueName: Option[String] = None,
-    priority: Option[Number] = None,
     state: Option[String] = None,
     tags: Option[AnyRef] = None,
-    computeEnvironmentOrder: Option[List[_]] = None,
     schedulingPolicyArn: Option[String] = None
   ): software.amazon.awscdk.services.batch.CfnJobQueueProps =
     (new software.amazon.awscdk.services.batch.CfnJobQueueProps.Builder)
+      .priority(priority)
+      .computeEnvironmentOrder(computeEnvironmentOrder.asJava)
       .jobQueueName(jobQueueName.orNull)
-      .priority(priority.orNull)
       .state(state.orNull)
       .tags(tags.orNull)
-      .computeEnvironmentOrder(computeEnvironmentOrder.map(_.asJava).orNull)
       .schedulingPolicyArn(schedulingPolicyArn.orNull)
       .build()
 }

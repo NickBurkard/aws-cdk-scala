@@ -4,11 +4,11 @@ package io.burkard.cdk.services.gamelift
 object CfnMatchmakingRuleSetProps {
 
   def apply(
-    name: Option[String] = None,
-    ruleSetBody: Option[String] = None
+    name: String,
+    ruleSetBody: String
   ): software.amazon.awscdk.services.gamelift.CfnMatchmakingRuleSetProps =
     (new software.amazon.awscdk.services.gamelift.CfnMatchmakingRuleSetProps.Builder)
-      .name(name.orNull)
-      .ruleSetBody(ruleSetBody.orNull)
+      .name(name)
+      .ruleSetBody(ruleSetBody)
       .build()
 }

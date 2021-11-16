@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apigateway
 object CfnResourceProps {
 
   def apply(
-    pathPart: Option[String] = None,
-    parentId: Option[String] = None,
-    restApiId: Option[String] = None
+    pathPart: String,
+    parentId: String,
+    restApiId: String
   ): software.amazon.awscdk.services.apigateway.CfnResourceProps =
     (new software.amazon.awscdk.services.apigateway.CfnResourceProps.Builder)
-      .pathPart(pathPart.orNull)
-      .parentId(parentId.orNull)
-      .restApiId(restApiId.orNull)
+      .pathPart(pathPart)
+      .parentId(parentId)
+      .restApiId(restApiId)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.stepfunctions
 object MetricDefinition {
 
   def apply(
-    regex: Option[String] = None,
-    name: Option[String] = None
+    regex: String,
+    name: String
   ): software.amazon.awscdk.services.stepfunctions.tasks.MetricDefinition =
     (new software.amazon.awscdk.services.stepfunctions.tasks.MetricDefinition.Builder)
-      .regex(regex.orNull)
-      .name(name.orNull)
+      .regex(regex)
+      .name(name)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.opsworks
 object ElasticIpProperty {
 
   def apply(
-    name: Option[String] = None,
-    ip: Option[String] = None
+    ip: String,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.opsworks.CfnStack.ElasticIpProperty =
     (new software.amazon.awscdk.services.opsworks.CfnStack.ElasticIpProperty.Builder)
+      .ip(ip)
       .name(name.orNull)
-      .ip(ip.orNull)
       .build()
 }

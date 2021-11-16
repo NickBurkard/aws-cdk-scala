@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object SNSEventProperty {
 
   def apply(
-    topic: Option[String] = None
+    topic: String
   ): software.amazon.awscdk.services.sam.CfnFunction.SNSEventProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.SNSEventProperty.Builder)
-      .topic(topic.orNull)
+      .topic(topic)
       .build()
 }

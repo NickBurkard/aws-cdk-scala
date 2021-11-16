@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object RoutingRuleProperty {
 
   def apply(
-    redirectRule: Option[software.amazon.awscdk.services.s3.CfnBucket.RedirectRuleProperty] = None,
+    redirectRule: software.amazon.awscdk.services.s3.CfnBucket.RedirectRuleProperty,
     routingRuleCondition: Option[software.amazon.awscdk.services.s3.CfnBucket.RoutingRuleConditionProperty] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.RoutingRuleProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.RoutingRuleProperty.Builder)
-      .redirectRule(redirectRule.orNull)
+      .redirectRule(redirectRule)
       .routingRuleCondition(routingRuleCondition.orNull)
       .build()
 }

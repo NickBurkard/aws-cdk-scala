@@ -4,11 +4,11 @@ package io.burkard.cdk.services.backup
 object AdvancedBackupSettingResourceTypeProperty {
 
   def apply(
-    resourceType: Option[String] = None,
-    backupOptions: Option[AnyRef] = None
+    resourceType: String,
+    backupOptions: AnyRef
   ): software.amazon.awscdk.services.backup.CfnBackupPlan.AdvancedBackupSettingResourceTypeProperty =
     (new software.amazon.awscdk.services.backup.CfnBackupPlan.AdvancedBackupSettingResourceTypeProperty.Builder)
-      .resourceType(resourceType.orNull)
-      .backupOptions(backupOptions.orNull)
+      .resourceType(resourceType)
+      .backupOptions(backupOptions)
       .build()
 }

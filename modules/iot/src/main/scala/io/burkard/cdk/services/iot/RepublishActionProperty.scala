@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iot
 object RepublishActionProperty {
 
   def apply(
-    roleArn: Option[String] = None,
-    topic: Option[String] = None,
+    roleArn: String,
+    topic: String,
     qos: Option[Number] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.RepublishActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.RepublishActionProperty.Builder)
-      .roleArn(roleArn.orNull)
-      .topic(topic.orNull)
+      .roleArn(roleArn)
+      .topic(topic)
       .qos(qos.orNull)
       .build()
 }

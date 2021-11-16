@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CommonClusterOptions {
 
   def apply(
+    version: software.amazon.awscdk.services.eks.KubernetesVersion,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     vpcSubnets: Option[List[_ <: software.amazon.awscdk.services.ec2.SubnetSelection]] = None,
-    version: Option[software.amazon.awscdk.services.eks.KubernetesVersion] = None,
     outputConfigCommand: Option[Boolean] = None,
     clusterName: Option[String] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
@@ -17,9 +17,9 @@ object CommonClusterOptions {
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
   ): software.amazon.awscdk.services.eks.CommonClusterOptions =
     (new software.amazon.awscdk.services.eks.CommonClusterOptions.Builder)
+      .version(version)
       .role(role.orNull)
       .vpcSubnets(vpcSubnets.map(_.asJava).orNull)
-      .version(version.orNull)
       .outputConfigCommand(outputConfigCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .clusterName(clusterName.orNull)
       .securityGroup(securityGroup.orNull)

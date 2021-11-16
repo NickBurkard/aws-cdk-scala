@@ -4,11 +4,11 @@ package io.burkard.cdk.services.databrew
 object FilterValueProperty {
 
   def apply(
-    valueReference: Option[String] = None,
-    value: Option[String] = None
+    valueReference: String,
+    value: String
   ): software.amazon.awscdk.services.databrew.CfnDataset.FilterValueProperty =
     (new software.amazon.awscdk.services.databrew.CfnDataset.FilterValueProperty.Builder)
-      .valueReference(valueReference.orNull)
-      .value(value.orNull)
+      .valueReference(valueReference)
+      .value(value)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lambda
 object VersionProps {
 
   def apply(
+    lambda: software.amazon.awscdk.services.lambda.IFunction,
     maxEventAge: Option[software.amazon.awscdk.Duration] = None,
     description: Option[String] = None,
-    lambda: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     codeSha256: Option[String] = None,
     provisionedConcurrentExecutions: Option[Number] = None,
     onSuccess: Option[software.amazon.awscdk.services.lambda.IDestination] = None,
@@ -15,9 +15,9 @@ object VersionProps {
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   ): software.amazon.awscdk.services.lambda.VersionProps =
     (new software.amazon.awscdk.services.lambda.VersionProps.Builder)
+      .lambda(lambda)
       .maxEventAge(maxEventAge.orNull)
       .description(description.orNull)
-      .lambda(lambda.orNull)
       .codeSha256(codeSha256.orNull)
       .provisionedConcurrentExecutions(provisionedConcurrentExecutions.orNull)
       .onSuccess(onSuccess.orNull)

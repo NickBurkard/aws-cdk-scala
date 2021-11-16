@@ -4,19 +4,19 @@ package io.burkard.cdk.services.autoscaling
 object BasicScheduledActionProps {
 
   def apply(
+    schedule: software.amazon.awscdk.services.autoscaling.Schedule,
     maxCapacity: Option[Number] = None,
     startTime: Option[java.time.Instant] = None,
     endTime: Option[java.time.Instant] = None,
     minCapacity: Option[Number] = None,
-    desiredCapacity: Option[Number] = None,
-    schedule: Option[software.amazon.awscdk.services.autoscaling.Schedule] = None
+    desiredCapacity: Option[Number] = None
   ): software.amazon.awscdk.services.autoscaling.BasicScheduledActionProps =
     (new software.amazon.awscdk.services.autoscaling.BasicScheduledActionProps.Builder)
+      .schedule(schedule)
       .maxCapacity(maxCapacity.orNull)
       .startTime(startTime.orNull)
       .endTime(endTime.orNull)
       .minCapacity(minCapacity.orNull)
       .desiredCapacity(desiredCapacity.orNull)
-      .schedule(schedule.orNull)
       .build()
 }

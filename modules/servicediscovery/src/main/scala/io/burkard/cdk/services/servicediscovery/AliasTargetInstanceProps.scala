@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object AliasTargetInstanceProps {
 
   def apply(
+    service: software.amazon.awscdk.services.servicediscovery.IService,
+    dnsName: String,
     instanceId: Option[String] = None,
-    service: Option[software.amazon.awscdk.services.servicediscovery.IService] = None,
-    dnsName: Option[String] = None,
     customAttributes: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.servicediscovery.AliasTargetInstanceProps =
     (new software.amazon.awscdk.services.servicediscovery.AliasTargetInstanceProps.Builder)
+      .service(service)
+      .dnsName(dnsName)
       .instanceId(instanceId.orNull)
-      .service(service.orNull)
-      .dnsName(dnsName.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .build()
 }

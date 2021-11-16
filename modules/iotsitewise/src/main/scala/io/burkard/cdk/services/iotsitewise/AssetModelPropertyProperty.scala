@@ -4,19 +4,19 @@ package io.burkard.cdk.services.iotsitewise
 object AssetModelPropertyProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    logicalId: String,
+    dataType: String,
+    `type`: software.amazon.awscdk.services.iotsitewise.CfnAssetModel.PropertyTypeProperty,
     dataTypeSpec: Option[String] = None,
-    unit: Option[String] = None,
-    logicalId: Option[String] = None,
-    dataType: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.iotsitewise.CfnAssetModel.PropertyTypeProperty] = None
+    unit: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetModel.AssetModelPropertyProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetModel.AssetModelPropertyProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .logicalId(logicalId)
+      .dataType(dataType)
+      .`type`(`type`)
       .dataTypeSpec(dataTypeSpec.orNull)
       .unit(unit.orNull)
-      .logicalId(logicalId.orNull)
-      .dataType(dataType.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

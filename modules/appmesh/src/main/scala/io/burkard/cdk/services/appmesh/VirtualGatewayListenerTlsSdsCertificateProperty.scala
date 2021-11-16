@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayListenerTlsSdsCertificateProperty {
 
   def apply(
-    secretName: Option[String] = None
+    secretName: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty.Builder)
-      .secretName(secretName.orNull)
+      .secretName(secretName)
       .build()
 }

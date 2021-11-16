@@ -4,23 +4,23 @@ package io.burkard.cdk.services.budgets
 object BudgetDataProperty {
 
   def apply(
+    timeUnit: String,
+    budgetType: String,
     budgetName: Option[String] = None,
     costTypes: Option[software.amazon.awscdk.services.budgets.CfnBudget.CostTypesProperty] = None,
     budgetLimit: Option[software.amazon.awscdk.services.budgets.CfnBudget.SpendProperty] = None,
     timePeriod: Option[software.amazon.awscdk.services.budgets.CfnBudget.TimePeriodProperty] = None,
     costFilters: Option[AnyRef] = None,
-    plannedBudgetLimits: Option[AnyRef] = None,
-    timeUnit: Option[String] = None,
-    budgetType: Option[String] = None
+    plannedBudgetLimits: Option[AnyRef] = None
   ): software.amazon.awscdk.services.budgets.CfnBudget.BudgetDataProperty =
     (new software.amazon.awscdk.services.budgets.CfnBudget.BudgetDataProperty.Builder)
+      .timeUnit(timeUnit)
+      .budgetType(budgetType)
       .budgetName(budgetName.orNull)
       .costTypes(costTypes.orNull)
       .budgetLimit(budgetLimit.orNull)
       .timePeriod(timePeriod.orNull)
       .costFilters(costFilters.orNull)
       .plannedBudgetLimits(plannedBudgetLimits.orNull)
-      .timeUnit(timeUnit.orNull)
-      .budgetType(budgetType.orNull)
       .build()
 }

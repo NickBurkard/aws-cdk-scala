@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object EgressProperty {
 
   def apply(
+    ipProtocol: String,
     toPort: Option[Number] = None,
     description: Option[String] = None,
-    ipProtocol: Option[String] = None,
     fromPort: Option[Number] = None,
     cidrIpv6: Option[String] = None,
     destinationSecurityGroupId: Option[String] = None,
@@ -14,9 +14,9 @@ object EgressProperty {
     destinationPrefixListId: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnSecurityGroup.EgressProperty =
     (new software.amazon.awscdk.services.ec2.CfnSecurityGroup.EgressProperty.Builder)
+      .ipProtocol(ipProtocol)
       .toPort(toPort.orNull)
       .description(description.orNull)
-      .ipProtocol(ipProtocol.orNull)
       .fromPort(fromPort.orNull)
       .cidrIpv6(cidrIpv6.orNull)
       .destinationSecurityGroupId(destinationSecurityGroupId.orNull)

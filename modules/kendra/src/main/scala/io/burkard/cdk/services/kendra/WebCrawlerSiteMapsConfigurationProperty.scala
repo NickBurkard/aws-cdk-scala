@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object WebCrawlerSiteMapsConfigurationProperty {
 
   def apply(
-    siteMaps: Option[List[String]] = None
+    siteMaps: List[String]
   ): software.amazon.awscdk.services.kendra.CfnDataSource.WebCrawlerSiteMapsConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.WebCrawlerSiteMapsConfigurationProperty.Builder)
-      .siteMaps(siteMaps.map(_.asJava).orNull)
+      .siteMaps(siteMaps.asJava)
       .build()
 }

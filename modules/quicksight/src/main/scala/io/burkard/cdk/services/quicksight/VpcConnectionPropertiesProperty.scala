@@ -4,9 +4,9 @@ package io.burkard.cdk.services.quicksight
 object VpcConnectionPropertiesProperty {
 
   def apply(
-    vpcConnectionArn: Option[String] = None
+    vpcConnectionArn: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.VpcConnectionPropertiesProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.VpcConnectionPropertiesProperty.Builder)
-      .vpcConnectionArn(vpcConnectionArn.orNull)
+      .vpcConnectionArn(vpcConnectionArn)
       .build()
 }

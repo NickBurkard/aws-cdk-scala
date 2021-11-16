@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object ManagedRuleProps {
 
   def apply(
-    identifier: Option[String] = None,
+    identifier: String,
     description: Option[String] = None,
     ruleScope: Option[software.amazon.awscdk.services.config.RuleScope] = None,
     maximumExecutionFrequency: Option[software.amazon.awscdk.services.config.MaximumExecutionFrequency] = None,
@@ -15,7 +15,7 @@ object ManagedRuleProps {
     configRuleName: Option[String] = None
   ): software.amazon.awscdk.services.config.ManagedRuleProps =
     (new software.amazon.awscdk.services.config.ManagedRuleProps.Builder)
-      .identifier(identifier.orNull)
+      .identifier(identifier)
       .description(description.orNull)
       .ruleScope(ruleScope.orNull)
       .maximumExecutionFrequency(maximumExecutionFrequency.orNull)

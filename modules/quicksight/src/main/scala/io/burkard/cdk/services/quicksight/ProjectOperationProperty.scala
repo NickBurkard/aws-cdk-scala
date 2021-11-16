@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object ProjectOperationProperty {
 
   def apply(
-    projectedColumns: Option[List[String]] = None
+    projectedColumns: List[String]
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.ProjectOperationProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.ProjectOperationProperty.Builder)
-      .projectedColumns(projectedColumns.map(_.asJava).orNull)
+      .projectedColumns(projectedColumns.asJava)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotevents
 object PayloadProperty {
 
   def apply(
-    contentExpression: Option[String] = None,
-    `type`: Option[String] = None
+    contentExpression: String,
+    `type`: String
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty.Builder)
-      .contentExpression(contentExpression.orNull)
-      .`type`(`type`.orNull)
+      .contentExpression(contentExpression)
+      .`type`(`type`)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayAttributes {
 
   def apply(
-    mesh: Option[software.amazon.awscdk.services.appmesh.IMesh] = None,
-    virtualGatewayName: Option[String] = None
+    mesh: software.amazon.awscdk.services.appmesh.IMesh,
+    virtualGatewayName: String
   ): software.amazon.awscdk.services.appmesh.VirtualGatewayAttributes =
     (new software.amazon.awscdk.services.appmesh.VirtualGatewayAttributes.Builder)
-      .mesh(mesh.orNull)
-      .virtualGatewayName(virtualGatewayName.orNull)
+      .mesh(mesh)
+      .virtualGatewayName(virtualGatewayName)
       .build()
 }

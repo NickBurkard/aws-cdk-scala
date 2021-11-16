@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotsitewise
 object VariableValueProperty {
 
   def apply(
-    propertyLogicalId: Option[String] = None,
+    propertyLogicalId: String,
     hierarchyLogicalId: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetModel.VariableValueProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetModel.VariableValueProperty.Builder)
-      .propertyLogicalId(propertyLogicalId.orNull)
+      .propertyLogicalId(propertyLogicalId)
       .hierarchyLogicalId(hierarchyLogicalId.orNull)
       .build()
 }

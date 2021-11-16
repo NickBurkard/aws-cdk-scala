@@ -4,15 +4,15 @@ package io.burkard.cdk.services.cloudformation
 object CfnMacroProps {
 
   def apply(
-    name: Option[String] = None,
-    functionName: Option[String] = None,
+    name: String,
+    functionName: String,
     description: Option[String] = None,
     logGroupName: Option[String] = None,
     logRoleArn: Option[String] = None
   ): software.amazon.awscdk.services.cloudformation.CfnMacroProps =
     (new software.amazon.awscdk.services.cloudformation.CfnMacroProps.Builder)
-      .name(name.orNull)
-      .functionName(functionName.orNull)
+      .name(name)
+      .functionName(functionName)
       .description(description.orNull)
       .logGroupName(logGroupName.orNull)
       .logRoleArn(logRoleArn.orNull)

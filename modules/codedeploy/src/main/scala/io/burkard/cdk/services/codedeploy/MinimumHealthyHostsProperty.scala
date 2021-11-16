@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codedeploy
 object MinimumHealthyHostsProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    value: Option[Number] = None
+    `type`: String,
+    value: Number
   ): software.amazon.awscdk.services.codedeploy.CfnDeploymentConfig.MinimumHealthyHostsProperty =
     (new software.amazon.awscdk.services.codedeploy.CfnDeploymentConfig.MinimumHealthyHostsProperty.Builder)
-      .`type`(`type`.orNull)
-      .value(value.orNull)
+      .`type`(`type`)
+      .value(value)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.servicediscovery
 object DnsRecordProperty {
 
   def apply(
-    ttl: Option[Number] = None,
-    `type`: Option[String] = None
+    ttl: Number,
+    `type`: String
   ): software.amazon.awscdk.services.servicediscovery.CfnService.DnsRecordProperty =
     (new software.amazon.awscdk.services.servicediscovery.CfnService.DnsRecordProperty.Builder)
-      .ttl(ttl.orNull)
-      .`type`(`type`.orNull)
+      .ttl(ttl)
+      .`type`(`type`)
       .build()
 }

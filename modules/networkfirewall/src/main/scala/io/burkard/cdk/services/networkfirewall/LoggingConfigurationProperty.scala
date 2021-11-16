@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object LoggingConfigurationProperty {
 
   def apply(
-    logDestinationConfigs: Option[List[_]] = None
+    logDestinationConfigs: List[_]
   ): software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration.LoggingConfigurationProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnLoggingConfiguration.LoggingConfigurationProperty.Builder)
-      .logDestinationConfigs(logDestinationConfigs.map(_.asJava).orNull)
+      .logDestinationConfigs(logDestinationConfigs.asJava)
       .build()
 }

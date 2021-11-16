@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecr
 object EncryptionConfigurationProperty {
 
   def apply(
-    kmsKey: Option[String] = None,
-    encryptionType: Option[String] = None
+    encryptionType: String,
+    kmsKey: Option[String] = None
   ): software.amazon.awscdk.services.ecr.CfnRepository.EncryptionConfigurationProperty =
     (new software.amazon.awscdk.services.ecr.CfnRepository.EncryptionConfigurationProperty.Builder)
+      .encryptionType(encryptionType)
       .kmsKey(kmsKey.orNull)
-      .encryptionType(encryptionType.orNull)
       .build()
 }

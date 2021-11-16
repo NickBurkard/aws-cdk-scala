@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object MonitoringAppSpecificationProperty {
 
   def apply(
+    imageUri: String,
     recordPreprocessorSourceUri: Option[String] = None,
-    imageUri: Option[String] = None,
     containerArguments: Option[List[String]] = None,
     containerEntrypoint: Option[List[String]] = None,
     postAnalyticsProcessorSourceUri: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringAppSpecificationProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringAppSpecificationProperty.Builder)
+      .imageUri(imageUri)
       .recordPreprocessorSourceUri(recordPreprocessorSourceUri.orNull)
-      .imageUri(imageUri.orNull)
       .containerArguments(containerArguments.map(_.asJava).orNull)
       .containerEntrypoint(containerEntrypoint.map(_.asJava).orNull)
       .postAnalyticsProcessorSourceUri(postAnalyticsProcessorSourceUri.orNull)

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.glue
 object CfnSchemaVersionMetadataProps {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None,
-    schemaVersionId: Option[String] = None
+    key: String,
+    value: String,
+    schemaVersionId: String
   ): software.amazon.awscdk.services.glue.CfnSchemaVersionMetadataProps =
     (new software.amazon.awscdk.services.glue.CfnSchemaVersionMetadataProps.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
-      .schemaVersionId(schemaVersionId.orNull)
+      .key(key)
+      .value(value)
+      .schemaVersionId(schemaVersionId)
       .build()
 }

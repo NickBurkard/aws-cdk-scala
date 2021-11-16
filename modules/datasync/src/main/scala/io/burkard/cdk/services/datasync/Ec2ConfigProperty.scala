@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object Ec2ConfigProperty {
 
   def apply(
-    subnetArn: Option[String] = None,
-    securityGroupArns: Option[List[String]] = None
+    subnetArn: String,
+    securityGroupArns: List[String]
   ): software.amazon.awscdk.services.datasync.CfnLocationEFS.Ec2ConfigProperty =
     (new software.amazon.awscdk.services.datasync.CfnLocationEFS.Ec2ConfigProperty.Builder)
-      .subnetArn(subnetArn.orNull)
-      .securityGroupArns(securityGroupArns.map(_.asJava).orNull)
+      .subnetArn(subnetArn)
+      .securityGroupArns(securityGroupArns.asJava)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object FunctionAttributes {
 
   def apply(
-    functionName: Option[String] = None,
-    functionArn: Option[String] = None
+    functionName: String,
+    functionArn: String
   ): software.amazon.awscdk.services.cloudfront.FunctionAttributes =
     (new software.amazon.awscdk.services.cloudfront.FunctionAttributes.Builder)
-      .functionName(functionName.orNull)
-      .functionArn(functionArn.orNull)
+      .functionName(functionName)
+      .functionArn(functionArn)
       .build()
 }

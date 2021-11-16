@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object ContainerDefinitionProps {
 
   def apply(
+    taskDefinition: software.amazon.awscdk.services.ecs.TaskDefinition,
     dockerSecurityOptions: Option[List[String]] = None,
     healthCheck: Option[software.amazon.awscdk.services.ecs.HealthCheck] = None,
     hostname: Option[String] = None,
@@ -33,13 +34,13 @@ object ContainerDefinitionProps {
     inferenceAcceleratorResources: Option[List[String]] = None,
     cpu: Option[Number] = None,
     environment: Option[Map[String, String]] = None,
-    taskDefinition: Option[software.amazon.awscdk.services.ecs.TaskDefinition] = None,
     extraHosts: Option[Map[String, String]] = None,
     memoryReservationMiB: Option[Number] = None,
     disableNetworking: Option[Boolean] = None,
     dnsServers: Option[List[String]] = None
   ): software.amazon.awscdk.services.ecs.ContainerDefinitionProps =
     (new software.amazon.awscdk.services.ecs.ContainerDefinitionProps.Builder)
+      .taskDefinition(taskDefinition)
       .dockerSecurityOptions(dockerSecurityOptions.map(_.asJava).orNull)
       .healthCheck(healthCheck.orNull)
       .hostname(hostname.orNull)
@@ -66,7 +67,6 @@ object ContainerDefinitionProps {
       .inferenceAcceleratorResources(inferenceAcceleratorResources.map(_.asJava).orNull)
       .cpu(cpu.orNull)
       .environment(environment.map(_.asJava).orNull)
-      .taskDefinition(taskDefinition.orNull)
       .extraHosts(extraHosts.map(_.asJava).orNull)
       .memoryReservationMiB(memoryReservationMiB.orNull)
       .disableNetworking(disableNetworking.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

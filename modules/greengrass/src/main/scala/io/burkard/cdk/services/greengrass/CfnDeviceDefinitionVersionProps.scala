@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnDeviceDefinitionVersionProps {
 
   def apply(
-    deviceDefinitionId: Option[String] = None,
-    devices: Option[List[_]] = None
+    deviceDefinitionId: String,
+    devices: List[_]
   ): software.amazon.awscdk.services.greengrass.CfnDeviceDefinitionVersionProps =
     (new software.amazon.awscdk.services.greengrass.CfnDeviceDefinitionVersionProps.Builder)
-      .deviceDefinitionId(deviceDefinitionId.orNull)
-      .devices(devices.map(_.asJava).orNull)
+      .deviceDefinitionId(deviceDefinitionId)
+      .devices(devices.asJava)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ActionProperty {
 
   def apply(
-    name: Option[String] = None,
-    crossRegionCopy: Option[List[_]] = None
+    name: String,
+    crossRegionCopy: List[_]
   ): software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.ActionProperty =
     (new software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.ActionProperty.Builder)
-      .name(name.orNull)
-      .crossRegionCopy(crossRegionCopy.map(_.asJava).orNull)
+      .name(name)
+      .crossRegionCopy(crossRegionCopy.asJava)
       .build()
 }

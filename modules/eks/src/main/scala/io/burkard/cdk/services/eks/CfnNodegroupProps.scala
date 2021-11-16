@@ -7,10 +7,11 @@ import scala.collection.JavaConverters._
 object CfnNodegroupProps {
 
   def apply(
-    subnets: Option[List[String]] = None,
+    subnets: List[String],
+    nodeRole: String,
+    clusterName: String,
     diskSize: Option[Number] = None,
     tags: Option[AnyRef] = None,
-    nodeRole: Option[String] = None,
     taints: Option[List[_]] = None,
     launchTemplate: Option[software.amazon.awscdk.services.eks.CfnNodegroup.LaunchTemplateSpecificationProperty] = None,
     version: Option[String] = None,
@@ -19,7 +20,6 @@ object CfnNodegroupProps {
     labels: Option[AnyRef] = None,
     amiType: Option[String] = None,
     releaseVersion: Option[String] = None,
-    clusterName: Option[String] = None,
     capacityType: Option[String] = None,
     remoteAccess: Option[software.amazon.awscdk.services.eks.CfnNodegroup.RemoteAccessProperty] = None,
     nodegroupName: Option[String] = None,
@@ -27,10 +27,11 @@ object CfnNodegroupProps {
     instanceTypes: Option[List[String]] = None
   ): software.amazon.awscdk.services.eks.CfnNodegroupProps =
     (new software.amazon.awscdk.services.eks.CfnNodegroupProps.Builder)
-      .subnets(subnets.map(_.asJava).orNull)
+      .subnets(subnets.asJava)
+      .nodeRole(nodeRole)
+      .clusterName(clusterName)
       .diskSize(diskSize.orNull)
       .tags(tags.orNull)
-      .nodeRole(nodeRole.orNull)
       .taints(taints.map(_.asJava).orNull)
       .launchTemplate(launchTemplate.orNull)
       .version(version.orNull)
@@ -39,7 +40,6 @@ object CfnNodegroupProps {
       .labels(labels.orNull)
       .amiType(amiType.orNull)
       .releaseVersion(releaseVersion.orNull)
-      .clusterName(clusterName.orNull)
       .capacityType(capacityType.orNull)
       .remoteAccess(remoteAccess.orNull)
       .nodegroupName(nodegroupName.orNull)

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.logs
 object CfnLogStreamProps {
 
   def apply(
-    logStreamName: Option[String] = None,
-    logGroupName: Option[String] = None
+    logGroupName: String,
+    logStreamName: Option[String] = None
   ): software.amazon.awscdk.services.logs.CfnLogStreamProps =
     (new software.amazon.awscdk.services.logs.CfnLogStreamProps.Builder)
+      .logGroupName(logGroupName)
       .logStreamName(logStreamName.orNull)
-      .logGroupName(logGroupName.orNull)
       .build()
 }

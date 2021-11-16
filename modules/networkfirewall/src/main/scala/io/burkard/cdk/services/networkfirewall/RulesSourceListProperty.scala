@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object RulesSourceListProperty {
 
   def apply(
-    targetTypes: Option[List[String]] = None,
-    targets: Option[List[String]] = None,
-    generatedRulesType: Option[String] = None
+    targetTypes: List[String],
+    targets: List[String],
+    generatedRulesType: String
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RulesSourceListProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.RulesSourceListProperty.Builder)
-      .targetTypes(targetTypes.map(_.asJava).orNull)
-      .targets(targets.map(_.asJava).orNull)
-      .generatedRulesType(generatedRulesType.orNull)
+      .targetTypes(targetTypes.asJava)
+      .targets(targets.asJava)
+      .generatedRulesType(generatedRulesType)
       .build()
 }

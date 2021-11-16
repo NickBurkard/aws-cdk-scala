@@ -4,11 +4,11 @@ package io.burkard.cdk.services.databrew
 object PathParameterProperty {
 
   def apply(
-    datasetParameter: Option[software.amazon.awscdk.services.databrew.CfnDataset.DatasetParameterProperty] = None,
-    pathParameterName: Option[String] = None
+    datasetParameter: software.amazon.awscdk.services.databrew.CfnDataset.DatasetParameterProperty,
+    pathParameterName: String
   ): software.amazon.awscdk.services.databrew.CfnDataset.PathParameterProperty =
     (new software.amazon.awscdk.services.databrew.CfnDataset.PathParameterProperty.Builder)
-      .datasetParameter(datasetParameter.orNull)
-      .pathParameterName(pathParameterName.orNull)
+      .datasetParameter(datasetParameter)
+      .pathParameterName(pathParameterName)
       .build()
 }

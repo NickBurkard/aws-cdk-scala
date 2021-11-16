@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object CoreDefinitionVersionProperty {
 
   def apply(
-    cores: Option[List[_]] = None
+    cores: List[_]
   ): software.amazon.awscdk.services.greengrass.CfnCoreDefinition.CoreDefinitionVersionProperty =
     (new software.amazon.awscdk.services.greengrass.CfnCoreDefinition.CoreDefinitionVersionProperty.Builder)
-      .cores(cores.map(_.asJava).orNull)
+      .cores(cores.asJava)
       .build()
 }

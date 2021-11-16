@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnSchemaProps {
 
   def apply(
+    name: String,
+    schemaDefinition: String,
+    compatibility: String,
+    dataFormat: String,
     registry: Option[software.amazon.awscdk.services.glue.CfnSchema.RegistryProperty] = None,
-    name: Option[String] = None,
-    schemaDefinition: Option[String] = None,
-    compatibility: Option[String] = None,
-    dataFormat: Option[String] = None,
     description: Option[String] = None,
     checkpointVersion: Option[software.amazon.awscdk.services.glue.CfnSchema.SchemaVersionProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.glue.CfnSchemaProps =
     (new software.amazon.awscdk.services.glue.CfnSchemaProps.Builder)
+      .name(name)
+      .schemaDefinition(schemaDefinition)
+      .compatibility(compatibility)
+      .dataFormat(dataFormat)
       .registry(registry.orNull)
-      .name(name.orNull)
-      .schemaDefinition(schemaDefinition.orNull)
-      .compatibility(compatibility.orNull)
-      .dataFormat(dataFormat.orNull)
       .description(description.orNull)
       .checkpointVersion(checkpointVersion.orNull)
       .tags(tags.map(_.asJava).orNull)

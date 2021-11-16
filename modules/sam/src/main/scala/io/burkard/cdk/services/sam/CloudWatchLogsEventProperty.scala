@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object CloudWatchLogsEventProperty {
 
   def apply(
-    filterPattern: Option[String] = None,
-    logGroupName: Option[String] = None
+    filterPattern: String,
+    logGroupName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.CloudWatchLogsEventProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.CloudWatchLogsEventProperty.Builder)
-      .filterPattern(filterPattern.orNull)
-      .logGroupName(logGroupName.orNull)
+      .filterPattern(filterPattern)
+      .logGroupName(logGroupName)
       .build()
 }

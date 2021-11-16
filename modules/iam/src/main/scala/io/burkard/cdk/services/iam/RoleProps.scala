@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object RoleProps {
 
   def apply(
+    assumedBy: software.amazon.awscdk.services.iam.IPrincipal,
     maxSessionDuration: Option[software.amazon.awscdk.Duration] = None,
-    assumedBy: Option[software.amazon.awscdk.services.iam.IPrincipal] = None,
     roleName: Option[String] = None,
     externalIds: Option[List[String]] = None,
     managedPolicies: Option[List[_ <: software.amazon.awscdk.services.iam.IManagedPolicy]] = None,
@@ -19,8 +19,8 @@ object RoleProps {
     description: Option[String] = None
   ): software.amazon.awscdk.services.iam.RoleProps =
     (new software.amazon.awscdk.services.iam.RoleProps.Builder)
+      .assumedBy(assumedBy)
       .maxSessionDuration(maxSessionDuration.orNull)
-      .assumedBy(assumedBy.orNull)
       .roleName(roleName.orNull)
       .externalIds(externalIds.map(_.asJava).orNull)
       .managedPolicies(managedPolicies.map(_.asJava).orNull)

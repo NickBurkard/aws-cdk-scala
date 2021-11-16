@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object ModelExplainabilityJobInputProperty {
 
   def apply(
-    endpointInput: Option[software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.EndpointInputProperty] = None
+    endpointInput: software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.EndpointInputProperty
   ): software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty.Builder)
-      .endpointInput(endpointInput.orNull)
+      .endpointInput(endpointInput)
       .build()
 }

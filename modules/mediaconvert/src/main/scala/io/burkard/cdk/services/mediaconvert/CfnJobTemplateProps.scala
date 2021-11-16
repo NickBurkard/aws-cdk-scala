@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnJobTemplateProps {
 
   def apply(
-    settingsJson: Option[AnyRef] = None,
+    settingsJson: AnyRef,
     queue: Option[String] = None,
     statusUpdateInterval: Option[String] = None,
     category: Option[String] = None,
@@ -19,7 +19,7 @@ object CfnJobTemplateProps {
     tags: Option[AnyRef] = None
   ): software.amazon.awscdk.services.mediaconvert.CfnJobTemplateProps =
     (new software.amazon.awscdk.services.mediaconvert.CfnJobTemplateProps.Builder)
-      .settingsJson(settingsJson.orNull)
+      .settingsJson(settingsJson)
       .queue(queue.orNull)
       .statusUpdateInterval(statusUpdateInterval.orNull)
       .category(category.orNull)

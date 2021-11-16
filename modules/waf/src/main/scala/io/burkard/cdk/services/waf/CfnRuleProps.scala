@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnRuleProps {
 
   def apply(
-    metricName: Option[String] = None,
-    name: Option[String] = None,
+    metricName: String,
+    name: String,
     predicates: Option[List[_]] = None
   ): software.amazon.awscdk.services.waf.regional.CfnRuleProps =
     (new software.amazon.awscdk.services.waf.regional.CfnRuleProps.Builder)
-      .metricName(metricName.orNull)
-      .name(name.orNull)
+      .metricName(metricName)
+      .name(name)
       .predicates(predicates.map(_.asJava).orNull)
       .build()
 }

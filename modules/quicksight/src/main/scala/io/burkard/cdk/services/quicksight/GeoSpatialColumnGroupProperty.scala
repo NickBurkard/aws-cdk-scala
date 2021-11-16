@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object GeoSpatialColumnGroupProperty {
 
   def apply(
-    name: Option[String] = None,
-    countryCode: Option[String] = None,
-    columns: Option[List[String]] = None
+    name: String,
+    columns: List[String],
+    countryCode: Option[String] = None
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.GeoSpatialColumnGroupProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.GeoSpatialColumnGroupProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .columns(columns.asJava)
       .countryCode(countryCode.orNull)
-      .columns(columns.map(_.asJava).orNull)
       .build()
 }

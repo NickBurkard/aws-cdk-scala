@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object ModelQualityAppSpecificationProperty {
 
   def apply(
+    imageUri: String,
+    problemType: String,
     recordPreprocessorSourceUri: Option[String] = None,
-    imageUri: Option[String] = None,
-    problemType: Option[String] = None,
     containerArguments: Option[List[String]] = None,
     environment: Option[Map[String, String]] = None,
     containerEntrypoint: Option[List[String]] = None,
     postAnalyticsProcessorSourceUri: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.Builder)
+      .imageUri(imageUri)
+      .problemType(problemType)
       .recordPreprocessorSourceUri(recordPreprocessorSourceUri.orNull)
-      .imageUri(imageUri.orNull)
-      .problemType(problemType.orNull)
       .containerArguments(containerArguments.map(_.asJava).orNull)
       .environment(environment.map(_.asJava).orNull)
       .containerEntrypoint(containerEntrypoint.map(_.asJava).orNull)

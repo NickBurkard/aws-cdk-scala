@@ -4,12 +4,12 @@ package io.burkard.cdk.services.cognito
 object NotifyEmailTypeProperty {
 
   def apply(
-    subject: Option[String] = None,
+    subject: String,
     htmlBody: Option[String] = None,
     textBody: Option[String] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty.Builder)
-      .subject(subject.orNull)
+      .subject(subject)
       .htmlBody(htmlBody.orNull)
       .textBody(textBody.orNull)
       .build()

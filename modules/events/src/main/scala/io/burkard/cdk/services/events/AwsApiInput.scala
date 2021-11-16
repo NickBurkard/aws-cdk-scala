@@ -4,17 +4,17 @@ package io.burkard.cdk.services.events
 object AwsApiInput {
 
   def apply(
-    service: Option[String] = None,
+    service: String,
+    action: String,
     apiVersion: Option[String] = None,
     catchErrorPattern: Option[String] = None,
-    parameters: Option[AnyRef] = None,
-    action: Option[String] = None
+    parameters: Option[AnyRef] = None
   ): software.amazon.awscdk.services.events.targets.AwsApiInput =
     (new software.amazon.awscdk.services.events.targets.AwsApiInput.Builder)
-      .service(service.orNull)
+      .service(service)
+      .action(action)
       .apiVersion(apiVersion.orNull)
       .catchErrorPattern(catchErrorPattern.orNull)
       .parameters(parameters.orNull)
-      .action(action.orNull)
       .build()
 }

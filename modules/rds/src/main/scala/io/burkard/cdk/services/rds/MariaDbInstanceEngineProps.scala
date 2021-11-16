@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rds
 object MariaDbInstanceEngineProps {
 
   def apply(
-    version: Option[software.amazon.awscdk.services.rds.MariaDbEngineVersion] = None
+    version: software.amazon.awscdk.services.rds.MariaDbEngineVersion
   ): software.amazon.awscdk.services.rds.MariaDbInstanceEngineProps =
     (new software.amazon.awscdk.services.rds.MariaDbInstanceEngineProps.Builder)
-      .version(version.orNull)
+      .version(version)
       .build()
 }

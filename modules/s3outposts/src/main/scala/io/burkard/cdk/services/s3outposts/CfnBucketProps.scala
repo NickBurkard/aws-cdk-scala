@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnBucketProps {
 
   def apply(
-    outpostId: Option[String] = None,
+    outpostId: String,
+    bucketName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    lifecycleConfiguration: Option[software.amazon.awscdk.services.s3outposts.CfnBucket.LifecycleConfigurationProperty] = None,
-    bucketName: Option[String] = None
+    lifecycleConfiguration: Option[software.amazon.awscdk.services.s3outposts.CfnBucket.LifecycleConfigurationProperty] = None
   ): software.amazon.awscdk.services.s3outposts.CfnBucketProps =
     (new software.amazon.awscdk.services.s3outposts.CfnBucketProps.Builder)
-      .outpostId(outpostId.orNull)
+      .outpostId(outpostId)
+      .bucketName(bucketName)
       .tags(tags.map(_.asJava).orNull)
       .lifecycleConfiguration(lifecycleConfiguration.orNull)
-      .bucketName(bucketName.orNull)
       .build()
 }

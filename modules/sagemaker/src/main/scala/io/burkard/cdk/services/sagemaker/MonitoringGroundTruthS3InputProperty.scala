@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object MonitoringGroundTruthS3InputProperty {
 
   def apply(
-    s3Uri: Option[String] = None
+    s3Uri: String
   ): software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty.Builder)
-      .s3Uri(s3Uri.orNull)
+      .s3Uri(s3Uri)
       .build()
 }

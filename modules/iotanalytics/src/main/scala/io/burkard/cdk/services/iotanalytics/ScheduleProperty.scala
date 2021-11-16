@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotanalytics
 object ScheduleProperty {
 
   def apply(
-    scheduleExpression: Option[String] = None
+    scheduleExpression: String
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.ScheduleProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.ScheduleProperty.Builder)
-      .scheduleExpression(scheduleExpression.orNull)
+      .scheduleExpression(scheduleExpression)
       .build()
 }

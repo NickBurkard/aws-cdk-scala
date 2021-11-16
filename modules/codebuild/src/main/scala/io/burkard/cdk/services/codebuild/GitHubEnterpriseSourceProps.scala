@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object GitHubEnterpriseSourceProps {
 
   def apply(
+    httpsCloneUrl: String,
     reportBuildStatus: Option[Boolean] = None,
     identifier: Option[String] = None,
-    httpsCloneUrl: Option[String] = None,
     webhookFilters: Option[List[_ <: software.amazon.awscdk.services.codebuild.FilterGroup]] = None,
     branchOrRef: Option[String] = None,
     ignoreSslErrors: Option[Boolean] = None,
@@ -19,9 +19,9 @@ object GitHubEnterpriseSourceProps {
     fetchSubmodules: Option[Boolean] = None
   ): software.amazon.awscdk.services.codebuild.GitHubEnterpriseSourceProps =
     (new software.amazon.awscdk.services.codebuild.GitHubEnterpriseSourceProps.Builder)
+      .httpsCloneUrl(httpsCloneUrl)
       .reportBuildStatus(reportBuildStatus.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .identifier(identifier.orNull)
-      .httpsCloneUrl(httpsCloneUrl.orNull)
       .webhookFilters(webhookFilters.map(_.asJava).orNull)
       .branchOrRef(branchOrRef.orNull)
       .ignoreSslErrors(ignoreSslErrors.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

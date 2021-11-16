@@ -4,11 +4,11 @@ package io.burkard.cdk.core
 object CfnRuleAssertion {
 
   def apply(
-    assertDescription: Option[String] = None,
-    assertValue: Option[software.amazon.awscdk.ICfnConditionExpression] = None
+    assertDescription: String,
+    assertValue: software.amazon.awscdk.ICfnConditionExpression
   ): software.amazon.awscdk.CfnRuleAssertion =
     (new software.amazon.awscdk.CfnRuleAssertion.Builder)
-      .assertDescription(assertDescription.orNull)
-      .assertValue(assertValue.orNull)
+      .assertDescription(assertDescription)
+      .assertValue(assertValue)
       .build()
 }

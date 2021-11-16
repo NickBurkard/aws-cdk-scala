@@ -4,17 +4,17 @@ package io.burkard.cdk.services.lambda
 object Permission {
 
   def apply(
+    principal: software.amazon.awscdk.services.iam.IPrincipal,
     eventSourceToken: Option[String] = None,
     scope: Option[software.constructs.Construct] = None,
-    principal: Option[software.amazon.awscdk.services.iam.IPrincipal] = None,
     action: Option[String] = None,
     sourceArn: Option[String] = None,
     sourceAccount: Option[String] = None
   ): software.amazon.awscdk.services.lambda.Permission =
     (new software.amazon.awscdk.services.lambda.Permission.Builder)
+      .principal(principal)
       .eventSourceToken(eventSourceToken.orNull)
       .scope(scope.orNull)
-      .principal(principal.orNull)
       .action(action.orNull)
       .sourceArn(sourceArn.orNull)
       .sourceAccount(sourceAccount.orNull)

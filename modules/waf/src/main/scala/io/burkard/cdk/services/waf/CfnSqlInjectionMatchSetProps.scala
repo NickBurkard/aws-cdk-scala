@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnSqlInjectionMatchSetProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     sqlInjectionMatchTuples: Option[List[_]] = None
   ): software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSetProps =
     (new software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSetProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .sqlInjectionMatchTuples(sqlInjectionMatchTuples.map(_.asJava).orNull)
       .build()
 }

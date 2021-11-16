@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appsync
 object OpenSearchServiceConfigProperty {
 
   def apply(
-    awsRegion: Option[String] = None,
-    endpoint: Option[String] = None
+    awsRegion: String,
+    endpoint: String
   ): software.amazon.awscdk.services.appsync.CfnDataSource.OpenSearchServiceConfigProperty =
     (new software.amazon.awscdk.services.appsync.CfnDataSource.OpenSearchServiceConfigProperty.Builder)
-      .awsRegion(awsRegion.orNull)
-      .endpoint(endpoint.orNull)
+      .awsRegion(awsRegion)
+      .endpoint(endpoint)
       .build()
 }

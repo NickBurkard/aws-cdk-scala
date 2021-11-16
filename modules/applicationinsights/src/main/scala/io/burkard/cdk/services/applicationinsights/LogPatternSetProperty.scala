@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object LogPatternSetProperty {
 
   def apply(
-    logPatterns: Option[List[_]] = None,
-    patternSetName: Option[String] = None
+    logPatterns: List[_],
+    patternSetName: String
   ): software.amazon.awscdk.services.applicationinsights.CfnApplication.LogPatternSetProperty =
     (new software.amazon.awscdk.services.applicationinsights.CfnApplication.LogPatternSetProperty.Builder)
-      .logPatterns(logPatterns.map(_.asJava).orNull)
-      .patternSetName(patternSetName.orNull)
+      .logPatterns(logPatterns.asJava)
+      .patternSetName(patternSetName)
       .build()
 }

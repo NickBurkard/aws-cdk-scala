@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnReplicationSetProps {
 
   def apply(
-    regions: Option[List[_]] = None,
+    regions: List[_],
     deletionProtected: Option[Boolean] = None
   ): software.amazon.awscdk.services.ssmincidents.CfnReplicationSetProps =
     (new software.amazon.awscdk.services.ssmincidents.CfnReplicationSetProps.Builder)
-      .regions(regions.map(_.asJava).orNull)
+      .regions(regions.asJava)
       .deletionProtected(deletionProtected.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

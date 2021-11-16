@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnWorkGroupProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     state: Option[String] = None,
     workGroupConfiguration: Option[software.amazon.awscdk.services.athena.CfnWorkGroup.WorkGroupConfigurationProperty] = None,
     workGroupConfigurationUpdates: Option[software.amazon.awscdk.services.athena.CfnWorkGroup.WorkGroupConfigurationUpdatesProperty] = None,
@@ -16,7 +16,7 @@ object CfnWorkGroupProps {
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.athena.CfnWorkGroupProps =
     (new software.amazon.awscdk.services.athena.CfnWorkGroupProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .state(state.orNull)
       .workGroupConfiguration(workGroupConfiguration.orNull)
       .workGroupConfigurationUpdates(workGroupConfigurationUpdates.orNull)

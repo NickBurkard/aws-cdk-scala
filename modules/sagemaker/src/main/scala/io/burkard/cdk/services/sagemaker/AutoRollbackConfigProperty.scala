@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AutoRollbackConfigProperty {
 
   def apply(
-    alarms: Option[List[_]] = None
+    alarms: List[_]
   ): software.amazon.awscdk.services.sagemaker.CfnEndpoint.AutoRollbackConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnEndpoint.AutoRollbackConfigProperty.Builder)
-      .alarms(alarms.map(_.asJava).orNull)
+      .alarms(alarms.asJava)
       .build()
 }

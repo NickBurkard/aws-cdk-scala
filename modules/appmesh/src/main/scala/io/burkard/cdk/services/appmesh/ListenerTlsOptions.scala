@@ -4,13 +4,13 @@ package io.burkard.cdk.services.appmesh
 object ListenerTlsOptions {
 
   def apply(
-    certificate: Option[software.amazon.awscdk.services.appmesh.TlsCertificate] = None,
-    mutualTlsValidation: Option[software.amazon.awscdk.services.appmesh.MutualTlsValidation] = None,
-    mode: Option[software.amazon.awscdk.services.appmesh.TlsMode] = None
+    certificate: software.amazon.awscdk.services.appmesh.TlsCertificate,
+    mode: software.amazon.awscdk.services.appmesh.TlsMode,
+    mutualTlsValidation: Option[software.amazon.awscdk.services.appmesh.MutualTlsValidation] = None
   ): software.amazon.awscdk.services.appmesh.ListenerTlsOptions =
     (new software.amazon.awscdk.services.appmesh.ListenerTlsOptions.Builder)
-      .certificate(certificate.orNull)
+      .certificate(certificate)
+      .mode(mode)
       .mutualTlsValidation(mutualTlsValidation.orNull)
-      .mode(mode.orNull)
       .build()
 }

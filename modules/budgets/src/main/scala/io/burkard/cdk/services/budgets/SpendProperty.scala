@@ -4,11 +4,11 @@ package io.burkard.cdk.services.budgets
 object SpendProperty {
 
   def apply(
-    amount: Option[Number] = None,
-    unit: Option[String] = None
+    amount: Number,
+    unit: String
   ): software.amazon.awscdk.services.budgets.CfnBudget.SpendProperty =
     (new software.amazon.awscdk.services.budgets.CfnBudget.SpendProperty.Builder)
-      .amount(amount.orNull)
-      .unit(unit.orNull)
+      .amount(amount)
+      .unit(unit)
       .build()
 }

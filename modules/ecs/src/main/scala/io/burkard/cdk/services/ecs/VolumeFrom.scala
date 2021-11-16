@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object VolumeFrom {
 
   def apply(
-    readOnly: Option[Boolean] = None,
-    sourceContainer: Option[String] = None
+    readOnly: Boolean,
+    sourceContainer: String
   ): software.amazon.awscdk.services.ecs.VolumeFrom =
     (new software.amazon.awscdk.services.ecs.VolumeFrom.Builder)
-      .readOnly(readOnly.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .sourceContainer(sourceContainer.orNull)
+      .readOnly(readOnly)
+      .sourceContainer(sourceContainer)
       .build()
 }

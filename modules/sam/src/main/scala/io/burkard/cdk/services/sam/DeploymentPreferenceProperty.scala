@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object DeploymentPreferenceProperty {
 
   def apply(
-    enabled: Option[Boolean] = None,
+    enabled: Boolean,
+    `type`: String,
     alarms: Option[List[String]] = None,
-    hooks: Option[List[String]] = None,
-    `type`: Option[String] = None
+    hooks: Option[List[String]] = None
   ): software.amazon.awscdk.services.sam.CfnFunction.DeploymentPreferenceProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.DeploymentPreferenceProperty.Builder)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enabled(enabled)
+      .`type`(`type`)
       .alarms(alarms.map(_.asJava).orNull)
       .hooks(hooks.map(_.asJava).orNull)
-      .`type`(`type`.orNull)
       .build()
 }

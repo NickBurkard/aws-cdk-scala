@@ -4,11 +4,11 @@ package io.burkard.cdk.services.licensemanager
 object BorrowConfigurationProperty {
 
   def apply(
-    allowEarlyCheckIn: Option[Boolean] = None,
-    maxTimeToLiveInMinutes: Option[Number] = None
+    allowEarlyCheckIn: Boolean,
+    maxTimeToLiveInMinutes: Number
   ): software.amazon.awscdk.services.licensemanager.CfnLicense.BorrowConfigurationProperty =
     (new software.amazon.awscdk.services.licensemanager.CfnLicense.BorrowConfigurationProperty.Builder)
-      .allowEarlyCheckIn(allowEarlyCheckIn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .maxTimeToLiveInMinutes(maxTimeToLiveInMinutes.orNull)
+      .allowEarlyCheckIn(allowEarlyCheckIn)
+      .maxTimeToLiveInMinutes(maxTimeToLiveInMinutes)
       .build()
 }

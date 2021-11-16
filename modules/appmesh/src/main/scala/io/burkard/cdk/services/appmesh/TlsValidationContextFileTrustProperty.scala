@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object TlsValidationContextFileTrustProperty {
 
   def apply(
-    certificateChain: Option[String] = None
+    certificateChain: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.TlsValidationContextFileTrustProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.TlsValidationContextFileTrustProperty.Builder)
-      .certificateChain(certificateChain.orNull)
+      .certificateChain(certificateChain)
       .build()
 }

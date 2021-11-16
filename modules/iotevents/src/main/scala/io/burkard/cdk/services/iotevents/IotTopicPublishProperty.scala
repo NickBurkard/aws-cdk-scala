@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotevents
 object IotTopicPublishProperty {
 
   def apply(
-    payload: Option[software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty] = None,
-    mqttTopic: Option[String] = None
+    mqttTopic: String,
+    payload: Option[software.amazon.awscdk.services.iotevents.CfnDetectorModel.PayloadProperty] = None
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.IotTopicPublishProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.IotTopicPublishProperty.Builder)
+      .mqttTopic(mqttTopic)
       .payload(payload.orNull)
-      .mqttTopic(mqttTopic.orNull)
       .build()
 }

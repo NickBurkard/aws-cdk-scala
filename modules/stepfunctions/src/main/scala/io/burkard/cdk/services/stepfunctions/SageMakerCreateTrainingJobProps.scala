@@ -7,6 +7,10 @@ import scala.collection.JavaConverters._
 object SageMakerCreateTrainingJobProps {
 
   def apply(
+    trainingJobName: String,
+    algorithmSpecification: software.amazon.awscdk.services.stepfunctions.tasks.AlgorithmSpecification,
+    inputDataConfig: List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.Channel],
+    outputDataConfig: software.amazon.awscdk.services.stepfunctions.tasks.OutputDataConfig,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     tags: Option[Map[String, String]] = None,
     enableNetworkIsolation: Option[Boolean] = None,
@@ -16,18 +20,18 @@ object SageMakerCreateTrainingJobProps {
     hyperparameters: Option[Map[String, _]] = None,
     resultSelector: Option[Map[String, _]] = None,
     resourceConfig: Option[software.amazon.awscdk.services.stepfunctions.tasks.ResourceConfig] = None,
-    trainingJobName: Option[String] = None,
-    algorithmSpecification: Option[software.amazon.awscdk.services.stepfunctions.tasks.AlgorithmSpecification] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.IntegrationPattern] = None,
     outputPath: Option[String] = None,
     comment: Option[String] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    inputDataConfig: Option[List[_ <: software.amazon.awscdk.services.stepfunctions.tasks.Channel]] = None,
-    heartbeat: Option[software.amazon.awscdk.Duration] = None,
-    outputDataConfig: Option[software.amazon.awscdk.services.stepfunctions.tasks.OutputDataConfig] = None
+    heartbeat: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.SageMakerCreateTrainingJobProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.SageMakerCreateTrainingJobProps.Builder)
+      .trainingJobName(trainingJobName)
+      .algorithmSpecification(algorithmSpecification)
+      .inputDataConfig(inputDataConfig.asJava)
+      .outputDataConfig(outputDataConfig)
       .role(role.orNull)
       .tags(tags.map(_.asJava).orNull)
       .enableNetworkIsolation(enableNetworkIsolation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -37,15 +41,11 @@ object SageMakerCreateTrainingJobProps {
       .hyperparameters(hyperparameters.map(_.asJava).orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
       .resourceConfig(resourceConfig.orNull)
-      .trainingJobName(trainingJobName.orNull)
-      .algorithmSpecification(algorithmSpecification.orNull)
       .integrationPattern(integrationPattern.orNull)
       .outputPath(outputPath.orNull)
       .comment(comment.orNull)
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
-      .inputDataConfig(inputDataConfig.map(_.asJava).orNull)
       .heartbeat(heartbeat.orNull)
-      .outputDataConfig(outputDataConfig.orNull)
       .build()
 }

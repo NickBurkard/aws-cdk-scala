@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayListenerTlsAcmCertificateProperty {
 
   def apply(
-    certificateArn: Option[String] = None
+    certificateArn: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsAcmCertificateProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayListenerTlsAcmCertificateProperty.Builder)
-      .certificateArn(certificateArn.orNull)
+      .certificateArn(certificateArn)
       .build()
 }

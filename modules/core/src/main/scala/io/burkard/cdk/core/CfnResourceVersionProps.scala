@@ -4,14 +4,14 @@ package io.burkard.cdk.core
 object CfnResourceVersionProps {
 
   def apply(
-    schemaHandlerPackage: Option[String] = None,
-    typeName: Option[String] = None,
+    schemaHandlerPackage: String,
+    typeName: String,
     executionRoleArn: Option[String] = None,
     loggingConfig: Option[software.amazon.awscdk.CfnResourceVersion.LoggingConfigProperty] = None
   ): software.amazon.awscdk.CfnResourceVersionProps =
     (new software.amazon.awscdk.CfnResourceVersionProps.Builder)
-      .schemaHandlerPackage(schemaHandlerPackage.orNull)
-      .typeName(typeName.orNull)
+      .schemaHandlerPackage(schemaHandlerPackage)
+      .typeName(typeName)
       .executionRoleArn(executionRoleArn.orNull)
       .loggingConfig(loggingConfig.orNull)
       .build()

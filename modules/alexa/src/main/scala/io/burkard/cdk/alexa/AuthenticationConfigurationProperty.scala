@@ -4,13 +4,13 @@ package io.burkard.cdk.alexa
 object AuthenticationConfigurationProperty {
 
   def apply(
-    clientId: Option[String] = None,
-    clientSecret: Option[String] = None,
-    refreshToken: Option[String] = None
+    clientId: String,
+    clientSecret: String,
+    refreshToken: String
   ): software.amazon.awscdk.alexa.ask.CfnSkill.AuthenticationConfigurationProperty =
     (new software.amazon.awscdk.alexa.ask.CfnSkill.AuthenticationConfigurationProperty.Builder)
-      .clientId(clientId.orNull)
-      .clientSecret(clientSecret.orNull)
-      .refreshToken(refreshToken.orNull)
+      .clientId(clientId)
+      .clientSecret(clientSecret)
+      .refreshToken(refreshToken)
       .build()
 }

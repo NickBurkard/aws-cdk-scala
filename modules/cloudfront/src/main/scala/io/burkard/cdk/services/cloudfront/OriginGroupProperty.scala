@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cloudfront
 object OriginGroupProperty {
 
   def apply(
-    id: Option[String] = None,
-    members: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupMembersProperty] = None,
-    failoverCriteria: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupFailoverCriteriaProperty] = None
+    id: String,
+    members: software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupMembersProperty,
+    failoverCriteria: software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupFailoverCriteriaProperty
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupProperty.Builder)
-      .id(id.orNull)
-      .members(members.orNull)
-      .failoverCriteria(failoverCriteria.orNull)
+      .id(id)
+      .members(members)
+      .failoverCriteria(failoverCriteria)
       .build()
 }

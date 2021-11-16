@@ -1,6 +1,10 @@
 package io.burkard.cdk
 
+import java.lang.reflect.Modifier
+
 import scala.util.matching.Regex
+
+import com.google.common.base.CaseFormat
 
 package object codegen {
   // Service-based builders.
@@ -81,5 +85,15 @@ package object codegen {
   final implicit class SourceGeneratorOps[A](private val source: A) extends AnyVal {
     def sourceFile(implicit sourceGenerator: SourceGenerator[A]): SourceFile =
       sourceGenerator.sourceFile(source)
+  }
+
+  final implicit class ClassOps(private val c: Class[_]) extends AnyVal {
+    def requiredFieldNames: Set[String] =
+      c.getDeclaredMethods.toList
+        .collect {
+          case m if !Modifier.isStatic(m.getModifiers) && m.getName.startsWith("get") && !m.isDefault =>
+            CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, m.getName.stripPrefix("get"))
+        }
+        .toSet
   }
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kms
 object AliasAttributes {
 
   def apply(
-    aliasName: Option[String] = None,
-    aliasTargetKey: Option[software.amazon.awscdk.services.kms.IKey] = None
+    aliasName: String,
+    aliasTargetKey: software.amazon.awscdk.services.kms.IKey
   ): software.amazon.awscdk.services.kms.AliasAttributes =
     (new software.amazon.awscdk.services.kms.AliasAttributes.Builder)
-      .aliasName(aliasName.orNull)
-      .aliasTargetKey(aliasTargetKey.orNull)
+      .aliasName(aliasName)
+      .aliasTargetKey(aliasTargetKey)
       .build()
 }

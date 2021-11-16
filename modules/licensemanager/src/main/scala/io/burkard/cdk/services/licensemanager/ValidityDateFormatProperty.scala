@@ -4,11 +4,11 @@ package io.burkard.cdk.services.licensemanager
 object ValidityDateFormatProperty {
 
   def apply(
-    begin: Option[String] = None,
-    end: Option[String] = None
+    begin: String,
+    end: String
   ): software.amazon.awscdk.services.licensemanager.CfnLicense.ValidityDateFormatProperty =
     (new software.amazon.awscdk.services.licensemanager.CfnLicense.ValidityDateFormatProperty.Builder)
-      .begin(begin.orNull)
-      .end(end.orNull)
+      .begin(begin)
+      .end(end)
       .build()
 }

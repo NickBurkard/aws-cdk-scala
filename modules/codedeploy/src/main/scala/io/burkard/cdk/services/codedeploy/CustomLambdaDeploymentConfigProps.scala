@@ -4,15 +4,15 @@ package io.burkard.cdk.services.codedeploy
 object CustomLambdaDeploymentConfigProps {
 
   def apply(
-    percentage: Option[Number] = None,
-    interval: Option[software.amazon.awscdk.Duration] = None,
-    deploymentConfigName: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigType] = None
+    percentage: Number,
+    interval: software.amazon.awscdk.Duration,
+    `type`: software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigType,
+    deploymentConfigName: Option[String] = None
   ): software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigProps =
     (new software.amazon.awscdk.services.codedeploy.CustomLambdaDeploymentConfigProps.Builder)
-      .percentage(percentage.orNull)
-      .interval(interval.orNull)
+      .percentage(percentage)
+      .interval(interval)
+      .`type`(`type`)
       .deploymentConfigName(deploymentConfigName.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

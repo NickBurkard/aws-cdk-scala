@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object TargetGroupsConfigProperty {
 
   def apply(
-    targetGroups: Option[List[_]] = None
+    targetGroups: List[_]
   ): software.amazon.awscdk.services.ec2.CfnSpotFleet.TargetGroupsConfigProperty =
     (new software.amazon.awscdk.services.ec2.CfnSpotFleet.TargetGroupsConfigProperty.Builder)
-      .targetGroups(targetGroups.map(_.asJava).orNull)
+      .targetGroups(targetGroups.asJava)
       .build()
 }

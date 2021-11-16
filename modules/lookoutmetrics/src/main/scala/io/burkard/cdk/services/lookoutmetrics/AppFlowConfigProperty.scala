@@ -4,11 +4,11 @@ package io.burkard.cdk.services.lookoutmetrics
 object AppFlowConfigProperty {
 
   def apply(
-    flowName: Option[String] = None,
-    roleArn: Option[String] = None
+    flowName: String,
+    roleArn: String
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.AppFlowConfigProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.AppFlowConfigProperty.Builder)
-      .flowName(flowName.orNull)
-      .roleArn(roleArn.orNull)
+      .flowName(flowName)
+      .roleArn(roleArn)
       .build()
 }

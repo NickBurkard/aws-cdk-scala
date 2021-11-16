@@ -4,13 +4,13 @@ package io.burkard.cdk.services.applicationinsights
 object LogPatternProperty {
 
   def apply(
-    pattern: Option[String] = None,
-    rank: Option[Number] = None,
-    patternName: Option[String] = None
+    pattern: String,
+    rank: Number,
+    patternName: String
   ): software.amazon.awscdk.services.applicationinsights.CfnApplication.LogPatternProperty =
     (new software.amazon.awscdk.services.applicationinsights.CfnApplication.LogPatternProperty.Builder)
-      .pattern(pattern.orNull)
-      .rank(rank.orNull)
-      .patternName(patternName.orNull)
+      .pattern(pattern)
+      .rank(rank)
+      .patternName(patternName)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object TagFilterProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.s3.CfnBucket.TagFilterProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.TagFilterProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }

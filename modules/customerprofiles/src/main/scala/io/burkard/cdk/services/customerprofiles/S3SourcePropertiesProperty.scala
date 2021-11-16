@@ -4,11 +4,11 @@ package io.burkard.cdk.services.customerprofiles
 object S3SourcePropertiesProperty {
 
   def apply(
-    bucketPrefix: Option[String] = None,
-    bucketName: Option[String] = None
+    bucketName: String,
+    bucketPrefix: Option[String] = None
   ): software.amazon.awscdk.services.customerprofiles.CfnIntegration.S3SourcePropertiesProperty =
     (new software.amazon.awscdk.services.customerprofiles.CfnIntegration.S3SourcePropertiesProperty.Builder)
+      .bucketName(bucketName)
       .bucketPrefix(bucketPrefix.orNull)
-      .bucketName(bucketName.orNull)
       .build()
 }

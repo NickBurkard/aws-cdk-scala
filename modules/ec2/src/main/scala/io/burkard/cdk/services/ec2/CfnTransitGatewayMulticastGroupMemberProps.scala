@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object CfnTransitGatewayMulticastGroupMemberProps {
 
   def apply(
-    groupIpAddress: Option[String] = None,
-    transitGatewayMulticastDomainId: Option[String] = None,
-    networkInterfaceId: Option[String] = None
+    groupIpAddress: String,
+    transitGatewayMulticastDomainId: String,
+    networkInterfaceId: String
   ): software.amazon.awscdk.services.ec2.CfnTransitGatewayMulticastGroupMemberProps =
     (new software.amazon.awscdk.services.ec2.CfnTransitGatewayMulticastGroupMemberProps.Builder)
-      .groupIpAddress(groupIpAddress.orNull)
-      .transitGatewayMulticastDomainId(transitGatewayMulticastDomainId.orNull)
-      .networkInterfaceId(networkInterfaceId.orNull)
+      .groupIpAddress(groupIpAddress)
+      .transitGatewayMulticastDomainId(transitGatewayMulticastDomainId)
+      .networkInterfaceId(networkInterfaceId)
       .build()
 }

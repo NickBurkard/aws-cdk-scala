@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnAgentProps {
 
   def apply(
+    activationKey: String,
     subnetArns: Option[List[String]] = None,
     agentName: Option[String] = None,
-    activationKey: Option[String] = None,
     vpcEndpointId: Option[String] = None,
     securityGroupArns: Option[List[String]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.datasync.CfnAgentProps =
     (new software.amazon.awscdk.services.datasync.CfnAgentProps.Builder)
+      .activationKey(activationKey)
       .subnetArns(subnetArns.map(_.asJava).orNull)
       .agentName(agentName.orNull)
-      .activationKey(activationKey.orNull)
       .vpcEndpointId(vpcEndpointId.orNull)
       .securityGroupArns(securityGroupArns.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)

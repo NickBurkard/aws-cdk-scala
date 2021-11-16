@@ -7,6 +7,8 @@ import scala.collection.JavaConverters._
 object SpotFleetRequestConfigDataProperty {
 
   def apply(
+    targetCapacity: Number,
+    iamFleetRole: String,
     onDemandTargetCapacity: Option[Number] = None,
     launchTemplateConfigs: Option[List[_]] = None,
     validUntil: Option[String] = None,
@@ -14,11 +16,9 @@ object SpotFleetRequestConfigDataProperty {
     instanceInterruptionBehavior: Option[String] = None,
     validFrom: Option[String] = None,
     loadBalancersConfig: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.LoadBalancersConfigProperty] = None,
-    targetCapacity: Option[Number] = None,
     excessCapacityTerminationPolicy: Option[String] = None,
     replaceUnhealthyInstances: Option[Boolean] = None,
     targetCapacityUnitType: Option[String] = None,
-    iamFleetRole: Option[String] = None,
     onDemandMaxTotalPrice: Option[String] = None,
     allocationStrategy: Option[String] = None,
     instancePoolsToUseCount: Option[Number] = None,
@@ -31,6 +31,8 @@ object SpotFleetRequestConfigDataProperty {
     spotPrice: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotFleetRequestConfigDataProperty =
     (new software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotFleetRequestConfigDataProperty.Builder)
+      .targetCapacity(targetCapacity)
+      .iamFleetRole(iamFleetRole)
       .onDemandTargetCapacity(onDemandTargetCapacity.orNull)
       .launchTemplateConfigs(launchTemplateConfigs.map(_.asJava).orNull)
       .validUntil(validUntil.orNull)
@@ -38,11 +40,9 @@ object SpotFleetRequestConfigDataProperty {
       .instanceInterruptionBehavior(instanceInterruptionBehavior.orNull)
       .validFrom(validFrom.orNull)
       .loadBalancersConfig(loadBalancersConfig.orNull)
-      .targetCapacity(targetCapacity.orNull)
       .excessCapacityTerminationPolicy(excessCapacityTerminationPolicy.orNull)
       .replaceUnhealthyInstances(replaceUnhealthyInstances.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .targetCapacityUnitType(targetCapacityUnitType.orNull)
-      .iamFleetRole(iamFleetRole.orNull)
       .onDemandMaxTotalPrice(onDemandMaxTotalPrice.orNull)
       .allocationStrategy(allocationStrategy.orNull)
       .instancePoolsToUseCount(instancePoolsToUseCount.orNull)

@@ -4,12 +4,12 @@ package io.burkard.cdk.services.datapipeline
 object FieldProperty {
 
   def apply(
-    key: Option[String] = None,
+    key: String,
     stringValue: Option[String] = None,
     refValue: Option[String] = None
   ): software.amazon.awscdk.services.datapipeline.CfnPipeline.FieldProperty =
     (new software.amazon.awscdk.services.datapipeline.CfnPipeline.FieldProperty.Builder)
-      .key(key.orNull)
+      .key(key)
       .stringValue(stringValue.orNull)
       .refValue(refValue.orNull)
       .build()

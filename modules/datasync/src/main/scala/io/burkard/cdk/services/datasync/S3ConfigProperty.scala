@@ -4,9 +4,9 @@ package io.burkard.cdk.services.datasync
 object S3ConfigProperty {
 
   def apply(
-    bucketAccessRoleArn: Option[String] = None
+    bucketAccessRoleArn: String
   ): software.amazon.awscdk.services.datasync.CfnLocationS3.S3ConfigProperty =
     (new software.amazon.awscdk.services.datasync.CfnLocationS3.S3ConfigProperty.Builder)
-      .bucketAccessRoleArn(bucketAccessRoleArn.orNull)
+      .bucketAccessRoleArn(bucketAccessRoleArn)
       .build()
 }

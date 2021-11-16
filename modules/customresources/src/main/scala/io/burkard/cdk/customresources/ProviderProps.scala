@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object ProviderProps {
 
   def apply(
+    onEventHandler: software.amazon.awscdk.services.lambda.IFunction,
     logRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    onEventHandler: Option[software.amazon.awscdk.services.lambda.IFunction] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
@@ -18,9 +18,9 @@ object ProviderProps {
     isCompleteHandler: Option[software.amazon.awscdk.services.lambda.IFunction] = None
   ): software.amazon.awscdk.customresources.ProviderProps =
     (new software.amazon.awscdk.customresources.ProviderProps.Builder)
+      .onEventHandler(onEventHandler)
       .logRetention(logRetention.orNull)
       .role(role.orNull)
-      .onEventHandler(onEventHandler.orNull)
       .vpcSubnets(vpcSubnets.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .vpc(vpc.orNull)

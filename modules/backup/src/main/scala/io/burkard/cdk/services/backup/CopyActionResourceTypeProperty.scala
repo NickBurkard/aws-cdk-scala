@@ -4,11 +4,11 @@ package io.burkard.cdk.services.backup
 object CopyActionResourceTypeProperty {
 
   def apply(
-    lifecycle: Option[software.amazon.awscdk.services.backup.CfnBackupPlan.LifecycleResourceTypeProperty] = None,
-    destinationBackupVaultArn: Option[String] = None
+    destinationBackupVaultArn: String,
+    lifecycle: Option[software.amazon.awscdk.services.backup.CfnBackupPlan.LifecycleResourceTypeProperty] = None
   ): software.amazon.awscdk.services.backup.CfnBackupPlan.CopyActionResourceTypeProperty =
     (new software.amazon.awscdk.services.backup.CfnBackupPlan.CopyActionResourceTypeProperty.Builder)
+      .destinationBackupVaultArn(destinationBackupVaultArn)
       .lifecycle(lifecycle.orNull)
-      .destinationBackupVaultArn(destinationBackupVaultArn.orNull)
       .build()
 }

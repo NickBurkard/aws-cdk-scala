@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ses
 object CfnReceiptRuleProps {
 
   def apply(
-    ruleSetName: Option[String] = None,
-    rule: Option[software.amazon.awscdk.services.ses.CfnReceiptRule.RuleProperty] = None,
+    ruleSetName: String,
+    rule: software.amazon.awscdk.services.ses.CfnReceiptRule.RuleProperty,
     after: Option[String] = None
   ): software.amazon.awscdk.services.ses.CfnReceiptRuleProps =
     (new software.amazon.awscdk.services.ses.CfnReceiptRuleProps.Builder)
-      .ruleSetName(ruleSetName.orNull)
-      .rule(rule.orNull)
+      .ruleSetName(ruleSetName)
+      .rule(rule)
       .after(after.orNull)
       .build()
 }

@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CfnDBInstanceProps {
 
   def apply(
+    dbInstanceClass: String,
     dbParameterGroupName: Option[String] = None,
     monitoringRoleArn: Option[String] = None,
     storageType: Option[String] = None,
@@ -17,7 +18,6 @@ object CfnDBInstanceProps {
     dbInstanceIdentifier: Option[String] = None,
     kmsKeyId: Option[String] = None,
     engineVersion: Option[String] = None,
-    dbInstanceClass: Option[String] = None,
     vpcSecurityGroups: Option[List[String]] = None,
     storageEncrypted: Option[Boolean] = None,
     dbClusterIdentifier: Option[String] = None,
@@ -61,6 +61,7 @@ object CfnDBInstanceProps {
     enablePerformanceInsights: Option[Boolean] = None
   ): software.amazon.awscdk.services.rds.CfnDBInstanceProps =
     (new software.amazon.awscdk.services.rds.CfnDBInstanceProps.Builder)
+      .dbInstanceClass(dbInstanceClass)
       .dbParameterGroupName(dbParameterGroupName.orNull)
       .monitoringRoleArn(monitoringRoleArn.orNull)
       .storageType(storageType.orNull)
@@ -71,7 +72,6 @@ object CfnDBInstanceProps {
       .dbInstanceIdentifier(dbInstanceIdentifier.orNull)
       .kmsKeyId(kmsKeyId.orNull)
       .engineVersion(engineVersion.orNull)
-      .dbInstanceClass(dbInstanceClass.orNull)
       .vpcSecurityGroups(vpcSecurityGroups.map(_.asJava).orNull)
       .storageEncrypted(storageEncrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .dbClusterIdentifier(dbClusterIdentifier.orNull)

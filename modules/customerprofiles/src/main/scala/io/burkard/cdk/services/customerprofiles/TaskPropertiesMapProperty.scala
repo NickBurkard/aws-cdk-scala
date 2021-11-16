@@ -4,11 +4,11 @@ package io.burkard.cdk.services.customerprofiles
 object TaskPropertiesMapProperty {
 
   def apply(
-    property: Option[String] = None,
-    operatorPropertyKey: Option[String] = None
+    property: String,
+    operatorPropertyKey: String
   ): software.amazon.awscdk.services.customerprofiles.CfnIntegration.TaskPropertiesMapProperty =
     (new software.amazon.awscdk.services.customerprofiles.CfnIntegration.TaskPropertiesMapProperty.Builder)
-      .property(property.orNull)
-      .operatorPropertyKey(operatorPropertyKey.orNull)
+      .property(property)
+      .operatorPropertyKey(operatorPropertyKey)
       .build()
 }

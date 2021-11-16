@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnProjectProps {
 
   def apply(
-    projectName: Option[String] = None,
+    projectName: String,
+    portalId: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    portalId: Option[String] = None,
     projectDescription: Option[String] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnProjectProps =
     (new software.amazon.awscdk.services.iotsitewise.CfnProjectProps.Builder)
-      .projectName(projectName.orNull)
+      .projectName(projectName)
+      .portalId(portalId)
       .tags(tags.map(_.asJava).orNull)
-      .portalId(portalId.orNull)
       .projectDescription(projectDescription.orNull)
       .build()
 }

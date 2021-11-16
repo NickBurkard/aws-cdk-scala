@@ -4,13 +4,13 @@ package io.burkard.cdk.services.route53
 object VpcEndpointServiceDomainNameProps {
 
   def apply(
-    endpointService: Option[software.amazon.awscdk.services.ec2.IVpcEndpointService] = None,
-    publicHostedZone: Option[software.amazon.awscdk.services.route53.IPublicHostedZone] = None,
-    domainName: Option[String] = None
+    endpointService: software.amazon.awscdk.services.ec2.IVpcEndpointService,
+    publicHostedZone: software.amazon.awscdk.services.route53.IPublicHostedZone,
+    domainName: String
   ): software.amazon.awscdk.services.route53.VpcEndpointServiceDomainNameProps =
     (new software.amazon.awscdk.services.route53.VpcEndpointServiceDomainNameProps.Builder)
-      .endpointService(endpointService.orNull)
-      .publicHostedZone(publicHostedZone.orNull)
-      .domainName(domainName.orNull)
+      .endpointService(endpointService)
+      .publicHostedZone(publicHostedZone)
+      .domainName(domainName)
       .build()
 }

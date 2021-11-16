@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object CfnMultiRegionAccessPointPolicyProps {
 
   def apply(
-    mrapName: Option[String] = None,
-    policy: Option[AnyRef] = None
+    mrapName: String,
+    policy: AnyRef
   ): software.amazon.awscdk.services.s3.CfnMultiRegionAccessPointPolicyProps =
     (new software.amazon.awscdk.services.s3.CfnMultiRegionAccessPointPolicyProps.Builder)
-      .mrapName(mrapName.orNull)
-      .policy(policy.orNull)
+      .mrapName(mrapName)
+      .policy(policy)
       .build()
 }

@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CdkPipelineProps {
 
   def apply(
-    cloudAssemblyArtifact: Option[software.amazon.awscdk.services.codepipeline.Artifact] = None,
+    cloudAssemblyArtifact: software.amazon.awscdk.services.codepipeline.Artifact,
     crossAccountKeys: Option[Boolean] = None,
     supportDockerAssets: Option[Boolean] = None,
     pipelineName: Option[String] = None,
@@ -26,7 +26,7 @@ object CdkPipelineProps {
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
   ): software.amazon.awscdk.pipelines.CdkPipelineProps =
     (new software.amazon.awscdk.pipelines.CdkPipelineProps.Builder)
-      .cloudAssemblyArtifact(cloudAssemblyArtifact.orNull)
+      .cloudAssemblyArtifact(cloudAssemblyArtifact)
       .crossAccountKeys(crossAccountKeys.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .supportDockerAssets(supportDockerAssets.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .pipelineName(pipelineName.orNull)

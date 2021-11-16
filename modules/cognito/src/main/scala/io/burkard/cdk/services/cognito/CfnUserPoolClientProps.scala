@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CfnUserPoolClientProps {
 
   def apply(
+    userPoolId: String,
     accessTokenValidity: Option[Number] = None,
     writeAttributes: Option[List[String]] = None,
     enableTokenRevocation: Option[Boolean] = None,
@@ -22,13 +23,13 @@ object CfnUserPoolClientProps {
     allowedOAuthFlowsUserPoolClient: Option[Boolean] = None,
     callbackUrLs: Option[List[String]] = None,
     clientName: Option[String] = None,
-    userPoolId: Option[String] = None,
     idTokenValidity: Option[Number] = None,
     generateSecret: Option[Boolean] = None,
     explicitAuthFlows: Option[List[String]] = None,
     supportedIdentityProviders: Option[List[String]] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolClientProps =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolClientProps.Builder)
+      .userPoolId(userPoolId)
       .accessTokenValidity(accessTokenValidity.orNull)
       .writeAttributes(writeAttributes.map(_.asJava).orNull)
       .enableTokenRevocation(enableTokenRevocation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -44,7 +45,6 @@ object CfnUserPoolClientProps {
       .allowedOAuthFlowsUserPoolClient(allowedOAuthFlowsUserPoolClient.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .callbackUrLs(callbackUrLs.map(_.asJava).orNull)
       .clientName(clientName.orNull)
-      .userPoolId(userPoolId.orNull)
       .idTokenValidity(idTokenValidity.orNull)
       .generateSecret(generateSecret.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .explicitAuthFlows(explicitAuthFlows.map(_.asJava).orNull)

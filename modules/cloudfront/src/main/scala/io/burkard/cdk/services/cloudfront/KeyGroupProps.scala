@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object KeyGroupProps {
 
   def apply(
-    items: Option[List[_ <: software.amazon.awscdk.services.cloudfront.IPublicKey]] = None,
+    items: List[_ <: software.amazon.awscdk.services.cloudfront.IPublicKey],
     comment: Option[String] = None,
     keyGroupName: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.KeyGroupProps =
     (new software.amazon.awscdk.services.cloudfront.KeyGroupProps.Builder)
-      .items(items.map(_.asJava).orNull)
+      .items(items.asJava)
       .comment(comment.orNull)
       .keyGroupName(keyGroupName.orNull)
       .build()

@@ -4,7 +4,7 @@ package io.burkard.cdk.services.logs
 object MetricFilterProps {
 
   def apply(
-    logGroup: Option[software.amazon.awscdk.services.logs.ILogGroup] = None,
+    logGroup: software.amazon.awscdk.services.logs.ILogGroup,
     filterPattern: Option[software.amazon.awscdk.services.logs.IFilterPattern] = None,
     metricName: Option[String] = None,
     metricNamespace: Option[String] = None,
@@ -12,7 +12,7 @@ object MetricFilterProps {
     defaultValue: Option[Number] = None
   ): software.amazon.awscdk.services.logs.MetricFilterProps =
     (new software.amazon.awscdk.services.logs.MetricFilterProps.Builder)
-      .logGroup(logGroup.orNull)
+      .logGroup(logGroup)
       .filterPattern(filterPattern.orNull)
       .metricName(metricName.orNull)
       .metricNamespace(metricNamespace.orNull)

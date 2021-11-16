@@ -4,11 +4,11 @@ package io.burkard.cdk.services.servicecatalogappregistry
 object CfnAttributeGroupAssociationProps {
 
   def apply(
-    application: Option[String] = None,
-    attributeGroup: Option[String] = None
+    application: String,
+    attributeGroup: String
   ): software.amazon.awscdk.services.servicecatalogappregistry.CfnAttributeGroupAssociationProps =
     (new software.amazon.awscdk.services.servicecatalogappregistry.CfnAttributeGroupAssociationProps.Builder)
-      .application(application.orNull)
-      .attributeGroup(attributeGroup.orNull)
+      .application(application)
+      .attributeGroup(attributeGroup)
       .build()
 }

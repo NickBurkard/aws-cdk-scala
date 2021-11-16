@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnDimensionProps {
 
   def apply(
+    stringValues: List[String],
+    `type`: String,
     name: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    stringValues: Option[List[String]] = None,
-    `type`: Option[String] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.iot.CfnDimensionProps =
     (new software.amazon.awscdk.services.iot.CfnDimensionProps.Builder)
+      .stringValues(stringValues.asJava)
+      .`type`(`type`)
       .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .stringValues(stringValues.map(_.asJava).orNull)
-      .`type`(`type`.orNull)
       .build()
 }

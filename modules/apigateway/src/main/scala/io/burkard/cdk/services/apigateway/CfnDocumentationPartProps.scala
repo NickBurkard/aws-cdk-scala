@@ -4,13 +4,13 @@ package io.burkard.cdk.services.apigateway
 object CfnDocumentationPartProps {
 
   def apply(
-    location: Option[software.amazon.awscdk.services.apigateway.CfnDocumentationPart.LocationProperty] = None,
-    properties: Option[String] = None,
-    restApiId: Option[String] = None
+    location: software.amazon.awscdk.services.apigateway.CfnDocumentationPart.LocationProperty,
+    properties: String,
+    restApiId: String
   ): software.amazon.awscdk.services.apigateway.CfnDocumentationPartProps =
     (new software.amazon.awscdk.services.apigateway.CfnDocumentationPartProps.Builder)
-      .location(location.orNull)
-      .properties(properties.orNull)
-      .restApiId(restApiId.orNull)
+      .location(location)
+      .properties(properties)
+      .restApiId(restApiId)
       .build()
 }

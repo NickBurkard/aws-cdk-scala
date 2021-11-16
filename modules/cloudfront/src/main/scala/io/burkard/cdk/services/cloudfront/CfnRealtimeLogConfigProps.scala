@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnRealtimeLogConfigProps {
 
   def apply(
-    name: Option[String] = None,
-    endPoints: Option[List[_]] = None,
-    samplingRate: Option[Number] = None,
-    fields: Option[List[String]] = None
+    name: String,
+    endPoints: List[_],
+    samplingRate: Number,
+    fields: List[String]
   ): software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfigProps =
     (new software.amazon.awscdk.services.cloudfront.CfnRealtimeLogConfigProps.Builder)
-      .name(name.orNull)
-      .endPoints(endPoints.map(_.asJava).orNull)
-      .samplingRate(samplingRate.orNull)
-      .fields(fields.map(_.asJava).orNull)
+      .name(name)
+      .endPoints(endPoints.asJava)
+      .samplingRate(samplingRate)
+      .fields(fields.asJava)
       .build()
 }

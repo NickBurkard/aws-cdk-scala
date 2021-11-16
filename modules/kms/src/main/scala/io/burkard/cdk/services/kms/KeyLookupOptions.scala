@@ -4,9 +4,9 @@ package io.burkard.cdk.services.kms
 object KeyLookupOptions {
 
   def apply(
-    aliasName: Option[String] = None
+    aliasName: String
   ): software.amazon.awscdk.services.kms.KeyLookupOptions =
     (new software.amazon.awscdk.services.kms.KeyLookupOptions.Builder)
-      .aliasName(aliasName.orNull)
+      .aliasName(aliasName)
       .build()
 }

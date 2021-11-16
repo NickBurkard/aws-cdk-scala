@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnCoreDefinitionVersionProps {
 
   def apply(
-    cores: Option[List[_]] = None,
-    coreDefinitionId: Option[String] = None
+    cores: List[_],
+    coreDefinitionId: String
   ): software.amazon.awscdk.services.greengrass.CfnCoreDefinitionVersionProps =
     (new software.amazon.awscdk.services.greengrass.CfnCoreDefinitionVersionProps.Builder)
-      .cores(cores.map(_.asJava).orNull)
-      .coreDefinitionId(coreDefinitionId.orNull)
+      .cores(cores.asJava)
+      .coreDefinitionId(coreDefinitionId)
       .build()
 }

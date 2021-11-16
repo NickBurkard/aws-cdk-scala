@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object TimestampPartitionProperty {
 
   def apply(
-    attributeName: Option[String] = None,
+    attributeName: String,
     timestampFormat: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDatastore.TimestampPartitionProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDatastore.TimestampPartitionProperty.Builder)
-      .attributeName(attributeName.orNull)
+      .attributeName(attributeName)
       .timestampFormat(timestampFormat.orNull)
       .build()
 }

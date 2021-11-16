@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codepipeline
 object OutputArtifactProperty {
 
   def apply(
-    name: Option[String] = None
+    name: String
   ): software.amazon.awscdk.services.codepipeline.CfnPipeline.OutputArtifactProperty =
     (new software.amazon.awscdk.services.codepipeline.CfnPipeline.OutputArtifactProperty.Builder)
-      .name(name.orNull)
+      .name(name)
       .build()
 }

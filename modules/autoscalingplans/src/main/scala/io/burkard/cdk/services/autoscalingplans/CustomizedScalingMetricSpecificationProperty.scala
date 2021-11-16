@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CustomizedScalingMetricSpecificationProperty {
 
   def apply(
-    statistic: Option[String] = None,
-    metricName: Option[String] = None,
+    statistic: String,
+    metricName: String,
+    namespace: String,
     dimensions: Option[List[_]] = None,
-    unit: Option[String] = None,
-    namespace: Option[String] = None
+    unit: Option[String] = None
   ): software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.CustomizedScalingMetricSpecificationProperty =
     (new software.amazon.awscdk.services.autoscalingplans.CfnScalingPlan.CustomizedScalingMetricSpecificationProperty.Builder)
-      .statistic(statistic.orNull)
-      .metricName(metricName.orNull)
+      .statistic(statistic)
+      .metricName(metricName)
+      .namespace(namespace)
       .dimensions(dimensions.map(_.asJava).orNull)
       .unit(unit.orNull)
-      .namespace(namespace.orNull)
       .build()
 }

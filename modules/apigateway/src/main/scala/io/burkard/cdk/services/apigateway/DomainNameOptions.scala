@@ -4,15 +4,15 @@ package io.burkard.cdk.services.apigateway
 object DomainNameOptions {
 
   def apply(
-    certificate: Option[software.amazon.awscdk.services.certificatemanager.ICertificate] = None,
-    domainName: Option[String] = None,
+    certificate: software.amazon.awscdk.services.certificatemanager.ICertificate,
+    domainName: String,
     mtls: Option[software.amazon.awscdk.services.apigateway.MTLSConfig] = None,
     endpointType: Option[software.amazon.awscdk.services.apigateway.EndpointType] = None,
     securityPolicy: Option[software.amazon.awscdk.services.apigateway.SecurityPolicy] = None
   ): software.amazon.awscdk.services.apigateway.DomainNameOptions =
     (new software.amazon.awscdk.services.apigateway.DomainNameOptions.Builder)
-      .certificate(certificate.orNull)
-      .domainName(domainName.orNull)
+      .certificate(certificate)
+      .domainName(domainName)
       .mtls(mtls.orNull)
       .endpointType(endpointType.orNull)
       .securityPolicy(securityPolicy.orNull)

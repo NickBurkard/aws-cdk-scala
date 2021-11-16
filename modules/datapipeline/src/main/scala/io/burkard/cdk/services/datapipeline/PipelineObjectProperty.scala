@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object PipelineObjectProperty {
 
   def apply(
-    name: Option[String] = None,
-    id: Option[String] = None,
-    fields: Option[List[_]] = None
+    name: String,
+    id: String,
+    fields: List[_]
   ): software.amazon.awscdk.services.datapipeline.CfnPipeline.PipelineObjectProperty =
     (new software.amazon.awscdk.services.datapipeline.CfnPipeline.PipelineObjectProperty.Builder)
-      .name(name.orNull)
-      .id(id.orNull)
-      .fields(fields.map(_.asJava).orNull)
+      .name(name)
+      .id(id)
+      .fields(fields.asJava)
       .build()
 }

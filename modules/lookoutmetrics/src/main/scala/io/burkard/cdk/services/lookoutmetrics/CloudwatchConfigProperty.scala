@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lookoutmetrics
 object CloudwatchConfigProperty {
 
   def apply(
-    roleArn: Option[String] = None
+    roleArn: String
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.CloudwatchConfigProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.CloudwatchConfigProperty.Builder)
-      .roleArn(roleArn.orNull)
+      .roleArn(roleArn)
       .build()
 }

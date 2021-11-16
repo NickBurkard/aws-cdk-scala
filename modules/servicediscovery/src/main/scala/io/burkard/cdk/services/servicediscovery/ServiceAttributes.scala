@@ -4,19 +4,19 @@ package io.burkard.cdk.services.servicediscovery
 object ServiceAttributes {
 
   def apply(
-    routingPolicy: Option[software.amazon.awscdk.services.servicediscovery.RoutingPolicy] = None,
-    serviceName: Option[String] = None,
-    serviceArn: Option[String] = None,
-    dnsRecordType: Option[software.amazon.awscdk.services.servicediscovery.DnsRecordType] = None,
-    serviceId: Option[String] = None,
-    namespace: Option[software.amazon.awscdk.services.servicediscovery.INamespace] = None
+    routingPolicy: software.amazon.awscdk.services.servicediscovery.RoutingPolicy,
+    serviceName: String,
+    serviceArn: String,
+    dnsRecordType: software.amazon.awscdk.services.servicediscovery.DnsRecordType,
+    serviceId: String,
+    namespace: software.amazon.awscdk.services.servicediscovery.INamespace
   ): software.amazon.awscdk.services.servicediscovery.ServiceAttributes =
     (new software.amazon.awscdk.services.servicediscovery.ServiceAttributes.Builder)
-      .routingPolicy(routingPolicy.orNull)
-      .serviceName(serviceName.orNull)
-      .serviceArn(serviceArn.orNull)
-      .dnsRecordType(dnsRecordType.orNull)
-      .serviceId(serviceId.orNull)
-      .namespace(namespace.orNull)
+      .routingPolicy(routingPolicy)
+      .serviceName(serviceName)
+      .serviceArn(serviceArn)
+      .dnsRecordType(dnsRecordType)
+      .serviceId(serviceId)
+      .namespace(namespace)
       .build()
 }

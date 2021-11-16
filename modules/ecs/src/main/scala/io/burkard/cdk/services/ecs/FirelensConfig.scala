@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object FirelensConfig {
 
   def apply(
-    options: Option[software.amazon.awscdk.services.ecs.FirelensOptions] = None,
-    `type`: Option[software.amazon.awscdk.services.ecs.FirelensLogRouterType] = None
+    `type`: software.amazon.awscdk.services.ecs.FirelensLogRouterType,
+    options: Option[software.amazon.awscdk.services.ecs.FirelensOptions] = None
   ): software.amazon.awscdk.services.ecs.FirelensConfig =
     (new software.amazon.awscdk.services.ecs.FirelensConfig.Builder)
+      .`type`(`type`)
       .options(options.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

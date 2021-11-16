@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudwatch
 object DimensionProperty {
 
   def apply(
-    name: Option[String] = None,
-    value: Option[String] = None
+    name: String,
+    value: String
   ): software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.DimensionProperty =
     (new software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.DimensionProperty.Builder)
-      .name(name.orNull)
-      .value(value.orNull)
+      .name(name)
+      .value(value)
       .build()
 }

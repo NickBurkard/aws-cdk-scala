@@ -4,13 +4,13 @@ package io.burkard.cdk.services.quicksight
 object SnowflakeParametersProperty {
 
   def apply(
-    database: Option[String] = None,
-    host: Option[String] = None,
-    warehouse: Option[String] = None
+    database: String,
+    host: String,
+    warehouse: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.SnowflakeParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.SnowflakeParametersProperty.Builder)
-      .database(database.orNull)
-      .host(host.orNull)
-      .warehouse(warehouse.orNull)
+      .database(database)
+      .host(host)
+      .warehouse(warehouse)
       .build()
 }

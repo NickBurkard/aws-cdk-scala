@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnMaintenanceWindowTargetProps {
 
   def apply(
+    windowId: String,
+    targets: List[_],
+    resourceType: String,
     name: Option[String] = None,
     ownerInformation: Option[String] = None,
-    windowId: Option[String] = None,
-    targets: Option[List[_]] = None,
-    description: Option[String] = None,
-    resourceType: Option[String] = None
+    description: Option[String] = None
   ): software.amazon.awscdk.services.ssm.CfnMaintenanceWindowTargetProps =
     (new software.amazon.awscdk.services.ssm.CfnMaintenanceWindowTargetProps.Builder)
+      .windowId(windowId)
+      .targets(targets.asJava)
+      .resourceType(resourceType)
       .name(name.orNull)
       .ownerInformation(ownerInformation.orNull)
-      .windowId(windowId.orNull)
-      .targets(targets.map(_.asJava).orNull)
       .description(description.orNull)
-      .resourceType(resourceType.orNull)
       .build()
 }

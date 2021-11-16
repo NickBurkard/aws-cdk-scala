@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object ForwardedValuesProperty {
 
   def apply(
-    queryString: Option[Boolean] = None,
+    queryString: Boolean,
     cookies: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.CookiesProperty] = None,
     queryStringCacheKeys: Option[List[String]] = None,
     headers: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.ForwardedValuesProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.ForwardedValuesProperty.Builder)
-      .queryString(queryString.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .queryString(queryString)
       .cookies(cookies.orNull)
       .queryStringCacheKeys(queryStringCacheKeys.map(_.asJava).orNull)
       .headers(headers.map(_.asJava).orNull)

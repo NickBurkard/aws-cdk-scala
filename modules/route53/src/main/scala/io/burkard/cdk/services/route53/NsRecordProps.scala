@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 object NsRecordProps {
 
   def apply(
+    values: List[String],
     recordName: Option[String] = None,
     comment: Option[String] = None,
-    values: Option[List[String]] = None,
     ttl: Option[software.amazon.awscdk.Duration] = None,
     zone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None
   ): software.amazon.awscdk.services.route53.NsRecordProps =
     (new software.amazon.awscdk.services.route53.NsRecordProps.Builder)
+      .values(values.asJava)
       .recordName(recordName.orNull)
       .comment(comment.orNull)
-      .values(values.map(_.asJava).orNull)
       .ttl(ttl.orNull)
       .zone(zone.orNull)
       .build()

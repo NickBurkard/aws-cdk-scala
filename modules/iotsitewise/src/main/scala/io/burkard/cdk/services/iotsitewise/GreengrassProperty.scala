@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotsitewise
 object GreengrassProperty {
 
   def apply(
-    groupArn: Option[String] = None
+    groupArn: String
   ): software.amazon.awscdk.services.iotsitewise.CfnGateway.GreengrassProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnGateway.GreengrassProperty.Builder)
-      .groupArn(groupArn.orNull)
+      .groupArn(groupArn)
       .build()
 }

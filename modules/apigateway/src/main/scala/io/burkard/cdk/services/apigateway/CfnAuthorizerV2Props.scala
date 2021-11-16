@@ -7,23 +7,23 @@ import scala.collection.JavaConverters._
 object CfnAuthorizerV2Props {
 
   def apply(
-    name: Option[String] = None,
-    authorizerType: Option[String] = None,
+    name: String,
+    authorizerType: String,
+    identitySource: List[String],
+    apiId: String,
     authorizerResultTtlInSeconds: Option[Number] = None,
-    identitySource: Option[List[String]] = None,
     identityValidationExpression: Option[String] = None,
-    apiId: Option[String] = None,
     authorizerCredentialsArn: Option[String] = None,
     jwtConfiguration: Option[software.amazon.awscdk.services.apigateway.CfnAuthorizerV2.JWTConfigurationProperty] = None,
     authorizerUri: Option[String] = None
   ): software.amazon.awscdk.services.apigateway.CfnAuthorizerV2Props =
     (new software.amazon.awscdk.services.apigateway.CfnAuthorizerV2Props.Builder)
-      .name(name.orNull)
-      .authorizerType(authorizerType.orNull)
+      .name(name)
+      .authorizerType(authorizerType)
+      .identitySource(identitySource.asJava)
+      .apiId(apiId)
       .authorizerResultTtlInSeconds(authorizerResultTtlInSeconds.orNull)
-      .identitySource(identitySource.map(_.asJava).orNull)
       .identityValidationExpression(identityValidationExpression.orNull)
-      .apiId(apiId.orNull)
       .authorizerCredentialsArn(authorizerCredentialsArn.orNull)
       .jwtConfiguration(jwtConfiguration.orNull)
       .authorizerUri(authorizerUri.orNull)

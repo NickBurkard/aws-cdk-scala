@@ -4,13 +4,13 @@ package io.burkard.cdk.services.certificatemanager
 object DomainValidationOptionProperty {
 
   def apply(
+    domainName: String,
     validationDomain: Option[String] = None,
-    hostedZoneId: Option[String] = None,
-    domainName: Option[String] = None
+    hostedZoneId: Option[String] = None
   ): software.amazon.awscdk.services.certificatemanager.CfnCertificate.DomainValidationOptionProperty =
     (new software.amazon.awscdk.services.certificatemanager.CfnCertificate.DomainValidationOptionProperty.Builder)
+      .domainName(domainName)
       .validationDomain(validationDomain.orNull)
       .hostedZoneId(hostedZoneId.orNull)
-      .domainName(domainName.orNull)
       .build()
 }

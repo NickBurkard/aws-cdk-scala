@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object RelationalTableProperty {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
+    dataSourceArn: String,
+    inputColumns: List[_],
     catalog: Option[String] = None,
-    dataSourceArn: Option[String] = None,
-    inputColumns: Option[List[_]] = None,
     schema: Option[String] = None
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.RelationalTableProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.RelationalTableProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .dataSourceArn(dataSourceArn)
+      .inputColumns(inputColumns.asJava)
       .catalog(catalog.orNull)
-      .dataSourceArn(dataSourceArn.orNull)
-      .inputColumns(inputColumns.map(_.asJava).orNull)
       .schema(schema.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.rds
 object EngineVersion {
 
   def apply(
-    fullVersion: Option[String] = None,
-    majorVersion: Option[String] = None
+    majorVersion: String,
+    fullVersion: Option[String] = None
   ): software.amazon.awscdk.services.rds.EngineVersion =
     (new software.amazon.awscdk.services.rds.EngineVersion.Builder)
+      .majorVersion(majorVersion)
       .fullVersion(fullVersion.orNull)
-      .majorVersion(majorVersion.orNull)
       .build()
 }

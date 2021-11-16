@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object HttpsRedirectProps {
 
   def apply(
+    targetDomain: String,
+    zone: software.amazon.awscdk.services.route53.IHostedZone,
     certificate: Option[software.amazon.awscdk.services.certificatemanager.ICertificate] = None,
-    targetDomain: Option[String] = None,
-    recordNames: Option[List[String]] = None,
-    zone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None
+    recordNames: Option[List[String]] = None
   ): software.amazon.awscdk.services.route53.patterns.HttpsRedirectProps =
     (new software.amazon.awscdk.services.route53.patterns.HttpsRedirectProps.Builder)
+      .targetDomain(targetDomain)
+      .zone(zone)
       .certificate(certificate.orNull)
-      .targetDomain(targetDomain.orNull)
       .recordNames(recordNames.map(_.asJava).orNull)
-      .zone(zone.orNull)
       .build()
 }

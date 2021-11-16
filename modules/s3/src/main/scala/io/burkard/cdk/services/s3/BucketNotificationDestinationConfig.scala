@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object BucketNotificationDestinationConfig {
 
   def apply(
-    arn: Option[String] = None,
-    `type`: Option[software.amazon.awscdk.services.s3.BucketNotificationDestinationType] = None,
+    arn: String,
+    `type`: software.amazon.awscdk.services.s3.BucketNotificationDestinationType,
     dependencies: Option[List[_ <: software.constructs.IDependable]] = None
   ): software.amazon.awscdk.services.s3.BucketNotificationDestinationConfig =
     (new software.amazon.awscdk.services.s3.BucketNotificationDestinationConfig.Builder)
-      .arn(arn.orNull)
-      .`type`(`type`.orNull)
+      .arn(arn)
+      .`type`(`type`)
       .dependencies(dependencies.map(_.asJava).orNull)
       .build()
 }

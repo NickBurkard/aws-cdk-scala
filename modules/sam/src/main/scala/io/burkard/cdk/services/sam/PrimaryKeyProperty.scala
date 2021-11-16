@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object PrimaryKeyProperty {
 
   def apply(
-    name: Option[String] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnSimpleTable.PrimaryKeyProperty =
     (new software.amazon.awscdk.services.sam.CfnSimpleTable.PrimaryKeyProperty.Builder)
+      .`type`(`type`)
       .name(name.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

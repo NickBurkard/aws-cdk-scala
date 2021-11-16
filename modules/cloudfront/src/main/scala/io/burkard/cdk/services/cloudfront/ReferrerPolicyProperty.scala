@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object ReferrerPolicyProperty {
 
   def apply(
-    referrerPolicy: Option[String] = None,
-    `override`: Option[Boolean] = None
+    referrerPolicy: String,
+    `override`: Boolean
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ReferrerPolicyProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ReferrerPolicyProperty.Builder)
-      .referrerPolicy(referrerPolicy.orNull)
-      .`override`(`override`.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .referrerPolicy(referrerPolicy)
+      .`override`(`override`)
       .build()
 }

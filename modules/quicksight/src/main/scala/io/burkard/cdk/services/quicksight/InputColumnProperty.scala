@@ -4,11 +4,11 @@ package io.burkard.cdk.services.quicksight
 object InputColumnProperty {
 
   def apply(
-    name: Option[String] = None,
-    `type`: Option[String] = None
+    name: String,
+    `type`: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.InputColumnProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.InputColumnProperty.Builder)
-      .name(name.orNull)
-      .`type`(`type`.orNull)
+      .name(name)
+      .`type`(`type`)
       .build()
 }

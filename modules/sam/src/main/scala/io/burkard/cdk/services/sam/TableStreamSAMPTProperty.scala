@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object TableStreamSAMPTProperty {
 
   def apply(
-    tableName: Option[String] = None,
-    streamName: Option[String] = None
+    tableName: String,
+    streamName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.TableStreamSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.TableStreamSAMPTProperty.Builder)
-      .tableName(tableName.orNull)
-      .streamName(streamName.orNull)
+      .tableName(tableName)
+      .streamName(streamName)
       .build()
 }

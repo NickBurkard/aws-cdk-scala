@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object LogicalTableProperty {
 
   def apply(
-    source: Option[software.amazon.awscdk.services.quicksight.CfnDataSet.LogicalTableSourceProperty] = None,
-    alias: Option[String] = None,
+    source: software.amazon.awscdk.services.quicksight.CfnDataSet.LogicalTableSourceProperty,
+    alias: String,
     dataTransforms: Option[List[_]] = None
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.LogicalTableProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.LogicalTableProperty.Builder)
-      .source(source.orNull)
-      .alias(alias.orNull)
+      .source(source)
+      .alias(alias)
       .dataTransforms(dataTransforms.map(_.asJava).orNull)
       .build()
 }

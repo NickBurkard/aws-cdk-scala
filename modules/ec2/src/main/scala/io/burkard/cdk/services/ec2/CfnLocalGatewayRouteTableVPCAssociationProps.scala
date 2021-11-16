@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnLocalGatewayRouteTableVPCAssociationProps {
 
   def apply(
-    vpcId: Option[String] = None,
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    localGatewayRouteTableId: Option[String] = None
+    vpcId: String,
+    localGatewayRouteTableId: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ec2.CfnLocalGatewayRouteTableVPCAssociationProps =
     (new software.amazon.awscdk.services.ec2.CfnLocalGatewayRouteTableVPCAssociationProps.Builder)
-      .vpcId(vpcId.orNull)
+      .vpcId(vpcId)
+      .localGatewayRouteTableId(localGatewayRouteTableId)
       .tags(tags.map(_.asJava).orNull)
-      .localGatewayRouteTableId(localGatewayRouteTableId.orNull)
       .build()
 }

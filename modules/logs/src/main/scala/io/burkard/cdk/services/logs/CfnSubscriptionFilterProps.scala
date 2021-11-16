@@ -4,15 +4,15 @@ package io.burkard.cdk.services.logs
 object CfnSubscriptionFilterProps {
 
   def apply(
-    filterPattern: Option[String] = None,
-    roleArn: Option[String] = None,
-    destinationArn: Option[String] = None,
-    logGroupName: Option[String] = None
+    filterPattern: String,
+    destinationArn: String,
+    logGroupName: String,
+    roleArn: Option[String] = None
   ): software.amazon.awscdk.services.logs.CfnSubscriptionFilterProps =
     (new software.amazon.awscdk.services.logs.CfnSubscriptionFilterProps.Builder)
-      .filterPattern(filterPattern.orNull)
+      .filterPattern(filterPattern)
+      .destinationArn(destinationArn)
+      .logGroupName(logGroupName)
       .roleArn(roleArn.orNull)
-      .destinationArn(destinationArn.orNull)
-      .logGroupName(logGroupName.orNull)
       .build()
 }

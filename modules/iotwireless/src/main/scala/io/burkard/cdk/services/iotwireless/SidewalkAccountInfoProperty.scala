@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotwireless
 object SidewalkAccountInfoProperty {
 
   def apply(
-    appServerPrivateKey: Option[String] = None
+    appServerPrivateKey: String
   ): software.amazon.awscdk.services.iotwireless.CfnPartnerAccount.SidewalkAccountInfoProperty =
     (new software.amazon.awscdk.services.iotwireless.CfnPartnerAccount.SidewalkAccountInfoProperty.Builder)
-      .appServerPrivateKey(appServerPrivateKey.orNull)
+      .appServerPrivateKey(appServerPrivateKey)
       .build()
 }

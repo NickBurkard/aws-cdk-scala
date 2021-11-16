@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object AutoScalingGroupCapacityOptions {
 
   def apply(
+    instanceType: software.amazon.awscdk.services.ec2.InstanceType,
     replacingUpdateMinSuccessfulInstancesPercent: Option[Number] = None,
     healthCheck: Option[software.amazon.awscdk.services.autoscaling.HealthCheck] = None,
     spotInterruptHandler: Option[Boolean] = None,
     signals: Option[software.amazon.awscdk.services.autoscaling.Signals] = None,
     machineImageType: Option[software.amazon.awscdk.services.eks.MachineImageType] = None,
     mapRole: Option[Boolean] = None,
-    instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     allowAllOutbound: Option[Boolean] = None,
     desiredCapacity: Option[Number] = None,
@@ -41,13 +41,13 @@ object AutoScalingGroupCapacityOptions {
     updatePolicy: Option[software.amazon.awscdk.services.autoscaling.UpdatePolicy] = None
   ): software.amazon.awscdk.services.eks.AutoScalingGroupCapacityOptions =
     (new software.amazon.awscdk.services.eks.AutoScalingGroupCapacityOptions.Builder)
+      .instanceType(instanceType)
       .replacingUpdateMinSuccessfulInstancesPercent(replacingUpdateMinSuccessfulInstancesPercent.orNull)
       .healthCheck(healthCheck.orNull)
       .spotInterruptHandler(spotInterruptHandler.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .signals(signals.orNull)
       .machineImageType(machineImageType.orNull)
       .mapRole(mapRole.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .instanceType(instanceType.orNull)
       .vpcSubnets(vpcSubnets.orNull)
       .allowAllOutbound(allowAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .desiredCapacity(desiredCapacity.orNull)

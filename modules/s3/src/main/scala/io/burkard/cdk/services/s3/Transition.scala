@@ -4,13 +4,13 @@ package io.burkard.cdk.services.s3
 object Transition {
 
   def apply(
+    storageClass: software.amazon.awscdk.services.s3.StorageClass,
     transitionAfter: Option[software.amazon.awscdk.Duration] = None,
-    storageClass: Option[software.amazon.awscdk.services.s3.StorageClass] = None,
     transitionDate: Option[java.time.Instant] = None
   ): software.amazon.awscdk.services.s3.Transition =
     (new software.amazon.awscdk.services.s3.Transition.Builder)
+      .storageClass(storageClass)
       .transitionAfter(transitionAfter.orNull)
-      .storageClass(storageClass.orNull)
       .transitionDate(transitionDate.orNull)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object KeyGroupConfigProperty {
 
   def apply(
-    name: Option[String] = None,
-    items: Option[List[String]] = None,
+    name: String,
+    items: List[String],
     comment: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.CfnKeyGroup.KeyGroupConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnKeyGroup.KeyGroupConfigProperty.Builder)
-      .name(name.orNull)
-      .items(items.map(_.asJava).orNull)
+      .name(name)
+      .items(items.asJava)
       .comment(comment.orNull)
       .build()
 }

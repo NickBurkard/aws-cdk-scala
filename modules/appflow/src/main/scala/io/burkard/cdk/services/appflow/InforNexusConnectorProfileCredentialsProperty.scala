@@ -4,15 +4,15 @@ package io.burkard.cdk.services.appflow
 object InforNexusConnectorProfileCredentialsProperty {
 
   def apply(
-    secretAccessKey: Option[String] = None,
-    datakey: Option[String] = None,
-    accessKeyId: Option[String] = None,
-    userId: Option[String] = None
+    secretAccessKey: String,
+    datakey: String,
+    accessKeyId: String,
+    userId: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.InforNexusConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.InforNexusConnectorProfileCredentialsProperty.Builder)
-      .secretAccessKey(secretAccessKey.orNull)
-      .datakey(datakey.orNull)
-      .accessKeyId(accessKeyId.orNull)
-      .userId(userId.orNull)
+      .secretAccessKey(secretAccessKey)
+      .datakey(datakey)
+      .accessKeyId(accessKeyId)
+      .userId(userId)
       .build()
 }

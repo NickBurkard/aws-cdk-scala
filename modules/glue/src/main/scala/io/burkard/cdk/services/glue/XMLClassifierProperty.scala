@@ -4,13 +4,13 @@ package io.burkard.cdk.services.glue
 object XMLClassifierProperty {
 
   def apply(
-    name: Option[String] = None,
-    rowTag: Option[String] = None,
-    classification: Option[String] = None
+    rowTag: String,
+    classification: String,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.glue.CfnClassifier.XMLClassifierProperty =
     (new software.amazon.awscdk.services.glue.CfnClassifier.XMLClassifierProperty.Builder)
+      .rowTag(rowTag)
+      .classification(classification)
       .name(name.orNull)
-      .rowTag(rowTag.orNull)
-      .classification(classification.orNull)
       .build()
 }

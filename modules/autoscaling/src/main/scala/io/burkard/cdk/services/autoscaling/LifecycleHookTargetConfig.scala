@@ -4,9 +4,9 @@ package io.burkard.cdk.services.autoscaling
 object LifecycleHookTargetConfig {
 
   def apply(
-    notificationTargetArn: Option[String] = None
+    notificationTargetArn: String
   ): software.amazon.awscdk.services.autoscaling.LifecycleHookTargetConfig =
     (new software.amazon.awscdk.services.autoscaling.LifecycleHookTargetConfig.Builder)
-      .notificationTargetArn(notificationTargetArn.orNull)
+      .notificationTargetArn(notificationTargetArn)
       .build()
 }

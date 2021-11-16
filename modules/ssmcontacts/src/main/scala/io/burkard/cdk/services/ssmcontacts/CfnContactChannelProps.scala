@@ -4,17 +4,17 @@ package io.burkard.cdk.services.ssmcontacts
 object CfnContactChannelProps {
 
   def apply(
-    channelType: Option[String] = None,
-    contactId: Option[String] = None,
-    deferActivation: Option[Boolean] = None,
-    channelAddress: Option[String] = None,
-    channelName: Option[String] = None
+    channelType: String,
+    contactId: String,
+    channelAddress: String,
+    channelName: String,
+    deferActivation: Option[Boolean] = None
   ): software.amazon.awscdk.services.ssmcontacts.CfnContactChannelProps =
     (new software.amazon.awscdk.services.ssmcontacts.CfnContactChannelProps.Builder)
-      .channelType(channelType.orNull)
-      .contactId(contactId.orNull)
+      .channelType(channelType)
+      .contactId(contactId)
+      .channelAddress(channelAddress)
+      .channelName(channelName)
       .deferActivation(deferActivation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .channelAddress(channelAddress.orNull)
-      .channelName(channelName.orNull)
       .build()
 }

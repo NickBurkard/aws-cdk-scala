@@ -4,13 +4,13 @@ package io.burkard.cdk.services.sagemaker
 object CustomImageProperty {
 
   def apply(
-    appImageConfigName: Option[String] = None,
-    imageName: Option[String] = None,
+    appImageConfigName: String,
+    imageName: String,
     imageVersionNumber: Option[Number] = None
   ): software.amazon.awscdk.services.sagemaker.CfnUserProfile.CustomImageProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnUserProfile.CustomImageProperty.Builder)
-      .appImageConfigName(appImageConfigName.orNull)
-      .imageName(imageName.orNull)
+      .appImageConfigName(appImageConfigName)
+      .imageName(imageName)
       .imageVersionNumber(imageVersionNumber.orNull)
       .build()
 }

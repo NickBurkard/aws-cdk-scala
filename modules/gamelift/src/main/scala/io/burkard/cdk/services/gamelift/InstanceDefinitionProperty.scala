@@ -4,11 +4,11 @@ package io.burkard.cdk.services.gamelift
 object InstanceDefinitionProperty {
 
   def apply(
-    instanceType: Option[String] = None,
+    instanceType: String,
     weightedCapacity: Option[String] = None
   ): software.amazon.awscdk.services.gamelift.CfnGameServerGroup.InstanceDefinitionProperty =
     (new software.amazon.awscdk.services.gamelift.CfnGameServerGroup.InstanceDefinitionProperty.Builder)
-      .instanceType(instanceType.orNull)
+      .instanceType(instanceType)
       .weightedCapacity(weightedCapacity.orNull)
       .build()
 }

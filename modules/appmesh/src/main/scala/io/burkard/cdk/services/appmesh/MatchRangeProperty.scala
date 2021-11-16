@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object MatchRangeProperty {
 
   def apply(
-    end: Option[Number] = None,
-    start: Option[Number] = None
+    end: Number,
+    start: Number
   ): software.amazon.awscdk.services.appmesh.CfnRoute.MatchRangeProperty =
     (new software.amazon.awscdk.services.appmesh.CfnRoute.MatchRangeProperty.Builder)
-      .end(end.orNull)
-      .start(start.orNull)
+      .end(end)
+      .start(start)
       .build()
 }

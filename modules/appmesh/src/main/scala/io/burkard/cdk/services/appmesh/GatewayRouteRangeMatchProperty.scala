@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object GatewayRouteRangeMatchProperty {
 
   def apply(
-    end: Option[Number] = None,
-    start: Option[Number] = None
+    end: Number,
+    start: Number
   ): software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteRangeMatchProperty =
     (new software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteRangeMatchProperty.Builder)
-      .end(end.orNull)
-      .start(start.orNull)
+      .end(end)
+      .start(start)
       .build()
 }

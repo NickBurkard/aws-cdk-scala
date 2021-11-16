@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AllowedPublishersProperty {
 
   def apply(
-    signingProfileVersionArns: Option[List[String]] = None
+    signingProfileVersionArns: List[String]
   ): software.amazon.awscdk.services.lambda.CfnCodeSigningConfig.AllowedPublishersProperty =
     (new software.amazon.awscdk.services.lambda.CfnCodeSigningConfig.AllowedPublishersProperty.Builder)
-      .signingProfileVersionArns(signingProfileVersionArns.map(_.asJava).orNull)
+      .signingProfileVersionArns(signingProfileVersionArns.asJava)
       .build()
 }

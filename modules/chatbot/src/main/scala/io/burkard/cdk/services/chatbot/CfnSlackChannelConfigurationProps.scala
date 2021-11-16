@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnSlackChannelConfigurationProps {
 
   def apply(
-    iamRoleArn: Option[String] = None,
-    slackChannelId: Option[String] = None,
+    iamRoleArn: String,
+    slackChannelId: String,
+    slackWorkspaceId: String,
+    configurationName: String,
     loggingLevel: Option[String] = None,
-    slackWorkspaceId: Option[String] = None,
-    snsTopicArns: Option[List[String]] = None,
-    configurationName: Option[String] = None
+    snsTopicArns: Option[List[String]] = None
   ): software.amazon.awscdk.services.chatbot.CfnSlackChannelConfigurationProps =
     (new software.amazon.awscdk.services.chatbot.CfnSlackChannelConfigurationProps.Builder)
-      .iamRoleArn(iamRoleArn.orNull)
-      .slackChannelId(slackChannelId.orNull)
+      .iamRoleArn(iamRoleArn)
+      .slackChannelId(slackChannelId)
+      .slackWorkspaceId(slackWorkspaceId)
+      .configurationName(configurationName)
       .loggingLevel(loggingLevel.orNull)
-      .slackWorkspaceId(slackWorkspaceId.orNull)
       .snsTopicArns(snsTopicArns.map(_.asJava).orNull)
-      .configurationName(configurationName.orNull)
       .build()
 }

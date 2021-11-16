@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object QueueSAMPTProperty {
 
   def apply(
-    queueName: Option[String] = None
+    queueName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.QueueSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.QueueSAMPTProperty.Builder)
-      .queueName(queueName.orNull)
+      .queueName(queueName)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.customerprofiles
 object ZendeskSourcePropertiesProperty {
 
   def apply(
-    `object`: Option[String] = None
+    `object`: String
   ): software.amazon.awscdk.services.customerprofiles.CfnIntegration.ZendeskSourcePropertiesProperty =
     (new software.amazon.awscdk.services.customerprofiles.CfnIntegration.ZendeskSourcePropertiesProperty.Builder)
-      .`object`(`object`.orNull)
+      .`object`(`object`)
       .build()
 }

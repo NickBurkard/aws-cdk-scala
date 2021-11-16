@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object IntelligentTieringConfigurationProperty {
 
   def apply(
+    tierings: List[_],
+    id: String,
+    status: String,
     tagFilters: Option[List[_]] = None,
-    prefix: Option[String] = None,
-    tierings: Option[List[_]] = None,
-    id: Option[String] = None,
-    status: Option[String] = None
+    prefix: Option[String] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.IntelligentTieringConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.IntelligentTieringConfigurationProperty.Builder)
+      .tierings(tierings.asJava)
+      .id(id)
+      .status(status)
       .tagFilters(tagFilters.map(_.asJava).orNull)
       .prefix(prefix.orNull)
-      .tierings(tierings.map(_.asJava).orNull)
-      .id(id.orNull)
-      .status(status.orNull)
       .build()
 }

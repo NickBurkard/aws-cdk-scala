@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object OnPremConfigProperty {
 
   def apply(
-    agentArns: Option[List[String]] = None
+    agentArns: List[String]
   ): software.amazon.awscdk.services.datasync.CfnLocationNFS.OnPremConfigProperty =
     (new software.amazon.awscdk.services.datasync.CfnLocationNFS.OnPremConfigProperty.Builder)
-      .agentArns(agentArns.map(_.asJava).orNull)
+      .agentArns(agentArns.asJava)
       .build()
 }

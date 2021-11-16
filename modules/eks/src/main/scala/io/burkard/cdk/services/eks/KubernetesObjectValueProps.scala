@@ -4,19 +4,19 @@ package io.burkard.cdk.services.eks
 object KubernetesObjectValueProps {
 
   def apply(
-    jsonPath: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.eks.ICluster] = None,
-    objectType: Option[String] = None,
+    jsonPath: String,
+    cluster: software.amazon.awscdk.services.eks.ICluster,
+    objectType: String,
+    objectName: String,
     objectNamespace: Option[String] = None,
-    timeout: Option[software.amazon.awscdk.Duration] = None,
-    objectName: Option[String] = None
+    timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.eks.KubernetesObjectValueProps =
     (new software.amazon.awscdk.services.eks.KubernetesObjectValueProps.Builder)
-      .jsonPath(jsonPath.orNull)
-      .cluster(cluster.orNull)
-      .objectType(objectType.orNull)
+      .jsonPath(jsonPath)
+      .cluster(cluster)
+      .objectType(objectType)
+      .objectName(objectName)
       .objectNamespace(objectNamespace.orNull)
       .timeout(timeout.orNull)
-      .objectName(objectName.orNull)
       .build()
 }

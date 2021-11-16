@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CfnNetworkInterfaceProps {
 
   def apply(
+    subnetId: String,
     interfaceType: Option[String] = None,
     ipv6Addresses: Option[List[_]] = None,
     ipv6AddressCount: Option[Number] = None,
@@ -16,10 +17,10 @@ object CfnNetworkInterfaceProps {
     privateIpAddress: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    subnetId: Option[String] = None,
     privateIpAddresses: Option[List[_]] = None
   ): software.amazon.awscdk.services.ec2.CfnNetworkInterfaceProps =
     (new software.amazon.awscdk.services.ec2.CfnNetworkInterfaceProps.Builder)
+      .subnetId(subnetId)
       .interfaceType(interfaceType.orNull)
       .ipv6Addresses(ipv6Addresses.map(_.asJava).orNull)
       .ipv6AddressCount(ipv6AddressCount.orNull)
@@ -29,7 +30,6 @@ object CfnNetworkInterfaceProps {
       .privateIpAddress(privateIpAddress.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .subnetId(subnetId.orNull)
       .privateIpAddresses(privateIpAddresses.map(_.asJava).orNull)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codepipeline
 object JenkinsProviderAttributes {
 
   def apply(
-    serverUrl: Option[String] = None,
-    version: Option[String] = None,
-    providerName: Option[String] = None
+    serverUrl: String,
+    providerName: String,
+    version: Option[String] = None
   ): software.amazon.awscdk.services.codepipeline.actions.JenkinsProviderAttributes =
     (new software.amazon.awscdk.services.codepipeline.actions.JenkinsProviderAttributes.Builder)
-      .serverUrl(serverUrl.orNull)
+      .serverUrl(serverUrl)
+      .providerName(providerName)
       .version(version.orNull)
-      .providerName(providerName.orNull)
       .build()
 }

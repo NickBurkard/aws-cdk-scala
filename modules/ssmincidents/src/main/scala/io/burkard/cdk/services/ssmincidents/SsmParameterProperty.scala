@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object SsmParameterProperty {
 
   def apply(
-    key: Option[String] = None,
-    values: Option[List[String]] = None
+    key: String,
+    values: List[String]
   ): software.amazon.awscdk.services.ssmincidents.CfnResponsePlan.SsmParameterProperty =
     (new software.amazon.awscdk.services.ssmincidents.CfnResponsePlan.SsmParameterProperty.Builder)
-      .key(key.orNull)
-      .values(values.map(_.asJava).orNull)
+      .key(key)
+      .values(values.asJava)
       .build()
 }

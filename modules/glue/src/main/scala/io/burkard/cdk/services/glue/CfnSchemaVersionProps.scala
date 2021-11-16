@@ -4,11 +4,11 @@ package io.burkard.cdk.services.glue
 object CfnSchemaVersionProps {
 
   def apply(
-    schemaDefinition: Option[String] = None,
-    schema: Option[software.amazon.awscdk.services.glue.CfnSchemaVersion.SchemaProperty] = None
+    schemaDefinition: String,
+    schema: software.amazon.awscdk.services.glue.CfnSchemaVersion.SchemaProperty
   ): software.amazon.awscdk.services.glue.CfnSchemaVersionProps =
     (new software.amazon.awscdk.services.glue.CfnSchemaVersionProps.Builder)
-      .schemaDefinition(schemaDefinition.orNull)
-      .schema(schema.orNull)
+      .schemaDefinition(schemaDefinition)
+      .schema(schema)
       .build()
 }

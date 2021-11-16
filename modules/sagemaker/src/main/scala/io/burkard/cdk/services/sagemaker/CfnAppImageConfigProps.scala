@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnAppImageConfigProps {
 
   def apply(
+    appImageConfigName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    appImageConfigName: Option[String] = None,
     kernelGatewayImageConfig: Option[software.amazon.awscdk.services.sagemaker.CfnAppImageConfig.KernelGatewayImageConfigProperty] = None
   ): software.amazon.awscdk.services.sagemaker.CfnAppImageConfigProps =
     (new software.amazon.awscdk.services.sagemaker.CfnAppImageConfigProps.Builder)
+      .appImageConfigName(appImageConfigName)
       .tags(tags.map(_.asJava).orNull)
-      .appImageConfigName(appImageConfigName.orNull)
       .kernelGatewayImageConfig(kernelGatewayImageConfig.orNull)
       .build()
 }

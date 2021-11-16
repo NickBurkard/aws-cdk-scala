@@ -4,11 +4,11 @@ package io.burkard.cdk.services.emr
 object BootstrapActionConfigProperty {
 
   def apply(
-    name: Option[String] = None,
-    scriptBootstrapAction: Option[software.amazon.awscdk.services.emr.CfnCluster.ScriptBootstrapActionConfigProperty] = None
+    name: String,
+    scriptBootstrapAction: software.amazon.awscdk.services.emr.CfnCluster.ScriptBootstrapActionConfigProperty
   ): software.amazon.awscdk.services.emr.CfnCluster.BootstrapActionConfigProperty =
     (new software.amazon.awscdk.services.emr.CfnCluster.BootstrapActionConfigProperty.Builder)
-      .name(name.orNull)
-      .scriptBootstrapAction(scriptBootstrapAction.orNull)
+      .name(name)
+      .scriptBootstrapAction(scriptBootstrapAction)
       .build()
 }

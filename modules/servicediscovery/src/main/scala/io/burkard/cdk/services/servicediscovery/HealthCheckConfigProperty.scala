@@ -4,13 +4,13 @@ package io.burkard.cdk.services.servicediscovery
 object HealthCheckConfigProperty {
 
   def apply(
+    `type`: String,
     resourcePath: Option[String] = None,
-    failureThreshold: Option[Number] = None,
-    `type`: Option[String] = None
+    failureThreshold: Option[Number] = None
   ): software.amazon.awscdk.services.servicediscovery.CfnService.HealthCheckConfigProperty =
     (new software.amazon.awscdk.services.servicediscovery.CfnService.HealthCheckConfigProperty.Builder)
+      .`type`(`type`)
       .resourcePath(resourcePath.orNull)
       .failureThreshold(failureThreshold.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.s3
 object AwsOrgProperty {
 
   def apply(
-    arn: Option[String] = None
+    arn: String
   ): software.amazon.awscdk.services.s3.CfnStorageLens.AwsOrgProperty =
     (new software.amazon.awscdk.services.s3.CfnStorageLens.AwsOrgProperty.Builder)
-      .arn(arn.orNull)
+      .arn(arn)
       .build()
 }

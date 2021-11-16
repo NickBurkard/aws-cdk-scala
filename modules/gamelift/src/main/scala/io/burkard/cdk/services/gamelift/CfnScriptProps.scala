@@ -4,13 +4,13 @@ package io.burkard.cdk.services.gamelift
 object CfnScriptProps {
 
   def apply(
+    storageLocation: software.amazon.awscdk.services.gamelift.CfnScript.S3LocationProperty,
     name: Option[String] = None,
-    version: Option[String] = None,
-    storageLocation: Option[software.amazon.awscdk.services.gamelift.CfnScript.S3LocationProperty] = None
+    version: Option[String] = None
   ): software.amazon.awscdk.services.gamelift.CfnScriptProps =
     (new software.amazon.awscdk.services.gamelift.CfnScriptProps.Builder)
+      .storageLocation(storageLocation)
       .name(name.orNull)
       .version(version.orNull)
-      .storageLocation(storageLocation.orNull)
       .build()
 }

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.sam
 object CloudWatchEventEventProperty {
 
   def apply(
-    pattern: Option[AnyRef] = None,
+    pattern: AnyRef,
     eventBusName: Option[String] = None,
     inputPath: Option[String] = None,
     input: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnStateMachine.CloudWatchEventEventProperty =
     (new software.amazon.awscdk.services.sam.CfnStateMachine.CloudWatchEventEventProperty.Builder)
-      .pattern(pattern.orNull)
+      .pattern(pattern)
       .eventBusName(eventBusName.orNull)
       .inputPath(inputPath.orNull)
       .input(input.orNull)

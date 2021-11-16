@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object NodegroupRemoteAccess {
 
   def apply(
-    sshKeyName: Option[String] = None,
+    sshKeyName: String,
     sourceSecurityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None
   ): software.amazon.awscdk.services.eks.NodegroupRemoteAccess =
     (new software.amazon.awscdk.services.eks.NodegroupRemoteAccess.Builder)
-      .sshKeyName(sshKeyName.orNull)
+      .sshKeyName(sshKeyName)
       .sourceSecurityGroups(sourceSecurityGroups.map(_.asJava).orNull)
       .build()
 }

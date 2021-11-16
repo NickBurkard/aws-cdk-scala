@@ -4,15 +4,15 @@ package io.burkard.cdk.services.pinpoint
 object CfnADMChannelProps {
 
   def apply(
-    clientId: Option[String] = None,
-    clientSecret: Option[String] = None,
-    applicationId: Option[String] = None,
+    clientId: String,
+    clientSecret: String,
+    applicationId: String,
     enabled: Option[Boolean] = None
   ): software.amazon.awscdk.services.pinpoint.CfnADMChannelProps =
     (new software.amazon.awscdk.services.pinpoint.CfnADMChannelProps.Builder)
-      .clientId(clientId.orNull)
-      .clientSecret(clientSecret.orNull)
-      .applicationId(applicationId.orNull)
+      .clientId(clientId)
+      .clientSecret(clientSecret)
+      .applicationId(applicationId)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisanalytics
 object S3ContentBaseLocationProperty {
 
   def apply(
-    basePath: Option[String] = None,
-    bucketArn: Option[String] = None
+    basePath: String,
+    bucketArn: String
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.S3ContentBaseLocationProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.S3ContentBaseLocationProperty.Builder)
-      .basePath(basePath.orNull)
-      .bucketArn(bucketArn.orNull)
+      .basePath(basePath)
+      .bucketArn(bucketArn)
       .build()
 }

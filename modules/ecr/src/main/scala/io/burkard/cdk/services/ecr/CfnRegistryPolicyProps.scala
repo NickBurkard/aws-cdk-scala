@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ecr
 object CfnRegistryPolicyProps {
 
   def apply(
-    policyText: Option[AnyRef] = None
+    policyText: AnyRef
   ): software.amazon.awscdk.services.ecr.CfnRegistryPolicyProps =
     (new software.amazon.awscdk.services.ecr.CfnRegistryPolicyProps.Builder)
-      .policyText(policyText.orNull)
+      .policyText(policyText)
       .build()
 }

@@ -4,17 +4,17 @@ package io.burkard.cdk.services.rds
 object SubnetGroupProps {
 
   def apply(
+    description: String,
+    vpc: software.amazon.awscdk.services.ec2.IVpc,
     subnetGroupName: Option[String] = None,
-    description: Option[String] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
-    vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   ): software.amazon.awscdk.services.rds.SubnetGroupProps =
     (new software.amazon.awscdk.services.rds.SubnetGroupProps.Builder)
+      .description(description)
+      .vpc(vpc)
       .subnetGroupName(subnetGroupName.orNull)
-      .description(description.orNull)
       .vpcSubnets(vpcSubnets.orNull)
-      .vpc(vpc.orNull)
       .removalPolicy(removalPolicy.orNull)
       .build()
 }

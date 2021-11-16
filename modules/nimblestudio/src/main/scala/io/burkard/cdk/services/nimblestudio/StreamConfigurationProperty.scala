@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object StreamConfigurationProperty {
 
   def apply(
-    ec2InstanceTypes: Option[List[String]] = None,
-    streamingImageIds: Option[List[String]] = None,
-    clipboardMode: Option[String] = None,
+    ec2InstanceTypes: List[String],
+    streamingImageIds: List[String],
+    clipboardMode: String,
     maxSessionLengthInMinutes: Option[Number] = None
   ): software.amazon.awscdk.services.nimblestudio.CfnLaunchProfile.StreamConfigurationProperty =
     (new software.amazon.awscdk.services.nimblestudio.CfnLaunchProfile.StreamConfigurationProperty.Builder)
-      .ec2InstanceTypes(ec2InstanceTypes.map(_.asJava).orNull)
-      .streamingImageIds(streamingImageIds.map(_.asJava).orNull)
-      .clipboardMode(clipboardMode.orNull)
+      .ec2InstanceTypes(ec2InstanceTypes.asJava)
+      .streamingImageIds(streamingImageIds.asJava)
+      .clipboardMode(clipboardMode)
       .maxSessionLengthInMinutes(maxSessionLengthInMinutes.orNull)
       .build()
 }

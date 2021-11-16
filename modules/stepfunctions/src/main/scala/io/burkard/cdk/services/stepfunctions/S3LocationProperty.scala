@@ -4,13 +4,13 @@ package io.burkard.cdk.services.stepfunctions
 object S3LocationProperty {
 
   def apply(
-    key: Option[String] = None,
-    version: Option[String] = None,
-    bucket: Option[String] = None
+    key: String,
+    bucket: String,
+    version: Option[String] = None
   ): software.amazon.awscdk.services.stepfunctions.CfnStateMachine.S3LocationProperty =
     (new software.amazon.awscdk.services.stepfunctions.CfnStateMachine.S3LocationProperty.Builder)
-      .key(key.orNull)
+      .key(key)
+      .bucket(bucket)
       .version(version.orNull)
-      .bucket(bucket.orNull)
       .build()
 }

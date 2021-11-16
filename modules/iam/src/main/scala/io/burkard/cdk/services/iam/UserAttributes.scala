@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iam
 object UserAttributes {
 
   def apply(
-    userArn: Option[String] = None
+    userArn: String
   ): software.amazon.awscdk.services.iam.UserAttributes =
     (new software.amazon.awscdk.services.iam.UserAttributes.Builder)
-      .userArn(userArn.orNull)
+      .userArn(userArn)
       .build()
 }

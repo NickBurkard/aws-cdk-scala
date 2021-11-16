@@ -4,9 +4,9 @@ package io.burkard.cdk.services.wisdom
 object AssociationDataProperty {
 
   def apply(
-    knowledgeBaseId: Option[String] = None
+    knowledgeBaseId: String
   ): software.amazon.awscdk.services.wisdom.CfnAssistantAssociation.AssociationDataProperty =
     (new software.amazon.awscdk.services.wisdom.CfnAssistantAssociation.AssociationDataProperty.Builder)
-      .knowledgeBaseId(knowledgeBaseId.orNull)
+      .knowledgeBaseId(knowledgeBaseId)
       .build()
 }

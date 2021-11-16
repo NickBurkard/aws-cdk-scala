@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object ApplicationLocationProperty {
 
   def apply(
-    applicationId: Option[String] = None,
-    semanticVersion: Option[String] = None
+    applicationId: String,
+    semanticVersion: String
   ): software.amazon.awscdk.services.sam.CfnApplication.ApplicationLocationProperty =
     (new software.amazon.awscdk.services.sam.CfnApplication.ApplicationLocationProperty.Builder)
-      .applicationId(applicationId.orNull)
-      .semanticVersion(semanticVersion.orNull)
+      .applicationId(applicationId)
+      .semanticVersion(semanticVersion)
       .build()
 }

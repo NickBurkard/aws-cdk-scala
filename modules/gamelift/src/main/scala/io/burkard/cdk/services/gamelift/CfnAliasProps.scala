@@ -4,13 +4,13 @@ package io.burkard.cdk.services.gamelift
 object CfnAliasProps {
 
   def apply(
-    name: Option[String] = None,
-    routingStrategy: Option[software.amazon.awscdk.services.gamelift.CfnAlias.RoutingStrategyProperty] = None,
+    name: String,
+    routingStrategy: software.amazon.awscdk.services.gamelift.CfnAlias.RoutingStrategyProperty,
     description: Option[String] = None
   ): software.amazon.awscdk.services.gamelift.CfnAliasProps =
     (new software.amazon.awscdk.services.gamelift.CfnAliasProps.Builder)
-      .name(name.orNull)
-      .routingStrategy(routingStrategy.orNull)
+      .name(name)
+      .routingStrategy(routingStrategy)
       .description(description.orNull)
       .build()
 }

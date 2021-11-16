@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object MetricProperty {
 
   def apply(
-    window: Option[software.amazon.awscdk.services.iotsitewise.CfnAssetModel.MetricWindowProperty] = None,
-    variables: Option[List[_]] = None,
-    expression: Option[String] = None
+    window: software.amazon.awscdk.services.iotsitewise.CfnAssetModel.MetricWindowProperty,
+    variables: List[_],
+    expression: String
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetModel.MetricProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetModel.MetricProperty.Builder)
-      .window(window.orNull)
-      .variables(variables.map(_.asJava).orNull)
-      .expression(expression.orNull)
+      .window(window)
+      .variables(variables.asJava)
+      .expression(expression)
       .build()
 }

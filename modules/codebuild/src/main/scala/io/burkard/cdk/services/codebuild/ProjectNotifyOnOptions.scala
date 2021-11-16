@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object ProjectNotifyOnOptions {
 
   def apply(
+    events: List[_ <: software.amazon.awscdk.services.codebuild.ProjectNotificationEvents],
     enabled: Option[Boolean] = None,
     detailType: Option[software.amazon.awscdk.services.codestarnotifications.DetailType] = None,
-    notificationRuleName: Option[String] = None,
-    events: Option[List[_ <: software.amazon.awscdk.services.codebuild.ProjectNotificationEvents]] = None
+    notificationRuleName: Option[String] = None
   ): software.amazon.awscdk.services.codebuild.ProjectNotifyOnOptions =
     (new software.amazon.awscdk.services.codebuild.ProjectNotifyOnOptions.Builder)
+      .events(events.asJava)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .detailType(detailType.orNull)
       .notificationRuleName(notificationRuleName.orNull)
-      .events(events.map(_.asJava).orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object MfaSecondFactor {
 
   def apply(
-    sms: Option[Boolean] = None,
-    otp: Option[Boolean] = None
+    sms: Boolean,
+    otp: Boolean
   ): software.amazon.awscdk.services.cognito.MfaSecondFactor =
     (new software.amazon.awscdk.services.cognito.MfaSecondFactor.Builder)
-      .sms(sms.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .otp(otp.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .sms(sms)
+      .otp(otp)
       .build()
 }

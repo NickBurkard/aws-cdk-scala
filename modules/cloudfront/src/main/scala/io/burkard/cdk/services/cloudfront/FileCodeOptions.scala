@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object FileCodeOptions {
 
   def apply(
-    filePath: Option[String] = None
+    filePath: String
   ): software.amazon.awscdk.services.cloudfront.FileCodeOptions =
     (new software.amazon.awscdk.services.cloudfront.FileCodeOptions.Builder)
-      .filePath(filePath.orNull)
+      .filePath(filePath)
       .build()
 }

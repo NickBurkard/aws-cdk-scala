@@ -4,14 +4,14 @@ package io.burkard.cdk.services.rds
 object RotationMultiUserOptions {
 
   def apply(
-    secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
+    secret: software.amazon.awscdk.services.secretsmanager.ISecret,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     endpoint: Option[software.amazon.awscdk.services.ec2.IInterfaceVpcEndpoint] = None,
     excludeCharacters: Option[String] = None,
     automaticallyAfter: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.rds.RotationMultiUserOptions =
     (new software.amazon.awscdk.services.rds.RotationMultiUserOptions.Builder)
-      .secret(secret.orNull)
+      .secret(secret)
       .vpcSubnets(vpcSubnets.orNull)
       .endpoint(endpoint.orNull)
       .excludeCharacters(excludeCharacters.orNull)

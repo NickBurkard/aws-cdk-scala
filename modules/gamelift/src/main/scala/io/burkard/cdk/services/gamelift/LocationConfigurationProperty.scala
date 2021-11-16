@@ -4,11 +4,11 @@ package io.burkard.cdk.services.gamelift
 object LocationConfigurationProperty {
 
   def apply(
-    locationCapacity: Option[software.amazon.awscdk.services.gamelift.CfnFleet.LocationCapacityProperty] = None,
-    location: Option[String] = None
+    location: String,
+    locationCapacity: Option[software.amazon.awscdk.services.gamelift.CfnFleet.LocationCapacityProperty] = None
   ): software.amazon.awscdk.services.gamelift.CfnFleet.LocationConfigurationProperty =
     (new software.amazon.awscdk.services.gamelift.CfnFleet.LocationConfigurationProperty.Builder)
+      .location(location)
       .locationCapacity(locationCapacity.orNull)
-      .location(location.orNull)
       .build()
 }

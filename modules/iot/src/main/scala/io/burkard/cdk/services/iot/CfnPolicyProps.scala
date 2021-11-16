@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object CfnPolicyProps {
 
   def apply(
-    policyName: Option[String] = None,
-    policyDocument: Option[AnyRef] = None
+    policyDocument: AnyRef,
+    policyName: Option[String] = None
   ): software.amazon.awscdk.services.iot.CfnPolicyProps =
     (new software.amazon.awscdk.services.iot.CfnPolicyProps.Builder)
+      .policyDocument(policyDocument)
       .policyName(policyName.orNull)
-      .policyDocument(policyDocument.orNull)
       .build()
 }

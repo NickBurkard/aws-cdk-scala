@@ -4,11 +4,11 @@ package io.burkard.cdk.services.wafv2
 object CustomResponseBodyProperty {
 
   def apply(
-    contentType: Option[String] = None,
-    content: Option[String] = None
+    contentType: String,
+    content: String
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.CustomResponseBodyProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.CustomResponseBodyProperty.Builder)
-      .contentType(contentType.orNull)
-      .content(content.orNull)
+      .contentType(contentType)
+      .content(content)
       .build()
 }

@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object ClassicLoadBalancersConfigProperty {
 
   def apply(
-    classicLoadBalancers: Option[List[_]] = None
+    classicLoadBalancers: List[_]
   ): software.amazon.awscdk.services.ec2.CfnSpotFleet.ClassicLoadBalancersConfigProperty =
     (new software.amazon.awscdk.services.ec2.CfnSpotFleet.ClassicLoadBalancersConfigProperty.Builder)
-      .classicLoadBalancers(classicLoadBalancers.map(_.asJava).orNull)
+      .classicLoadBalancers(classicLoadBalancers.asJava)
       .build()
 }

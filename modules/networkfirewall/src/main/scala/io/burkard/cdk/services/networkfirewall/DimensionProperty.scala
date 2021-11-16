@@ -4,9 +4,9 @@ package io.burkard.cdk.services.networkfirewall
 object DimensionProperty {
 
   def apply(
-    value: Option[String] = None
+    value: String
   ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.DimensionProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.DimensionProperty.Builder)
-      .value(value.orNull)
+      .value(value)
       .build()
 }

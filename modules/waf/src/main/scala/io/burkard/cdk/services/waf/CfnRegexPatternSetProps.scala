@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnRegexPatternSetProps {
 
   def apply(
-    regexPatternStrings: Option[List[String]] = None,
-    name: Option[String] = None
+    regexPatternStrings: List[String],
+    name: String
   ): software.amazon.awscdk.services.waf.regional.CfnRegexPatternSetProps =
     (new software.amazon.awscdk.services.waf.regional.CfnRegexPatternSetProps.Builder)
-      .regexPatternStrings(regexPatternStrings.map(_.asJava).orNull)
-      .name(name.orNull)
+      .regexPatternStrings(regexPatternStrings.asJava)
+      .name(name)
       .build()
 }

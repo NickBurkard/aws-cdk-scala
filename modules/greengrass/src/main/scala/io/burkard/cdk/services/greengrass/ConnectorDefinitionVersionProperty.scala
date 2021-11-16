@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object ConnectorDefinitionVersionProperty {
 
   def apply(
-    connectors: Option[List[_]] = None
+    connectors: List[_]
   ): software.amazon.awscdk.services.greengrass.CfnConnectorDefinition.ConnectorDefinitionVersionProperty =
     (new software.amazon.awscdk.services.greengrass.CfnConnectorDefinition.ConnectorDefinitionVersionProperty.Builder)
-      .connectors(connectors.map(_.asJava).orNull)
+      .connectors(connectors.asJava)
       .build()
 }

@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object ResourcesVpcConfigProperty {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
+    subnetIds: List[String],
     securityGroupIds: Option[List[String]] = None,
     publicAccessCidrs: Option[List[String]] = None,
     endpointPublicAccess: Option[Boolean] = None,
     endpointPrivateAccess: Option[Boolean] = None
   ): software.amazon.awscdk.services.eks.CfnCluster.ResourcesVpcConfigProperty =
     (new software.amazon.awscdk.services.eks.CfnCluster.ResourcesVpcConfigProperty.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .publicAccessCidrs(publicAccessCidrs.map(_.asJava).orNull)
       .endpointPublicAccess(endpointPublicAccess.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

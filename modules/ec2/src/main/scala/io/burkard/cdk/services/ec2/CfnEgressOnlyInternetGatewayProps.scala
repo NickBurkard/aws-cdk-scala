@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object CfnEgressOnlyInternetGatewayProps {
 
   def apply(
-    vpcId: Option[String] = None
+    vpcId: String
   ): software.amazon.awscdk.services.ec2.CfnEgressOnlyInternetGatewayProps =
     (new software.amazon.awscdk.services.ec2.CfnEgressOnlyInternetGatewayProps.Builder)
-      .vpcId(vpcId.orNull)
+      .vpcId(vpcId)
       .build()
 }

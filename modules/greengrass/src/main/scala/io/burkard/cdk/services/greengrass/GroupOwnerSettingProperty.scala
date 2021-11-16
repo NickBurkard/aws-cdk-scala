@@ -4,11 +4,11 @@ package io.burkard.cdk.services.greengrass
 object GroupOwnerSettingProperty {
 
   def apply(
-    groupOwner: Option[String] = None,
-    autoAddGroupOwner: Option[Boolean] = None
+    autoAddGroupOwner: Boolean,
+    groupOwner: Option[String] = None
   ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.GroupOwnerSettingProperty =
     (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.GroupOwnerSettingProperty.Builder)
+      .autoAddGroupOwner(autoAddGroupOwner)
       .groupOwner(groupOwner.orNull)
-      .autoAddGroupOwner(autoAddGroupOwner.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

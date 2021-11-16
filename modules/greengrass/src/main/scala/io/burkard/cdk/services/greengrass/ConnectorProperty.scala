@@ -4,13 +4,13 @@ package io.burkard.cdk.services.greengrass
 object ConnectorProperty {
 
   def apply(
-    id: Option[String] = None,
-    connectorArn: Option[String] = None,
+    id: String,
+    connectorArn: String,
     parameters: Option[AnyRef] = None
   ): software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersion.ConnectorProperty =
     (new software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersion.ConnectorProperty.Builder)
-      .id(id.orNull)
-      .connectorArn(connectorArn.orNull)
+      .id(id)
+      .connectorArn(connectorArn)
       .parameters(parameters.orNull)
       .build()
 }

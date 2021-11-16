@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object VpcContextQuery {
 
   def apply(
-    filter: Option[Map[String, String]] = None,
+    filter: Map[String, String],
+    region: String,
+    account: String,
     returnAsymmetricSubnets: Option[Boolean] = None,
     subnetGroupNameTag: Option[String] = None,
-    region: Option[String] = None,
-    account: Option[String] = None,
     lookupRoleArn: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.VpcContextQuery =
     (new software.amazon.awscdk.cloudassembly.schema.VpcContextQuery.Builder)
-      .filter(filter.map(_.asJava).orNull)
+      .filter(filter.asJava)
+      .region(region)
+      .account(account)
       .returnAsymmetricSubnets(returnAsymmetricSubnets.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .subnetGroupNameTag(subnetGroupNameTag.orNull)
-      .region(region.orNull)
-      .account(account.orNull)
       .lookupRoleArn(lookupRoleArn.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualServiceProps {
 
   def apply(
-    virtualServiceProvider: Option[software.amazon.awscdk.services.appmesh.VirtualServiceProvider] = None,
+    virtualServiceProvider: software.amazon.awscdk.services.appmesh.VirtualServiceProvider,
     virtualServiceName: Option[String] = None
   ): software.amazon.awscdk.services.appmesh.VirtualServiceProps =
     (new software.amazon.awscdk.services.appmesh.VirtualServiceProps.Builder)
-      .virtualServiceProvider(virtualServiceProvider.orNull)
+      .virtualServiceProvider(virtualServiceProvider)
       .virtualServiceName(virtualServiceName.orNull)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object OriginGroupMembersProperty {
 
   def apply(
-    quantity: Option[Number] = None,
-    items: Option[List[_]] = None
+    quantity: Number,
+    items: List[_]
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupMembersProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.OriginGroupMembersProperty.Builder)
-      .quantity(quantity.orNull)
-      .items(items.map(_.asJava).orNull)
+      .quantity(quantity)
+      .items(items.asJava)
       .build()
 }

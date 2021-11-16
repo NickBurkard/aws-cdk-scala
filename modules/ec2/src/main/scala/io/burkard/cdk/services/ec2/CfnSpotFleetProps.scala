@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object CfnSpotFleetProps {
 
   def apply(
-    spotFleetRequestConfigData: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotFleetRequestConfigDataProperty] = None
+    spotFleetRequestConfigData: software.amazon.awscdk.services.ec2.CfnSpotFleet.SpotFleetRequestConfigDataProperty
   ): software.amazon.awscdk.services.ec2.CfnSpotFleetProps =
     (new software.amazon.awscdk.services.ec2.CfnSpotFleetProps.Builder)
-      .spotFleetRequestConfigData(spotFleetRequestConfigData.orNull)
+      .spotFleetRequestConfigData(spotFleetRequestConfigData)
       .build()
 }

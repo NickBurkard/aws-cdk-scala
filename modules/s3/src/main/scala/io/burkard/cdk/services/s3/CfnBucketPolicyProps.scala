@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object CfnBucketPolicyProps {
 
   def apply(
-    policyDocument: Option[AnyRef] = None,
-    bucket: Option[String] = None
+    policyDocument: AnyRef,
+    bucket: String
   ): software.amazon.awscdk.services.s3.CfnBucketPolicyProps =
     (new software.amazon.awscdk.services.s3.CfnBucketPolicyProps.Builder)
-      .policyDocument(policyDocument.orNull)
-      .bucket(bucket.orNull)
+      .policyDocument(policyDocument)
+      .bucket(bucket)
       .build()
 }

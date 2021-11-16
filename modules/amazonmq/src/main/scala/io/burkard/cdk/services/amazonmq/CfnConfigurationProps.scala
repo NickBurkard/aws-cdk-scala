@@ -7,20 +7,20 @@ import scala.collection.JavaConverters._
 object CfnConfigurationProps {
 
   def apply(
-    name: Option[String] = None,
-    data: Option[String] = None,
+    name: String,
+    data: String,
+    engineType: String,
+    engineVersion: String,
     authenticationStrategy: Option[String] = None,
-    engineType: Option[String] = None,
-    engineVersion: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.services.amazonmq.CfnConfiguration.TagsEntryProperty]] = None
   ): software.amazon.awscdk.services.amazonmq.CfnConfigurationProps =
     (new software.amazon.awscdk.services.amazonmq.CfnConfigurationProps.Builder)
-      .name(name.orNull)
-      .data(data.orNull)
+      .name(name)
+      .data(data)
+      .engineType(engineType)
+      .engineVersion(engineVersion)
       .authenticationStrategy(authenticationStrategy.orNull)
-      .engineType(engineType.orNull)
-      .engineVersion(engineVersion.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()

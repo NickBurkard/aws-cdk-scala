@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object FunctionConfigProperty {
 
   def apply(
-    comment: Option[String] = None,
-    runtime: Option[String] = None
+    comment: String,
+    runtime: String
   ): software.amazon.awscdk.services.cloudfront.CfnFunction.FunctionConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnFunction.FunctionConfigProperty.Builder)
-      .comment(comment.orNull)
-      .runtime(runtime.orNull)
+      .comment(comment)
+      .runtime(runtime)
       .build()
 }

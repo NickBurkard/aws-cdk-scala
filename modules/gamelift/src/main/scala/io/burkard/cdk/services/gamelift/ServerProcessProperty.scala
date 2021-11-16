@@ -4,13 +4,13 @@ package io.burkard.cdk.services.gamelift
 object ServerProcessProperty {
 
   def apply(
-    concurrentExecutions: Option[Number] = None,
-    launchPath: Option[String] = None,
+    concurrentExecutions: Number,
+    launchPath: String,
     parameters: Option[String] = None
   ): software.amazon.awscdk.services.gamelift.CfnFleet.ServerProcessProperty =
     (new software.amazon.awscdk.services.gamelift.CfnFleet.ServerProcessProperty.Builder)
-      .concurrentExecutions(concurrentExecutions.orNull)
-      .launchPath(launchPath.orNull)
+      .concurrentExecutions(concurrentExecutions)
+      .launchPath(launchPath)
       .parameters(parameters.orNull)
       .build()
 }

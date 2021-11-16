@@ -4,13 +4,13 @@ package io.burkard.cdk.services.efs
 object FileSystemAttributes {
 
   def apply(
+    securityGroup: software.amazon.awscdk.services.ec2.ISecurityGroup,
     fileSystemArn: Option[String] = None,
-    fileSystemId: Option[String] = None,
-    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
+    fileSystemId: Option[String] = None
   ): software.amazon.awscdk.services.efs.FileSystemAttributes =
     (new software.amazon.awscdk.services.efs.FileSystemAttributes.Builder)
+      .securityGroup(securityGroup)
       .fileSystemArn(fileSystemArn.orNull)
       .fileSystemId(fileSystemId.orNull)
-      .securityGroup(securityGroup.orNull)
       .build()
 }

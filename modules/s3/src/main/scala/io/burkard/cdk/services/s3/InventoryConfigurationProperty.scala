@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object InventoryConfigurationProperty {
 
   def apply(
+    enabled: Boolean,
+    scheduleFrequency: String,
+    includedObjectVersions: String,
+    id: String,
+    destination: software.amazon.awscdk.services.s3.CfnBucket.DestinationProperty,
     prefix: Option[String] = None,
-    enabled: Option[Boolean] = None,
-    scheduleFrequency: Option[String] = None,
-    includedObjectVersions: Option[String] = None,
-    id: Option[String] = None,
-    optionalFields: Option[List[String]] = None,
-    destination: Option[software.amazon.awscdk.services.s3.CfnBucket.DestinationProperty] = None
+    optionalFields: Option[List[String]] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.InventoryConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.InventoryConfigurationProperty.Builder)
+      .enabled(enabled)
+      .scheduleFrequency(scheduleFrequency)
+      .includedObjectVersions(includedObjectVersions)
+      .id(id)
+      .destination(destination)
       .prefix(prefix.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .scheduleFrequency(scheduleFrequency.orNull)
-      .includedObjectVersions(includedObjectVersions.orNull)
-      .id(id.orNull)
       .optionalFields(optionalFields.map(_.asJava).orNull)
-      .destination(destination.orNull)
       .build()
 }

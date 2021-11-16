@@ -4,9 +4,9 @@ package io.burkard.cdk.services.dynamodb
 object ReplicaSSESpecificationProperty {
 
   def apply(
-    kmsMasterKeyId: Option[String] = None
+    kmsMasterKeyId: String
   ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ReplicaSSESpecificationProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ReplicaSSESpecificationProperty.Builder)
-      .kmsMasterKeyId(kmsMasterKeyId.orNull)
+      .kmsMasterKeyId(kmsMasterKeyId)
       .build()
 }

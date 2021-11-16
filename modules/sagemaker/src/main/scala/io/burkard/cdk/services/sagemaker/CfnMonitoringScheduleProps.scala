@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object CfnMonitoringScheduleProps {
 
   def apply(
+    monitoringScheduleConfig: software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringScheduleConfigProperty,
+    monitoringScheduleName: String,
     lastMonitoringExecutionSummary: Option[software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringExecutionSummaryProperty] = None,
     failureReason: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     monitoringScheduleStatus: Option[String] = None,
-    monitoringScheduleConfig: Option[software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringScheduleConfigProperty] = None,
-    endpointName: Option[String] = None,
-    monitoringScheduleName: Option[String] = None
+    endpointName: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnMonitoringScheduleProps =
     (new software.amazon.awscdk.services.sagemaker.CfnMonitoringScheduleProps.Builder)
+      .monitoringScheduleConfig(monitoringScheduleConfig)
+      .monitoringScheduleName(monitoringScheduleName)
       .lastMonitoringExecutionSummary(lastMonitoringExecutionSummary.orNull)
       .failureReason(failureReason.orNull)
       .tags(tags.map(_.asJava).orNull)
       .monitoringScheduleStatus(monitoringScheduleStatus.orNull)
-      .monitoringScheduleConfig(monitoringScheduleConfig.orNull)
       .endpointName(endpointName.orNull)
-      .monitoringScheduleName(monitoringScheduleName.orNull)
       .build()
 }

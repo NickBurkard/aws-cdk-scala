@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object WorkmailActionConfig {
 
   def apply(
-    topicArn: Option[String] = None,
-    organizationArn: Option[String] = None
+    organizationArn: String,
+    topicArn: Option[String] = None
   ): software.amazon.awscdk.services.ses.WorkmailActionConfig =
     (new software.amazon.awscdk.services.ses.WorkmailActionConfig.Builder)
+      .organizationArn(organizationArn)
       .topicArn(topicArn.orNull)
-      .organizationArn(organizationArn.orNull)
       .build()
 }

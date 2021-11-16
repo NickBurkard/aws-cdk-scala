@@ -4,9 +4,9 @@ package io.burkard.cdk.services.codebuild
 object GitSubmodulesConfigProperty {
 
   def apply(
-    fetchSubmodules: Option[Boolean] = None
+    fetchSubmodules: Boolean
   ): software.amazon.awscdk.services.codebuild.CfnProject.GitSubmodulesConfigProperty =
     (new software.amazon.awscdk.services.codebuild.CfnProject.GitSubmodulesConfigProperty.Builder)
-      .fetchSubmodules(fetchSubmodules.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .fetchSubmodules(fetchSubmodules)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object RuleGroupReferenceStatementProperty {
 
   def apply(
-    arn: Option[String] = None,
+    arn: String,
     excludedRules: Option[List[_]] = None
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.RuleGroupReferenceStatementProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.RuleGroupReferenceStatementProperty.Builder)
-      .arn(arn.orNull)
+      .arn(arn)
       .excludedRules(excludedRules.map(_.asJava).orNull)
       .build()
 }

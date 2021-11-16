@@ -7,18 +7,18 @@ import scala.collection.JavaConverters._
 object CfnVPCPeeringConnectionProps {
 
   def apply(
-    vpcId: Option[String] = None,
+    vpcId: String,
+    peerVpcId: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     peerOwnerId: Option[String] = None,
-    peerVpcId: Option[String] = None,
     peerRegion: Option[String] = None,
     peerRoleArn: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnVPCPeeringConnectionProps =
     (new software.amazon.awscdk.services.ec2.CfnVPCPeeringConnectionProps.Builder)
-      .vpcId(vpcId.orNull)
+      .vpcId(vpcId)
+      .peerVpcId(peerVpcId)
       .tags(tags.map(_.asJava).orNull)
       .peerOwnerId(peerOwnerId.orNull)
-      .peerVpcId(peerVpcId.orNull)
       .peerRegion(peerRegion.orNull)
       .peerRoleArn(peerRoleArn.orNull)
       .build()

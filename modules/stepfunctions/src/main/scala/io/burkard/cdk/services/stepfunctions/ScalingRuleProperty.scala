@@ -4,15 +4,15 @@ package io.burkard.cdk.services.stepfunctions
 object ScalingRuleProperty {
 
   def apply(
-    name: Option[String] = None,
-    description: Option[String] = None,
-    action: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingActionProperty] = None,
-    trigger: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingTriggerProperty] = None
+    name: String,
+    action: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingActionProperty,
+    trigger: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingTriggerProperty,
+    description: Option[String] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingRuleProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingRuleProperty.Builder)
-      .name(name.orNull)
+      .name(name)
+      .action(action)
+      .trigger(trigger)
       .description(description.orNull)
-      .action(action.orNull)
-      .trigger(trigger.orNull)
       .build()
 }

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object TransitionEventProperty {
 
   def apply(
-    eventName: Option[String] = None,
-    nextState: Option[String] = None,
-    condition: Option[String] = None,
+    eventName: String,
+    nextState: String,
+    condition: String,
     actions: Option[List[_]] = None
   ): software.amazon.awscdk.services.iotevents.CfnDetectorModel.TransitionEventProperty =
     (new software.amazon.awscdk.services.iotevents.CfnDetectorModel.TransitionEventProperty.Builder)
-      .eventName(eventName.orNull)
-      .nextState(nextState.orNull)
-      .condition(condition.orNull)
+      .eventName(eventName)
+      .nextState(nextState)
+      .condition(condition)
       .actions(actions.map(_.asJava).orNull)
       .build()
 }

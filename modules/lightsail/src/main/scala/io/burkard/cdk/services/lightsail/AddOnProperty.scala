@@ -4,13 +4,13 @@ package io.burkard.cdk.services.lightsail
 object AddOnProperty {
 
   def apply(
+    addOnType: String,
     autoSnapshotAddOnRequest: Option[software.amazon.awscdk.services.lightsail.CfnDisk.AutoSnapshotAddOnProperty] = None,
-    status: Option[String] = None,
-    addOnType: Option[String] = None
+    status: Option[String] = None
   ): software.amazon.awscdk.services.lightsail.CfnDisk.AddOnProperty =
     (new software.amazon.awscdk.services.lightsail.CfnDisk.AddOnProperty.Builder)
+      .addOnType(addOnType)
       .autoSnapshotAddOnRequest(autoSnapshotAddOnRequest.orNull)
       .status(status.orNull)
-      .addOnType(addOnType.orNull)
       .build()
 }

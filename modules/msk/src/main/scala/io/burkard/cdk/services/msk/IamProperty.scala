@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object IamProperty {
 
   def apply(
-    enabled: Option[Boolean] = None
+    enabled: Boolean
   ): software.amazon.awscdk.services.msk.CfnCluster.IamProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.IamProperty.Builder)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enabled(enabled)
       .build()
 }

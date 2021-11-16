@@ -4,11 +4,11 @@ package io.burkard.cdk.services.glue
 object OrderProperty {
 
   def apply(
-    sortOrder: Option[Number] = None,
-    column: Option[String] = None
+    column: String,
+    sortOrder: Option[Number] = None
   ): software.amazon.awscdk.services.glue.CfnPartition.OrderProperty =
     (new software.amazon.awscdk.services.glue.CfnPartition.OrderProperty.Builder)
+      .column(column)
       .sortOrder(sortOrder.orNull)
-      .column(column.orNull)
       .build()
 }

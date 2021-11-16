@@ -4,13 +4,13 @@ package io.burkard.cdk.services.kms
 object AliasProps {
 
   def apply(
-    targetKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
-    aliasName: Option[String] = None,
+    targetKey: software.amazon.awscdk.services.kms.IKey,
+    aliasName: String,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   ): software.amazon.awscdk.services.kms.AliasProps =
     (new software.amazon.awscdk.services.kms.AliasProps.Builder)
-      .targetKey(targetKey.orNull)
-      .aliasName(aliasName.orNull)
+      .targetKey(targetKey)
+      .aliasName(aliasName)
       .removalPolicy(removalPolicy.orNull)
       .build()
 }

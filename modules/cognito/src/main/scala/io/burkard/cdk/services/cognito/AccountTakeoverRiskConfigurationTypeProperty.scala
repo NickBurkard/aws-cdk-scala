@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object AccountTakeoverRiskConfigurationTypeProperty {
 
   def apply(
-    notifyConfiguration: Option[software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty] = None,
-    actions: Option[software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionsTypeProperty] = None
+    actions: software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionsTypeProperty,
+    notifyConfiguration: Option[software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationTypeProperty =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationTypeProperty.Builder)
+      .actions(actions)
       .notifyConfiguration(notifyConfiguration.orNull)
-      .actions(actions.orNull)
       .build()
 }

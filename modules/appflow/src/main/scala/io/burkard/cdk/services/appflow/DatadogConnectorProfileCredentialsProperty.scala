@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appflow
 object DatadogConnectorProfileCredentialsProperty {
 
   def apply(
-    applicationKey: Option[String] = None,
-    apiKey: Option[String] = None
+    applicationKey: String,
+    apiKey: String
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.DatadogConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.DatadogConnectorProfileCredentialsProperty.Builder)
-      .applicationKey(applicationKey.orNull)
-      .apiKey(apiKey.orNull)
+      .applicationKey(applicationKey)
+      .apiKey(apiKey)
       .build()
 }

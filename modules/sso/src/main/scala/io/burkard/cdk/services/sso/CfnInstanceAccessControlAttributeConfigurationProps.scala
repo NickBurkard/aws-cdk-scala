@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnInstanceAccessControlAttributeConfigurationProps {
 
   def apply(
-    accessControlAttributes: Option[List[_]] = None,
-    instanceArn: Option[String] = None
+    instanceArn: String,
+    accessControlAttributes: Option[List[_]] = None
   ): software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfigurationProps =
     (new software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfigurationProps.Builder)
+      .instanceArn(instanceArn)
       .accessControlAttributes(accessControlAttributes.map(_.asJava).orNull)
-      .instanceArn(instanceArn.orNull)
       .build()
 }

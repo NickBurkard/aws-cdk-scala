@@ -4,15 +4,15 @@ package io.burkard.cdk.services.athena
 object CfnPreparedStatementProps {
 
   def apply(
-    workGroup: Option[String] = None,
-    description: Option[String] = None,
-    queryStatement: Option[String] = None,
-    statementName: Option[String] = None
+    workGroup: String,
+    queryStatement: String,
+    statementName: String,
+    description: Option[String] = None
   ): software.amazon.awscdk.services.athena.CfnPreparedStatementProps =
     (new software.amazon.awscdk.services.athena.CfnPreparedStatementProps.Builder)
-      .workGroup(workGroup.orNull)
+      .workGroup(workGroup)
+      .queryStatement(queryStatement)
+      .statementName(statementName)
       .description(description.orNull)
-      .queryStatement(queryStatement.orNull)
-      .statementName(statementName.orNull)
       .build()
 }

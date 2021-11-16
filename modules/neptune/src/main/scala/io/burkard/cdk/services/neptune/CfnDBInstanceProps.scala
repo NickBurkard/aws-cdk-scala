@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object CfnDBInstanceProps {
 
   def apply(
-    dbInstanceClass: Option[String] = None,
+    dbInstanceClass: String,
     dbParameterGroupName: Option[String] = None,
     dbClusterIdentifier: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
@@ -20,7 +20,7 @@ object CfnDBInstanceProps {
     autoMinorVersionUpgrade: Option[Boolean] = None
   ): software.amazon.awscdk.services.neptune.CfnDBInstanceProps =
     (new software.amazon.awscdk.services.neptune.CfnDBInstanceProps.Builder)
-      .dbInstanceClass(dbInstanceClass.orNull)
+      .dbInstanceClass(dbInstanceClass)
       .dbParameterGroupName(dbParameterGroupName.orNull)
       .dbClusterIdentifier(dbClusterIdentifier.orNull)
       .tags(tags.map(_.asJava).orNull)

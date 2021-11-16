@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object NetworkTargetProps {
 
   def apply(
-    containerPort: Option[Number] = None,
+    containerPort: Number,
     listener: Option[String] = None
   ): software.amazon.awscdk.services.ecs.patterns.NetworkTargetProps =
     (new software.amazon.awscdk.services.ecs.patterns.NetworkTargetProps.Builder)
-      .containerPort(containerPort.orNull)
+      .containerPort(containerPort)
       .listener(listener.orNull)
       .build()
 }

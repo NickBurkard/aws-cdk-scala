@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualRouterListenerConfig {
 
   def apply(
-    listener: Option[software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterListenerProperty] = None
+    listener: software.amazon.awscdk.services.appmesh.CfnVirtualRouter.VirtualRouterListenerProperty
   ): software.amazon.awscdk.services.appmesh.VirtualRouterListenerConfig =
     (new software.amazon.awscdk.services.appmesh.VirtualRouterListenerConfig.Builder)
-      .listener(listener.orNull)
+      .listener(listener)
       .build()
 }

@@ -4,14 +4,14 @@ package io.burkard.cdk.services.appflow
 object SlackConnectorProfileCredentialsProperty {
 
   def apply(
-    clientId: Option[String] = None,
-    clientSecret: Option[String] = None,
+    clientId: String,
+    clientSecret: String,
     connectorOAuthRequest: Option[software.amazon.awscdk.services.appflow.CfnConnectorProfile.ConnectorOAuthRequestProperty] = None,
     accessToken: Option[String] = None
   ): software.amazon.awscdk.services.appflow.CfnConnectorProfile.SlackConnectorProfileCredentialsProperty =
     (new software.amazon.awscdk.services.appflow.CfnConnectorProfile.SlackConnectorProfileCredentialsProperty.Builder)
-      .clientId(clientId.orNull)
-      .clientSecret(clientSecret.orNull)
+      .clientId(clientId)
+      .clientSecret(clientSecret)
       .connectorOAuthRequest(connectorOAuthRequest.orNull)
       .accessToken(accessToken.orNull)
       .build()

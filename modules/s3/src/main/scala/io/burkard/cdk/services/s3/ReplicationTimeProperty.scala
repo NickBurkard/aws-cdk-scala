@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object ReplicationTimeProperty {
 
   def apply(
-    status: Option[String] = None,
-    time: Option[software.amazon.awscdk.services.s3.CfnBucket.ReplicationTimeValueProperty] = None
+    status: String,
+    time: software.amazon.awscdk.services.s3.CfnBucket.ReplicationTimeValueProperty
   ): software.amazon.awscdk.services.s3.CfnBucket.ReplicationTimeProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.ReplicationTimeProperty.Builder)
-      .status(status.orNull)
-      .time(time.orNull)
+      .status(status)
+      .time(time)
       .build()
 }

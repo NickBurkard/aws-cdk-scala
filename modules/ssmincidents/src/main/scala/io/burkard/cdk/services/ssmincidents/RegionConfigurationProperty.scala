@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ssmincidents
 object RegionConfigurationProperty {
 
   def apply(
-    sseKmsKeyId: Option[String] = None
+    sseKmsKeyId: String
   ): software.amazon.awscdk.services.ssmincidents.CfnReplicationSet.RegionConfigurationProperty =
     (new software.amazon.awscdk.services.ssmincidents.CfnReplicationSet.RegionConfigurationProperty.Builder)
-      .sseKmsKeyId(sseKmsKeyId.orNull)
+      .sseKmsKeyId(sseKmsKeyId)
       .build()
 }

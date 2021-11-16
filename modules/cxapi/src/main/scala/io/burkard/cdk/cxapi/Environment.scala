@@ -4,13 +4,13 @@ package io.burkard.cdk.cxapi
 object Environment {
 
   def apply(
-    name: Option[String] = None,
-    region: Option[String] = None,
-    account: Option[String] = None
+    name: String,
+    region: String,
+    account: String
   ): software.amazon.awscdk.cxapi.Environment =
     (new software.amazon.awscdk.cxapi.Environment.Builder)
-      .name(name.orNull)
-      .region(region.orNull)
-      .account(account.orNull)
+      .name(name)
+      .region(region)
+      .account(account)
       .build()
 }

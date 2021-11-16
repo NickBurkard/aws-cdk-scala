@@ -4,11 +4,11 @@ package io.burkard.cdk.services.quicksight
 object RenameColumnOperationProperty {
 
   def apply(
-    columnName: Option[String] = None,
-    newColumnName: Option[String] = None
+    columnName: String,
+    newColumnName: String
   ): software.amazon.awscdk.services.quicksight.CfnDataSet.RenameColumnOperationProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSet.RenameColumnOperationProperty.Builder)
-      .columnName(columnName.orNull)
-      .newColumnName(newColumnName.orNull)
+      .columnName(columnName)
+      .newColumnName(newColumnName)
       .build()
 }

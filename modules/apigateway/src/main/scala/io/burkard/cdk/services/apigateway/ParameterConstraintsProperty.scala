@@ -5,9 +5,9 @@ package io.burkard.cdk.services.apigateway
 object ParameterConstraintsProperty {
 
   def apply(
-    required: Option[Boolean] = None
+    required: Boolean
   ): software.amazon.awscdk.services.apigateway.CfnRouteV2.ParameterConstraintsProperty =
     (new software.amazon.awscdk.services.apigateway.CfnRouteV2.ParameterConstraintsProperty.Builder)
-      .required(required.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .required(required)
       .build()
 }

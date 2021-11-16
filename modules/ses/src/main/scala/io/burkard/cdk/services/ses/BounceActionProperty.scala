@@ -4,17 +4,17 @@ package io.burkard.cdk.services.ses
 object BounceActionProperty {
 
   def apply(
+    smtpReplyCode: String,
+    sender: String,
+    message: String,
     statusCode: Option[String] = None,
-    topicArn: Option[String] = None,
-    smtpReplyCode: Option[String] = None,
-    sender: Option[String] = None,
-    message: Option[String] = None
+    topicArn: Option[String] = None
   ): software.amazon.awscdk.services.ses.CfnReceiptRule.BounceActionProperty =
     (new software.amazon.awscdk.services.ses.CfnReceiptRule.BounceActionProperty.Builder)
+      .smtpReplyCode(smtpReplyCode)
+      .sender(sender)
+      .message(message)
       .statusCode(statusCode.orNull)
       .topicArn(topicArn.orNull)
-      .smtpReplyCode(smtpReplyCode.orNull)
-      .sender(sender.orNull)
-      .message(message.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object LateDataRuleProperty {
 
   def apply(
-    ruleName: Option[String] = None,
-    ruleConfiguration: Option[software.amazon.awscdk.services.iotanalytics.CfnDataset.LateDataRuleConfigurationProperty] = None
+    ruleConfiguration: software.amazon.awscdk.services.iotanalytics.CfnDataset.LateDataRuleConfigurationProperty,
+    ruleName: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.LateDataRuleProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.LateDataRuleProperty.Builder)
+      .ruleConfiguration(ruleConfiguration)
       .ruleName(ruleName.orNull)
-      .ruleConfiguration(ruleConfiguration.orNull)
       .build()
 }

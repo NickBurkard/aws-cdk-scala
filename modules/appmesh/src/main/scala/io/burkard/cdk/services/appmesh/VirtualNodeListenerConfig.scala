@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualNodeListenerConfig {
 
   def apply(
-    listener: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerProperty] = None
+    listener: software.amazon.awscdk.services.appmesh.CfnVirtualNode.ListenerProperty
   ): software.amazon.awscdk.services.appmesh.VirtualNodeListenerConfig =
     (new software.amazon.awscdk.services.appmesh.VirtualNodeListenerConfig.Builder)
-      .listener(listener.orNull)
+      .listener(listener)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.core
 object CfnDynamicReferenceProps {
 
   def apply(
-    referenceKey: Option[String] = None,
-    service: Option[software.amazon.awscdk.CfnDynamicReferenceService] = None
+    referenceKey: String,
+    service: software.amazon.awscdk.CfnDynamicReferenceService
   ): software.amazon.awscdk.CfnDynamicReferenceProps =
     (new software.amazon.awscdk.CfnDynamicReferenceProps.Builder)
-      .referenceKey(referenceKey.orNull)
-      .service(service.orNull)
+      .referenceKey(referenceKey)
+      .service(service)
       .build()
 }

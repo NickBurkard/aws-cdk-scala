@@ -4,15 +4,15 @@ package io.burkard.cdk.services.iot
 object CloudwatchAlarmActionProperty {
 
   def apply(
-    stateReason: Option[String] = None,
-    stateValue: Option[String] = None,
-    roleArn: Option[String] = None,
-    alarmName: Option[String] = None
+    stateReason: String,
+    stateValue: String,
+    roleArn: String,
+    alarmName: String
   ): software.amazon.awscdk.services.iot.CfnTopicRule.CloudwatchAlarmActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.CloudwatchAlarmActionProperty.Builder)
-      .stateReason(stateReason.orNull)
-      .stateValue(stateValue.orNull)
-      .roleArn(roleArn.orNull)
-      .alarmName(alarmName.orNull)
+      .stateReason(stateReason)
+      .stateValue(stateValue)
+      .roleArn(roleArn)
+      .alarmName(alarmName)
       .build()
 }

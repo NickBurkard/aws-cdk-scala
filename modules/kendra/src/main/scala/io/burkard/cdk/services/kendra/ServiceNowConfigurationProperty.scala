@@ -4,19 +4,19 @@ package io.burkard.cdk.services.kendra
 object ServiceNowConfigurationProperty {
 
   def apply(
-    serviceNowBuildVersion: Option[String] = None,
+    serviceNowBuildVersion: String,
+    hostUrl: String,
+    secretArn: String,
     authenticationType: Option[String] = None,
     serviceCatalogConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.ServiceNowServiceCatalogConfigurationProperty] = None,
-    hostUrl: Option[String] = None,
-    knowledgeArticleConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty] = None,
-    secretArn: Option[String] = None
+    knowledgeArticleConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.ServiceNowConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.ServiceNowConfigurationProperty.Builder)
-      .serviceNowBuildVersion(serviceNowBuildVersion.orNull)
+      .serviceNowBuildVersion(serviceNowBuildVersion)
+      .hostUrl(hostUrl)
+      .secretArn(secretArn)
       .authenticationType(authenticationType.orNull)
       .serviceCatalogConfiguration(serviceCatalogConfiguration.orNull)
-      .hostUrl(hostUrl.orNull)
       .knowledgeArticleConfiguration(knowledgeArticleConfiguration.orNull)
-      .secretArn(secretArn.orNull)
       .build()
 }

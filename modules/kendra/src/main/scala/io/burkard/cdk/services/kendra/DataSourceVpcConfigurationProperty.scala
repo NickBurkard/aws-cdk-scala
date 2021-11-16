@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object DataSourceVpcConfigurationProperty {
 
   def apply(
-    subnetIds: Option[List[String]] = None,
-    securityGroupIds: Option[List[String]] = None
+    subnetIds: List[String],
+    securityGroupIds: List[String]
   ): software.amazon.awscdk.services.kendra.CfnDataSource.DataSourceVpcConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.DataSourceVpcConfigurationProperty.Builder)
-      .subnetIds(subnetIds.map(_.asJava).orNull)
-      .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
+      .subnetIds(subnetIds.asJava)
+      .securityGroupIds(securityGroupIds.asJava)
       .build()
 }

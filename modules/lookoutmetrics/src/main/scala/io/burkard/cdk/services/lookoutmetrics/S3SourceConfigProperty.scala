@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object S3SourceConfigProperty {
 
   def apply(
+    fileFormatDescriptor: software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.FileFormatDescriptorProperty,
+    roleArn: String,
     historicalDataPathList: Option[List[String]] = None,
-    fileFormatDescriptor: Option[software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.FileFormatDescriptorProperty] = None,
-    templatedPathList: Option[List[String]] = None,
-    roleArn: Option[String] = None
+    templatedPathList: Option[List[String]] = None
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.S3SourceConfigProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.S3SourceConfigProperty.Builder)
+      .fileFormatDescriptor(fileFormatDescriptor)
+      .roleArn(roleArn)
       .historicalDataPathList(historicalDataPathList.map(_.asJava).orNull)
-      .fileFormatDescriptor(fileFormatDescriptor.orNull)
       .templatedPathList(templatedPathList.map(_.asJava).orNull)
-      .roleArn(roleArn.orNull)
       .build()
 }

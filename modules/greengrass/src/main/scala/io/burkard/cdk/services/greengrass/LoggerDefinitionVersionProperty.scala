@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object LoggerDefinitionVersionProperty {
 
   def apply(
-    loggers: Option[List[_]] = None
+    loggers: List[_]
   ): software.amazon.awscdk.services.greengrass.CfnLoggerDefinition.LoggerDefinitionVersionProperty =
     (new software.amazon.awscdk.services.greengrass.CfnLoggerDefinition.LoggerDefinitionVersionProperty.Builder)
-      .loggers(loggers.map(_.asJava).orNull)
+      .loggers(loggers.asJava)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.acmpca
 object ValidityProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    value: Option[Number] = None
+    `type`: String,
+    value: Number
   ): software.amazon.awscdk.services.acmpca.CfnCertificate.ValidityProperty =
     (new software.amazon.awscdk.services.acmpca.CfnCertificate.ValidityProperty.Builder)
-      .`type`(`type`.orNull)
-      .value(value.orNull)
+      .`type`(`type`)
+      .value(value)
       .build()
 }

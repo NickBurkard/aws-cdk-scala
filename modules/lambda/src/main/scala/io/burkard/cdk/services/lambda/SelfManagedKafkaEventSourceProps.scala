@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object SelfManagedKafkaEventSourceProps {
 
   def apply(
+    bootstrapServers: List[String],
     secret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     authenticationMethod: Option[software.amazon.awscdk.services.lambda.eventsources.AuthenticationMethod] = None,
     parallelizationFactor: Option[Number] = None,
@@ -18,7 +19,6 @@ object SelfManagedKafkaEventSourceProps {
     retryAttempts: Option[Number] = None,
     onFailure: Option[software.amazon.awscdk.services.lambda.IEventSourceDlq] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
-    bootstrapServers: Option[List[String]] = None,
     batchSize: Option[Number] = None,
     maxRecordAge: Option[software.amazon.awscdk.Duration] = None,
     bisectBatchOnError: Option[Boolean] = None,
@@ -27,6 +27,7 @@ object SelfManagedKafkaEventSourceProps {
     topic: Option[String] = None
   ): software.amazon.awscdk.services.lambda.eventsources.SelfManagedKafkaEventSourceProps =
     (new software.amazon.awscdk.services.lambda.eventsources.SelfManagedKafkaEventSourceProps.Builder)
+      .bootstrapServers(bootstrapServers.asJava)
       .secret(secret.orNull)
       .authenticationMethod(authenticationMethod.orNull)
       .parallelizationFactor(parallelizationFactor.orNull)
@@ -38,7 +39,6 @@ object SelfManagedKafkaEventSourceProps {
       .retryAttempts(retryAttempts.orNull)
       .onFailure(onFailure.orNull)
       .securityGroup(securityGroup.orNull)
-      .bootstrapServers(bootstrapServers.map(_.asJava).orNull)
       .batchSize(batchSize.orNull)
       .maxRecordAge(maxRecordAge.orNull)
       .bisectBatchOnError(bisectBatchOnError.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

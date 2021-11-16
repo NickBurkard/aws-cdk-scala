@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object CfnOriginRequestPolicyProps {
 
   def apply(
-    originRequestPolicyConfig: Option[software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty] = None
+    originRequestPolicyConfig: software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicyProps =
     (new software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicyProps.Builder)
-      .originRequestPolicyConfig(originRequestPolicyConfig.orNull)
+      .originRequestPolicyConfig(originRequestPolicyConfig)
       .build()
 }

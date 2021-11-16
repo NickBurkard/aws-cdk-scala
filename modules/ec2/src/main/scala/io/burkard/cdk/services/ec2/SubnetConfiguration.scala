@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ec2
 object SubnetConfiguration {
 
   def apply(
+    name: String,
+    subnetType: software.amazon.awscdk.services.ec2.SubnetType,
     reserved: Option[Boolean] = None,
-    name: Option[String] = None,
-    cidrMask: Option[Number] = None,
-    subnetType: Option[software.amazon.awscdk.services.ec2.SubnetType] = None
+    cidrMask: Option[Number] = None
   ): software.amazon.awscdk.services.ec2.SubnetConfiguration =
     (new software.amazon.awscdk.services.ec2.SubnetConfiguration.Builder)
+      .name(name)
+      .subnetType(subnetType)
       .reserved(reserved.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .name(name.orNull)
       .cidrMask(cidrMask.orNull)
-      .subnetType(subnetType.orNull)
       .build()
 }

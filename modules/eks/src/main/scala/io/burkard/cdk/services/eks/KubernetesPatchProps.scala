@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object KubernetesPatchProps {
 
   def apply(
-    applyPatch: Option[Map[String, _]] = None,
+    applyPatch: Map[String, _],
+    restorePatch: Map[String, _],
+    resourceName: String,
+    cluster: software.amazon.awscdk.services.eks.ICluster,
     patchType: Option[software.amazon.awscdk.services.eks.PatchType] = None,
-    resourceNamespace: Option[String] = None,
-    restorePatch: Option[Map[String, _]] = None,
-    resourceName: Option[String] = None,
-    cluster: Option[software.amazon.awscdk.services.eks.ICluster] = None
+    resourceNamespace: Option[String] = None
   ): software.amazon.awscdk.services.eks.KubernetesPatchProps =
     (new software.amazon.awscdk.services.eks.KubernetesPatchProps.Builder)
-      .applyPatch(applyPatch.map(_.asJava).orNull)
+      .applyPatch(applyPatch.asJava)
+      .restorePatch(restorePatch.asJava)
+      .resourceName(resourceName)
+      .cluster(cluster)
       .patchType(patchType.orNull)
       .resourceNamespace(resourceNamespace.orNull)
-      .restorePatch(restorePatch.map(_.asJava).orNull)
-      .resourceName(resourceName.orNull)
-      .cluster(cluster.orNull)
       .build()
 }

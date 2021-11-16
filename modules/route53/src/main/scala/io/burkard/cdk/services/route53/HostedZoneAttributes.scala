@@ -4,11 +4,11 @@ package io.burkard.cdk.services.route53
 object HostedZoneAttributes {
 
   def apply(
-    hostedZoneId: Option[String] = None,
-    zoneName: Option[String] = None
+    hostedZoneId: String,
+    zoneName: String
   ): software.amazon.awscdk.services.route53.HostedZoneAttributes =
     (new software.amazon.awscdk.services.route53.HostedZoneAttributes.Builder)
-      .hostedZoneId(hostedZoneId.orNull)
-      .zoneName(zoneName.orNull)
+      .hostedZoneId(hostedZoneId)
+      .zoneName(zoneName)
       .build()
 }

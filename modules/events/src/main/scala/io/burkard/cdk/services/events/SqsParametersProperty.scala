@@ -4,9 +4,9 @@ package io.burkard.cdk.services.events
 object SqsParametersProperty {
 
   def apply(
-    messageGroupId: Option[String] = None
+    messageGroupId: String
   ): software.amazon.awscdk.services.events.CfnRule.SqsParametersProperty =
     (new software.amazon.awscdk.services.events.CfnRule.SqsParametersProperty.Builder)
-      .messageGroupId(messageGroupId.orNull)
+      .messageGroupId(messageGroupId)
       .build()
 }

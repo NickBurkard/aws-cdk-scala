@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object UserPoolClientProps {
 
   def apply(
+    userPool: software.amazon.awscdk.services.cognito.IUserPool,
     accessTokenValidity: Option[software.amazon.awscdk.Duration] = None,
     preventUserExistenceErrors: Option[Boolean] = None,
     oAuth: Option[software.amazon.awscdk.services.cognito.OAuthSettings] = None,
     disableOAuth: Option[Boolean] = None,
     enableTokenRevocation: Option[Boolean] = None,
     refreshTokenValidity: Option[software.amazon.awscdk.Duration] = None,
-    userPool: Option[software.amazon.awscdk.services.cognito.IUserPool] = None,
     supportedIdentityProviders: Option[List[_ <: software.amazon.awscdk.services.cognito.UserPoolClientIdentityProvider]] = None,
     writeAttributes: Option[software.amazon.awscdk.services.cognito.ClientAttributes] = None,
     userPoolClientName: Option[String] = None,
@@ -23,13 +23,13 @@ object UserPoolClientProps {
     readAttributes: Option[software.amazon.awscdk.services.cognito.ClientAttributes] = None
   ): software.amazon.awscdk.services.cognito.UserPoolClientProps =
     (new software.amazon.awscdk.services.cognito.UserPoolClientProps.Builder)
+      .userPool(userPool)
       .accessTokenValidity(accessTokenValidity.orNull)
       .preventUserExistenceErrors(preventUserExistenceErrors.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .oAuth(oAuth.orNull)
       .disableOAuth(disableOAuth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .enableTokenRevocation(enableTokenRevocation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .refreshTokenValidity(refreshTokenValidity.orNull)
-      .userPool(userPool.orNull)
       .supportedIdentityProviders(supportedIdentityProviders.map(_.asJava).orNull)
       .writeAttributes(writeAttributes.orNull)
       .userPoolClientName(userPoolClientName.orNull)

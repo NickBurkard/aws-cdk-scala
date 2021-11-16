@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object NotificationWithSubscribersProperty {
 
   def apply(
-    subscribers: Option[List[_]] = None,
-    notification: Option[software.amazon.awscdk.services.budgets.CfnBudget.NotificationProperty] = None
+    subscribers: List[_],
+    notification: software.amazon.awscdk.services.budgets.CfnBudget.NotificationProperty
   ): software.amazon.awscdk.services.budgets.CfnBudget.NotificationWithSubscribersProperty =
     (new software.amazon.awscdk.services.budgets.CfnBudget.NotificationWithSubscribersProperty.Builder)
-      .subscribers(subscribers.map(_.asJava).orNull)
-      .notification(notification.orNull)
+      .subscribers(subscribers.asJava)
+      .notification(notification)
       .build()
 }

@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnLoggingConfigurationProps {
 
   def apply(
-    resourceArn: Option[String] = None,
+    resourceArn: String,
+    logDestinationConfigs: List[String],
     redactedFields: Option[List[_]] = None,
-    logDestinationConfigs: Option[List[String]] = None,
     loggingFilter: Option[AnyRef] = None
   ): software.amazon.awscdk.services.wafv2.CfnLoggingConfigurationProps =
     (new software.amazon.awscdk.services.wafv2.CfnLoggingConfigurationProps.Builder)
-      .resourceArn(resourceArn.orNull)
+      .resourceArn(resourceArn)
+      .logDestinationConfigs(logDestinationConfigs.asJava)
       .redactedFields(redactedFields.map(_.asJava).orNull)
-      .logDestinationConfigs(logDestinationConfigs.map(_.asJava).orNull)
       .loggingFilter(loggingFilter.orNull)
       .build()
 }

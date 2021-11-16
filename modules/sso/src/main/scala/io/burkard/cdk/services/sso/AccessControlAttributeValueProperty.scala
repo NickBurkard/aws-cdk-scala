@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AccessControlAttributeValueProperty {
 
   def apply(
-    source: Option[List[String]] = None
+    source: List[String]
   ): software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeValueProperty =
     (new software.amazon.awscdk.services.sso.CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeValueProperty.Builder)
-      .source(source.map(_.asJava).orNull)
+      .source(source.asJava)
       .build()
 }

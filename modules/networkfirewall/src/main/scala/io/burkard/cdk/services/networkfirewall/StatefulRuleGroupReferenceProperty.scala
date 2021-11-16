@@ -4,11 +4,11 @@ package io.burkard.cdk.services.networkfirewall
 object StatefulRuleGroupReferenceProperty {
 
   def apply(
-    priority: Option[Number] = None,
-    resourceArn: Option[String] = None
+    resourceArn: String,
+    priority: Option[Number] = None
   ): software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.StatefulRuleGroupReferenceProperty =
     (new software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.StatefulRuleGroupReferenceProperty.Builder)
+      .resourceArn(resourceArn)
       .priority(priority.orNull)
-      .resourceArn(resourceArn.orNull)
       .build()
 }

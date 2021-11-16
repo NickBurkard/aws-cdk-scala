@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object GroupIdentifierProperty {
 
   def apply(
-    groupId: Option[String] = None
+    groupId: String
   ): software.amazon.awscdk.services.ec2.CfnSpotFleet.GroupIdentifierProperty =
     (new software.amazon.awscdk.services.ec2.CfnSpotFleet.GroupIdentifierProperty.Builder)
-      .groupId(groupId.orNull)
+      .groupId(groupId)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cassandra
 object EncryptionSpecificationProperty {
 
   def apply(
-    kmsKeyIdentifier: Option[String] = None,
-    encryptionType: Option[String] = None
+    encryptionType: String,
+    kmsKeyIdentifier: Option[String] = None
   ): software.amazon.awscdk.services.cassandra.CfnTable.EncryptionSpecificationProperty =
     (new software.amazon.awscdk.services.cassandra.CfnTable.EncryptionSpecificationProperty.Builder)
+      .encryptionType(encryptionType)
       .kmsKeyIdentifier(kmsKeyIdentifier.orNull)
-      .encryptionType(encryptionType.orNull)
       .build()
 }

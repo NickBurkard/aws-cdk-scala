@@ -4,17 +4,17 @@ package io.burkard.cdk.services.pinpoint
 object CfnSmsTemplateProps {
 
   def apply(
-    body: Option[String] = None,
+    body: String,
+    templateName: String,
     templateDescription: Option[String] = None,
     defaultSubstitutions: Option[String] = None,
-    tags: Option[AnyRef] = None,
-    templateName: Option[String] = None
+    tags: Option[AnyRef] = None
   ): software.amazon.awscdk.services.pinpoint.CfnSmsTemplateProps =
     (new software.amazon.awscdk.services.pinpoint.CfnSmsTemplateProps.Builder)
-      .body(body.orNull)
+      .body(body)
+      .templateName(templateName)
       .templateDescription(templateDescription.orNull)
       .defaultSubstitutions(defaultSubstitutions.orNull)
       .tags(tags.orNull)
-      .templateName(templateName.orNull)
       .build()
 }

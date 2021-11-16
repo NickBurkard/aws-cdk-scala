@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object MetricsConfigurationProperty {
 
   def apply(
+    id: String,
     tagFilters: Option[List[_]] = None,
     prefix: Option[String] = None,
-    accessPointArn: Option[String] = None,
-    id: Option[String] = None
+    accessPointArn: Option[String] = None
   ): software.amazon.awscdk.services.s3.CfnBucket.MetricsConfigurationProperty =
     (new software.amazon.awscdk.services.s3.CfnBucket.MetricsConfigurationProperty.Builder)
+      .id(id)
       .tagFilters(tagFilters.map(_.asJava).orNull)
       .prefix(prefix.orNull)
       .accessPointArn(accessPointArn.orNull)
-      .id(id.orNull)
       .build()
 }

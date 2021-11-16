@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ecs
 object AppMeshProxyConfigurationConfigProps {
 
   def apply(
-    containerName: Option[String] = None,
-    properties: Option[software.amazon.awscdk.services.ecs.AppMeshProxyConfigurationProps] = None
+    containerName: String,
+    properties: software.amazon.awscdk.services.ecs.AppMeshProxyConfigurationProps
   ): software.amazon.awscdk.services.ecs.AppMeshProxyConfigurationConfigProps =
     (new software.amazon.awscdk.services.ecs.AppMeshProxyConfigurationConfigProps.Builder)
-      .containerName(containerName.orNull)
-      .properties(properties.orNull)
+      .containerName(containerName)
+      .properties(properties)
       .build()
 }

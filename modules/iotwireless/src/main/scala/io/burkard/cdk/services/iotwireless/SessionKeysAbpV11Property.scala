@@ -4,15 +4,15 @@ package io.burkard.cdk.services.iotwireless
 object SessionKeysAbpV11Property {
 
   def apply(
-    appSKey: Option[String] = None,
-    fNwkSIntKey: Option[String] = None,
-    sNwkSIntKey: Option[String] = None,
-    nwkSEncKey: Option[String] = None
+    appSKey: String,
+    fNwkSIntKey: String,
+    sNwkSIntKey: String,
+    nwkSEncKey: String
   ): software.amazon.awscdk.services.iotwireless.CfnWirelessDevice.SessionKeysAbpV11Property =
     (new software.amazon.awscdk.services.iotwireless.CfnWirelessDevice.SessionKeysAbpV11Property.Builder)
-      .appSKey(appSKey.orNull)
-      .fNwkSIntKey(fNwkSIntKey.orNull)
-      .sNwkSIntKey(sNwkSIntKey.orNull)
-      .nwkSEncKey(nwkSEncKey.orNull)
+      .appSKey(appSKey)
+      .fNwkSIntKey(fNwkSIntKey)
+      .sNwkSIntKey(sNwkSIntKey)
+      .nwkSEncKey(nwkSEncKey)
       .build()
 }

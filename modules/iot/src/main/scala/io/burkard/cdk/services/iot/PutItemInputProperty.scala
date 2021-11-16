@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iot
 object PutItemInputProperty {
 
   def apply(
-    tableName: Option[String] = None
+    tableName: String
   ): software.amazon.awscdk.services.iot.CfnTopicRule.PutItemInputProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.PutItemInputProperty.Builder)
-      .tableName(tableName.orNull)
+      .tableName(tableName)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.transfer
 object HomeDirectoryMapEntryProperty {
 
   def apply(
-    entry: Option[String] = None,
-    target: Option[String] = None
+    entry: String,
+    target: String
   ): software.amazon.awscdk.services.transfer.CfnUser.HomeDirectoryMapEntryProperty =
     (new software.amazon.awscdk.services.transfer.CfnUser.HomeDirectoryMapEntryProperty.Builder)
-      .entry(entry.orNull)
-      .target(target.orNull)
+      .entry(entry)
+      .target(target)
       .build()
 }

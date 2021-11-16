@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotsitewise
 object GatewayPlatformProperty {
 
   def apply(
-    greengrass: Option[software.amazon.awscdk.services.iotsitewise.CfnGateway.GreengrassProperty] = None
+    greengrass: software.amazon.awscdk.services.iotsitewise.CfnGateway.GreengrassProperty
   ): software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayPlatformProperty =
     (new software.amazon.awscdk.services.iotsitewise.CfnGateway.GatewayPlatformProperty.Builder)
-      .greengrass(greengrass.orNull)
+      .greengrass(greengrass)
       .build()
 }

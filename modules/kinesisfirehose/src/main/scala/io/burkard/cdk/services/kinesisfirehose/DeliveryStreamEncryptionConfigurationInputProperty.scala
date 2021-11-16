@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kinesisfirehose
 object DeliveryStreamEncryptionConfigurationInputProperty {
 
   def apply(
-    keyType: Option[String] = None,
+    keyType: String,
     keyArn: Option[String] = None
   ): software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty =
     (new software.amazon.awscdk.services.kinesisfirehose.CfnDeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty.Builder)
-      .keyType(keyType.orNull)
+      .keyType(keyType)
       .keyArn(keyArn.orNull)
       .build()
 }

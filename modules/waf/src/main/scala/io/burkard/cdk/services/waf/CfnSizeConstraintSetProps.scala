@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object CfnSizeConstraintSetProps {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     sizeConstraints: Option[List[_]] = None
   ): software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSetProps =
     (new software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSetProps.Builder)
-      .name(name.orNull)
+      .name(name)
       .sizeConstraints(sizeConstraints.map(_.asJava).orNull)
       .build()
 }

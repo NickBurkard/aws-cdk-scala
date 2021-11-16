@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnDiskProps {
 
   def apply(
+    sizeInGb: Number,
+    diskName: String,
     addOns: Option[List[_]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    availabilityZone: Option[String] = None,
-    sizeInGb: Option[Number] = None,
-    diskName: Option[String] = None
+    availabilityZone: Option[String] = None
   ): software.amazon.awscdk.services.lightsail.CfnDiskProps =
     (new software.amazon.awscdk.services.lightsail.CfnDiskProps.Builder)
+      .sizeInGb(sizeInGb)
+      .diskName(diskName)
       .addOns(addOns.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)
       .availabilityZone(availabilityZone.orNull)
-      .sizeInGb(sizeInGb.orNull)
-      .diskName(diskName.orNull)
       .build()
 }

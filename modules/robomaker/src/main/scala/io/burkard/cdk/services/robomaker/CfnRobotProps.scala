@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnRobotProps {
 
   def apply(
+    greengrassGroupId: String,
+    architecture: String,
     name: Option[String] = None,
-    greengrassGroupId: Option[String] = None,
     tags: Option[Map[String, String]] = None,
-    architecture: Option[String] = None,
     fleet: Option[String] = None
   ): software.amazon.awscdk.services.robomaker.CfnRobotProps =
     (new software.amazon.awscdk.services.robomaker.CfnRobotProps.Builder)
+      .greengrassGroupId(greengrassGroupId)
+      .architecture(architecture)
       .name(name.orNull)
-      .greengrassGroupId(greengrassGroupId.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .architecture(architecture.orNull)
       .fleet(fleet.orNull)
       .build()
 }

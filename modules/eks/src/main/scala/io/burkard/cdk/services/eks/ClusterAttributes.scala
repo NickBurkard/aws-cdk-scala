@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object ClusterAttributes {
 
   def apply(
+    clusterName: String,
     kubectlLayer: Option[software.amazon.awscdk.services.lambda.ILayerVersion] = None,
     kubectlRoleArn: Option[String] = None,
     openIdConnectProvider: Option[software.amazon.awscdk.services.iam.IOpenIdConnectProvider] = None,
@@ -16,7 +17,6 @@ object ClusterAttributes {
     kubectlEnvironment: Option[Map[String, String]] = None,
     clusterSecurityGroupId: Option[String] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
-    clusterName: Option[String] = None,
     clusterHandlerSecurityGroupId: Option[String] = None,
     kubectlPrivateSubnetIds: Option[List[String]] = None,
     kubectlMemory: Option[software.amazon.awscdk.Size] = None,
@@ -26,6 +26,7 @@ object ClusterAttributes {
     kubectlSecurityGroupId: Option[String] = None
   ): software.amazon.awscdk.services.eks.ClusterAttributes =
     (new software.amazon.awscdk.services.eks.ClusterAttributes.Builder)
+      .clusterName(clusterName)
       .kubectlLayer(kubectlLayer.orNull)
       .kubectlRoleArn(kubectlRoleArn.orNull)
       .openIdConnectProvider(openIdConnectProvider.orNull)
@@ -35,7 +36,6 @@ object ClusterAttributes {
       .kubectlEnvironment(kubectlEnvironment.map(_.asJava).orNull)
       .clusterSecurityGroupId(clusterSecurityGroupId.orNull)
       .vpc(vpc.orNull)
-      .clusterName(clusterName.orNull)
       .clusterHandlerSecurityGroupId(clusterHandlerSecurityGroupId.orNull)
       .kubectlPrivateSubnetIds(kubectlPrivateSubnetIds.map(_.asJava).orNull)
       .kubectlMemory(kubectlMemory.orNull)

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.wafv2
 object JsonBodyProperty {
 
   def apply(
-    invalidFallbackBehavior: Option[String] = None,
-    matchPattern: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.JsonMatchPatternProperty] = None,
-    matchScope: Option[String] = None
+    matchPattern: software.amazon.awscdk.services.wafv2.CfnRuleGroup.JsonMatchPatternProperty,
+    matchScope: String,
+    invalidFallbackBehavior: Option[String] = None
   ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.JsonBodyProperty =
     (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.JsonBodyProperty.Builder)
+      .matchPattern(matchPattern)
+      .matchScope(matchScope)
       .invalidFallbackBehavior(invalidFallbackBehavior.orNull)
-      .matchPattern(matchPattern.orNull)
-      .matchScope(matchScope.orNull)
       .build()
 }

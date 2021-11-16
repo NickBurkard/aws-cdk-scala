@@ -4,13 +4,13 @@ package io.burkard.cdk.services.pinpointemail
 object DimensionConfigurationProperty {
 
   def apply(
-    defaultDimensionValue: Option[String] = None,
-    dimensionValueSource: Option[String] = None,
-    dimensionName: Option[String] = None
+    defaultDimensionValue: String,
+    dimensionValueSource: String,
+    dimensionName: String
   ): software.amazon.awscdk.services.pinpointemail.CfnConfigurationSetEventDestination.DimensionConfigurationProperty =
     (new software.amazon.awscdk.services.pinpointemail.CfnConfigurationSetEventDestination.DimensionConfigurationProperty.Builder)
-      .defaultDimensionValue(defaultDimensionValue.orNull)
-      .dimensionValueSource(dimensionValueSource.orNull)
-      .dimensionName(dimensionName.orNull)
+      .defaultDimensionValue(defaultDimensionValue)
+      .dimensionValueSource(dimensionValueSource)
+      .dimensionName(dimensionName)
       .build()
 }

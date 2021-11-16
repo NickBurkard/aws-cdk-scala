@@ -4,13 +4,13 @@ package io.burkard.cdk.services.sagemaker
 object GitConfigProperty {
 
   def apply(
+    repositoryUrl: String,
     branch: Option[String] = None,
-    repositoryUrl: Option[String] = None,
     secretArn: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnCodeRepository.GitConfigProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnCodeRepository.GitConfigProperty.Builder)
+      .repositoryUrl(repositoryUrl)
       .branch(branch.orNull)
-      .repositoryUrl(repositoryUrl.orNull)
       .secretArn(secretArn.orNull)
       .build()
 }

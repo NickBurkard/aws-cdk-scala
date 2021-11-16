@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object FunctionEnvironmentProperty {
 
   def apply(
-    variables: Option[Map[String, String]] = None
+    variables: Map[String, String]
   ): software.amazon.awscdk.services.sam.CfnFunction.FunctionEnvironmentProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.FunctionEnvironmentProperty.Builder)
-      .variables(variables.map(_.asJava).orNull)
+      .variables(variables.asJava)
       .build()
 }

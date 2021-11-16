@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object BackupRuleResourceTypeProperty {
 
   def apply(
-    ruleName: Option[String] = None,
+    ruleName: String,
+    targetBackupVault: String,
     lifecycle: Option[software.amazon.awscdk.services.backup.CfnBackupPlan.LifecycleResourceTypeProperty] = None,
     completionWindowMinutes: Option[Number] = None,
-    targetBackupVault: Option[String] = None,
     copyActions: Option[List[_]] = None,
     scheduleExpression: Option[String] = None,
     enableContinuousBackup: Option[Boolean] = None,
@@ -18,10 +18,10 @@ object BackupRuleResourceTypeProperty {
     startWindowMinutes: Option[Number] = None
   ): software.amazon.awscdk.services.backup.CfnBackupPlan.BackupRuleResourceTypeProperty =
     (new software.amazon.awscdk.services.backup.CfnBackupPlan.BackupRuleResourceTypeProperty.Builder)
-      .ruleName(ruleName.orNull)
+      .ruleName(ruleName)
+      .targetBackupVault(targetBackupVault)
       .lifecycle(lifecycle.orNull)
       .completionWindowMinutes(completionWindowMinutes.orNull)
-      .targetBackupVault(targetBackupVault.orNull)
       .copyActions(copyActions.map(_.asJava).orNull)
       .scheduleExpression(scheduleExpression.orNull)
       .enableContinuousBackup(enableContinuousBackup.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

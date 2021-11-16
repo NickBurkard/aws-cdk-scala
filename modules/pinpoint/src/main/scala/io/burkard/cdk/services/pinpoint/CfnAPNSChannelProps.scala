@@ -4,6 +4,7 @@ package io.burkard.cdk.services.pinpoint
 object CfnAPNSChannelProps {
 
   def apply(
+    applicationId: String,
     tokenKeyId: Option[String] = None,
     bundleId: Option[String] = None,
     certificate: Option[String] = None,
@@ -11,10 +12,10 @@ object CfnAPNSChannelProps {
     tokenKey: Option[String] = None,
     privateKey: Option[String] = None,
     defaultAuthenticationMethod: Option[String] = None,
-    applicationId: Option[String] = None,
     enabled: Option[Boolean] = None
   ): software.amazon.awscdk.services.pinpoint.CfnAPNSChannelProps =
     (new software.amazon.awscdk.services.pinpoint.CfnAPNSChannelProps.Builder)
+      .applicationId(applicationId)
       .tokenKeyId(tokenKeyId.orNull)
       .bundleId(bundleId.orNull)
       .certificate(certificate.orNull)
@@ -22,7 +23,6 @@ object CfnAPNSChannelProps {
       .tokenKey(tokenKey.orNull)
       .privateKey(privateKey.orNull)
       .defaultAuthenticationMethod(defaultAuthenticationMethod.orNull)
-      .applicationId(applicationId.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

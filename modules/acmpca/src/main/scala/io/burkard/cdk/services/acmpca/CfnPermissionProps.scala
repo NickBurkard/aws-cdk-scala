@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnPermissionProps {
 
   def apply(
-    sourceAccount: Option[String] = None,
-    certificateAuthorityArn: Option[String] = None,
-    principal: Option[String] = None,
-    actions: Option[List[String]] = None
+    certificateAuthorityArn: String,
+    principal: String,
+    actions: List[String],
+    sourceAccount: Option[String] = None
   ): software.amazon.awscdk.services.acmpca.CfnPermissionProps =
     (new software.amazon.awscdk.services.acmpca.CfnPermissionProps.Builder)
+      .certificateAuthorityArn(certificateAuthorityArn)
+      .principal(principal)
+      .actions(actions.asJava)
       .sourceAccount(sourceAccount.orNull)
-      .certificateAuthorityArn(certificateAuthorityArn.orNull)
-      .principal(principal.orNull)
-      .actions(actions.map(_.asJava).orNull)
       .build()
 }

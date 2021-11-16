@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object DockerImageAssetSource {
 
   def apply(
+    sourceHash: String,
     repositoryName: Option[String] = None,
     dockerFile: Option[String] = None,
     dockerBuildArgs: Option[Map[String, String]] = None,
-    sourceHash: Option[String] = None,
     dockerBuildTarget: Option[String] = None,
     directoryName: Option[String] = None,
     executable: Option[List[String]] = None
   ): software.amazon.awscdk.DockerImageAssetSource =
     (new software.amazon.awscdk.DockerImageAssetSource.Builder)
+      .sourceHash(sourceHash)
       .repositoryName(repositoryName.orNull)
       .dockerFile(dockerFile.orNull)
       .dockerBuildArgs(dockerBuildArgs.map(_.asJava).orNull)
-      .sourceHash(sourceHash.orNull)
       .dockerBuildTarget(dockerBuildTarget.orNull)
       .directoryName(directoryName.orNull)
       .executable(executable.map(_.asJava).orNull)

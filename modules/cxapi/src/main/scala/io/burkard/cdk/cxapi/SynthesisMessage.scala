@@ -4,13 +4,13 @@ package io.burkard.cdk.cxapi
 object SynthesisMessage {
 
   def apply(
-    entry: Option[software.amazon.awscdk.cloudassembly.schema.MetadataEntry] = None,
-    id: Option[String] = None,
-    level: Option[software.amazon.awscdk.cxapi.SynthesisMessageLevel] = None
+    entry: software.amazon.awscdk.cloudassembly.schema.MetadataEntry,
+    id: String,
+    level: software.amazon.awscdk.cxapi.SynthesisMessageLevel
   ): software.amazon.awscdk.cxapi.SynthesisMessage =
     (new software.amazon.awscdk.cxapi.SynthesisMessage.Builder)
-      .entry(entry.orNull)
-      .id(id.orNull)
-      .level(level.orNull)
+      .entry(entry)
+      .id(id)
+      .level(level)
       .build()
 }

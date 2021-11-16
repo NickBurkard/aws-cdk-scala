@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object StreamingDistributionConfigProperty {
 
   def apply(
+    enabled: Boolean,
+    trustedSigners: software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.TrustedSignersProperty,
+    s3Origin: software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.S3OriginProperty,
+    comment: String,
     aliases: Option[List[String]] = None,
     priceClass: Option[String] = None,
-    logging: Option[software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.LoggingProperty] = None,
-    enabled: Option[Boolean] = None,
-    trustedSigners: Option[software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.TrustedSignersProperty] = None,
-    s3Origin: Option[software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.S3OriginProperty] = None,
-    comment: Option[String] = None
+    logging: Option[software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.LoggingProperty] = None
   ): software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.StreamingDistributionConfigProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnStreamingDistribution.StreamingDistributionConfigProperty.Builder)
+      .enabled(enabled)
+      .trustedSigners(trustedSigners)
+      .s3Origin(s3Origin)
+      .comment(comment)
       .aliases(aliases.map(_.asJava).orNull)
       .priceClass(priceClass.orNull)
       .logging(logging.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .trustedSigners(trustedSigners.orNull)
-      .s3Origin(s3Origin.orNull)
-      .comment(comment.orNull)
       .build()
 }

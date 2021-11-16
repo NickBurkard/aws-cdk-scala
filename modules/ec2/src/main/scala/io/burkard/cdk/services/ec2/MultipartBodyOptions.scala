@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ec2
 object MultipartBodyOptions {
 
   def apply(
+    contentType: String,
     body: Option[String] = None,
-    contentType: Option[String] = None,
     transferEncoding: Option[String] = None
   ): software.amazon.awscdk.services.ec2.MultipartBodyOptions =
     (new software.amazon.awscdk.services.ec2.MultipartBodyOptions.Builder)
+      .contentType(contentType)
       .body(body.orNull)
-      .contentType(contentType.orNull)
       .transferEncoding(transferEncoding.orNull)
       .build()
 }

@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ReplicationRuleProperty {
 
   def apply(
-    repositoryFilters: Option[List[_]] = None,
-    destinations: Option[List[_]] = None
+    destinations: List[_],
+    repositoryFilters: Option[List[_]] = None
   ): software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationRuleProperty =
     (new software.amazon.awscdk.services.ecr.CfnReplicationConfiguration.ReplicationRuleProperty.Builder)
+      .destinations(destinations.asJava)
       .repositoryFilters(repositoryFilters.map(_.asJava).orNull)
-      .destinations(destinations.map(_.asJava).orNull)
       .build()
 }

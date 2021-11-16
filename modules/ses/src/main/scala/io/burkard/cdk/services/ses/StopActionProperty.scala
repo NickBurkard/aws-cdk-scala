@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object StopActionProperty {
 
   def apply(
-    scope: Option[String] = None,
+    scope: String,
     topicArn: Option[String] = None
   ): software.amazon.awscdk.services.ses.CfnReceiptRule.StopActionProperty =
     (new software.amazon.awscdk.services.ses.CfnReceiptRule.StopActionProperty.Builder)
-      .scope(scope.orNull)
+      .scope(scope)
       .topicArn(topicArn.orNull)
       .build()
 }

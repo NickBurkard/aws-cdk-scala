@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object ContentSecurityPolicyProperty {
 
   def apply(
-    `override`: Option[Boolean] = None,
-    contentSecurityPolicy: Option[String] = None
+    `override`: Boolean,
+    contentSecurityPolicy: String
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ContentSecurityPolicyProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ContentSecurityPolicyProperty.Builder)
-      .`override`(`override`.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .contentSecurityPolicy(contentSecurityPolicy.orNull)
+      .`override`(`override`)
+      .contentSecurityPolicy(contentSecurityPolicy)
       .build()
 }

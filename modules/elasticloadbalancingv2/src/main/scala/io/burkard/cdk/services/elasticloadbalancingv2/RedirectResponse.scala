@@ -5,7 +5,7 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object RedirectResponse {
 
   def apply(
-    statusCode: Option[String] = None,
+    statusCode: String,
     path: Option[String] = None,
     host: Option[String] = None,
     query: Option[String] = None,
@@ -13,7 +13,7 @@ object RedirectResponse {
     protocol: Option[String] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.RedirectResponse =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.RedirectResponse.Builder)
-      .statusCode(statusCode.orNull)
+      .statusCode(statusCode)
       .path(path.orNull)
       .host(host.orNull)
       .query(query.orNull)

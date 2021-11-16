@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnEndpointAuthorizationProps {
 
   def apply(
+    clusterIdentifier: String,
+    account: String,
     force: Option[Boolean] = None,
-    clusterIdentifier: Option[String] = None,
-    vpcIds: Option[List[String]] = None,
-    account: Option[String] = None
+    vpcIds: Option[List[String]] = None
   ): software.amazon.awscdk.services.redshift.CfnEndpointAuthorizationProps =
     (new software.amazon.awscdk.services.redshift.CfnEndpointAuthorizationProps.Builder)
+      .clusterIdentifier(clusterIdentifier)
+      .account(account)
       .force(force.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .clusterIdentifier(clusterIdentifier.orNull)
       .vpcIds(vpcIds.map(_.asJava).orNull)
-      .account(account.orNull)
       .build()
 }

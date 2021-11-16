@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object IotEventsDestinationConfigurationProperty {
 
   def apply(
-    inputName: Option[String] = None,
-    roleArn: Option[String] = None
+    inputName: String,
+    roleArn: String
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.IotEventsDestinationConfigurationProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.IotEventsDestinationConfigurationProperty.Builder)
-      .inputName(inputName.orNull)
-      .roleArn(roleArn.orNull)
+      .inputName(inputName)
+      .roleArn(roleArn)
       .build()
 }

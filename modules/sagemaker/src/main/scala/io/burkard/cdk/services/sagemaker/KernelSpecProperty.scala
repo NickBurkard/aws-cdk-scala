@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object KernelSpecProperty {
 
   def apply(
-    displayName: Option[String] = None,
-    name: Option[String] = None
+    name: String,
+    displayName: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnAppImageConfig.KernelSpecProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnAppImageConfig.KernelSpecProperty.Builder)
+      .name(name)
       .displayName(displayName.orNull)
-      .name(name.orNull)
       .build()
 }

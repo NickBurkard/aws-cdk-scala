@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object BaseScreenshotProperty {
 
   def apply(
-    screenshotName: Option[String] = None,
+    screenshotName: String,
     ignoreCoordinates: Option[List[String]] = None
   ): software.amazon.awscdk.services.synthetics.CfnCanary.BaseScreenshotProperty =
     (new software.amazon.awscdk.services.synthetics.CfnCanary.BaseScreenshotProperty.Builder)
-      .screenshotName(screenshotName.orNull)
+      .screenshotName(screenshotName)
       .ignoreCoordinates(ignoreCoordinates.map(_.asJava).orNull)
       .build()
 }

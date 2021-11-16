@@ -4,14 +4,14 @@ package io.burkard.cdk.services.lambda
 object CfnVersionProps {
 
   def apply(
+    functionName: String,
     provisionedConcurrencyConfig: Option[software.amazon.awscdk.services.lambda.CfnVersion.ProvisionedConcurrencyConfigurationProperty] = None,
-    functionName: Option[String] = None,
     description: Option[String] = None,
     codeSha256: Option[String] = None
   ): software.amazon.awscdk.services.lambda.CfnVersionProps =
     (new software.amazon.awscdk.services.lambda.CfnVersionProps.Builder)
+      .functionName(functionName)
       .provisionedConcurrencyConfig(provisionedConcurrencyConfig.orNull)
-      .functionName(functionName.orNull)
       .description(description.orNull)
       .codeSha256(codeSha256.orNull)
       .build()

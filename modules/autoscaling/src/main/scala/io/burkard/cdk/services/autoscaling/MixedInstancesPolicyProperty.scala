@@ -4,11 +4,11 @@ package io.burkard.cdk.services.autoscaling
 object MixedInstancesPolicyProperty {
 
   def apply(
-    launchTemplate: Option[software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.LaunchTemplateProperty] = None,
+    launchTemplate: software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.LaunchTemplateProperty,
     instancesDistribution: Option[software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.InstancesDistributionProperty] = None
   ): software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.MixedInstancesPolicyProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnAutoScalingGroup.MixedInstancesPolicyProperty.Builder)
-      .launchTemplate(launchTemplate.orNull)
+      .launchTemplate(launchTemplate)
       .instancesDistribution(instancesDistribution.orNull)
       .build()
 }

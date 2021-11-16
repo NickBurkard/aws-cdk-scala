@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object SqsSendMessageProps {
 
   def apply(
+    queue: software.amazon.awscdk.services.sqs.IQueue,
+    messageBody: software.amazon.awscdk.services.stepfunctions.TaskInput,
     delay: Option[software.amazon.awscdk.Duration] = None,
     messageDeduplicationId: Option[String] = None,
-    queue: Option[software.amazon.awscdk.services.sqs.IQueue] = None,
-    messageBody: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
     resultPath: Option[String] = None,
     messageGroupId: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
@@ -22,10 +22,10 @@ object SqsSendMessageProps {
     timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.SqsSendMessageProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.SqsSendMessageProps.Builder)
+      .queue(queue)
+      .messageBody(messageBody)
       .delay(delay.orNull)
       .messageDeduplicationId(messageDeduplicationId.orNull)
-      .queue(queue.orNull)
-      .messageBody(messageBody.orNull)
       .resultPath(resultPath.orNull)
       .messageGroupId(messageGroupId.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)

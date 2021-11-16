@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object DeltaTimeProperty {
 
   def apply(
-    timeExpression: Option[String] = None,
-    offsetSeconds: Option[Number] = None
+    timeExpression: String,
+    offsetSeconds: Number
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.DeltaTimeProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.DeltaTimeProperty.Builder)
-      .timeExpression(timeExpression.orNull)
-      .offsetSeconds(offsetSeconds.orNull)
+      .timeExpression(timeExpression)
+      .offsetSeconds(offsetSeconds)
       .build()
 }

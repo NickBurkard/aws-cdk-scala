@@ -4,19 +4,19 @@ package io.burkard.cdk.services.servicecatalog
 object CfnLaunchRoleConstraintProps {
 
   def apply(
-    portfolioId: Option[String] = None,
+    portfolioId: String,
+    productId: String,
     description: Option[String] = None,
     roleArn: Option[String] = None,
     acceptLanguage: Option[String] = None,
-    productId: Option[String] = None,
     localRoleName: Option[String] = None
   ): software.amazon.awscdk.services.servicecatalog.CfnLaunchRoleConstraintProps =
     (new software.amazon.awscdk.services.servicecatalog.CfnLaunchRoleConstraintProps.Builder)
-      .portfolioId(portfolioId.orNull)
+      .portfolioId(portfolioId)
+      .productId(productId)
       .description(description.orNull)
       .roleArn(roleArn.orNull)
       .acceptLanguage(acceptLanguage.orNull)
-      .productId(productId.orNull)
       .localRoleName(localRoleName.orNull)
       .build()
 }

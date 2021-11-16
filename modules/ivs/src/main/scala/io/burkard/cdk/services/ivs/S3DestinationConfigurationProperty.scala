@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ivs
 object S3DestinationConfigurationProperty {
 
   def apply(
-    bucketName: Option[String] = None
+    bucketName: String
   ): software.amazon.awscdk.services.ivs.CfnRecordingConfiguration.S3DestinationConfigurationProperty =
     (new software.amazon.awscdk.services.ivs.CfnRecordingConfiguration.S3DestinationConfigurationProperty.Builder)
-      .bucketName(bucketName.orNull)
+      .bucketName(bucketName)
       .build()
 }

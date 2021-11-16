@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dynamodb
 object ProvisionedThroughputProperty {
 
   def apply(
-    writeCapacityUnits: Option[Number] = None,
-    readCapacityUnits: Option[Number] = None
+    writeCapacityUnits: Number,
+    readCapacityUnits: Number
   ): software.amazon.awscdk.services.dynamodb.CfnTable.ProvisionedThroughputProperty =
     (new software.amazon.awscdk.services.dynamodb.CfnTable.ProvisionedThroughputProperty.Builder)
-      .writeCapacityUnits(writeCapacityUnits.orNull)
-      .readCapacityUnits(readCapacityUnits.orNull)
+      .writeCapacityUnits(writeCapacityUnits)
+      .readCapacityUnits(readCapacityUnits)
       .build()
 }

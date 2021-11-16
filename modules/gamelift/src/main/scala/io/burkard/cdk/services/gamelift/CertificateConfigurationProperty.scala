@@ -4,9 +4,9 @@ package io.burkard.cdk.services.gamelift
 object CertificateConfigurationProperty {
 
   def apply(
-    certificateType: Option[String] = None
+    certificateType: String
   ): software.amazon.awscdk.services.gamelift.CfnFleet.CertificateConfigurationProperty =
     (new software.amazon.awscdk.services.gamelift.CfnFleet.CertificateConfigurationProperty.Builder)
-      .certificateType(certificateType.orNull)
+      .certificateType(certificateType)
       .build()
 }

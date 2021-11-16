@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object ScheduleEventProperty {
 
   def apply(
-    schedule: Option[String] = None,
+    schedule: String,
     input: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnStateMachine.ScheduleEventProperty =
     (new software.amazon.awscdk.services.sam.CfnStateMachine.ScheduleEventProperty.Builder)
-      .schedule(schedule.orNull)
+      .schedule(schedule)
       .input(input.orNull)
       .build()
 }

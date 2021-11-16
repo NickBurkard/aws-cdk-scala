@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object CfnResponseHeadersPolicyProps {
 
   def apply(
-    responseHeadersPolicyConfig: Option[software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty] = None
+    responseHeadersPolicyConfig: software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicyProps =
     (new software.amazon.awscdk.services.cloudfront.CfnResponseHeadersPolicyProps.Builder)
-      .responseHeadersPolicyConfig(responseHeadersPolicyConfig.orNull)
+      .responseHeadersPolicyConfig(responseHeadersPolicyConfig)
       .build()
 }

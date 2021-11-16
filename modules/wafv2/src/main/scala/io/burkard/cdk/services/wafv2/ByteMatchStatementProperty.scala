@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object ByteMatchStatementProperty {
 
   def apply(
-    positionalConstraint: Option[String] = None,
+    positionalConstraint: String,
+    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty,
+    textTransformations: List[_],
     searchStringBase64: Option[String] = None,
-    searchString: Option[String] = None,
-    fieldToMatch: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty] = None,
-    textTransformations: Option[List[_]] = None
+    searchString: Option[String] = None
   ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.ByteMatchStatementProperty =
     (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.ByteMatchStatementProperty.Builder)
-      .positionalConstraint(positionalConstraint.orNull)
+      .positionalConstraint(positionalConstraint)
+      .fieldToMatch(fieldToMatch)
+      .textTransformations(textTransformations.asJava)
       .searchStringBase64(searchStringBase64.orNull)
       .searchString(searchString.orNull)
-      .fieldToMatch(fieldToMatch.orNull)
-      .textTransformations(textTransformations.map(_.asJava).orNull)
       .build()
 }

@@ -4,15 +4,15 @@ package io.burkard.cdk.cxapi
 object VpcSubnet {
 
   def apply(
-    routeTableId: Option[String] = None,
-    cidr: Option[String] = None,
-    availabilityZone: Option[String] = None,
-    subnetId: Option[String] = None
+    routeTableId: String,
+    availabilityZone: String,
+    subnetId: String,
+    cidr: Option[String] = None
   ): software.amazon.awscdk.cxapi.VpcSubnet =
     (new software.amazon.awscdk.cxapi.VpcSubnet.Builder)
-      .routeTableId(routeTableId.orNull)
+      .routeTableId(routeTableId)
+      .availabilityZone(availabilityZone)
+      .subnetId(subnetId)
       .cidr(cidr.orNull)
-      .availabilityZone(availabilityZone.orNull)
-      .subnetId(subnetId.orNull)
       .build()
 }

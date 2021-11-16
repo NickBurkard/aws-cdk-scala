@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CustomResourceProps {
 
   def apply(
-    provider: Option[software.amazon.awscdk.services.cloudformation.ICustomResourceProvider] = None,
+    provider: software.amazon.awscdk.services.cloudformation.ICustomResourceProvider,
     resourceType: Option[String] = None,
     properties: Option[Map[String, _]] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None
   ): software.amazon.awscdk.services.cloudformation.CustomResourceProps =
     (new software.amazon.awscdk.services.cloudformation.CustomResourceProps.Builder)
-      .provider(provider.orNull)
+      .provider(provider)
       .resourceType(resourceType.orNull)
       .properties(properties.map(_.asJava).orNull)
       .removalPolicy(removalPolicy.orNull)

@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ecs
 object MountPoint {
 
   def apply(
-    readOnly: Option[Boolean] = None,
-    sourceVolume: Option[String] = None,
-    containerPath: Option[String] = None
+    readOnly: Boolean,
+    sourceVolume: String,
+    containerPath: String
   ): software.amazon.awscdk.services.ecs.MountPoint =
     (new software.amazon.awscdk.services.ecs.MountPoint.Builder)
-      .readOnly(readOnly.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .sourceVolume(sourceVolume.orNull)
-      .containerPath(containerPath.orNull)
+      .readOnly(readOnly)
+      .sourceVolume(sourceVolume)
+      .containerPath(containerPath)
       .build()
 }

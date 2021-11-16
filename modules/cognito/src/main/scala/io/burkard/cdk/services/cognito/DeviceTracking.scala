@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cognito
 object DeviceTracking {
 
   def apply(
-    challengeRequiredOnNewDevice: Option[Boolean] = None,
-    deviceOnlyRememberedOnUserPrompt: Option[Boolean] = None
+    challengeRequiredOnNewDevice: Boolean,
+    deviceOnlyRememberedOnUserPrompt: Boolean
   ): software.amazon.awscdk.services.cognito.DeviceTracking =
     (new software.amazon.awscdk.services.cognito.DeviceTracking.Builder)
-      .challengeRequiredOnNewDevice(challengeRequiredOnNewDevice.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .deviceOnlyRememberedOnUserPrompt(deviceOnlyRememberedOnUserPrompt.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .challengeRequiredOnNewDevice(challengeRequiredOnNewDevice)
+      .deviceOnlyRememberedOnUserPrompt(deviceOnlyRememberedOnUserPrompt)
       .build()
 }

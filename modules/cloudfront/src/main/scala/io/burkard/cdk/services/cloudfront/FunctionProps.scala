@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cloudfront
 object FunctionProps {
 
   def apply(
+    code: software.amazon.awscdk.services.cloudfront.FunctionCode,
     functionName: Option[String] = None,
-    code: Option[software.amazon.awscdk.services.cloudfront.FunctionCode] = None,
     comment: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.FunctionProps =
     (new software.amazon.awscdk.services.cloudfront.FunctionProps.Builder)
+      .code(code)
       .functionName(functionName.orNull)
-      .code(code.orNull)
       .comment(comment.orNull)
       .build()
 }

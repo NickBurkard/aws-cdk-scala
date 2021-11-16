@@ -4,13 +4,13 @@ package io.burkard.cdk.services.codepipeline
 object CommonActionProps {
 
   def apply(
+    actionName: String,
     variablesNamespace: Option[String] = None,
-    runOrder: Option[Number] = None,
-    actionName: Option[String] = None
+    runOrder: Option[Number] = None
   ): software.amazon.awscdk.services.codepipeline.CommonActionProps =
     (new software.amazon.awscdk.services.codepipeline.CommonActionProps.Builder)
+      .actionName(actionName)
       .variablesNamespace(variablesNamespace.orNull)
       .runOrder(runOrder.orNull)
-      .actionName(actionName.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.codebuild
 object BuildEnvironmentCertificate {
 
   def apply(
-    objectKey: Option[String] = None,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None
+    objectKey: String,
+    bucket: software.amazon.awscdk.services.s3.IBucket
   ): software.amazon.awscdk.services.codebuild.BuildEnvironmentCertificate =
     (new software.amazon.awscdk.services.codebuild.BuildEnvironmentCertificate.Builder)
-      .objectKey(objectKey.orNull)
-      .bucket(bucket.orNull)
+      .objectKey(objectKey)
+      .bucket(bucket)
       .build()
 }

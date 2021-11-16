@@ -4,11 +4,11 @@ package io.burkard.cdk.services.docdb
 object BackupProps {
 
   def apply(
-    retention: Option[software.amazon.awscdk.Duration] = None,
+    retention: software.amazon.awscdk.Duration,
     preferredWindow: Option[String] = None
   ): software.amazon.awscdk.services.docdb.BackupProps =
     (new software.amazon.awscdk.services.docdb.BackupProps.Builder)
-      .retention(retention.orNull)
+      .retention(retention)
       .preferredWindow(preferredWindow.orNull)
       .build()
 }

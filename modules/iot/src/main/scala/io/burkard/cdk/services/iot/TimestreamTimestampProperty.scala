@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iot
 object TimestreamTimestampProperty {
 
   def apply(
-    unit: Option[String] = None,
-    value: Option[String] = None
+    unit: String,
+    value: String
   ): software.amazon.awscdk.services.iot.CfnTopicRule.TimestreamTimestampProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.TimestreamTimestampProperty.Builder)
-      .unit(unit.orNull)
-      .value(value.orNull)
+      .unit(unit)
+      .value(value)
       .build()
 }

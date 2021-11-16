@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object AndStatementProperty {
 
   def apply(
-    statements: Option[List[_]] = None
+    statements: List[_]
   ): software.amazon.awscdk.services.wafv2.CfnWebACL.AndStatementProperty =
     (new software.amazon.awscdk.services.wafv2.CfnWebACL.AndStatementProperty.Builder)
-      .statements(statements.map(_.asJava).orNull)
+      .statements(statements.asJava)
       .build()
 }

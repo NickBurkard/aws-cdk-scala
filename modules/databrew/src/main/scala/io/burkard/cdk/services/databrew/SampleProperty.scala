@@ -4,11 +4,11 @@ package io.burkard.cdk.services.databrew
 object SampleProperty {
 
   def apply(
-    size: Option[Number] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    size: Option[Number] = None
   ): software.amazon.awscdk.services.databrew.CfnProject.SampleProperty =
     (new software.amazon.awscdk.services.databrew.CfnProject.SampleProperty.Builder)
+      .`type`(`type`)
       .size(size.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

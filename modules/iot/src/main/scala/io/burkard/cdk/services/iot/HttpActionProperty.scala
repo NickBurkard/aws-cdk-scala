@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object HttpActionProperty {
 
   def apply(
+    url: String,
     confirmationUrl: Option[String] = None,
     headers: Option[List[_]] = None,
-    auth: Option[software.amazon.awscdk.services.iot.CfnTopicRule.HttpAuthorizationProperty] = None,
-    url: Option[String] = None
+    auth: Option[software.amazon.awscdk.services.iot.CfnTopicRule.HttpAuthorizationProperty] = None
   ): software.amazon.awscdk.services.iot.CfnTopicRule.HttpActionProperty =
     (new software.amazon.awscdk.services.iot.CfnTopicRule.HttpActionProperty.Builder)
+      .url(url)
       .confirmationUrl(confirmationUrl.orNull)
       .headers(headers.map(_.asJava).orNull)
       .auth(auth.orNull)
-      .url(url.orNull)
       .build()
 }

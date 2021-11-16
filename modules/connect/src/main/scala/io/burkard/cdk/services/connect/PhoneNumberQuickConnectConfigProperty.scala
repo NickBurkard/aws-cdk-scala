@@ -4,9 +4,9 @@ package io.burkard.cdk.services.connect
 object PhoneNumberQuickConnectConfigProperty {
 
   def apply(
-    phoneNumber: Option[String] = None
+    phoneNumber: String
   ): software.amazon.awscdk.services.connect.CfnQuickConnect.PhoneNumberQuickConnectConfigProperty =
     (new software.amazon.awscdk.services.connect.CfnQuickConnect.PhoneNumberQuickConnectConfigProperty.Builder)
-      .phoneNumber(phoneNumber.orNull)
+      .phoneNumber(phoneNumber)
       .build()
 }

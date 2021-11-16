@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object NotificationConfigurationProperty {
 
   def apply(
-    notificationTopicArn: Option[String] = None
+    notificationTopicArn: String
   ): software.amazon.awscdk.services.sagemaker.CfnWorkteam.NotificationConfigurationProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnWorkteam.NotificationConfigurationProperty.Builder)
-      .notificationTopicArn(notificationTopicArn.orNull)
+      .notificationTopicArn(notificationTopicArn)
       .build()
 }

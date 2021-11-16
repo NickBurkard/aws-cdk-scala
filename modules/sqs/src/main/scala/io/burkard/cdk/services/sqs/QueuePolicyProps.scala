@@ -7,9 +7,9 @@ import scala.collection.JavaConverters._
 object QueuePolicyProps {
 
   def apply(
-    queues: Option[List[_ <: software.amazon.awscdk.services.sqs.IQueue]] = None
+    queues: List[_ <: software.amazon.awscdk.services.sqs.IQueue]
   ): software.amazon.awscdk.services.sqs.QueuePolicyProps =
     (new software.amazon.awscdk.services.sqs.QueuePolicyProps.Builder)
-      .queues(queues.map(_.asJava).orNull)
+      .queues(queues.asJava)
       .build()
 }

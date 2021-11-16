@@ -7,7 +7,8 @@ import scala.collection.JavaConverters._
 object CfnCrawlerProps {
 
   def apply(
-    targets: Option[software.amazon.awscdk.services.glue.CfnCrawler.TargetsProperty] = None,
+    targets: software.amazon.awscdk.services.glue.CfnCrawler.TargetsProperty,
+    role: String,
     schemaChangePolicy: Option[software.amazon.awscdk.services.glue.CfnCrawler.SchemaChangePolicyProperty] = None,
     recrawlPolicy: Option[software.amazon.awscdk.services.glue.CfnCrawler.RecrawlPolicyProperty] = None,
     schedule: Option[software.amazon.awscdk.services.glue.CfnCrawler.ScheduleProperty] = None,
@@ -15,14 +16,14 @@ object CfnCrawlerProps {
     name: Option[String] = None,
     crawlerSecurityConfiguration: Option[String] = None,
     tablePrefix: Option[String] = None,
-    role: Option[String] = None,
     description: Option[String] = None,
     tags: Option[AnyRef] = None,
     configuration: Option[String] = None,
     classifiers: Option[List[String]] = None
   ): software.amazon.awscdk.services.glue.CfnCrawlerProps =
     (new software.amazon.awscdk.services.glue.CfnCrawlerProps.Builder)
-      .targets(targets.orNull)
+      .targets(targets)
+      .role(role)
       .schemaChangePolicy(schemaChangePolicy.orNull)
       .recrawlPolicy(recrawlPolicy.orNull)
       .schedule(schedule.orNull)
@@ -30,7 +31,6 @@ object CfnCrawlerProps {
       .name(name.orNull)
       .crawlerSecurityConfiguration(crawlerSecurityConfiguration.orNull)
       .tablePrefix(tablePrefix.orNull)
-      .role(role.orNull)
       .description(description.orNull)
       .tags(tags.orNull)
       .configuration(configuration.orNull)

@@ -7,6 +7,8 @@ import scala.collection.JavaConverters._
 object CfnBranchProps {
 
   def apply(
+    appId: String,
+    branchName: String,
     enablePullRequestPreview: Option[Boolean] = None,
     stage: Option[String] = None,
     environmentVariables: Option[List[_]] = None,
@@ -14,13 +16,13 @@ object CfnBranchProps {
     enableAutoBuild: Option[Boolean] = None,
     pullRequestEnvironmentName: Option[String] = None,
     basicAuthConfig: Option[software.amazon.awscdk.services.amplify.CfnBranch.BasicAuthConfigProperty] = None,
-    appId: Option[String] = None,
-    branchName: Option[String] = None,
     enablePerformanceMode: Option[Boolean] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.amplify.CfnBranchProps =
     (new software.amazon.awscdk.services.amplify.CfnBranchProps.Builder)
+      .appId(appId)
+      .branchName(branchName)
       .enablePullRequestPreview(enablePullRequestPreview.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .stage(stage.orNull)
       .environmentVariables(environmentVariables.map(_.asJava).orNull)
@@ -28,8 +30,6 @@ object CfnBranchProps {
       .enableAutoBuild(enableAutoBuild.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .pullRequestEnvironmentName(pullRequestEnvironmentName.orNull)
       .basicAuthConfig(basicAuthConfig.orNull)
-      .appId(appId.orNull)
-      .branchName(branchName.orNull)
       .enablePerformanceMode(enablePerformanceMode.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)

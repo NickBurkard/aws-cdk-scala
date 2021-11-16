@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayTlsValidationContextFileTrustProperty {
 
   def apply(
-    certificateChain: Option[String] = None
+    certificateChain: String
   ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextFileTrustProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayTlsValidationContextFileTrustProperty.Builder)
-      .certificateChain(certificateChain.orNull)
+      .certificateChain(certificateChain)
       .build()
 }

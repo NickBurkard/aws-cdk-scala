@@ -4,13 +4,13 @@ package io.burkard.cdk.services.lambda
 object CfnCodeSigningConfigProps {
 
   def apply(
+    allowedPublishers: software.amazon.awscdk.services.lambda.CfnCodeSigningConfig.AllowedPublishersProperty,
     description: Option[String] = None,
-    allowedPublishers: Option[software.amazon.awscdk.services.lambda.CfnCodeSigningConfig.AllowedPublishersProperty] = None,
     codeSigningPolicies: Option[software.amazon.awscdk.services.lambda.CfnCodeSigningConfig.CodeSigningPoliciesProperty] = None
   ): software.amazon.awscdk.services.lambda.CfnCodeSigningConfigProps =
     (new software.amazon.awscdk.services.lambda.CfnCodeSigningConfigProps.Builder)
+      .allowedPublishers(allowedPublishers)
       .description(description.orNull)
-      .allowedPublishers(allowedPublishers.orNull)
       .codeSigningPolicies(codeSigningPolicies.orNull)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.core
 object DockerImageAssetLocation {
 
   def apply(
-    repositoryName: Option[String] = None,
-    imageUri: Option[String] = None
+    repositoryName: String,
+    imageUri: String
   ): software.amazon.awscdk.DockerImageAssetLocation =
     (new software.amazon.awscdk.DockerImageAssetLocation.Builder)
-      .repositoryName(repositoryName.orNull)
-      .imageUri(imageUri.orNull)
+      .repositoryName(repositoryName)
+      .imageUri(imageUri)
       .build()
 }

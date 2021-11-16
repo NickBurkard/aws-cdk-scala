@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object MultiUserHostedRotationOptions {
 
   def apply(
+    masterSecret: software.amazon.awscdk.services.secretsmanager.ISecret,
     functionName: Option[String] = None,
-    masterSecret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None
   ): software.amazon.awscdk.services.secretsmanager.MultiUserHostedRotationOptions =
     (new software.amazon.awscdk.services.secretsmanager.MultiUserHostedRotationOptions.Builder)
+      .masterSecret(masterSecret)
       .functionName(functionName.orNull)
-      .masterSecret(masterSecret.orNull)
       .vpcSubnets(vpcSubnets.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .vpc(vpc.orNull)

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3
 object RedirectTarget {
 
   def apply(
-    hostName: Option[String] = None,
+    hostName: String,
     protocol: Option[software.amazon.awscdk.services.s3.RedirectProtocol] = None
   ): software.amazon.awscdk.services.s3.RedirectTarget =
     (new software.amazon.awscdk.services.s3.RedirectTarget.Builder)
-      .hostName(hostName.orNull)
+      .hostName(hostName)
       .protocol(protocol.orNull)
       .build()
 }

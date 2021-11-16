@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnCapacityProviderProps {
 
   def apply(
+    autoScalingGroupProvider: software.amazon.awscdk.services.ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty,
     name: Option[String] = None,
-    autoScalingGroupProvider: Option[software.amazon.awscdk.services.ecs.CfnCapacityProvider.AutoScalingGroupProviderProperty] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ecs.CfnCapacityProviderProps =
     (new software.amazon.awscdk.services.ecs.CfnCapacityProviderProps.Builder)
+      .autoScalingGroupProvider(autoScalingGroupProvider)
       .name(name.orNull)
-      .autoScalingGroupProvider(autoScalingGroupProvider.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

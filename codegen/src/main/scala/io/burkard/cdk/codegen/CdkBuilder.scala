@@ -5,9 +5,6 @@ import java.nio.file.{Path, Paths}
 
 import scala.annotation.nowarn
 import scala.util.Try
-
-import com.google.common.base.CaseFormat
-
 import io.burkard.cdk.codegen.CdkBuilder.ConstructorType
 
 // Class instance builder provided by the CDK.
@@ -18,23 +15,34 @@ final case class CdkBuilder private[codegen](
   constructorType: CdkBuilder.ConstructorType,
   underlying: Class[_]
 ) {
-  // The required field names of the underlying builder props.
+  // The required field names of the underlying instance.
   private[codegen] lazy val requiredFieldNames: Set[String] =
-    (for {
+    requiredFieldNamesByProps
+      .orElse(requiredFieldNamesByInterface)
+      .getOrElse(Set.empty)
+
+  // Attempt to find required field names via `props` field.
+  private[this] lazy val requiredFieldNamesByProps: Option[Set[String]] =
+    for {
       // The `props` field is a builder for all required & optional properties.
-      propsBuilder <- Try(underlying.getDeclaredField("props")).map(_.getType)
+      propsBuilder <- Try(underlying.getDeclaredField("props")).toOption.map(_.getType)
 
       // The `build` method returns an instance of the props itself, which needs to be inspected.
-      props <- Try(propsBuilder.getDeclaredMethod("build")).map(_.getReturnType)
+      props <- Try(propsBuilder.getDeclaredMethod("build")).toOption.map(_.getReturnType)
+    } yield props.requiredFieldNames
 
-      // Dig into `props` for all non-static `get` methods without a default implementation.
-      requiredFields = props.getDeclaredMethods.toList
-        .collect {
-          case m if !Modifier.isStatic(m.getModifiers) && m.getName.startsWith("get") && !m.isDefault =>
-            CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, m.getName.stripPrefix("get"))
-        }
-        .toSet
-    } yield requiredFields).getOrElse(Set.empty)
+  // Attempt to find required field names by the builder interface.
+  private[this] lazy val requiredFieldNamesByInterface: Option[Set[String]] =
+    for {
+      genericInterfaces <- Try(underlying.getGenericInterfaces).toOption.map(_.toList)
+
+      // Need to dig through generic interfaces for the associated props class name.
+      propsClassName <- genericInterfaces.collectFirst { case i if i.getTypeName.contains("Builder") =>
+        i.getTypeName.stripPrefix("software.amazon.jsii.Builder<").stripSuffix(">")
+      }
+
+      props <- Try(Class.forName(propsClassName)).toOption
+    } yield props.requiredFieldNames
 
   @nowarn("cat=deprecation")
   // [0, N] field methods of the underlying builder. All non-optional fields appear before optional fields.

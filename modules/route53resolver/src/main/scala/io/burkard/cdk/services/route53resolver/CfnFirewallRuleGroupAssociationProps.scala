@@ -7,19 +7,19 @@ import scala.collection.JavaConverters._
 object CfnFirewallRuleGroupAssociationProps {
 
   def apply(
+    vpcId: String,
+    firewallRuleGroupId: String,
+    priority: Number,
     mutationProtection: Option[String] = None,
-    vpcId: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    firewallRuleGroupId: Option[String] = None,
-    name: Option[String] = None,
-    priority: Option[Number] = None
+    name: Option[String] = None
   ): software.amazon.awscdk.services.route53resolver.CfnFirewallRuleGroupAssociationProps =
     (new software.amazon.awscdk.services.route53resolver.CfnFirewallRuleGroupAssociationProps.Builder)
+      .vpcId(vpcId)
+      .firewallRuleGroupId(firewallRuleGroupId)
+      .priority(priority)
       .mutationProtection(mutationProtection.orNull)
-      .vpcId(vpcId.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .firewallRuleGroupId(firewallRuleGroupId.orNull)
       .name(name.orNull)
-      .priority(priority.orNull)
       .build()
 }

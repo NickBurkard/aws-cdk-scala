@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CredentialPairProperty {
 
   def apply(
-    username: Option[String] = None,
-    alternateDataSourceParameters: Option[List[_]] = None,
-    password: Option[String] = None
+    username: String,
+    password: String,
+    alternateDataSourceParameters: Option[List[_]] = None
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.CredentialPairProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.CredentialPairProperty.Builder)
-      .username(username.orNull)
+      .username(username)
+      .password(password)
       .alternateDataSourceParameters(alternateDataSourceParameters.map(_.asJava).orNull)
-      .password(password.orNull)
       .build()
 }

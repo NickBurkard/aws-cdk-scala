@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sam
 object ProvisionedThroughputProperty {
 
   def apply(
-    writeCapacityUnits: Option[Number] = None,
+    writeCapacityUnits: Number,
     readCapacityUnits: Option[Number] = None
   ): software.amazon.awscdk.services.sam.CfnSimpleTable.ProvisionedThroughputProperty =
     (new software.amazon.awscdk.services.sam.CfnSimpleTable.ProvisionedThroughputProperty.Builder)
-      .writeCapacityUnits(writeCapacityUnits.orNull)
+      .writeCapacityUnits(writeCapacityUnits)
       .readCapacityUnits(readCapacityUnits.orNull)
       .build()
 }

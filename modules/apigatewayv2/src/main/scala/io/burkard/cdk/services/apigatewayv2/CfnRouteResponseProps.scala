@@ -4,19 +4,19 @@ package io.burkard.cdk.services.apigatewayv2
 object CfnRouteResponseProps {
 
   def apply(
+    routeId: String,
+    routeResponseKey: String,
+    apiId: String,
     responseModels: Option[AnyRef] = None,
-    routeId: Option[String] = None,
-    routeResponseKey: Option[String] = None,
     responseParameters: Option[AnyRef] = None,
-    apiId: Option[String] = None,
     modelSelectionExpression: Option[String] = None
   ): software.amazon.awscdk.services.apigatewayv2.CfnRouteResponseProps =
     (new software.amazon.awscdk.services.apigatewayv2.CfnRouteResponseProps.Builder)
+      .routeId(routeId)
+      .routeResponseKey(routeResponseKey)
+      .apiId(apiId)
       .responseModels(responseModels.orNull)
-      .routeId(routeId.orNull)
-      .routeResponseKey(routeResponseKey.orNull)
       .responseParameters(responseParameters.orNull)
-      .apiId(apiId.orNull)
       .modelSelectionExpression(modelSelectionExpression.orNull)
       .build()
 }

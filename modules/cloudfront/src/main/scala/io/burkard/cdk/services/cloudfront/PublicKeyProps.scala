@@ -4,12 +4,12 @@ package io.burkard.cdk.services.cloudfront
 object PublicKeyProps {
 
   def apply(
-    encodedKey: Option[String] = None,
+    encodedKey: String,
     publicKeyName: Option[String] = None,
     comment: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.PublicKeyProps =
     (new software.amazon.awscdk.services.cloudfront.PublicKeyProps.Builder)
-      .encodedKey(encodedKey.orNull)
+      .encodedKey(encodedKey)
       .publicKeyName(publicKeyName.orNull)
       .comment(comment.orNull)
       .build()

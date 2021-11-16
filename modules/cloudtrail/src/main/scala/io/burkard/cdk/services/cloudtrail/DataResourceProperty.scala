@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object DataResourceProperty {
 
   def apply(
-    values: Option[List[String]] = None,
-    `type`: Option[String] = None
+    `type`: String,
+    values: Option[List[String]] = None
   ): software.amazon.awscdk.services.cloudtrail.CfnTrail.DataResourceProperty =
     (new software.amazon.awscdk.services.cloudtrail.CfnTrail.DataResourceProperty.Builder)
+      .`type`(`type`)
       .values(values.map(_.asJava).orNull)
-      .`type`(`type`.orNull)
       .build()
 }

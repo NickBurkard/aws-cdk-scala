@@ -4,11 +4,11 @@ package io.burkard.cdk.services.sagemaker
 object ModelQualityJobInputProperty {
 
   def apply(
-    groundTruthS3Input: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty] = None,
-    endpointInput: Option[software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.EndpointInputProperty] = None
+    groundTruthS3Input: software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty,
+    endpointInput: software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.EndpointInputProperty
   ): software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityJobInputProperty =
     (new software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.ModelQualityJobInputProperty.Builder)
-      .groundTruthS3Input(groundTruthS3Input.orNull)
-      .endpointInput(endpointInput.orNull)
+      .groundTruthS3Input(groundTruthS3Input)
+      .endpointInput(endpointInput)
       .build()
 }

@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object ProxyConfigurationProperty {
 
   def apply(
-    containerName: Option[String] = None,
+    containerName: String,
     proxyConfigurationProperties: Option[List[_]] = None,
     `type`: Option[String] = None
   ): software.amazon.awscdk.services.ecs.CfnTaskDefinition.ProxyConfigurationProperty =
     (new software.amazon.awscdk.services.ecs.CfnTaskDefinition.ProxyConfigurationProperty.Builder)
-      .containerName(containerName.orNull)
+      .containerName(containerName)
       .proxyConfigurationProperties(proxyConfigurationProperties.map(_.asJava).orNull)
       .`type`(`type`.orNull)
       .build()

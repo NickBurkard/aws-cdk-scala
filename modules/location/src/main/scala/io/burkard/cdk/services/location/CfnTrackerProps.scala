@@ -4,19 +4,19 @@ package io.burkard.cdk.services.location
 object CfnTrackerProps {
 
   def apply(
+    trackerName: String,
+    pricingPlan: String,
     description: Option[String] = None,
     positionFiltering: Option[String] = None,
-    trackerName: Option[String] = None,
     pricingPlanDataSource: Option[String] = None,
-    kmsKeyId: Option[String] = None,
-    pricingPlan: Option[String] = None
+    kmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.location.CfnTrackerProps =
     (new software.amazon.awscdk.services.location.CfnTrackerProps.Builder)
+      .trackerName(trackerName)
+      .pricingPlan(pricingPlan)
       .description(description.orNull)
       .positionFiltering(positionFiltering.orNull)
-      .trackerName(trackerName.orNull)
       .pricingPlanDataSource(pricingPlanDataSource.orNull)
       .kmsKeyId(kmsKeyId.orNull)
-      .pricingPlan(pricingPlan.orNull)
       .build()
 }

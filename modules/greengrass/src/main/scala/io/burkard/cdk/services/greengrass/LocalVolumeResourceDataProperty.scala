@@ -4,13 +4,13 @@ package io.burkard.cdk.services.greengrass
 object LocalVolumeResourceDataProperty {
 
   def apply(
-    sourcePath: Option[String] = None,
-    destinationPath: Option[String] = None,
+    sourcePath: String,
+    destinationPath: String,
     groupOwnerSetting: Option[software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.GroupOwnerSettingProperty] = None
   ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty =
     (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.Builder)
-      .sourcePath(sourcePath.orNull)
-      .destinationPath(destinationPath.orNull)
+      .sourcePath(sourcePath)
+      .destinationPath(destinationPath)
       .groupOwnerSetting(groupOwnerSetting.orNull)
       .build()
 }

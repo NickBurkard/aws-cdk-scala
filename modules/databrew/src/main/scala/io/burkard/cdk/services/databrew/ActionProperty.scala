@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object ActionProperty {
 
   def apply(
-    operation: Option[String] = None,
+    operation: String,
     parameters: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.databrew.CfnRecipe.ActionProperty =
     (new software.amazon.awscdk.services.databrew.CfnRecipe.ActionProperty.Builder)
-      .operation(operation.orNull)
+      .operation(operation)
       .parameters(parameters.map(_.asJava).orNull)
       .build()
 }

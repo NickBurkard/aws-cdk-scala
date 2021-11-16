@@ -4,11 +4,11 @@ package io.burkard.cdk.services.backup
 object CfnBackupSelectionProps {
 
   def apply(
-    backupPlanId: Option[String] = None,
-    backupSelection: Option[software.amazon.awscdk.services.backup.CfnBackupSelection.BackupSelectionResourceTypeProperty] = None
+    backupPlanId: String,
+    backupSelection: software.amazon.awscdk.services.backup.CfnBackupSelection.BackupSelectionResourceTypeProperty
   ): software.amazon.awscdk.services.backup.CfnBackupSelectionProps =
     (new software.amazon.awscdk.services.backup.CfnBackupSelectionProps.Builder)
-      .backupPlanId(backupPlanId.orNull)
-      .backupSelection(backupSelection.orNull)
+      .backupPlanId(backupPlanId)
+      .backupSelection(backupSelection)
       .build()
 }

@@ -7,25 +7,25 @@ import scala.collection.JavaConverters._
 object CfnInferenceSchedulerProps {
 
   def apply(
+    dataUploadFrequency: String,
+    dataInputConfiguration: AnyRef,
+    modelName: String,
+    roleArn: String,
+    dataOutputConfiguration: AnyRef,
     inferenceSchedulerName: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    dataUploadFrequency: Option[String] = None,
-    dataInputConfiguration: Option[AnyRef] = None,
-    modelName: Option[String] = None,
-    roleArn: Option[String] = None,
     dataDelayOffsetInMinutes: Option[Number] = None,
-    serverSideKmsKeyId: Option[String] = None,
-    dataOutputConfiguration: Option[AnyRef] = None
+    serverSideKmsKeyId: Option[String] = None
   ): software.amazon.awscdk.services.lookoutequipment.CfnInferenceSchedulerProps =
     (new software.amazon.awscdk.services.lookoutequipment.CfnInferenceSchedulerProps.Builder)
+      .dataUploadFrequency(dataUploadFrequency)
+      .dataInputConfiguration(dataInputConfiguration)
+      .modelName(modelName)
+      .roleArn(roleArn)
+      .dataOutputConfiguration(dataOutputConfiguration)
       .inferenceSchedulerName(inferenceSchedulerName.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .dataUploadFrequency(dataUploadFrequency.orNull)
-      .dataInputConfiguration(dataInputConfiguration.orNull)
-      .modelName(modelName.orNull)
-      .roleArn(roleArn.orNull)
       .dataDelayOffsetInMinutes(dataDelayOffsetInMinutes.orNull)
       .serverSideKmsKeyId(serverSideKmsKeyId.orNull)
-      .dataOutputConfiguration(dataOutputConfiguration.orNull)
       .build()
 }

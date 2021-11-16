@@ -4,15 +4,15 @@ package io.burkard.cdk.services.ses
 object S3Props {
 
   def apply(
+    bucket: software.amazon.awscdk.services.s3.IBucket,
     objectKeyPrefix: Option[String] = None,
     kmsKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
-    bucket: Option[software.amazon.awscdk.services.s3.IBucket] = None,
     topic: Option[software.amazon.awscdk.services.sns.ITopic] = None
   ): software.amazon.awscdk.services.ses.actions.S3Props =
     (new software.amazon.awscdk.services.ses.actions.S3Props.Builder)
+      .bucket(bucket)
       .objectKeyPrefix(objectKeyPrefix.orNull)
       .kmsKey(kmsKey.orNull)
-      .bucket(bucket.orNull)
       .topic(topic.orNull)
       .build()
 }

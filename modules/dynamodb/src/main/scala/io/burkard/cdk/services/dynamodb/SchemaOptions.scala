@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dynamodb
 object SchemaOptions {
 
   def apply(
-    sortKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None,
-    partitionKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None
+    partitionKey: software.amazon.awscdk.services.dynamodb.Attribute,
+    sortKey: Option[software.amazon.awscdk.services.dynamodb.Attribute] = None
   ): software.amazon.awscdk.services.dynamodb.SchemaOptions =
     (new software.amazon.awscdk.services.dynamodb.SchemaOptions.Builder)
+      .partitionKey(partitionKey)
       .sortKey(sortKey.orNull)
-      .partitionKey(partitionKey.orNull)
       .build()
 }

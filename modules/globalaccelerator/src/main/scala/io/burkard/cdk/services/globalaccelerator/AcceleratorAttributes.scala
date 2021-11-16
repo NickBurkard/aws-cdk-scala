@@ -4,11 +4,11 @@ package io.burkard.cdk.services.globalaccelerator
 object AcceleratorAttributes {
 
   def apply(
-    acceleratorArn: Option[String] = None,
-    dnsName: Option[String] = None
+    acceleratorArn: String,
+    dnsName: String
   ): software.amazon.awscdk.services.globalaccelerator.AcceleratorAttributes =
     (new software.amazon.awscdk.services.globalaccelerator.AcceleratorAttributes.Builder)
-      .acceleratorArn(acceleratorArn.orNull)
-      .dnsName(dnsName.orNull)
+      .acceleratorArn(acceleratorArn)
+      .dnsName(dnsName)
       .build()
 }

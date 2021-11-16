@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object DatabaseSecretProps {
 
   def apply(
+    username: String,
     replicaRegions: Option[List[_ <: software.amazon.awscdk.services.secretsmanager.ReplicaRegion]] = None,
-    username: Option[String] = None,
     masterSecret: Option[software.amazon.awscdk.services.secretsmanager.ISecret] = None,
     excludeCharacters: Option[String] = None,
     replaceOnPasswordCriteriaChanges: Option[Boolean] = None,
@@ -16,8 +16,8 @@ object DatabaseSecretProps {
     encryptionKey: Option[software.amazon.awscdk.services.kms.IKey] = None
   ): software.amazon.awscdk.services.rds.DatabaseSecretProps =
     (new software.amazon.awscdk.services.rds.DatabaseSecretProps.Builder)
+      .username(username)
       .replicaRegions(replicaRegions.map(_.asJava).orNull)
-      .username(username.orNull)
       .masterSecret(masterSecret.orNull)
       .excludeCharacters(excludeCharacters.orNull)
       .replaceOnPasswordCriteriaChanges(replaceOnPasswordCriteriaChanges.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

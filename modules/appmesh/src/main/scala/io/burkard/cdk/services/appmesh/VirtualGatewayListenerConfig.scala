@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object VirtualGatewayListenerConfig {
 
   def apply(
-    listener: Option[software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayListenerProperty] = None
+    listener: software.amazon.awscdk.services.appmesh.CfnVirtualGateway.VirtualGatewayListenerProperty
   ): software.amazon.awscdk.services.appmesh.VirtualGatewayListenerConfig =
     (new software.amazon.awscdk.services.appmesh.VirtualGatewayListenerConfig.Builder)
-      .listener(listener.orNull)
+      .listener(listener)
       .build()
 }

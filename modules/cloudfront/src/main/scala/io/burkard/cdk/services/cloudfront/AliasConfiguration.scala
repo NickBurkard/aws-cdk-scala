@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object AliasConfiguration {
 
   def apply(
-    names: Option[List[String]] = None,
+    names: List[String],
+    acmCertRef: String,
     sslMethod: Option[software.amazon.awscdk.services.cloudfront.SSLMethod] = None,
-    acmCertRef: Option[String] = None,
     securityPolicy: Option[software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol] = None
   ): software.amazon.awscdk.services.cloudfront.AliasConfiguration =
     (new software.amazon.awscdk.services.cloudfront.AliasConfiguration.Builder)
-      .names(names.map(_.asJava).orNull)
+      .names(names.asJava)
+      .acmCertRef(acmCertRef)
       .sslMethod(sslMethod.orNull)
-      .acmCertRef(acmCertRef.orNull)
       .securityPolicy(securityPolicy.orNull)
       .build()
 }

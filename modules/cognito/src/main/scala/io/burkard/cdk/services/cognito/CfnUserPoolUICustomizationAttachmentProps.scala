@@ -4,13 +4,13 @@ package io.burkard.cdk.services.cognito
 object CfnUserPoolUICustomizationAttachmentProps {
 
   def apply(
-    userPoolId: Option[String] = None,
-    clientId: Option[String] = None,
+    userPoolId: String,
+    clientId: String,
     css: Option[String] = None
   ): software.amazon.awscdk.services.cognito.CfnUserPoolUICustomizationAttachmentProps =
     (new software.amazon.awscdk.services.cognito.CfnUserPoolUICustomizationAttachmentProps.Builder)
-      .userPoolId(userPoolId.orNull)
-      .clientId(clientId.orNull)
+      .userPoolId(userPoolId)
+      .clientId(clientId)
       .css(css.orNull)
       .build()
 }

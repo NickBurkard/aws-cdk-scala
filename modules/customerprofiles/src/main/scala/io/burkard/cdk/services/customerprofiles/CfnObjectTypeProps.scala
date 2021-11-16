@@ -7,8 +7,8 @@ import scala.collection.JavaConverters._
 object CfnObjectTypeProps {
 
   def apply(
+    domainName: String,
     allowProfileCreation: Option[Boolean] = None,
-    domainName: Option[String] = None,
     objectTypeName: Option[String] = None,
     templateId: Option[String] = None,
     fields: Option[List[_]] = None,
@@ -19,8 +19,8 @@ object CfnObjectTypeProps {
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.customerprofiles.CfnObjectTypeProps =
     (new software.amazon.awscdk.services.customerprofiles.CfnObjectTypeProps.Builder)
+      .domainName(domainName)
       .allowProfileCreation(allowProfileCreation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .domainName(domainName.orNull)
       .objectTypeName(objectTypeName.orNull)
       .templateId(templateId.orNull)
       .fields(fields.map(_.asJava).orNull)

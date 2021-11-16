@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lookoutmetrics
 object AnomalyDetectorConfigProperty {
 
   def apply(
-    anomalyDetectorFrequency: Option[String] = None
+    anomalyDetectorFrequency: String
   ): software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.AnomalyDetectorConfigProperty =
     (new software.amazon.awscdk.services.lookoutmetrics.CfnAnomalyDetector.AnomalyDetectorConfigProperty.Builder)
-      .anomalyDetectorFrequency(anomalyDetectorFrequency.orNull)
+      .anomalyDetectorFrequency(anomalyDetectorFrequency)
       .build()
 }

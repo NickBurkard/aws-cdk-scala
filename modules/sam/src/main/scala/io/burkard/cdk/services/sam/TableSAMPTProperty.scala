@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sam
 object TableSAMPTProperty {
 
   def apply(
-    tableName: Option[String] = None
+    tableName: String
   ): software.amazon.awscdk.services.sam.CfnFunction.TableSAMPTProperty =
     (new software.amazon.awscdk.services.sam.CfnFunction.TableSAMPTProperty.Builder)
-      .tableName(tableName.orNull)
+      .tableName(tableName)
       .build()
 }

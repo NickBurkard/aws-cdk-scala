@@ -4,11 +4,11 @@ package io.burkard.cdk.services.emr
 object CfnSecurityConfigurationProps {
 
   def apply(
-    name: Option[String] = None,
-    securityConfiguration: Option[AnyRef] = None
+    securityConfiguration: AnyRef,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.emr.CfnSecurityConfigurationProps =
     (new software.amazon.awscdk.services.emr.CfnSecurityConfigurationProps.Builder)
+      .securityConfiguration(securityConfiguration)
       .name(name.orNull)
-      .securityConfiguration(securityConfiguration.orNull)
       .build()
 }

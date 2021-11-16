@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object PartitionInputProperty {
 
   def apply(
-    values: Option[List[String]] = None,
+    values: List[String],
     parameters: Option[AnyRef] = None,
     storageDescriptor: Option[software.amazon.awscdk.services.glue.CfnPartition.StorageDescriptorProperty] = None
   ): software.amazon.awscdk.services.glue.CfnPartition.PartitionInputProperty =
     (new software.amazon.awscdk.services.glue.CfnPartition.PartitionInputProperty.Builder)
-      .values(values.map(_.asJava).orNull)
+      .values(values.asJava)
       .parameters(parameters.orNull)
       .storageDescriptor(storageDescriptor.orNull)
       .build()

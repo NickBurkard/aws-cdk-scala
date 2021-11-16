@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object CfnSubnetCidrBlockProps {
 
   def apply(
-    subnetId: Option[String] = None,
-    ipv6CidrBlock: Option[String] = None
+    subnetId: String,
+    ipv6CidrBlock: String
   ): software.amazon.awscdk.services.ec2.CfnSubnetCidrBlockProps =
     (new software.amazon.awscdk.services.ec2.CfnSubnetCidrBlockProps.Builder)
-      .subnetId(subnetId.orNull)
-      .ipv6CidrBlock(ipv6CidrBlock.orNull)
+      .subnetId(subnetId)
+      .ipv6CidrBlock(ipv6CidrBlock)
       .build()
 }

@@ -4,20 +4,20 @@ package io.burkard.cdk.services.batch
 object CfnComputeEnvironmentProps {
 
   def apply(
+    `type`: String,
     state: Option[String] = None,
     tags: Option[AnyRef] = None,
     computeResources: Option[software.amazon.awscdk.services.batch.CfnComputeEnvironment.ComputeResourcesProperty] = None,
     unmanagedvCpus: Option[Number] = None,
-    `type`: Option[String] = None,
     serviceRole: Option[String] = None,
     computeEnvironmentName: Option[String] = None
   ): software.amazon.awscdk.services.batch.CfnComputeEnvironmentProps =
     (new software.amazon.awscdk.services.batch.CfnComputeEnvironmentProps.Builder)
+      .`type`(`type`)
       .state(state.orNull)
       .tags(tags.orNull)
       .computeResources(computeResources.orNull)
       .unmanagedvCpus(unmanagedvCpus.orNull)
-      .`type`(`type`.orNull)
       .serviceRole(serviceRole.orNull)
       .computeEnvironmentName(computeEnvironmentName.orNull)
       .build()

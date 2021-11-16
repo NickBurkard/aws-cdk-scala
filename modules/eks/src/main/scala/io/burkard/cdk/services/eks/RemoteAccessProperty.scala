@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object RemoteAccessProperty {
 
   def apply(
-    ec2SshKey: Option[String] = None,
+    ec2SshKey: String,
     sourceSecurityGroups: Option[List[String]] = None
   ): software.amazon.awscdk.services.eks.CfnNodegroup.RemoteAccessProperty =
     (new software.amazon.awscdk.services.eks.CfnNodegroup.RemoteAccessProperty.Builder)
-      .ec2SshKey(ec2SshKey.orNull)
+      .ec2SshKey(ec2SshKey)
       .sourceSecurityGroups(sourceSecurityGroups.map(_.asJava).orNull)
       .build()
 }

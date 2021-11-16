@@ -7,21 +7,21 @@ import scala.collection.JavaConverters._
 object UserPoolIdentityProviderAppleProps {
 
   def apply(
-    clientId: Option[String] = None,
-    teamId: Option[String] = None,
+    clientId: String,
+    teamId: String,
+    keyId: String,
+    privateKey: String,
     attributeMapping: Option[software.amazon.awscdk.services.cognito.AttributeMapping] = None,
     scopes: Option[List[String]] = None,
-    keyId: Option[String] = None,
-    privateKey: Option[String] = None,
     userPool: Option[software.amazon.awscdk.services.cognito.IUserPool] = None
   ): software.amazon.awscdk.services.cognito.UserPoolIdentityProviderAppleProps =
     (new software.amazon.awscdk.services.cognito.UserPoolIdentityProviderAppleProps.Builder)
-      .clientId(clientId.orNull)
-      .teamId(teamId.orNull)
+      .clientId(clientId)
+      .teamId(teamId)
+      .keyId(keyId)
+      .privateKey(privateKey)
       .attributeMapping(attributeMapping.orNull)
       .scopes(scopes.map(_.asJava).orNull)
-      .keyId(keyId.orNull)
-      .privateKey(privateKey.orNull)
       .userPool(userPool.orNull)
       .build()
 }

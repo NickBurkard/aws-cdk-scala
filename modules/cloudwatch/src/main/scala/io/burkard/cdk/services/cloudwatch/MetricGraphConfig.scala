@@ -7,25 +7,25 @@ import scala.collection.JavaConverters._
 object MetricGraphConfig {
 
   def apply(
+    period: Number,
+    namespace: String,
+    metricName: String,
+    renderingProperties: software.amazon.awscdk.services.cloudwatch.MetricRenderingProperties,
     statistic: Option[String] = None,
     label: Option[String] = None,
     color: Option[String] = None,
     dimensions: Option[List[_ <: software.amazon.awscdk.services.cloudwatch.Dimension]] = None,
-    unit: Option[software.amazon.awscdk.services.cloudwatch.Unit] = None,
-    period: Option[Number] = None,
-    namespace: Option[String] = None,
-    metricName: Option[String] = None,
-    renderingProperties: Option[software.amazon.awscdk.services.cloudwatch.MetricRenderingProperties] = None
+    unit: Option[software.amazon.awscdk.services.cloudwatch.Unit] = None
   ): software.amazon.awscdk.services.cloudwatch.MetricGraphConfig =
     (new software.amazon.awscdk.services.cloudwatch.MetricGraphConfig.Builder)
+      .period(period)
+      .namespace(namespace)
+      .metricName(metricName)
+      .renderingProperties(renderingProperties)
       .statistic(statistic.orNull)
       .label(label.orNull)
       .color(color.orNull)
       .dimensions(dimensions.map(_.asJava).orNull)
       .unit(unit.orNull)
-      .period(period.orNull)
-      .namespace(namespace.orNull)
-      .metricName(metricName.orNull)
-      .renderingProperties(renderingProperties.orNull)
       .build()
 }

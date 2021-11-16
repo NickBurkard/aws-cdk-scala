@@ -7,9 +7,10 @@ import scala.collection.JavaConverters._
 object ClientVpnEndpointOptions {
 
   def apply(
+    cidr: String,
+    serverCertificateArn: String,
     logGroup: Option[software.amazon.awscdk.services.logs.ILogGroup] = None,
     logging: Option[Boolean] = None,
-    cidr: Option[String] = None,
     clientConnectionHandler: Option[software.amazon.awscdk.services.ec2.IClientVpnConnectionHandler] = None,
     userBasedAuthentication: Option[software.amazon.awscdk.services.ec2.ClientVpnUserBasedAuthentication] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
@@ -19,16 +20,16 @@ object ClientVpnEndpointOptions {
     description: Option[String] = None,
     transportProtocol: Option[software.amazon.awscdk.services.ec2.TransportProtocol] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
-    serverCertificateArn: Option[String] = None,
     authorizeAllUsersToVpcCidr: Option[Boolean] = None,
     selfServicePortal: Option[Boolean] = None,
     splitTunnel: Option[Boolean] = None,
     clientCertificateArn: Option[String] = None
   ): software.amazon.awscdk.services.ec2.ClientVpnEndpointOptions =
     (new software.amazon.awscdk.services.ec2.ClientVpnEndpointOptions.Builder)
+      .cidr(cidr)
+      .serverCertificateArn(serverCertificateArn)
       .logGroup(logGroup.orNull)
       .logging(logging.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .cidr(cidr.orNull)
       .clientConnectionHandler(clientConnectionHandler.orNull)
       .userBasedAuthentication(userBasedAuthentication.orNull)
       .vpcSubnets(vpcSubnets.orNull)
@@ -38,7 +39,6 @@ object ClientVpnEndpointOptions {
       .description(description.orNull)
       .transportProtocol(transportProtocol.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
-      .serverCertificateArn(serverCertificateArn.orNull)
       .authorizeAllUsersToVpcCidr(authorizeAllUsersToVpcCidr.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .selfServicePortal(selfServicePortal.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .splitTunnel(splitTunnel.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cloudfront
 object LegacyS3OriginProperty {
 
   def apply(
-    originAccessIdentity: Option[String] = None,
-    dnsName: Option[String] = None
+    dnsName: String,
+    originAccessIdentity: Option[String] = None
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.LegacyS3OriginProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.LegacyS3OriginProperty.Builder)
+      .dnsName(dnsName)
       .originAccessIdentity(originAccessIdentity.orNull)
-      .dnsName(dnsName.orNull)
       .build()
 }

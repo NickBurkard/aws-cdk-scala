@@ -4,13 +4,13 @@ package io.burkard.cdk.services.stepfunctions
 object VolumeSpecificationProperty {
 
   def apply(
-    volumeType: Option[software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EbsBlockDeviceVolumeType] = None,
-    iops: Option[Number] = None,
-    volumeSize: Option[software.amazon.awscdk.Size] = None
+    volumeType: software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.EbsBlockDeviceVolumeType,
+    volumeSize: software.amazon.awscdk.Size,
+    iops: Option[Number] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.VolumeSpecificationProperty =
     (new software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.VolumeSpecificationProperty.Builder)
-      .volumeType(volumeType.orNull)
+      .volumeType(volumeType)
+      .volumeSize(volumeSize)
       .iops(iops.orNull)
-      .volumeSize(volumeSize.orNull)
       .build()
 }

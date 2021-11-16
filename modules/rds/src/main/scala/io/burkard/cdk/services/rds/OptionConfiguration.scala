@@ -7,7 +7,7 @@ import scala.collection.JavaConverters._
 object OptionConfiguration {
 
   def apply(
-    name: Option[String] = None,
+    name: String,
     version: Option[String] = None,
     port: Option[Number] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
@@ -15,7 +15,7 @@ object OptionConfiguration {
     settings: Option[Map[String, String]] = None
   ): software.amazon.awscdk.services.rds.OptionConfiguration =
     (new software.amazon.awscdk.services.rds.OptionConfiguration.Builder)
-      .name(name.orNull)
+      .name(name)
       .version(version.orNull)
       .port(port.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)

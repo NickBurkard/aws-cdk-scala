@@ -4,14 +4,14 @@ package io.burkard.cdk.services.ecs
 object Volume {
 
   def apply(
+    name: String,
     dockerVolumeConfiguration: Option[software.amazon.awscdk.services.ecs.DockerVolumeConfiguration] = None,
-    name: Option[String] = None,
     host: Option[software.amazon.awscdk.services.ecs.Host] = None,
     efsVolumeConfiguration: Option[software.amazon.awscdk.services.ecs.EfsVolumeConfiguration] = None
   ): software.amazon.awscdk.services.ecs.Volume =
     (new software.amazon.awscdk.services.ecs.Volume.Builder)
+      .name(name)
       .dockerVolumeConfiguration(dockerVolumeConfiguration.orNull)
-      .name(name.orNull)
       .host(host.orNull)
       .efsVolumeConfiguration(efsVolumeConfiguration.orNull)
       .build()

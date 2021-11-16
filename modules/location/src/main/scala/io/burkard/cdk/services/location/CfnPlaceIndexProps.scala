@@ -4,17 +4,17 @@ package io.burkard.cdk.services.location
 object CfnPlaceIndexProps {
 
   def apply(
+    dataSource: String,
+    pricingPlan: String,
+    indexName: String,
     description: Option[String] = None,
-    dataSource: Option[String] = None,
-    pricingPlan: Option[String] = None,
-    dataSourceConfiguration: Option[software.amazon.awscdk.services.location.CfnPlaceIndex.DataSourceConfigurationProperty] = None,
-    indexName: Option[String] = None
+    dataSourceConfiguration: Option[software.amazon.awscdk.services.location.CfnPlaceIndex.DataSourceConfigurationProperty] = None
   ): software.amazon.awscdk.services.location.CfnPlaceIndexProps =
     (new software.amazon.awscdk.services.location.CfnPlaceIndexProps.Builder)
+      .dataSource(dataSource)
+      .pricingPlan(pricingPlan)
+      .indexName(indexName)
       .description(description.orNull)
-      .dataSource(dataSource.orNull)
-      .pricingPlan(pricingPlan.orNull)
       .dataSourceConfiguration(dataSourceConfiguration.orNull)
-      .indexName(indexName.orNull)
       .build()
 }

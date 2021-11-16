@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnPrefixListProps {
 
   def apply(
+    maxEntries: Number,
+    prefixListName: String,
+    addressFamily: String,
     entries: Option[List[_]] = None,
-    maxEntries: Option[Number] = None,
-    prefixListName: Option[String] = None,
-    addressFamily: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ec2.CfnPrefixListProps =
     (new software.amazon.awscdk.services.ec2.CfnPrefixListProps.Builder)
+      .maxEntries(maxEntries)
+      .prefixListName(prefixListName)
+      .addressFamily(addressFamily)
       .entries(entries.map(_.asJava).orNull)
-      .maxEntries(maxEntries.orNull)
-      .prefixListName(prefixListName.orNull)
-      .addressFamily(addressFamily.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

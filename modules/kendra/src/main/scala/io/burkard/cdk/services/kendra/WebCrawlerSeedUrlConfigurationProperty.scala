@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object WebCrawlerSeedUrlConfigurationProperty {
 
   def apply(
-    seedUrls: Option[List[String]] = None,
+    seedUrls: List[String],
     webCrawlerMode: Option[String] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.WebCrawlerSeedUrlConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.WebCrawlerSeedUrlConfigurationProperty.Builder)
-      .seedUrls(seedUrls.map(_.asJava).orNull)
+      .seedUrls(seedUrls.asJava)
       .webCrawlerMode(webCrawlerMode.orNull)
       .build()
 }

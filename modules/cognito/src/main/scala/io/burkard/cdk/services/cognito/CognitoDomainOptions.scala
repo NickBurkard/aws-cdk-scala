@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cognito
 object CognitoDomainOptions {
 
   def apply(
-    domainPrefix: Option[String] = None
+    domainPrefix: String
   ): software.amazon.awscdk.services.cognito.CognitoDomainOptions =
     (new software.amazon.awscdk.services.cognito.CognitoDomainOptions.Builder)
-      .domainPrefix(domainPrefix.orNull)
+      .domainPrefix(domainPrefix)
       .build()
 }

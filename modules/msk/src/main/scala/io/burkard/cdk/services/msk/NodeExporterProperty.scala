@@ -4,9 +4,9 @@ package io.burkard.cdk.services.msk
 object NodeExporterProperty {
 
   def apply(
-    enabledInBroker: Option[Boolean] = None
+    enabledInBroker: Boolean
   ): software.amazon.awscdk.services.msk.CfnCluster.NodeExporterProperty =
     (new software.amazon.awscdk.services.msk.CfnCluster.NodeExporterProperty.Builder)
-      .enabledInBroker(enabledInBroker.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .enabledInBroker(enabledInBroker)
       .build()
 }

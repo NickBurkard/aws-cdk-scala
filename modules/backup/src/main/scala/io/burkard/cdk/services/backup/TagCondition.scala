@@ -4,13 +4,13 @@ package io.burkard.cdk.services.backup
 object TagCondition {
 
   def apply(
-    key: Option[String] = None,
-    operation: Option[software.amazon.awscdk.services.backup.TagOperation] = None,
-    value: Option[String] = None
+    key: String,
+    value: String,
+    operation: Option[software.amazon.awscdk.services.backup.TagOperation] = None
   ): software.amazon.awscdk.services.backup.TagCondition =
     (new software.amazon.awscdk.services.backup.TagCondition.Builder)
-      .key(key.orNull)
+      .key(key)
+      .value(value)
       .operation(operation.orNull)
-      .value(value.orNull)
       .build()
 }

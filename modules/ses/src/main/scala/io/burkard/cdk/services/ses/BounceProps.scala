@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ses
 object BounceProps {
 
   def apply(
-    template: Option[software.amazon.awscdk.services.ses.actions.BounceTemplate] = None,
-    sender: Option[String] = None,
+    template: software.amazon.awscdk.services.ses.actions.BounceTemplate,
+    sender: String,
     topic: Option[software.amazon.awscdk.services.sns.ITopic] = None
   ): software.amazon.awscdk.services.ses.actions.BounceProps =
     (new software.amazon.awscdk.services.ses.actions.BounceProps.Builder)
-      .template(template.orNull)
-      .sender(sender.orNull)
+      .template(template)
+      .sender(sender)
       .topic(topic.orNull)
       .build()
 }

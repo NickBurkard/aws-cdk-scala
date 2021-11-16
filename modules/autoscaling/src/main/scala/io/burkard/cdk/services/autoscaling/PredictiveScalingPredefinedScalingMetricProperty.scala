@@ -4,11 +4,11 @@ package io.burkard.cdk.services.autoscaling
 object PredictiveScalingPredefinedScalingMetricProperty {
 
   def apply(
-    predefinedMetricType: Option[String] = None,
+    predefinedMetricType: String,
     resourceLabel: Option[String] = None
   ): software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty =
     (new software.amazon.awscdk.services.autoscaling.CfnScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty.Builder)
-      .predefinedMetricType(predefinedMetricType.orNull)
+      .predefinedMetricType(predefinedMetricType)
       .resourceLabel(resourceLabel.orNull)
       .build()
 }

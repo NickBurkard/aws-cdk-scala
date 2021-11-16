@@ -4,11 +4,11 @@ package io.burkard.cdk.services.cassandra
 object ClusteringKeyColumnProperty {
 
   def apply(
-    orderBy: Option[String] = None,
-    column: Option[software.amazon.awscdk.services.cassandra.CfnTable.ColumnProperty] = None
+    column: software.amazon.awscdk.services.cassandra.CfnTable.ColumnProperty,
+    orderBy: Option[String] = None
   ): software.amazon.awscdk.services.cassandra.CfnTable.ClusteringKeyColumnProperty =
     (new software.amazon.awscdk.services.cassandra.CfnTable.ClusteringKeyColumnProperty.Builder)
+      .column(column)
       .orderBy(orderBy.orNull)
-      .column(column.orNull)
       .build()
 }

@@ -5,16 +5,16 @@ package io.burkard.cdk.services.stepfunctions
 object SendToQueueProps {
 
   def apply(
+    messageBody: software.amazon.awscdk.services.stepfunctions.TaskInput,
     delay: Option[software.amazon.awscdk.Duration] = None,
     messageDeduplicationId: Option[String] = None,
-    messageBody: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None,
     messageGroupId: Option[String] = None,
     integrationPattern: Option[software.amazon.awscdk.services.stepfunctions.ServiceIntegrationPattern] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.SendToQueueProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.SendToQueueProps.Builder)
+      .messageBody(messageBody)
       .delay(delay.orNull)
       .messageDeduplicationId(messageDeduplicationId.orNull)
-      .messageBody(messageBody.orNull)
       .messageGroupId(messageGroupId.orNull)
       .integrationPattern(integrationPattern.orNull)
       .build()

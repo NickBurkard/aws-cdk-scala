@@ -4,13 +4,13 @@ package io.burkard.cdk.services.ecs
 object CfnPrimaryTaskSetProps {
 
   def apply(
-    service: Option[String] = None,
-    cluster: Option[String] = None,
-    taskSetId: Option[String] = None
+    service: String,
+    cluster: String,
+    taskSetId: String
   ): software.amazon.awscdk.services.ecs.CfnPrimaryTaskSetProps =
     (new software.amazon.awscdk.services.ecs.CfnPrimaryTaskSetProps.Builder)
-      .service(service.orNull)
-      .cluster(cluster.orNull)
-      .taskSetId(taskSetId.orNull)
+      .service(service)
+      .cluster(cluster)
+      .taskSetId(taskSetId)
       .build()
 }

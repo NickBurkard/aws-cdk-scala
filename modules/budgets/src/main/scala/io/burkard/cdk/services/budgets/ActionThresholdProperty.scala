@@ -4,11 +4,11 @@ package io.burkard.cdk.services.budgets
 object ActionThresholdProperty {
 
   def apply(
-    `type`: Option[String] = None,
-    value: Option[Number] = None
+    `type`: String,
+    value: Number
   ): software.amazon.awscdk.services.budgets.CfnBudgetsAction.ActionThresholdProperty =
     (new software.amazon.awscdk.services.budgets.CfnBudgetsAction.ActionThresholdProperty.Builder)
-      .`type`(`type`.orNull)
-      .value(value.orNull)
+      .`type`(`type`)
+      .value(value)
       .build()
 }

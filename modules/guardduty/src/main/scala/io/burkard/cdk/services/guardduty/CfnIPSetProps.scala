@@ -4,17 +4,17 @@ package io.burkard.cdk.services.guardduty
 object CfnIPSetProps {
 
   def apply(
-    format: Option[String] = None,
-    name: Option[String] = None,
-    location: Option[String] = None,
-    detectorId: Option[String] = None,
-    activate: Option[Boolean] = None
+    format: String,
+    location: String,
+    detectorId: String,
+    activate: Boolean,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.guardduty.CfnIPSetProps =
     (new software.amazon.awscdk.services.guardduty.CfnIPSetProps.Builder)
-      .format(format.orNull)
+      .format(format)
+      .location(location)
+      .detectorId(detectorId)
+      .activate(activate)
       .name(name.orNull)
-      .location(location.orNull)
-      .detectorId(detectorId.orNull)
-      .activate(activate.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

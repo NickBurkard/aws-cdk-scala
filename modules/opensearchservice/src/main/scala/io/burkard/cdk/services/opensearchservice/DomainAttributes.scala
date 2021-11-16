@@ -4,11 +4,11 @@ package io.burkard.cdk.services.opensearchservice
 object DomainAttributes {
 
   def apply(
-    domainArn: Option[String] = None,
-    domainEndpoint: Option[String] = None
+    domainArn: String,
+    domainEndpoint: String
   ): software.amazon.awscdk.services.opensearchservice.DomainAttributes =
     (new software.amazon.awscdk.services.opensearchservice.DomainAttributes.Builder)
-      .domainArn(domainArn.orNull)
-      .domainEndpoint(domainEndpoint.orNull)
+      .domainArn(domainArn)
+      .domainEndpoint(domainEndpoint)
       .build()
 }

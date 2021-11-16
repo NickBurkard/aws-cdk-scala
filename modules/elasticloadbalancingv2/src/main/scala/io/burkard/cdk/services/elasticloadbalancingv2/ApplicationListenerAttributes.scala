@@ -5,17 +5,17 @@ package io.burkard.cdk.services.elasticloadbalancingv2
 object ApplicationListenerAttributes {
 
   def apply(
+    listenerArn: String,
     securityGroupId: Option[String] = None,
     securityGroupAllowsAllOutbound: Option[Boolean] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
-    listenerArn: Option[String] = None,
     defaultPort: Option[Number] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListenerAttributes =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListenerAttributes.Builder)
+      .listenerArn(listenerArn)
       .securityGroupId(securityGroupId.orNull)
       .securityGroupAllowsAllOutbound(securityGroupAllowsAllOutbound.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .securityGroup(securityGroup.orNull)
-      .listenerArn(listenerArn.orNull)
       .defaultPort(defaultPort.orNull)
       .build()
 }

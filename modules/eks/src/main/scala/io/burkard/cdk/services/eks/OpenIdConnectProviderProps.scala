@@ -4,9 +4,9 @@ package io.burkard.cdk.services.eks
 object OpenIdConnectProviderProps {
 
   def apply(
-    url: Option[String] = None
+    url: String
   ): software.amazon.awscdk.services.eks.OpenIdConnectProviderProps =
     (new software.amazon.awscdk.services.eks.OpenIdConnectProviderProps.Builder)
-      .url(url.orNull)
+      .url(url)
       .build()
 }

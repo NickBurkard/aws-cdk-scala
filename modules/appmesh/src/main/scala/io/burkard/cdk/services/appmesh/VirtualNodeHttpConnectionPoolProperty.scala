@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appmesh
 object VirtualNodeHttpConnectionPoolProperty {
 
   def apply(
-    maxConnections: Option[Number] = None,
+    maxConnections: Number,
     maxPendingRequests: Option[Number] = None
   ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeHttpConnectionPoolProperty =
     (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.VirtualNodeHttpConnectionPoolProperty.Builder)
-      .maxConnections(maxConnections.orNull)
+      .maxConnections(maxConnections)
       .maxPendingRequests(maxPendingRequests.orNull)
       .build()
 }

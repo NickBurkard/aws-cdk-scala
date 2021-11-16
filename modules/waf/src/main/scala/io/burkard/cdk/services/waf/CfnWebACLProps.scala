@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnWebACLProps {
 
   def apply(
-    name: Option[String] = None,
-    metricName: Option[String] = None,
-    defaultAction: Option[software.amazon.awscdk.services.waf.CfnWebACL.WafActionProperty] = None,
+    name: String,
+    metricName: String,
+    defaultAction: software.amazon.awscdk.services.waf.CfnWebACL.WafActionProperty,
     rules: Option[List[_]] = None
   ): software.amazon.awscdk.services.waf.CfnWebACLProps =
     (new software.amazon.awscdk.services.waf.CfnWebACLProps.Builder)
-      .name(name.orNull)
-      .metricName(metricName.orNull)
-      .defaultAction(defaultAction.orNull)
+      .name(name)
+      .metricName(metricName)
+      .defaultAction(defaultAction)
       .rules(rules.map(_.asJava).orNull)
       .build()
 }

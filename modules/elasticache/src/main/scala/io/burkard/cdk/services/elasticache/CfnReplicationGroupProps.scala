@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object CfnReplicationGroupProps {
 
   def apply(
+    replicationGroupDescription: String,
     authToken: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     numNodeGroups: Option[Number] = None,
@@ -29,7 +30,6 @@ object CfnReplicationGroupProps {
     primaryClusterId: Option[String] = None,
     cacheSubnetGroupName: Option[String] = None,
     userGroupIds: Option[List[String]] = None,
-    replicationGroupDescription: Option[String] = None,
     preferredCacheClusterAZs: Option[List[String]] = None,
     securityGroupIds: Option[List[String]] = None,
     preferredMaintenanceWindow: Option[String] = None,
@@ -43,6 +43,7 @@ object CfnReplicationGroupProps {
     engine: Option[String] = None
   ): software.amazon.awscdk.services.elasticache.CfnReplicationGroupProps =
     (new software.amazon.awscdk.services.elasticache.CfnReplicationGroupProps.Builder)
+      .replicationGroupDescription(replicationGroupDescription)
       .authToken(authToken.orNull)
       .tags(tags.map(_.asJava).orNull)
       .numNodeGroups(numNodeGroups.orNull)
@@ -65,7 +66,6 @@ object CfnReplicationGroupProps {
       .primaryClusterId(primaryClusterId.orNull)
       .cacheSubnetGroupName(cacheSubnetGroupName.orNull)
       .userGroupIds(userGroupIds.map(_.asJava).orNull)
-      .replicationGroupDescription(replicationGroupDescription.orNull)
       .preferredCacheClusterAZs(preferredCacheClusterAZs.map(_.asJava).orNull)
       .securityGroupIds(securityGroupIds.map(_.asJava).orNull)
       .preferredMaintenanceWindow(preferredMaintenanceWindow.orNull)

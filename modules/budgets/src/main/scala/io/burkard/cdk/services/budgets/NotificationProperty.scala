@@ -4,15 +4,15 @@ package io.burkard.cdk.services.budgets
 object NotificationProperty {
 
   def apply(
-    thresholdType: Option[String] = None,
-    comparisonOperator: Option[String] = None,
-    notificationType: Option[String] = None,
-    threshold: Option[Number] = None
+    comparisonOperator: String,
+    notificationType: String,
+    threshold: Number,
+    thresholdType: Option[String] = None
   ): software.amazon.awscdk.services.budgets.CfnBudget.NotificationProperty =
     (new software.amazon.awscdk.services.budgets.CfnBudget.NotificationProperty.Builder)
+      .comparisonOperator(comparisonOperator)
+      .notificationType(notificationType)
+      .threshold(threshold)
       .thresholdType(thresholdType.orNull)
-      .comparisonOperator(comparisonOperator.orNull)
-      .notificationType(notificationType.orNull)
-      .threshold(threshold.orNull)
       .build()
 }

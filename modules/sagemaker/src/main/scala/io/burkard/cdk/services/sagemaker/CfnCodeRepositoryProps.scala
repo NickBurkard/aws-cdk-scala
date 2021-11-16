@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object CfnCodeRepositoryProps {
 
   def apply(
+    gitConfig: software.amazon.awscdk.services.sagemaker.CfnCodeRepository.GitConfigProperty,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    codeRepositoryName: Option[String] = None,
-    gitConfig: Option[software.amazon.awscdk.services.sagemaker.CfnCodeRepository.GitConfigProperty] = None
+    codeRepositoryName: Option[String] = None
   ): software.amazon.awscdk.services.sagemaker.CfnCodeRepositoryProps =
     (new software.amazon.awscdk.services.sagemaker.CfnCodeRepositoryProps.Builder)
+      .gitConfig(gitConfig)
       .tags(tags.map(_.asJava).orNull)
       .codeRepositoryName(codeRepositoryName.orNull)
-      .gitConfig(gitConfig.orNull)
       .build()
 }

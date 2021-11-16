@@ -7,17 +7,17 @@ import scala.collection.JavaConverters._
 object CfnAssetProps {
 
   def apply(
+    assetModelId: String,
+    assetName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    assetModelId: Option[String] = None,
     assetProperties: Option[List[_]] = None,
-    assetHierarchies: Option[List[_]] = None,
-    assetName: Option[String] = None
+    assetHierarchies: Option[List[_]] = None
   ): software.amazon.awscdk.services.iotsitewise.CfnAssetProps =
     (new software.amazon.awscdk.services.iotsitewise.CfnAssetProps.Builder)
+      .assetModelId(assetModelId)
+      .assetName(assetName)
       .tags(tags.map(_.asJava).orNull)
-      .assetModelId(assetModelId.orNull)
       .assetProperties(assetProperties.map(_.asJava).orNull)
       .assetHierarchies(assetHierarchies.map(_.asJava).orNull)
-      .assetName(assetName.orNull)
       .build()
 }

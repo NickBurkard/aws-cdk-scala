@@ -4,11 +4,11 @@ package io.burkard.cdk.services.networkmanager
 object CfnTransitGatewayRegistrationProps {
 
   def apply(
-    transitGatewayArn: Option[String] = None,
-    globalNetworkId: Option[String] = None
+    transitGatewayArn: String,
+    globalNetworkId: String
   ): software.amazon.awscdk.services.networkmanager.CfnTransitGatewayRegistrationProps =
     (new software.amazon.awscdk.services.networkmanager.CfnTransitGatewayRegistrationProps.Builder)
-      .transitGatewayArn(transitGatewayArn.orNull)
-      .globalNetworkId(globalNetworkId.orNull)
+      .transitGatewayArn(transitGatewayArn)
+      .globalNetworkId(globalNetworkId)
       .build()
 }

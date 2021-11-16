@@ -4,9 +4,9 @@ package io.burkard.cdk.services.rds
 object AuroraMysqlClusterEngineProps {
 
   def apply(
-    version: Option[software.amazon.awscdk.services.rds.AuroraMysqlEngineVersion] = None
+    version: software.amazon.awscdk.services.rds.AuroraMysqlEngineVersion
   ): software.amazon.awscdk.services.rds.AuroraMysqlClusterEngineProps =
     (new software.amazon.awscdk.services.rds.AuroraMysqlClusterEngineProps.Builder)
-      .version(version.orNull)
+      .version(version)
       .build()
 }

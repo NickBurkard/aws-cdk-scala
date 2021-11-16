@@ -4,9 +4,9 @@ package io.burkard.cdk.services.elasticache
 object CloudWatchLogsDestinationDetailsProperty {
 
   def apply(
-    logGroup: Option[String] = None
+    logGroup: String
   ): software.amazon.awscdk.services.elasticache.CfnCacheCluster.CloudWatchLogsDestinationDetailsProperty =
     (new software.amazon.awscdk.services.elasticache.CfnCacheCluster.CloudWatchLogsDestinationDetailsProperty.Builder)
-      .logGroup(logGroup.orNull)
+      .logGroup(logGroup)
       .build()
 }

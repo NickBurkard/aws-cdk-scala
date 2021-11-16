@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iot
 object ReplaceDefaultPolicyVersionParamsProperty {
 
   def apply(
-    templateName: Option[String] = None
+    templateName: String
   ): software.amazon.awscdk.services.iot.CfnMitigationAction.ReplaceDefaultPolicyVersionParamsProperty =
     (new software.amazon.awscdk.services.iot.CfnMitigationAction.ReplaceDefaultPolicyVersionParamsProperty.Builder)
-      .templateName(templateName.orNull)
+      .templateName(templateName)
       .build()
 }

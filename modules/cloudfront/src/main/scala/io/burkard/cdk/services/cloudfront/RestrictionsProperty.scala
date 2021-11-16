@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object RestrictionsProperty {
 
   def apply(
-    geoRestriction: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.GeoRestrictionProperty] = None
+    geoRestriction: software.amazon.awscdk.services.cloudfront.CfnDistribution.GeoRestrictionProperty
   ): software.amazon.awscdk.services.cloudfront.CfnDistribution.RestrictionsProperty =
     (new software.amazon.awscdk.services.cloudfront.CfnDistribution.RestrictionsProperty.Builder)
-      .geoRestriction(geoRestriction.orNull)
+      .geoRestriction(geoRestriction)
       .build()
 }

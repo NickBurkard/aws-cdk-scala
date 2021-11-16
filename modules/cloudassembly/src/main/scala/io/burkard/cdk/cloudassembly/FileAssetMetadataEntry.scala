@@ -4,21 +4,21 @@ package io.burkard.cdk.cloudassembly
 object FileAssetMetadataEntry {
 
   def apply(
-    packaging: Option[String] = None,
-    s3KeyParameter: Option[String] = None,
-    sourceHash: Option[String] = None,
-    id: Option[String] = None,
-    s3BucketParameter: Option[String] = None,
-    path: Option[String] = None,
-    artifactHashParameter: Option[String] = None
+    packaging: String,
+    s3KeyParameter: String,
+    sourceHash: String,
+    id: String,
+    s3BucketParameter: String,
+    path: String,
+    artifactHashParameter: String
   ): software.amazon.awscdk.cloudassembly.schema.FileAssetMetadataEntry =
     (new software.amazon.awscdk.cloudassembly.schema.FileAssetMetadataEntry.Builder)
-      .packaging(packaging.orNull)
-      .s3KeyParameter(s3KeyParameter.orNull)
-      .sourceHash(sourceHash.orNull)
-      .id(id.orNull)
-      .s3BucketParameter(s3BucketParameter.orNull)
-      .path(path.orNull)
-      .artifactHashParameter(artifactHashParameter.orNull)
+      .packaging(packaging)
+      .s3KeyParameter(s3KeyParameter)
+      .sourceHash(sourceHash)
+      .id(id)
+      .s3BucketParameter(s3BucketParameter)
+      .path(path)
+      .artifactHashParameter(artifactHashParameter)
       .build()
 }

@@ -4,11 +4,11 @@ package io.burkard.cdk.services.config
 object ConformancePackInputParameterProperty {
 
   def apply(
-    parameterValue: Option[String] = None,
-    parameterName: Option[String] = None
+    parameterValue: String,
+    parameterName: String
   ): software.amazon.awscdk.services.config.CfnOrganizationConformancePack.ConformancePackInputParameterProperty =
     (new software.amazon.awscdk.services.config.CfnOrganizationConformancePack.ConformancePackInputParameterProperty.Builder)
-      .parameterValue(parameterValue.orNull)
-      .parameterName(parameterName.orNull)
+      .parameterValue(parameterValue)
+      .parameterName(parameterName)
       .build()
 }

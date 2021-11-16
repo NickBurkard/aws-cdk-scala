@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ssm
 object CommonStringParameterAttributes {
 
   def apply(
-    simpleName: Option[Boolean] = None,
-    parameterName: Option[String] = None
+    parameterName: String,
+    simpleName: Option[Boolean] = None
   ): software.amazon.awscdk.services.ssm.CommonStringParameterAttributes =
     (new software.amazon.awscdk.services.ssm.CommonStringParameterAttributes.Builder)
+      .parameterName(parameterName)
       .simpleName(simpleName.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .parameterName(parameterName.orNull)
       .build()
 }

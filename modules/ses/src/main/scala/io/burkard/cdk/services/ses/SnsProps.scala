@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ses
 object SnsProps {
 
   def apply(
-    encoding: Option[software.amazon.awscdk.services.ses.actions.EmailEncoding] = None,
-    topic: Option[software.amazon.awscdk.services.sns.ITopic] = None
+    topic: software.amazon.awscdk.services.sns.ITopic,
+    encoding: Option[software.amazon.awscdk.services.ses.actions.EmailEncoding] = None
   ): software.amazon.awscdk.services.ses.actions.SnsProps =
     (new software.amazon.awscdk.services.ses.actions.SnsProps.Builder)
+      .topic(topic)
       .encoding(encoding.orNull)
-      .topic(topic.orNull)
       .build()
 }

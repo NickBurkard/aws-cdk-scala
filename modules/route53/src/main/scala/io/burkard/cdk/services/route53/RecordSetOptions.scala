@@ -4,15 +4,15 @@ package io.burkard.cdk.services.route53
 object RecordSetOptions {
 
   def apply(
+    zone: software.amazon.awscdk.services.route53.IHostedZone,
     recordName: Option[String] = None,
     comment: Option[String] = None,
-    ttl: Option[software.amazon.awscdk.Duration] = None,
-    zone: Option[software.amazon.awscdk.services.route53.IHostedZone] = None
+    ttl: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.route53.RecordSetOptions =
     (new software.amazon.awscdk.services.route53.RecordSetOptions.Builder)
+      .zone(zone)
       .recordName(recordName.orNull)
       .comment(comment.orNull)
       .ttl(ttl.orNull)
-      .zone(zone.orNull)
       .build()
 }

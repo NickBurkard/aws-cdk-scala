@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object InstanceIpv6AddressProperty {
 
   def apply(
-    ipv6Address: Option[String] = None
+    ipv6Address: String
   ): software.amazon.awscdk.services.ec2.CfnSpotFleet.InstanceIpv6AddressProperty =
     (new software.amazon.awscdk.services.ec2.CfnSpotFleet.InstanceIpv6AddressProperty.Builder)
-      .ipv6Address(ipv6Address.orNull)
+      .ipv6Address(ipv6Address)
       .build()
 }

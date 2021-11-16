@@ -7,6 +7,7 @@ import scala.collection.JavaConverters._
 object GlueStartJobRunProps {
 
   def apply(
+    glueJobName: String,
     resultPath: Option[String] = None,
     securityConfiguration: Option[String] = None,
     notifyDelayAfter: Option[software.amazon.awscdk.Duration] = None,
@@ -14,13 +15,13 @@ object GlueStartJobRunProps {
     outputPath: Option[String] = None,
     comment: Option[String] = None,
     resultSelector: Option[Map[String, _]] = None,
-    glueJobName: Option[String] = None,
     inputPath: Option[String] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
     heartbeat: Option[software.amazon.awscdk.Duration] = None,
     arguments: Option[software.amazon.awscdk.services.stepfunctions.TaskInput] = None
   ): software.amazon.awscdk.services.stepfunctions.tasks.GlueStartJobRunProps =
     (new software.amazon.awscdk.services.stepfunctions.tasks.GlueStartJobRunProps.Builder)
+      .glueJobName(glueJobName)
       .resultPath(resultPath.orNull)
       .securityConfiguration(securityConfiguration.orNull)
       .notifyDelayAfter(notifyDelayAfter.orNull)
@@ -28,7 +29,6 @@ object GlueStartJobRunProps {
       .outputPath(outputPath.orNull)
       .comment(comment.orNull)
       .resultSelector(resultSelector.map(_.asJava).orNull)
-      .glueJobName(glueJobName.orNull)
       .inputPath(inputPath.orNull)
       .timeout(timeout.orNull)
       .heartbeat(heartbeat.orNull)

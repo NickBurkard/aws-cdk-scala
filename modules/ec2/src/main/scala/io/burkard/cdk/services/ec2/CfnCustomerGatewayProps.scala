@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnCustomerGatewayProps {
 
   def apply(
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    bgpAsn: Option[Number] = None,
-    ipAddress: Option[String] = None,
-    `type`: Option[String] = None
+    bgpAsn: Number,
+    ipAddress: String,
+    `type`: String,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.ec2.CfnCustomerGatewayProps =
     (new software.amazon.awscdk.services.ec2.CfnCustomerGatewayProps.Builder)
+      .bgpAsn(bgpAsn)
+      .ipAddress(ipAddress)
+      .`type`(`type`)
       .tags(tags.map(_.asJava).orNull)
-      .bgpAsn(bgpAsn.orNull)
-      .ipAddress(ipAddress.orNull)
-      .`type`(`type`.orNull)
       .build()
 }

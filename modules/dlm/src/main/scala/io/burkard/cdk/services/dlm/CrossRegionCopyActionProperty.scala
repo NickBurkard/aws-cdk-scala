@@ -4,13 +4,13 @@ package io.burkard.cdk.services.dlm
 object CrossRegionCopyActionProperty {
 
   def apply(
-    encryptionConfiguration: Option[software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EncryptionConfigurationProperty] = None,
-    retainRule: Option[software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.CrossRegionCopyRetainRuleProperty] = None,
-    target: Option[String] = None
+    encryptionConfiguration: software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.EncryptionConfigurationProperty,
+    target: String,
+    retainRule: Option[software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.CrossRegionCopyRetainRuleProperty] = None
   ): software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.CrossRegionCopyActionProperty =
     (new software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.CrossRegionCopyActionProperty.Builder)
-      .encryptionConfiguration(encryptionConfiguration.orNull)
+      .encryptionConfiguration(encryptionConfiguration)
+      .target(target)
       .retainRule(retainRule.orNull)
-      .target(target.orNull)
       .build()
 }

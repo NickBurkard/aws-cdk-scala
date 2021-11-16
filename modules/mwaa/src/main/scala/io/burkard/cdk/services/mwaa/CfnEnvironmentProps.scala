@@ -4,8 +4,8 @@ package io.burkard.cdk.services.mwaa
 object CfnEnvironmentProps {
 
   def apply(
+    name: String,
     pluginsS3Path: Option[String] = None,
-    name: Option[String] = None,
     weeklyMaintenanceWindowStart: Option[String] = None,
     pluginsS3ObjectVersion: Option[String] = None,
     airflowConfigurationOptions: Option[AnyRef] = None,
@@ -26,8 +26,8 @@ object CfnEnvironmentProps {
     schedulers: Option[Number] = None
   ): software.amazon.awscdk.services.mwaa.CfnEnvironmentProps =
     (new software.amazon.awscdk.services.mwaa.CfnEnvironmentProps.Builder)
+      .name(name)
       .pluginsS3Path(pluginsS3Path.orNull)
-      .name(name.orNull)
       .weeklyMaintenanceWindowStart(weeklyMaintenanceWindowStart.orNull)
       .pluginsS3ObjectVersion(pluginsS3ObjectVersion.orNull)
       .airflowConfigurationOptions(airflowConfigurationOptions.orNull)

@@ -4,19 +4,19 @@ package io.burkard.cdk.services.kendra
 object DatabaseConfigurationProperty {
 
   def apply(
+    databaseEngineType: String,
+    columnConfiguration: software.amazon.awscdk.services.kendra.CfnDataSource.ColumnConfigurationProperty,
+    connectionConfiguration: software.amazon.awscdk.services.kendra.CfnDataSource.ConnectionConfigurationProperty,
     aclConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.AclConfigurationProperty] = None,
-    databaseEngineType: Option[String] = None,
-    columnConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.ColumnConfigurationProperty] = None,
     vpcConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.DataSourceVpcConfigurationProperty] = None,
-    sqlConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.SqlConfigurationProperty] = None,
-    connectionConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.ConnectionConfigurationProperty] = None
+    sqlConfiguration: Option[software.amazon.awscdk.services.kendra.CfnDataSource.SqlConfigurationProperty] = None
   ): software.amazon.awscdk.services.kendra.CfnDataSource.DatabaseConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnDataSource.DatabaseConfigurationProperty.Builder)
+      .databaseEngineType(databaseEngineType)
+      .columnConfiguration(columnConfiguration)
+      .connectionConfiguration(connectionConfiguration)
       .aclConfiguration(aclConfiguration.orNull)
-      .databaseEngineType(databaseEngineType.orNull)
-      .columnConfiguration(columnConfiguration.orNull)
       .vpcConfiguration(vpcConfiguration.orNull)
       .sqlConfiguration(sqlConfiguration.orNull)
-      .connectionConfiguration(connectionConfiguration.orNull)
       .build()
 }

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.cloudfront
 object CfnKeyGroupProps {
 
   def apply(
-    keyGroupConfig: Option[software.amazon.awscdk.services.cloudfront.CfnKeyGroup.KeyGroupConfigProperty] = None
+    keyGroupConfig: software.amazon.awscdk.services.cloudfront.CfnKeyGroup.KeyGroupConfigProperty
   ): software.amazon.awscdk.services.cloudfront.CfnKeyGroupProps =
     (new software.amazon.awscdk.services.cloudfront.CfnKeyGroupProps.Builder)
-      .keyGroupConfig(keyGroupConfig.orNull)
+      .keyGroupConfig(keyGroupConfig)
       .build()
 }

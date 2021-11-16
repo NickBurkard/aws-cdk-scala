@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iotanalytics
 object CustomerManagedS3Property {
 
   def apply(
-    roleArn: Option[String] = None,
-    bucket: Option[String] = None,
+    roleArn: String,
+    bucket: String,
     keyPrefix: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnChannel.CustomerManagedS3Property =
     (new software.amazon.awscdk.services.iotanalytics.CfnChannel.CustomerManagedS3Property.Builder)
-      .roleArn(roleArn.orNull)
-      .bucket(bucket.orNull)
+      .roleArn(roleArn)
+      .bucket(bucket)
       .keyPrefix(keyPrefix.orNull)
       .build()
 }

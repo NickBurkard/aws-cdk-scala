@@ -7,14 +7,14 @@ import scala.collection.JavaConverters._
 object CfnApplicationProps {
 
   def apply(
+    inputs: List[_],
     applicationName: Option[String] = None,
-    inputs: Option[List[_]] = None,
     applicationDescription: Option[String] = None,
     applicationCode: Option[String] = None
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationProps =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationProps.Builder)
+      .inputs(inputs.asJava)
       .applicationName(applicationName.orNull)
-      .inputs(inputs.map(_.asJava).orNull)
       .applicationDescription(applicationDescription.orNull)
       .applicationCode(applicationCode.orNull)
       .build()

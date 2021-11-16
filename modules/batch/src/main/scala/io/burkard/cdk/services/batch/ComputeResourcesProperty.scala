@@ -7,7 +7,9 @@ import scala.collection.JavaConverters._
 object ComputeResourcesProperty {
 
   def apply(
-    subnets: Option[List[String]] = None,
+    subnets: List[String],
+    maxvCpus: Number,
+    `type`: String,
     instanceRole: Option[String] = None,
     tags: Option[AnyRef] = None,
     launchTemplate: Option[software.amazon.awscdk.services.batch.CfnComputeEnvironment.LaunchTemplateSpecificationProperty] = None,
@@ -16,8 +18,6 @@ object ComputeResourcesProperty {
     minvCpus: Option[Number] = None,
     imageId: Option[String] = None,
     ec2Configuration: Option[List[_]] = None,
-    maxvCpus: Option[Number] = None,
-    `type`: Option[String] = None,
     spotIamFleetRole: Option[String] = None,
     allocationStrategy: Option[String] = None,
     desiredvCpus: Option[Number] = None,
@@ -26,7 +26,9 @@ object ComputeResourcesProperty {
     securityGroupIds: Option[List[String]] = None
   ): software.amazon.awscdk.services.batch.CfnComputeEnvironment.ComputeResourcesProperty =
     (new software.amazon.awscdk.services.batch.CfnComputeEnvironment.ComputeResourcesProperty.Builder)
-      .subnets(subnets.map(_.asJava).orNull)
+      .subnets(subnets.asJava)
+      .maxvCpus(maxvCpus)
+      .`type`(`type`)
       .instanceRole(instanceRole.orNull)
       .tags(tags.orNull)
       .launchTemplate(launchTemplate.orNull)
@@ -35,8 +37,6 @@ object ComputeResourcesProperty {
       .minvCpus(minvCpus.orNull)
       .imageId(imageId.orNull)
       .ec2Configuration(ec2Configuration.map(_.asJava).orNull)
-      .maxvCpus(maxvCpus.orNull)
-      .`type`(`type`.orNull)
       .spotIamFleetRole(spotIamFleetRole.orNull)
       .allocationStrategy(allocationStrategy.orNull)
       .desiredvCpus(desiredvCpus.orNull)

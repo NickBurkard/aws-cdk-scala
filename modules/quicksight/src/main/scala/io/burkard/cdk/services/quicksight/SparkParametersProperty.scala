@@ -4,11 +4,11 @@ package io.burkard.cdk.services.quicksight
 object SparkParametersProperty {
 
   def apply(
-    host: Option[String] = None,
-    port: Option[Number] = None
+    host: String,
+    port: Number
   ): software.amazon.awscdk.services.quicksight.CfnDataSource.SparkParametersProperty =
     (new software.amazon.awscdk.services.quicksight.CfnDataSource.SparkParametersProperty.Builder)
-      .host(host.orNull)
-      .port(port.orNull)
+      .host(host)
+      .port(port)
       .build()
 }

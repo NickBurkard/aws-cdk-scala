@@ -4,11 +4,11 @@ package io.burkard.cdk.services.ec2
 object ClientConnectOptionsProperty {
 
   def apply(
-    lambdaFunctionArn: Option[String] = None,
-    enabled: Option[Boolean] = None
+    enabled: Boolean,
+    lambdaFunctionArn: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.ClientConnectOptionsProperty =
     (new software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.ClientConnectOptionsProperty.Builder)
+      .enabled(enabled)
       .lambdaFunctionArn(lambdaFunctionArn.orNull)
-      .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

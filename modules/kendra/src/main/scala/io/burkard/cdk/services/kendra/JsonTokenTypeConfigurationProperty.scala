@@ -4,11 +4,11 @@ package io.burkard.cdk.services.kendra
 object JsonTokenTypeConfigurationProperty {
 
   def apply(
-    groupAttributeField: Option[String] = None,
-    userNameAttributeField: Option[String] = None
+    groupAttributeField: String,
+    userNameAttributeField: String
   ): software.amazon.awscdk.services.kendra.CfnIndex.JsonTokenTypeConfigurationProperty =
     (new software.amazon.awscdk.services.kendra.CfnIndex.JsonTokenTypeConfigurationProperty.Builder)
-      .groupAttributeField(groupAttributeField.orNull)
-      .userNameAttributeField(userNameAttributeField.orNull)
+      .groupAttributeField(groupAttributeField)
+      .userNameAttributeField(userNameAttributeField)
       .build()
 }

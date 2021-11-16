@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object DnsConfigProperty {
 
   def apply(
-    dnsRecords: Option[List[_]] = None,
+    dnsRecords: List[_],
     routingPolicy: Option[String] = None,
     namespaceId: Option[String] = None
   ): software.amazon.awscdk.services.servicediscovery.CfnService.DnsConfigProperty =
     (new software.amazon.awscdk.services.servicediscovery.CfnService.DnsConfigProperty.Builder)
-      .dnsRecords(dnsRecords.map(_.asJava).orNull)
+      .dnsRecords(dnsRecords.asJava)
       .routingPolicy(routingPolicy.orNull)
       .namespaceId(namespaceId.orNull)
       .build()

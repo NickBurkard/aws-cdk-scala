@@ -4,11 +4,11 @@ package io.burkard.cdk.services.dlm
 object CrossRegionCopyRetainRuleProperty {
 
   def apply(
-    intervalUnit: Option[String] = None,
-    interval: Option[Number] = None
+    intervalUnit: String,
+    interval: Number
   ): software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.CrossRegionCopyRetainRuleProperty =
     (new software.amazon.awscdk.services.dlm.CfnLifecyclePolicy.CrossRegionCopyRetainRuleProperty.Builder)
-      .intervalUnit(intervalUnit.orNull)
-      .interval(interval.orNull)
+      .intervalUnit(intervalUnit)
+      .interval(interval)
       .build()
 }

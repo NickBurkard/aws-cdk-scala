@@ -4,15 +4,15 @@ package io.burkard.cdk.services.appflow
 object SourceFlowConfigProperty {
 
   def apply(
+    sourceConnectorProperties: software.amazon.awscdk.services.appflow.CfnFlow.SourceConnectorPropertiesProperty,
+    connectorType: String,
     connectorProfileName: Option[String] = None,
-    sourceConnectorProperties: Option[software.amazon.awscdk.services.appflow.CfnFlow.SourceConnectorPropertiesProperty] = None,
-    connectorType: Option[String] = None,
     incrementalPullConfig: Option[software.amazon.awscdk.services.appflow.CfnFlow.IncrementalPullConfigProperty] = None
   ): software.amazon.awscdk.services.appflow.CfnFlow.SourceFlowConfigProperty =
     (new software.amazon.awscdk.services.appflow.CfnFlow.SourceFlowConfigProperty.Builder)
+      .sourceConnectorProperties(sourceConnectorProperties)
+      .connectorType(connectorType)
       .connectorProfileName(connectorProfileName.orNull)
-      .sourceConnectorProperties(sourceConnectorProperties.orNull)
-      .connectorType(connectorType.orNull)
       .incrementalPullConfig(incrementalPullConfig.orNull)
       .build()
 }

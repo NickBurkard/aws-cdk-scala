@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object ReferenceSchemaProperty {
 
   def apply(
-    recordColumns: Option[List[_]] = None,
-    recordEncoding: Option[String] = None,
-    recordFormat: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty] = None
+    recordColumns: List[_],
+    recordFormat: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty,
+    recordEncoding: Option[String] = None
   ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty =
     (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty.Builder)
-      .recordColumns(recordColumns.map(_.asJava).orNull)
+      .recordColumns(recordColumns.asJava)
+      .recordFormat(recordFormat)
       .recordEncoding(recordEncoding.orNull)
-      .recordFormat(recordFormat.orNull)
       .build()
 }

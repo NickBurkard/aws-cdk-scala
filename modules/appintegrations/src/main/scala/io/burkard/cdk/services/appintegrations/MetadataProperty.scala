@@ -4,11 +4,11 @@ package io.burkard.cdk.services.appintegrations
 object MetadataProperty {
 
   def apply(
-    key: Option[String] = None,
-    value: Option[String] = None
+    key: String,
+    value: String
   ): software.amazon.awscdk.services.appintegrations.CfnEventIntegration.MetadataProperty =
     (new software.amazon.awscdk.services.appintegrations.CfnEventIntegration.MetadataProperty.Builder)
-      .key(key.orNull)
-      .value(value.orNull)
+      .key(key)
+      .value(value)
       .build()
 }
