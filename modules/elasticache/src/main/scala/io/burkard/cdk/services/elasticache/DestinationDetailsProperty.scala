@@ -4,10 +4,10 @@ package io.burkard.cdk.services.elasticache
 object DestinationDetailsProperty {
 
   def apply(
-    kinesisFirehoseDetails: Option[software.amazon.awscdk.services.elasticache.CfnCacheCluster.KinesisFirehoseDestinationDetailsProperty] = None,
-    cloudWatchLogsDetails: Option[software.amazon.awscdk.services.elasticache.CfnCacheCluster.CloudWatchLogsDestinationDetailsProperty] = None
-  ): software.amazon.awscdk.services.elasticache.CfnCacheCluster.DestinationDetailsProperty =
-    (new software.amazon.awscdk.services.elasticache.CfnCacheCluster.DestinationDetailsProperty.Builder)
+    kinesisFirehoseDetails: Option[software.amazon.awscdk.services.elasticache.CfnReplicationGroup.KinesisFirehoseDestinationDetailsProperty] = None,
+    cloudWatchLogsDetails: Option[software.amazon.awscdk.services.elasticache.CfnReplicationGroup.CloudWatchLogsDestinationDetailsProperty] = None
+  ): software.amazon.awscdk.services.elasticache.CfnReplicationGroup.DestinationDetailsProperty =
+    (new software.amazon.awscdk.services.elasticache.CfnReplicationGroup.DestinationDetailsProperty.Builder)
       .kinesisFirehoseDetails(kinesisFirehoseDetails.orNull)
       .cloudWatchLogsDetails(cloudWatchLogsDetails.orNull)
       .build()

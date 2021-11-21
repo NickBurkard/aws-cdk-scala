@@ -5,11 +5,11 @@ object BlockDeviceMappingProperty {
 
   def apply(
     deviceName: String,
-    ebs: Option[software.amazon.awscdk.services.ec2.CfnInstance.EbsProperty] = None,
+    ebs: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.EbsBlockDeviceProperty] = None,
     virtualName: Option[String] = None,
-    noDevice: Option[software.amazon.awscdk.services.ec2.CfnInstance.NoDeviceProperty] = None
-  ): software.amazon.awscdk.services.ec2.CfnInstance.BlockDeviceMappingProperty =
-    (new software.amazon.awscdk.services.ec2.CfnInstance.BlockDeviceMappingProperty.Builder)
+    noDevice: Option[String] = None
+  ): software.amazon.awscdk.services.ec2.CfnSpotFleet.BlockDeviceMappingProperty =
+    (new software.amazon.awscdk.services.ec2.CfnSpotFleet.BlockDeviceMappingProperty.Builder)
       .deviceName(deviceName)
       .ebs(ebs.orNull)
       .virtualName(virtualName.orNull)

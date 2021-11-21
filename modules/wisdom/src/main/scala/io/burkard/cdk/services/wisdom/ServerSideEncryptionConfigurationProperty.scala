@@ -5,8 +5,8 @@ object ServerSideEncryptionConfigurationProperty {
 
   def apply(
     kmsKeyId: Option[String] = None
-  ): software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.ServerSideEncryptionConfigurationProperty =
-    (new software.amazon.awscdk.services.wisdom.CfnKnowledgeBase.ServerSideEncryptionConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.wisdom.CfnAssistant.ServerSideEncryptionConfigurationProperty =
+    (new software.amazon.awscdk.services.wisdom.CfnAssistant.ServerSideEncryptionConfigurationProperty.Builder)
       .kmsKeyId(kmsKeyId.orNull)
       .build()
 }

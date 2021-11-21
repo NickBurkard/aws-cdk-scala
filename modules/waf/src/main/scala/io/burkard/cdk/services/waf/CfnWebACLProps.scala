@@ -9,10 +9,10 @@ object CfnWebACLProps {
   def apply(
     name: String,
     metricName: String,
-    defaultAction: software.amazon.awscdk.services.waf.CfnWebACL.WafActionProperty,
+    defaultAction: software.amazon.awscdk.services.waf.regional.CfnWebACL.ActionProperty,
     rules: Option[List[_]] = None
-  ): software.amazon.awscdk.services.waf.CfnWebACLProps =
-    (new software.amazon.awscdk.services.waf.CfnWebACLProps.Builder)
+  ): software.amazon.awscdk.services.waf.regional.CfnWebACLProps =
+    (new software.amazon.awscdk.services.waf.regional.CfnWebACLProps.Builder)
       .name(name)
       .metricName(metricName)
       .defaultAction(defaultAction)

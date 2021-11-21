@@ -8,8 +8,8 @@ object PublishMetricActionProperty {
 
   def apply(
     dimensions: List[_]
-  ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.PublishMetricActionProperty =
-    (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.PublishMetricActionProperty.Builder)
+  ): software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.PublishMetricActionProperty =
+    (new software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.PublishMetricActionProperty.Builder)
       .dimensions(dimensions.asJava)
       .build()
 }

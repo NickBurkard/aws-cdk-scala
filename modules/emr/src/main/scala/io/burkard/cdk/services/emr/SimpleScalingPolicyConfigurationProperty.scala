@@ -7,8 +7,8 @@ object SimpleScalingPolicyConfigurationProperty {
     scalingAdjustment: Number,
     coolDown: Option[Number] = None,
     adjustmentType: Option[String] = None
-  ): software.amazon.awscdk.services.emr.CfnCluster.SimpleScalingPolicyConfigurationProperty =
-    (new software.amazon.awscdk.services.emr.CfnCluster.SimpleScalingPolicyConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.SimpleScalingPolicyConfigurationProperty =
+    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.SimpleScalingPolicyConfigurationProperty.Builder)
       .scalingAdjustment(scalingAdjustment)
       .coolDown(coolDown.orNull)
       .adjustmentType(adjustmentType.orNull)

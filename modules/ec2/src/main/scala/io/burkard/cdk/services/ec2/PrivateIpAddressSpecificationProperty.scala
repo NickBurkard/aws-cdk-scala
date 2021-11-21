@@ -5,10 +5,10 @@ object PrivateIpAddressSpecificationProperty {
 
   def apply(
     privateIpAddress: String,
-    primary: Option[Boolean] = None
-  ): software.amazon.awscdk.services.ec2.CfnSpotFleet.PrivateIpAddressSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnSpotFleet.PrivateIpAddressSpecificationProperty.Builder)
+    primary: Boolean
+  ): software.amazon.awscdk.services.ec2.CfnInstance.PrivateIpAddressSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnInstance.PrivateIpAddressSpecificationProperty.Builder)
       .privateIpAddress(privateIpAddress)
-      .primary(primary.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .primary(primary)
       .build()
 }

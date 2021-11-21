@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object KernelGatewayAppSettingsProperty {
 
   def apply(
-    defaultResourceSpec: Option[software.amazon.awscdk.services.sagemaker.CfnUserProfile.ResourceSpecProperty] = None,
+    defaultResourceSpec: Option[software.amazon.awscdk.services.sagemaker.CfnDomain.ResourceSpecProperty] = None,
     customImages: Option[List[_]] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnUserProfile.KernelGatewayAppSettingsProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnUserProfile.KernelGatewayAppSettingsProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnDomain.KernelGatewayAppSettingsProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnDomain.KernelGatewayAppSettingsProperty.Builder)
       .defaultResourceSpec(defaultResourceSpec.orNull)
       .customImages(customImages.map(_.asJava).orNull)
       .build()

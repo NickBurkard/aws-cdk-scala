@@ -7,12 +7,12 @@ import scala.collection.JavaConverters._
 object EnvironmentProperty {
 
   def apply(
-    execution: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.ExecutionProperty] = None,
+    execution: Option[software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.ExecutionProperty] = None,
     resourceAccessPolicies: Option[List[_]] = None,
     variables: Option[AnyRef] = None,
     accessSysfs: Option[Boolean] = None
-  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.EnvironmentProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.EnvironmentProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.EnvironmentProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.EnvironmentProperty.Builder)
       .execution(execution.orNull)
       .resourceAccessPolicies(resourceAccessPolicies.map(_.asJava).orNull)
       .variables(variables.orNull)

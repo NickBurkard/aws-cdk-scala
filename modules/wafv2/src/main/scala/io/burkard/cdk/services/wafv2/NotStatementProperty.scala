@@ -4,9 +4,9 @@ package io.burkard.cdk.services.wafv2
 object NotStatementProperty {
 
   def apply(
-    statement: software.amazon.awscdk.services.wafv2.CfnRuleGroup.StatementProperty
-  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.NotStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.NotStatementProperty.Builder)
+    statement: software.amazon.awscdk.services.wafv2.CfnWebACL.StatementProperty
+  ): software.amazon.awscdk.services.wafv2.CfnWebACL.NotStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnWebACL.NotStatementProperty.Builder)
       .statement(statement)
       .build()
 }

@@ -19,8 +19,8 @@ object JsonSchema {
     description: Option[String] = None,
     anyOf: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     patternProperties: Option[Map[String, _ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
-    items0: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
-    items1: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
+    items0: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
+    items1: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     maxProperties: Option[Number] = None,
     ref: Option[String] = None,
     enumValue: Option[List[_]] = None,
@@ -35,8 +35,8 @@ object JsonSchema {
     minLength: Option[Number] = None,
     title: Option[String] = None,
     minimum: Option[Number] = None,
-    type0: Option[software.amazon.awscdk.services.apigateway.JsonSchemaType] = None,
-    type1: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchemaType]] = None,
+    type0: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchemaType]] = None,
+    type1: Option[software.amazon.awscdk.services.apigateway.JsonSchemaType] = None,
     required: Option[List[String]] = None,
     defaultValue: Option[AnyRef] = None,
     contains0: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
@@ -61,8 +61,8 @@ object JsonSchema {
       .description(description.orNull)
       .anyOf(anyOf.map(_.asJava).orNull)
       .patternProperties(patternProperties.map(_.asJava).orNull)
-      .items(items0.map(_.asJava).orNull)
-      .items(items1.orNull)
+      .items(items0.orNull)
+      .items(items1.map(_.asJava).orNull)
       .maxProperties(maxProperties.orNull)
       .ref(ref.orNull)
       .enumValue(enumValue.map(_.asJava).orNull)
@@ -77,8 +77,8 @@ object JsonSchema {
       .minLength(minLength.orNull)
       .title(title.orNull)
       .minimum(minimum.orNull)
-      .`type`(type0.orNull)
-      .`type`(type1.map(_.asJava).orNull)
+      .`type`(type0.map(_.asJava).orNull)
+      .`type`(type1.orNull)
       .required(required.map(_.asJava).orNull)
       .defaultValue(defaultValue.orNull)
       .contains(contains0.map(_.asJava).orNull)

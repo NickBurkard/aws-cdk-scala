@@ -8,8 +8,8 @@ object EventBridgeRuleEventProperty {
     eventBusName: Option[String] = None,
     inputPath: Option[String] = None,
     input: Option[String] = None
-  ): software.amazon.awscdk.services.sam.CfnFunction.EventBridgeRuleEventProperty =
-    (new software.amazon.awscdk.services.sam.CfnFunction.EventBridgeRuleEventProperty.Builder)
+  ): software.amazon.awscdk.services.sam.CfnStateMachine.EventBridgeRuleEventProperty =
+    (new software.amazon.awscdk.services.sam.CfnStateMachine.EventBridgeRuleEventProperty.Builder)
       .pattern(pattern)
       .eventBusName(eventBusName.orNull)
       .inputPath(inputPath.orNull)

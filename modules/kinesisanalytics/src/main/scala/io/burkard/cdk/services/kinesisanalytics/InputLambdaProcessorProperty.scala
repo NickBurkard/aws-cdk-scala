@@ -4,11 +4,9 @@ package io.burkard.cdk.services.kinesisanalytics
 object InputLambdaProcessorProperty {
 
   def apply(
-    resourceArn: String,
-    roleArn: String
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.InputLambdaProcessorProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.InputLambdaProcessorProperty.Builder)
+    resourceArn: String
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.InputLambdaProcessorProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.InputLambdaProcessorProperty.Builder)
       .resourceArn(resourceArn)
-      .roleArn(roleArn)
       .build()
 }

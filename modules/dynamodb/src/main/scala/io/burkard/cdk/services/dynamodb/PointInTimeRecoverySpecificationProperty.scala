@@ -5,8 +5,8 @@ object PointInTimeRecoverySpecificationProperty {
 
   def apply(
     pointInTimeRecoveryEnabled: Option[Boolean] = None
-  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.PointInTimeRecoverySpecificationProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.PointInTimeRecoverySpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.dynamodb.CfnTable.PointInTimeRecoverySpecificationProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnTable.PointInTimeRecoverySpecificationProperty.Builder)
       .pointInTimeRecoveryEnabled(pointInTimeRecoveryEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

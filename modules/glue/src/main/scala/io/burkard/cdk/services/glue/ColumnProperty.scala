@@ -7,8 +7,8 @@ object ColumnProperty {
     name: String,
     comment: Option[String] = None,
     `type`: Option[String] = None
-  ): software.amazon.awscdk.services.glue.CfnTable.ColumnProperty =
-    (new software.amazon.awscdk.services.glue.CfnTable.ColumnProperty.Builder)
+  ): software.amazon.awscdk.services.glue.CfnPartition.ColumnProperty =
+    (new software.amazon.awscdk.services.glue.CfnPartition.ColumnProperty.Builder)
       .name(name)
       .comment(comment.orNull)
       .`type`(`type`.orNull)

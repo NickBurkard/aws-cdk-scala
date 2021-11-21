@@ -6,8 +6,8 @@ object VCpuCountRangeRequestProperty {
   def apply(
     min: Option[Number] = None,
     max: Option[Number] = None
-  ): software.amazon.awscdk.services.ec2.CfnSpotFleet.VCpuCountRangeRequestProperty =
-    (new software.amazon.awscdk.services.ec2.CfnSpotFleet.VCpuCountRangeRequestProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.VCpuCountRangeRequestProperty =
+    (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.VCpuCountRangeRequestProperty.Builder)
       .min(min.orNull)
       .max(max.orNull)
       .build()
