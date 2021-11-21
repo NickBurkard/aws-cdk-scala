@@ -15,6 +15,7 @@ Scala DSL for [AWS CDK v2](https://docs.aws.amazon.com/cdk/latest/guide/work-wit
 - Pass around app & stack [scope](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html) implicitly.
 - Avoid using Java concepts.
   * No builder syntax.
+  * Required & optional parameters.
   * ADTs instead of enums.
   * Scala collections (i.e. `List` & `Map`).
 
