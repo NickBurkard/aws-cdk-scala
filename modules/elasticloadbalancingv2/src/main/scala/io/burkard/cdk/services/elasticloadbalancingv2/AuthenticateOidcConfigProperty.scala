@@ -7,27 +7,29 @@ import scala.collection.JavaConverters._
 object AuthenticateOidcConfigProperty {
 
   def apply(
-    clientId: String,
     authorizationEndpoint: String,
     clientSecret: String,
     userInfoEndpoint: String,
     tokenEndpoint: String,
+    clientId: String,
     issuer: String,
     scope: Option[String] = None,
     sessionCookieName: Option[String] = None,
-    sessionTimeout: Option[String] = None,
+    useExistingClientSecret: Option[Boolean] = None,
+    sessionTimeout: Option[Number] = None,
     onUnauthenticatedRequest: Option[String] = None,
     authenticationRequestExtraParams: Option[Map[String, String]] = None
-  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.AuthenticateOidcConfigProperty =
-    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.AuthenticateOidcConfigProperty.Builder)
-      .clientId(clientId)
+  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.AuthenticateOidcConfigProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.AuthenticateOidcConfigProperty.Builder)
       .authorizationEndpoint(authorizationEndpoint)
       .clientSecret(clientSecret)
       .userInfoEndpoint(userInfoEndpoint)
       .tokenEndpoint(tokenEndpoint)
+      .clientId(clientId)
       .issuer(issuer)
       .scope(scope.orNull)
       .sessionCookieName(sessionCookieName.orNull)
+      .useExistingClientSecret(useExistingClientSecret.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .sessionTimeout(sessionTimeout.orNull)
       .onUnauthenticatedRequest(onUnauthenticatedRequest.orNull)
       .authenticationRequestExtraParams(authenticationRequestExtraParams.map(_.asJava).orNull)

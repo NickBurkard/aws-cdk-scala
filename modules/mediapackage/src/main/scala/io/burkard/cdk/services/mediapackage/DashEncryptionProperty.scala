@@ -4,11 +4,9 @@ package io.burkard.cdk.services.mediapackage
 object DashEncryptionProperty {
 
   def apply(
-    spekeKeyProvider: software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty,
-    keyRotationIntervalSeconds: Option[Number] = None
-  ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.DashEncryptionProperty =
-    (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.DashEncryptionProperty.Builder)
+    spekeKeyProvider: software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty
+  ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.DashEncryptionProperty =
+    (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.DashEncryptionProperty.Builder)
       .spekeKeyProvider(spekeKeyProvider)
-      .keyRotationIntervalSeconds(keyRotationIntervalSeconds.orNull)
       .build()
 }

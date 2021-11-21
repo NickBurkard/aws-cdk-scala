@@ -4,11 +4,9 @@ package io.burkard.cdk.services.kinesisanalytics
 object KinesisStreamsInputProperty {
 
   def apply(
-    resourceArn: String,
-    roleArn: String
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.KinesisStreamsInputProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.KinesisStreamsInputProperty.Builder)
+    resourceArn: String
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.KinesisStreamsInputProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.KinesisStreamsInputProperty.Builder)
       .resourceArn(resourceArn)
-      .roleArn(roleArn)
       .build()
 }

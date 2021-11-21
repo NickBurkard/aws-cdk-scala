@@ -9,8 +9,8 @@ object CfnSqlInjectionMatchSetProps {
   def apply(
     name: String,
     sqlInjectionMatchTuples: Option[List[_]] = None
-  ): software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSetProps =
-    (new software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSetProps.Builder)
+  ): software.amazon.awscdk.services.waf.regional.CfnSqlInjectionMatchSetProps =
+    (new software.amazon.awscdk.services.waf.regional.CfnSqlInjectionMatchSetProps.Builder)
       .name(name)
       .sqlInjectionMatchTuples(sqlInjectionMatchTuples.map(_.asJava).orNull)
       .build()

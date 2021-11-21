@@ -18,8 +18,8 @@ object CfnApiProps {
     cors0: Option[software.amazon.awscdk.services.sam.CfnApi.CorsConfigurationProperty] = None,
     cors1: Option[String] = None,
     accessLogSetting: Option[software.amazon.awscdk.services.sam.CfnApi.AccessLogSettingProperty] = None,
-    endpointConfiguration0: Option[software.amazon.awscdk.services.sam.CfnApi.EndpointConfigurationProperty] = None,
-    endpointConfiguration1: Option[String] = None,
+    endpointConfiguration0: Option[String] = None,
+    endpointConfiguration1: Option[software.amazon.awscdk.services.sam.CfnApi.EndpointConfigurationProperty] = None,
     models: Option[Map[String, String]] = None,
     minimumCompressionSize: Option[Number] = None,
     description: Option[String] = None,
@@ -28,8 +28,8 @@ object CfnApiProps {
     variables: Option[Map[String, String]] = None,
     gatewayResponses: Option[Map[String, String]] = None,
     methodSettings: Option[List[_]] = None,
-    definitionUri0: Option[software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty] = None,
-    definitionUri1: Option[String] = None,
+    definitionUri0: Option[String] = None,
+    definitionUri1: Option[software.amazon.awscdk.services.sam.CfnApi.S3LocationProperty] = None,
     cacheClusterSize: Option[String] = None
   ): software.amazon.awscdk.services.sam.CfnApiProps =
     (new software.amazon.awscdk.services.sam.CfnApiProps.Builder)

@@ -8,10 +8,10 @@ object ReferenceSchemaProperty {
 
   def apply(
     recordColumns: List[_],
-    recordFormat: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty,
+    recordFormat: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.RecordFormatProperty,
     recordEncoding: Option[String] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.ReferenceSchemaProperty.Builder)
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty.Builder)
       .recordColumns(recordColumns.asJava)
       .recordFormat(recordFormat)
       .recordEncoding(recordEncoding.orNull)

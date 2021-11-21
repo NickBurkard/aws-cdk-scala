@@ -9,27 +9,27 @@ object InstanceRequirementsRequestProperty {
   def apply(
     spotMaxPricePercentageOverLowestPrice: Option[Number] = None,
     localStorage: Option[String] = None,
-    baselineEbsBandwidthMbps: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.BaselineEbsBandwidthMbpsRequestProperty] = None,
-    totalLocalStorageGb: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.TotalLocalStorageGBRequestProperty] = None,
+    baselineEbsBandwidthMbps: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.BaselineEbsBandwidthMbpsRequestProperty] = None,
+    totalLocalStorageGb: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.TotalLocalStorageGBRequestProperty] = None,
     burstablePerformance: Option[String] = None,
     onDemandMaxPricePercentageOverLowestPrice: Option[Number] = None,
     instanceGenerations: Option[List[String]] = None,
-    memoryGiBPerVCpu: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.MemoryGiBPerVCpuRequestProperty] = None,
+    memoryGiBPerVCpu: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty] = None,
     requireHibernateSupport: Option[Boolean] = None,
     excludedInstanceTypes: Option[List[String]] = None,
-    vCpuCount: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.VCpuCountRangeRequestProperty] = None,
+    vCpuCount: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.VCpuCountRangeRequestProperty] = None,
     acceleratorNames: Option[List[String]] = None,
-    networkInterfaceCount: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.NetworkInterfaceCountRequestProperty] = None,
+    networkInterfaceCount: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.NetworkInterfaceCountRequestProperty] = None,
     acceleratorTypes: Option[List[String]] = None,
-    acceleratorCount: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.AcceleratorCountRequestProperty] = None,
-    memoryMiB: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.MemoryMiBRequestProperty] = None,
+    acceleratorCount: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.AcceleratorCountRequestProperty] = None,
+    memoryMiB: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.MemoryMiBRequestProperty] = None,
     cpuManufacturers: Option[List[String]] = None,
     bareMetal: Option[String] = None,
     localStorageTypes: Option[List[String]] = None,
-    acceleratorTotalMemoryMiB: Option[software.amazon.awscdk.services.ec2.CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty] = None,
+    acceleratorTotalMemoryMiB: Option[software.amazon.awscdk.services.ec2.CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty] = None,
     acceleratorManufacturers: Option[List[String]] = None
-  ): software.amazon.awscdk.services.ec2.CfnSpotFleet.InstanceRequirementsRequestProperty =
-    (new software.amazon.awscdk.services.ec2.CfnSpotFleet.InstanceRequirementsRequestProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.InstanceRequirementsRequestProperty =
+    (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.InstanceRequirementsRequestProperty.Builder)
       .spotMaxPricePercentageOverLowestPrice(spotMaxPricePercentageOverLowestPrice.orNull)
       .localStorage(localStorage.orNull)
       .baselineEbsBandwidthMbps(baselineEbsBandwidthMbps.orNull)

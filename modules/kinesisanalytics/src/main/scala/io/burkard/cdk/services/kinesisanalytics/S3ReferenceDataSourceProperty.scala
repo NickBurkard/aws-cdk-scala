@@ -4,12 +4,10 @@ package io.burkard.cdk.services.kinesisanalytics
 object S3ReferenceDataSourceProperty {
 
   def apply(
-    referenceRoleArn: String,
     fileKey: String,
     bucketArn: String
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.S3ReferenceDataSourceProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.S3ReferenceDataSourceProperty.Builder)
-      .referenceRoleArn(referenceRoleArn)
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.S3ReferenceDataSourceProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSourceV2.S3ReferenceDataSourceProperty.Builder)
       .fileKey(fileKey)
       .bucketArn(bucketArn)
       .build()

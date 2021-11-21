@@ -6,8 +6,8 @@ object QuietTimeProperty {
   def apply(
     end: String,
     start: String
-  ): software.amazon.awscdk.services.pinpoint.CfnCampaign.QuietTimeProperty =
-    (new software.amazon.awscdk.services.pinpoint.CfnCampaign.QuietTimeProperty.Builder)
+  ): software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.QuietTimeProperty =
+    (new software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.QuietTimeProperty.Builder)
       .end(end)
       .start(start)
       .build()

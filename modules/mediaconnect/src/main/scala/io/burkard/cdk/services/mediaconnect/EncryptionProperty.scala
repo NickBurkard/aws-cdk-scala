@@ -4,23 +4,23 @@ package io.burkard.cdk.services.mediaconnect
 object EncryptionProperty {
 
   def apply(
+    algorithm: String,
     roleArn: String,
     resourceId: Option[String] = None,
     keyType: Option[String] = None,
     url: Option[String] = None,
     constantInitializationVector: Option[String] = None,
-    algorithm: Option[String] = None,
     region: Option[String] = None,
     deviceId: Option[String] = None,
     secretArn: Option[String] = None
-  ): software.amazon.awscdk.services.mediaconnect.CfnFlow.EncryptionProperty =
-    (new software.amazon.awscdk.services.mediaconnect.CfnFlow.EncryptionProperty.Builder)
+  ): software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlement.EncryptionProperty =
+    (new software.amazon.awscdk.services.mediaconnect.CfnFlowEntitlement.EncryptionProperty.Builder)
+      .algorithm(algorithm)
       .roleArn(roleArn)
       .resourceId(resourceId.orNull)
       .keyType(keyType.orNull)
       .url(url.orNull)
       .constantInitializationVector(constantInitializationVector.orNull)
-      .algorithm(algorithm.orNull)
       .region(region.orNull)
       .deviceId(deviceId.orNull)
       .secretArn(secretArn.orNull)

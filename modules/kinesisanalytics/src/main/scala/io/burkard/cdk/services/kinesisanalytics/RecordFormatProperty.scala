@@ -5,9 +5,9 @@ object RecordFormatProperty {
 
   def apply(
     recordFormatType: String,
-    mappingParameters: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.MappingParametersProperty] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordFormatProperty.Builder)
+    mappingParameters: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplication.MappingParametersProperty] = None
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.RecordFormatProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.RecordFormatProperty.Builder)
       .recordFormatType(recordFormatType)
       .mappingParameters(mappingParameters.orNull)
       .build()

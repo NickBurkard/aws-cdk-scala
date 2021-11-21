@@ -10,8 +10,8 @@ object CfnIPSet {
     internalResourceId: String,
     name: String,
     ipSetDescriptors: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnIPSet =
-    software.amazon.awscdk.services.waf.regional.CfnIPSet.Builder
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnIPSet =
+    software.amazon.awscdk.services.waf.CfnIPSet.Builder
       .create(stackCtx, internalResourceId)
       .name(name)
       .ipSetDescriptors(ipSetDescriptors.map(_.asJava).orNull)

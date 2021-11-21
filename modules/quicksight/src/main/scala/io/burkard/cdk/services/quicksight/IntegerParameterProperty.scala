@@ -9,8 +9,8 @@ object IntegerParameterProperty {
   def apply(
     name: String,
     values: List[_ <: Number]
-  ): software.amazon.awscdk.services.quicksight.CfnDashboard.IntegerParameterProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnDashboard.IntegerParameterProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnAnalysis.IntegerParameterProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnAnalysis.IntegerParameterProperty.Builder)
       .name(name)
       .values(values.asJava)
       .build()

@@ -7,13 +7,17 @@ import scala.collection.JavaConverters._
 object SpekeKeyProviderProperty {
 
   def apply(
+    resourceId: String,
     url: String,
     systemIds: List[String],
-    roleArn: String
-  ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty =
-    (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty.Builder)
+    roleArn: String,
+    certificateArn: Option[String] = None
+  ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty =
+    (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty.Builder)
+      .resourceId(resourceId)
       .url(url)
       .systemIds(systemIds.asJava)
       .roleArn(roleArn)
+      .certificateArn(certificateArn.orNull)
       .build()
 }

@@ -8,8 +8,8 @@ object SubjectAlternativeNameMatchersProperty {
 
   def apply(
     exact: Option[List[String]] = None
-  ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.SubjectAlternativeNameMatchersProperty =
-    (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.SubjectAlternativeNameMatchersProperty.Builder)
+  ): software.amazon.awscdk.services.appmesh.CfnVirtualGateway.SubjectAlternativeNameMatchersProperty =
+    (new software.amazon.awscdk.services.appmesh.CfnVirtualGateway.SubjectAlternativeNameMatchersProperty.Builder)
       .exact(exact.map(_.asJava).orNull)
       .build()
 }

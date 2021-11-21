@@ -8,8 +8,8 @@ object PublicAccessBlockConfigurationProperty {
     ignorePublicAcls: Option[Boolean] = None,
     blockPublicAcls: Option[Boolean] = None,
     restrictPublicBuckets: Option[Boolean] = None
-  ): software.amazon.awscdk.services.s3.CfnAccessPoint.PublicAccessBlockConfigurationProperty =
-    (new software.amazon.awscdk.services.s3.CfnAccessPoint.PublicAccessBlockConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint.PublicAccessBlockConfigurationProperty =
+    (new software.amazon.awscdk.services.s3.CfnMultiRegionAccessPoint.PublicAccessBlockConfigurationProperty.Builder)
       .blockPublicPolicy(blockPublicPolicy.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .ignorePublicAcls(ignorePublicAcls.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .blockPublicAcls(blockPublicAcls.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

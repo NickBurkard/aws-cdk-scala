@@ -6,8 +6,8 @@ object TargetGroupTupleProperty {
   def apply(
     weight: Option[Number] = None,
     targetGroupArn: Option[String] = None
-  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.TargetGroupTupleProperty =
-    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.TargetGroupTupleProperty.Builder)
+  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.TargetGroupTupleProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.TargetGroupTupleProperty.Builder)
       .weight(weight.orNull)
       .targetGroupArn(targetGroupArn.orNull)
       .build()

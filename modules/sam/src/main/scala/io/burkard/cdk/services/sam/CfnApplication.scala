@@ -8,8 +8,8 @@ object CfnApplication {
 
   def apply(
     internalResourceId: String,
-    location0: String,
-    location1: software.amazon.awscdk.services.sam.CfnApplication.ApplicationLocationProperty,
+    location0: software.amazon.awscdk.services.sam.CfnApplication.ApplicationLocationProperty,
+    location1: String,
     tags: Option[Map[String, String]] = None,
     notificationArns: Option[List[String]] = None,
     timeoutInMinutes: Option[Number] = None,

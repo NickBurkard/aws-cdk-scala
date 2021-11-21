@@ -6,8 +6,8 @@ object GroupOwnerSettingProperty {
   def apply(
     autoAddGroupOwner: Boolean,
     groupOwner: Option[String] = None
-  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.GroupOwnerSettingProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.GroupOwnerSettingProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.GroupOwnerSettingProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.GroupOwnerSettingProperty.Builder)
       .autoAddGroupOwner(autoAddGroupOwner)
       .groupOwner(groupOwner.orNull)
       .build()
