@@ -52,8 +52,11 @@ npm install -g aws-cdk@next
 Libraries are published for each AWS service, plus a `core` library for shared resources.
 Please refer to the [modules](./modules) directory to reference generated code.
 
+The latest version can be found on [mvn](https://mvnrepository.com/artifact/io.burkard/aws-cdk-scala-core)
+and on the [releases](https://github.com/NickBurkard/aws-cdk-scala/releases) page.
+
 ```scala
-val cdkVersion = "0.1.4"
+val cdkVersion: String = ???
 
 libraryDependencies ++= Seq(
   "io.burkard" %% "aws-scala-cdk-core" % cdkVersion,
