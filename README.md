@@ -60,9 +60,9 @@ and on the [releases](https://github.com/NickBurkard/aws-cdk-scala/releases) pag
 val cdkVersion: String = ???
 
 libraryDependencies ++= Seq(
-  "io.burkard" %% "aws-scala-cdk-core" % cdkVersion,
-  "io.burkard" %% "aws-scala-cdk-kinesisanalytics" % cdkVersion,
-  "io.burkard" %% "aws-scala-cdk-s3" % cdkVersion
+  "io.burkard" %% "aws-cdk-scala-core" % cdkVersion,
+  "io.burkard" %% "aws-cdk-scala-kinesisanalytics" % cdkVersion,
+  "io.burkard" %% "aws-cdk-scala-s3" % cdkVersion
 )
 ```
 
