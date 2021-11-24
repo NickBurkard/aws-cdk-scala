@@ -16,7 +16,7 @@ package object cdk {
     }
   }
 
-  implicit final class ScalaDurationToAwsDurationSyntax(value: FiniteDuration) {
+  implicit final class ScalaDurationToAwsDurationSyntax(private val value: FiniteDuration) extends AnyVal {
     def toAws: Either[String, AwsDuration] =
       Try(toAwsUnsafe)
         .toEither
@@ -32,7 +32,7 @@ package object cdk {
           AwsDuration.hours(value.length)
 
         case TimeUnit.MINUTES =>
-          AwsDuration.millis(value.length)
+          AwsDuration.minutes(value.length)
 
         case TimeUnit.SECONDS =>
           AwsDuration.seconds(value.length)
@@ -46,6 +46,10 @@ package object cdk {
         case x =>
           // Should never be go here. TimeUnit is Java enum so Scala compiler cannot prove an exhaustive search.
           throw new IllegalArgumentException(s"Timeunit ${x.toString} not recognized.")
+
+        case null =>
+          // Should never go here, Scala 3 compiler quirk with FiniteDuration and Java values.
+          throw new IllegalStateException("FiniteDuration does a runtime null check on Timeunit. The Scala 3 compiler doesn't see this and forces null check.")
       }
 
   }
