@@ -1,15 +1,31 @@
 package io.burkard.cdk.example
 
 import io.burkard.cdk._
-import io.burkard.cdk.core.CfnTag
+import io.burkard.cdk.core._
+import io.burkard.cdk.metadata._
 import io.burkard.cdk.services.kinesisanalytics._
 import io.burkard.cdk.services.s3._
 
-object ExampleApp extends App {
-  private[this] val env = "dev"
-  private[this] val region = "us-east-1"
+object ExampleApp extends CdkApp {
+  CdkStack(id = Some("ExampleStack")) { implicit stackCtx =>
+    val envParameter = CfnTypedParameter.StringParameter(
+      name = "env",
+      allowedValues = Some(List("dev", "qa", "prod"))
+    )
+    val regionParameter = CfnTypedParameter.StringParameter(
+      name = "region",
+      allowedValues = Some(List("us-east-1", "us-west-2", "eu-west-1"))
+    )
 
-  Stack(id = Some("ExampleStack")) { implicit stackCtx =>
+    stackCtx.setCloudFormationInterface(
+      CloudFormationInterface.build(
+        Some(Label("example parameters")) -> List(envParameter, regionParameter)
+      )()
+    )
+
+    val env = envParameter.value
+    val region = regionParameter.value
+
     val bucket = Bucket(
       internalResourceId = "Code",
       accessControl = Some(BucketAccessControl.Private),

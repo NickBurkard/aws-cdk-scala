@@ -1,17 +1,17 @@
 package io.burkard.cdk
 
-import software.amazon.awscdk.{App => CdkApp, AppProps}
+import software.amazon.awscdk.{App, AppProps}
 import software.amazon.awscdk.cxapi.CloudAssembly
 
 /**
  * CDK application, can have one or more stacks.
  * @param props Optional app properties.
  */
-abstract class App(props: Option[AppProps] = None)
-  extends CdkApp(props.orNull) {
+abstract class CdkApp(props: Option[AppProps] = None)
+  extends App(props.orNull) {
 
   // Context for initializing one or more stacks.
-  protected[this] implicit lazy val appCtx: CdkApp = this
+  protected[this] implicit lazy val appCtx: App = this
 
   def main(args: Array[String]): Unit =
     run()

@@ -1,6 +1,6 @@
 package io.burkard.cdk
 
-import software.amazon.awscdk.{App => CdkApp, Stack => CdkStack, StackProps}
+import software.amazon.awscdk.{App, Stack, StackProps}
 
 /**
  * CDK stack.
@@ -8,18 +8,18 @@ import software.amazon.awscdk.{App => CdkApp, Stack => CdkStack, StackProps}
  * @param props Optional stack properties.
  * @param appCtx CDK app context.
  */
-abstract class Stack(
+abstract class CdkStack(
   id: Option[String] = None,
   props: Option[StackProps] = None
 )(implicit
-  appCtx: CdkApp
-) extends CdkStack(appCtx, id.orNull, props.orNull)  {
+  appCtx: App
+) extends Stack(appCtx, id.orNull, props.orNull)  {
 
   // Context for initializing stack resources.
-  protected[this] implicit lazy val stackCtx: CdkStack = this
+  protected[this] implicit lazy val stackCtx: Stack = this
 }
 
-object Stack {
+object CdkStack {
 
   /**
    * Create an anonymous instance of a custom stack.
@@ -34,7 +34,7 @@ object Stack {
     id: Option[String] = None,
     props: Option[StackProps] = None
   )(
-    resources: CdkStack => A
-  )(implicit appCtx: CdkApp): Stack =
-    new Stack(id, props) { ValueDiscard[A](resources(stackCtx)) }
+    resources: Stack => A
+  )(implicit appCtx: App): Stack =
+    new CdkStack(id, props) { ValueDiscard[A](resources(stackCtx)) }
 }
