@@ -8,15 +8,15 @@ object AuthorizationType {
   implicit def toAws(value: AuthorizationType): software.amazon.awscdk.services.apigateway.AuthorizationType =
     Option(value).map(_.underlying).orNull
 
-  case object None
-    extends AuthorizationType(software.amazon.awscdk.services.apigateway.AuthorizationType.NONE)
-
-  case object Iam
-    extends AuthorizationType(software.amazon.awscdk.services.apigateway.AuthorizationType.IAM)
+  case object Cognito
+    extends AuthorizationType(software.amazon.awscdk.services.apigateway.AuthorizationType.COGNITO)
 
   case object Custom
     extends AuthorizationType(software.amazon.awscdk.services.apigateway.AuthorizationType.CUSTOM)
 
-  case object Cognito
-    extends AuthorizationType(software.amazon.awscdk.services.apigateway.AuthorizationType.COGNITO)
+  case object Iam
+    extends AuthorizationType(software.amazon.awscdk.services.apigateway.AuthorizationType.IAM)
+
+  case object None
+    extends AuthorizationType(software.amazon.awscdk.services.apigateway.AuthorizationType.NONE)
 }

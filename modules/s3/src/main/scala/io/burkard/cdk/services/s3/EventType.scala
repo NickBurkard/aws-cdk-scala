@@ -11,17 +11,17 @@ object EventType {
   case object ObjectCreated
     extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED)
 
-  case object ObjectCreatedPut
-    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED_PUT)
-
-  case object ObjectCreatedPost
-    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED_POST)
+  case object ObjectCreatedCompleteMultipartUpload
+    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD)
 
   case object ObjectCreatedCopy
     extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED_COPY)
 
-  case object ObjectCreatedCompleteMultipartUpload
-    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD)
+  case object ObjectCreatedPost
+    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED_POST)
+
+  case object ObjectCreatedPut
+    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_CREATED_PUT)
 
   case object ObjectRemoved
     extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_REMOVED)
@@ -32,11 +32,11 @@ object EventType {
   case object ObjectRemovedDeleteMarkerCreated
     extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_REMOVED_DELETE_MARKER_CREATED)
 
-  case object ObjectRestorePost
-    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_RESTORE_POST)
-
   case object ObjectRestoreCompleted
     extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_RESTORE_COMPLETED)
+
+  case object ObjectRestorePost
+    extends EventType(software.amazon.awscdk.services.s3.EventType.OBJECT_RESTORE_POST)
 
   case object ReducedRedundancyLostObject
     extends EventType(software.amazon.awscdk.services.s3.EventType.REDUCED_REDUNDANCY_LOST_OBJECT)
@@ -47,9 +47,9 @@ object EventType {
   case object ReplicationOperationMissedThreshold
     extends EventType(software.amazon.awscdk.services.s3.EventType.REPLICATION_OPERATION_MISSED_THRESHOLD)
 
-  case object ReplicationOperationReplicatedAfterThreshold
-    extends EventType(software.amazon.awscdk.services.s3.EventType.REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD)
-
   case object ReplicationOperationNotTracked
     extends EventType(software.amazon.awscdk.services.s3.EventType.REPLICATION_OPERATION_NOT_TRACKED)
+
+  case object ReplicationOperationReplicatedAfterThreshold
+    extends EventType(software.amazon.awscdk.services.s3.EventType.REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD)
 }

@@ -8,7 +8,6 @@ object UserPoolProps {
 
   def apply(
     autoVerify: Option[software.amazon.awscdk.services.cognito.AutoVerifiedAttrs] = None,
-    userVerification: Option[software.amazon.awscdk.services.cognito.UserVerificationConfig] = None,
     passwordPolicy: Option[software.amazon.awscdk.services.cognito.PasswordPolicy] = None,
     mfaMessage: Option[String] = None,
     enableSmsRole: Option[Boolean] = None,
@@ -18,6 +17,8 @@ object UserPoolProps {
     smsRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     customAttributes: Option[Map[String, _ <: software.amazon.awscdk.services.cognito.ICustomAttribute]] = None,
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
+    email: Option[software.amazon.awscdk.services.cognito.UserPoolEmail] = None,
+    userVerification: Option[software.amazon.awscdk.services.cognito.UserVerificationConfig] = None,
     standardAttributes: Option[software.amazon.awscdk.services.cognito.StandardAttributes] = None,
     mfaSecondFactor: Option[software.amazon.awscdk.services.cognito.MfaSecondFactor] = None,
     emailSettings: Option[software.amazon.awscdk.services.cognito.EmailSettings] = None,
@@ -31,7 +32,6 @@ object UserPoolProps {
   ): software.amazon.awscdk.services.cognito.UserPoolProps =
     (new software.amazon.awscdk.services.cognito.UserPoolProps.Builder)
       .autoVerify(autoVerify.orNull)
-      .userVerification(userVerification.orNull)
       .passwordPolicy(passwordPolicy.orNull)
       .mfaMessage(mfaMessage.orNull)
       .enableSmsRole(enableSmsRole.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -41,6 +41,8 @@ object UserPoolProps {
       .smsRole(smsRole.orNull)
       .customAttributes(customAttributes.map(_.asJava).orNull)
       .removalPolicy(removalPolicy.orNull)
+      .email(email.orNull)
+      .userVerification(userVerification.orNull)
       .standardAttributes(standardAttributes.orNull)
       .mfaSecondFactor(mfaSecondFactor.orNull)
       .emailSettings(emailSettings.orNull)

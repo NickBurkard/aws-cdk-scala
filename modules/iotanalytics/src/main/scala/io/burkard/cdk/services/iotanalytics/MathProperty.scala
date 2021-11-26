@@ -4,15 +4,15 @@ package io.burkard.cdk.services.iotanalytics
 object MathProperty {
 
   def apply(
-    name: String,
-    math: String,
-    attribute: String,
-    next: Option[String] = None
+    name: Option[String] = None,
+    math: Option[String] = None,
+    next: Option[String] = None,
+    attribute: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.MathProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.MathProperty.Builder)
-      .name(name)
-      .math(math)
-      .attribute(attribute)
+      .name(name.orNull)
+      .math(math.orNull)
       .next(next.orNull)
+      .attribute(attribute.orNull)
       .build()
 }

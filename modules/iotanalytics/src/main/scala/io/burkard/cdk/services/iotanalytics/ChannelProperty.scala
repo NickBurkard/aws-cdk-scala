@@ -4,13 +4,13 @@ package io.burkard.cdk.services.iotanalytics
 object ChannelProperty {
 
   def apply(
-    name: String,
-    channelName: String,
+    name: Option[String] = None,
+    channelName: Option[String] = None,
     next: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.ChannelProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.ChannelProperty.Builder)
-      .name(name)
-      .channelName(channelName)
+      .name(name.orNull)
+      .channelName(channelName.orNull)
       .next(next.orNull)
       .build()
 }

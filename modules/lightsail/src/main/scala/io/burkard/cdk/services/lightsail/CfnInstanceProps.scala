@@ -10,8 +10,6 @@ object CfnInstanceProps {
     bundleId: String,
     blueprintId: String,
     instanceName: String,
-    location: Option[software.amazon.awscdk.services.lightsail.CfnInstance.LocationProperty] = None,
-    state: Option[software.amazon.awscdk.services.lightsail.CfnInstance.StateProperty] = None,
     addOns: Option[List[_]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     userData: Option[String] = None,
@@ -24,8 +22,6 @@ object CfnInstanceProps {
       .bundleId(bundleId)
       .blueprintId(blueprintId)
       .instanceName(instanceName)
-      .location(location.orNull)
-      .state(state.orNull)
       .addOns(addOns.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)
       .userData(userData.orNull)

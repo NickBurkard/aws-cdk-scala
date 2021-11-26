@@ -17,12 +17,12 @@ object LoadBalancerListenerProtocol {
   case object Tcp
     extends LoadBalancerListenerProtocol(software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerProtocol.TCP)
 
+  case object TcpUdp
+    extends LoadBalancerListenerProtocol(software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerProtocol.TCP_UDP)
+
   case object Tls
     extends LoadBalancerListenerProtocol(software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerProtocol.TLS)
 
   case object Udp
     extends LoadBalancerListenerProtocol(software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerProtocol.UDP)
-
-  case object TcpUdp
-    extends LoadBalancerListenerProtocol(software.amazon.awscdk.cloudassembly.schema.LoadBalancerListenerProtocol.TCP_UDP)
 }

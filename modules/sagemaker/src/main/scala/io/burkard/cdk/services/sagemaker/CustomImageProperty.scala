@@ -7,8 +7,8 @@ object CustomImageProperty {
     appImageConfigName: String,
     imageName: String,
     imageVersionNumber: Option[Number] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnUserProfile.CustomImageProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnUserProfile.CustomImageProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnDomain.CustomImageProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnDomain.CustomImageProperty.Builder)
       .appImageConfigName(appImageConfigName)
       .imageName(imageName)
       .imageVersionNumber(imageVersionNumber.orNull)

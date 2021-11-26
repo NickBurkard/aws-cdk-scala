@@ -9,8 +9,8 @@ object SecretsManagerSecretResourceDataProperty {
   def apply(
     arn: String,
     additionalStagingLabelsToDownload: Option[List[String]] = None
-  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.SecretsManagerSecretResourceDataProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty.Builder)
       .arn(arn)
       .additionalStagingLabelsToDownload(additionalStagingLabelsToDownload.map(_.asJava).orNull)
       .build()

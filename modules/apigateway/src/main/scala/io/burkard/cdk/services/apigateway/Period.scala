@@ -11,9 +11,9 @@ object Period {
   case object Day
     extends Period(software.amazon.awscdk.services.apigateway.Period.DAY)
 
-  case object Week
-    extends Period(software.amazon.awscdk.services.apigateway.Period.WEEK)
-
   case object Month
     extends Period(software.amazon.awscdk.services.apigateway.Period.MONTH)
+
+  case object Week
+    extends Period(software.amazon.awscdk.services.apigateway.Period.WEEK)
 }

@@ -8,15 +8,15 @@ object ContainerDependencyCondition {
   implicit def toAws(value: ContainerDependencyCondition): software.amazon.awscdk.services.ecs.ContainerDependencyCondition =
     Option(value).map(_.underlying).orNull
 
-  case object Start
-    extends ContainerDependencyCondition(software.amazon.awscdk.services.ecs.ContainerDependencyCondition.START)
-
   case object Complete
     extends ContainerDependencyCondition(software.amazon.awscdk.services.ecs.ContainerDependencyCondition.COMPLETE)
 
-  case object Success
-    extends ContainerDependencyCondition(software.amazon.awscdk.services.ecs.ContainerDependencyCondition.SUCCESS)
-
   case object Healthy
     extends ContainerDependencyCondition(software.amazon.awscdk.services.ecs.ContainerDependencyCondition.HEALTHY)
+
+  case object Start
+    extends ContainerDependencyCondition(software.amazon.awscdk.services.ecs.ContainerDependencyCondition.START)
+
+  case object Success
+    extends ContainerDependencyCondition(software.amazon.awscdk.services.ecs.ContainerDependencyCondition.SUCCESS)
 }

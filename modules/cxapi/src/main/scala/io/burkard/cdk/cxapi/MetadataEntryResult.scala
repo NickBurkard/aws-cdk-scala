@@ -8,8 +8,8 @@ object MetadataEntryResult {
 
   def apply(
     path: String,
-    data0: Option[List[_ <: software.amazon.awscdk.cloudassembly.schema.Tag]] = None,
-    data1: Option[software.amazon.awscdk.cloudassembly.schema.ContainerImageAssetMetadataEntry] = None,
+    data0: Option[software.amazon.awscdk.cloudassembly.schema.ContainerImageAssetMetadataEntry] = None,
+    data1: Option[List[_ <: software.amazon.awscdk.cloudassembly.schema.Tag]] = None,
     data2: Option[software.amazon.awscdk.cloudassembly.schema.FileAssetMetadataEntry] = None,
     data3: Option[String] = None,
     `type`: Option[String] = None,
@@ -17,8 +17,8 @@ object MetadataEntryResult {
   ): software.amazon.awscdk.cxapi.MetadataEntryResult =
     (new software.amazon.awscdk.cxapi.MetadataEntryResult.Builder)
       .path(path)
-      .data(data0.map(_.asJava).orNull)
-      .data(data1.orNull)
+      .data(data0.orNull)
+      .data(data1.map(_.asJava).orNull)
       .data(data2.orNull)
       .data(data3.orNull)
       .`type`(`type`.orNull)

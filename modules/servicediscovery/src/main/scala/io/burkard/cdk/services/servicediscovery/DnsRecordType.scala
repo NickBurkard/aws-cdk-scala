@@ -11,15 +11,15 @@ object DnsRecordType {
   case object A
     extends DnsRecordType(software.amazon.awscdk.services.servicediscovery.DnsRecordType.A)
 
-  case object Aaaa
-    extends DnsRecordType(software.amazon.awscdk.services.servicediscovery.DnsRecordType.AAAA)
-
   case object AAaaa
     extends DnsRecordType(software.amazon.awscdk.services.servicediscovery.DnsRecordType.A_AAAA)
 
-  case object Srv
-    extends DnsRecordType(software.amazon.awscdk.services.servicediscovery.DnsRecordType.SRV)
+  case object Aaaa
+    extends DnsRecordType(software.amazon.awscdk.services.servicediscovery.DnsRecordType.AAAA)
 
   case object Cname
     extends DnsRecordType(software.amazon.awscdk.services.servicediscovery.DnsRecordType.CNAME)
+
+  case object Srv
+    extends DnsRecordType(software.amazon.awscdk.services.servicediscovery.DnsRecordType.SRV)
 }

@@ -7,17 +7,21 @@ import scala.collection.JavaConverters._
 object CfnAnomalyDetectorProps {
 
   def apply(
-    stat: String,
-    metricName: String,
-    namespace: String,
+    metricMathAnomalyDetector: Option[software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.MetricMathAnomalyDetectorProperty] = None,
+    stat: Option[String] = None,
+    metricName: Option[String] = None,
     configuration: Option[software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.ConfigurationProperty] = None,
-    dimensions: Option[List[_]] = None
+    dimensions: Option[List[_]] = None,
+    singleMetricAnomalyDetector: Option[software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.SingleMetricAnomalyDetectorProperty] = None,
+    namespace: Option[String] = None
   ): software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetectorProps =
     (new software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetectorProps.Builder)
-      .stat(stat)
-      .metricName(metricName)
-      .namespace(namespace)
+      .metricMathAnomalyDetector(metricMathAnomalyDetector.orNull)
+      .stat(stat.orNull)
+      .metricName(metricName.orNull)
       .configuration(configuration.orNull)
       .dimensions(dimensions.map(_.asJava).orNull)
+      .singleMetricAnomalyDetector(singleMetricAnomalyDetector.orNull)
+      .namespace(namespace.orNull)
       .build()
 }

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object RemoveAttributesProperty {
 
   def apply(
-    name: String,
-    attributes: List[String],
+    name: Option[String] = None,
+    attributes: Option[List[String]] = None,
     next: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.RemoveAttributesProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.RemoveAttributesProperty.Builder)
-      .name(name)
-      .attributes(attributes.asJava)
+      .name(name.orNull)
+      .attributes(attributes.map(_.asJava).orNull)
       .next(next.orNull)
       .build()
 }

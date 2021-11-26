@@ -11,9 +11,9 @@ object GelfCompressionType {
   case object Gzip
     extends GelfCompressionType(software.amazon.awscdk.services.ecs.GelfCompressionType.GZIP)
 
-  case object Zlib
-    extends GelfCompressionType(software.amazon.awscdk.services.ecs.GelfCompressionType.ZLIB)
-
   case object None
     extends GelfCompressionType(software.amazon.awscdk.services.ecs.GelfCompressionType.NONE)
+
+  case object Zlib
+    extends GelfCompressionType(software.amazon.awscdk.services.ecs.GelfCompressionType.ZLIB)
 }

@@ -11,9 +11,9 @@ object OperatingSystemType {
   case object Linux
     extends OperatingSystemType(software.amazon.awscdk.services.ec2.OperatingSystemType.LINUX)
 
-  case object Windows
-    extends OperatingSystemType(software.amazon.awscdk.services.ec2.OperatingSystemType.WINDOWS)
-
   case object Unknown
     extends OperatingSystemType(software.amazon.awscdk.services.ec2.OperatingSystemType.UNKNOWN)
+
+  case object Windows
+    extends OperatingSystemType(software.amazon.awscdk.services.ec2.OperatingSystemType.WINDOWS)
 }

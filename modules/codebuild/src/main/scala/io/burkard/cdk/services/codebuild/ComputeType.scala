@@ -8,14 +8,14 @@ object ComputeType {
   implicit def toAws(value: ComputeType): software.amazon.awscdk.services.codebuild.ComputeType =
     Option(value).map(_.underlying).orNull
 
-  case object Small
-    extends ComputeType(software.amazon.awscdk.services.codebuild.ComputeType.SMALL)
+  case object Large
+    extends ComputeType(software.amazon.awscdk.services.codebuild.ComputeType.LARGE)
 
   case object Medium
     extends ComputeType(software.amazon.awscdk.services.codebuild.ComputeType.MEDIUM)
 
-  case object Large
-    extends ComputeType(software.amazon.awscdk.services.codebuild.ComputeType.LARGE)
+  case object Small
+    extends ComputeType(software.amazon.awscdk.services.codebuild.ComputeType.SMALL)
 
   case object X2Large
     extends ComputeType(software.amazon.awscdk.services.codebuild.ComputeType.X2_LARGE)

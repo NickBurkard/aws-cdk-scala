@@ -11,11 +11,11 @@ object MaximumExecutionFrequency {
   case object OneHour
     extends MaximumExecutionFrequency(software.amazon.awscdk.services.config.MaximumExecutionFrequency.ONE_HOUR)
 
-  case object ThreeHours
-    extends MaximumExecutionFrequency(software.amazon.awscdk.services.config.MaximumExecutionFrequency.THREE_HOURS)
-
   case object SixHours
     extends MaximumExecutionFrequency(software.amazon.awscdk.services.config.MaximumExecutionFrequency.SIX_HOURS)
+
+  case object ThreeHours
+    extends MaximumExecutionFrequency(software.amazon.awscdk.services.config.MaximumExecutionFrequency.THREE_HOURS)
 
   case object TwelveHours
     extends MaximumExecutionFrequency(software.amazon.awscdk.services.config.MaximumExecutionFrequency.TWELVE_HOURS)

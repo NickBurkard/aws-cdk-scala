@@ -6,8 +6,8 @@ object KeySchemaProperty {
   def apply(
     keyType: String,
     attributeName: String
-  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.KeySchemaProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.KeySchemaProperty.Builder)
+  ): software.amazon.awscdk.services.dynamodb.CfnTable.KeySchemaProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnTable.KeySchemaProperty.Builder)
       .keyType(keyType)
       .attributeName(attributeName)
       .build()

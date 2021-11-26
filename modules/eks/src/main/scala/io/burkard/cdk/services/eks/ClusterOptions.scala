@@ -15,6 +15,7 @@ object ClusterOptions {
     serviceIpv4Cidr: Option[String] = None,
     placeClusterHandlerInVpc: Option[Boolean] = None,
     version: Option[software.amazon.awscdk.services.eks.KubernetesVersion] = None,
+    albController: Option[software.amazon.awscdk.services.eks.AlbControllerOptions] = None,
     prune: Option[Boolean] = None,
     kubectlEnvironment: Option[Map[String, String]] = None,
     outputConfigCommand: Option[Boolean] = None,
@@ -39,6 +40,7 @@ object ClusterOptions {
       .serviceIpv4Cidr(serviceIpv4Cidr.orNull)
       .placeClusterHandlerInVpc(placeClusterHandlerInVpc.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .version(version.orNull)
+      .albController(albController.orNull)
       .prune(prune.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .kubectlEnvironment(kubectlEnvironment.map(_.asJava).orNull)
       .outputConfigCommand(outputConfigCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

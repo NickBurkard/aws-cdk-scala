@@ -11,9 +11,9 @@ object EndpointType {
   case object Edge
     extends EndpointType(software.amazon.awscdk.services.apigateway.EndpointType.EDGE)
 
-  case object Regional
-    extends EndpointType(software.amazon.awscdk.services.apigateway.EndpointType.REGIONAL)
-
   case object Private
     extends EndpointType(software.amazon.awscdk.services.apigateway.EndpointType.PRIVATE)
+
+  case object Regional
+    extends EndpointType(software.amazon.awscdk.services.apigateway.EndpointType.REGIONAL)
 }

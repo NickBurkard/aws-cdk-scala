@@ -11,12 +11,12 @@ object TreatMissingData {
   case object Breaching
     extends TreatMissingData(software.amazon.awscdk.services.cloudwatch.TreatMissingData.BREACHING)
 
-  case object NotBreaching
-    extends TreatMissingData(software.amazon.awscdk.services.cloudwatch.TreatMissingData.NOT_BREACHING)
-
   case object Ignore
     extends TreatMissingData(software.amazon.awscdk.services.cloudwatch.TreatMissingData.IGNORE)
 
   case object Missing
     extends TreatMissingData(software.amazon.awscdk.services.cloudwatch.TreatMissingData.MISSING)
+
+  case object NotBreaching
+    extends TreatMissingData(software.amazon.awscdk.services.cloudwatch.TreatMissingData.NOT_BREACHING)
 }

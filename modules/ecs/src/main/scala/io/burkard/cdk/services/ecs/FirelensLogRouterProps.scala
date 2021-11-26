@@ -12,6 +12,7 @@ object FirelensLogRouterProps {
     healthCheck: Option[software.amazon.awscdk.services.ecs.HealthCheck] = None,
     hostname: Option[String] = None,
     dnsSearchDomains: Option[List[String]] = None,
+    systemControls: Option[List[_ <: software.amazon.awscdk.services.ecs.SystemControl]] = None,
     command: Option[List[String]] = None,
     environmentFiles: Option[List[_ <: software.amazon.awscdk.services.ecs.EnvironmentFile]] = None,
     workingDirectory: Option[String] = None,
@@ -46,6 +47,7 @@ object FirelensLogRouterProps {
       .healthCheck(healthCheck.orNull)
       .hostname(hostname.orNull)
       .dnsSearchDomains(dnsSearchDomains.map(_.asJava).orNull)
+      .systemControls(systemControls.map(_.asJava).orNull)
       .command(command.map(_.asJava).orNull)
       .environmentFiles(environmentFiles.map(_.asJava).orNull)
       .workingDirectory(workingDirectory.orNull)

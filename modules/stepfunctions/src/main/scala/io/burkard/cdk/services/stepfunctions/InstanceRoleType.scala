@@ -8,11 +8,11 @@ object InstanceRoleType {
   implicit def toAws(value: InstanceRoleType): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceRoleType =
     Option(value).map(_.underlying).orNull
 
-  case object Master
-    extends InstanceRoleType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceRoleType.MASTER)
-
   case object Core
     extends InstanceRoleType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceRoleType.CORE)
+
+  case object Master
+    extends InstanceRoleType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceRoleType.MASTER)
 
   case object Task
     extends InstanceRoleType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.InstanceRoleType.TASK)

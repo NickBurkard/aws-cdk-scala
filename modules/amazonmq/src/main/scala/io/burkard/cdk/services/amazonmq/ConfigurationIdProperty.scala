@@ -6,8 +6,8 @@ object ConfigurationIdProperty {
   def apply(
     revision: Number,
     id: String
-  ): software.amazon.awscdk.services.amazonmq.CfnBroker.ConfigurationIdProperty =
-    (new software.amazon.awscdk.services.amazonmq.CfnBroker.ConfigurationIdProperty.Builder)
+  ): software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty =
+    (new software.amazon.awscdk.services.amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty.Builder)
       .revision(revision)
       .id(id)
       .build()

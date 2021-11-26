@@ -10,8 +10,8 @@ object SkewedInfoProperty {
     skewedColumnNames: Option[List[String]] = None,
     skewedColumnValueLocationMaps: Option[AnyRef] = None,
     skewedColumnValues: Option[List[String]] = None
-  ): software.amazon.awscdk.services.glue.CfnPartition.SkewedInfoProperty =
-    (new software.amazon.awscdk.services.glue.CfnPartition.SkewedInfoProperty.Builder)
+  ): software.amazon.awscdk.services.glue.CfnTable.SkewedInfoProperty =
+    (new software.amazon.awscdk.services.glue.CfnTable.SkewedInfoProperty.Builder)
       .skewedColumnNames(skewedColumnNames.map(_.asJava).orNull)
       .skewedColumnValueLocationMaps(skewedColumnValueLocationMaps.orNull)
       .skewedColumnValues(skewedColumnValues.map(_.asJava).orNull)

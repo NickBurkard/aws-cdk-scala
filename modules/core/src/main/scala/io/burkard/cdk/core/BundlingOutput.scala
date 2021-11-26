@@ -11,9 +11,9 @@ object BundlingOutput {
   case object Archived
     extends BundlingOutput(software.amazon.awscdk.BundlingOutput.ARCHIVED)
 
-  case object NotArchived
-    extends BundlingOutput(software.amazon.awscdk.BundlingOutput.NOT_ARCHIVED)
-
   case object AutoDiscover
     extends BundlingOutput(software.amazon.awscdk.BundlingOutput.AUTO_DISCOVER)
+
+  case object NotArchived
+    extends BundlingOutput(software.amazon.awscdk.BundlingOutput.NOT_ARCHIVED)
 }

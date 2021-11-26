@@ -6,8 +6,8 @@ object EdiPartyNameProperty {
   def apply(
     partyName: String,
     nameAssigner: String
-  ): software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.EdiPartyNameProperty =
-    (new software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.EdiPartyNameProperty.Builder)
+  ): software.amazon.awscdk.services.acmpca.CfnCertificate.EdiPartyNameProperty =
+    (new software.amazon.awscdk.services.acmpca.CfnCertificate.EdiPartyNameProperty.Builder)
       .partyName(partyName)
       .nameAssigner(nameAssigner)
       .build()

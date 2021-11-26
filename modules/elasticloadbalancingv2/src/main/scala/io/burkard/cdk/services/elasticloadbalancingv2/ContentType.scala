@@ -10,8 +10,11 @@ object ContentType {
   implicit def toAws(value: ContentType): software.amazon.awscdk.services.elasticloadbalancingv2.ContentType =
     Option(value).map(_.underlying).orNull
 
-  case object TextPlain
-    extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.TEXT_PLAIN)
+  case object ApplicationJavascript
+    extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.APPLICATION_JAVASCRIPT)
+
+  case object ApplicationJson
+    extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.APPLICATION_JSON)
 
   case object TextCss
     extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.TEXT_CSS)
@@ -19,9 +22,6 @@ object ContentType {
   case object TextHtml
     extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.TEXT_HTML)
 
-  case object ApplicationJavascript
-    extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.APPLICATION_JAVASCRIPT)
-
-  case object ApplicationJson
-    extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.APPLICATION_JSON)
+  case object TextPlain
+    extends ContentType(software.amazon.awscdk.services.elasticloadbalancingv2.ContentType.TEXT_PLAIN)
 }

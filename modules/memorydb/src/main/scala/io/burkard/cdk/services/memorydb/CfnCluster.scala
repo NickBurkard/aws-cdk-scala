@@ -20,14 +20,13 @@ object CfnCluster {
     tlsEnabled: Option[Boolean] = None,
     parameterGroupName: Option[String] = None,
     port: Option[Number] = None,
+    snapshotRetentionLimit: Option[Number] = None,
     snapshotName: Option[String] = None,
     kmsKeyId: Option[String] = None,
     snsTopicArn: Option[String] = None,
     finalSnapshotName: Option[String] = None,
     description: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
-    snapshotRetentionLimit: Option[Number] = None,
-    clusterEndpoint: Option[software.amazon.awscdk.services.memorydb.CfnCluster.EndpointProperty] = None,
     engineVersion: Option[String] = None,
     numReplicasPerShard: Option[Number] = None,
     numShards: Option[Number] = None,
@@ -47,14 +46,13 @@ object CfnCluster {
       .tlsEnabled(tlsEnabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .parameterGroupName(parameterGroupName.orNull)
       .port(port.orNull)
+      .snapshotRetentionLimit(snapshotRetentionLimit.orNull)
       .snapshotName(snapshotName.orNull)
       .kmsKeyId(kmsKeyId.orNull)
       .snsTopicArn(snsTopicArn.orNull)
       .finalSnapshotName(finalSnapshotName.orNull)
       .description(description.orNull)
       .tags(tags.map(_.asJava).orNull)
-      .snapshotRetentionLimit(snapshotRetentionLimit.orNull)
-      .clusterEndpoint(clusterEndpoint.orNull)
       .engineVersion(engineVersion.orNull)
       .numReplicasPerShard(numReplicasPerShard.orNull)
       .numShards(numShards.orNull)

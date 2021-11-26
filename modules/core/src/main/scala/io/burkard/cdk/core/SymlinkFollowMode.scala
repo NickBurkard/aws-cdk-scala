@@ -8,15 +8,15 @@ object SymlinkFollowMode {
   implicit def toAws(value: SymlinkFollowMode): software.amazon.awscdk.SymlinkFollowMode =
     Option(value).map(_.underlying).orNull
 
-  case object Never
-    extends SymlinkFollowMode(software.amazon.awscdk.SymlinkFollowMode.NEVER)
-
   case object Always
     extends SymlinkFollowMode(software.amazon.awscdk.SymlinkFollowMode.ALWAYS)
+
+  case object BlockExternal
+    extends SymlinkFollowMode(software.amazon.awscdk.SymlinkFollowMode.BLOCK_EXTERNAL)
 
   case object External
     extends SymlinkFollowMode(software.amazon.awscdk.SymlinkFollowMode.EXTERNAL)
 
-  case object BlockExternal
-    extends SymlinkFollowMode(software.amazon.awscdk.SymlinkFollowMode.BLOCK_EXTERNAL)
+  case object Never
+    extends SymlinkFollowMode(software.amazon.awscdk.SymlinkFollowMode.NEVER)
 }

@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object XssMatchStatementProperty {
 
   def apply(
-    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty,
+    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty,
     textTransformations: List[_]
-  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.XssMatchStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.XssMatchStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnWebACL.XssMatchStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnWebACL.XssMatchStatementProperty.Builder)
       .fieldToMatch(fieldToMatch)
       .textTransformations(textTransformations.asJava)
       .build()

@@ -6,8 +6,8 @@ object DimensionProperty {
   def apply(
     name: String,
     value: String
-  ): software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.DimensionProperty =
-    (new software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.DimensionProperty.Builder)
+  ): software.amazon.awscdk.services.cloudwatch.CfnAlarm.DimensionProperty =
+    (new software.amazon.awscdk.services.cloudwatch.CfnAlarm.DimensionProperty.Builder)
       .name(name)
       .value(value)
       .build()

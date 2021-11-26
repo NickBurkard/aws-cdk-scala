@@ -11,12 +11,12 @@ object Compatibility {
   case object Ec2
     extends Compatibility(software.amazon.awscdk.services.ecs.Compatibility.EC2)
 
-  case object Fargate
-    extends Compatibility(software.amazon.awscdk.services.ecs.Compatibility.FARGATE)
-
   case object Ec2AndFargate
     extends Compatibility(software.amazon.awscdk.services.ecs.Compatibility.EC2_AND_FARGATE)
 
   case object External
     extends Compatibility(software.amazon.awscdk.services.ecs.Compatibility.EXTERNAL)
+
+  case object Fargate
+    extends Compatibility(software.amazon.awscdk.services.ecs.Compatibility.FARGATE)
 }

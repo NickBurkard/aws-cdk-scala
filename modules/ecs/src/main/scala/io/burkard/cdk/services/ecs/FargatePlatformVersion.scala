@@ -11,18 +11,18 @@ object FargatePlatformVersion {
   case object Latest
     extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.LATEST)
 
-  case object Version14
-    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_4)
-
-  case object Version13
-    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_3)
-
-  case object Version12
-    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_2)
+  case object Version10
+    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_0)
 
   case object Version11
     extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_1)
 
-  case object Version10
-    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_0)
+  case object Version12
+    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_2)
+
+  case object Version13
+    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_3)
+
+  case object Version14
+    extends FargatePlatformVersion(software.amazon.awscdk.services.ecs.FargatePlatformVersion.VERSION1_4)
 }

@@ -8,15 +8,15 @@ object StreamViewType {
   implicit def toAws(value: StreamViewType): software.amazon.awscdk.services.dynamodb.StreamViewType =
     Option(value).map(_.underlying).orNull
 
+  case object KeysOnly
+    extends StreamViewType(software.amazon.awscdk.services.dynamodb.StreamViewType.KEYS_ONLY)
+
+  case object NewAndOldImages
+    extends StreamViewType(software.amazon.awscdk.services.dynamodb.StreamViewType.NEW_AND_OLD_IMAGES)
+
   case object NewImage
     extends StreamViewType(software.amazon.awscdk.services.dynamodb.StreamViewType.NEW_IMAGE)
 
   case object OldImage
     extends StreamViewType(software.amazon.awscdk.services.dynamodb.StreamViewType.OLD_IMAGE)
-
-  case object NewAndOldImages
-    extends StreamViewType(software.amazon.awscdk.services.dynamodb.StreamViewType.NEW_AND_OLD_IMAGES)
-
-  case object KeysOnly
-    extends StreamViewType(software.amazon.awscdk.services.dynamodb.StreamViewType.KEYS_ONLY)
 }

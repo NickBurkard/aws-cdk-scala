@@ -10,8 +10,8 @@ object CfnSqlInjectionMatchSet {
     internalResourceId: String,
     name: String,
     sqlInjectionMatchTuples: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSet =
-    software.amazon.awscdk.services.waf.CfnSqlInjectionMatchSet.Builder
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnSqlInjectionMatchSet =
+    software.amazon.awscdk.services.waf.regional.CfnSqlInjectionMatchSet.Builder
       .create(stackCtx, internalResourceId)
       .name(name)
       .sqlInjectionMatchTuples(sqlInjectionMatchTuples.map(_.asJava).orNull)

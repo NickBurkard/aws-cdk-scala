@@ -8,9 +8,9 @@ object CompressionType {
   implicit def toAws(value: CompressionType): software.amazon.awscdk.services.stepfunctions.tasks.CompressionType =
     Option(value).map(_.underlying).orNull
 
-  case object None
-    extends CompressionType(software.amazon.awscdk.services.stepfunctions.tasks.CompressionType.NONE)
-
   case object Gzip
     extends CompressionType(software.amazon.awscdk.services.stepfunctions.tasks.CompressionType.GZIP)
+
+  case object None
+    extends CompressionType(software.amazon.awscdk.services.stepfunctions.tasks.CompressionType.NONE)
 }

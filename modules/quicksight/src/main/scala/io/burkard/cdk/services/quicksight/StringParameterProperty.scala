@@ -9,8 +9,8 @@ object StringParameterProperty {
   def apply(
     name: String,
     values: List[String]
-  ): software.amazon.awscdk.services.quicksight.CfnDashboard.StringParameterProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnDashboard.StringParameterProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnAnalysis.StringParameterProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnAnalysis.StringParameterProperty.Builder)
       .name(name)
       .values(values.asJava)
       .build()

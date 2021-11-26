@@ -8,6 +8,7 @@ object ClusterAttributes {
 
   def apply(
     clusterName: String,
+    kubectlLambdaRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     kubectlLayer: Option[software.amazon.awscdk.services.lambda.ILayerVersion] = None,
     kubectlRoleArn: Option[String] = None,
     openIdConnectProvider: Option[software.amazon.awscdk.services.iam.IOpenIdConnectProvider] = None,
@@ -27,6 +28,7 @@ object ClusterAttributes {
   ): software.amazon.awscdk.services.eks.ClusterAttributes =
     (new software.amazon.awscdk.services.eks.ClusterAttributes.Builder)
       .clusterName(clusterName)
+      .kubectlLambdaRole(kubectlLambdaRole.orNull)
       .kubectlLayer(kubectlLayer.orNull)
       .kubectlRoleArn(kubectlRoleArn.orNull)
       .openIdConnectProvider(openIdConnectProvider.orNull)

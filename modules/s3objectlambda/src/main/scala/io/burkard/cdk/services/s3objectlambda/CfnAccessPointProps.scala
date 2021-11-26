@@ -4,11 +4,11 @@ package io.burkard.cdk.services.s3objectlambda
 object CfnAccessPointProps {
 
   def apply(
-    name: Option[String] = None,
-    objectLambdaConfiguration: Option[software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty] = None
+    objectLambdaConfiguration: software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty,
+    name: Option[String] = None
   ): software.amazon.awscdk.services.s3objectlambda.CfnAccessPointProps =
     (new software.amazon.awscdk.services.s3objectlambda.CfnAccessPointProps.Builder)
+      .objectLambdaConfiguration(objectLambdaConfiguration)
       .name(name.orNull)
-      .objectLambdaConfiguration(objectLambdaConfiguration.orNull)
       .build()
 }

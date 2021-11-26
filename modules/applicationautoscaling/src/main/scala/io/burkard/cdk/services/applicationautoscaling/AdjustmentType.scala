@@ -11,9 +11,9 @@ object AdjustmentType {
   case object ChangeInCapacity
     extends AdjustmentType(software.amazon.awscdk.services.applicationautoscaling.AdjustmentType.CHANGE_IN_CAPACITY)
 
-  case object PercentChangeInCapacity
-    extends AdjustmentType(software.amazon.awscdk.services.applicationautoscaling.AdjustmentType.PERCENT_CHANGE_IN_CAPACITY)
-
   case object ExactCapacity
     extends AdjustmentType(software.amazon.awscdk.services.applicationautoscaling.AdjustmentType.EXACT_CAPACITY)
+
+  case object PercentChangeInCapacity
+    extends AdjustmentType(software.amazon.awscdk.services.applicationautoscaling.AdjustmentType.PERCENT_CHANGE_IN_CAPACITY)
 }

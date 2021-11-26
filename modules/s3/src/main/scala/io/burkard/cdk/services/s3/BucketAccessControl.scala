@@ -8,6 +8,21 @@ object BucketAccessControl {
   implicit def toAws(value: BucketAccessControl): software.amazon.awscdk.services.s3.BucketAccessControl =
     Option(value).map(_.underlying).orNull
 
+  case object AuthenticatedRead
+    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.AUTHENTICATED_READ)
+
+  case object AwsExecRead
+    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.AWS_EXEC_READ)
+
+  case object BucketOwnerFullControl
+    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.BUCKET_OWNER_FULL_CONTROL)
+
+  case object BucketOwnerRead
+    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.BUCKET_OWNER_READ)
+
+  case object LogDeliveryWrite
+    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.LOG_DELIVERY_WRITE)
+
   case object Private
     extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.PRIVATE)
 
@@ -16,19 +31,4 @@ object BucketAccessControl {
 
   case object PublicReadWrite
     extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.PUBLIC_READ_WRITE)
-
-  case object AuthenticatedRead
-    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.AUTHENTICATED_READ)
-
-  case object LogDeliveryWrite
-    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.LOG_DELIVERY_WRITE)
-
-  case object BucketOwnerRead
-    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.BUCKET_OWNER_READ)
-
-  case object BucketOwnerFullControl
-    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.BUCKET_OWNER_FULL_CONTROL)
-
-  case object AwsExecRead
-    extends BucketAccessControl(software.amazon.awscdk.services.s3.BucketAccessControl.AWS_EXEC_READ)
 }
