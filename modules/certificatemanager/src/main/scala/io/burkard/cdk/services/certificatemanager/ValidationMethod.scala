@@ -8,9 +8,9 @@ object ValidationMethod {
   implicit def toAws(value: ValidationMethod): software.amazon.awscdk.services.certificatemanager.ValidationMethod =
     Option(value).map(_.underlying).orNull
 
-  case object Email
-    extends ValidationMethod(software.amazon.awscdk.services.certificatemanager.ValidationMethod.EMAIL)
-
   case object Dns
     extends ValidationMethod(software.amazon.awscdk.services.certificatemanager.ValidationMethod.DNS)
+
+  case object Email
+    extends ValidationMethod(software.amazon.awscdk.services.certificatemanager.ValidationMethod.EMAIL)
 }

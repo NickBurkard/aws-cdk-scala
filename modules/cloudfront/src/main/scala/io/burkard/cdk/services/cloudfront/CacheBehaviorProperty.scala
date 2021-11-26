@@ -12,6 +12,7 @@ object CacheBehaviorProperty {
     viewerProtocolPolicy: String,
     forwardedValues: Option[software.amazon.awscdk.services.cloudfront.CfnDistribution.ForwardedValuesProperty] = None,
     defaultTtl: Option[Number] = None,
+    responseHeadersPolicyId: Option[String] = None,
     functionAssociations: Option[List[_]] = None,
     lambdaFunctionAssociations: Option[List[_]] = None,
     smoothStreaming: Option[Boolean] = None,
@@ -33,6 +34,7 @@ object CacheBehaviorProperty {
       .viewerProtocolPolicy(viewerProtocolPolicy)
       .forwardedValues(forwardedValues.orNull)
       .defaultTtl(defaultTtl.orNull)
+      .responseHeadersPolicyId(responseHeadersPolicyId.orNull)
       .functionAssociations(functionAssociations.map(_.asJava).orNull)
       .lambdaFunctionAssociations(lambdaFunctionAssociations.map(_.asJava).orNull)
       .smoothStreaming(smoothStreaming.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

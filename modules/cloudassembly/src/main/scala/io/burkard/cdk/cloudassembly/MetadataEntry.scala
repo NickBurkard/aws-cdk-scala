@@ -11,8 +11,8 @@ object MetadataEntry {
     trace: Option[List[String]] = None,
     data0: Option[software.amazon.awscdk.cloudassembly.schema.ContainerImageAssetMetadataEntry] = None,
     data1: Option[List[_ <: software.amazon.awscdk.cloudassembly.schema.Tag]] = None,
-    data2: Option[software.amazon.awscdk.cloudassembly.schema.FileAssetMetadataEntry] = None,
-    data3: Option[String] = None
+    data2: Option[String] = None,
+    data3: Option[software.amazon.awscdk.cloudassembly.schema.FileAssetMetadataEntry] = None
   ): software.amazon.awscdk.cloudassembly.schema.MetadataEntry =
     (new software.amazon.awscdk.cloudassembly.schema.MetadataEntry.Builder)
       .`type`(`type`)

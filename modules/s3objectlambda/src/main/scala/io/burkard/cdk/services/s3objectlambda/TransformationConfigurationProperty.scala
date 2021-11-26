@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TransformationConfigurationProperty {
 
   def apply(
-    actions: Option[List[String]] = None,
-    contentTransformation: Option[AnyRef] = None
+    actions: List[String],
+    contentTransformation: AnyRef
   ): software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.TransformationConfigurationProperty =
     (new software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.TransformationConfigurationProperty.Builder)
-      .actions(actions.map(_.asJava).orNull)
-      .contentTransformation(contentTransformation.orNull)
+      .actions(actions.asJava)
+      .contentTransformation(contentTransformation)
       .build()
 }

@@ -5,11 +5,13 @@ object GatewayRouteSpecProperty {
 
   def apply(
     grpcRoute: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GrpcGatewayRouteProperty] = None,
+    priority: Option[Number] = None,
     httpRoute: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteProperty] = None,
     http2Route: Option[software.amazon.awscdk.services.appmesh.CfnGatewayRoute.HttpGatewayRouteProperty] = None
   ): software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteSpecProperty =
     (new software.amazon.awscdk.services.appmesh.CfnGatewayRoute.GatewayRouteSpecProperty.Builder)
       .grpcRoute(grpcRoute.orNull)
+      .priority(priority.orNull)
       .httpRoute(httpRoute.orNull)
       .http2Route(http2Route.orNull)
       .build()

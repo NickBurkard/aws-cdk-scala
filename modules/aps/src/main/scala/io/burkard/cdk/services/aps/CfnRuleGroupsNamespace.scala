@@ -8,16 +8,16 @@ object CfnRuleGroupsNamespace {
 
   def apply(
     internalResourceId: String,
+    name: String,
     data: String,
     workspace: String,
-    name: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.aps.CfnRuleGroupsNamespace =
     software.amazon.awscdk.services.aps.CfnRuleGroupsNamespace.Builder
       .create(stackCtx, internalResourceId)
+      .name(name)
       .data(data)
       .workspace(workspace)
-      .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

@@ -8,12 +8,12 @@ object SpotInstanceInterruption {
   implicit def toAws(value: SpotInstanceInterruption): software.amazon.awscdk.services.ec2.SpotInstanceInterruption =
     Option(value).map(_.underlying).orNull
 
+  case object Hibernate
+    extends SpotInstanceInterruption(software.amazon.awscdk.services.ec2.SpotInstanceInterruption.HIBERNATE)
+
   case object Stop
     extends SpotInstanceInterruption(software.amazon.awscdk.services.ec2.SpotInstanceInterruption.STOP)
 
   case object Terminate
     extends SpotInstanceInterruption(software.amazon.awscdk.services.ec2.SpotInstanceInterruption.TERMINATE)
-
-  case object Hibernate
-    extends SpotInstanceInterruption(software.amazon.awscdk.services.ec2.SpotInstanceInterruption.HIBERNATE)
 }

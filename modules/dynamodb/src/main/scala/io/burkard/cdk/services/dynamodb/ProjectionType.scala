@@ -8,12 +8,12 @@ object ProjectionType {
   implicit def toAws(value: ProjectionType): software.amazon.awscdk.services.dynamodb.ProjectionType =
     Option(value).map(_.underlying).orNull
 
-  case object KeysOnly
-    extends ProjectionType(software.amazon.awscdk.services.dynamodb.ProjectionType.KEYS_ONLY)
+  case object All
+    extends ProjectionType(software.amazon.awscdk.services.dynamodb.ProjectionType.ALL)
 
   case object Include
     extends ProjectionType(software.amazon.awscdk.services.dynamodb.ProjectionType.INCLUDE)
 
-  case object All
-    extends ProjectionType(software.amazon.awscdk.services.dynamodb.ProjectionType.ALL)
+  case object KeysOnly
+    extends ProjectionType(software.amazon.awscdk.services.dynamodb.ProjectionType.KEYS_ONLY)
 }

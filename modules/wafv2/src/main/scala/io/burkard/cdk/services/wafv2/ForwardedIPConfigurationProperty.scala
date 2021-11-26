@@ -6,8 +6,8 @@ object ForwardedIPConfigurationProperty {
   def apply(
     headerName: String,
     fallbackBehavior: String
-  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.ForwardedIPConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnWebACL.ForwardedIPConfigurationProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnWebACL.ForwardedIPConfigurationProperty.Builder)
       .headerName(headerName)
       .fallbackBehavior(fallbackBehavior)
       .build()

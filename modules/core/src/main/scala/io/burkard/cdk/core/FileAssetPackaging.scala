@@ -8,9 +8,9 @@ object FileAssetPackaging {
   implicit def toAws(value: FileAssetPackaging): software.amazon.awscdk.FileAssetPackaging =
     Option(value).map(_.underlying).orNull
 
-  case object ZipDirectory
-    extends FileAssetPackaging(software.amazon.awscdk.FileAssetPackaging.ZIP_DIRECTORY)
-
   case object File
     extends FileAssetPackaging(software.amazon.awscdk.FileAssetPackaging.FILE)
+
+  case object ZipDirectory
+    extends FileAssetPackaging(software.amazon.awscdk.FileAssetPackaging.ZIP_DIRECTORY)
 }

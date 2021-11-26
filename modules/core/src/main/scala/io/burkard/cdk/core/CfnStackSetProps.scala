@@ -11,6 +11,7 @@ object CfnStackSetProps {
     permissionModel: String,
     autoDeployment: Option[software.amazon.awscdk.CfnStackSet.AutoDeploymentProperty] = None,
     stackInstancesGroup: Option[List[_]] = None,
+    managedExecution: Option[AnyRef] = None,
     templateUrl: Option[String] = None,
     templateBody: Option[String] = None,
     operationPreferences: Option[software.amazon.awscdk.CfnStackSet.OperationPreferencesProperty] = None,
@@ -27,6 +28,7 @@ object CfnStackSetProps {
       .permissionModel(permissionModel)
       .autoDeployment(autoDeployment.orNull)
       .stackInstancesGroup(stackInstancesGroup.map(_.asJava).orNull)
+      .managedExecution(managedExecution.orNull)
       .templateUrl(templateUrl.orNull)
       .templateBody(templateBody.orNull)
       .operationPreferences(operationPreferences.orNull)

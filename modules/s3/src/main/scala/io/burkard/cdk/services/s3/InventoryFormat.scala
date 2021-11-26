@@ -11,9 +11,9 @@ object InventoryFormat {
   case object Csv
     extends InventoryFormat(software.amazon.awscdk.services.s3.InventoryFormat.CSV)
 
-  case object Parquet
-    extends InventoryFormat(software.amazon.awscdk.services.s3.InventoryFormat.PARQUET)
-
   case object Orc
     extends InventoryFormat(software.amazon.awscdk.services.s3.InventoryFormat.ORC)
+
+  case object Parquet
+    extends InventoryFormat(software.amazon.awscdk.services.s3.InventoryFormat.PARQUET)
 }

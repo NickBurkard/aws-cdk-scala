@@ -5,10 +5,10 @@ object TimeToLiveSpecificationProperty {
 
   def apply(
     enabled: Boolean,
-    attributeName: Option[String] = None
-  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.TimeToLiveSpecificationProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.TimeToLiveSpecificationProperty.Builder)
+    attributeName: String
+  ): software.amazon.awscdk.services.dynamodb.CfnTable.TimeToLiveSpecificationProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnTable.TimeToLiveSpecificationProperty.Builder)
       .enabled(enabled)
-      .attributeName(attributeName.orNull)
+      .attributeName(attributeName)
       .build()
 }

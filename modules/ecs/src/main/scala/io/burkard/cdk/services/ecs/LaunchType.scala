@@ -11,9 +11,9 @@ object LaunchType {
   case object Ec2
     extends LaunchType(software.amazon.awscdk.services.ecs.LaunchType.EC2)
 
-  case object Fargate
-    extends LaunchType(software.amazon.awscdk.services.ecs.LaunchType.FARGATE)
-
   case object External
     extends LaunchType(software.amazon.awscdk.services.ecs.LaunchType.EXTERNAL)
+
+  case object Fargate
+    extends LaunchType(software.amazon.awscdk.services.ecs.LaunchType.FARGATE)
 }

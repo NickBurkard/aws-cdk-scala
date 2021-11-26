@@ -6,8 +6,8 @@ object ConformancePackInputParameterProperty {
   def apply(
     parameterValue: String,
     parameterName: String
-  ): software.amazon.awscdk.services.config.CfnOrganizationConformancePack.ConformancePackInputParameterProperty =
-    (new software.amazon.awscdk.services.config.CfnOrganizationConformancePack.ConformancePackInputParameterProperty.Builder)
+  ): software.amazon.awscdk.services.config.CfnConformancePack.ConformancePackInputParameterProperty =
+    (new software.amazon.awscdk.services.config.CfnConformancePack.ConformancePackInputParameterProperty.Builder)
       .parameterValue(parameterValue)
       .parameterName(parameterName)
       .build()

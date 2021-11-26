@@ -7,7 +7,9 @@ object HostedRotationLambdaProperty {
     rotationType: String,
     vpcSecurityGroupIds: Option[String] = None,
     masterSecretArn: Option[String] = None,
+    superuserSecretArn: Option[String] = None,
     masterSecretKmsKeyArn: Option[String] = None,
+    superuserSecretKmsKeyArn: Option[String] = None,
     rotationLambdaName: Option[String] = None,
     vpcSubnetIds: Option[String] = None,
     kmsKeyArn: Option[String] = None
@@ -16,7 +18,9 @@ object HostedRotationLambdaProperty {
       .rotationType(rotationType)
       .vpcSecurityGroupIds(vpcSecurityGroupIds.orNull)
       .masterSecretArn(masterSecretArn.orNull)
+      .superuserSecretArn(superuserSecretArn.orNull)
       .masterSecretKmsKeyArn(masterSecretKmsKeyArn.orNull)
+      .superuserSecretKmsKeyArn(superuserSecretKmsKeyArn.orNull)
       .rotationLambdaName(rotationLambdaName.orNull)
       .vpcSubnetIds(vpcSubnetIds.orNull)
       .kmsKeyArn(kmsKeyArn.orNull)

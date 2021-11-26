@@ -8,6 +8,9 @@ object TargetType {
   implicit def toAws(value: TargetType): software.amazon.awscdk.services.elasticloadbalancingv2.TargetType =
     Option(value).map(_.underlying).orNull
 
+  case object Alb
+    extends TargetType(software.amazon.awscdk.services.elasticloadbalancingv2.TargetType.ALB)
+
   case object Instance
     extends TargetType(software.amazon.awscdk.services.elasticloadbalancingv2.TargetType.INSTANCE)
 
@@ -16,7 +19,4 @@ object TargetType {
 
   case object Lambda
     extends TargetType(software.amazon.awscdk.services.elasticloadbalancingv2.TargetType.LAMBDA)
-
-  case object Alb
-    extends TargetType(software.amazon.awscdk.services.elasticloadbalancingv2.TargetType.ALB)
 }

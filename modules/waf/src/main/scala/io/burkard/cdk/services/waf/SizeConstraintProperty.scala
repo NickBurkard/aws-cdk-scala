@@ -7,9 +7,9 @@ object SizeConstraintProperty {
     size: Number,
     textTransformation: String,
     comparisonOperator: String,
-    fieldToMatch: software.amazon.awscdk.services.waf.CfnSizeConstraintSet.FieldToMatchProperty
-  ): software.amazon.awscdk.services.waf.CfnSizeConstraintSet.SizeConstraintProperty =
-    (new software.amazon.awscdk.services.waf.CfnSizeConstraintSet.SizeConstraintProperty.Builder)
+    fieldToMatch: software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet.FieldToMatchProperty
+  ): software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet.SizeConstraintProperty =
+    (new software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet.SizeConstraintProperty.Builder)
       .size(size)
       .textTransformation(textTransformation)
       .comparisonOperator(comparisonOperator)

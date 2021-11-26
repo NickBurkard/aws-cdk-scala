@@ -11,9 +11,9 @@ object Tracing {
   case object Active
     extends Tracing(software.amazon.awscdk.services.lambda.Tracing.ACTIVE)
 
-  case object PassThrough
-    extends Tracing(software.amazon.awscdk.services.lambda.Tracing.PASS_THROUGH)
-
   case object Disabled
     extends Tracing(software.amazon.awscdk.services.lambda.Tracing.DISABLED)
+
+  case object PassThrough
+    extends Tracing(software.amazon.awscdk.services.lambda.Tracing.PASS_THROUGH)
 }

@@ -10,15 +10,15 @@ object FollowMode {
   implicit def toAws(value: FollowMode): software.amazon.awscdk.assets.FollowMode =
     Option(value).map(_.underlying).orNull
 
-  case object Never
-    extends FollowMode(software.amazon.awscdk.assets.FollowMode.NEVER)
-
   case object Always
     extends FollowMode(software.amazon.awscdk.assets.FollowMode.ALWAYS)
+
+  case object BlockExternal
+    extends FollowMode(software.amazon.awscdk.assets.FollowMode.BLOCK_EXTERNAL)
 
   case object External
     extends FollowMode(software.amazon.awscdk.assets.FollowMode.EXTERNAL)
 
-  case object BlockExternal
-    extends FollowMode(software.amazon.awscdk.assets.FollowMode.BLOCK_EXTERNAL)
+  case object Never
+    extends FollowMode(software.amazon.awscdk.assets.FollowMode.NEVER)
 }

@@ -10,8 +10,9 @@ object CfnJobProps {
     `type`: String,
     name: String,
     roleArn: String,
-    recipe: Option[AnyRef] = None,
+    recipe: Option[software.amazon.awscdk.services.databrew.CfnJob.RecipeProperty] = None,
     jobSample: Option[software.amazon.awscdk.services.databrew.CfnJob.JobSampleProperty] = None,
+    validationConfigurations: Option[List[_]] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     outputs: Option[List[_]] = None,
     profileConfiguration: Option[software.amazon.awscdk.services.databrew.CfnJob.ProfileConfigurationProperty] = None,
@@ -33,6 +34,7 @@ object CfnJobProps {
       .roleArn(roleArn)
       .recipe(recipe.orNull)
       .jobSample(jobSample.orNull)
+      .validationConfigurations(validationConfigurations.map(_.asJava).orNull)
       .tags(tags.map(_.asJava).orNull)
       .outputs(outputs.map(_.asJava).orNull)
       .profileConfiguration(profileConfiguration.orNull)

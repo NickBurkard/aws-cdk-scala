@@ -8,9 +8,9 @@ object DnsResponseType {
   implicit def toAws(value: DnsResponseType): software.amazon.awscdk.services.appmesh.DnsResponseType =
     Option(value).map(_.underlying).orNull
 
-  case object LoadBalancer
-    extends DnsResponseType(software.amazon.awscdk.services.appmesh.DnsResponseType.LOAD_BALANCER)
-
   case object Endpoints
     extends DnsResponseType(software.amazon.awscdk.services.appmesh.DnsResponseType.ENDPOINTS)
+
+  case object LoadBalancer
+    extends DnsResponseType(software.amazon.awscdk.services.appmesh.DnsResponseType.LOAD_BALANCER)
 }

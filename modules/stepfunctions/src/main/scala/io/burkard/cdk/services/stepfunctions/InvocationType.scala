@@ -10,12 +10,12 @@ object InvocationType {
   implicit def toAws(value: InvocationType): software.amazon.awscdk.services.stepfunctions.tasks.InvocationType =
     Option(value).map(_.underlying).orNull
 
-  case object RequestResponse
-    extends InvocationType(software.amazon.awscdk.services.stepfunctions.tasks.InvocationType.REQUEST_RESPONSE)
+  case object DryRun
+    extends InvocationType(software.amazon.awscdk.services.stepfunctions.tasks.InvocationType.DRY_RUN)
 
   case object Event
     extends InvocationType(software.amazon.awscdk.services.stepfunctions.tasks.InvocationType.EVENT)
 
-  case object DryRun
-    extends InvocationType(software.amazon.awscdk.services.stepfunctions.tasks.InvocationType.DRY_RUN)
+  case object RequestResponse
+    extends InvocationType(software.amazon.awscdk.services.stepfunctions.tasks.InvocationType.REQUEST_RESPONSE)
 }

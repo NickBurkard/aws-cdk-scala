@@ -5,9 +5,9 @@ object LocalDeviceResourceDataProperty {
 
   def apply(
     sourcePath: String,
-    groupOwnerSetting: Option[software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.GroupOwnerSettingProperty] = None
-  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.LocalDeviceResourceDataProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.LocalDeviceResourceDataProperty.Builder)
+    groupOwnerSetting: Option[software.amazon.awscdk.services.greengrass.CfnResourceDefinition.GroupOwnerSettingProperty] = None
+  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.LocalDeviceResourceDataProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.LocalDeviceResourceDataProperty.Builder)
       .sourcePath(sourcePath)
       .groupOwnerSetting(groupOwnerSetting.orNull)
       .build()

@@ -6,9 +6,9 @@ object ResourceInstanceProperty {
   def apply(
     name: String,
     id: String,
-    resourceDataContainer: software.amazon.awscdk.services.greengrass.CfnResourceDefinition.ResourceDataContainerProperty
-  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinition.ResourceInstanceProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinition.ResourceInstanceProperty.Builder)
+    resourceDataContainer: software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.ResourceDataContainerProperty
+  ): software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.ResourceInstanceProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnResourceDefinitionVersion.ResourceInstanceProperty.Builder)
       .name(name)
       .id(id)
       .resourceDataContainer(resourceDataContainer)

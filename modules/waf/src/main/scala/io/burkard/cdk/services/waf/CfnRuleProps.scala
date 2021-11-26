@@ -10,8 +10,8 @@ object CfnRuleProps {
     metricName: String,
     name: String,
     predicates: Option[List[_]] = None
-  ): software.amazon.awscdk.services.waf.regional.CfnRuleProps =
-    (new software.amazon.awscdk.services.waf.regional.CfnRuleProps.Builder)
+  ): software.amazon.awscdk.services.waf.CfnRuleProps =
+    (new software.amazon.awscdk.services.waf.CfnRuleProps.Builder)
       .metricName(metricName)
       .name(name)
       .predicates(predicates.map(_.asJava).orNull)

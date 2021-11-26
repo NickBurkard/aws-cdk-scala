@@ -11,12 +11,12 @@ object RepositoryEventTrigger {
   case object All
     extends RepositoryEventTrigger(software.amazon.awscdk.services.codecommit.RepositoryEventTrigger.ALL)
 
-  case object UpdateRef
-    extends RepositoryEventTrigger(software.amazon.awscdk.services.codecommit.RepositoryEventTrigger.UPDATE_REF)
-
   case object CreateRef
     extends RepositoryEventTrigger(software.amazon.awscdk.services.codecommit.RepositoryEventTrigger.CREATE_REF)
 
   case object DeleteRef
     extends RepositoryEventTrigger(software.amazon.awscdk.services.codecommit.RepositoryEventTrigger.DELETE_REF)
+
+  case object UpdateRef
+    extends RepositoryEventTrigger(software.amazon.awscdk.services.codecommit.RepositoryEventTrigger.UPDATE_REF)
 }

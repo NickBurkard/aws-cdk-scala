@@ -8,12 +8,12 @@ object CodeCommitTrigger {
   implicit def toAws(value: CodeCommitTrigger): software.amazon.awscdk.services.codepipeline.actions.CodeCommitTrigger =
     Option(value).map(_.underlying).orNull
 
+  case object Events
+    extends CodeCommitTrigger(software.amazon.awscdk.services.codepipeline.actions.CodeCommitTrigger.EVENTS)
+
   case object None
     extends CodeCommitTrigger(software.amazon.awscdk.services.codepipeline.actions.CodeCommitTrigger.NONE)
 
   case object Poll
     extends CodeCommitTrigger(software.amazon.awscdk.services.codepipeline.actions.CodeCommitTrigger.POLL)
-
-  case object Events
-    extends CodeCommitTrigger(software.amazon.awscdk.services.codepipeline.actions.CodeCommitTrigger.EVENTS)
 }

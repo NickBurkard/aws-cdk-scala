@@ -14,8 +14,10 @@ object CfnCapacityReservationProps {
     ebsOptimized: Option[Boolean] = None,
     tagSpecifications: Option[List[_]] = None,
     endDate: Option[String] = None,
+    outPostArn: Option[String] = None,
     ephemeralStorage: Option[Boolean] = None,
     tenancy: Option[String] = None,
+    placementGroupArn: Option[String] = None,
     endDateType: Option[String] = None,
     instanceMatchCriteria: Option[String] = None
   ): software.amazon.awscdk.services.ec2.CfnCapacityReservationProps =
@@ -27,8 +29,10 @@ object CfnCapacityReservationProps {
       .ebsOptimized(ebsOptimized.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .tagSpecifications(tagSpecifications.map(_.asJava).orNull)
       .endDate(endDate.orNull)
+      .outPostArn(outPostArn.orNull)
       .ephemeralStorage(ephemeralStorage.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .tenancy(tenancy.orNull)
+      .placementGroupArn(placementGroupArn.orNull)
       .endDateType(endDateType.orNull)
       .instanceMatchCriteria(instanceMatchCriteria.orNull)
       .build()

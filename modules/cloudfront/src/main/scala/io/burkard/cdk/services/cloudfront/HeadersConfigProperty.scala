@@ -9,8 +9,8 @@ object HeadersConfigProperty {
   def apply(
     headerBehavior: String,
     headers: Option[List[String]] = None
-  ): software.amazon.awscdk.services.cloudfront.CfnCachePolicy.HeadersConfigProperty =
-    (new software.amazon.awscdk.services.cloudfront.CfnCachePolicy.HeadersConfigProperty.Builder)
+  ): software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.HeadersConfigProperty =
+    (new software.amazon.awscdk.services.cloudfront.CfnOriginRequestPolicy.HeadersConfigProperty.Builder)
       .headerBehavior(headerBehavior)
       .headers(headers.map(_.asJava).orNull)
       .build()

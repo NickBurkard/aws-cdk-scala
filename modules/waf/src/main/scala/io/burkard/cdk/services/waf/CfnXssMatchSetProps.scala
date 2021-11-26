@@ -8,10 +8,10 @@ object CfnXssMatchSetProps {
 
   def apply(
     name: String,
-    xssMatchTuples: Option[List[_]] = None
-  ): software.amazon.awscdk.services.waf.regional.CfnXssMatchSetProps =
-    (new software.amazon.awscdk.services.waf.regional.CfnXssMatchSetProps.Builder)
+    xssMatchTuples: List[_]
+  ): software.amazon.awscdk.services.waf.CfnXssMatchSetProps =
+    (new software.amazon.awscdk.services.waf.CfnXssMatchSetProps.Builder)
       .name(name)
-      .xssMatchTuples(xssMatchTuples.map(_.asJava).orNull)
+      .xssMatchTuples(xssMatchTuples.asJava)
       .build()
 }

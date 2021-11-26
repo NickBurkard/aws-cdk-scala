@@ -10,6 +10,7 @@ object BrokerNodeGroupInfoProperty {
     instanceType: String,
     clientSubnets: List[String],
     storageInfo: Option[software.amazon.awscdk.services.msk.CfnCluster.StorageInfoProperty] = None,
+    connectivityInfo: Option[software.amazon.awscdk.services.msk.CfnCluster.ConnectivityInfoProperty] = None,
     securityGroups: Option[List[String]] = None,
     brokerAzDistribution: Option[String] = None
   ): software.amazon.awscdk.services.msk.CfnCluster.BrokerNodeGroupInfoProperty =
@@ -17,6 +18,7 @@ object BrokerNodeGroupInfoProperty {
       .instanceType(instanceType)
       .clientSubnets(clientSubnets.asJava)
       .storageInfo(storageInfo.orNull)
+      .connectivityInfo(connectivityInfo.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .brokerAzDistribution(brokerAzDistribution.orNull)
       .build()

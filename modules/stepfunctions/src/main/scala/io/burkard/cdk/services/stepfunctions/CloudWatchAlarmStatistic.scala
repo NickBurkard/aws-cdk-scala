@@ -8,18 +8,18 @@ object CloudWatchAlarmStatistic {
   implicit def toAws(value: CloudWatchAlarmStatistic): software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic =
     Option(value).map(_.underlying).orNull
 
-  case object SampleCount
-    extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.SAMPLE_COUNT)
-
   case object Average
     extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.AVERAGE)
 
-  case object Sum
-    extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.SUM)
+  case object Maximum
+    extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.MAXIMUM)
 
   case object Minimum
     extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.MINIMUM)
 
-  case object Maximum
-    extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.MAXIMUM)
+  case object SampleCount
+    extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.SAMPLE_COUNT)
+
+  case object Sum
+    extends CloudWatchAlarmStatistic(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.CloudWatchAlarmStatistic.SUM)
 }

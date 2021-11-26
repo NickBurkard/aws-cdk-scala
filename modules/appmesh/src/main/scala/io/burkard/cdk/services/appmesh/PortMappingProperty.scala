@@ -6,8 +6,8 @@ object PortMappingProperty {
   def apply(
     port: Number,
     protocol: String
-  ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.PortMappingProperty =
-    (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.PortMappingProperty.Builder)
+  ): software.amazon.awscdk.services.appmesh.CfnVirtualRouter.PortMappingProperty =
+    (new software.amazon.awscdk.services.appmesh.CfnVirtualRouter.PortMappingProperty.Builder)
       .port(port)
       .protocol(protocol)
       .build()

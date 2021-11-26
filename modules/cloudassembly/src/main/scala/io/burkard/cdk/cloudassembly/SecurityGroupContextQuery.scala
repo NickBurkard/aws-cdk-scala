@@ -4,15 +4,19 @@ package io.burkard.cdk.cloudassembly
 object SecurityGroupContextQuery {
 
   def apply(
-    securityGroupId: String,
     region: String,
     account: String,
+    securityGroupId: Option[String] = None,
+    vpcId: Option[String] = None,
+    securityGroupName: Option[String] = None,
     lookupRoleArn: Option[String] = None
   ): software.amazon.awscdk.cloudassembly.schema.SecurityGroupContextQuery =
     (new software.amazon.awscdk.cloudassembly.schema.SecurityGroupContextQuery.Builder)
-      .securityGroupId(securityGroupId)
       .region(region)
       .account(account)
+      .securityGroupId(securityGroupId.orNull)
+      .vpcId(vpcId.orNull)
+      .securityGroupName(securityGroupName.orNull)
       .lookupRoleArn(lookupRoleArn.orNull)
       .build()
 }

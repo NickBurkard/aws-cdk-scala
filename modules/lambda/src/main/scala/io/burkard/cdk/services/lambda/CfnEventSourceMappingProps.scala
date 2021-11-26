@@ -8,13 +8,14 @@ object CfnEventSourceMappingProps {
 
   def apply(
     functionName: String,
-    topics: Option[List[String]] = None,
     selfManagedEventSource: Option[software.amazon.awscdk.services.lambda.CfnEventSourceMapping.SelfManagedEventSourceProperty] = None,
     batchSize: Option[Number] = None,
     sourceAccessConfigurations: Option[List[_]] = None,
     queues: Option[List[String]] = None,
     eventSourceArn: Option[String] = None,
     startingPosition: Option[String] = None,
+    filterCriteria: Option[AnyRef] = None,
+    topics: Option[List[String]] = None,
     maximumRecordAgeInSeconds: Option[Number] = None,
     parallelizationFactor: Option[Number] = None,
     maximumBatchingWindowInSeconds: Option[Number] = None,
@@ -28,13 +29,14 @@ object CfnEventSourceMappingProps {
   ): software.amazon.awscdk.services.lambda.CfnEventSourceMappingProps =
     (new software.amazon.awscdk.services.lambda.CfnEventSourceMappingProps.Builder)
       .functionName(functionName)
-      .topics(topics.map(_.asJava).orNull)
       .selfManagedEventSource(selfManagedEventSource.orNull)
       .batchSize(batchSize.orNull)
       .sourceAccessConfigurations(sourceAccessConfigurations.map(_.asJava).orNull)
       .queues(queues.map(_.asJava).orNull)
       .eventSourceArn(eventSourceArn.orNull)
       .startingPosition(startingPosition.orNull)
+      .filterCriteria(filterCriteria.orNull)
+      .topics(topics.map(_.asJava).orNull)
       .maximumRecordAgeInSeconds(maximumRecordAgeInSeconds.orNull)
       .parallelizationFactor(parallelizationFactor.orNull)
       .maximumBatchingWindowInSeconds(maximumBatchingWindowInSeconds.orNull)

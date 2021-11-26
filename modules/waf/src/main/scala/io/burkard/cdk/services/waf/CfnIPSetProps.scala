@@ -9,8 +9,8 @@ object CfnIPSetProps {
   def apply(
     name: String,
     ipSetDescriptors: Option[List[_]] = None
-  ): software.amazon.awscdk.services.waf.CfnIPSetProps =
-    (new software.amazon.awscdk.services.waf.CfnIPSetProps.Builder)
+  ): software.amazon.awscdk.services.waf.regional.CfnIPSetProps =
+    (new software.amazon.awscdk.services.waf.regional.CfnIPSetProps.Builder)
       .name(name)
       .ipSetDescriptors(ipSetDescriptors.map(_.asJava).orNull)
       .build()

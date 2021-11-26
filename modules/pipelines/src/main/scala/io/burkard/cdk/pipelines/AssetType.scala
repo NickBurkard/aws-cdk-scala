@@ -8,9 +8,9 @@ object AssetType {
   implicit def toAws(value: AssetType): software.amazon.awscdk.pipelines.AssetType =
     Option(value).map(_.underlying).orNull
 
-  case object File
-    extends AssetType(software.amazon.awscdk.pipelines.AssetType.FILE)
-
   case object DockerImage
     extends AssetType(software.amazon.awscdk.pipelines.AssetType.DOCKER_IMAGE)
+
+  case object File
+    extends AssetType(software.amazon.awscdk.pipelines.AssetType.FILE)
 }

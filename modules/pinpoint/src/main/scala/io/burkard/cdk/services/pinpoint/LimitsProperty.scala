@@ -7,14 +7,12 @@ object LimitsProperty {
     messagesPerSecond: Option[Number] = None,
     maximumDuration: Option[Number] = None,
     total: Option[Number] = None,
-    daily: Option[Number] = None,
-    session: Option[Number] = None
-  ): software.amazon.awscdk.services.pinpoint.CfnCampaign.LimitsProperty =
-    (new software.amazon.awscdk.services.pinpoint.CfnCampaign.LimitsProperty.Builder)
+    daily: Option[Number] = None
+  ): software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.LimitsProperty =
+    (new software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.LimitsProperty.Builder)
       .messagesPerSecond(messagesPerSecond.orNull)
       .maximumDuration(maximumDuration.orNull)
       .total(total.orNull)
       .daily(daily.orNull)
-      .session(session.orNull)
       .build()
 }

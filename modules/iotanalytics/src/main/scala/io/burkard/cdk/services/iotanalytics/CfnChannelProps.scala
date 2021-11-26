@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnChannelProps {
 
   def apply(
-    channelName: String,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
     retentionPeriod: Option[software.amazon.awscdk.services.iotanalytics.CfnChannel.RetentionPeriodProperty] = None,
+    channelName: Option[String] = None,
     channelStorage: Option[software.amazon.awscdk.services.iotanalytics.CfnChannel.ChannelStorageProperty] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnChannelProps =
     (new software.amazon.awscdk.services.iotanalytics.CfnChannelProps.Builder)
-      .channelName(channelName)
       .tags(tags.map(_.asJava).orNull)
       .retentionPeriod(retentionPeriod.orNull)
+      .channelName(channelName.orNull)
       .channelStorage(channelStorage.orNull)
       .build()
 }

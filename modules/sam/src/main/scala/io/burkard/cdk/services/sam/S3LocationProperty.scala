@@ -5,12 +5,12 @@ object S3LocationProperty {
 
   def apply(
     key: String,
-    bucket: String,
-    version: Option[Number] = None
-  ): software.amazon.awscdk.services.sam.CfnStateMachine.S3LocationProperty =
-    (new software.amazon.awscdk.services.sam.CfnStateMachine.S3LocationProperty.Builder)
+    version: Number,
+    bucket: String
+  ): software.amazon.awscdk.services.sam.CfnHttpApi.S3LocationProperty =
+    (new software.amazon.awscdk.services.sam.CfnHttpApi.S3LocationProperty.Builder)
       .key(key)
+      .version(version)
       .bucket(bucket)
-      .version(version.orNull)
       .build()
 }

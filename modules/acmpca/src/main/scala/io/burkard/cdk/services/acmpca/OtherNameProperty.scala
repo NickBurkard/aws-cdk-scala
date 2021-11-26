@@ -6,8 +6,8 @@ object OtherNameProperty {
   def apply(
     typeId: String,
     value: String
-  ): software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.OtherNameProperty =
-    (new software.amazon.awscdk.services.acmpca.CfnCertificateAuthority.OtherNameProperty.Builder)
+  ): software.amazon.awscdk.services.acmpca.CfnCertificate.OtherNameProperty =
+    (new software.amazon.awscdk.services.acmpca.CfnCertificate.OtherNameProperty.Builder)
       .typeId(typeId)
       .value(value)
       .build()

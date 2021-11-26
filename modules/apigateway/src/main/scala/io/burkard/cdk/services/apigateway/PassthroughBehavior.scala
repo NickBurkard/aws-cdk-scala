@@ -8,11 +8,11 @@ object PassthroughBehavior {
   implicit def toAws(value: PassthroughBehavior): software.amazon.awscdk.services.apigateway.PassthroughBehavior =
     Option(value).map(_.underlying).orNull
 
-  case object WhenNoMatch
-    extends PassthroughBehavior(software.amazon.awscdk.services.apigateway.PassthroughBehavior.WHEN_NO_MATCH)
-
   case object Never
     extends PassthroughBehavior(software.amazon.awscdk.services.apigateway.PassthroughBehavior.NEVER)
+
+  case object WhenNoMatch
+    extends PassthroughBehavior(software.amazon.awscdk.services.apigateway.PassthroughBehavior.WHEN_NO_MATCH)
 
   case object WhenNoTemplates
     extends PassthroughBehavior(software.amazon.awscdk.services.apigateway.PassthroughBehavior.WHEN_NO_TEMPLATES)

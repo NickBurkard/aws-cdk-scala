@@ -10,15 +10,15 @@ object CloudFormationCapabilities {
   implicit def toAws(value: CloudFormationCapabilities): software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities =
     Option(value).map(_.underlying).orNull
 
-  case object None
-    extends CloudFormationCapabilities(software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities.NONE)
-
   case object AnonymousIam
     extends CloudFormationCapabilities(software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities.ANONYMOUS_IAM)
+
+  case object AutoExpand
+    extends CloudFormationCapabilities(software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities.AUTO_EXPAND)
 
   case object NamedIam
     extends CloudFormationCapabilities(software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities.NAMED_IAM)
 
-  case object AutoExpand
-    extends CloudFormationCapabilities(software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities.AUTO_EXPAND)
+  case object None
+    extends CloudFormationCapabilities(software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities.NONE)
 }

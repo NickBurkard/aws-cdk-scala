@@ -8,9 +8,9 @@ object DefaultInstanceTenancy {
   implicit def toAws(value: DefaultInstanceTenancy): software.amazon.awscdk.services.ec2.DefaultInstanceTenancy =
     Option(value).map(_.underlying).orNull
 
-  case object Default
-    extends DefaultInstanceTenancy(software.amazon.awscdk.services.ec2.DefaultInstanceTenancy.DEFAULT)
-
   case object Dedicated
     extends DefaultInstanceTenancy(software.amazon.awscdk.services.ec2.DefaultInstanceTenancy.DEDICATED)
+
+  case object Default
+    extends DefaultInstanceTenancy(software.amazon.awscdk.services.ec2.DefaultInstanceTenancy.DEFAULT)
 }

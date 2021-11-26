@@ -8,12 +8,12 @@ object VpcSubnetGroupType {
   implicit def toAws(value: VpcSubnetGroupType): software.amazon.awscdk.cxapi.VpcSubnetGroupType =
     Option(value).map(_.underlying).orNull
 
-  case object Public
-    extends VpcSubnetGroupType(software.amazon.awscdk.cxapi.VpcSubnetGroupType.PUBLIC)
+  case object Isolated
+    extends VpcSubnetGroupType(software.amazon.awscdk.cxapi.VpcSubnetGroupType.ISOLATED)
 
   case object Private
     extends VpcSubnetGroupType(software.amazon.awscdk.cxapi.VpcSubnetGroupType.PRIVATE)
 
-  case object Isolated
-    extends VpcSubnetGroupType(software.amazon.awscdk.cxapi.VpcSubnetGroupType.ISOLATED)
+  case object Public
+    extends VpcSubnetGroupType(software.amazon.awscdk.cxapi.VpcSubnetGroupType.PUBLIC)
 }
