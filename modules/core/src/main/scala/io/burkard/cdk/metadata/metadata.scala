@@ -40,7 +40,7 @@ object CloudFormationInterface {
   @nowarn("cat=deprecation")
   implicit val jMapEncoder: JMapEncoder[CloudFormationInterface] = { cfi =>
     val maybeWithParameterGroups = cfi.parameterGroups.fold[Map[String, AnyRef]](Map.empty) { pgs =>
-      Map("ParameterGroups" -> pgs.map(_.encode))
+      Map("ParameterGroups" -> pgs.map(_.encode).asJava)
     }
 
     cfi.parameterLabels.fold(maybeWithParameterGroups) { pl =>
