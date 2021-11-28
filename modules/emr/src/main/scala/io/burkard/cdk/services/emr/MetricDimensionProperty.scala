@@ -6,8 +6,8 @@ object MetricDimensionProperty {
   def apply(
     key: String,
     value: String
-  ): software.amazon.awscdk.services.emr.CfnCluster.MetricDimensionProperty =
-    (new software.amazon.awscdk.services.emr.CfnCluster.MetricDimensionProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.MetricDimensionProperty =
+    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.MetricDimensionProperty.Builder)
       .key(key)
       .value(value)
       .build()

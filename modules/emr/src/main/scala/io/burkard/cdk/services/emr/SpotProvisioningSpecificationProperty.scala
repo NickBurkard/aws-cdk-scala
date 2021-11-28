@@ -8,8 +8,8 @@ object SpotProvisioningSpecificationProperty {
     timeoutDurationMinutes: Number,
     allocationStrategy: Option[String] = None,
     blockDurationMinutes: Option[Number] = None
-  ): software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnCluster.SpotProvisioningSpecificationProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.SpotProvisioningSpecificationProperty.Builder)
       .timeoutAction(timeoutAction)
       .timeoutDurationMinutes(timeoutDurationMinutes)
       .allocationStrategy(allocationStrategy.orNull)

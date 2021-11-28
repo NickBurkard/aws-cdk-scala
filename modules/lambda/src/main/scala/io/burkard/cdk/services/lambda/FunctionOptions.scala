@@ -39,9 +39,7 @@ object FunctionOptions {
     onFailure: Option[software.amazon.awscdk.services.lambda.IDestination] = None,
     logRetentionRetryOptions: Option[software.amazon.awscdk.services.lambda.LogRetentionRetryOptions] = None,
     logRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    timeout: Option[software.amazon.awscdk.Duration] = None,
-    architectures: Option[List[_ <: software.amazon.awscdk.services.lambda.Architecture]] = None,
-    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
+    timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.lambda.FunctionOptions =
     (new software.amazon.awscdk.services.lambda.FunctionOptions.Builder)
       .initialPolicy(initialPolicy.map(_.asJava).orNull)
@@ -77,7 +75,5 @@ object FunctionOptions {
       .logRetentionRetryOptions(logRetentionRetryOptions.orNull)
       .logRetentionRole(logRetentionRole.orNull)
       .timeout(timeout.orNull)
-      .architectures(architectures.map(_.asJava).orNull)
-      .securityGroup(securityGroup.orNull)
       .build()
 }

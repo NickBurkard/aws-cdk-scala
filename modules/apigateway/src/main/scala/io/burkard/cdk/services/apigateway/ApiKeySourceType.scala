@@ -8,9 +8,9 @@ object ApiKeySourceType {
   implicit def toAws(value: ApiKeySourceType): software.amazon.awscdk.services.apigateway.ApiKeySourceType =
     Option(value).map(_.underlying).orNull
 
-  case object Authorizer
-    extends ApiKeySourceType(software.amazon.awscdk.services.apigateway.ApiKeySourceType.AUTHORIZER)
-
   case object Header
     extends ApiKeySourceType(software.amazon.awscdk.services.apigateway.ApiKeySourceType.HEADER)
+
+  case object Authorizer
+    extends ApiKeySourceType(software.amazon.awscdk.services.apigateway.ApiKeySourceType.AUTHORIZER)
 }

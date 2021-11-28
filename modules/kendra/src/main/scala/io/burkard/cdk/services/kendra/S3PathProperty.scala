@@ -6,8 +6,8 @@ object S3PathProperty {
   def apply(
     key: String,
     bucket: String
-  ): software.amazon.awscdk.services.kendra.CfnDataSource.S3PathProperty =
-    (new software.amazon.awscdk.services.kendra.CfnDataSource.S3PathProperty.Builder)
+  ): software.amazon.awscdk.services.kendra.CfnFaq.S3PathProperty =
+    (new software.amazon.awscdk.services.kendra.CfnFaq.S3PathProperty.Builder)
       .key(key)
       .bucket(bucket)
       .build()

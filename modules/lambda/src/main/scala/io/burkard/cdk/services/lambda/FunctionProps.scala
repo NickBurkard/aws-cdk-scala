@@ -42,9 +42,7 @@ object FunctionProps {
     logRetentionRetryOptions: Option[software.amazon.awscdk.services.lambda.LogRetentionRetryOptions] = None,
     logRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     timeout: Option[software.amazon.awscdk.Duration] = None,
-    events: Option[List[_ <: software.amazon.awscdk.services.lambda.IEventSource]] = None,
-    architectures: Option[List[_ <: software.amazon.awscdk.services.lambda.Architecture]] = None,
-    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
+    events: Option[List[_ <: software.amazon.awscdk.services.lambda.IEventSource]] = None
   ): software.amazon.awscdk.services.lambda.FunctionProps =
     (new software.amazon.awscdk.services.lambda.FunctionProps.Builder)
       .handler(handler)
@@ -83,7 +81,5 @@ object FunctionProps {
       .logRetentionRole(logRetentionRole.orNull)
       .timeout(timeout.orNull)
       .events(events.map(_.asJava).orNull)
-      .architectures(architectures.map(_.asJava).orNull)
-      .securityGroup(securityGroup.orNull)
       .build()
 }

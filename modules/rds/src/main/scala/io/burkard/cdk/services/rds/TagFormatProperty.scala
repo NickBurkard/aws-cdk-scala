@@ -6,8 +6,8 @@ object TagFormatProperty {
   def apply(
     key: Option[String] = None,
     value: Option[String] = None
-  ): software.amazon.awscdk.services.rds.CfnDBProxyEndpoint.TagFormatProperty =
-    (new software.amazon.awscdk.services.rds.CfnDBProxyEndpoint.TagFormatProperty.Builder)
+  ): software.amazon.awscdk.services.rds.CfnDBProxy.TagFormatProperty =
+    (new software.amazon.awscdk.services.rds.CfnDBProxy.TagFormatProperty.Builder)
       .key(key.orNull)
       .value(value.orNull)
       .build()

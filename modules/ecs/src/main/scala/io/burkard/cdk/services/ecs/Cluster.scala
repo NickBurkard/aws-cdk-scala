@@ -1,14 +1,10 @@
 package io.burkard.cdk.services.ecs
 
-import scala.collection.JavaConverters._
-
-@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object Cluster {
 
   def apply(
     internalResourceId: String,
-    capacityProviders: Option[List[String]] = None,
     defaultCloudMapNamespace: Option[software.amazon.awscdk.services.ecs.CloudMapNamespaceOptions] = None,
     enableFargateCapacityProviders: Option[Boolean] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
@@ -19,7 +15,6 @@ object Cluster {
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.ecs.Cluster =
     software.amazon.awscdk.services.ecs.Cluster.Builder
       .create(stackCtx, internalResourceId)
-      .capacityProviders(capacityProviders.map(_.asJava).orNull)
       .defaultCloudMapNamespace(defaultCloudMapNamespace.orNull)
       .enableFargateCapacityProviders(enableFargateCapacityProviders.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .vpc(vpc.orNull)

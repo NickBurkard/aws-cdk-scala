@@ -10,10 +10,9 @@ object MetricOptions {
     statistic: Option[String] = None,
     label: Option[String] = None,
     color: Option[String] = None,
+    region: Option[String] = None,
     dimensionsMap: Option[Map[String, String]] = None,
     period: Option[software.amazon.awscdk.Duration] = None,
-    dimensions: Option[Map[String, _]] = None,
-    region: Option[String] = None,
     account: Option[String] = None,
     unit: Option[software.amazon.awscdk.services.cloudwatch.Unit] = None
   ): software.amazon.awscdk.services.cloudwatch.MetricOptions =
@@ -21,10 +20,9 @@ object MetricOptions {
       .statistic(statistic.orNull)
       .label(label.orNull)
       .color(color.orNull)
+      .region(region.orNull)
       .dimensionsMap(dimensionsMap.map(_.asJava).orNull)
       .period(period.orNull)
-      .dimensions(dimensions.map(_.asJava).orNull)
-      .region(region.orNull)
       .account(account.orNull)
       .unit(unit.orNull)
       .build()

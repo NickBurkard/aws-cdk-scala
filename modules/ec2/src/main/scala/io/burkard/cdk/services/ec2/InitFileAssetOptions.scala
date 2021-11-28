@@ -9,14 +9,12 @@ object InitFileAssetOptions {
   def apply(
     assetHash: Option[String] = None,
     serviceRestartHandles: Option[List[_ <: software.amazon.awscdk.services.ec2.InitServiceRestartHandle]] = None,
-    sourceHash: Option[String] = None,
     bundling: Option[software.amazon.awscdk.BundlingOptions] = None,
     exclude: Option[List[String]] = None,
     owner: Option[String] = None,
     base64Encoded: Option[Boolean] = None,
     ignoreMode: Option[software.amazon.awscdk.IgnoreMode] = None,
     group: Option[String] = None,
-    follow: Option[software.amazon.awscdk.assets.FollowMode] = None,
     assetHashType: Option[software.amazon.awscdk.AssetHashType] = None,
     readers: Option[List[_ <: software.amazon.awscdk.services.iam.IGrantable]] = None,
     mode: Option[String] = None,
@@ -25,14 +23,12 @@ object InitFileAssetOptions {
     (new software.amazon.awscdk.services.ec2.InitFileAssetOptions.Builder)
       .assetHash(assetHash.orNull)
       .serviceRestartHandles(serviceRestartHandles.map(_.asJava).orNull)
-      .sourceHash(sourceHash.orNull)
       .bundling(bundling.orNull)
       .exclude(exclude.map(_.asJava).orNull)
       .owner(owner.orNull)
       .base64Encoded(base64Encoded.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .ignoreMode(ignoreMode.orNull)
       .group(group.orNull)
-      .follow(follow.orNull)
       .assetHashType(assetHashType.orNull)
       .readers(readers.map(_.asJava).orNull)
       .mode(mode.orNull)

@@ -11,7 +11,6 @@ object NodegroupOptions {
     diskSize: Option[Number] = None,
     taints: Option[List[_ <: software.amazon.awscdk.services.eks.TaintSpec]] = None,
     instanceTypes: Option[List[_ <: software.amazon.awscdk.services.ec2.InstanceType]] = None,
-    instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     labels: Option[Map[String, String]] = None,
     releaseVersion: Option[String] = None,
     remoteAccess: Option[software.amazon.awscdk.services.eks.NodegroupRemoteAccess] = None,
@@ -31,7 +30,6 @@ object NodegroupOptions {
       .diskSize(diskSize.orNull)
       .taints(taints.map(_.asJava).orNull)
       .instanceTypes(instanceTypes.map(_.asJava).orNull)
-      .instanceType(instanceType.orNull)
       .labels(labels.map(_.asJava).orNull)
       .releaseVersion(releaseVersion.orNull)
       .remoteAccess(remoteAccess.orNull)

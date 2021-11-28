@@ -4,9 +4,9 @@ package io.burkard.cdk.services.appmesh
 object TcpTimeoutProperty {
 
   def apply(
-    idle: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.DurationProperty] = None
-  ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.TcpTimeoutProperty =
-    (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.TcpTimeoutProperty.Builder)
+    idle: Option[software.amazon.awscdk.services.appmesh.CfnRoute.DurationProperty] = None
+  ): software.amazon.awscdk.services.appmesh.CfnRoute.TcpTimeoutProperty =
+    (new software.amazon.awscdk.services.appmesh.CfnRoute.TcpTimeoutProperty.Builder)
       .idle(idle.orNull)
       .build()
 }

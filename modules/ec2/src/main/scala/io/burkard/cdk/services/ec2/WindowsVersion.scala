@@ -4,7 +4,6 @@ sealed abstract class WindowsVersion(val underlying: software.amazon.awscdk.serv
   extends Product
     with Serializable
 
-@scala.annotation.nowarn("cat=deprecation")
 object WindowsVersion {
   implicit def toAws(value: WindowsVersion): software.amazon.awscdk.services.ec2.WindowsVersion =
     Option(value).map(_.underlying).orNull
@@ -123,8 +122,8 @@ object WindowsVersion {
   case object WindowsServer2008R2Sp1LanguagePacks64bitSql2008R2Sp3Standard
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_STANDARD)
 
-  case object WindowsServer2008R2Sp1PortugeseBrazil64bitBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE)
+  case object WindowsServer2008R2Sp1PortugueseBrazil64bitBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_R2_SP1_PORTUGUESE_BRAZIL_64BIT_BASE)
 
   case object WindowsServer2008Sp2English32bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_SP2_ENGLISH_32BIT_BASE)
@@ -138,8 +137,8 @@ object WindowsVersion {
   case object WindowsServer2008Sp2English64bitSql2008Sp4Standard
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD)
 
-  case object WindowsServer2008Sp2PortugeseBrazil32bitBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE)
+  case object WindowsServer2008Sp2PortugueseBrazil32bitBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2008_SP2_PORTUGUESE_BRAZIL_32BIT_BASE)
 
   case object WindowsServer2012R2RtmChineseSimplified64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_CHINESE_SIMPLIFIED_64BIT_BASE)
@@ -276,11 +275,11 @@ object WindowsVersion {
   case object WindowsServer2012R2RtmPolish64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_POLISH_64BIT_BASE)
 
-  case object WindowsServer2012R2RtmPortugeseBrazil64bitBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE)
+  case object WindowsServer2012R2RtmPortugueseBrazil64bitBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_PORTUGUESE_BRAZIL_64BIT_BASE)
 
-  case object WindowsServer2012R2RtmPortugesePortugal64bitBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE)
+  case object WindowsServer2012R2RtmPortuguesePortugal64bitBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_PORTUGUESE_PORTUGAL_64BIT_BASE)
 
   case object WindowsServer2012R2RtmRussian64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_RUSSIAN_64BIT_BASE)
@@ -294,8 +293,8 @@ object WindowsVersion {
   case object WindowsServer2012R2RtmTurkish64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_RTM_TURKISH_64BIT_BASE)
 
-  case object WindowsServer2012R2Sp1PortugeseBrazil64bitCore
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE)
+  case object WindowsServer2012R2Sp1PortugueseBrazil64bitCore
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_R2_SP1_PORTUGUESE_BRAZIL_64BIT_CORE)
 
   case object WindowsServer2012RtmChineseSimplified64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_CHINESE_SIMPLIFIED_64BIT_BASE)
@@ -408,11 +407,11 @@ object WindowsVersion {
   case object WindowsServer2012RtmPolish64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_POLISH_64BIT_BASE)
 
-  case object WindowsServer2012RtmPortugeseBrazil64bitBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE)
+  case object WindowsServer2012RtmPortugueseBrazil64bitBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_PORTUGUESE_BRAZIL_64BIT_BASE)
 
-  case object WindowsServer2012RtmPortugesePortugal64bitBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE)
+  case object WindowsServer2012RtmPortuguesePortugal64bitBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_PORTUGUESE_PORTUGAL_64BIT_BASE)
 
   case object WindowsServer2012RtmRussian64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_RUSSIAN_64BIT_BASE)
@@ -426,8 +425,8 @@ object WindowsVersion {
   case object WindowsServer2012RtmTurkish64bitBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_RTM_TURKISH_64BIT_BASE)
 
-  case object WindowsServer2012Sp2PortugeseBrazil64bitBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE)
+  case object WindowsServer2012Sp2PortugueseBrazil64bitBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2012_SP2_PORTUGUESE_BRAZIL_64BIT_BASE)
 
   case object WindowsServer2016ChineseSimplifiedFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE)
@@ -531,8 +530,8 @@ object WindowsVersion {
   case object WindowsServer2016FrenchFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_FRENCH_FULL_BASE)
 
-  case object WindowsServer2016GermalFullBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_GERMAL_FULL_BASE)
+  case object WindowsServer2016GermanFullBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_GERMAN_FULL_BASE)
 
   case object WindowsServer2016HungarianFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_HUNGARIAN_FULL_BASE)
@@ -579,11 +578,11 @@ object WindowsVersion {
   case object WindowsServer2016PolishFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_POLISH_FULL_BASE)
 
-  case object WindowsServer2016PortugeseBrazilFullBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE)
+  case object WindowsServer2016PortugueseBrazilFullBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_PORTUGUESE_BRAZIL_FULL_BASE)
 
-  case object WindowsServer2016PortugesePortugalFullBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE)
+  case object WindowsServer2016PortuguesePortugalFullBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_PORTUGUESE_PORTUGAL_FULL_BASE)
 
   case object WindowsServer2016RussianFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2016_RUSSIAN_FULL_BASE)
@@ -669,11 +668,11 @@ object WindowsVersion {
   case object WindowsServer2019PolishFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_POLISH_FULL_BASE)
 
-  case object WindowsServer2019PortugeseBrazilFullBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE)
+  case object WindowsServer2019PortugueseBrazilFullBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_PORTUGUESE_BRAZIL_FULL_BASE)
 
-  case object WindowsServer2019PortugesePortugalFullBase
-    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE)
+  case object WindowsServer2019PortuguesePortugalFullBase
+    extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_PORTUGUESE_PORTUGAL_FULL_BASE)
 
   case object WindowsServer2019RussianFullBase
     extends WindowsVersion(software.amazon.awscdk.services.ec2.WindowsVersion.WINDOWS_SERVER_2019_RUSSIAN_FULL_BASE)

@@ -16,7 +16,7 @@ sealed abstract class CfnTypedParameter(val name: String)(implicit
 
 @nowarn("cat=deprecation")
 object CfnTypedParameter {
-  final case class StringParameter(
+  final case class CfnStringParameter(
     override val name: String,
     minLength: Option[Number] = None,
     defaultValue: Option[AnyRef] = None,
@@ -48,7 +48,7 @@ object CfnTypedParameter {
       )
   }
 
-  final case class NumberParameter(
+  final case class CfnNumberParameter(
     override val name: String,
     minValue: Option[Number] = None,
     defaultValue: Option[AnyRef] = None,
@@ -79,7 +79,7 @@ object CfnTypedParameter {
       )
   }
 
-  final case class ListNumberParameter(
+  final case class CfnListNumberParameter(
     override val name: String,
     minValue: Option[Number] = None,
     defaultValue: Option[AnyRef] = None,
@@ -110,7 +110,7 @@ object CfnTypedParameter {
       )
   }
 
-  final case class CommaDelimitedListParameter(
+  final case class CfnCommaDelimitedListParameter(
     override val name: String,
     minLength: Option[Number] = None,
     defaultValue: Option[AnyRef] = None,

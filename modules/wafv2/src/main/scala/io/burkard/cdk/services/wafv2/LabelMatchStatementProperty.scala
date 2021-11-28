@@ -6,8 +6,8 @@ object LabelMatchStatementProperty {
   def apply(
     scope: String,
     key: String
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.LabelMatchStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.LabelMatchStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.LabelMatchStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.LabelMatchStatementProperty.Builder)
       .scope(scope)
       .key(key)
       .build()

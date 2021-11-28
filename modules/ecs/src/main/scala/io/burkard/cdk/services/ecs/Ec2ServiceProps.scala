@@ -12,12 +12,10 @@ object Ec2ServiceProps {
     healthCheckGracePeriod: Option[software.amazon.awscdk.Duration] = None,
     desiredCount: Option[Number] = None,
     serviceName: Option[String] = None,
-    propagateTaskTagsFrom: Option[software.amazon.awscdk.services.ecs.PropagatedTagSource] = None,
     maxHealthyPercent: Option[Number] = None,
     deploymentController: Option[software.amazon.awscdk.services.ecs.DeploymentController] = None,
     cloudMapOptions: Option[software.amazon.awscdk.services.ecs.CloudMapOptions] = None,
     capacityProviderStrategies: Option[List[_ <: software.amazon.awscdk.services.ecs.CapacityProviderStrategy]] = None,
-    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
     daemon: Option[Boolean] = None,
     enableExecuteCommand: Option[Boolean] = None,
     circuitBreaker: Option[software.amazon.awscdk.services.ecs.DeploymentCircuitBreaker] = None,
@@ -36,12 +34,10 @@ object Ec2ServiceProps {
       .healthCheckGracePeriod(healthCheckGracePeriod.orNull)
       .desiredCount(desiredCount.orNull)
       .serviceName(serviceName.orNull)
-      .propagateTaskTagsFrom(propagateTaskTagsFrom.orNull)
       .maxHealthyPercent(maxHealthyPercent.orNull)
       .deploymentController(deploymentController.orNull)
       .cloudMapOptions(cloudMapOptions.orNull)
       .capacityProviderStrategies(capacityProviderStrategies.map(_.asJava).orNull)
-      .securityGroup(securityGroup.orNull)
       .daemon(daemon.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .enableExecuteCommand(enableExecuteCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .circuitBreaker(circuitBreaker.orNull)

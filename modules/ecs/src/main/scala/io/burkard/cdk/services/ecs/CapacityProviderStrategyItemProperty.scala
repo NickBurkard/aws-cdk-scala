@@ -7,8 +7,8 @@ object CapacityProviderStrategyItemProperty {
     weight: Option[Number] = None,
     capacityProvider: Option[String] = None,
     base: Option[Number] = None
-  ): software.amazon.awscdk.services.ecs.CfnService.CapacityProviderStrategyItemProperty =
-    (new software.amazon.awscdk.services.ecs.CfnService.CapacityProviderStrategyItemProperty.Builder)
+  ): software.amazon.awscdk.services.ecs.CfnCluster.CapacityProviderStrategyItemProperty =
+    (new software.amazon.awscdk.services.ecs.CfnCluster.CapacityProviderStrategyItemProperty.Builder)
       .weight(weight.orNull)
       .capacityProvider(capacityProvider.orNull)
       .base(base.orNull)

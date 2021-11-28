@@ -8,10 +8,10 @@ object CfnSizeConstraintSetProps {
 
   def apply(
     name: String,
-    sizeConstraints: List[_]
-  ): software.amazon.awscdk.services.waf.CfnSizeConstraintSetProps =
-    (new software.amazon.awscdk.services.waf.CfnSizeConstraintSetProps.Builder)
+    sizeConstraints: Option[List[_]] = None
+  ): software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSetProps =
+    (new software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSetProps.Builder)
       .name(name)
-      .sizeConstraints(sizeConstraints.asJava)
+      .sizeConstraints(sizeConstraints.map(_.asJava).orNull)
       .build()
 }

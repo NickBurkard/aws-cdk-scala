@@ -9,11 +9,11 @@ object CfnXssMatchSet {
   def apply(
     internalResourceId: String,
     name: String,
-    xssMatchTuples: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnXssMatchSet =
-    software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.Builder
+    xssMatchTuples: List[_]
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnXssMatchSet =
+    software.amazon.awscdk.services.waf.CfnXssMatchSet.Builder
       .create(stackCtx, internalResourceId)
       .name(name)
-      .xssMatchTuples(xssMatchTuples.map(_.asJava).orNull)
+      .xssMatchTuples(xssMatchTuples.asJava)
       .build()
 }

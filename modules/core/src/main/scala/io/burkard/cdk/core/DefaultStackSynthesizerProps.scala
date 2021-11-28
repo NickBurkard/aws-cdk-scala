@@ -1,6 +1,5 @@
 package io.burkard.cdk.core
 
-@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object DefaultStackSynthesizerProps {
 
@@ -14,7 +13,6 @@ object DefaultStackSynthesizerProps {
     lookupRoleArn: Option[String] = None,
     generateBootstrapVersionRule: Option[Boolean] = None,
     imageAssetPublishingExternalId: Option[String] = None,
-    fileAssetKeyArnExportName: Option[String] = None,
     fileAssetPublishingRoleArn: Option[String] = None,
     bucketPrefix: Option[String] = None,
     imageAssetsRepositoryName: Option[String] = None,
@@ -32,7 +30,6 @@ object DefaultStackSynthesizerProps {
       .lookupRoleArn(lookupRoleArn.orNull)
       .generateBootstrapVersionRule(generateBootstrapVersionRule.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .imageAssetPublishingExternalId(imageAssetPublishingExternalId.orNull)
-      .fileAssetKeyArnExportName(fileAssetKeyArnExportName.orNull)
       .fileAssetPublishingRoleArn(fileAssetPublishingRoleArn.orNull)
       .bucketPrefix(bucketPrefix.orNull)
       .imageAssetsRepositoryName(imageAssetsRepositoryName.orNull)

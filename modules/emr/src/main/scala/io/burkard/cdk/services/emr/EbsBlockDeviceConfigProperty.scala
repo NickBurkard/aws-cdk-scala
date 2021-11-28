@@ -4,10 +4,10 @@ package io.burkard.cdk.services.emr
 object EbsBlockDeviceConfigProperty {
 
   def apply(
-    volumeSpecification: software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.VolumeSpecificationProperty,
+    volumeSpecification: software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.VolumeSpecificationProperty,
     volumesPerInstance: Option[Number] = None
-  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.EbsBlockDeviceConfigProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.EbsBlockDeviceConfigProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.EbsBlockDeviceConfigProperty =
+    (new software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.EbsBlockDeviceConfigProperty.Builder)
       .volumeSpecification(volumeSpecification)
       .volumesPerInstance(volumesPerInstance.orNull)
       .build()
