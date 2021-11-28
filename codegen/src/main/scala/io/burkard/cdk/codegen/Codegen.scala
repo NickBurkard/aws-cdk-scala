@@ -50,26 +50,23 @@ object Codegen {
       .toList
 
     val toGenerate = filesPerService.flatMap(_._2.map(_.path)).toSet
-    val toDelete = filesToDelete(toGenerate)
-    println(s"Deleting ${toDelete.size} files")
+    val (toAdd, toDelete) = filesDiff(toGenerate)
+    println(s"Deleting ${toDelete.size} unused files")
     toDelete.foreach(Files.delete)
 
     // Generate code alphabetically per service.
-    println(s"Generating ${toGenerate.size} files")
+    println(s"Generating ${toGenerate.size} files (${toAdd.size} new)")
     filesPerService
       .sortBy(_._1)
       .foreach { case (name, sourceFiles) =>
         println(name)
-        sourceFiles.foreach { sourceFile =>
-          println(sourceFile.path)
-          sourceFile.writeToSource()
-        }
+        sourceFiles.foreach(_.writeToSource())
       }
   }
 
-  // Files from previous CDK versions that are no longer needed.
-  private[this] def filesToDelete(generatedFiles: Set[Path]): Set[Path] =
-    localScalaFiles.diff(generatedFiles)
+  // Files (added, deleted)
+  private[this] def filesDiff(generatedFiles: Set[Path]): (Set[Path], Set[Path]) =
+    (generatedFiles.diff(localScalaFiles), localScalaFiles.diff(generatedFiles))
 
   // Files we never want to delete.
   private[this] val reservedFiles: Set[Path] =
