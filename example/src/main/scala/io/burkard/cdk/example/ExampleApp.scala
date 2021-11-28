@@ -8,11 +8,11 @@ import io.burkard.cdk.services.s3._
 
 object ExampleApp extends CdkApp {
   CdkStack(id = Some("ExampleStack")) { implicit stackCtx =>
-    val envParameter = CfnTypedParameter.StringParameter(
+    val envParameter = CfnTypedParameter.CfnStringParameter(
       name = "env",
       allowedValues = Some(List("dev", "qa", "prod"))
     )
-    val regionParameter = CfnTypedParameter.StringParameter(
+    val regionParameter = CfnTypedParameter.CfnStringParameter(
       name = "region",
       allowedValues = Some(List("us-east-1", "us-west-2", "eu-west-1"))
     )

@@ -75,8 +75,10 @@ object Codegen {
   private[this] val reservedFiles: Set[Path] =
     Set(
       Path.of("modules", "core/src/main/scala/io/burkard/cdk/package.scala".split('/'): _*),
-      Path.of("modules", "core/src/main/scala/io/burkard/cdk/App.scala".split('/'): _*),
-      Path.of("modules", "core/src/main/scala/io/burkard/cdk/Stack.scala".split('/'): _*)
+      Path.of("modules", "core/src/main/scala/io/burkard/cdk/CdkApp.scala".split('/'): _*),
+      Path.of("modules", "core/src/main/scala/io/burkard/cdk/CdkStack.scala".split('/'): _*),
+      Path.of("modules", "core/src/main/scala/io/burkard/cdk/core/CfnTypedParameter.scala".split('/'): _*),
+      Path.of("modules", "core/src/main/scala/io/burkard/cdk/metadata/metadata.scala".split('/'): _*)
     )
 
   // Local Scala files in this project, besides reserved files.
