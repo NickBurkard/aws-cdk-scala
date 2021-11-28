@@ -12,7 +12,6 @@ object DatabaseInstanceReadReplicaProps {
     s3ExportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     subnetGroup: Option[software.amazon.awscdk.services.rds.ISubnetGroup] = None,
     backupRetention: Option[software.amazon.awscdk.Duration] = None,
-    vpcPlacement: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     domain: Option[String] = None,
     instanceIdentifier: Option[String] = None,
     availabilityZone: Option[String] = None,
@@ -56,7 +55,6 @@ object DatabaseInstanceReadReplicaProps {
       .s3ExportRole(s3ExportRole.orNull)
       .subnetGroup(subnetGroup.orNull)
       .backupRetention(backupRetention.orNull)
-      .vpcPlacement(vpcPlacement.orNull)
       .domain(domain.orNull)
       .instanceIdentifier(instanceIdentifier.orNull)
       .availabilityZone(availabilityZone.orNull)

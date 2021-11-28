@@ -16,8 +16,8 @@ object CloudWatchAlarmDefinitionProperty {
     unit: Option[String] = None,
     evaluationPeriods: Option[Number] = None,
     namespace: Option[String] = None
-  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnCluster.CloudWatchAlarmDefinitionProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.CloudWatchAlarmDefinitionProperty.Builder)
       .metricName(metricName)
       .comparisonOperator(comparisonOperator)
       .threshold(threshold)

@@ -13,7 +13,6 @@ object ApplicationListenerProps {
     open: Option[Boolean] = None,
     defaultAction: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction] = None,
     port: Option[Number] = None,
-    certificateArns: Option[List[String]] = None,
     protocol: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationProtocol] = None,
     certificates: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.IListenerCertificate]] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.ApplicationListenerProps =
@@ -24,7 +23,6 @@ object ApplicationListenerProps {
       .open(open.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .defaultAction(defaultAction.orNull)
       .port(port.orNull)
-      .certificateArns(certificateArns.map(_.asJava).orNull)
       .protocol(protocol.orNull)
       .certificates(certificates.map(_.asJava).orNull)
       .build()

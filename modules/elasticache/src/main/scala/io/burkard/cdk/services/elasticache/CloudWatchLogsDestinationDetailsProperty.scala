@@ -5,8 +5,8 @@ object CloudWatchLogsDestinationDetailsProperty {
 
   def apply(
     logGroup: String
-  ): software.amazon.awscdk.services.elasticache.CfnCacheCluster.CloudWatchLogsDestinationDetailsProperty =
-    (new software.amazon.awscdk.services.elasticache.CfnCacheCluster.CloudWatchLogsDestinationDetailsProperty.Builder)
+  ): software.amazon.awscdk.services.elasticache.CfnReplicationGroup.CloudWatchLogsDestinationDetailsProperty =
+    (new software.amazon.awscdk.services.elasticache.CfnReplicationGroup.CloudWatchLogsDestinationDetailsProperty.Builder)
       .logGroup(logGroup)
       .build()
 }

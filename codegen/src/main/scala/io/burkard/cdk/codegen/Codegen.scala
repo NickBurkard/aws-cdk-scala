@@ -24,13 +24,7 @@ object Codegen {
         classInfo.getPackageName match {
           // Resource for some service.
           case ServiceRegex(_, name) =>
-            // Bundle deprecated assets in core module.
-            // TODO Remove once deprecated assets are gone.
-            if (name.startsWith("assets")) {
-              "core" -> classInfo.load()
-            } else {
-              name -> classInfo.load()
-            }
+            name -> classInfo.load()
 
           // Shared resources are considered `core`.
           case CoreRegex() =>

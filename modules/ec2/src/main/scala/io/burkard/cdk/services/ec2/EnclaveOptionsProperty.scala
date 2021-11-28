@@ -5,8 +5,8 @@ object EnclaveOptionsProperty {
 
   def apply(
     enabled: Option[Boolean] = None
-  ): software.amazon.awscdk.services.ec2.CfnInstance.EnclaveOptionsProperty =
-    (new software.amazon.awscdk.services.ec2.CfnInstance.EnclaveOptionsProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnLaunchTemplate.EnclaveOptionsProperty =
+    (new software.amazon.awscdk.services.ec2.CfnLaunchTemplate.EnclaveOptionsProperty.Builder)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

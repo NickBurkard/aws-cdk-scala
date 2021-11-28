@@ -11,7 +11,6 @@ object DatabaseInstanceFromSnapshot {
     snapshotIdentifier: String,
     s3ExportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     backupRetention: Option[software.amazon.awscdk.Duration] = None,
-    vpcPlacement: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     instanceIdentifier: Option[String] = None,
     availabilityZone: Option[String] = None,
     storageType: Option[software.amazon.awscdk.services.rds.StorageType] = None,
@@ -62,7 +61,6 @@ object DatabaseInstanceFromSnapshot {
       .snapshotIdentifier(snapshotIdentifier)
       .s3ExportRole(s3ExportRole.orNull)
       .backupRetention(backupRetention.orNull)
-      .vpcPlacement(vpcPlacement.orNull)
       .instanceIdentifier(instanceIdentifier.orNull)
       .availabilityZone(availabilityZone.orNull)
       .storageType(storageType.orNull)

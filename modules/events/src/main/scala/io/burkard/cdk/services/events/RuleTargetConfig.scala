@@ -1,6 +1,5 @@
 package io.burkard.cdk.services.events
 
-@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object RuleTargetConfig {
 
@@ -10,7 +9,6 @@ object RuleTargetConfig {
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     httpParameters: Option[software.amazon.awscdk.services.events.CfnRule.HttpParametersProperty] = None,
     batchParameters: Option[software.amazon.awscdk.services.events.CfnRule.BatchParametersProperty] = None,
-    id: Option[String] = None,
     sqsParameters: Option[software.amazon.awscdk.services.events.CfnRule.SqsParametersProperty] = None,
     input: Option[software.amazon.awscdk.services.events.RuleTargetInput] = None,
     deadLetterConfig: Option[software.amazon.awscdk.services.events.CfnRule.DeadLetterConfigProperty] = None,
@@ -25,7 +23,6 @@ object RuleTargetConfig {
       .role(role.orNull)
       .httpParameters(httpParameters.orNull)
       .batchParameters(batchParameters.orNull)
-      .id(id.orNull)
       .sqsParameters(sqsParameters.orNull)
       .input(input.orNull)
       .deadLetterConfig(deadLetterConfig.orNull)

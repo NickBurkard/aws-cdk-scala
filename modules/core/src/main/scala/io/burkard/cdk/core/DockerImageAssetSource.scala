@@ -8,7 +8,6 @@ object DockerImageAssetSource {
 
   def apply(
     sourceHash: String,
-    repositoryName: Option[String] = None,
     dockerFile: Option[String] = None,
     dockerBuildArgs: Option[Map[String, String]] = None,
     dockerBuildTarget: Option[String] = None,
@@ -17,7 +16,6 @@ object DockerImageAssetSource {
   ): software.amazon.awscdk.DockerImageAssetSource =
     (new software.amazon.awscdk.DockerImageAssetSource.Builder)
       .sourceHash(sourceHash)
-      .repositoryName(repositoryName.orNull)
       .dockerFile(dockerFile.orNull)
       .dockerBuildArgs(dockerBuildArgs.map(_.asJava).orNull)
       .dockerBuildTarget(dockerBuildTarget.orNull)

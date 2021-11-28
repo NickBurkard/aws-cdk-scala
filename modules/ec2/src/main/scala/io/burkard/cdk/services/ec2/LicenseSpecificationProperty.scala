@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object LicenseSpecificationProperty {
 
   def apply(
-    licenseConfigurationArn: Option[String] = None
-  ): software.amazon.awscdk.services.ec2.CfnLaunchTemplate.LicenseSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnLaunchTemplate.LicenseSpecificationProperty.Builder)
-      .licenseConfigurationArn(licenseConfigurationArn.orNull)
+    licenseConfigurationArn: String
+  ): software.amazon.awscdk.services.ec2.CfnInstance.LicenseSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnInstance.LicenseSpecificationProperty.Builder)
+      .licenseConfigurationArn(licenseConfigurationArn)
       .build()
 }

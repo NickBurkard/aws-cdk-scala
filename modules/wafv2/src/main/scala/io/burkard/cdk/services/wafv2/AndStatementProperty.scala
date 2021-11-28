@@ -8,8 +8,8 @@ object AndStatementProperty {
 
   def apply(
     statements: List[_]
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.AndStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.AndStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.AndStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.AndStatementProperty.Builder)
       .statements(statements.asJava)
       .build()
 }

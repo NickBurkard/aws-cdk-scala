@@ -8,8 +8,8 @@ object SubscriptionProperty {
     subject: String,
     id: String,
     target: String
-  ): software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinition.SubscriptionProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinition.SubscriptionProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersion.SubscriptionProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnSubscriptionDefinitionVersion.SubscriptionProperty.Builder)
       .source(source)
       .subject(subject)
       .id(id)

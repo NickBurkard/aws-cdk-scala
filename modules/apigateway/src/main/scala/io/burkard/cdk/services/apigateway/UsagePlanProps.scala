@@ -10,7 +10,6 @@ object UsagePlanProps {
     name: Option[String] = None,
     quota: Option[software.amazon.awscdk.services.apigateway.QuotaSettings] = None,
     description: Option[String] = None,
-    apiKey: Option[software.amazon.awscdk.services.apigateway.IApiKey] = None,
     apiStages: Option[List[_ <: software.amazon.awscdk.services.apigateway.UsagePlanPerApiStage]] = None,
     throttle: Option[software.amazon.awscdk.services.apigateway.ThrottleSettings] = None
   ): software.amazon.awscdk.services.apigateway.UsagePlanProps =
@@ -18,7 +17,6 @@ object UsagePlanProps {
       .name(name.orNull)
       .quota(quota.orNull)
       .description(description.orNull)
-      .apiKey(apiKey.orNull)
       .apiStages(apiStages.map(_.asJava).orNull)
       .throttle(throttle.orNull)
       .build()

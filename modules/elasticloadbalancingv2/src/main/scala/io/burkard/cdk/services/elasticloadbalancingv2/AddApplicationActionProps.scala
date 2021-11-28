@@ -9,17 +9,11 @@ object AddApplicationActionProps {
   def apply(
     action: software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction,
     conditions: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.ListenerCondition]] = None,
-    priority: Option[Number] = None,
-    pathPatterns: Option[List[String]] = None,
-    pathPattern: Option[String] = None,
-    hostHeader: Option[String] = None
+    priority: Option[Number] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.AddApplicationActionProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.AddApplicationActionProps.Builder)
       .action(action)
       .conditions(conditions.map(_.asJava).orNull)
       .priority(priority.orNull)
-      .pathPatterns(pathPatterns.map(_.asJava).orNull)
-      .pathPattern(pathPattern.orNull)
-      .hostHeader(hostHeader.orNull)
       .build()
 }

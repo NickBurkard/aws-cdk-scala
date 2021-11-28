@@ -4,9 +4,9 @@ package io.burkard.cdk.services.kinesisanalytics
 object InputProcessingConfigurationProperty {
 
   def apply(
-    inputLambdaProcessor: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplication.InputLambdaProcessorProperty] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.InputProcessingConfigurationProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.InputProcessingConfigurationProperty.Builder)
+    inputLambdaProcessor: Option[software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.InputLambdaProcessorProperty] = None
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.InputProcessingConfigurationProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.InputProcessingConfigurationProperty.Builder)
       .inputLambdaProcessor(inputLambdaProcessor.orNull)
       .build()
 }

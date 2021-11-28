@@ -5,11 +5,11 @@ object InstanceBlockDeviceMappingProperty {
 
   def apply(
     deviceName: Option[String] = None,
-    ebs: Option[software.amazon.awscdk.services.imagebuilder.CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty] = None,
+    ebs: Option[software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty] = None,
     virtualName: Option[String] = None,
     noDevice: Option[String] = None
-  ): software.amazon.awscdk.services.imagebuilder.CfnImageRecipe.InstanceBlockDeviceMappingProperty =
-    (new software.amazon.awscdk.services.imagebuilder.CfnImageRecipe.InstanceBlockDeviceMappingProperty.Builder)
+  ): software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.InstanceBlockDeviceMappingProperty =
+    (new software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.InstanceBlockDeviceMappingProperty.Builder)
       .deviceName(deviceName.orNull)
       .ebs(ebs.orNull)
       .virtualName(virtualName.orNull)

@@ -9,7 +9,6 @@ object CloudFrontWebDistribution {
   def apply(
     internalResourceId: String,
     originConfigs: List[_ <: software.amazon.awscdk.services.cloudfront.SourceConfiguration],
-    aliasConfiguration: Option[software.amazon.awscdk.services.cloudfront.AliasConfiguration] = None,
     enabled: Option[Boolean] = None,
     errorConfigurations: Option[List[_ <: software.amazon.awscdk.services.cloudfront.CfnDistribution.CustomErrorResponseProperty]] = None,
     comment: Option[String] = None,
@@ -26,7 +25,6 @@ object CloudFrontWebDistribution {
     software.amazon.awscdk.services.cloudfront.CloudFrontWebDistribution.Builder
       .create(stackCtx, internalResourceId)
       .originConfigs(originConfigs.asJava)
-      .aliasConfiguration(aliasConfiguration.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .errorConfigurations(errorConfigurations.map(_.asJava).orNull)
       .comment(comment.orNull)

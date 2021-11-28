@@ -8,11 +8,11 @@ object MetricDataQueryProperty {
     label: Option[String] = None,
     accountId: Option[String] = None,
     returnData: Option[Boolean] = None,
-    metricStat: Option[software.amazon.awscdk.services.cloudwatch.CfnAlarm.MetricStatProperty] = None,
+    metricStat: Option[software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.MetricStatProperty] = None,
     expression: Option[String] = None,
     period: Option[Number] = None
-  ): software.amazon.awscdk.services.cloudwatch.CfnAlarm.MetricDataQueryProperty =
-    (new software.amazon.awscdk.services.cloudwatch.CfnAlarm.MetricDataQueryProperty.Builder)
+  ): software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.MetricDataQueryProperty =
+    (new software.amazon.awscdk.services.cloudwatch.CfnAnomalyDetector.MetricDataQueryProperty.Builder)
       .id(id)
       .label(label.orNull)
       .accountId(accountId.orNull)

@@ -7,17 +7,13 @@ import scala.collection.JavaConverters._
 object StringConditions {
 
   def apply(
-    blacklist: Option[List[String]] = None,
     allowlist: Option[List[String]] = None,
     matchPrefixes: Option[List[String]] = None,
-    denylist: Option[List[String]] = None,
-    whitelist: Option[List[String]] = None
+    denylist: Option[List[String]] = None
   ): software.amazon.awscdk.services.sns.StringConditions =
     (new software.amazon.awscdk.services.sns.StringConditions.Builder)
-      .blacklist(blacklist.map(_.asJava).orNull)
       .allowlist(allowlist.map(_.asJava).orNull)
       .matchPrefixes(matchPrefixes.map(_.asJava).orNull)
       .denylist(denylist.map(_.asJava).orNull)
-      .whitelist(whitelist.map(_.asJava).orNull)
       .build()
 }

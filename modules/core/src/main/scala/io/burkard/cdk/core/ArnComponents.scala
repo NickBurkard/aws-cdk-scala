@@ -1,6 +1,5 @@
 package io.burkard.cdk.core
 
-@scala.annotation.nowarn("cat=deprecation")
 @SuppressWarnings(Array("org.wartremover.warts.DefaultArguments", "org.wartremover.warts.Null", "DisableSyntax.null"))
 object ArnComponents {
 
@@ -8,7 +7,6 @@ object ArnComponents {
     service: String,
     resource: String,
     partition: Option[String] = None,
-    sep: Option[String] = None,
     resourceName: Option[String] = None,
     arnFormat: Option[software.amazon.awscdk.ArnFormat] = None,
     region: Option[String] = None,
@@ -18,7 +16,6 @@ object ArnComponents {
       .service(service)
       .resource(resource)
       .partition(partition.orNull)
-      .sep(sep.orNull)
       .resourceName(resourceName.orNull)
       .arnFormat(arnFormat.orNull)
       .region(region.orNull)

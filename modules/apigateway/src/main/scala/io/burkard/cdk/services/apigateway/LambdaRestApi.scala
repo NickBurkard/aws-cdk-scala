@@ -16,6 +16,7 @@ object LambdaRestApi {
     cloudWatchRole: Option[Boolean] = None,
     deployOptions: Option[software.amazon.awscdk.services.apigateway.StageOptions] = None,
     cloneFrom: Option[software.amazon.awscdk.services.apigateway.IRestApi] = None,
+    defaultCorsPreflightOptions: Option[software.amazon.awscdk.services.apigateway.CorsOptions] = None,
     retainDeployments: Option[Boolean] = None,
     endpointConfiguration: Option[software.amazon.awscdk.services.apigateway.EndpointConfiguration] = None,
     restApiName: Option[String] = None,
@@ -23,8 +24,6 @@ object LambdaRestApi {
     minimumCompressionSize: Option[Number] = None,
     domainName: Option[software.amazon.awscdk.services.apigateway.DomainNameOptions] = None,
     failOnWarnings: Option[Boolean] = None,
-    options: Option[software.amazon.awscdk.services.apigateway.RestApiProps] = None,
-    defaultCorsPreflightOptions: Option[software.amazon.awscdk.services.apigateway.CorsOptions] = None,
     disableExecuteApiEndpoint: Option[Boolean] = None,
     proxy: Option[Boolean] = None,
     deploy: Option[Boolean] = None,
@@ -43,6 +42,7 @@ object LambdaRestApi {
       .cloudWatchRole(cloudWatchRole.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .deployOptions(deployOptions.orNull)
       .cloneFrom(cloneFrom.orNull)
+      .defaultCorsPreflightOptions(defaultCorsPreflightOptions.orNull)
       .retainDeployments(retainDeployments.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .endpointConfiguration(endpointConfiguration.orNull)
       .restApiName(restApiName.orNull)
@@ -50,8 +50,6 @@ object LambdaRestApi {
       .minimumCompressionSize(minimumCompressionSize.orNull)
       .domainName(domainName.orNull)
       .failOnWarnings(failOnWarnings.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .options(options.orNull)
-      .defaultCorsPreflightOptions(defaultCorsPreflightOptions.orNull)
       .disableExecuteApiEndpoint(disableExecuteApiEndpoint.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .proxy(proxy.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .deploy(deploy.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

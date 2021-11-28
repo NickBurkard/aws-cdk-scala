@@ -7,8 +7,8 @@ object SharingSettingsProperty {
     s3OutputPath: Option[String] = None,
     s3KmsKeyId: Option[String] = None,
     notebookOutputOption: Option[String] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnDomain.SharingSettingsProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnDomain.SharingSettingsProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnUserProfile.SharingSettingsProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnUserProfile.SharingSettingsProperty.Builder)
       .s3OutputPath(s3OutputPath.orNull)
       .s3KmsKeyId(s3KmsKeyId.orNull)
       .notebookOutputOption(notebookOutputOption.orNull)

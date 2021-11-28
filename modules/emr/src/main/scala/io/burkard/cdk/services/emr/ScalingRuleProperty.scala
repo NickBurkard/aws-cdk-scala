@@ -5,11 +5,11 @@ object ScalingRuleProperty {
 
   def apply(
     name: String,
-    action: software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingActionProperty,
-    trigger: software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingTriggerProperty,
+    action: software.amazon.awscdk.services.emr.CfnCluster.ScalingActionProperty,
+    trigger: software.amazon.awscdk.services.emr.CfnCluster.ScalingTriggerProperty,
     description: Option[String] = None
-  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingRuleProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingRuleProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnCluster.ScalingRuleProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.ScalingRuleProperty.Builder)
       .name(name)
       .action(action)
       .trigger(trigger)

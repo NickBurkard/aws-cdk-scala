@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object ForwardConfigProperty {
 
   def apply(
-    targetGroupStickinessConfig: Option[software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.TargetGroupStickinessConfigProperty] = None,
+    targetGroupStickinessConfig: Option[software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.TargetGroupStickinessConfigProperty] = None,
     targetGroups: Option[List[_]] = None
-  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.ForwardConfigProperty =
-    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.ForwardConfigProperty.Builder)
+  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.ForwardConfigProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.ForwardConfigProperty.Builder)
       .targetGroupStickinessConfig(targetGroupStickinessConfig.orNull)
       .targetGroups(targetGroups.map(_.asJava).orNull)
       .build()

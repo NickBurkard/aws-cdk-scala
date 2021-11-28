@@ -40,9 +40,7 @@ object DockerImageFunctionProps {
     onFailure: Option[software.amazon.awscdk.services.lambda.IDestination] = None,
     logRetentionRetryOptions: Option[software.amazon.awscdk.services.lambda.LogRetentionRetryOptions] = None,
     logRetentionRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
-    timeout: Option[software.amazon.awscdk.Duration] = None,
-    architectures: Option[List[_ <: software.amazon.awscdk.services.lambda.Architecture]] = None,
-    securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None
+    timeout: Option[software.amazon.awscdk.Duration] = None
   ): software.amazon.awscdk.services.lambda.DockerImageFunctionProps =
     (new software.amazon.awscdk.services.lambda.DockerImageFunctionProps.Builder)
       .code(code)
@@ -79,7 +77,5 @@ object DockerImageFunctionProps {
       .logRetentionRetryOptions(logRetentionRetryOptions.orNull)
       .logRetentionRole(logRetentionRole.orNull)
       .timeout(timeout.orNull)
-      .architectures(architectures.map(_.asJava).orNull)
-      .securityGroup(securityGroup.orNull)
       .build()
 }

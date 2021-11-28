@@ -11,7 +11,6 @@ object ContainerImageAssetMetadataEntry {
     path: String,
     sourceHash: String,
     id: String,
-    imageNameParameter: Option[String] = None,
     imageTag: Option[String] = None,
     repositoryName: Option[String] = None,
     buildArgs: Option[Map[String, String]] = None,
@@ -23,7 +22,6 @@ object ContainerImageAssetMetadataEntry {
       .path(path)
       .sourceHash(sourceHash)
       .id(id)
-      .imageNameParameter(imageNameParameter.orNull)
       .imageTag(imageTag.orNull)
       .repositoryName(repositoryName.orNull)
       .buildArgs(buildArgs.map(_.asJava).orNull)

@@ -8,7 +8,6 @@ object CloudFrontWebDistributionProps {
 
   def apply(
     originConfigs: List[_ <: software.amazon.awscdk.services.cloudfront.SourceConfiguration],
-    aliasConfiguration: Option[software.amazon.awscdk.services.cloudfront.AliasConfiguration] = None,
     enabled: Option[Boolean] = None,
     errorConfigurations: Option[List[_ <: software.amazon.awscdk.services.cloudfront.CfnDistribution.CustomErrorResponseProperty]] = None,
     comment: Option[String] = None,
@@ -24,7 +23,6 @@ object CloudFrontWebDistributionProps {
   ): software.amazon.awscdk.services.cloudfront.CloudFrontWebDistributionProps =
     (new software.amazon.awscdk.services.cloudfront.CloudFrontWebDistributionProps.Builder)
       .originConfigs(originConfigs.asJava)
-      .aliasConfiguration(aliasConfiguration.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .errorConfigurations(errorConfigurations.map(_.asJava).orNull)
       .comment(comment.orNull)

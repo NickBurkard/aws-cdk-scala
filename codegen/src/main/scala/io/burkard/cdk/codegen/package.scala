@@ -18,15 +18,8 @@ package object codegen {
   private[this] val packageRewrites: List[(Regex, Regex.Match => String)] =
     List(
       ServiceRegex -> { m =>
-        // Bundle deprecated assets in core module.
-        // TODO Remove once deprecated assets are gone.
         if (m.group(1) == null) {
-          val second = m.group(2)
-          if (second.startsWith("assets")) {
-            s"io.burkard.cdk.core.$second"
-          } else {
-            s"io.burkard.cdk.$second"
-          }
+          s"io.burkard.cdk.${m.group(2)}"
         } else {
           s"io.burkard.cdk.services.${m.group(2)}"
         }

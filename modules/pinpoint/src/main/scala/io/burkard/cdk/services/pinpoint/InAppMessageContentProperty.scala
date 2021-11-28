@@ -5,13 +5,13 @@ object InAppMessageContentProperty {
 
   def apply(
     backgroundColor: Option[String] = None,
-    headerConfig: Option[software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.HeaderConfigProperty] = None,
+    headerConfig: Option[software.amazon.awscdk.services.pinpoint.CfnCampaign.InAppMessageHeaderConfigProperty] = None,
     imageUrl: Option[String] = None,
-    primaryBtn: Option[software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.ButtonConfigProperty] = None,
-    secondaryBtn: Option[software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.ButtonConfigProperty] = None,
-    bodyConfig: Option[software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.BodyConfigProperty] = None
-  ): software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.InAppMessageContentProperty =
-    (new software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.InAppMessageContentProperty.Builder)
+    primaryBtn: Option[software.amazon.awscdk.services.pinpoint.CfnCampaign.InAppMessageButtonProperty] = None,
+    secondaryBtn: Option[software.amazon.awscdk.services.pinpoint.CfnCampaign.InAppMessageButtonProperty] = None,
+    bodyConfig: Option[software.amazon.awscdk.services.pinpoint.CfnCampaign.InAppMessageBodyConfigProperty] = None
+  ): software.amazon.awscdk.services.pinpoint.CfnCampaign.InAppMessageContentProperty =
+    (new software.amazon.awscdk.services.pinpoint.CfnCampaign.InAppMessageContentProperty.Builder)
       .backgroundColor(backgroundColor.orNull)
       .headerConfig(headerConfig.orNull)
       .imageUrl(imageUrl.orNull)

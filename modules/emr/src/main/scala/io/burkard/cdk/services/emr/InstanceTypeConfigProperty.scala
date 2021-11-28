@@ -8,13 +8,13 @@ object InstanceTypeConfigProperty {
 
   def apply(
     instanceType: String,
-    ebsConfiguration: Option[software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.EbsConfigurationProperty] = None,
+    ebsConfiguration: Option[software.amazon.awscdk.services.emr.CfnCluster.EbsConfigurationProperty] = None,
     bidPriceAsPercentageOfOnDemandPrice: Option[Number] = None,
     weightedCapacity: Option[Number] = None,
     configurations: Option[List[_]] = None,
     bidPrice: Option[String] = None
-  ): software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.InstanceTypeConfigProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.InstanceTypeConfigProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnCluster.InstanceTypeConfigProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.InstanceTypeConfigProperty.Builder)
       .instanceType(instanceType)
       .ebsConfiguration(ebsConfiguration.orNull)
       .bidPriceAsPercentageOfOnDemandPrice(bidPriceAsPercentageOfOnDemandPrice.orNull)
