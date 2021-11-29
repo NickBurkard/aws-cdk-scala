@@ -5,8 +5,8 @@ object OnDemandProvisioningSpecificationProperty {
 
   def apply(
     allocationStrategy: String
-  ): software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.OnDemandProvisioningSpecificationProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.OnDemandProvisioningSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnCluster.OnDemandProvisioningSpecificationProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.OnDemandProvisioningSpecificationProperty.Builder)
       .allocationStrategy(allocationStrategy)
       .build()
 }

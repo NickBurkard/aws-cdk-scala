@@ -7,15 +7,15 @@ import scala.collection.JavaConverters._
 object CfnRuleGroupsNamespaceProps {
 
   def apply(
+    name: String,
     data: String,
     workspace: String,
-    name: Option[String] = None,
     tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
   ): software.amazon.awscdk.services.aps.CfnRuleGroupsNamespaceProps =
     (new software.amazon.awscdk.services.aps.CfnRuleGroupsNamespaceProps.Builder)
+      .name(name)
       .data(data)
       .workspace(workspace)
-      .name(name.orNull)
       .tags(tags.map(_.asJava).orNull)
       .build()
 }

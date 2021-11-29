@@ -8,11 +8,11 @@ object ArnFormat {
   implicit def toAws(value: ArnFormat): software.amazon.awscdk.ArnFormat =
     Option(value).map(_.underlying).orNull
 
-  case object NoResourceName
-    extends ArnFormat(software.amazon.awscdk.ArnFormat.NO_RESOURCE_NAME)
-
   case object ColonResourceName
     extends ArnFormat(software.amazon.awscdk.ArnFormat.COLON_RESOURCE_NAME)
+
+  case object NoResourceName
+    extends ArnFormat(software.amazon.awscdk.ArnFormat.NO_RESOURCE_NAME)
 
   case object SlashResourceName
     extends ArnFormat(software.amazon.awscdk.ArnFormat.SLASH_RESOURCE_NAME)

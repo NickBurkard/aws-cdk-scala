@@ -6,8 +6,8 @@ object TagsEntryProperty {
   def apply(
     key: String,
     value: String
-  ): software.amazon.awscdk.services.amazonmq.CfnBroker.TagsEntryProperty =
-    (new software.amazon.awscdk.services.amazonmq.CfnBroker.TagsEntryProperty.Builder)
+  ): software.amazon.awscdk.services.amazonmq.CfnConfiguration.TagsEntryProperty =
+    (new software.amazon.awscdk.services.amazonmq.CfnConfiguration.TagsEntryProperty.Builder)
       .key(key)
       .value(value)
       .build()

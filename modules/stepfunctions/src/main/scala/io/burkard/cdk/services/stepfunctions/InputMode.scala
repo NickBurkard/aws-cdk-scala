@@ -8,9 +8,9 @@ object InputMode {
   implicit def toAws(value: InputMode): software.amazon.awscdk.services.stepfunctions.tasks.InputMode =
     Option(value).map(_.underlying).orNull
 
-  case object Pipe
-    extends InputMode(software.amazon.awscdk.services.stepfunctions.tasks.InputMode.PIPE)
-
   case object File
     extends InputMode(software.amazon.awscdk.services.stepfunctions.tasks.InputMode.FILE)
+
+  case object Pipe
+    extends InputMode(software.amazon.awscdk.services.stepfunctions.tasks.InputMode.PIPE)
 }

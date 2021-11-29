@@ -9,11 +9,13 @@ object ProfileConfigurationProperty {
   def apply(
     datasetStatisticsConfiguration: Option[software.amazon.awscdk.services.databrew.CfnJob.StatisticsConfigurationProperty] = None,
     profileColumns: Option[List[_]] = None,
+    entityDetectorConfiguration: Option[software.amazon.awscdk.services.databrew.CfnJob.EntityDetectorConfigurationProperty] = None,
     columnStatisticsConfigurations: Option[List[_]] = None
   ): software.amazon.awscdk.services.databrew.CfnJob.ProfileConfigurationProperty =
     (new software.amazon.awscdk.services.databrew.CfnJob.ProfileConfigurationProperty.Builder)
       .datasetStatisticsConfiguration(datasetStatisticsConfiguration.orNull)
       .profileColumns(profileColumns.map(_.asJava).orNull)
+      .entityDetectorConfiguration(entityDetectorConfiguration.orNull)
       .columnStatisticsConfigurations(columnStatisticsConfigurations.map(_.asJava).orNull)
       .build()
 }

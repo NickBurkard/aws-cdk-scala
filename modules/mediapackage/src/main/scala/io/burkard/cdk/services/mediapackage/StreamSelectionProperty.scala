@@ -7,8 +7,8 @@ object StreamSelectionProperty {
     minVideoBitsPerSecond: Option[Number] = None,
     streamOrder: Option[String] = None,
     maxVideoBitsPerSecond: Option[Number] = None
-  ): software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.StreamSelectionProperty =
-    (new software.amazon.awscdk.services.mediapackage.CfnPackagingConfiguration.StreamSelectionProperty.Builder)
+  ): software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.StreamSelectionProperty =
+    (new software.amazon.awscdk.services.mediapackage.CfnOriginEndpoint.StreamSelectionProperty.Builder)
       .minVideoBitsPerSecond(minVideoBitsPerSecond.orNull)
       .streamOrder(streamOrder.orNull)
       .maxVideoBitsPerSecond(maxVideoBitsPerSecond.orNull)

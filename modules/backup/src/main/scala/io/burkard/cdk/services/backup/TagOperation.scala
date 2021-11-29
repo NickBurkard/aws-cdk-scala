@@ -8,9 +8,9 @@ object TagOperation {
   implicit def toAws(value: TagOperation): software.amazon.awscdk.services.backup.TagOperation =
     Option(value).map(_.underlying).orNull
 
-  case object StringEquals
-    extends TagOperation(software.amazon.awscdk.services.backup.TagOperation.STRING_EQUALS)
-
   case object Dummy
     extends TagOperation(software.amazon.awscdk.services.backup.TagOperation.DUMMY)
+
+  case object StringEquals
+    extends TagOperation(software.amazon.awscdk.services.backup.TagOperation.STRING_EQUALS)
 }

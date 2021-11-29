@@ -8,12 +8,12 @@ object Shading {
   implicit def toAws(value: Shading): software.amazon.awscdk.services.cloudwatch.Shading =
     Option(value).map(_.underlying).orNull
 
-  case object None
-    extends Shading(software.amazon.awscdk.services.cloudwatch.Shading.NONE)
-
   case object Above
     extends Shading(software.amazon.awscdk.services.cloudwatch.Shading.ABOVE)
 
   case object Below
     extends Shading(software.amazon.awscdk.services.cloudwatch.Shading.BELOW)
+
+  case object None
+    extends Shading(software.amazon.awscdk.services.cloudwatch.Shading.NONE)
 }

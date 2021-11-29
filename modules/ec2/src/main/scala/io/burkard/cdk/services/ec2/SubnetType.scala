@@ -4,16 +4,15 @@ sealed abstract class SubnetType(val underlying: software.amazon.awscdk.services
   extends Product
     with Serializable
 
-@scala.annotation.nowarn("cat=deprecation")
 object SubnetType {
   implicit def toAws(value: SubnetType): software.amazon.awscdk.services.ec2.SubnetType =
     Option(value).map(_.underlying).orNull
 
-  case object Isolated
-    extends SubnetType(software.amazon.awscdk.services.ec2.SubnetType.ISOLATED)
+  case object PrivateIsolated
+    extends SubnetType(software.amazon.awscdk.services.ec2.SubnetType.PRIVATE_ISOLATED)
 
-  case object Private
-    extends SubnetType(software.amazon.awscdk.services.ec2.SubnetType.PRIVATE)
+  case object PrivateWithNat
+    extends SubnetType(software.amazon.awscdk.services.ec2.SubnetType.PRIVATE_WITH_NAT)
 
   case object Public
     extends SubnetType(software.amazon.awscdk.services.ec2.SubnetType.PUBLIC)

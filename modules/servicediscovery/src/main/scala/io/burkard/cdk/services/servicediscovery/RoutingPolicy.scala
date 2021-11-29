@@ -8,9 +8,9 @@ object RoutingPolicy {
   implicit def toAws(value: RoutingPolicy): software.amazon.awscdk.services.servicediscovery.RoutingPolicy =
     Option(value).map(_.underlying).orNull
 
-  case object Weighted
-    extends RoutingPolicy(software.amazon.awscdk.services.servicediscovery.RoutingPolicy.WEIGHTED)
-
   case object Multivalue
     extends RoutingPolicy(software.amazon.awscdk.services.servicediscovery.RoutingPolicy.MULTIVALUE)
+
+  case object Weighted
+    extends RoutingPolicy(software.amazon.awscdk.services.servicediscovery.RoutingPolicy.WEIGHTED)
 }

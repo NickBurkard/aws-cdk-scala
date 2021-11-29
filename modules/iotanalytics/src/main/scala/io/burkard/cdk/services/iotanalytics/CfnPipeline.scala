@@ -8,14 +8,14 @@ object CfnPipeline {
 
   def apply(
     internalResourceId: String,
-    pipelineName: String,
     pipelineActivities: List[_],
-    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None,
+    pipelineName: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.iotanalytics.CfnPipeline =
     software.amazon.awscdk.services.iotanalytics.CfnPipeline.Builder
       .create(stackCtx, internalResourceId)
-      .pipelineName(pipelineName)
       .pipelineActivities(pipelineActivities.asJava)
       .tags(tags.map(_.asJava).orNull)
+      .pipelineName(pipelineName.orNull)
       .build()
 }

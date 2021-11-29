@@ -11,9 +11,9 @@ object ScalingAdjustmentType {
   case object ChangeInCapacity
     extends ScalingAdjustmentType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingAdjustmentType.CHANGE_IN_CAPACITY)
 
-  case object PercentChangeInCapacity
-    extends ScalingAdjustmentType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingAdjustmentType.PERCENT_CHANGE_IN_CAPACITY)
-
   case object ExactCapacity
     extends ScalingAdjustmentType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingAdjustmentType.EXACT_CAPACITY)
+
+  case object PercentChangeInCapacity
+    extends ScalingAdjustmentType(software.amazon.awscdk.services.stepfunctions.tasks.EmrCreateCluster.ScalingAdjustmentType.PERCENT_CHANGE_IN_CAPACITY)
 }

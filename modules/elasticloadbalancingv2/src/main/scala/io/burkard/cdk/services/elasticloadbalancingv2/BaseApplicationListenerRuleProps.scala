@@ -9,23 +9,13 @@ object BaseApplicationListenerRuleProps {
   def apply(
     priority: Number,
     conditions: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.ListenerCondition]] = None,
-    pathPattern: Option[String] = None,
-    fixedResponse: Option[software.amazon.awscdk.services.elasticloadbalancingv2.FixedResponse] = None,
-    redirectResponse: Option[software.amazon.awscdk.services.elasticloadbalancingv2.RedirectResponse] = None,
-    action: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction] = None,
-    hostHeader: Option[String] = None,
     targetGroups: Option[List[_ <: software.amazon.awscdk.services.elasticloadbalancingv2.IApplicationTargetGroup]] = None,
-    pathPatterns: Option[List[String]] = None
+    action: Option[software.amazon.awscdk.services.elasticloadbalancingv2.ListenerAction] = None
   ): software.amazon.awscdk.services.elasticloadbalancingv2.BaseApplicationListenerRuleProps =
     (new software.amazon.awscdk.services.elasticloadbalancingv2.BaseApplicationListenerRuleProps.Builder)
       .priority(priority)
       .conditions(conditions.map(_.asJava).orNull)
-      .pathPattern(pathPattern.orNull)
-      .fixedResponse(fixedResponse.orNull)
-      .redirectResponse(redirectResponse.orNull)
-      .action(action.orNull)
-      .hostHeader(hostHeader.orNull)
       .targetGroups(targetGroups.map(_.asJava).orNull)
-      .pathPatterns(pathPatterns.map(_.asJava).orNull)
+      .action(action.orNull)
       .build()
 }

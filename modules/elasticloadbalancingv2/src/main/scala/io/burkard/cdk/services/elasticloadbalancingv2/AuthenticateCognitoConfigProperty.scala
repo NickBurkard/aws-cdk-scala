@@ -12,11 +12,11 @@ object AuthenticateCognitoConfigProperty {
     userPoolClientId: String,
     scope: Option[String] = None,
     sessionCookieName: Option[String] = None,
-    sessionTimeout: Option[Number] = None,
+    sessionTimeout: Option[String] = None,
     onUnauthenticatedRequest: Option[String] = None,
     authenticationRequestExtraParams: Option[Map[String, String]] = None
-  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.AuthenticateCognitoConfigProperty =
-    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.AuthenticateCognitoConfigProperty.Builder)
+  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.AuthenticateCognitoConfigProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.AuthenticateCognitoConfigProperty.Builder)
       .userPoolArn(userPoolArn)
       .userPoolDomain(userPoolDomain)
       .userPoolClientId(userPoolClientId)

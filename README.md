@@ -60,9 +60,9 @@ and on the [releases](https://github.com/NickBurkard/aws-cdk-scala/releases) pag
 val cdkVersion: String = ???
 
 libraryDependencies ++= Seq(
-  "io.burkard" %% "aws-scala-cdk-core" % cdkVersion,
-  "io.burkard" %% "aws-scala-cdk-kinesisanalytics" % cdkVersion,
-  "io.burkard" %% "aws-scala-cdk-s3" % cdkVersion
+  "io.burkard" %% "aws-cdk-scala-core" % cdkVersion,
+  "io.burkard" %% "aws-cdk-scala-kinesisanalytics" % cdkVersion,
+  "io.burkard" %% "aws-cdk-scala-s3" % cdkVersion
 )
 ```
 
@@ -76,15 +76,31 @@ Create a CDK app within a module of your project.
 package io.burkard.cdk.example
 
 import io.burkard.cdk._
-import io.burkard.cdk.core.CfnTag
+import io.burkard.cdk.core._
+import io.burkard.cdk.metadata._
 import io.burkard.cdk.services.kinesisanalytics._
 import io.burkard.cdk.services.s3._
 
-object ExampleApp extends App {
-  private[this] val env = "dev"
-  private[this] val region = "us-east-1"
+object ExampleApp extends CdkApp {
+  CdkStack(id = Some("ExampleStack")) { implicit stackCtx =>
+    val envParameter = CfnTypedParameter.CfnStringParameter(
+      name = "env",
+      allowedValues = Some(List("dev", "qa", "prod"))
+    )
+    val regionParameter = CfnTypedParameter.CfnStringParameter(
+      name = "region",
+      allowedValues = Some(List("us-east-1", "us-west-2", "eu-west-1"))
+    )
 
-  Stack(id = Some("ExampleStack")) { implicit stackCtx =>
+    stackCtx.setCloudFormationInterface(
+      CloudFormationInterface.build(
+        Some(Label("example parameters")) -> List(envParameter, regionParameter)
+      )()
+    )
+
+    val env = envParameter.value
+    val region = regionParameter.value
+
     val bucket = Bucket(
       internalResourceId = "Code",
       accessControl = Some(BucketAccessControl.Private),
@@ -148,6 +164,33 @@ cdk synth
 The result is a CloudFormation template in YAML.
 
 ```yaml
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: example parameters
+        Parameters:
+          - env
+          - region
+Parameters:
+  env:
+    Type: String
+    AllowedValues:
+      - dev
+      - qa
+      - prod
+    NoEcho: false
+  region:
+    Type: String
+    AllowedValues:
+      - us-east-1
+      - us-west-2
+      - eu-west-1
+    NoEcho: false
+  BootstrapVersion:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /cdk-bootstrap/hnb659fds/version
+    Description: Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]
 Resources:
   Code5B760EEF:
     Type: AWS::S3::Bucket
@@ -206,12 +249,20 @@ Resources:
               FileKey: code-key-in-s3
               ObjectVersion: code-version
           CodeContentType: ZIPFILE
-      ApplicationName: prefix-dev-app-name-us-east-1
+      ApplicationName:
+        Fn::Join:
+          - ""
+          - - prefix-
+            - Ref: env
+            - -app-name-
+            - Ref: region
       Tags:
         - Key: env
-          Value: dev
+          Value:
+            Ref: env
         - Key: region
-          Value: us-east-1
+          Value:
+            Ref: region
     Metadata:
       aws:cdk:path: ExampleStack/Runtime
 ```

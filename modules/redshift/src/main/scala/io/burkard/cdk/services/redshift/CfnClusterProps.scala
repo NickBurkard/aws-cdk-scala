@@ -41,7 +41,6 @@ object CfnClusterProps {
     destinationRegion: Option[String] = None,
     elasticIp: Option[String] = None,
     clusterVersion: Option[String] = None,
-    endpoint: Option[software.amazon.awscdk.services.redshift.CfnCluster.EndpointProperty] = None,
     availabilityZoneRelocation: Option[Boolean] = None,
     ownerAccount: Option[String] = None,
     allowVersionUpgrade: Option[Boolean] = None,
@@ -91,7 +90,6 @@ object CfnClusterProps {
       .destinationRegion(destinationRegion.orNull)
       .elasticIp(elasticIp.orNull)
       .clusterVersion(clusterVersion.orNull)
-      .endpoint(endpoint.orNull)
       .availabilityZoneRelocation(availabilityZoneRelocation.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .ownerAccount(ownerAccount.orNull)
       .allowVersionUpgrade(allowVersionUpgrade.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

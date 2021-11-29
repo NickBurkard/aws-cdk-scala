@@ -4,17 +4,17 @@ package io.burkard.cdk.services.iotanalytics
 object DeviceShadowEnrichProperty {
 
   def apply(
-    name: String,
-    thingName: String,
-    roleArn: String,
-    attribute: String,
-    next: Option[String] = None
+    name: Option[String] = None,
+    thingName: Option[String] = None,
+    roleArn: Option[String] = None,
+    next: Option[String] = None,
+    attribute: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnPipeline.DeviceShadowEnrichProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnPipeline.DeviceShadowEnrichProperty.Builder)
-      .name(name)
-      .thingName(thingName)
-      .roleArn(roleArn)
-      .attribute(attribute)
+      .name(name.orNull)
+      .thingName(thingName.orNull)
+      .roleArn(roleArn.orNull)
       .next(next.orNull)
+      .attribute(attribute.orNull)
       .build()
 }

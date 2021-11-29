@@ -11,9 +11,9 @@ object MetricAggregationType {
   case object Average
     extends MetricAggregationType(software.amazon.awscdk.services.autoscaling.MetricAggregationType.AVERAGE)
 
-  case object Minimum
-    extends MetricAggregationType(software.amazon.awscdk.services.autoscaling.MetricAggregationType.MINIMUM)
-
   case object Maximum
     extends MetricAggregationType(software.amazon.awscdk.services.autoscaling.MetricAggregationType.MAXIMUM)
+
+  case object Minimum
+    extends MetricAggregationType(software.amazon.awscdk.services.autoscaling.MetricAggregationType.MINIMUM)
 }

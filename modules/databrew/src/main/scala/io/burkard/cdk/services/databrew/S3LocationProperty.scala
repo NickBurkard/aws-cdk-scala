@@ -6,8 +6,8 @@ object S3LocationProperty {
   def apply(
     bucket: String,
     key: Option[String] = None
-  ): software.amazon.awscdk.services.databrew.CfnDataset.S3LocationProperty =
-    (new software.amazon.awscdk.services.databrew.CfnDataset.S3LocationProperty.Builder)
+  ): software.amazon.awscdk.services.databrew.CfnRecipe.S3LocationProperty =
+    (new software.amazon.awscdk.services.databrew.CfnRecipe.S3LocationProperty.Builder)
       .bucket(bucket)
       .key(key.orNull)
       .build()

@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotanalytics
 object DatasetContentVersionValueProperty {
 
   def apply(
-    datasetName: String
+    datasetName: Option[String] = None
   ): software.amazon.awscdk.services.iotanalytics.CfnDataset.DatasetContentVersionValueProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDataset.DatasetContentVersionValueProperty.Builder)
-      .datasetName(datasetName)
+      .datasetName(datasetName.orNull)
       .build()
 }

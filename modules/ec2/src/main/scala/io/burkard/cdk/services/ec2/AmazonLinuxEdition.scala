@@ -8,9 +8,9 @@ object AmazonLinuxEdition {
   implicit def toAws(value: AmazonLinuxEdition): software.amazon.awscdk.services.ec2.AmazonLinuxEdition =
     Option(value).map(_.underlying).orNull
 
-  case object Standard
-    extends AmazonLinuxEdition(software.amazon.awscdk.services.ec2.AmazonLinuxEdition.STANDARD)
-
   case object Minimal
     extends AmazonLinuxEdition(software.amazon.awscdk.services.ec2.AmazonLinuxEdition.MINIMAL)
+
+  case object Standard
+    extends AmazonLinuxEdition(software.amazon.awscdk.services.ec2.AmazonLinuxEdition.STANDARD)
 }

@@ -11,8 +11,8 @@ object JsonSchema {
     additionalItems: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     id: Option[String] = None,
     exclusiveMinimum: Option[Boolean] = None,
-    additionalProperties0: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
-    additionalProperties1: Option[Boolean] = None,
+    additionalProperties0: Option[Boolean] = None,
+    additionalProperties1: Option[software.amazon.awscdk.services.apigateway.JsonSchema] = None,
     allOf: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
     exclusiveMaximum: Option[Boolean] = None,
     format: Option[String] = None,
@@ -35,8 +35,8 @@ object JsonSchema {
     minLength: Option[Number] = None,
     title: Option[String] = None,
     minimum: Option[Number] = None,
-    type0: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchemaType]] = None,
-    type1: Option[software.amazon.awscdk.services.apigateway.JsonSchemaType] = None,
+    type0: Option[software.amazon.awscdk.services.apigateway.JsonSchemaType] = None,
+    type1: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchemaType]] = None,
     required: Option[List[String]] = None,
     defaultValue: Option[AnyRef] = None,
     contains0: Option[List[_ <: software.amazon.awscdk.services.apigateway.JsonSchema]] = None,
@@ -53,8 +53,8 @@ object JsonSchema {
       .additionalItems(additionalItems.map(_.asJava).orNull)
       .id(id.orNull)
       .exclusiveMinimum(exclusiveMinimum.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
-      .additionalProperties(additionalProperties0.orNull)
-      .additionalProperties(additionalProperties1.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .additionalProperties(additionalProperties0.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .additionalProperties(additionalProperties1.orNull)
       .allOf(allOf.map(_.asJava).orNull)
       .exclusiveMaximum(exclusiveMaximum.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .format(format.orNull)
@@ -77,8 +77,8 @@ object JsonSchema {
       .minLength(minLength.orNull)
       .title(title.orNull)
       .minimum(minimum.orNull)
-      .`type`(type0.map(_.asJava).orNull)
-      .`type`(type1.orNull)
+      .`type`(type0.orNull)
+      .`type`(type1.map(_.asJava).orNull)
       .required(required.map(_.asJava).orNull)
       .defaultValue(defaultValue.orNull)
       .contains(contains0.map(_.asJava).orNull)

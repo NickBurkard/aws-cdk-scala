@@ -11,7 +11,6 @@ object AwsSdkCall {
     action: String,
     outputPaths: Option[List[String]] = None,
     physicalResourceId: Option[software.amazon.awscdk.customresources.PhysicalResourceId] = None,
-    outputPath: Option[String] = None,
     region: Option[String] = None,
     ignoreErrorCodesMatching: Option[String] = None,
     apiVersion: Option[String] = None,
@@ -23,7 +22,6 @@ object AwsSdkCall {
       .action(action)
       .outputPaths(outputPaths.map(_.asJava).orNull)
       .physicalResourceId(physicalResourceId.orNull)
-      .outputPath(outputPath.orNull)
       .region(region.orNull)
       .ignoreErrorCodesMatching(ignoreErrorCodesMatching.orNull)
       .apiVersion(apiVersion.orNull)

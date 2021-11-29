@@ -10,7 +10,6 @@ object AppProps {
     treeMetadata: Option[Boolean] = None,
     context: Option[Map[String, _]] = None,
     outdir: Option[String] = None,
-    runtimeInfo: Option[Boolean] = None,
     autoSynth: Option[Boolean] = None,
     analyticsReporting: Option[Boolean] = None,
     stackTraces: Option[Boolean] = None
@@ -19,7 +18,6 @@ object AppProps {
       .treeMetadata(treeMetadata.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .context(context.map(_.asJava).orNull)
       .outdir(outdir.orNull)
-      .runtimeInfo(runtimeInfo.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .autoSynth(autoSynth.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .analyticsReporting(analyticsReporting.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .stackTraces(stackTraces.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

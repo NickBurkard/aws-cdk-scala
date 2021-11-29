@@ -12,8 +12,8 @@ object EbsInstanceBlockDeviceSpecificationProperty {
     throughput: Option[Number] = None,
     volumeSize: Option[Number] = None,
     snapshotId: Option[String] = None
-  ): software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty =
-    (new software.amazon.awscdk.services.imagebuilder.CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.imagebuilder.CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty =
+    (new software.amazon.awscdk.services.imagebuilder.CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty.Builder)
       .volumeType(volumeType.orNull)
       .encrypted(encrypted.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .iops(iops.orNull)

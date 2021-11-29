@@ -6,8 +6,8 @@ object ScalingConstraintsProperty {
   def apply(
     maxCapacity: Number,
     minCapacity: Number
-  ): software.amazon.awscdk.services.emr.CfnCluster.ScalingConstraintsProperty =
-    (new software.amazon.awscdk.services.emr.CfnCluster.ScalingConstraintsProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingConstraintsProperty =
+    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingConstraintsProperty.Builder)
       .maxCapacity(maxCapacity)
       .minCapacity(minCapacity)
       .build()

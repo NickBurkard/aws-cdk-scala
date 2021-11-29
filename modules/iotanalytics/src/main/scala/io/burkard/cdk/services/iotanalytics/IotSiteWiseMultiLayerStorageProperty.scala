@@ -4,9 +4,9 @@ package io.burkard.cdk.services.iotanalytics
 object IotSiteWiseMultiLayerStorageProperty {
 
   def apply(
-    customerManagedS3Storage: Option[software.amazon.awscdk.services.iotanalytics.CfnDatastore.CustomerManagedS3StorageProperty] = None
+    customerManagedS3Storage: software.amazon.awscdk.services.iotanalytics.CfnDatastore.CustomerManagedS3StorageProperty
   ): software.amazon.awscdk.services.iotanalytics.CfnDatastore.IotSiteWiseMultiLayerStorageProperty =
     (new software.amazon.awscdk.services.iotanalytics.CfnDatastore.IotSiteWiseMultiLayerStorageProperty.Builder)
-      .customerManagedS3Storage(customerManagedS3Storage.orNull)
+      .customerManagedS3Storage(customerManagedS3Storage)
       .build()
 }

@@ -9,17 +9,19 @@ object Cluster {
   def apply(
     internalResourceId: String,
     clusterHandlerSecurityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
-    outputMastersRoleArn: Option[Boolean] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     mastersRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     endpointAccess: Option[software.amazon.awscdk.services.eks.EndpointAccess] = None,
     serviceIpv4Cidr: Option[String] = None,
     placeClusterHandlerInVpc: Option[Boolean] = None,
     version: Option[software.amazon.awscdk.services.eks.KubernetesVersion] = None,
+    albController: Option[software.amazon.awscdk.services.eks.AlbControllerOptions] = None,
     prune: Option[Boolean] = None,
     kubectlEnvironment: Option[Map[String, String]] = None,
     outputConfigCommand: Option[Boolean] = None,
     clusterName: Option[String] = None,
+    outputMastersRoleArn: Option[Boolean] = None,
+    kubectlLambdaRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     kubectlLayer: Option[software.amazon.awscdk.services.lambda.ILayerVersion] = None,
     defaultCapacity: Option[Number] = None,
     clusterHandlerEnvironment: Option[Map[String, String]] = None,
@@ -37,17 +39,19 @@ object Cluster {
     software.amazon.awscdk.services.eks.Cluster.Builder
       .create(stackCtx, internalResourceId)
       .clusterHandlerSecurityGroup(clusterHandlerSecurityGroup.orNull)
-      .outputMastersRoleArn(outputMastersRoleArn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .role(role.orNull)
       .mastersRole(mastersRole.orNull)
       .endpointAccess(endpointAccess.orNull)
       .serviceIpv4Cidr(serviceIpv4Cidr.orNull)
       .placeClusterHandlerInVpc(placeClusterHandlerInVpc.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .version(version.orNull)
+      .albController(albController.orNull)
       .prune(prune.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .kubectlEnvironment(kubectlEnvironment.map(_.asJava).orNull)
       .outputConfigCommand(outputConfigCommand.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .clusterName(clusterName.orNull)
+      .outputMastersRoleArn(outputMastersRoleArn.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .kubectlLambdaRole(kubectlLambdaRole.orNull)
       .kubectlLayer(kubectlLayer.orNull)
       .defaultCapacity(defaultCapacity.orNull)
       .clusterHandlerEnvironment(clusterHandlerEnvironment.map(_.asJava).orNull)

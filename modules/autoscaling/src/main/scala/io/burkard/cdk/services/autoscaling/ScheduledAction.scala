@@ -10,6 +10,7 @@ object ScheduledAction {
     startTime: Option[java.time.Instant] = None,
     endTime: Option[java.time.Instant] = None,
     minCapacity: Option[Number] = None,
+    timeZone: Option[String] = None,
     desiredCapacity: Option[Number] = None,
     schedule: Option[software.amazon.awscdk.services.autoscaling.Schedule] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.autoscaling.ScheduledAction =
@@ -20,6 +21,7 @@ object ScheduledAction {
       .startTime(startTime.orNull)
       .endTime(endTime.orNull)
       .minCapacity(minCapacity.orNull)
+      .timeZone(timeZone.orNull)
       .desiredCapacity(desiredCapacity.orNull)
       .schedule(schedule.orNull)
       .build()

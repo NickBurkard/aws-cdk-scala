@@ -8,12 +8,12 @@ object ByteMatchStatementProperty {
 
   def apply(
     positionalConstraint: String,
-    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty,
+    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty,
     textTransformations: List[_],
     searchStringBase64: Option[String] = None,
     searchString: Option[String] = None
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.ByteMatchStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.ByteMatchStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.ByteMatchStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.ByteMatchStatementProperty.Builder)
       .positionalConstraint(positionalConstraint)
       .fieldToMatch(fieldToMatch)
       .textTransformations(textTransformations.asJava)

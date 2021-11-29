@@ -8,12 +8,12 @@ object MethodLoggingLevel {
   implicit def toAws(value: MethodLoggingLevel): software.amazon.awscdk.services.apigateway.MethodLoggingLevel =
     Option(value).map(_.underlying).orNull
 
-  case object Off
-    extends MethodLoggingLevel(software.amazon.awscdk.services.apigateway.MethodLoggingLevel.OFF)
-
   case object Error
     extends MethodLoggingLevel(software.amazon.awscdk.services.apigateway.MethodLoggingLevel.ERROR)
 
   case object Info
     extends MethodLoggingLevel(software.amazon.awscdk.services.apigateway.MethodLoggingLevel.INFO)
+
+  case object Off
+    extends MethodLoggingLevel(software.amazon.awscdk.services.apigateway.MethodLoggingLevel.OFF)
 }

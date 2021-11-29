@@ -9,13 +9,11 @@ object InterfaceVpcEndpointAttributes {
   def apply(
     port: Number,
     vpcEndpointId: String,
-    securityGroupId: Option[String] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None
   ): software.amazon.awscdk.services.ec2.InterfaceVpcEndpointAttributes =
     (new software.amazon.awscdk.services.ec2.InterfaceVpcEndpointAttributes.Builder)
       .port(port)
       .vpcEndpointId(vpcEndpointId)
-      .securityGroupId(securityGroupId.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .build()
 }

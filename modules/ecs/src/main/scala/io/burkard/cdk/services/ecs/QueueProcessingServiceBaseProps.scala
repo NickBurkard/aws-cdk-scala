@@ -17,7 +17,6 @@ object QueueProcessingServiceBaseProps {
     minScalingCapacity: Option[Number] = None,
     family: Option[String] = None,
     capacityProviderStrategies: Option[List[_ <: software.amazon.awscdk.services.ecs.CapacityProviderStrategy]] = None,
-    desiredTaskCount: Option[Number] = None,
     maxReceiveCount: Option[Number] = None,
     queue: Option[software.amazon.awscdk.services.sqs.IQueue] = None,
     retentionPeriod: Option[software.amazon.awscdk.Duration] = None,
@@ -44,7 +43,6 @@ object QueueProcessingServiceBaseProps {
       .minScalingCapacity(minScalingCapacity.orNull)
       .family(family.orNull)
       .capacityProviderStrategies(capacityProviderStrategies.map(_.asJava).orNull)
-      .desiredTaskCount(desiredTaskCount.orNull)
       .maxReceiveCount(maxReceiveCount.orNull)
       .queue(queue.orNull)
       .retentionPeriod(retentionPeriod.orNull)

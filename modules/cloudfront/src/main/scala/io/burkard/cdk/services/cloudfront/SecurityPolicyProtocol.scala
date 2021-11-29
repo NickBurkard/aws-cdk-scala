@@ -14,9 +14,6 @@ object SecurityPolicyProtocol {
   case object TlsV1
     extends SecurityPolicyProtocol(software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol.TLS_V1)
 
-  case object TlsV12016
-    extends SecurityPolicyProtocol(software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol.TLS_V1_2016)
-
   case object TlsV112016
     extends SecurityPolicyProtocol(software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol.TLS_V1_1_2016)
 
@@ -28,4 +25,7 @@ object SecurityPolicyProtocol {
 
   case object TlsV122021
     extends SecurityPolicyProtocol(software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021)
+
+  case object TlsV12016
+    extends SecurityPolicyProtocol(software.amazon.awscdk.services.cloudfront.SecurityPolicyProtocol.TLS_V1_2016)
 }

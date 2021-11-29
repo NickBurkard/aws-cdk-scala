@@ -8,6 +8,9 @@ object PredefinedMetric {
   implicit def toAws(value: PredefinedMetric): software.amazon.awscdk.services.autoscaling.PredefinedMetric =
     Option(value).map(_.underlying).orNull
 
+  case object AlbRequestCountPerTarget
+    extends PredefinedMetric(software.amazon.awscdk.services.autoscaling.PredefinedMetric.ALB_REQUEST_COUNT_PER_TARGET)
+
   case object AsgAverageCpuUtilization
     extends PredefinedMetric(software.amazon.awscdk.services.autoscaling.PredefinedMetric.ASG_AVERAGE_CPU_UTILIZATION)
 
@@ -16,7 +19,4 @@ object PredefinedMetric {
 
   case object AsgAverageNetworkOut
     extends PredefinedMetric(software.amazon.awscdk.services.autoscaling.PredefinedMetric.ASG_AVERAGE_NETWORK_OUT)
-
-  case object AlbRequestCountPerTarget
-    extends PredefinedMetric(software.amazon.awscdk.services.autoscaling.PredefinedMetric.ALB_REQUEST_COUNT_PER_TARGET)
 }

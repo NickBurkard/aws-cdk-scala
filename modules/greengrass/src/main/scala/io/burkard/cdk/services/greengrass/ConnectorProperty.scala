@@ -7,8 +7,8 @@ object ConnectorProperty {
     id: String,
     connectorArn: String,
     parameters: Option[AnyRef] = None
-  ): software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersion.ConnectorProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnConnectorDefinitionVersion.ConnectorProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnConnectorDefinition.ConnectorProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnConnectorDefinition.ConnectorProperty.Builder)
       .id(id)
       .connectorArn(connectorArn)
       .parameters(parameters.orNull)

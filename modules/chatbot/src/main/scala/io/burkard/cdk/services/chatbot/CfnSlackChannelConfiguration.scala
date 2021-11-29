@@ -12,8 +12,10 @@ object CfnSlackChannelConfiguration {
     slackChannelId: String,
     slackWorkspaceId: String,
     configurationName: String,
+    guardrailPolicies: Option[List[String]] = None,
     loggingLevel: Option[String] = None,
-    snsTopicArns: Option[List[String]] = None
+    snsTopicArns: Option[List[String]] = None,
+    userRoleRequired: Option[Boolean] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.chatbot.CfnSlackChannelConfiguration =
     software.amazon.awscdk.services.chatbot.CfnSlackChannelConfiguration.Builder
       .create(stackCtx, internalResourceId)
@@ -21,7 +23,9 @@ object CfnSlackChannelConfiguration {
       .slackChannelId(slackChannelId)
       .slackWorkspaceId(slackWorkspaceId)
       .configurationName(configurationName)
+      .guardrailPolicies(guardrailPolicies.map(_.asJava).orNull)
       .loggingLevel(loggingLevel.orNull)
       .snsTopicArns(snsTopicArns.map(_.asJava).orNull)
+      .userRoleRequired(userRoleRequired.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

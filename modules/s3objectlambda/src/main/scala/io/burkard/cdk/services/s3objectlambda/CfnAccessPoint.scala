@@ -5,12 +5,12 @@ object CfnAccessPoint {
 
   def apply(
     internalResourceId: String,
-    name: Option[String] = None,
-    objectLambdaConfiguration: Option[software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty] = None
+    objectLambdaConfiguration: software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty,
+    name: Option[String] = None
   )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint =
     software.amazon.awscdk.services.s3objectlambda.CfnAccessPoint.Builder
       .create(stackCtx, internalResourceId)
+      .objectLambdaConfiguration(objectLambdaConfiguration)
       .name(name.orNull)
-      .objectLambdaConfiguration(objectLambdaConfiguration.orNull)
       .build()
 }

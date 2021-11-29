@@ -9,6 +9,7 @@ object ScheduledActionProps {
     startTime: Option[java.time.Instant] = None,
     endTime: Option[java.time.Instant] = None,
     minCapacity: Option[Number] = None,
+    timeZone: Option[String] = None,
     desiredCapacity: Option[Number] = None,
     schedule: Option[software.amazon.awscdk.services.autoscaling.Schedule] = None
   ): software.amazon.awscdk.services.autoscaling.ScheduledActionProps =
@@ -18,6 +19,7 @@ object ScheduledActionProps {
       .startTime(startTime.orNull)
       .endTime(endTime.orNull)
       .minCapacity(minCapacity.orNull)
+      .timeZone(timeZone.orNull)
       .desiredCapacity(desiredCapacity.orNull)
       .schedule(schedule.orNull)
       .build()

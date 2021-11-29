@@ -6,8 +6,8 @@ object CustomResponseBodyProperty {
   def apply(
     contentType: String,
     content: String
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.CustomResponseBodyProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.CustomResponseBodyProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.CustomResponseBodyProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.CustomResponseBodyProperty.Builder)
       .contentType(contentType)
       .content(content)
       .build()

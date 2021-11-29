@@ -6,8 +6,8 @@ object ResourceAccessPolicyProperty {
   def apply(
     resourceId: String,
     permission: Option[String] = None
-  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.ResourceAccessPolicyProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinitionVersion.ResourceAccessPolicyProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.ResourceAccessPolicyProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnFunctionDefinition.ResourceAccessPolicyProperty.Builder)
       .resourceId(resourceId)
       .permission(permission.orNull)
       .build()

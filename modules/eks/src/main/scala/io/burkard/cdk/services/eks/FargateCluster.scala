@@ -16,6 +16,7 @@ object FargateCluster {
     serviceIpv4Cidr: Option[String] = None,
     placeClusterHandlerInVpc: Option[Boolean] = None,
     version: Option[software.amazon.awscdk.services.eks.KubernetesVersion] = None,
+    albController: Option[software.amazon.awscdk.services.eks.AlbControllerOptions] = None,
     prune: Option[Boolean] = None,
     defaultProfile: Option[software.amazon.awscdk.services.eks.FargateProfileOptions] = None,
     kubectlEnvironment: Option[Map[String, String]] = None,
@@ -42,6 +43,7 @@ object FargateCluster {
       .serviceIpv4Cidr(serviceIpv4Cidr.orNull)
       .placeClusterHandlerInVpc(placeClusterHandlerInVpc.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .version(version.orNull)
+      .albController(albController.orNull)
       .prune(prune.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .defaultProfile(defaultProfile.orNull)
       .kubectlEnvironment(kubectlEnvironment.map(_.asJava).orNull)

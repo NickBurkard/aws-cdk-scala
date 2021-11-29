@@ -7,8 +7,8 @@ object SourceConfigProperty {
     s3Bucket: String,
     architecture: String,
     s3Key: String
-  ): software.amazon.awscdk.services.robomaker.CfnRobotApplication.SourceConfigProperty =
-    (new software.amazon.awscdk.services.robomaker.CfnRobotApplication.SourceConfigProperty.Builder)
+  ): software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SourceConfigProperty =
+    (new software.amazon.awscdk.services.robomaker.CfnSimulationApplication.SourceConfigProperty.Builder)
       .s3Bucket(s3Bucket)
       .architecture(architecture)
       .s3Key(s3Key)

@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 object UserSettingsProperty {
 
   def apply(
-    kernelGatewayAppSettings: Option[software.amazon.awscdk.services.sagemaker.CfnDomain.KernelGatewayAppSettingsProperty] = None,
-    sharingSettings: Option[software.amazon.awscdk.services.sagemaker.CfnDomain.SharingSettingsProperty] = None,
+    kernelGatewayAppSettings: Option[software.amazon.awscdk.services.sagemaker.CfnUserProfile.KernelGatewayAppSettingsProperty] = None,
+    sharingSettings: Option[software.amazon.awscdk.services.sagemaker.CfnUserProfile.SharingSettingsProperty] = None,
     executionRole: Option[String] = None,
     securityGroups: Option[List[String]] = None,
-    jupyterServerAppSettings: Option[software.amazon.awscdk.services.sagemaker.CfnDomain.JupyterServerAppSettingsProperty] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnDomain.UserSettingsProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnDomain.UserSettingsProperty.Builder)
+    jupyterServerAppSettings: Option[software.amazon.awscdk.services.sagemaker.CfnUserProfile.JupyterServerAppSettingsProperty] = None
+  ): software.amazon.awscdk.services.sagemaker.CfnUserProfile.UserSettingsProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnUserProfile.UserSettingsProperty.Builder)
       .kernelGatewayAppSettings(kernelGatewayAppSettings.orNull)
       .sharingSettings(sharingSettings.orNull)
       .executionRole(executionRole.orNull)

@@ -7,8 +7,8 @@ object CustomerManagedS3Property {
     roleArn: String,
     bucket: String,
     keyPrefix: Option[String] = None
-  ): software.amazon.awscdk.services.iotanalytics.CfnChannel.CustomerManagedS3Property =
-    (new software.amazon.awscdk.services.iotanalytics.CfnChannel.CustomerManagedS3Property.Builder)
+  ): software.amazon.awscdk.services.iotanalytics.CfnDatastore.CustomerManagedS3Property =
+    (new software.amazon.awscdk.services.iotanalytics.CfnDatastore.CustomerManagedS3Property.Builder)
       .roleArn(roleArn)
       .bucket(bucket)
       .keyPrefix(keyPrefix.orNull)

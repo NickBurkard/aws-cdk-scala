@@ -11,8 +11,8 @@ object ParametersProperty {
     decimalParameters: Option[List[_]] = None,
     dateTimeParameters: Option[List[_]] = None,
     integerParameters: Option[List[_]] = None
-  ): software.amazon.awscdk.services.quicksight.CfnAnalysis.ParametersProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnAnalysis.ParametersProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnDashboard.ParametersProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnDashboard.ParametersProperty.Builder)
       .stringParameters(stringParameters.map(_.asJava).orNull)
       .decimalParameters(decimalParameters.map(_.asJava).orNull)
       .dateTimeParameters(dateTimeParameters.map(_.asJava).orNull)

@@ -11,14 +11,14 @@ object ScalingEvent {
   case object InstanceLaunch
     extends ScalingEvent(software.amazon.awscdk.services.autoscaling.ScalingEvent.INSTANCE_LAUNCH)
 
+  case object InstanceLaunchError
+    extends ScalingEvent(software.amazon.awscdk.services.autoscaling.ScalingEvent.INSTANCE_LAUNCH_ERROR)
+
   case object InstanceTerminate
     extends ScalingEvent(software.amazon.awscdk.services.autoscaling.ScalingEvent.INSTANCE_TERMINATE)
 
   case object InstanceTerminateError
     extends ScalingEvent(software.amazon.awscdk.services.autoscaling.ScalingEvent.INSTANCE_TERMINATE_ERROR)
-
-  case object InstanceLaunchError
-    extends ScalingEvent(software.amazon.awscdk.services.autoscaling.ScalingEvent.INSTANCE_LAUNCH_ERROR)
 
   case object TestNotification
     extends ScalingEvent(software.amazon.awscdk.services.autoscaling.ScalingEvent.TEST_NOTIFICATION)

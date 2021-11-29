@@ -8,9 +8,9 @@ object LoadBalancerIpAddressType {
   implicit def toAws(value: LoadBalancerIpAddressType): software.amazon.awscdk.cxapi.LoadBalancerIpAddressType =
     Option(value).map(_.underlying).orNull
 
-  case object Ipv4
-    extends LoadBalancerIpAddressType(software.amazon.awscdk.cxapi.LoadBalancerIpAddressType.IPV4)
-
   case object DualStack
     extends LoadBalancerIpAddressType(software.amazon.awscdk.cxapi.LoadBalancerIpAddressType.DUAL_STACK)
+
+  case object Ipv4
+    extends LoadBalancerIpAddressType(software.amazon.awscdk.cxapi.LoadBalancerIpAddressType.IPV4)
 }

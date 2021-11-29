@@ -17,12 +17,12 @@ object Protocol {
   case object Tcp
     extends Protocol(software.amazon.awscdk.services.elasticloadbalancingv2.Protocol.TCP)
 
+  case object TcpUdp
+    extends Protocol(software.amazon.awscdk.services.elasticloadbalancingv2.Protocol.TCP_UDP)
+
   case object Tls
     extends Protocol(software.amazon.awscdk.services.elasticloadbalancingv2.Protocol.TLS)
 
   case object Udp
     extends Protocol(software.amazon.awscdk.services.elasticloadbalancingv2.Protocol.UDP)
-
-  case object TcpUdp
-    extends Protocol(software.amazon.awscdk.services.elasticloadbalancingv2.Protocol.TCP_UDP)
 }
