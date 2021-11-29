@@ -21,7 +21,14 @@ package object cdk {
       Try(toAwsUnsafe)
         .toEither
         .left
-        .map(_.getMessage)
+        .map{
+          case _: MatchError =>
+            // Should never reach here. TimeUnit is Java enum so Scala compiler cannot prove an exhaustive search.
+            s"Timeunit, ${value.unit.toString}, not recognized."
+
+          case t =>
+            t.getMessage
+        }
 
     def toAwsUnsafe: AwsDuration =
       value.unit match {
@@ -43,11 +50,9 @@ package object cdk {
         case TimeUnit.MICROSECONDS | TimeUnit.NANOSECONDS =>
           throw new IllegalArgumentException("AWS duration doesn't support time units smaller than milliseconds")
 
-        case _ =>
-          /*
-          Should never reach here. TimeUnit is Java enum so Scala compiler cannot prove an exhaustive search.
-           */
-          throw new IllegalArgumentException(s"Timeunit, ${value.unit.toString}, not recognized.")
+        // Scala 3 compiler dismisses `case _ =>` checks and forces `case null =>`. Should never reach this case.
+        case null =>
+          throw new IllegalArgumentException("Quirk in Scala 3 compiler. FiniteDuration calls `require` with not null on timeunit values, but compiler doesn't see this.")
       }
 
   }
