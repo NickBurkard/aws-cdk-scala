@@ -7,10 +7,10 @@ import scala.collection.JavaConverters._
 object AutoScalingPolicyProperty {
 
   def apply(
-    constraints: software.amazon.awscdk.services.emr.CfnCluster.ScalingConstraintsProperty,
+    constraints: software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.ScalingConstraintsProperty,
     rules: List[_]
-  ): software.amazon.awscdk.services.emr.CfnCluster.AutoScalingPolicyProperty =
-    (new software.amazon.awscdk.services.emr.CfnCluster.AutoScalingPolicyProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.AutoScalingPolicyProperty =
+    (new software.amazon.awscdk.services.emr.CfnInstanceGroupConfig.AutoScalingPolicyProperty.Builder)
       .constraints(constraints)
       .rules(rules.asJava)
       .build()

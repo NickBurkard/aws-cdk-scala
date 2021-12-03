@@ -11,8 +11,8 @@ object CfnRule {
     metricName: String,
     name: String,
     predicates: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnRule =
-    software.amazon.awscdk.services.waf.CfnRule.Builder
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnRule =
+    software.amazon.awscdk.services.waf.regional.CfnRule.Builder
       .create(stackCtx, internalResourceId)
       .metricName(metricName)
       .name(name)

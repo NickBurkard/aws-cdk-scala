@@ -9,8 +9,8 @@ object TargetProperty {
   def apply(
     key: String,
     values: List[String]
-  ): software.amazon.awscdk.services.ssm.CfnAssociation.TargetProperty =
-    (new software.amazon.awscdk.services.ssm.CfnAssociation.TargetProperty.Builder)
+  ): software.amazon.awscdk.services.ssm.CfnMaintenanceWindowTask.TargetProperty =
+    (new software.amazon.awscdk.services.ssm.CfnMaintenanceWindowTask.TargetProperty.Builder)
       .key(key)
       .values(values.asJava)
       .build()

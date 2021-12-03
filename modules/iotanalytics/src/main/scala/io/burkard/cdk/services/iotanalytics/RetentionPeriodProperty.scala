@@ -4,11 +4,11 @@ package io.burkard.cdk.services.iotanalytics
 object RetentionPeriodProperty {
 
   def apply(
-    numberOfDays: Number,
-    unlimited: Boolean
-  ): software.amazon.awscdk.services.iotanalytics.CfnDataset.RetentionPeriodProperty =
-    (new software.amazon.awscdk.services.iotanalytics.CfnDataset.RetentionPeriodProperty.Builder)
-      .numberOfDays(numberOfDays)
-      .unlimited(unlimited)
+    numberOfDays: Option[Number] = None,
+    unlimited: Option[Boolean] = None
+  ): software.amazon.awscdk.services.iotanalytics.CfnChannel.RetentionPeriodProperty =
+    (new software.amazon.awscdk.services.iotanalytics.CfnChannel.RetentionPeriodProperty.Builder)
+      .numberOfDays(numberOfDays.orNull)
+      .unlimited(unlimited.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

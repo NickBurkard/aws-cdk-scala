@@ -8,10 +8,10 @@ object InputSchemaProperty {
 
   def apply(
     recordColumns: List[_],
-    recordFormat: software.amazon.awscdk.services.kinesisanalytics.CfnApplication.RecordFormatProperty,
+    recordFormat: software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.RecordFormatProperty,
     recordEncoding: Option[String] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.InputSchemaProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.InputSchemaProperty.Builder)
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.InputSchemaProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.InputSchemaProperty.Builder)
       .recordColumns(recordColumns.asJava)
       .recordFormat(recordFormat)
       .recordEncoding(recordEncoding.orNull)

@@ -7,8 +7,8 @@ object CampaignHookProperty {
     webUrl: Option[String] = None,
     lambdaFunctionName: Option[String] = None,
     mode: Option[String] = None
-  ): software.amazon.awscdk.services.pinpoint.CfnCampaign.CampaignHookProperty =
-    (new software.amazon.awscdk.services.pinpoint.CfnCampaign.CampaignHookProperty.Builder)
+  ): software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.CampaignHookProperty =
+    (new software.amazon.awscdk.services.pinpoint.CfnApplicationSettings.CampaignHookProperty.Builder)
       .webUrl(webUrl.orNull)
       .lambdaFunctionName(lambdaFunctionName.orNull)
       .mode(mode.orNull)

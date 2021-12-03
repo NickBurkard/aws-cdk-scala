@@ -6,8 +6,8 @@ object ColumnSelectorProperty {
   def apply(
     regex: Option[String] = None,
     name: Option[String] = None
-  ): software.amazon.awscdk.services.databrew.CfnRuleset.ColumnSelectorProperty =
-    (new software.amazon.awscdk.services.databrew.CfnRuleset.ColumnSelectorProperty.Builder)
+  ): software.amazon.awscdk.services.databrew.CfnJob.ColumnSelectorProperty =
+    (new software.amazon.awscdk.services.databrew.CfnJob.ColumnSelectorProperty.Builder)
       .regex(regex.orNull)
       .name(name.orNull)
       .build()

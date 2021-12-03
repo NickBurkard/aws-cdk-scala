@@ -8,10 +8,10 @@ object RegexPatternSetReferenceStatementProperty {
 
   def apply(
     arn: String,
-    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty,
+    fieldToMatch: software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty,
     textTransformations: List[_]
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.RegexPatternSetReferenceStatementProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.RegexPatternSetReferenceStatementProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.RegexPatternSetReferenceStatementProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.RegexPatternSetReferenceStatementProperty.Builder)
       .arn(arn)
       .fieldToMatch(fieldToMatch)
       .textTransformations(textTransformations.asJava)

@@ -6,8 +6,8 @@ object EnvironmentVariableProperty {
   def apply(
     name: String,
     value: String
-  ): software.amazon.awscdk.services.amplify.CfnBranch.EnvironmentVariableProperty =
-    (new software.amazon.awscdk.services.amplify.CfnBranch.EnvironmentVariableProperty.Builder)
+  ): software.amazon.awscdk.services.amplify.CfnApp.EnvironmentVariableProperty =
+    (new software.amazon.awscdk.services.amplify.CfnApp.EnvironmentVariableProperty.Builder)
       .name(name)
       .value(value)
       .build()

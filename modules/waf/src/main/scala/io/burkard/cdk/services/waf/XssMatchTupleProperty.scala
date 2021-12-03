@@ -5,9 +5,9 @@ object XssMatchTupleProperty {
 
   def apply(
     textTransformation: String,
-    fieldToMatch: software.amazon.awscdk.services.waf.CfnXssMatchSet.FieldToMatchProperty
-  ): software.amazon.awscdk.services.waf.CfnXssMatchSet.XssMatchTupleProperty =
-    (new software.amazon.awscdk.services.waf.CfnXssMatchSet.XssMatchTupleProperty.Builder)
+    fieldToMatch: software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.FieldToMatchProperty
+  ): software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.XssMatchTupleProperty =
+    (new software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.XssMatchTupleProperty.Builder)
       .textTransformation(textTransformation)
       .fieldToMatch(fieldToMatch)
       .build()

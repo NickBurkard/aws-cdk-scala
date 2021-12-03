@@ -6,8 +6,8 @@ object AcceleratorTotalMemoryMiBRequestProperty {
   def apply(
     min: Option[Number] = None,
     max: Option[Number] = None
-  ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty =
-    (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty =
+    (new software.amazon.awscdk.services.ec2.CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty.Builder)
       .min(min.orNull)
       .max(max.orNull)
       .build()

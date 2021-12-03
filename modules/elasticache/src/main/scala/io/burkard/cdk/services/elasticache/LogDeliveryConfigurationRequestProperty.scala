@@ -5,11 +5,11 @@ object LogDeliveryConfigurationRequestProperty {
 
   def apply(
     logType: String,
-    destinationDetails: software.amazon.awscdk.services.elasticache.CfnReplicationGroup.DestinationDetailsProperty,
+    destinationDetails: software.amazon.awscdk.services.elasticache.CfnCacheCluster.DestinationDetailsProperty,
     destinationType: String,
     logFormat: String
-  ): software.amazon.awscdk.services.elasticache.CfnReplicationGroup.LogDeliveryConfigurationRequestProperty =
-    (new software.amazon.awscdk.services.elasticache.CfnReplicationGroup.LogDeliveryConfigurationRequestProperty.Builder)
+  ): software.amazon.awscdk.services.elasticache.CfnCacheCluster.LogDeliveryConfigurationRequestProperty =
+    (new software.amazon.awscdk.services.elasticache.CfnCacheCluster.LogDeliveryConfigurationRequestProperty.Builder)
       .logType(logType)
       .destinationDetails(destinationDetails)
       .destinationType(destinationType)

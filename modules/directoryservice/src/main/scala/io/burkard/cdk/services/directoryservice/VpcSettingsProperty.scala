@@ -9,8 +9,8 @@ object VpcSettingsProperty {
   def apply(
     subnetIds: List[String],
     vpcId: String
-  ): software.amazon.awscdk.services.directoryservice.CfnSimpleAD.VpcSettingsProperty =
-    (new software.amazon.awscdk.services.directoryservice.CfnSimpleAD.VpcSettingsProperty.Builder)
+  ): software.amazon.awscdk.services.directoryservice.CfnMicrosoftAD.VpcSettingsProperty =
+    (new software.amazon.awscdk.services.directoryservice.CfnMicrosoftAD.VpcSettingsProperty.Builder)
       .subnetIds(subnetIds.asJava)
       .vpcId(vpcId)
       .build()

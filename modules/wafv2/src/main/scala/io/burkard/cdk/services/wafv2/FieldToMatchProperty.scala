@@ -8,12 +8,12 @@ object FieldToMatchProperty {
     allQueryArguments: Option[AnyRef] = None,
     singleHeader: Option[AnyRef] = None,
     queryString: Option[AnyRef] = None,
-    jsonBody: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.JsonBodyProperty] = None,
+    jsonBody: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.JsonBodyProperty] = None,
     singleQueryArgument: Option[AnyRef] = None,
     method: Option[AnyRef] = None,
     body: Option[AnyRef] = None
-  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.FieldToMatchProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnWebACL.FieldToMatchProperty.Builder)
       .uriPath(uriPath.orNull)
       .allQueryArguments(allQueryArguments.orNull)
       .singleHeader(singleHeader.orNull)

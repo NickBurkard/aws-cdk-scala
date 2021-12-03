@@ -7,19 +7,21 @@ import scala.collection.JavaConverters._
 object RuleProperty {
 
   def apply(
-    statement: software.amazon.awscdk.services.wafv2.CfnRuleGroup.StatementProperty,
     name: String,
-    visibilityConfig: software.amazon.awscdk.services.wafv2.CfnRuleGroup.VisibilityConfigProperty,
+    visibilityConfig: software.amazon.awscdk.services.wafv2.CfnWebACL.VisibilityConfigProperty,
     priority: Number,
+    statement: software.amazon.awscdk.services.wafv2.CfnWebACL.StatementProperty,
     ruleLabels: Option[List[_]] = None,
-    action: Option[software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleActionProperty] = None
-  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.RuleProperty.Builder)
-      .statement(statement)
+    action: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.RuleActionProperty] = None,
+    overrideAction: Option[software.amazon.awscdk.services.wafv2.CfnWebACL.OverrideActionProperty] = None
+  ): software.amazon.awscdk.services.wafv2.CfnWebACL.RuleProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnWebACL.RuleProperty.Builder)
       .name(name)
       .visibilityConfig(visibilityConfig)
       .priority(priority)
+      .statement(statement)
       .ruleLabels(ruleLabels.map(_.asJava).orNull)
       .action(action.orNull)
+      .overrideAction(overrideAction.orNull)
       .build()
 }

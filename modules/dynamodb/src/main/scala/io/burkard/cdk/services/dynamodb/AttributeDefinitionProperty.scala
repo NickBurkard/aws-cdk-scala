@@ -6,8 +6,8 @@ object AttributeDefinitionProperty {
   def apply(
     attributeName: String,
     attributeType: String
-  ): software.amazon.awscdk.services.dynamodb.CfnTable.AttributeDefinitionProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnTable.AttributeDefinitionProperty.Builder)
+  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.AttributeDefinitionProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.AttributeDefinitionProperty.Builder)
       .attributeName(attributeName)
       .attributeType(attributeType)
       .build()

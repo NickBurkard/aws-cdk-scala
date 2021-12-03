@@ -7,8 +7,8 @@ object VisibilityConfigProperty {
     cloudWatchMetricsEnabled: Boolean,
     sampledRequestsEnabled: Boolean,
     metricName: String
-  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.VisibilityConfigProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.VisibilityConfigProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnWebACL.VisibilityConfigProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnWebACL.VisibilityConfigProperty.Builder)
       .cloudWatchMetricsEnabled(cloudWatchMetricsEnabled)
       .sampledRequestsEnabled(sampledRequestsEnabled)
       .metricName(metricName)

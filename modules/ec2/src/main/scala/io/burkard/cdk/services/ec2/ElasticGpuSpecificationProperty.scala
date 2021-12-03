@@ -4,9 +4,9 @@ package io.burkard.cdk.services.ec2
 object ElasticGpuSpecificationProperty {
 
   def apply(
-    `type`: String
-  ): software.amazon.awscdk.services.ec2.CfnInstance.ElasticGpuSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnInstance.ElasticGpuSpecificationProperty.Builder)
-      .`type`(`type`)
+    `type`: Option[String] = None
+  ): software.amazon.awscdk.services.ec2.CfnLaunchTemplate.ElasticGpuSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnLaunchTemplate.ElasticGpuSpecificationProperty.Builder)
+      .`type`(`type`.orNull)
       .build()
 }

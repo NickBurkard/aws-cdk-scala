@@ -12,8 +12,8 @@ object PlacementProperty {
     tenancy: Option[String] = None,
     spreadDomain: Option[String] = None,
     hostResourceGroupArn: Option[String] = None
-  ): software.amazon.awscdk.services.ec2.CfnLaunchTemplate.PlacementProperty =
-    (new software.amazon.awscdk.services.ec2.CfnLaunchTemplate.PlacementProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.PlacementProperty =
+    (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.PlacementProperty.Builder)
       .affinity(affinity.orNull)
       .availabilityZone(availabilityZone.orNull)
       .hostId(hostId.orNull)

@@ -9,8 +9,8 @@ object SetDimensionProperty {
   def apply(
     dimensionType: Option[String] = None,
     values: Option[List[String]] = None
-  ): software.amazon.awscdk.services.pinpoint.CfnCampaign.SetDimensionProperty =
-    (new software.amazon.awscdk.services.pinpoint.CfnCampaign.SetDimensionProperty.Builder)
+  ): software.amazon.awscdk.services.pinpoint.CfnSegment.SetDimensionProperty =
+    (new software.amazon.awscdk.services.pinpoint.CfnSegment.SetDimensionProperty.Builder)
       .dimensionType(dimensionType.orNull)
       .values(values.map(_.asJava).orNull)
       .build()

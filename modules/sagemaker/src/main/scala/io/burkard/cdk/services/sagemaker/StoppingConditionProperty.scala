@@ -5,8 +5,8 @@ object StoppingConditionProperty {
 
   def apply(
     maxRuntimeInSeconds: Number
-  ): software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.StoppingConditionProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnModelBiasJobDefinition.StoppingConditionProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.StoppingConditionProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnModelQualityJobDefinition.StoppingConditionProperty.Builder)
       .maxRuntimeInSeconds(maxRuntimeInSeconds)
       .build()
 }
