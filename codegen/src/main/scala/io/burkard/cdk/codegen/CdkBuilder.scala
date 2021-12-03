@@ -154,7 +154,7 @@ final case class CdkBuilder private[codegen](
            |    ${typeAnnotatedParameters.mkString(",\n    ")}
            |  )(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName""".stripMargin
       } else {
-        s"def apply(id: String)(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName"
+        s"def apply(internalResourceId: String)(implicit stackCtx: software.amazon.awscdk.Stack): $instanceCanonicalName"
       }
 
     // Add in create params first (required) and potentially fields as params (optional).
