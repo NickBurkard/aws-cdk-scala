@@ -8,8 +8,8 @@ object DeviceProperty {
     id: String,
     thingArn: String,
     syncShadow: Option[Boolean] = None
-  ): software.amazon.awscdk.services.greengrass.CfnDeviceDefinition.DeviceProperty =
-    (new software.amazon.awscdk.services.greengrass.CfnDeviceDefinition.DeviceProperty.Builder)
+  ): software.amazon.awscdk.services.greengrass.CfnDeviceDefinitionVersion.DeviceProperty =
+    (new software.amazon.awscdk.services.greengrass.CfnDeviceDefinitionVersion.DeviceProperty.Builder)
       .certificateArn(certificateArn)
       .id(id)
       .thingArn(thingArn)

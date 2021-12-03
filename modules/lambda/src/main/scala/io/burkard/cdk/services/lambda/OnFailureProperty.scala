@@ -4,9 +4,9 @@ package io.burkard.cdk.services.lambda
 object OnFailureProperty {
 
   def apply(
-    destination: Option[String] = None
-  ): software.amazon.awscdk.services.lambda.CfnEventSourceMapping.OnFailureProperty =
-    (new software.amazon.awscdk.services.lambda.CfnEventSourceMapping.OnFailureProperty.Builder)
-      .destination(destination.orNull)
+    destination: String
+  ): software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.OnFailureProperty =
+    (new software.amazon.awscdk.services.lambda.CfnEventInvokeConfig.OnFailureProperty.Builder)
+      .destination(destination)
       .build()
 }

@@ -4,10 +4,10 @@ package io.burkard.cdk.services.appmesh
 object HttpTimeoutProperty {
 
   def apply(
-    perRequest: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.DurationProperty] = None,
-    idle: Option[software.amazon.awscdk.services.appmesh.CfnVirtualNode.DurationProperty] = None
-  ): software.amazon.awscdk.services.appmesh.CfnVirtualNode.HttpTimeoutProperty =
-    (new software.amazon.awscdk.services.appmesh.CfnVirtualNode.HttpTimeoutProperty.Builder)
+    perRequest: Option[software.amazon.awscdk.services.appmesh.CfnRoute.DurationProperty] = None,
+    idle: Option[software.amazon.awscdk.services.appmesh.CfnRoute.DurationProperty] = None
+  ): software.amazon.awscdk.services.appmesh.CfnRoute.HttpTimeoutProperty =
+    (new software.amazon.awscdk.services.appmesh.CfnRoute.HttpTimeoutProperty.Builder)
       .perRequest(perRequest.orNull)
       .idle(idle.orNull)
       .build()

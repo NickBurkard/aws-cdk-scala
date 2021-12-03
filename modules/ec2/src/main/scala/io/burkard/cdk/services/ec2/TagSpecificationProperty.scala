@@ -7,11 +7,11 @@ import scala.collection.JavaConverters._
 object TagSpecificationProperty {
 
   def apply(
-    resourceType: String,
-    tags: List[_ <: software.amazon.awscdk.CfnTag]
-  ): software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.TagSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnClientVpnEndpoint.TagSpecificationProperty.Builder)
-      .resourceType(resourceType)
-      .tags(tags.asJava)
+    resourceType: Option[String] = None,
+    tags: Option[List[_ <: software.amazon.awscdk.CfnTag]] = None
+  ): software.amazon.awscdk.services.ec2.CfnCapacityReservation.TagSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnCapacityReservation.TagSpecificationProperty.Builder)
+      .resourceType(resourceType.orNull)
+      .tags(tags.map(_.asJava).orNull)
       .build()
 }

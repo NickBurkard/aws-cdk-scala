@@ -6,8 +6,8 @@ object TotalLocalStorageGBRequestProperty {
   def apply(
     min: Option[Number] = None,
     max: Option[Number] = None
-  ): software.amazon.awscdk.services.ec2.CfnSpotFleet.TotalLocalStorageGBRequestProperty =
-    (new software.amazon.awscdk.services.ec2.CfnSpotFleet.TotalLocalStorageGBRequestProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.TotalLocalStorageGBRequestProperty =
+    (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.TotalLocalStorageGBRequestProperty.Builder)
       .min(min.orNull)
       .max(max.orNull)
       .build()

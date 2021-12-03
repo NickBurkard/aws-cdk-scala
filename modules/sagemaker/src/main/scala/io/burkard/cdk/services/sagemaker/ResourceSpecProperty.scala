@@ -7,8 +7,8 @@ object ResourceSpecProperty {
     sageMakerImageVersionArn: Option[String] = None,
     instanceType: Option[String] = None,
     sageMakerImageArn: Option[String] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnDomain.ResourceSpecProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnDomain.ResourceSpecProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnApp.ResourceSpecProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnApp.ResourceSpecProperty.Builder)
       .sageMakerImageVersionArn(sageMakerImageVersionArn.orNull)
       .instanceType(instanceType.orNull)
       .sageMakerImageArn(sageMakerImageArn.orNull)

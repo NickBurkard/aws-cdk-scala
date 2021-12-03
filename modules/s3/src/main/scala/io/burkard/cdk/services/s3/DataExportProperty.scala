@@ -4,11 +4,9 @@ package io.burkard.cdk.services.s3
 object DataExportProperty {
 
   def apply(
-    outputSchemaVersion: String,
-    destination: software.amazon.awscdk.services.s3.CfnBucket.DestinationProperty
-  ): software.amazon.awscdk.services.s3.CfnBucket.DataExportProperty =
-    (new software.amazon.awscdk.services.s3.CfnBucket.DataExportProperty.Builder)
-      .outputSchemaVersion(outputSchemaVersion)
-      .destination(destination)
+    s3BucketDestination: software.amazon.awscdk.services.s3.CfnStorageLens.S3BucketDestinationProperty
+  ): software.amazon.awscdk.services.s3.CfnStorageLens.DataExportProperty =
+    (new software.amazon.awscdk.services.s3.CfnStorageLens.DataExportProperty.Builder)
+      .s3BucketDestination(s3BucketDestination)
       .build()
 }

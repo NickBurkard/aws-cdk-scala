@@ -10,10 +10,10 @@ object CfnWebACL {
     internalResourceId: String,
     name: String,
     metricName: String,
-    defaultAction: software.amazon.awscdk.services.waf.CfnWebACL.WafActionProperty,
+    defaultAction: software.amazon.awscdk.services.waf.regional.CfnWebACL.ActionProperty,
     rules: Option[List[_]] = None
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnWebACL =
-    software.amazon.awscdk.services.waf.CfnWebACL.Builder
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnWebACL =
+    software.amazon.awscdk.services.waf.regional.CfnWebACL.Builder
       .create(stackCtx, internalResourceId)
       .name(name)
       .metricName(metricName)

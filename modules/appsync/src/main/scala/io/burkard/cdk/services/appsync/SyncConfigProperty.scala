@@ -5,10 +5,10 @@ object SyncConfigProperty {
 
   def apply(
     conflictDetection: String,
-    lambdaConflictHandlerConfig: Option[software.amazon.awscdk.services.appsync.CfnResolver.LambdaConflictHandlerConfigProperty] = None,
+    lambdaConflictHandlerConfig: Option[software.amazon.awscdk.services.appsync.CfnFunctionConfiguration.LambdaConflictHandlerConfigProperty] = None,
     conflictHandler: Option[String] = None
-  ): software.amazon.awscdk.services.appsync.CfnResolver.SyncConfigProperty =
-    (new software.amazon.awscdk.services.appsync.CfnResolver.SyncConfigProperty.Builder)
+  ): software.amazon.awscdk.services.appsync.CfnFunctionConfiguration.SyncConfigProperty =
+    (new software.amazon.awscdk.services.appsync.CfnFunctionConfiguration.SyncConfigProperty.Builder)
       .conflictDetection(conflictDetection)
       .lambdaConflictHandlerConfig(lambdaConflictHandlerConfig.orNull)
       .conflictHandler(conflictHandler.orNull)

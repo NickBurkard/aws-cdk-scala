@@ -44,8 +44,7 @@ You must install v2 of the [CDK CLI](https://docs.aws.amazon.com/cdk/latest/guid
 to synthesize CloudFormation templates.
 
 ```bash
-# Note `@next`, this installs v2.
-npm install -g aws-cdk@next
+npm install -g aws-cdk
 ```
 
 ### Library

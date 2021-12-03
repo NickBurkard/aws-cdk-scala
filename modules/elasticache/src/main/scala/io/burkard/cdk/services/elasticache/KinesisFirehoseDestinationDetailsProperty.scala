@@ -5,8 +5,8 @@ object KinesisFirehoseDestinationDetailsProperty {
 
   def apply(
     deliveryStream: String
-  ): software.amazon.awscdk.services.elasticache.CfnCacheCluster.KinesisFirehoseDestinationDetailsProperty =
-    (new software.amazon.awscdk.services.elasticache.CfnCacheCluster.KinesisFirehoseDestinationDetailsProperty.Builder)
+  ): software.amazon.awscdk.services.elasticache.CfnReplicationGroup.KinesisFirehoseDestinationDetailsProperty =
+    (new software.amazon.awscdk.services.elasticache.CfnReplicationGroup.KinesisFirehoseDestinationDetailsProperty.Builder)
       .deliveryStream(deliveryStream)
       .build()
 }

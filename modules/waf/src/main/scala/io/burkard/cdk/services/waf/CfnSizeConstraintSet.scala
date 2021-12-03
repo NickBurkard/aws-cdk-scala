@@ -9,11 +9,11 @@ object CfnSizeConstraintSet {
   def apply(
     internalResourceId: String,
     name: String,
-    sizeConstraints: List[_]
-  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.CfnSizeConstraintSet =
-    software.amazon.awscdk.services.waf.CfnSizeConstraintSet.Builder
+    sizeConstraints: Option[List[_]] = None
+  )(implicit stackCtx: software.amazon.awscdk.Stack): software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet =
+    software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet.Builder
       .create(stackCtx, internalResourceId)
       .name(name)
-      .sizeConstraints(sizeConstraints.asJava)
+      .sizeConstraints(sizeConstraints.map(_.asJava).orNull)
       .build()
 }

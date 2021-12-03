@@ -5,8 +5,8 @@ object LabelProperty {
 
   def apply(
     name: String
-  ): software.amazon.awscdk.services.wafv2.CfnWebACL.LabelProperty =
-    (new software.amazon.awscdk.services.wafv2.CfnWebACL.LabelProperty.Builder)
+  ): software.amazon.awscdk.services.wafv2.CfnRuleGroup.LabelProperty =
+    (new software.amazon.awscdk.services.wafv2.CfnRuleGroup.LabelProperty.Builder)
       .name(name)
       .build()
 }

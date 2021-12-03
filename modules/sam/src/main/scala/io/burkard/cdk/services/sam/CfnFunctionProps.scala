@@ -16,16 +16,16 @@ object CfnFunctionProps {
     fileSystemConfigs: Option[List[_]] = None,
     eventInvokeConfig: Option[software.amazon.awscdk.services.sam.CfnFunction.EventInvokeConfigProperty] = None,
     packageType: Option[String] = None,
-    codeUri0: Option[software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty] = None,
-    codeUri1: Option[String] = None,
+    codeUri0: Option[String] = None,
+    codeUri1: Option[software.amazon.awscdk.services.sam.CfnFunction.S3LocationProperty] = None,
     environment: Option[software.amazon.awscdk.services.sam.CfnFunction.FunctionEnvironmentProperty] = None,
     codeSigningConfigArn: Option[String] = None,
     imageConfig: Option[software.amazon.awscdk.services.sam.CfnFunction.ImageConfigProperty] = None,
     timeout: Option[Number] = None,
     handler: Option[String] = None,
-    policies0: Option[String] = None,
-    policies1: Option[software.amazon.awscdk.services.sam.CfnFunction.IAMPolicyDocumentProperty] = None,
-    policies2: Option[List[_]] = None,
+    policies0: Option[List[_]] = None,
+    policies1: Option[String] = None,
+    policies2: Option[software.amazon.awscdk.services.sam.CfnFunction.IAMPolicyDocumentProperty] = None,
     tags: Option[Map[String, String]] = None,
     permissionsBoundary: Option[String] = None,
     description: Option[String] = None,
@@ -60,9 +60,9 @@ object CfnFunctionProps {
       .imageConfig(imageConfig.orNull)
       .timeout(timeout.orNull)
       .handler(handler.orNull)
-      .policies(policies0.orNull)
+      .policies(policies0.map(_.asJava).orNull)
       .policies(policies1.orNull)
-      .policies(policies2.map(_.asJava).orNull)
+      .policies(policies2.orNull)
       .tags(tags.map(_.asJava).orNull)
       .permissionsBoundary(permissionsBoundary.orNull)
       .description(description.orNull)
