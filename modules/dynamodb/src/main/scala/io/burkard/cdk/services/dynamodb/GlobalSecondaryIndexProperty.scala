@@ -7,17 +7,15 @@ import scala.collection.JavaConverters._
 object GlobalSecondaryIndexProperty {
 
   def apply(
-    projection: software.amazon.awscdk.services.dynamodb.CfnTable.ProjectionProperty,
+    projection: software.amazon.awscdk.services.dynamodb.CfnGlobalTable.ProjectionProperty,
     indexName: String,
     keySchema: List[_],
-    provisionedThroughput: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ProvisionedThroughputProperty] = None,
-    contributorInsightsSpecification: Option[software.amazon.awscdk.services.dynamodb.CfnTable.ContributorInsightsSpecificationProperty] = None
-  ): software.amazon.awscdk.services.dynamodb.CfnTable.GlobalSecondaryIndexProperty =
-    (new software.amazon.awscdk.services.dynamodb.CfnTable.GlobalSecondaryIndexProperty.Builder)
+    writeProvisionedThroughputSettings: Option[software.amazon.awscdk.services.dynamodb.CfnGlobalTable.WriteProvisionedThroughputSettingsProperty] = None
+  ): software.amazon.awscdk.services.dynamodb.CfnGlobalTable.GlobalSecondaryIndexProperty =
+    (new software.amazon.awscdk.services.dynamodb.CfnGlobalTable.GlobalSecondaryIndexProperty.Builder)
       .projection(projection)
       .indexName(indexName)
       .keySchema(keySchema.asJava)
-      .provisionedThroughput(provisionedThroughput.orNull)
-      .contributorInsightsSpecification(contributorInsightsSpecification.orNull)
+      .writeProvisionedThroughputSettings(writeProvisionedThroughputSettings.orNull)
       .build()
 }

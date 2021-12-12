@@ -6,8 +6,8 @@ object FieldToMatchProperty {
   def apply(
     `type`: String,
     data: Option[String] = None
-  ): software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet.FieldToMatchProperty =
-    (new software.amazon.awscdk.services.waf.regional.CfnSizeConstraintSet.FieldToMatchProperty.Builder)
+  ): software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.FieldToMatchProperty =
+    (new software.amazon.awscdk.services.waf.regional.CfnXssMatchSet.FieldToMatchProperty.Builder)
       .`type`(`type`)
       .data(data.orNull)
       .build()

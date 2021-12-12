@@ -12,6 +12,7 @@ object Provider {
     logRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
     role: Option[software.amazon.awscdk.services.iam.IRole] = None,
     vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
+    providerFunctionName: Option[String] = None,
     securityGroups: Option[List[_ <: software.amazon.awscdk.services.ec2.ISecurityGroup]] = None,
     vpc: Option[software.amazon.awscdk.services.ec2.IVpc] = None,
     totalTimeout: Option[software.amazon.awscdk.Duration] = None,
@@ -24,6 +25,7 @@ object Provider {
       .logRetention(logRetention.orNull)
       .role(role.orNull)
       .vpcSubnets(vpcSubnets.orNull)
+      .providerFunctionName(providerFunctionName.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)
       .vpc(vpc.orNull)
       .totalTimeout(totalTimeout.orNull)

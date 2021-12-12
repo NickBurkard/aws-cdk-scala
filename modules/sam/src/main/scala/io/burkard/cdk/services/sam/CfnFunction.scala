@@ -25,8 +25,8 @@ object CfnFunction {
     timeout: Option[Number] = None,
     handler: Option[String] = None,
     policies0: Option[software.amazon.awscdk.services.sam.CfnFunction.IAMPolicyDocumentProperty] = None,
-    policies1: Option[String] = None,
-    policies2: Option[List[_]] = None,
+    policies1: Option[List[_]] = None,
+    policies2: Option[String] = None,
     tags: Option[Map[String, String]] = None,
     permissionsBoundary: Option[String] = None,
     description: Option[String] = None,
@@ -63,8 +63,8 @@ object CfnFunction {
       .timeout(timeout.orNull)
       .handler(handler.orNull)
       .policies(policies0.orNull)
-      .policies(policies1.orNull)
-      .policies(policies2.map(_.asJava).orNull)
+      .policies(policies1.map(_.asJava).orNull)
+      .policies(policies2.orNull)
       .tags(tags.map(_.asJava).orNull)
       .permissionsBoundary(permissionsBoundary.orNull)
       .description(description.orNull)

@@ -9,8 +9,8 @@ object DateTimeParameterProperty {
   def apply(
     name: String,
     values: List[String]
-  ): software.amazon.awscdk.services.quicksight.CfnAnalysis.DateTimeParameterProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnAnalysis.DateTimeParameterProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnDashboard.DateTimeParameterProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnDashboard.DateTimeParameterProperty.Builder)
       .name(name)
       .values(values.asJava)
       .build()

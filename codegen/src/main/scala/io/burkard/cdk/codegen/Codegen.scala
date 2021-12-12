@@ -24,7 +24,11 @@ object Codegen {
         classInfo.getPackageName match {
           // Resource for some service.
           case ServiceRegex(_, name) =>
-            name -> classInfo.load()
+            if (CoreOverrides.contains(name)) {
+              "core" -> classInfo.load()
+            } else {
+              name -> classInfo.load()
+            }
 
           // Shared resources are considered `core`.
           case CoreRegex() =>

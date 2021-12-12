@@ -6,8 +6,8 @@ object ScheduleEventProperty {
   def apply(
     schedule: String,
     input: Option[String] = None
-  ): software.amazon.awscdk.services.sam.CfnFunction.ScheduleEventProperty =
-    (new software.amazon.awscdk.services.sam.CfnFunction.ScheduleEventProperty.Builder)
+  ): software.amazon.awscdk.services.sam.CfnStateMachine.ScheduleEventProperty =
+    (new software.amazon.awscdk.services.sam.CfnStateMachine.ScheduleEventProperty.Builder)
       .schedule(schedule)
       .input(input.orNull)
       .build()

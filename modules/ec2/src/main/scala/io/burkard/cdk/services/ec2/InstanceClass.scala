@@ -68,6 +68,9 @@ object InstanceClass {
   case object Graphics5
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.GRAPHICS5)
 
+  case object Graphics5Graviton2
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.GRAPHICS5_GRAVITON2)
+
   case object HighComputeMemory1
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.HIGH_COMPUTE_MEMORY1)
 
@@ -79,6 +82,9 @@ object InstanceClass {
 
   case object Io3DenseNvmeDrive
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.IO3_DENSE_NVME_DRIVE)
+
+  case object Macintosh1Intel
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.MACINTOSH1_INTEL)
 
   case object MemoryIntensive1
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.MEMORY_INTENSIVE_1)
@@ -125,6 +131,9 @@ object InstanceClass {
   case object Memory6Graviton2NvmeDrive
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.MEMORY6_GRAVITON2_NVME_DRIVE)
 
+  case object Memory6Intel
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.MEMORY6_INTEL)
+
   case object Parallel2
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.PARALLEL2)
 
@@ -149,6 +158,9 @@ object InstanceClass {
   case object Standard5AmdNvmeDrive
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.STANDARD5_AMD_NVME_DRIVE)
 
+  case object Standard5HighCompute
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.STANDARD5_HIGH_COMPUTE)
+
   case object Standard5HighPerformance
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.STANDARD5_HIGH_PERFORMANCE)
 
@@ -157,6 +169,9 @@ object InstanceClass {
 
   case object Standard5NvmeDriveHighPerformance
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE)
+
+  case object Standard6Amd
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.STANDARD6_AMD)
 
   case object Standard6Graviton
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.STANDARD6_GRAVITON)
@@ -172,4 +187,7 @@ object InstanceClass {
 
   case object Storage2
     extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.STORAGE2)
+
+  case object VideoTranscoding1
+    extends InstanceClass(software.amazon.awscdk.services.ec2.InstanceClass.VIDEO_TRANSCODING1)
 }

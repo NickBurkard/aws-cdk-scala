@@ -5,8 +5,8 @@ object InstanceIpv6AddressProperty {
 
   def apply(
     ipv6Address: String
-  ): software.amazon.awscdk.services.ec2.CfnNetworkInterface.InstanceIpv6AddressProperty =
-    (new software.amazon.awscdk.services.ec2.CfnNetworkInterface.InstanceIpv6AddressProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnInstance.InstanceIpv6AddressProperty =
+    (new software.amazon.awscdk.services.ec2.CfnInstance.InstanceIpv6AddressProperty.Builder)
       .ipv6Address(ipv6Address)
       .build()
 }

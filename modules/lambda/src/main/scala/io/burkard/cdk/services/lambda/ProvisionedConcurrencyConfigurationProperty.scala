@@ -5,8 +5,8 @@ object ProvisionedConcurrencyConfigurationProperty {
 
   def apply(
     provisionedConcurrentExecutions: Number
-  ): software.amazon.awscdk.services.lambda.CfnAlias.ProvisionedConcurrencyConfigurationProperty =
-    (new software.amazon.awscdk.services.lambda.CfnAlias.ProvisionedConcurrencyConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.lambda.CfnVersion.ProvisionedConcurrencyConfigurationProperty =
+    (new software.amazon.awscdk.services.lambda.CfnVersion.ProvisionedConcurrencyConfigurationProperty.Builder)
       .provisionedConcurrentExecutions(provisionedConcurrentExecutions)
       .build()
 }

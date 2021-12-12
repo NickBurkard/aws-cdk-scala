@@ -9,6 +9,7 @@ object AddBehaviorOptions {
   def apply(
     originRequestPolicy: Option[software.amazon.awscdk.services.cloudfront.IOriginRequestPolicy] = None,
     edgeLambdas: Option[List[_ <: software.amazon.awscdk.services.cloudfront.EdgeLambda]] = None,
+    responseHeadersPolicy: Option[software.amazon.awscdk.services.cloudfront.IResponseHeadersPolicy] = None,
     functionAssociations: Option[List[_ <: software.amazon.awscdk.services.cloudfront.FunctionAssociation]] = None,
     allowedMethods: Option[software.amazon.awscdk.services.cloudfront.AllowedMethods] = None,
     viewerProtocolPolicy: Option[software.amazon.awscdk.services.cloudfront.ViewerProtocolPolicy] = None,
@@ -21,6 +22,7 @@ object AddBehaviorOptions {
     (new software.amazon.awscdk.services.cloudfront.AddBehaviorOptions.Builder)
       .originRequestPolicy(originRequestPolicy.orNull)
       .edgeLambdas(edgeLambdas.map(_.asJava).orNull)
+      .responseHeadersPolicy(responseHeadersPolicy.orNull)
       .functionAssociations(functionAssociations.map(_.asJava).orNull)
       .allowedMethods(allowedMethods.orNull)
       .viewerProtocolPolicy(viewerProtocolPolicy.orNull)

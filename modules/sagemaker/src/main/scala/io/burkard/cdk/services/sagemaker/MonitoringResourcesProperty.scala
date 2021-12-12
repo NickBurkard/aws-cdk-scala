@@ -4,9 +4,9 @@ package io.burkard.cdk.services.sagemaker
 object MonitoringResourcesProperty {
 
   def apply(
-    clusterConfig: software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.ClusterConfigProperty
-  ): software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.MonitoringResourcesProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.MonitoringResourcesProperty.Builder)
+    clusterConfig: software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.ClusterConfigProperty
+  ): software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringResourcesProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.MonitoringResourcesProperty.Builder)
       .clusterConfig(clusterConfig)
       .build()
 }

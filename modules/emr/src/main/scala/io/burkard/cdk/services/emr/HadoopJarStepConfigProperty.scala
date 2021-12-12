@@ -11,8 +11,8 @@ object HadoopJarStepConfigProperty {
     stepProperties: Option[List[_]] = None,
     mainClass: Option[String] = None,
     args: Option[List[String]] = None
-  ): software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty =
-    (new software.amazon.awscdk.services.emr.CfnStep.HadoopJarStepConfigProperty.Builder)
+  ): software.amazon.awscdk.services.emr.CfnCluster.HadoopJarStepConfigProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.HadoopJarStepConfigProperty.Builder)
       .jar(jar)
       .stepProperties(stepProperties.map(_.asJava).orNull)
       .mainClass(mainClass.orNull)

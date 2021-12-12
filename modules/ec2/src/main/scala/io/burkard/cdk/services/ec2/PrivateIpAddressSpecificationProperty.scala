@@ -6,8 +6,8 @@ object PrivateIpAddressSpecificationProperty {
   def apply(
     privateIpAddress: String,
     primary: Boolean
-  ): software.amazon.awscdk.services.ec2.CfnInstance.PrivateIpAddressSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnInstance.PrivateIpAddressSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnNetworkInterface.PrivateIpAddressSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnNetworkInterface.PrivateIpAddressSpecificationProperty.Builder)
       .privateIpAddress(privateIpAddress)
       .primary(primary)
       .build()

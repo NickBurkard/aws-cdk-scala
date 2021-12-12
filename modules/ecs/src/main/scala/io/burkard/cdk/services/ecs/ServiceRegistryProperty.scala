@@ -8,8 +8,8 @@ object ServiceRegistryProperty {
     containerPort: Option[Number] = None,
     port: Option[Number] = None,
     registryArn: Option[String] = None
-  ): software.amazon.awscdk.services.ecs.CfnTaskSet.ServiceRegistryProperty =
-    (new software.amazon.awscdk.services.ecs.CfnTaskSet.ServiceRegistryProperty.Builder)
+  ): software.amazon.awscdk.services.ecs.CfnService.ServiceRegistryProperty =
+    (new software.amazon.awscdk.services.ecs.CfnService.ServiceRegistryProperty.Builder)
       .containerName(containerName.orNull)
       .containerPort(containerPort.orNull)
       .port(port.orNull)

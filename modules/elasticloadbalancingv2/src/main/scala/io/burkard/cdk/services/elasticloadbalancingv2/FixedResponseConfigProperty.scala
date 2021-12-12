@@ -7,8 +7,8 @@ object FixedResponseConfigProperty {
     statusCode: String,
     messageBody: Option[String] = None,
     contentType: Option[String] = None
-  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.FixedResponseConfigProperty =
-    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListenerRule.FixedResponseConfigProperty.Builder)
+  ): software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.FixedResponseConfigProperty =
+    (new software.amazon.awscdk.services.elasticloadbalancingv2.CfnListener.FixedResponseConfigProperty.Builder)
       .statusCode(statusCode)
       .messageBody(messageBody.orNull)
       .contentType(contentType.orNull)
