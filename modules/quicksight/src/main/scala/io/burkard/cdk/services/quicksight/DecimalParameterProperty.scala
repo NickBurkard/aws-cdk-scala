@@ -9,8 +9,8 @@ object DecimalParameterProperty {
   def apply(
     name: String,
     values: List[_ <: Number]
-  ): software.amazon.awscdk.services.quicksight.CfnAnalysis.DecimalParameterProperty =
-    (new software.amazon.awscdk.services.quicksight.CfnAnalysis.DecimalParameterProperty.Builder)
+  ): software.amazon.awscdk.services.quicksight.CfnDashboard.DecimalParameterProperty =
+    (new software.amazon.awscdk.services.quicksight.CfnDashboard.DecimalParameterProperty.Builder)
       .name(name)
       .values(values.asJava)
       .build()

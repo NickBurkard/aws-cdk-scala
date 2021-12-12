@@ -4,9 +4,9 @@ package io.burkard.cdk.services.networkfirewall
 object ActionDefinitionProperty {
 
   def apply(
-    publishMetricAction: Option[software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.PublishMetricActionProperty] = None
-  ): software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.ActionDefinitionProperty =
-    (new software.amazon.awscdk.services.networkfirewall.CfnRuleGroup.ActionDefinitionProperty.Builder)
+    publishMetricAction: Option[software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.PublishMetricActionProperty] = None
+  ): software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.ActionDefinitionProperty =
+    (new software.amazon.awscdk.services.networkfirewall.CfnFirewallPolicy.ActionDefinitionProperty.Builder)
       .publishMetricAction(publishMetricAction.orNull)
       .build()
 }

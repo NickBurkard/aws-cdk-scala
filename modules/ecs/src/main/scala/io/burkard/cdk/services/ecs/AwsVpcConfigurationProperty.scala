@@ -10,8 +10,8 @@ object AwsVpcConfigurationProperty {
     subnets: List[String],
     assignPublicIp: Option[String] = None,
     securityGroups: Option[List[String]] = None
-  ): software.amazon.awscdk.services.ecs.CfnService.AwsVpcConfigurationProperty =
-    (new software.amazon.awscdk.services.ecs.CfnService.AwsVpcConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.ecs.CfnTaskSet.AwsVpcConfigurationProperty =
+    (new software.amazon.awscdk.services.ecs.CfnTaskSet.AwsVpcConfigurationProperty.Builder)
       .subnets(subnets.asJava)
       .assignPublicIp(assignPublicIp.orNull)
       .securityGroups(securityGroups.map(_.asJava).orNull)

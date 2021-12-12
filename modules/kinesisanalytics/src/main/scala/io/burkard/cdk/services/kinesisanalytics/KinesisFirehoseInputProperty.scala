@@ -4,9 +4,11 @@ package io.burkard.cdk.services.kinesisanalytics
 object KinesisFirehoseInputProperty {
 
   def apply(
-    resourceArn: String
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.KinesisFirehoseInputProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationV2.KinesisFirehoseInputProperty.Builder)
+    resourceArn: String,
+    roleArn: String
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.KinesisFirehoseInputProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.KinesisFirehoseInputProperty.Builder)
       .resourceArn(resourceArn)
+      .roleArn(roleArn)
       .build()
 }

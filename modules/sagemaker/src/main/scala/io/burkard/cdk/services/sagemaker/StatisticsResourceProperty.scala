@@ -5,8 +5,8 @@ object StatisticsResourceProperty {
 
   def apply(
     s3Uri: Option[String] = None
-  ): software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.StatisticsResourceProperty =
-    (new software.amazon.awscdk.services.sagemaker.CfnMonitoringSchedule.StatisticsResourceProperty.Builder)
+  ): software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.StatisticsResourceProperty =
+    (new software.amazon.awscdk.services.sagemaker.CfnDataQualityJobDefinition.StatisticsResourceProperty.Builder)
       .s3Uri(s3Uri.orNull)
       .build()
 }

@@ -4,10 +4,10 @@ package io.burkard.cdk.services.emr
 object InstanceFleetProvisioningSpecificationsProperty {
 
   def apply(
-    spotSpecification: Option[software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty] = None,
-    onDemandSpecification: Option[software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.OnDemandProvisioningSpecificationProperty] = None
-  ): software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.InstanceFleetProvisioningSpecificationsProperty =
-    (new software.amazon.awscdk.services.emr.CfnInstanceFleetConfig.InstanceFleetProvisioningSpecificationsProperty.Builder)
+    spotSpecification: Option[software.amazon.awscdk.services.emr.CfnCluster.SpotProvisioningSpecificationProperty] = None,
+    onDemandSpecification: Option[software.amazon.awscdk.services.emr.CfnCluster.OnDemandProvisioningSpecificationProperty] = None
+  ): software.amazon.awscdk.services.emr.CfnCluster.InstanceFleetProvisioningSpecificationsProperty =
+    (new software.amazon.awscdk.services.emr.CfnCluster.InstanceFleetProvisioningSpecificationsProperty.Builder)
       .spotSpecification(spotSpecification.orNull)
       .onDemandSpecification(onDemandSpecification.orNull)
       .build()

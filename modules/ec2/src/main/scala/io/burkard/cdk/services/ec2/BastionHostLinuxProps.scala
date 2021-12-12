@@ -8,9 +8,11 @@ object BastionHostLinuxProps {
 
   def apply(
     vpc: software.amazon.awscdk.services.ec2.IVpc,
+    initOptions: Option[software.amazon.awscdk.services.ec2.ApplyCloudFormationInitOptions] = None,
     blockDevices: Option[List[_ <: software.amazon.awscdk.services.ec2.BlockDevice]] = None,
     machineImage: Option[software.amazon.awscdk.services.ec2.IMachineImage] = None,
     availabilityZone: Option[String] = None,
+    init: Option[software.amazon.awscdk.services.ec2.CloudFormationInit] = None,
     instanceType: Option[software.amazon.awscdk.services.ec2.InstanceType] = None,
     subnetSelection: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     securityGroup: Option[software.amazon.awscdk.services.ec2.ISecurityGroup] = None,
@@ -18,9 +20,11 @@ object BastionHostLinuxProps {
   ): software.amazon.awscdk.services.ec2.BastionHostLinuxProps =
     (new software.amazon.awscdk.services.ec2.BastionHostLinuxProps.Builder)
       .vpc(vpc)
+      .initOptions(initOptions.orNull)
       .blockDevices(blockDevices.map(_.asJava).orNull)
       .machineImage(machineImage.orNull)
       .availabilityZone(availabilityZone.orNull)
+      .init(init.orNull)
       .instanceType(instanceType.orNull)
       .subnetSelection(subnetSelection.orNull)
       .securityGroup(securityGroup.orNull)

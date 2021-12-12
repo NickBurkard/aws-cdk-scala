@@ -5,14 +5,10 @@ object LoRaWANProperty {
 
   def apply(
     rfRegion: String,
-    dlClass: String,
-    numberOfDevicesRequested: Option[Number] = None,
-    numberOfDevicesInGroup: Option[Number] = None
-  ): software.amazon.awscdk.services.iotwireless.CfnMulticastGroup.LoRaWANProperty =
-    (new software.amazon.awscdk.services.iotwireless.CfnMulticastGroup.LoRaWANProperty.Builder)
+    startTime: Option[String] = None
+  ): software.amazon.awscdk.services.iotwireless.CfnFuotaTask.LoRaWANProperty =
+    (new software.amazon.awscdk.services.iotwireless.CfnFuotaTask.LoRaWANProperty.Builder)
       .rfRegion(rfRegion)
-      .dlClass(dlClass)
-      .numberOfDevicesRequested(numberOfDevicesRequested.orNull)
-      .numberOfDevicesInGroup(numberOfDevicesInGroup.orNull)
+      .startTime(startTime.orNull)
       .build()
 }

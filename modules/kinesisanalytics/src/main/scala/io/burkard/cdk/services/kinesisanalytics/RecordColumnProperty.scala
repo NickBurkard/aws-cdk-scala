@@ -7,8 +7,8 @@ object RecordColumnProperty {
     name: String,
     sqlType: String,
     mapping: Option[String] = None
-  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplication.RecordColumnProperty =
-    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplication.RecordColumnProperty.Builder)
+  ): software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordColumnProperty =
+    (new software.amazon.awscdk.services.kinesisanalytics.CfnApplicationReferenceDataSource.RecordColumnProperty.Builder)
       .name(name)
       .sqlType(sqlType)
       .mapping(mapping.orNull)

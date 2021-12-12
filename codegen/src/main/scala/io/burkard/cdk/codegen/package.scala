@@ -19,13 +19,21 @@ package object codegen {
     List(
       ServiceRegex -> { m =>
         if (m.group(1) == null) {
-          s"io.burkard.cdk.${m.group(2)}"
+          val second = m.group(2)
+          if (CoreOverrides.contains(second)) {
+            s"io.burkard.cdk.core.$second"
+          } else {
+            s"io.burkard.cdk.$second"
+          }
         } else {
           s"io.burkard.cdk.services.${m.group(2)}"
         }
       },
       CoreRegex -> { _ => "io.burkard.cdk.core" }
     )
+
+  // Package names that must be in `core` module.
+  val CoreOverrides: Set[String] = Set("assertions")
 
   // Potentially rename a package.
   def renamePackage(name: String): String =

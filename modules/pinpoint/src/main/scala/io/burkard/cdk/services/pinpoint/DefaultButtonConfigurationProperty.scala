@@ -10,8 +10,8 @@ object DefaultButtonConfigurationProperty {
     link: Option[String] = None,
     text: Option[String] = None,
     borderRadius: Option[Number] = None
-  ): software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.DefaultButtonConfigurationProperty =
-    (new software.amazon.awscdk.services.pinpoint.CfnInAppTemplate.DefaultButtonConfigurationProperty.Builder)
+  ): software.amazon.awscdk.services.pinpoint.CfnCampaign.DefaultButtonConfigurationProperty =
+    (new software.amazon.awscdk.services.pinpoint.CfnCampaign.DefaultButtonConfigurationProperty.Builder)
       .backgroundColor(backgroundColor.orNull)
       .buttonAction(buttonAction.orNull)
       .textColor(textColor.orNull)

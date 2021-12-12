@@ -10,6 +10,7 @@ object BucketDeployment {
     internalResourceId: String,
     sources: List[_ <: software.amazon.awscdk.services.s3.deployment.ISource],
     destinationBucket: software.amazon.awscdk.services.s3.IBucket,
+    logRetention: Option[software.amazon.awscdk.services.logs.RetentionDays] = None,
     retainOnDelete: Option[Boolean] = None,
     contentLanguage: Option[String] = None,
     serverSideEncryptionAwsKmsKeyId: Option[String] = None,
@@ -40,6 +41,7 @@ object BucketDeployment {
       .create(stackCtx, internalResourceId)
       .sources(sources.asJava)
       .destinationBucket(destinationBucket)
+      .logRetention(logRetention.orNull)
       .retainOnDelete(retainOnDelete.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .contentLanguage(contentLanguage.orNull)
       .serverSideEncryptionAwsKmsKeyId(serverSideEncryptionAwsKmsKeyId.orNull)

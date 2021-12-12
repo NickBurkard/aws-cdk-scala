@@ -6,8 +6,8 @@ object MemoryGiBPerVCpuRequestProperty {
   def apply(
     min: Option[Number] = None,
     max: Option[Number] = None
-  ): software.amazon.awscdk.services.ec2.CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty =
-    (new software.amazon.awscdk.services.ec2.CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnSpotFleet.MemoryGiBPerVCpuRequestProperty =
+    (new software.amazon.awscdk.services.ec2.CfnSpotFleet.MemoryGiBPerVCpuRequestProperty.Builder)
       .min(min.orNull)
       .max(max.orNull)
       .build()

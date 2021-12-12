@@ -7,12 +7,14 @@ object SqsEventSource {
     queue: software.amazon.awscdk.services.sqs.IQueue,
     batchSize: Option[Number] = None,
     enabled: Option[Boolean] = None,
-    maxBatchingWindow: Option[software.amazon.awscdk.Duration] = None
+    maxBatchingWindow: Option[software.amazon.awscdk.Duration] = None,
+    reportBatchItemFailures: Option[Boolean] = None
   ): software.amazon.awscdk.services.lambda.eventsources.SqsEventSource =
     software.amazon.awscdk.services.lambda.eventsources.SqsEventSource.Builder
       .create(queue)
       .batchSize(batchSize.orNull)
       .enabled(enabled.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .maxBatchingWindow(maxBatchingWindow.orNull)
+      .reportBatchItemFailures(reportBatchItemFailures.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .build()
 }

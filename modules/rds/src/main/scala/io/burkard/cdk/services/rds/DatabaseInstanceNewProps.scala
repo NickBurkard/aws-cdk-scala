@@ -15,7 +15,6 @@ object DatabaseInstanceNewProps {
     instanceIdentifier: Option[String] = None,
     availabilityZone: Option[String] = None,
     storageType: Option[software.amazon.awscdk.services.rds.StorageType] = None,
-    vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     cloudwatchLogsExports: Option[List[String]] = None,
     port: Option[Number] = None,
     iops: Option[Number] = None,
@@ -34,6 +33,8 @@ object DatabaseInstanceNewProps {
     s3ImportRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
     maxAllocatedStorage: Option[Number] = None,
     monitoringRole: Option[software.amazon.awscdk.services.iam.IRole] = None,
+    parameterGroup: Option[software.amazon.awscdk.services.rds.IParameterGroup] = None,
+    vpcSubnets: Option[software.amazon.awscdk.services.ec2.SubnetSelection] = None,
     deletionProtection: Option[Boolean] = None,
     copyTagsToSnapshot: Option[Boolean] = None,
     deleteAutomatedBackups: Option[Boolean] = None,
@@ -54,7 +55,6 @@ object DatabaseInstanceNewProps {
       .instanceIdentifier(instanceIdentifier.orNull)
       .availabilityZone(availabilityZone.orNull)
       .storageType(storageType.orNull)
-      .vpcSubnets(vpcSubnets.orNull)
       .cloudwatchLogsExports(cloudwatchLogsExports.map(_.asJava).orNull)
       .port(port.orNull)
       .iops(iops.orNull)
@@ -73,6 +73,8 @@ object DatabaseInstanceNewProps {
       .s3ImportRole(s3ImportRole.orNull)
       .maxAllocatedStorage(maxAllocatedStorage.orNull)
       .monitoringRole(monitoringRole.orNull)
+      .parameterGroup(parameterGroup.orNull)
+      .vpcSubnets(vpcSubnets.orNull)
       .deletionProtection(deletionProtection.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .copyTagsToSnapshot(copyTagsToSnapshot.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .deleteAutomatedBackups(deleteAutomatedBackups.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))

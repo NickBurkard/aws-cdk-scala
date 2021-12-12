@@ -5,8 +5,8 @@ object CreditSpecificationProperty {
 
   def apply(
     cpuCredits: Option[String] = None
-  ): software.amazon.awscdk.services.ec2.CfnLaunchTemplate.CreditSpecificationProperty =
-    (new software.amazon.awscdk.services.ec2.CfnLaunchTemplate.CreditSpecificationProperty.Builder)
+  ): software.amazon.awscdk.services.ec2.CfnInstance.CreditSpecificationProperty =
+    (new software.amazon.awscdk.services.ec2.CfnInstance.CreditSpecificationProperty.Builder)
       .cpuCredits(cpuCredits.orNull)
       .build()
 }

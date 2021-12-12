@@ -9,7 +9,6 @@ object UserPool {
   def apply(
     internalResourceId: String,
     autoVerify: Option[software.amazon.awscdk.services.cognito.AutoVerifiedAttrs] = None,
-    passwordPolicy: Option[software.amazon.awscdk.services.cognito.PasswordPolicy] = None,
     mfaMessage: Option[String] = None,
     enableSmsRole: Option[Boolean] = None,
     signInCaseSensitive: Option[Boolean] = None,
@@ -21,6 +20,8 @@ object UserPool {
     removalPolicy: Option[software.amazon.awscdk.RemovalPolicy] = None,
     email: Option[software.amazon.awscdk.services.cognito.UserPoolEmail] = None,
     userVerification: Option[software.amazon.awscdk.services.cognito.UserVerificationConfig] = None,
+    customSenderKmsKey: Option[software.amazon.awscdk.services.kms.IKey] = None,
+    passwordPolicy: Option[software.amazon.awscdk.services.cognito.PasswordPolicy] = None,
     standardAttributes: Option[software.amazon.awscdk.services.cognito.StandardAttributes] = None,
     mfaSecondFactor: Option[software.amazon.awscdk.services.cognito.MfaSecondFactor] = None,
     userInvitation: Option[software.amazon.awscdk.services.cognito.UserInvitationConfig] = None,
@@ -33,7 +34,6 @@ object UserPool {
     software.amazon.awscdk.services.cognito.UserPool.Builder
       .create(stackCtx, internalResourceId)
       .autoVerify(autoVerify.orNull)
-      .passwordPolicy(passwordPolicy.orNull)
       .mfaMessage(mfaMessage.orNull)
       .enableSmsRole(enableSmsRole.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .signInCaseSensitive(signInCaseSensitive.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
@@ -45,6 +45,8 @@ object UserPool {
       .removalPolicy(removalPolicy.orNull)
       .email(email.orNull)
       .userVerification(userVerification.orNull)
+      .customSenderKmsKey(customSenderKmsKey.orNull)
+      .passwordPolicy(passwordPolicy.orNull)
       .standardAttributes(standardAttributes.orNull)
       .mfaSecondFactor(mfaSecondFactor.orNull)
       .userInvitation(userInvitation.orNull)

@@ -7,8 +7,8 @@ object GeoLocationProperty {
     continentCode: Option[String] = None,
     countryCode: Option[String] = None,
     subdivisionCode: Option[String] = None
-  ): software.amazon.awscdk.services.route53.CfnRecordSetGroup.GeoLocationProperty =
-    (new software.amazon.awscdk.services.route53.CfnRecordSetGroup.GeoLocationProperty.Builder)
+  ): software.amazon.awscdk.services.route53.CfnRecordSet.GeoLocationProperty =
+    (new software.amazon.awscdk.services.route53.CfnRecordSet.GeoLocationProperty.Builder)
       .continentCode(continentCode.orNull)
       .countryCode(countryCode.orNull)
       .subdivisionCode(subdivisionCode.orNull)

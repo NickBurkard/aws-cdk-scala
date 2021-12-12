@@ -8,6 +8,9 @@ object Operation {
   implicit def toAws(value: Operation): software.amazon.awscdk.services.dynamodb.Operation =
     Option(value).map(_.underlying).orNull
 
+  case object BatchExecuteStatement
+    extends Operation(software.amazon.awscdk.services.dynamodb.Operation.BATCH_EXECUTE_STATEMENT)
+
   case object BatchGetItem
     extends Operation(software.amazon.awscdk.services.dynamodb.Operation.BATCH_GET_ITEM)
 
@@ -16,6 +19,12 @@ object Operation {
 
   case object DeleteItem
     extends Operation(software.amazon.awscdk.services.dynamodb.Operation.DELETE_ITEM)
+
+  case object ExecuteStatement
+    extends Operation(software.amazon.awscdk.services.dynamodb.Operation.EXECUTE_STATEMENT)
+
+  case object ExecuteTransaction
+    extends Operation(software.amazon.awscdk.services.dynamodb.Operation.EXECUTE_TRANSACTION)
 
   case object GetItem
     extends Operation(software.amazon.awscdk.services.dynamodb.Operation.GET_ITEM)
@@ -31,6 +40,12 @@ object Operation {
 
   case object Scan
     extends Operation(software.amazon.awscdk.services.dynamodb.Operation.SCAN)
+
+  case object TransactGetItems
+    extends Operation(software.amazon.awscdk.services.dynamodb.Operation.TRANSACT_GET_ITEMS)
+
+  case object TransactWriteItems
+    extends Operation(software.amazon.awscdk.services.dynamodb.Operation.TRANSACT_WRITE_ITEMS)
 
   case object UpdateItem
     extends Operation(software.amazon.awscdk.services.dynamodb.Operation.UPDATE_ITEM)

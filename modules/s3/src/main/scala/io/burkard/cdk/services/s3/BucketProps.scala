@@ -9,6 +9,7 @@ object BucketProps {
   def apply(
     websiteIndexDocument: Option[String] = None,
     lifecycleRules: Option[List[_ <: software.amazon.awscdk.services.s3.LifecycleRule]] = None,
+    transferAcceleration: Option[Boolean] = None,
     accessControl: Option[software.amazon.awscdk.services.s3.BucketAccessControl] = None,
     serverAccessLogsPrefix: Option[String] = None,
     cors: Option[List[_ <: software.amazon.awscdk.services.s3.CorsRule]] = None,
@@ -33,6 +34,7 @@ object BucketProps {
     (new software.amazon.awscdk.services.s3.BucketProps.Builder)
       .websiteIndexDocument(websiteIndexDocument.orNull)
       .lifecycleRules(lifecycleRules.map(_.asJava).orNull)
+      .transferAcceleration(transferAcceleration.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
       .accessControl(accessControl.orNull)
       .serverAccessLogsPrefix(serverAccessLogsPrefix.orNull)
       .cors(cors.map(_.asJava).orNull)
