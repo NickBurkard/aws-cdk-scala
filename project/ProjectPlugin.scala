@@ -27,12 +27,6 @@ object ProjectPlugin extends AutoPlugin {
           )
         )
 
-      def withGuava(): Project =
-        project.settings(libraryDependencies += Dependencies.Google.guava)
-
-      def withScalatest(): Project =
-        project.settings(libraryDependencies += Dependencies.scalatest)
-
       def withCodegen(): Project = {
         val cdkSourceGenerator = taskKey[Seq[File]]("generate AWS CDK source files")
         project.settings(
