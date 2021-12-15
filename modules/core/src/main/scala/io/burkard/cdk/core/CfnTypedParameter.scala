@@ -3,6 +3,8 @@ package io.burkard.cdk.core
 import scala.annotation.nowarn
 import scala.collection.JavaConverters._
 
+import software.amazon.awscdk.CfnParameter
+
 // CFN parameter with type safety.
 sealed abstract class CfnTypedParameter(val name: String)(implicit
   val stackCtx: software.amazon.awscdk.Stack
@@ -11,7 +13,9 @@ sealed abstract class CfnTypedParameter(val name: String)(implicit
 
   def value: Value
 
-  def underlying: software.amazon.awscdk.CfnParameter
+  def `type`: String
+
+  def underlying: CfnParameter
 }
 
 @nowarn("cat=deprecation")
@@ -31,21 +35,20 @@ object CfnTypedParameter {
 
     override def value: String = underlying.getValueAsString
 
-    override val underlying: software.amazon.awscdk.CfnParameter =
-      CfnParameter(
-        name,
-        minValue = None,
-        minLength,
-        defaultValue,
-        maxLength,
-        allowedPattern,
-        noEcho,
-        constraintDescription,
-        description,
-        allowedValues,
-        maxValue = None,
-        `type` = Some("String")
-      )
+    override val `type` = "String"
+
+    override val underlying: CfnParameter = CfnParameter.Builder
+      .create(stackCtx, name)
+      .minLength(minLength.orNull)
+      .defaultValue(defaultValue.orNull)
+      .maxLength(maxLength.orNull)
+      .allowedPattern(allowedPattern.orNull)
+      .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .constraintDescription(constraintDescription.orNull)
+      .description(description.orNull)
+      .allowedValues(allowedValues.map(_.asJava).orNull)
+      .`type`(`type`)
+      .build()
   }
 
   final case class CfnNumberParameter(
@@ -62,21 +65,19 @@ object CfnTypedParameter {
 
     override def value: Number = underlying.getValueAsNumber
 
-    override val underlying: software.amazon.awscdk.CfnParameter =
-      CfnParameter(
-        name,
-        minValue,
-        minLength = None,
-        defaultValue,
-        maxLength = None,
-        allowedPattern = None,
-        noEcho,
-        constraintDescription,
-        description,
-        allowedValues,
-        maxValue,
-        `type` = Some("Number")
-      )
+    override def `type`: String = "Number"
+
+    override val underlying: CfnParameter = CfnParameter.Builder
+      .create(stackCtx, name)
+      .minValue(minValue.orNull)
+      .defaultValue(defaultValue.orNull)
+      .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .constraintDescription(constraintDescription.orNull)
+      .description(description.orNull)
+      .allowedValues(allowedValues.map(_.asJava).orNull)
+      .maxValue(maxValue.orNull)
+      .`type`(`type`)
+      .build()
   }
 
   final case class CfnListNumberParameter(
@@ -93,21 +94,19 @@ object CfnTypedParameter {
 
     override def value: List[String] = underlying.getValueAsList.asScala.toList
 
-    override val underlying: software.amazon.awscdk.CfnParameter =
-      CfnParameter(
-        name,
-        minValue,
-        minLength = None,
-        defaultValue,
-        maxLength = None,
-        allowedPattern = None,
-        noEcho,
-        constraintDescription,
-        description,
-        allowedValues,
-        maxValue,
-        `type` = Some("List<Number>")
-      )
+    override def `type`: String = "List<Number>"
+
+    override val underlying: CfnParameter = CfnParameter.Builder
+      .create(stackCtx, name)
+      .minValue(minValue.orNull)
+      .defaultValue(defaultValue.orNull)
+      .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .constraintDescription(constraintDescription.orNull)
+      .description(description.orNull)
+      .allowedValues(allowedValues.map(_.asJava).orNull)
+      .maxValue(maxValue.orNull)
+      .`type`(`type`)
+      .build()
   }
 
   final case class CfnCommaDelimitedListParameter(
@@ -125,20 +124,19 @@ object CfnTypedParameter {
 
     override def value: List[String] = underlying.getValueAsList.asScala.toList
 
-    override val underlying: software.amazon.awscdk.CfnParameter =
-      CfnParameter(
-        name,
-        minValue = None,
-        minLength,
-        defaultValue,
-        maxLength,
-        allowedPattern,
-        noEcho,
-        constraintDescription,
-        description,
-        allowedValues,
-        maxValue = None,
-        `type` = Some("CommaDelimitedList")
-      )
+    override def `type`: String = "CommaDelimitedList"
+
+    override val underlying: CfnParameter = CfnParameter.Builder
+      .create(stackCtx, name)
+      .minLength(minLength.orNull)
+      .defaultValue(defaultValue.orNull)
+      .maxLength(maxLength.orNull)
+      .allowedPattern(allowedPattern.orNull)
+      .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+      .constraintDescription(constraintDescription.orNull)
+      .description(description.orNull)
+      .allowedValues(allowedValues.map(_.asJava).orNull)
+      .`type`(`type`)
+      .build()
   }
 }

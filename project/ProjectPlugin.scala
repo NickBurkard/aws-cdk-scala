@@ -18,9 +18,7 @@ object ProjectPlugin extends AutoPlugin {
   )
 
   object ThingsToAutoImport {
-
     final implicit class ProjectOps(private val project: Project) extends AnyVal {
-
       def withCdk(): Project =
         project.settings(
           libraryDependencies ++= Seq(
@@ -34,6 +32,17 @@ object ProjectPlugin extends AutoPlugin {
 
       def withScalatest(): Project =
         project.settings(libraryDependencies += Dependencies.scalatest)
+
+      def withCodegen(): Project = {
+        val cdkSourceGenerator = taskKey[Seq[File]]("generate AWS CDK source files")
+        project.settings(
+          Compile / cdkSourceGenerator := ServiceCodegen(
+            moduleName.value.stripPrefix("aws-cdk-scala-"),
+            (Compile / sourceManaged).value
+          ),
+          Compile / sourceGenerators += (Compile / cdkSourceGenerator)
+        )
+      }
 
       def disablePublishing(): Project =
         project.settings(
