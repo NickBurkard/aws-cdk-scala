@@ -129,7 +129,6 @@ lazy val awsCdkScala = project
     kms,
     lakeformation,
     lambda,
-    lambdalayer,
     licensemanager,
     lightsail,
     location,
@@ -163,7 +162,6 @@ lazy val awsCdkScala = project
     ram,
     rds,
     redshift,
-    regioninfo,
     rekognition,
     resourcegroups,
     robomaker,
@@ -980,13 +978,6 @@ lazy val lambda = project
   .withCdk()
   .enablePublishing()
 
-lazy val lambdalayer = project
-  .in(file("modules/lambdalayer"))
-  .dependsOn(core)
-  .withCodegen()
-  .withCdk()
-  .enablePublishing()
-
 lazy val licensemanager = project
   .in(file("modules/licensemanager"))
   .dependsOn(core)
@@ -1213,13 +1204,6 @@ lazy val rds = project
 
 lazy val redshift = project
   .in(file("modules/redshift"))
-  .dependsOn(core)
-  .withCodegen()
-  .withCdk()
-  .enablePublishing()
-
-lazy val regioninfo = project
-  .in(file("modules/regioninfo"))
   .dependsOn(core)
   .withCodegen()
   .withCdk()

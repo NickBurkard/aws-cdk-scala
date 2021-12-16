@@ -49,6 +49,37 @@ object codegen {
       "val", "var", "while", "with", "yield"
     )
 
+  // Services which have no classes to generate code for.
+  val IgnoredAwsServiceNames: Set[String] =
+    Set("lambdalayer", "regioninfo")
+
+  val KnownAwsServiceNames: Set[String] =
+    Set(
+      "accessanalyzer", "acmpca", "alexa", "amazonmq", "amplify", "apigateway", "apigatewayv2", "appconfig", "appflow",
+      "appintegrations", "applicationautoscaling", "applicationinsights", "appmesh", "apprunner", "appstream",
+      "appsync", "aps", "athena", "auditmanager", "autoscaling", "autoscalingplans", "backup", "batch", "budgets",
+      "cassandra", "ce", "certificatemanager", "chatbot", "cloud9", "cloudassembly", "cloudformation", "cloudfront",
+      "cloudtrail", "cloudwatch", "codeartifact", "codebuild", "codecommit", "codedeploy", "codeguruprofiler",
+      "codegurureviewer", "codepipeline", "codestar", "codestarconnections", "codestarnotifications", "cognito",
+      "config", "connect", "core", "cur", "customerprofiles", "customresources", "cxapi", "databrew", "datapipeline",
+      "datasync", "dax", "detective", "devopsguru", "directoryservice", "dlm", "dms", "docdb", "dynamodb", "ec2",
+      "ecr", "ecs", "efs", "eks", "elasticache", "elasticbeanstalk", "elasticloadbalancing", "elasticloadbalancingv2",
+      "elasticsearch", "emr", "emrcontainers", "events", "eventschemas", "finspace", "fis", "fms", "frauddetector",
+      "fsx", "gamelift", "globalaccelerator", "glue", "greengrass", "greengrassv2", "groundstation", "guardduty",
+      "healthlake", "iam", "imagebuilder", "inspector", "iot", "iot1click", "iotanalytics", "iotcoredeviceadvisor",
+      "iotevents", "iotfleethub", "iotsitewise", "iotthingsgraph", "iotwireless", "ivs", "kendra", "kinesis",
+      "kinesisanalytics", "kinesisfirehose", "kms", "lakeformation", "lambda", "licensemanager",
+      "lightsail", "location", "logs", "lookoutequipment", "lookoutmetrics", "lookoutvision", "macie",
+      "managedblockchain", "mediaconnect", "mediaconvert", "medialive", "mediapackage", "mediastore",
+      "memorydb", "msk", "mwaa", "neptune", "networkfirewall", "networkmanager", "nimblestudio", "opensearchservice",
+      "opsworks", "opsworkscm", "panorama", "pinpoint", "pinpointemail", "pipelines", "qldb", "quicksight", "ram",
+      "rds", "redshift", "rekognition", "resourcegroups", "robomaker", "route53",
+      "route53recoverycontrol", "route53recoveryreadiness", "route53resolver", "s3", "s3objectlambda", "s3outposts",
+      "sagemaker", "sam", "sdb", "secretsmanager", "securityhub", "servicecatalog", "servicecatalogappregistry",
+      "servicediscovery", "ses", "signer", "sns", "sqs", "ssm", "ssmcontacts", "ssmincidents", "sso", "stepfunctions",
+      "synthetics", "timestream", "transfer", "waf", "wafv2", "wisdom", "workspaces", "xray"
+    )
+
   // Literally identify reserved words.
   def literallyIdentify(name: String): String =
     if (scala2ReservedWords.contains(name)) {
