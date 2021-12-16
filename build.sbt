@@ -24,6 +24,7 @@ lazy val awsCdkScala = project
     alexa,
     amazonmq,
     amplify,
+    amplifyuibuilder,
     apigateway,
     apigatewayv2,
     appconfig,
@@ -96,6 +97,7 @@ lazy val awsCdkScala = project
     emrcontainers,
     events,
     eventschemas,
+    evidently,
     finspace,
     fis,
     fms,
@@ -129,7 +131,7 @@ lazy val awsCdkScala = project
     kms,
     lakeformation,
     lambda,
-    lambdalayer,
+    lex,
     licensemanager,
     lightsail,
     location,
@@ -163,14 +165,16 @@ lazy val awsCdkScala = project
     ram,
     rds,
     redshift,
-    regioninfo,
+    refactorspaces,
     rekognition,
+    resiliencehub,
     resourcegroups,
     robomaker,
     route53,
     route53recoverycontrol,
     route53recoveryreadiness,
     route53resolver,
+    rum,
     s3,
     s3objectlambda,
     s3outposts,
@@ -241,6 +245,13 @@ lazy val amazonmq = project
 
 lazy val amplify = project
   .in(file("modules/amplify"))
+  .dependsOn(core)
+  .withCodegen()
+  .withCdk()
+  .enablePublishing()
+
+lazy val amplifyuibuilder = project
+  .in(file("modules/amplifyuibuilder"))
   .dependsOn(core)
   .withCodegen()
   .withCdk()
@@ -749,6 +760,13 @@ lazy val eventschemas = project
   .withCdk()
   .enablePublishing()
 
+lazy val evidently = project
+  .in(file("modules/evidently"))
+  .dependsOn(core)
+  .withCodegen()
+  .withCdk()
+  .enablePublishing()
+
 lazy val finspace = project
   .in(file("modules/finspace"))
   .dependsOn(core)
@@ -980,8 +998,8 @@ lazy val lambda = project
   .withCdk()
   .enablePublishing()
 
-lazy val lambdalayer = project
-  .in(file("modules/lambdalayer"))
+lazy val lex = project
+  .in(file("modules/lex"))
   .dependsOn(core)
   .withCodegen()
   .withCdk()
@@ -1218,8 +1236,8 @@ lazy val redshift = project
   .withCdk()
   .enablePublishing()
 
-lazy val regioninfo = project
-  .in(file("modules/regioninfo"))
+lazy val refactorspaces = project
+  .in(file("modules/refactorspaces"))
   .dependsOn(core)
   .withCodegen()
   .withCdk()
@@ -1227,6 +1245,13 @@ lazy val regioninfo = project
 
 lazy val rekognition = project
   .in(file("modules/rekognition"))
+  .dependsOn(core)
+  .withCodegen()
+  .withCdk()
+  .enablePublishing()
+
+lazy val resiliencehub = project
+  .in(file("modules/resiliencehub"))
   .dependsOn(core)
   .withCodegen()
   .withCdk()
@@ -1269,6 +1294,13 @@ lazy val route53recoveryreadiness = project
 
 lazy val route53resolver = project
   .in(file("modules/route53resolver"))
+  .dependsOn(core)
+  .withCodegen()
+  .withCdk()
+  .enablePublishing()
+
+lazy val rum = project
+  .in(file("modules/rum"))
   .dependsOn(core)
   .withCodegen()
   .withCdk()
