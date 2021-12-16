@@ -16,6 +16,8 @@ object ServiceCodegen extends ((String, File) => Seq[File]) {
         } else {
           Nil
         }
+      } else if (IgnoredAwsServiceNames.contains(name)) {
+        Nil
       } else {
         // Compilation must fail if an unrecognized AWS service is found on the classpath.
         sys.error(s"Unknown AWS service $name with ${classes.length} classes, consider adding as a new module")
