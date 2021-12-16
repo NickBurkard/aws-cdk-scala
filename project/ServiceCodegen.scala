@@ -26,7 +26,7 @@ object ServiceCodegen extends ((String, File) => Seq[File]) {
     if (files.nonEmpty) {
       files
     } else {
-      sys.error(s"Known AWS service $name has zero classes, consider removing as a module")
+      sys.error(s"Known AWS service $moduleName has zero classes, consider removing as a module")
     }
   }
 
