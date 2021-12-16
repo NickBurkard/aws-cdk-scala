@@ -73,8 +73,8 @@ object codegen {
       "managedblockchain", "mediaconnect", "mediaconvert", "medialive", "mediapackage", "mediastore",
       "memorydb", "msk", "mwaa", "neptune", "networkfirewall", "networkmanager", "nimblestudio", "opensearchservice",
       "opsworks", "opsworkscm", "panorama", "pinpoint", "pinpointemail", "pipelines", "qldb", "quicksight", "ram",
-      "rds", "redshift", "rekognition", "resourcegroups", "robomaker", "route53",
-      "route53recoverycontrol", "route53recoveryreadiness", "route53resolver", "s3", "s3objectlambda", "s3outposts",
+      "rds", "redshift", "rekognition", "resourcegroups", "robomaker", "route53", "route53recoverycontrol",
+      "route53recoveryreadiness", "route53resolver", "rum", "s3", "s3objectlambda", "s3outposts",
       "sagemaker", "sam", "sdb", "secretsmanager", "securityhub", "servicecatalog", "servicecatalogappregistry",
       "servicediscovery", "ses", "signer", "sns", "sqs", "ssm", "ssmcontacts", "ssmincidents", "sso", "stepfunctions",
       "synthetics", "timestream", "transfer", "waf", "wafv2", "wisdom", "workspaces", "xray"

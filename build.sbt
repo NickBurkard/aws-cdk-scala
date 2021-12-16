@@ -169,6 +169,7 @@ lazy val awsCdkScala = project
     route53recoverycontrol,
     route53recoveryreadiness,
     route53resolver,
+    rum,
     s3,
     s3objectlambda,
     s3outposts,
@@ -1253,6 +1254,13 @@ lazy val route53recoveryreadiness = project
 
 lazy val route53resolver = project
   .in(file("modules/route53resolver"))
+  .dependsOn(core)
+  .withCodegen()
+  .withCdk()
+  .enablePublishing()
+
+lazy val rum = project
+  .in(file("modules/rum"))
   .dependsOn(core)
   .withCodegen()
   .withCdk()
