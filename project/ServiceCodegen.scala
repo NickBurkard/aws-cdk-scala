@@ -8,7 +8,7 @@ import com.google.common.reflect.ClassPath
 import codegen._
 
 object ServiceCodegen extends ((String, File) => Seq[File]) {
-  override def apply(moduleName: String, root: File): Seq[sbt.File] = {
+  override def apply(moduleName: String, root: File): Seq[File] = {
     val files = classes.toList.flatMap { case (name, classes) =>
       if (KnownAwsServiceNames.contains(name)) {
         if (name == moduleName) {
