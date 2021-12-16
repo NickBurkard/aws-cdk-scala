@@ -9,18 +9,23 @@ import codegen._
 
 object ServiceCodegen extends ((String, File) => Seq[File]) {
   override def apply(moduleName: String, root: File): Seq[File] = {
+    val classes = awsClasses
+    val unsupported = classes
+      .collect {
+        case (name, _) if !(KnownAwsServiceNames.contains(name) || IgnoredAwsServiceNames.contains(name)) =>
+          name
+      }
+      .toSet
+
+    if (unsupported.nonEmpty) {
+      sys.error(s"""Unknown AWS service(s) found, consider adding as module(s): ${unsupported.mkString(", ")}""")
+    }
+
     val files = classes.toList.flatMap { case (name, classes) =>
-      if (KnownAwsServiceNames.contains(name)) {
-        if (name == moduleName) {
-          classes.flatMap(c => toFile(moduleName, root, c.load()))
-        } else {
-          Nil
-        }
-      } else if (IgnoredAwsServiceNames.contains(name)) {
-        Nil
+      if (KnownAwsServiceNames.contains(name) && name == moduleName) {
+        classes.flatMap(c => toFile(moduleName, root, c.load()))
       } else {
-        // Compilation must fail if an unrecognized AWS service is found on the classpath.
-        sys.error(s"Unknown AWS service $name with ${classes.length} classes, consider adding as a new module")
+        Nil
       }
     }
 
@@ -43,7 +48,7 @@ object ServiceCodegen extends ((String, File) => Seq[File]) {
       )
 
   @nowarn("cat=deprecation")
-  private[this] def classes: Map[String, List[ClassPath.ClassInfo]] =
+  private[this] def awsClasses: Map[String, List[ClassPath.ClassInfo]] =
     ClassPath
       .from(getClass.getClassLoader)
       .getAllClasses
