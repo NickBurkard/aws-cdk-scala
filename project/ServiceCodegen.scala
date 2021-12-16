@@ -8,8 +8,8 @@ import com.google.common.reflect.ClassPath
 import codegen._
 
 object ServiceCodegen extends ((String, File) => Seq[File]) {
-  override def apply(moduleName: String, root: File): Seq[sbt.File] =
-    classes.toList.flatMap { case (name, classes) =>
+  override def apply(moduleName: String, root: File): Seq[sbt.File] = {
+    val files = classes.toList.flatMap { case (name, classes) =>
       if (KnownAwsServiceNames.contains(name)) {
         if (name == moduleName) {
           classes.flatMap(c => toFile(moduleName, root, c.load()))
@@ -21,6 +21,14 @@ object ServiceCodegen extends ((String, File) => Seq[File]) {
         sys.error(s"Unknown AWS service $name with ${classes.length} classes, consider adding as a new module")
       }
     }
+
+    // There must be at least one file generated for the service.
+    if (files.nonEmpty) {
+      files
+    } else {
+      sys.error(s"Known AWS service $name has zero classes, consider removing as a module")
+    }
+  }
 
   private[this] def toFile(serviceName: String, root: File, underlying: Class[_]): Option[File] =
     CdkBuilder
