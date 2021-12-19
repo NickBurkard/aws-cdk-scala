@@ -35,13 +35,9 @@ object ProjectPlugin extends AutoPlugin {
             (Compile / sourceManaged).value
           ),
           Compile / sourceGenerators += (Compile / cdkSourceGenerator),
-          // https://github.com/sbt/sbt/issues/2205#issuecomment-144375501
           Compile / packageSrc / mappings ++= {
-            import Path._
-            val sources = (Compile / managedSources).value
-            val sourceDirectories = (Compile / managedSourceDirectories).value
-            val base = baseDirectory.value
-            (sources --- sourceDirectories --- base) pair (relativeTo(sourceDirectories) | relativeTo(base) | flat)
+            val base = (Compile / sourceManaged).value
+            (Compile / managedSources).value.map(file => file -> file.relativeTo(base).get.getPath)
           }
         )
       }
