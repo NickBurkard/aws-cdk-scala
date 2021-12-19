@@ -34,7 +34,11 @@ object ProjectPlugin extends AutoPlugin {
             moduleName.value.stripPrefix("aws-cdk-scala-"),
             (Compile / sourceManaged).value
           ),
-          Compile / sourceGenerators += (Compile / cdkSourceGenerator)
+          Compile / sourceGenerators += (Compile / cdkSourceGenerator),
+          Compile / packageSrc / mappings ++= {
+            val base = (Compile / sourceManaged).value
+            (Compile / managedSources).value.map(file => file -> file.relativeTo(base).get.getPath)
+          }
         )
       }
 
