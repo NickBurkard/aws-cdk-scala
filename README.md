@@ -25,6 +25,11 @@ This library solely provides a lightweight DSL over the AWS CDK using metaprogra
 Please refer to the underlying types from the AWS CDK along with the associated CloudFormation types
 for official & up-to-date service documentation.
 
+### Release Cadence
+
+- Major, minor and patch versions are increased each time [aws-cdk-lib](https://mvnrepository.com/artifact/software.amazon.awscdk/aws-cdk-lib) increases associated versions.
+- Patch version is increased for any non-breaking changes made to the DSL itself.
+
 ### Scala Support
 
 | Version | Supported? |
