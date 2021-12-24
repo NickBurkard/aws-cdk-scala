@@ -30,10 +30,7 @@ object ProjectPlugin extends AutoPlugin {
       def withCodegen(): Project = {
         val cdkSourceGenerator = taskKey[Seq[File]]("generate AWS CDK source files")
         project.settings(
-          Compile / cdkSourceGenerator := ServiceCodegen(
-            moduleName.value.stripPrefix("aws-cdk-scala-"),
-            (Compile / sourceManaged).value
-          ),
+          Compile / cdkSourceGenerator := ServiceCodegen((Compile / sourceManaged).value),
           Compile / sourceGenerators += (Compile / cdkSourceGenerator),
           Compile / packageSrc / mappings ++= {
             val base = (Compile / sourceManaged).value

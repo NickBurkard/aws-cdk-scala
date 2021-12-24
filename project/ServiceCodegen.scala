@@ -7,71 +7,34 @@ import com.google.common.reflect.ClassPath
 
 import codegen._
 
-object ServiceCodegen extends ((String, File) => Seq[File]) {
-  override def apply(moduleName: String, root: File): Seq[File] = {
-    val classes = awsClasses
-    val unsupported = classes
-      .collect {
-        case (name, _) if !(KnownAwsServiceNames.contains(name) || IgnoredAwsServiceNames.contains(name)) =>
-          name
-      }
-      .toSet
-
-    if (unsupported.nonEmpty) {
-      sys.error(s"""Unknown AWS service(s) found, consider adding as module(s): ${unsupported.mkString(", ")}""")
-    }
-
-    val files = classes.toList.flatMap { case (name, classes) =>
-      if (KnownAwsServiceNames.contains(name) && name == moduleName) {
-        classes.flatMap(c => toFile(moduleName, root, c.load()))
-      } else {
-        Nil
-      }
-    }
-
-    // There must be at least one file generated for the service.
+object ServiceCodegen extends (File => Seq[File]) {
+  override def apply(root: File): Seq[File] = {
+    val files = awsClasses.flatMap(toFile(root))
     if (files.nonEmpty) {
       files
     } else {
-      sys.error(s"Known AWS service $moduleName has zero classes, consider removing as a module")
+      sys.error(s"Generated zero classes, something is seriously wrong! :)")
     }
   }
 
-  private[this] def toFile(serviceName: String, root: File, underlying: Class[_]): Option[File] =
+  private[this] def toFile(root: File)(underlying: Class[_]): Option[File] =
     CdkBuilder
-      .build(serviceName, underlying)
+      .build(underlying)
       .map(_.writeFile(root))
       .orElse(
         CdkEnum
-          .build(serviceName, underlying)
+          .build(underlying)
           .map(_.writeFile(root))
       )
 
   @nowarn("cat=deprecation")
-  private[this] def awsClasses: Map[String, List[ClassPath.ClassInfo]] =
+  private[this] def awsClasses: List[Class[_]] =
     ClassPath
       .from(getClass.getClassLoader)
       .getAllClasses
       .asScala
       .toList
-      .flatMap { classInfo =>
-        classInfo.getPackageName match {
-          // Resource for some service.
-          case ServiceRegex(_, name) =>
-            if (CoreOverrides.contains(name)) {
-              Some("core" -> classInfo)
-            } else {
-              Some(name -> classInfo)
-            }
-
-          // Shared resources are considered `core`.
-          case CoreRegex() =>
-            Some("core" -> classInfo)
-
-          case _ =>
-            None
-        }
+      .collect { case classInfo if classInfo.getPackageName.startsWith("software.amazon.awscdk") =>
+        classInfo.load()
       }
-      .groupBy(_._1)
-      .map { case (name, classes) => name -> classes.map(_._2) }
 }

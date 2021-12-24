@@ -8,13 +8,12 @@ import codegen._
 
 // Enum provided by the CDK.
 final case class CdkEnum private(
-  serviceName: String,
   instanceCanonicalName: String,
   instanceSimpleName: String,
   valueNames: List[String],
   underlying: Class[_]
 ) {
-  lazy val packageName: String = renamePackage(underlying.getPackageName)
+  lazy val packageName: String = renameCdkPackage(underlying.getPackageName)
 
   // `case object ValueName extends EnumName(underlyingValue)`.
   lazy val valuesCases: List[String] =
@@ -65,7 +64,7 @@ object CdkEnum {
            |""".stripMargin
     }
 
-  def build(serviceName: String, underlying: Class[_]): Option[CdkEnum] =
+  def build(underlying: Class[_]): Option[CdkEnum] =
     if (underlying.isEnum) {
       Try(
         underlying
@@ -78,7 +77,6 @@ object CdkEnum {
         .toOption
         .map(
           CdkEnum(
-            serviceName,
             underlying.getCanonicalName,
             underlying.getSimpleName,
             _,
