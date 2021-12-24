@@ -44,9 +44,6 @@ object ProjectPlugin extends AutoPlugin {
           publish / skip := true,
           publishArtifact := false
         )
-
-      def enablePublishing(): Project =
-        project.settings(moduleName := s"aws-cdk-scala-${name.value}")
     }
   }
 }

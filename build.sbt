@@ -29,4 +29,3 @@ lazy val `aws-cdk-scala` = project
   .in(file("modules/aws-cdk-scala"))
   .withCodegen()
   .withCdk()
-  .enablePublishing()
