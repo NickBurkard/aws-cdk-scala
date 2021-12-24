@@ -10,7 +10,6 @@ import CdkBuilder.ConstructorType
 
 // Class instance builder provided by the CDK.
 final case class CdkBuilder private(
-  serviceName: String,
   instanceCanonicalName: String,
   instanceSimpleName: String,
   constructorType: ConstructorType,
@@ -90,7 +89,7 @@ final case class CdkBuilder private(
       .toList
       .sortBy(_.isOptional)
 
-  lazy val packageName: String = renamePackage(underlying.getPackageName)
+  lazy val packageName: String = renameCdkPackage(instanceCanonicalName, dropLast = 1)
 
   // `parameterName: type`, potentially with default value.
   lazy val typeAnnotatedParameters: List[String] = fieldMethods.map(_.asTypeAnnotatedParameter)
@@ -209,7 +208,7 @@ object CdkBuilder {
   implicit val sourceGenerator: SourceGenerator[CdkBuilder] =
     new SourceGenerator[CdkBuilder] {
       override def baseFile(root: File, source: CdkBuilder): File =
-        root /~ source.packageName.replaceAll("\\.", "/") / s"${source.instanceSimpleName}.scala"
+        root /~ source.packageName.replace('.', '/') / s"${source.instanceSimpleName}.scala"
 
       override def content(source: CdkBuilder): String =
         s"""package ${source.packageName}
@@ -227,7 +226,7 @@ object CdkBuilder {
 
   // Using Java reflection to identify which CDK classes we can codegen.
   // Not using Scala reflection because of 2.x/3.x API differences.
-  def build(serviceName: String, underlying: Class[_]): Option[CdkBuilder] =
+  def build(underlying: Class[_]): Option[CdkBuilder] =
     if (underlying.getSimpleName == "Builder") {
       for {
         // Pick the constructor type.
@@ -239,7 +238,7 @@ object CdkBuilder {
         instanceCanonicalName = underlying.getCanonicalName.split("\\.").toList.dropRight(1).mkString(".")
 
         instanceSimpleName <- instanceCanonicalName.split("\\.").toList.lastOption
-      } yield CdkBuilder(serviceName, instanceCanonicalName, instanceSimpleName, constructorType, underlying)
+      } yield CdkBuilder(instanceCanonicalName, instanceSimpleName, constructorType, underlying)
     } else {
       None
     }

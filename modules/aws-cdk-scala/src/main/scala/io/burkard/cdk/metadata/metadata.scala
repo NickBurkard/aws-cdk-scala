@@ -5,8 +5,7 @@ import java.util.{Map => JMap}
 import scala.annotation.nowarn
 import scala.collection.JavaConverters._
 
-import io.burkard.cdk.JMapEncoderOps
-import io.burkard.cdk.core.CfnTypedParameter
+import io.burkard.cdk.{CfnTypedParameter, JMapEncoderOps}
 
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.html
 final case class CloudFormationInterface(

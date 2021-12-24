@@ -1,4 +1,4 @@
-import sbt.{File, IO}
+import sbt.File
 
 // Code generator via some source.
 trait SourceGenerator[A] {
@@ -6,12 +6,8 @@ trait SourceGenerator[A] {
 
   def content(source: A): String
 
-  // Creates & writes content to a file.
-  final def writeFile(root: File, source: A): File = {
-    val file = baseFile(root, source)
-    IO.write(file, content(source))
-    file
-  }
+  final def cdkFile(root: File, source: A): CdkFile =
+    CdkFile(baseFile(root, source), content(source))
 }
 
 object SourceGenerator {

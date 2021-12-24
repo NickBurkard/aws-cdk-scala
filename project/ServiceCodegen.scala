@@ -7,71 +7,49 @@ import com.google.common.reflect.ClassPath
 
 import codegen._
 
-object ServiceCodegen extends ((String, File) => Seq[File]) {
-  override def apply(moduleName: String, root: File): Seq[File] = {
-    val classes = awsClasses
-    val unsupported = classes
-      .collect {
-        case (name, _) if !(KnownAwsServiceNames.contains(name) || IgnoredAwsServiceNames.contains(name)) =>
-          name
-      }
-      .toSet
+object ServiceCodegen extends (File => Seq[File]) {
+  override def apply(root: File): Seq[File] = {
+    val files = awsClasses.flatMap(c => toFile(root, c).map(_ -> c))
 
-    if (unsupported.nonEmpty) {
-      sys.error(s"""Unknown AWS service(s) found, consider adding as module(s): ${unsupported.mkString(", ")}""")
+    val collisions = files
+      .groupBy(_._1.path)
+      .collect { case (path, duplicates) if duplicates.length > 1 =>
+        path -> duplicates.map(_._2)
+      }
+      .toList
+
+    if (collisions.nonEmpty) {
+      collisions.foreach { case (name, classes) =>
+        System.err.println(s"""$name: ${classes.map(_.getCanonicalName).mkString(" ")}""")
+      }
+      sys.error(s"Found ${collisions.length} colliding generated files")
     }
 
-    val files = classes.toList.flatMap { case (name, classes) =>
-      if (KnownAwsServiceNames.contains(name) && name == moduleName) {
-        classes.flatMap(c => toFile(moduleName, root, c.load()))
-      } else {
-        Nil
-      }
-    }
-
-    // There must be at least one file generated for the service.
     if (files.nonEmpty) {
-      files
+      files.map(_._1.write())
     } else {
-      sys.error(s"Known AWS service $moduleName has zero classes, consider removing as a module")
+      sys.error(s"Generated zero classes, something is seriously wrong! :)")
     }
   }
 
-  private[this] def toFile(serviceName: String, root: File, underlying: Class[_]): Option[File] =
+  private[this] def toFile(root: File, underlying: Class[_]): Option[CdkFile] =
     CdkBuilder
-      .build(serviceName, underlying)
-      .map(_.writeFile(root))
+      .build(underlying)
+      .map(_.toCdkFile(root))
       .orElse(
         CdkEnum
-          .build(serviceName, underlying)
-          .map(_.writeFile(root))
+          .build(underlying)
+          .map(_.toCdkFile(root))
       )
 
   @nowarn("cat=deprecation")
-  private[this] def awsClasses: Map[String, List[ClassPath.ClassInfo]] =
+  private[this] def awsClasses: List[Class[_]] =
     ClassPath
       .from(getClass.getClassLoader)
       .getAllClasses
       .asScala
       .toList
-      .flatMap { classInfo =>
-        classInfo.getPackageName match {
-          // Resource for some service.
-          case ServiceRegex(_, name) =>
-            if (CoreOverrides.contains(name)) {
-              Some("core" -> classInfo)
-            } else {
-              Some(name -> classInfo)
-            }
-
-          // Shared resources are considered `core`.
-          case CoreRegex() =>
-            Some("core" -> classInfo)
-
-          case _ =>
-            None
-        }
+      .collect { case classInfo if classInfo.getPackageName.startsWith("software.amazon.awscdk") =>
+        classInfo.load()
       }
-      .groupBy(_._1)
-      .map { case (name, classes) => name -> classes.map(_._2) }
 }

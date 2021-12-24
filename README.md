@@ -54,19 +54,15 @@ npm install -g aws-cdk
 
 ### Library
 
-Libraries are published for each AWS service, plus a `core` library for shared resources.
+Just like CDK v2, a single dependency is published for the DSL.
 
-The latest version can be found on [mvn](https://mvnrepository.com/artifact/io.burkard/aws-cdk-scala-core)
+The latest version can be found on [mvn](https://mvnrepository.com/artifact/io.burkard/aws-cdk-scala)
 and on the [releases](https://github.com/NickBurkard/aws-cdk-scala/releases) page.
 
 ```scala
 val cdkVersion: String = ???
 
-libraryDependencies ++= Seq(
-  "io.burkard" %% "aws-cdk-scala-core" % cdkVersion,
-  "io.burkard" %% "aws-cdk-scala-kinesisanalytics" % cdkVersion,
-  "io.burkard" %% "aws-cdk-scala-s3" % cdkVersion
-)
+libraryDependencies += "io.burkard" %% "aws-cdk-scala" % cdkVersion
 ```
 
 # Usage
@@ -79,9 +75,9 @@ Create a CDK app within a module of your project.
 package io.burkard.cdk.example
 
 import io.burkard.cdk._
-import io.burkard.cdk.core._
 import io.burkard.cdk.metadata._
 import io.burkard.cdk.services.kinesisanalytics._
+import io.burkard.cdk.services.kinesisanalytics.cfnApplicationV2._
 import io.burkard.cdk.services.s3._
 
 object ExampleApp extends CdkApp {
