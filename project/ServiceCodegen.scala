@@ -20,7 +20,7 @@ object ServiceCodegen extends (File => Seq[File]) {
 
     if (collisions.nonEmpty) {
       collisions.foreach { case (name, classes) =>
-        println(s"""$name: ${classes.map(_.getCanonicalName).mkString(" ")}""")
+        System.err.println(s"""$name: ${classes.map(_.getCanonicalName).mkString(" ")}""")
       }
       sys.error(s"Found ${collisions.length} colliding generated files")
     }
