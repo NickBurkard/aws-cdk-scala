@@ -77,6 +77,7 @@ package io.burkard.cdk.example
 import io.burkard.cdk._
 import io.burkard.cdk.metadata._
 import io.burkard.cdk.services.kinesisanalytics._
+import io.burkard.cdk.services.kinesisanalytics.cfnApplicationV2._
 import io.burkard.cdk.services.s3._
 
 object ExampleApp extends CdkApp {

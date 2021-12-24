@@ -89,7 +89,7 @@ final case class CdkBuilder private(
       .toList
       .sortBy(_.isOptional)
 
-  lazy val packageName: String = renameCdkPackage(underlying.getPackageName)
+  lazy val packageName: String = renameCdkPackage(instanceCanonicalName, dropLast = 1)
 
   // `parameterName: type`, potentially with default value.
   lazy val typeAnnotatedParameters: List[String] = fieldMethods.map(_.asTypeAnnotatedParameter)
@@ -208,7 +208,7 @@ object CdkBuilder {
   implicit val sourceGenerator: SourceGenerator[CdkBuilder] =
     new SourceGenerator[CdkBuilder] {
       override def baseFile(root: File, source: CdkBuilder): File =
-        root /~ source.packageName.replaceAll("\\.", "/") / s"${source.instanceSimpleName}.scala"
+        root /~ source.packageName.replace('.', '/') / s"${source.instanceSimpleName}.scala"
 
       override def content(source: CdkBuilder): String =
         s"""package ${source.packageName}

@@ -7,8 +7,19 @@ import sbt._
 import com.google.common.base.CaseFormat
 
 object codegen {
-  def renameCdkPackage(name: String): String =
-    name.replaceFirst("software\\.amazon\\.awscdk", "io.burkard.cdk")
+  def renameCdkPackage(name: String, dropLast: Int): String =
+    name
+      .replaceFirst("software\\.amazon\\.awscdk", "io.burkard.cdk")
+      .split('.')
+      .dropRight(dropLast)
+      .map { v =>
+        if (v.headOption.exists(Character.isUpperCase)) {
+          CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, v)
+        } else {
+          v
+        }
+      }
+      .mkString(".")
 
   private[this] val scala2ReservedWords: Set[String] =
     Set(
@@ -62,8 +73,8 @@ object codegen {
   }
 
   final implicit class SourceGeneratorOps[A: SourceGenerator](private val a: A) {
-    def writeFile(root: File): File =
-      SourceGenerator[A].writeFile(root, a)
+    def toCdkFile(root: File): CdkFile =
+      SourceGenerator[A].cdkFile(root, a)
   }
 
   final implicit class SbtFileOps(private val root: File) extends AnyVal {

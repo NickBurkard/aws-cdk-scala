@@ -13,7 +13,7 @@ final case class CdkEnum private(
   valueNames: List[String],
   underlying: Class[_]
 ) {
-  lazy val packageName: String = renameCdkPackage(underlying.getPackageName)
+  lazy val packageName: String = renameCdkPackage(instanceCanonicalName, dropLast = 1)
 
   // `case object ValueName extends EnumName(underlyingValue)`.
   lazy val valuesCases: List[String] =
@@ -46,7 +46,7 @@ object CdkEnum {
   implicit val sourceGenerator: SourceGenerator[CdkEnum] =
     new SourceGenerator[CdkEnum] {
       override def baseFile(root: File, source: CdkEnum): File =
-        root /~ source.packageName.replaceAll("\\.", "/") / s"${source.instanceSimpleName}.scala"
+        root /~ source.packageName.replace('.', '/') / s"${source.instanceSimpleName}.scala"
 
       override def content(source: CdkEnum): String =
         s"""package ${source.packageName}
