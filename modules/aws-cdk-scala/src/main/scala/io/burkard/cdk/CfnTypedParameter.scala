@@ -1,4 +1,4 @@
-package io.burkard.cdk.core
+package io.burkard.cdk
 
 import scala.annotation.nowarn
 import scala.collection.JavaConverters._
