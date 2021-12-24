@@ -1,7 +1,5 @@
 package io.burkard.cdk
 
-import software.amazon.awscdk.{App, Stack, StackProps}
-
 /**
  * CDK stack.
  * @param id Optional stack ID.
@@ -10,13 +8,13 @@ import software.amazon.awscdk.{App, Stack, StackProps}
  */
 abstract class CdkStack(
   id: Option[String] = None,
-  props: Option[StackProps] = None
+  props: Option[software.amazon.awscdk.StackProps] = None
 )(implicit
-  appCtx: App
-) extends Stack(appCtx, id.orNull, props.orNull)  {
+  appCtx: software.amazon.awscdk.App
+) extends software.amazon.awscdk.Stack(appCtx, id.orNull, props.orNull)  {
 
   // Context for initializing stack resources.
-  protected[this] implicit lazy val stackCtx: Stack = this
+  protected[this] implicit lazy val stackCtx: software.amazon.awscdk.Stack = this
 }
 
 object CdkStack {
@@ -32,9 +30,9 @@ object CdkStack {
    */
   def apply[A](
     id: Option[String] = None,
-    props: Option[StackProps] = None
+    props: Option[software.amazon.awscdk.StackProps] = None
   )(
-    resources: Stack => A
-  )(implicit appCtx: App): Stack =
+    resources: software.amazon.awscdk.Stack => A
+  )(implicit appCtx: software.amazon.awscdk.App): software.amazon.awscdk.Stack =
     new CdkStack(id, props) { ValueDiscard[A](resources(stackCtx)) }
 }
