@@ -4,7 +4,7 @@ object MetaDependencies {
   object Aws {
     val cdk: ModuleID = "software.amazon.awscdk" % "aws-cdk-lib" % "2.4.0"
 
-    val constructs: ModuleID = "software.constructs" % "constructs" % "10.0.25"
+    val constructs: ModuleID = "software.constructs" % "constructs" % "10.0.26"
   }
 
   object Google {
