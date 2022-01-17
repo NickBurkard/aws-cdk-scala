@@ -28,9 +28,7 @@ final case class FieldMethod private(
   lazy val requiresBooleanBoxing: Boolean = typeName.contains("java.lang.Boolean")
 
   lazy val defaultValue: String =
-    if (isOptional && typeName == "java.lang.Boolean") {
-      ".getOrElse(java.lang.Boolean.FALSE)"
-    } else if (isOptional) {
+    if (isOptional) {
       ".orNull"
     } else {
       ""
