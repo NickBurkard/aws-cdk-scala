@@ -42,7 +42,7 @@ object CfnTypedParameter {
         .defaultValue(defaultValue.orNull)
         .maxLength(maxLength.orNull)
         .allowedPattern(allowedPattern.orNull)
-        .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+        .noEcho(noEcho.map(Boolean.box).orNull)
         .constraintDescription(constraintDescription.orNull)
         .description(description.orNull)
         .allowedValues(allowedValues.map(_.asJava).orNull)
@@ -64,14 +64,14 @@ object CfnTypedParameter {
 
     override def value: Number = underlying.getValueAsNumber
 
-    override def `type`: String = "Number"
+    override val `type`: String = "Number"
 
     override val underlying: software.amazon.awscdk.CfnParameter =
       software.amazon.awscdk.CfnParameter.Builder
         .create(stackCtx, name)
         .minValue(minValue.orNull)
         .defaultValue(defaultValue.orNull)
-        .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+        .noEcho(noEcho.map(Boolean.box).orNull)
         .constraintDescription(constraintDescription.orNull)
         .description(description.orNull)
         .allowedValues(allowedValues.map(_.asJava).orNull)
@@ -94,14 +94,14 @@ object CfnTypedParameter {
 
     override def value: List[String] = underlying.getValueAsList.asScala.toList
 
-    override def `type`: String = "List<Number>"
+    override val `type`: String = "List<Number>"
 
     override val underlying: software.amazon.awscdk.CfnParameter =
       software.amazon.awscdk.CfnParameter.Builder
         .create(stackCtx, name)
         .minValue(minValue.orNull)
         .defaultValue(defaultValue.orNull)
-        .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+        .noEcho(noEcho.map(Boolean.box).orNull)
         .constraintDescription(constraintDescription.orNull)
         .description(description.orNull)
         .allowedValues(allowedValues.map(_.asJava).orNull)
@@ -125,7 +125,7 @@ object CfnTypedParameter {
 
     override def value: List[String] = underlying.getValueAsList.asScala.toList
 
-    override def `type`: String = "CommaDelimitedList"
+    override val `type`: String = "CommaDelimitedList"
 
     override val underlying: software.amazon.awscdk.CfnParameter =
       software.amazon.awscdk.CfnParameter.Builder
@@ -134,7 +134,7 @@ object CfnTypedParameter {
         .defaultValue(defaultValue.orNull)
         .maxLength(maxLength.orNull)
         .allowedPattern(allowedPattern.orNull)
-        .noEcho(noEcho.map(Boolean.box).getOrElse(java.lang.Boolean.FALSE))
+        .noEcho(noEcho.map(Boolean.box).orNull)
         .constraintDescription(constraintDescription.orNull)
         .description(description.orNull)
         .allowedValues(allowedValues.map(_.asJava).orNull)
