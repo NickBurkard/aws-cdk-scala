@@ -8,6 +8,6 @@ object MetaDependencies {
   }
 
   object Google {
-    val guava: ModuleID = "com.google.guava" % "guava" % "31.0.1-jre"
+    val guava: ModuleID = "com.google.guava" % "guava" % "31.1-jre"
   }
 }
