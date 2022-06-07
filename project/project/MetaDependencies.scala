@@ -2,7 +2,7 @@ import sbt._
 
 object MetaDependencies {
   object Aws {
-    val cdk: ModuleID = "software.amazon.awscdk" % "aws-cdk-lib" % "2.24.0"
+    val cdk: ModuleID = "software.amazon.awscdk" % "aws-cdk-lib" % "2.24.1"
 
     val constructs: ModuleID = "software.constructs" % "constructs" % "10.1.7"
   }
