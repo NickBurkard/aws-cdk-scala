@@ -14,28 +14,6 @@ final case class CloudFormationInterface(
 )
 
 object CloudFormationInterface {
-  def build(
-    groups: (Option[Label], List[CfnTypedParameter])*
-  )(labels: (CfnTypedParameter, Label)*): CloudFormationInterface =
-    CloudFormationInterface(
-      parameterGroups =
-        if (groups.isEmpty) {
-          None
-        } else {
-          Some(
-            groups
-              .map((ParameterGroup.build _).tupled)
-              .toList
-          )
-        },
-      parameterLabels =
-        if (labels.isEmpty) {
-          None
-        } else {
-          Some(ParameterLabel.build(labels.toMap))
-        }
-    )
-
   @nowarn("cat=deprecation")
   implicit val jMapEncoder: JMapEncoder[CloudFormationInterface] = { cfi =>
     val maybeWithParameterGroups = cfi.parameterGroups.fold[Map[String, AnyRef]](Map.empty) { pgs =>
