@@ -6,7 +6,7 @@ object ProjectPlugin extends AutoPlugin {
 
   override val trigger: PluginTrigger = AllRequirements
 
-  private[this] val `scala 2.12` = "2.12.15"
+  private[this] val `scala 2.12` = "2.12.16"
 
   private[this] val `scala 2.13` = "2.13.8"
 

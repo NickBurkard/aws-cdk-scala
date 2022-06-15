@@ -17,12 +17,7 @@ inThisBuild(
 
 lazy val awsCdkScala = project
   .in(file("."))
-  .aggregate(example, `aws-cdk-scala`)
-  .disablePublishing()
-
-lazy val example = project
-  .dependsOn(`aws-cdk-scala`)
-  .withCdk()
+  .aggregate(`aws-cdk-scala`)
   .disablePublishing()
 
 lazy val `aws-cdk-scala` = project
