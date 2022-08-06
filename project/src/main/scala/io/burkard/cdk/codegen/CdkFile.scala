@@ -1,3 +1,5 @@
+package io.burkard.cdk.codegen
+
 import sbt.{File, IO}
 
 final case class CdkFile(file: File, content: String) {

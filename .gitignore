@@ -1,4 +1,7 @@
-.idea
 .bsp
-target
+.idea
+.metals
+.vscode
 cdk.out
+target
+metals.sbt

@@ -1,14 +1,27 @@
+package io.burkard.cdk.codegen
+
 import scala.annotation.nowarn
 import scala.collection.JavaConverters._
 
 import sbt._
+import sbt.Keys._
 
 import com.google.common.reflect.ClassPath
 
-import codegen._
+object CdkCodegen {
+  private val cdkCodegen = taskKey[Seq[File]]("generate AWS CDK source files")
 
-object ServiceCodegen extends (File => Seq[File]) {
-  override def apply(root: File): Seq[File] = {
+  def settings(config: Configuration): Seq[Setting[_]] = Seq(
+    config / cdkCodegen := codegen((config / sourceManaged).value),
+    config / sourceGenerators += (Compile / cdkCodegen),
+    config / packageSrc / mappings ++= {
+      val base = (config / sourceManaged).value
+      (config / managedSources).value
+        .flatMap(file => file.relativeTo(base).map(file -> _.getPath))
+    }
+  )
+
+  private def codegen(root: File): Seq[File] = {
     val files = awsClasses.flatMap(c => toFile(root, c).map(_ -> c))
 
     val collisions = files
@@ -32,7 +45,7 @@ object ServiceCodegen extends (File => Seq[File]) {
     }
   }
 
-  private[this] def toFile(root: File, underlying: Class[_]): Option[CdkFile] =
+  private def toFile(root: File, underlying: Class[_]): Option[CdkFile] =
     CdkBuilder
       .build(underlying)
       .map(_.toCdkFile(root))
@@ -43,7 +56,7 @@ object ServiceCodegen extends (File => Seq[File]) {
       )
 
   @nowarn("cat=deprecation")
-  private[this] def awsClasses: List[Class[_]] =
+  private def awsClasses: List[Class[_]] =
     ClassPath
       .from(getClass.getClassLoader)
       .getAllClasses

@@ -1,10 +1,10 @@
+package io.burkard.cdk.codegen
+
 import java.lang.annotation.Annotation
 import java.lang.reflect.{Method, Modifier}
 
-import codegen._
-
 // Method associated to setting a field in a CDK builder.
-final case class FieldMethod private(
+final case class FieldMethod private (
   parameterName: String,
   methodName: String,
   typeName: String,

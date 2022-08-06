@@ -1,3 +1,5 @@
+package io.burkard.cdk.codegen
+
 import sbt.File
 
 // Code generator via some source.
