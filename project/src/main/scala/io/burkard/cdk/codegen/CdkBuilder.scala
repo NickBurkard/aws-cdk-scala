@@ -1,3 +1,5 @@
+package io.burkard.cdk.codegen
+
 import java.lang.reflect.{Method, Modifier}
 
 import scala.annotation.nowarn
@@ -5,11 +7,10 @@ import scala.util.Try
 
 import sbt._
 
-import codegen._
 import CdkBuilder.ConstructorType
 
 // Class instance builder provided by the CDK.
-final case class CdkBuilder private(
+final case class CdkBuilder private (
   instanceCanonicalName: String,
   instanceSimpleName: String,
   constructorType: ConstructorType,

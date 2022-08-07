@@ -1,13 +1,13 @@
+package io.burkard.cdk.codegen
+
 import scala.util.Try
 
 import sbt._
 
 import com.google.common.base.CaseFormat
 
-import codegen._
-
 // Enum provided by the CDK.
-final case class CdkEnum private(
+final case class CdkEnum private (
   instanceCanonicalName: String,
   instanceSimpleName: String,
   valueNames: List[String],

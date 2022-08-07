@@ -1,3 +1,5 @@
+package io.burkard.cdk
+
 import java.lang.reflect.Modifier
 
 import scala.util.matching.Regex
@@ -6,7 +8,7 @@ import sbt._
 
 import com.google.common.base.CaseFormat
 
-object codegen {
+package object codegen {
   def renameCdkPackage(name: String, dropLast: Int): String =
     name
       .replaceFirst("software\\.amazon\\.awscdk", "io.burkard.cdk")

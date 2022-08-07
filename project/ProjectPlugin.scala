@@ -1,6 +1,8 @@
 import sbt._
 import sbt.Keys._
 
+import _root_.io.burkard.cdk.codegen.CdkCodegen
+
 object ProjectPlugin extends AutoPlugin {
   val autoImport: ThingsToAutoImport.type = ThingsToAutoImport
 
@@ -27,17 +29,8 @@ object ProjectPlugin extends AutoPlugin {
           )
         )
 
-      def withCodegen(): Project = {
-        val cdkSourceGenerator = taskKey[Seq[File]]("generate AWS CDK source files")
-        project.settings(
-          Compile / cdkSourceGenerator := ServiceCodegen((Compile / sourceManaged).value),
-          Compile / sourceGenerators += (Compile / cdkSourceGenerator),
-          Compile / packageSrc / mappings ++= {
-            val base = (Compile / sourceManaged).value
-            (Compile / managedSources).value.map(file => file -> file.relativeTo(base).get.getPath)
-          }
-        )
-      }
+      def withCodegen(): Project =
+        project.settings(CdkCodegen.settings(Compile))
 
       def disablePublishing(): Project =
         project.settings(
