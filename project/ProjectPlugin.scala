@@ -12,7 +12,7 @@ object ProjectPlugin extends AutoPlugin {
 
   private[this] val `scala 2.13` = "2.13.8"
 
-  private[this] val `scala 3` = "3.1.3"
+  private[this] val `scala 3` = "3.2.0"
 
   override val buildSettings: Seq[Def.Setting[_]] = Seq(
     scalaVersion := `scala 2.13`,
