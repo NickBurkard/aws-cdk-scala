@@ -10,7 +10,7 @@ object ProjectPlugin extends AutoPlugin {
 
   private[this] val `scala 2.12` = "2.12.16"
 
-  private[this] val `scala 2.13` = "2.13.8"
+  private[this] val `scala 2.13` = "2.13.10"
 
   private[this] val `scala 3` = "3.1.3"
 
